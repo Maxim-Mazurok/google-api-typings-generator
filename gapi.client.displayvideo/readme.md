@@ -43,6 +43,9 @@ var client_id = '',
       // Create, see, and edit Display & Video 360 Campaign entities and see billing invoices
       'https://www.googleapis.com/auth/display-video-mediaplanning',
 
+      // New Service: https://www.googleapis.com/auth/display-video-user-management
+      'https://www.googleapis.com/auth/display-video-user-management',
+
       // View and manage your reports in DoubleClick Bid Manager
       'https://www.googleapis.com/auth/doubleclickbidmanager',
     ],
@@ -63,6 +66,11 @@ gapi.auth.authorize(
 After that you can use Display & Video 360 API resources:
 
 ```typescript
+
+/*
+Audits an advertiser. Returns the counts of used entities per resource type under the advertiser provided. Used entities count towards their [respective resource limit]: (https://support.google.com/displayvideo/answer/6071450?hl=en)
+*/
+await gapi.client.displayvideo.advertisers.audit({ advertiserId: "advertiserId",  });
 
 /*
 Bulk edits targeting options under a single advertiser. The operation will delete the assigned targeting options provided in BulkEditAdvertiserAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in BulkEditAdvertiserAssignedTargetingOptionsRequest.create_requests .
@@ -190,7 +198,52 @@ Downloads media. Download is supported on the URI `/download/{resource_name=**}?
 await gapi.client.displayvideo.media.download({ resourceName: "resourceName",  });
 
 /*
+Bulk edits targeting options under a single partner. The operation will delete the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.create_requests .
+*/
+await gapi.client.displayvideo.partners.bulkEditPartnerAssignedTargetingOptions({ partnerId: "partnerId",  });
+
+/*
+Gets a partner.
+*/
+await gapi.client.displayvideo.partners.get({ partnerId: "partnerId",  });
+
+/*
+Lists partners that are accessible to the current user. The order is defined by the order_by parameter.
+*/
+await gapi.client.displayvideo.partners.list({  });
+
+/*
 Creates an SDF Download Task. Returns an Operation. An SDF Download Task is a long-running, asynchronous operation. The metadata type of this operation is SdfDownloadTaskMetadata. If the request is successful, the response type of the operation is SdfDownloadTask. The response will not include the download files, which must be retrieved with media.download. The state of operation can be retrieved with sdfdownloadtask.operations.get. Any errors can be found in the error.message. Note that error.details is expected to be empty.
 */
 await gapi.client.displayvideo.sdfdownloadtasks.create({  });
+
+/*
+Bulk edits user roles for a user. The operation will delete the assigned user roles provided in BulkEditAssignedUserRolesRequest.deleted_assigned_user_roles and then assign the user roles provided in BulkEditAssignedUserRolesRequest.created_assigned_user_roles.
+*/
+await gapi.client.displayvideo.users.bulkEditAssignedUserRoles({ userId: "userId",  });
+
+/*
+Creates a new user. Returns the newly created user if successful.
+*/
+await gapi.client.displayvideo.users.create({  });
+
+/*
+Deletes a user.
+*/
+await gapi.client.displayvideo.users.delete({ userId: "userId",  });
+
+/*
+Gets a user.
+*/
+await gapi.client.displayvideo.users.get({ userId: "userId",  });
+
+/*
+Lists users that are accessible to the current user. If two users have user roles on the same partner or advertiser, they can access each other.
+*/
+await gapi.client.displayvideo.users.list({  });
+
+/*
+Updates an existing user. Returns the updated user if successful.
+*/
+await gapi.client.displayvideo.users.patch({ userId: "userId",  });
 ```

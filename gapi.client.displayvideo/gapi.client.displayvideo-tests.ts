@@ -16,6 +16,8 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/display-video',
             /** Create, see, and edit Display & Video 360 Campaign entities and see billing invoices */
             'https://www.googleapis.com/auth/display-video-mediaplanning',
+            /** New Service: https://www.googleapis.com/auth/display-video-user-management */
+            'https://www.googleapis.com/auth/display-video-user-management',
             /** View and manage your reports in DoubleClick Bid Manager */
             'https://www.googleapis.com/auth/doubleclickbidmanager',
         ];
@@ -31,6 +33,1753 @@ gapi.load('client', () => {
     });
 
     async function run() {
+        /**
+         * Audits an advertiser. Returns the counts of used entities per resource type under the advertiser provided. Used entities count towards their
+         * [respective resource limit]: (https://support.google.com/displayvideo/answer/6071450?hl=en)
+         */
+        await gapi.client.displayvideo.advertisers.audit({
+            advertiserId: "Test string",
+            readMask: "Test string",
+        });
+        /**
+         * Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP
+         * files, and 1 GB for videos.
+         */
+        await gapi.client.displayvideo.advertisers.assets.upload({
+            advertiserId: "Test string",
+        }, {
+            filename: "Test string",
+        });
+        /** Creates a new campaign. Returns the newly created campaign if successful. */
+        await gapi.client.displayvideo.advertisers.campaigns.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            campaignFlight: {
+                plannedDates: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                plannedSpendAmountMicros: "Test string",
+            },
+            campaignGoal: {
+                campaignGoalType: "Test string",
+                performanceGoal: {
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalPercentageMicros: "Test string",
+                    performanceGoalString: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.delete({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+        });
+        /** Gets a campaign. */
+        await gapi.client.displayvideo.advertisers.campaigns.get({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+        });
+        /**
+         * Lists campaigns in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, campaigns with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.campaigns.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates an existing campaign. Returns the updated campaign if successful. */
+        await gapi.client.displayvideo.advertisers.campaigns.patch({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            campaignFlight: {
+                plannedDates: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                plannedSpendAmountMicros: "Test string",
+            },
+            campaignGoal: {
+                campaignGoalType: "Test string",
+                performanceGoal: {
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalPercentageMicros: "Test string",
+                    performanceGoalString: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Creates a new channel. Returns the newly created channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Gets a channel for a partner or advertiser. */
+        await gapi.client.displayvideo.advertisers.channels.get({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists channels for a partner or advertiser. */
+        await gapi.client.displayvideo.advertisers.channels.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Updates a channel. Returns the updated channel if successful. */
+        await gapi.client.displayvideo.advertisers.channels.patch({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.advertisers.channels.sites.bulkEdit({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.advertisers.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Creates a new creative. Returns the newly created creative if successful. */
+        await gapi.client.displayvideo.advertisers.creatives.create({
+            advertiserId: "Test string",
+        }, {
+            additionalDimensions: [
+                {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                }            ],
+            advertiserId: "Test string",
+            appendedTag: "Test string",
+            assets: [
+                {
+                    asset: {
+                        content: "Test string",
+                        mediaId: "Test string",
+                    },
+                    role: "Test string",
+                }            ],
+            cmPlacementId: "Test string",
+            cmTrackingAd: {
+                cmAdId: "Test string",
+                cmCreativeId: "Test string",
+                cmPlacementId: "Test string",
+            },
+            companionCreativeIds: [
+                "Test string"            ],
+            counterEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            createTime: "Test string",
+            creativeAttributes: [
+                "Test string"            ],
+            creativeId: "Test string",
+            creativeType: "Test string",
+            dimensions: {
+                heightPixels: 42,
+                widthPixels: 42,
+            },
+            displayName: "Test string",
+            dynamic: true,
+            entityStatus: "Test string",
+            exitEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            expandingDirection: "Test string",
+            expandOnHover: true,
+            hostingSource: "Test string",
+            html5Video: true,
+            iasCampaignMonitoring: true,
+            integrationCode: "Test string",
+            jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
+            mediaDuration: "Test string",
+            name: "Test string",
+            notes: "Test string",
+            obaIcon: {
+                clickTrackingUrl: "Test string",
+                dimensions: {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                },
+                landingPageUrl: "Test string",
+                position: "Test string",
+                program: "Test string",
+                resourceMimeType: "Test string",
+                resourceUrl: "Test string",
+                viewTrackingUrl: "Test string",
+            },
+            progressOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            requireHtml5: true,
+            requireMraid: true,
+            requirePingForAttribution: true,
+            reviewStatus: {
+                approvalStatus: "Test string",
+                contentAndPolicyReviewStatus: "Test string",
+                creativeAndLandingPageReviewStatus: "Test string",
+                exchangeReviewStatuses: [
+                    {
+                        exchange: "Test string",
+                        status: "Test string",
+                    }                ],
+                publisherReviewStatuses: [
+                    {
+                        publisherName: "Test string",
+                        status: "Test string",
+                    }                ],
+            },
+            skipOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            skippable: true,
+            thirdPartyTag: "Test string",
+            thirdPartyUrls: [
+                {
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            timerEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            trackerUrls: [
+                "Test string"            ],
+            transcodes: [
+                {
+                    audioBitRateKbps: "Test string",
+                    audioSampleRateHz: "Test string",
+                    bitRateKbps: "Test string",
+                    dimensions: {
+                        heightPixels: 42,
+                        widthPixels: 42,
+                    },
+                    fileSizeBytes: "Test string",
+                    frameRate: 42,
+                    mimeType: "Test string",
+                    name: "Test string",
+                    transcoded: true,
+                }            ],
+            universalAdId: {
+                id: "Test string",
+                registry: "Test string",
+            },
+            updateTime: "Test string",
+            vastTagUrl: "Test string",
+            vpaid: true,
+        });
+        /**
+         * Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, before it can be deleted.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.delete({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+        });
+        /** Gets a creative. */
+        await gapi.client.displayvideo.advertisers.creatives.get({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+        });
+        /**
+         * Lists creatives in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, creatives with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.creatives.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates an existing creative. Returns the updated creative if successful. */
+        await gapi.client.displayvideo.advertisers.creatives.patch({
+            advertiserId: "Test string",
+            creativeId: "Test string",
+            updateMask: "Test string",
+        }, {
+            additionalDimensions: [
+                {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                }            ],
+            advertiserId: "Test string",
+            appendedTag: "Test string",
+            assets: [
+                {
+                    asset: {
+                        content: "Test string",
+                        mediaId: "Test string",
+                    },
+                    role: "Test string",
+                }            ],
+            cmPlacementId: "Test string",
+            cmTrackingAd: {
+                cmAdId: "Test string",
+                cmCreativeId: "Test string",
+                cmPlacementId: "Test string",
+            },
+            companionCreativeIds: [
+                "Test string"            ],
+            counterEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            createTime: "Test string",
+            creativeAttributes: [
+                "Test string"            ],
+            creativeId: "Test string",
+            creativeType: "Test string",
+            dimensions: {
+                heightPixels: 42,
+                widthPixels: 42,
+            },
+            displayName: "Test string",
+            dynamic: true,
+            entityStatus: "Test string",
+            exitEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            expandingDirection: "Test string",
+            expandOnHover: true,
+            hostingSource: "Test string",
+            html5Video: true,
+            iasCampaignMonitoring: true,
+            integrationCode: "Test string",
+            jsTrackerUrl: "Test string",
+            lineItemIds: [
+                "Test string"            ],
+            mediaDuration: "Test string",
+            name: "Test string",
+            notes: "Test string",
+            obaIcon: {
+                clickTrackingUrl: "Test string",
+                dimensions: {
+                    heightPixels: 42,
+                    widthPixels: 42,
+                },
+                landingPageUrl: "Test string",
+                position: "Test string",
+                program: "Test string",
+                resourceMimeType: "Test string",
+                resourceUrl: "Test string",
+                viewTrackingUrl: "Test string",
+            },
+            progressOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            requireHtml5: true,
+            requireMraid: true,
+            requirePingForAttribution: true,
+            reviewStatus: {
+                approvalStatus: "Test string",
+                contentAndPolicyReviewStatus: "Test string",
+                creativeAndLandingPageReviewStatus: "Test string",
+                exchangeReviewStatuses: [
+                    {
+                        exchange: "Test string",
+                        status: "Test string",
+                    }                ],
+                publisherReviewStatuses: [
+                    {
+                        publisherName: "Test string",
+                        status: "Test string",
+                    }                ],
+            },
+            skipOffset: {
+                percentage: "Test string",
+                seconds: "Test string",
+            },
+            skippable: true,
+            thirdPartyTag: "Test string",
+            thirdPartyUrls: [
+                {
+                    type: "Test string",
+                    url: "Test string",
+                }            ],
+            timerEvents: [
+                {
+                    name: "Test string",
+                    reportingName: "Test string",
+                }            ],
+            trackerUrls: [
+                "Test string"            ],
+            transcodes: [
+                {
+                    audioBitRateKbps: "Test string",
+                    audioSampleRateHz: "Test string",
+                    bitRateKbps: "Test string",
+                    dimensions: {
+                        heightPixels: 42,
+                        widthPixels: 42,
+                    },
+                    fileSizeBytes: "Test string",
+                    frameRate: 42,
+                    mimeType: "Test string",
+                    name: "Test string",
+                    transcoded: true,
+                }            ],
+            universalAdId: {
+                id: "Test string",
+                registry: "Test string",
+            },
+            updateTime: "Test string",
+            vastTagUrl: "Test string",
+            vpaid: true,
+        });
+        /** Creates a new insertion order. Returns the newly created insertion order if successful. */
+        await gapi.client.displayvideo.advertisers.insertionOrders.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                automationType: "Test string",
+                budgetSegments: [
+                    {
+                        budgetAmountMicros: "Test string",
+                        campaignBudgetId: "Test string",
+                        dateRange: {
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                        },
+                        description: "Test string",
+                    }                ],
+                budgetUnit: "Test string",
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            performanceGoal: {
+                performanceGoalAmountMicros: "Test string",
+                performanceGoalPercentageMicros: "Test string",
+                performanceGoalString: "Test string",
+                performanceGoalType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e.
+         * set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.delete({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+        });
+        /** Gets an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. */
+        await gapi.client.displayvideo.advertisers.insertionOrders.get({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+        });
+        /**
+         * Lists insertion orders in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, insertion
+         * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.insertionOrders.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates an existing insertion order. Returns the updated insertion order if successful. */
+        await gapi.client.displayvideo.advertisers.insertionOrders.patch({
+            advertiserId: "Test string",
+            insertionOrderId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                automationType: "Test string",
+                budgetSegments: [
+                    {
+                        budgetAmountMicros: "Test string",
+                        campaignBudgetId: "Test string",
+                        dateRange: {
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                        },
+                        description: "Test string",
+                    }                ],
+                budgetUnit: "Test string",
+            },
+            campaignId: "Test string",
+            displayName: "Test string",
+            entityStatus: "Test string",
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            performanceGoal: {
+                performanceGoalAmountMicros: "Test string",
+                performanceGoalPercentageMicros: "Test string",
+                performanceGoalString: "Test string",
+                performanceGoalType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Bulk edits targeting options under a single line item. The operation will delete the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in
+         * BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        }, {
+            createRequests: [
+                {
+                    assignedTargetingOptions: [
+                        {
+                            ageRangeDetails: {
+                                ageRange: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            appCategoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            appDetails: {
+                                appId: "Test string",
+                                displayName: "Test string",
+                                negative: true,
+                            },
+                            assignedTargetingOptionId: "Test string",
+                            audienceGroupDetails: {
+                                excludedFirstAndThirdPartyAudienceGroup: {
+                                    settings: [
+                                        {
+                                            firstAndThirdPartyAudienceId: "Test string",
+                                            recency: "Test string",
+                                        }                                    ],
+                                },
+                                excludedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCombinedAudienceGroup: {
+                                    settings: [
+                                        {
+                                            combinedAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCustomListGroup: {
+                                    settings: [
+                                        {
+                                            customListId: "Test string",
+                                        }                                    ],
+                                },
+                                includedFirstAndThirdPartyAudienceGroups: [
+                                    {
+                                        settings: [
+                                            {
+                                                firstAndThirdPartyAudienceId: "Test string",
+                                                recency: "Test string",
+                                            }                                        ],
+                                    }                                ],
+                                includedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                            },
+                            authorizedSellerStatusDetails: {
+                                authorizedSellerStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            browserDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            carrierAndIspDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            categoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            channelDetails: {
+                                channelId: "Test string",
+                                negative: true,
+                            },
+                            contentInstreamPositionDetails: {
+                                contentInstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            contentOutstreamPositionDetails: {
+                                contentOutstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            dayAndTimeDetails: {
+                                dayOfWeek: "Test string",
+                                endHour: 42,
+                                startHour: 42,
+                                timeZoneResolution: "Test string",
+                            },
+                            deviceMakeModelDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            deviceTypeDetails: {
+                                deviceType: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            digitalContentLabelExclusionDetails: {
+                                contentRatingTier: "Test string",
+                                excludedTargetingOptionId: "Test string",
+                            },
+                            environmentDetails: {
+                                environment: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            exchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            genderDetails: {
+                                gender: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            geoRegionDetails: {
+                                displayName: "Test string",
+                                geoRegionType: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            householdIncomeDetails: {
+                                householdIncome: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            inheritance: "Test string",
+                            inventorySourceDetails: {
+                                inventorySourceId: "Test string",
+                            },
+                            inventorySourceGroupDetails: {
+                                inventorySourceGroupId: "Test string",
+                            },
+                            keywordDetails: {
+                                keyword: "Test string",
+                                negative: true,
+                            },
+                            languageDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            name: "Test string",
+                            negativeKeywordListDetails: {
+                                negativeKeywordListId: "Test string",
+                            },
+                            onScreenPositionDetails: {
+                                onScreenPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            operatingSystemDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            parentalStatusDetails: {
+                                parentalStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            proximityLocationListDetails: {
+                                proximityLocationListId: "Test string",
+                                proximityRadiusRange: "Test string",
+                            },
+                            regionalLocationListDetails: {
+                                negative: true,
+                                regionalLocationListId: "Test string",
+                            },
+                            sensitiveCategoryExclusionDetails: {
+                                excludedTargetingOptionId: "Test string",
+                                sensitiveCategory: "Test string",
+                            },
+                            subExchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            targetingType: "Test string",
+                            thirdPartyVerifierDetails: {
+                                adloox: {
+                                    excludedAdlooxCategories: [
+                                        "Test string"                                    ],
+                                },
+                                doubleVerify: {
+                                    appStarRating: {
+                                        avoidedStarRating: "Test string",
+                                        avoidInsufficientStarRating: true,
+                                    },
+                                    avoidedAgeRatings: [
+                                        "Test string"                                    ],
+                                    brandSafetyCategories: {
+                                        avoidedHighSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidedMediumSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidUnknownBrandSafetyCategory: true,
+                                    },
+                                    displayViewability: {
+                                        iab: "Test string",
+                                        viewableDuring: "Test string",
+                                    },
+                                    fraudInvalidTraffic: {
+                                        avoidedFraudOption: "Test string",
+                                        avoidInsufficientOption: true,
+                                    },
+                                    videoViewability: {
+                                        playerImpressionRate: "Test string",
+                                        videoIab: "Test string",
+                                        videoViewableRate: "Test string",
+                                    },
+                                },
+                                integralAdScience: {
+                                    displayViewability: "Test string",
+                                    excludedAdFraudRisk: "Test string",
+                                    excludedAdultRisk: "Test string",
+                                    excludedAlcoholRisk: "Test string",
+                                    excludedDrugsRisk: "Test string",
+                                    excludedGamblingRisk: "Test string",
+                                    excludedHateSpeechRisk: "Test string",
+                                    excludedIllegalDownloadsRisk: "Test string",
+                                    excludedOffensiveLanguageRisk: "Test string",
+                                    excludedViolenceRisk: "Test string",
+                                    excludeUnrateable: true,
+                                    traqScoreOption: "Test string",
+                                    videoViewability: "Test string",
+                                },
+                            },
+                            urlDetails: {
+                                negative: true,
+                                url: "Test string",
+                            },
+                            userRewardedContentDetails: {
+                                targetingOptionId: "Test string",
+                                userRewardedContent: "Test string",
+                            },
+                            videoPlayerSizeDetails: {
+                                targetingOptionId: "Test string",
+                                videoPlayerSize: "Test string",
+                            },
+                            viewabilityDetails: {
+                                targetingOptionId: "Test string",
+                                viewability: "Test string",
+                            },
+                        }                    ],
+                    targetingType: "Test string",
+                }            ],
+            deleteRequests: [
+                {
+                    assignedTargetingOptionIds: [
+                        "Test string"                    ],
+                    targetingType: "Test string",
+                }            ],
+        });
+        /** Lists assigned targeting options of a line item across targeting types. */
+        await gapi.client.displayvideo.advertisers.lineItems.bulkListLineItemAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            lineItemId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a new line item. Returns the newly created line item if successful. */
+        await gapi.client.displayvideo.advertisers.lineItems.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                budgetAllocationType: "Test string",
+                budgetUnit: "Test string",
+                maxAmount: "Test string",
+            },
+            campaignId: "Test string",
+            conversionCounting: {
+                floodlightActivityConfigs: [
+                    {
+                        floodlightActivityId: "Test string",
+                        postClickLookbackWindowDays: 42,
+                        postViewLookbackWindowDays: 42,
+                    }                ],
+                postViewCountPercentageMillis: "Test string",
+            },
+            creativeIds: [
+                "Test string"            ],
+            displayName: "Test string",
+            entityStatus: "Test string",
+            flight: {
+                dateRange: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                flightDateType: "Test string",
+            },
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            inventorySourceIds: [
+                "Test string"            ],
+            lineItemId: "Test string",
+            lineItemType: "Test string",
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            partnerRevenueModel: {
+                markupAmount: "Test string",
+                markupType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to
+         * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.delete({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        });
+        /** Gets a line item. */
+        await gapi.client.displayvideo.advertisers.lineItems.get({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+        });
+        /**
+         * Lists line items in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, line items with
+         * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates an existing line item. Returns the updated line item if successful. */
+        await gapi.client.displayvideo.advertisers.lineItems.patch({
+            advertiserId: "Test string",
+            lineItemId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            bidStrategy: {
+                fixedBid: {
+                    bidAmountMicros: "Test string",
+                },
+                maximizeSpendAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+                performanceGoalAutoBid: {
+                    maxAverageCpmBidAmountMicros: "Test string",
+                    performanceGoalAmountMicros: "Test string",
+                    performanceGoalType: "Test string",
+                },
+            },
+            budget: {
+                budgetAllocationType: "Test string",
+                budgetUnit: "Test string",
+                maxAmount: "Test string",
+            },
+            campaignId: "Test string",
+            conversionCounting: {
+                floodlightActivityConfigs: [
+                    {
+                        floodlightActivityId: "Test string",
+                        postClickLookbackWindowDays: 42,
+                        postViewLookbackWindowDays: 42,
+                    }                ],
+                postViewCountPercentageMillis: "Test string",
+            },
+            creativeIds: [
+                "Test string"            ],
+            displayName: "Test string",
+            entityStatus: "Test string",
+            flight: {
+                dateRange: {
+                    endDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                    startDate: {
+                        day: 42,
+                        month: 42,
+                        year: 42,
+                    },
+                },
+                flightDateType: "Test string",
+            },
+            frequencyCap: {
+                maxImpressions: 42,
+                timeUnit: "Test string",
+                timeUnitCount: 42,
+                unlimited: true,
+            },
+            insertionOrderId: "Test string",
+            integrationDetails: {
+                details: "Test string",
+                integrationCode: "Test string",
+            },
+            inventorySourceIds: [
+                "Test string"            ],
+            lineItemId: "Test string",
+            lineItemType: "Test string",
+            name: "Test string",
+            pacing: {
+                dailyMaxImpressions: "Test string",
+                dailyMaxMicros: "Test string",
+                pacingPeriod: "Test string",
+                pacingType: "Test string",
+            },
+            partnerCosts: [
+                {
+                    costType: "Test string",
+                    feeAmount: "Test string",
+                    feePercentageMillis: "Test string",
+                    feeType: "Test string",
+                    invoiceType: "Test string",
+                }            ],
+            partnerRevenueModel: {
+                markupAmount: "Test string",
+                markupType: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /** Creates a new location list. Returns the newly created location list if successful. */
+        await gapi.client.displayvideo.advertisers.locationLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Gets a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.get({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Lists location lists based on a given advertiser id. */
+        await gapi.client.displayvideo.advertisers.locationLists.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a location list. Returns the updated location list if successful. */
+        await gapi.client.displayvideo.advertisers.locationLists.patch({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            locationListId: "Test string",
+            locationType: "Test string",
+            name: "Test string",
+        });
+        /**
+         * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
+         * BulkEditAssignedLocationsRequest.created_assigned_locations.
+         */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.bulkEdit({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            createdAssignedLocations: [
+                {
+                    assignedLocationId: "Test string",
+                    name: "Test string",
+                    targetingOptionId: "Test string",
+                }            ],
+            deletedAssignedLocations: [
+                "Test string"            ],
+        });
+        /** Creates an assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.create({
+            advertiserId: "Test string",
+            locationListId: "Test string",
+        }, {
+            assignedLocationId: "Test string",
+            name: "Test string",
+            targetingOptionId: "Test string",
+        });
+        /** Deletes the assignment between a location and a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.delete({
+            advertiserId: "Test string",
+            assignedLocationId: "Test string",
+            locationListId: "Test string",
+        });
+        /** Lists locations assigned to a location list. */
+        await gapi.client.displayvideo.advertisers.locationLists.assignedLocations.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            locationListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
+            advertiserId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Lists negative keyword lists based on a given advertiser id. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
+            advertiserId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /**
+         * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
+         * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
+         * partial failure.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            createdNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+            deletedNegativeKeywords: [
+                "Test string"            ],
+        });
+        /** Creates a negative keyword in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            keywordValue: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a negative keyword from a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete({
+            advertiserId: "Test string",
+            keywordValue: "Test string",
+            negativeKeywordListId: "Test string",
+        });
+        /** Lists negative keywords in a negative keyword list. */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            negativeKeywordListId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /**
          * Bulk edits targeting options under a single advertiser. The operation will delete the assigned targeting options provided in
          * BulkEditAdvertiserAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in
@@ -12984,6 +14733,925 @@ gapi.load('client', () => {
             resourceName: "Test string",
         });
         /**
+         * Bulk edits targeting options under a single partner. The operation will delete the assigned targeting options provided in
+         * BulkEditPartnerAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in
+         * BulkEditPartnerAssignedTargetingOptionsRequest.create_requests .
+         */
+        await gapi.client.displayvideo.partners.bulkEditPartnerAssignedTargetingOptions({
+            partnerId: "Test string",
+        }, {
+            createRequests: [
+                {
+                    assignedTargetingOptions: [
+                        {
+                            ageRangeDetails: {
+                                ageRange: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            appCategoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            appDetails: {
+                                appId: "Test string",
+                                displayName: "Test string",
+                                negative: true,
+                            },
+                            assignedTargetingOptionId: "Test string",
+                            audienceGroupDetails: {
+                                excludedFirstAndThirdPartyAudienceGroup: {
+                                    settings: [
+                                        {
+                                            firstAndThirdPartyAudienceId: "Test string",
+                                            recency: "Test string",
+                                        }                                    ],
+                                },
+                                excludedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCombinedAudienceGroup: {
+                                    settings: [
+                                        {
+                                            combinedAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                                includedCustomListGroup: {
+                                    settings: [
+                                        {
+                                            customListId: "Test string",
+                                        }                                    ],
+                                },
+                                includedFirstAndThirdPartyAudienceGroups: [
+                                    {
+                                        settings: [
+                                            {
+                                                firstAndThirdPartyAudienceId: "Test string",
+                                                recency: "Test string",
+                                            }                                        ],
+                                    }                                ],
+                                includedGoogleAudienceGroup: {
+                                    settings: [
+                                        {
+                                            googleAudienceId: "Test string",
+                                        }                                    ],
+                                },
+                            },
+                            authorizedSellerStatusDetails: {
+                                authorizedSellerStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            browserDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            carrierAndIspDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            categoryDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            channelDetails: {
+                                channelId: "Test string",
+                                negative: true,
+                            },
+                            contentInstreamPositionDetails: {
+                                contentInstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            contentOutstreamPositionDetails: {
+                                contentOutstreamPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            dayAndTimeDetails: {
+                                dayOfWeek: "Test string",
+                                endHour: 42,
+                                startHour: 42,
+                                timeZoneResolution: "Test string",
+                            },
+                            deviceMakeModelDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            deviceTypeDetails: {
+                                deviceType: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            digitalContentLabelExclusionDetails: {
+                                contentRatingTier: "Test string",
+                                excludedTargetingOptionId: "Test string",
+                            },
+                            environmentDetails: {
+                                environment: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            exchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            genderDetails: {
+                                gender: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            geoRegionDetails: {
+                                displayName: "Test string",
+                                geoRegionType: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            householdIncomeDetails: {
+                                householdIncome: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            inheritance: "Test string",
+                            inventorySourceDetails: {
+                                inventorySourceId: "Test string",
+                            },
+                            inventorySourceGroupDetails: {
+                                inventorySourceGroupId: "Test string",
+                            },
+                            keywordDetails: {
+                                keyword: "Test string",
+                                negative: true,
+                            },
+                            languageDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            name: "Test string",
+                            negativeKeywordListDetails: {
+                                negativeKeywordListId: "Test string",
+                            },
+                            onScreenPositionDetails: {
+                                onScreenPosition: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            operatingSystemDetails: {
+                                displayName: "Test string",
+                                negative: true,
+                                targetingOptionId: "Test string",
+                            },
+                            parentalStatusDetails: {
+                                parentalStatus: "Test string",
+                                targetingOptionId: "Test string",
+                            },
+                            proximityLocationListDetails: {
+                                proximityLocationListId: "Test string",
+                                proximityRadiusRange: "Test string",
+                            },
+                            regionalLocationListDetails: {
+                                negative: true,
+                                regionalLocationListId: "Test string",
+                            },
+                            sensitiveCategoryExclusionDetails: {
+                                excludedTargetingOptionId: "Test string",
+                                sensitiveCategory: "Test string",
+                            },
+                            subExchangeDetails: {
+                                targetingOptionId: "Test string",
+                            },
+                            targetingType: "Test string",
+                            thirdPartyVerifierDetails: {
+                                adloox: {
+                                    excludedAdlooxCategories: [
+                                        "Test string"                                    ],
+                                },
+                                doubleVerify: {
+                                    appStarRating: {
+                                        avoidedStarRating: "Test string",
+                                        avoidInsufficientStarRating: true,
+                                    },
+                                    avoidedAgeRatings: [
+                                        "Test string"                                    ],
+                                    brandSafetyCategories: {
+                                        avoidedHighSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidedMediumSeverityCategories: [
+                                            "Test string"                                        ],
+                                        avoidUnknownBrandSafetyCategory: true,
+                                    },
+                                    displayViewability: {
+                                        iab: "Test string",
+                                        viewableDuring: "Test string",
+                                    },
+                                    fraudInvalidTraffic: {
+                                        avoidedFraudOption: "Test string",
+                                        avoidInsufficientOption: true,
+                                    },
+                                    videoViewability: {
+                                        playerImpressionRate: "Test string",
+                                        videoIab: "Test string",
+                                        videoViewableRate: "Test string",
+                                    },
+                                },
+                                integralAdScience: {
+                                    displayViewability: "Test string",
+                                    excludedAdFraudRisk: "Test string",
+                                    excludedAdultRisk: "Test string",
+                                    excludedAlcoholRisk: "Test string",
+                                    excludedDrugsRisk: "Test string",
+                                    excludedGamblingRisk: "Test string",
+                                    excludedHateSpeechRisk: "Test string",
+                                    excludedIllegalDownloadsRisk: "Test string",
+                                    excludedOffensiveLanguageRisk: "Test string",
+                                    excludedViolenceRisk: "Test string",
+                                    excludeUnrateable: true,
+                                    traqScoreOption: "Test string",
+                                    videoViewability: "Test string",
+                                },
+                            },
+                            urlDetails: {
+                                negative: true,
+                                url: "Test string",
+                            },
+                            userRewardedContentDetails: {
+                                targetingOptionId: "Test string",
+                                userRewardedContent: "Test string",
+                            },
+                            videoPlayerSizeDetails: {
+                                targetingOptionId: "Test string",
+                                videoPlayerSize: "Test string",
+                            },
+                            viewabilityDetails: {
+                                targetingOptionId: "Test string",
+                                viewability: "Test string",
+                            },
+                        }                    ],
+                    targetingType: "Test string",
+                }            ],
+            deleteRequests: [
+                {
+                    assignedTargetingOptionIds: [
+                        "Test string"                    ],
+                    targetingType: "Test string",
+                }            ],
+        });
+        /** Creates a new channel. Returns the newly created channel if successful. */
+        await gapi.client.displayvideo.partners.channels.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.partners.channels.sites.bulkEdit({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Gets a channel for a partner or advertiser. */
+        await gapi.client.displayvideo.partners.channels.get({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.partners.channels.sites.bulkEdit({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists channels for a partner or advertiser. */
+        await gapi.client.displayvideo.partners.channels.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.partners.channels.sites.bulkEdit({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Updates a channel. Returns the updated channel if successful. */
+        await gapi.client.displayvideo.partners.channels.patch({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.partners.channels.sites.bulkEdit({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Gets a partner. */
+        await gapi.client.displayvideo.partners.get({
+            partnerId: "Test string",
+        });
+        /** Creates a new channel. Returns the newly created channel if successful. */
+        await gapi.client.displayvideo.partners.channels.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.partners.channels.sites.bulkEdit({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Gets a channel for a partner or advertiser. */
+        await gapi.client.displayvideo.partners.channels.get({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.partners.channels.sites.bulkEdit({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists channels for a partner or advertiser. */
+        await gapi.client.displayvideo.partners.channels.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.partners.channels.sites.bulkEdit({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Updates a channel. Returns the updated channel if successful. */
+        await gapi.client.displayvideo.partners.channels.patch({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.partners.channels.sites.bulkEdit({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists partners that are accessible to the current user. The order is defined by the order_by parameter. */
+        await gapi.client.displayvideo.partners.list({
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a new channel. Returns the newly created channel if successful. */
+        await gapi.client.displayvideo.partners.channels.create({
+            advertiserId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.partners.channels.sites.bulkEdit({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Gets a channel for a partner or advertiser. */
+        await gapi.client.displayvideo.partners.channels.get({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.partners.channels.sites.bulkEdit({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Lists channels for a partner or advertiser. */
+        await gapi.client.displayvideo.partners.channels.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.partners.channels.sites.bulkEdit({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Updates a channel. Returns the updated channel if successful. */
+        await gapi.client.displayvideo.partners.channels.patch({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            advertiserId: "Test string",
+            channelId: "Test string",
+            displayName: "Test string",
+            name: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
+         * provided in BulkEditSitesRequest.created_sites.
+         */
+        await gapi.client.displayvideo.partners.channels.sites.bulkEdit({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            createdSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            deletedSites: [
+                "Test string"            ],
+            partnerId: "Test string",
+        });
+        /** Creates a site in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.create({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            name: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Deletes a site from a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.delete({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            partnerId: "Test string",
+            urlOrAppId: "Test string",
+        });
+        /** Lists sites in a channel. */
+        await gapi.client.displayvideo.partners.channels.sites.list({
+            advertiserId: "Test string",
+            channelId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /**
          * Creates an SDF Download Task. Returns an Operation. An SDF Download Task is a long-running, asynchronous operation. The metadata type of this operation
          * is SdfDownloadTaskMetadata. If the request is successful, the response type of the operation is SdfDownloadTask. The response will not include the
          * download files, which must be retrieved with media.download. The state of operation can be retrieved with sdfdownloadtask.operations.get. Any errors
@@ -13023,6 +15691,71 @@ gapi.load('client', () => {
         /** Gets the latest state of an asynchronous SDF download task operation. Clients should poll this method at intervals of 30 seconds. */
         await gapi.client.displayvideo.sdfdownloadtasks.operations.get({
             name: "Test string",
+        });
+        /**
+         * Bulk edits user roles for a user. The operation will delete the assigned user roles provided in
+         * BulkEditAssignedUserRolesRequest.deleted_assigned_user_roles and then assign the user roles provided in
+         * BulkEditAssignedUserRolesRequest.created_assigned_user_roles.
+         */
+        await gapi.client.displayvideo.users.bulkEditAssignedUserRoles({
+            userId: "Test string",
+        }, {
+            createdAssignedUserRoles: [
+                {
+                    advertiserId: "Test string",
+                    assignedUserRoleId: "Test string",
+                    partnerId: "Test string",
+                    userRole: "Test string",
+                }            ],
+            deletedAssignedUserRoles: [
+                "Test string"            ],
+        });
+        /** Creates a new user. Returns the newly created user if successful. */
+        await gapi.client.displayvideo.users.create({
+        }, {
+            assignedUserRoles: [
+                {
+                    advertiserId: "Test string",
+                    assignedUserRoleId: "Test string",
+                    partnerId: "Test string",
+                    userRole: "Test string",
+                }            ],
+            displayName: "Test string",
+            email: "Test string",
+            name: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes a user. */
+        await gapi.client.displayvideo.users.delete({
+            userId: "Test string",
+        });
+        /** Gets a user. */
+        await gapi.client.displayvideo.users.get({
+            userId: "Test string",
+        });
+        /** Lists users that are accessible to the current user. If two users have user roles on the same partner or advertiser, they can access each other. */
+        await gapi.client.displayvideo.users.list({
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates an existing user. Returns the updated user if successful. */
+        await gapi.client.displayvideo.users.patch({
+            updateMask: "Test string",
+            userId: "Test string",
+        }, {
+            assignedUserRoles: [
+                {
+                    advertiserId: "Test string",
+                    assignedUserRoleId: "Test string",
+                    partnerId: "Test string",
+                    userRole: "Test string",
+                }            ],
+            displayName: "Test string",
+            email: "Test string",
+            name: "Test string",
+            userId: "Test string",
         });
     }
 });
