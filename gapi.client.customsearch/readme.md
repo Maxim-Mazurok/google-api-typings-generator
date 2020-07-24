@@ -38,8 +38,8 @@ After that you can use Custom Search API resources:
 ```typescript
 
 /*
-Returns metadata about the search performed, metadata about the custom
-search engine used for the search, and the search results.
+Returns metadata about the search performed, metadata about the
+engine used for the search, and the search results.
 */
 await gapi.client.customsearch.cse.list({  });
 ```

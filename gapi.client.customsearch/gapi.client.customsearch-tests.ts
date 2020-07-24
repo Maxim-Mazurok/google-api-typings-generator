@@ -13,8 +13,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Returns metadata about the search performed, metadata about the custom
-         * search engine used for the search, and the search results.
+         * Returns metadata about the search performed, metadata about the
+         * engine used for the search, and the search results.
          */
         await gapi.client.customsearch.cse.list({
             c2coff: "Test string",
@@ -50,8 +50,8 @@ gapi.load('client', () => {
             start: 42,
         });
         /**
-         * Returns metadata about the search performed, metadata about the custom
-         * search engine used for the search, and the search results. Uses a small set
+         * Returns metadata about the search performed, metadata about the
+         * engine used for the search, and the search results. Uses a small set
          * of url patterns.
          */
         await gapi.client.customsearch.cse.siterestrict.list({
