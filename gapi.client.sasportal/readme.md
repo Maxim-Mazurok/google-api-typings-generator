@@ -74,11 +74,6 @@ Updates an existing customer.
 await gapi.client.sasportal.customers.patch({ name: "name",  });
 
 /*
-Returns a requested deployment.
-*/
-await gapi.client.sasportal.deployments.get({ name: "name",  });
-
-/*
 Generates a secret to be used with the ValidateInstaller method
 */
 await gapi.client.sasportal.installer.generateSecret({  });
