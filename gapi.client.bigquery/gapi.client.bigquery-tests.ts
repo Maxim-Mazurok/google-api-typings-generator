@@ -844,6 +844,43 @@ gapi.load('client', () => {
                         },
                     },
                     evaluationMetrics: {
+                        arimaForecastingMetrics: {
+                            arimaFittingMetrics: [
+                                {
+                                    aic: 42,
+                                    logLikelihood: 42,
+                                    variance: 42,
+                                }                            ],
+                            arimaSingleModelForecastingMetrics: [
+                                {
+                                    arimaFittingMetrics: {
+                                        aic: 42,
+                                        logLikelihood: 42,
+                                        variance: 42,
+                                    },
+                                    hasDrift: true,
+                                    nonSeasonalOrder: {
+                                        d: "Test string",
+                                        p: "Test string",
+                                        q: "Test string",
+                                    },
+                                    seasonalPeriods: [
+                                        "Test string"                                    ],
+                                    timeSeriesId: "Test string",
+                                }                            ],
+                            hasDrift: [
+                                true                            ],
+                            nonSeasonalOrder: [
+                                {
+                                    d: "Test string",
+                                    p: "Test string",
+                                    q: "Test string",
+                                }                            ],
+                            seasonalPeriods: [
+                                "Test string"                            ],
+                            timeSeriesId: [
+                                "Test string"                            ],
+                        },
                         binaryClassificationMetrics: {
                             aggregateClassificationMetrics: {
                                 accuracy: 42,
@@ -972,7 +1009,9 @@ gapi.load('client', () => {
                         }                    ],
                     startTime: "Test string",
                     trainingOptions: {
+                        autoArima: true,
                         batchSize: "Test string",
+                        dataFrequency: "Test string",
                         dataSplitColumn: "Test string",
                         dataSplitEvalFraction: 42,
                         dataSplitMethod: "Test string",
@@ -982,6 +1021,9 @@ gapi.load('client', () => {
                         feedbackType: "Test string",
                         hiddenUnits: [
                             "Test string"                        ],
+                        holidayRegion: "Test string",
+                        horizon: "Test string",
+                        includeDrift: true,
                         initialLearnRate: 42,
                         inputLabelColumns: [
                             "Test string"                        ],
@@ -1000,11 +1042,19 @@ gapi.load('client', () => {
                         minRelativeProgress: 42,
                         minSplitLoss: 42,
                         modelUri: "Test string",
+                        nonSeasonalOrder: {
+                            d: "Test string",
+                            p: "Test string",
+                            q: "Test string",
+                        },
                         numClusters: "Test string",
                         numFactors: "Test string",
                         optimizationStrategy: "Test string",
                         preserveInputStructs: true,
                         subsample: 42,
+                        timeSeriesDataColumn: "Test string",
+                        timeSeriesIdColumn: "Test string",
+                        timeSeriesTimestampColumn: "Test string",
                         userColumn: "Test string",
                         walsAlpha: 42,
                         warmStart: true,
@@ -1359,6 +1409,14 @@ gapi.load('client', () => {
                     }                ],
             },
             selfLink: "Test string",
+            snapshotDefinition: {
+                baseTableReference: {
+                    datasetId: "Test string",
+                    projectId: "Test string",
+                    tableId: "Test string",
+                },
+                snapshotTime: "Test string",
+            },
             streamingBuffer: {
                 estimatedBytes: "Test string",
                 estimatedRows: "Test string",
@@ -1554,6 +1612,14 @@ gapi.load('client', () => {
                     }                ],
             },
             selfLink: "Test string",
+            snapshotDefinition: {
+                baseTableReference: {
+                    datasetId: "Test string",
+                    projectId: "Test string",
+                    tableId: "Test string",
+                },
+                snapshotTime: "Test string",
+            },
             streamingBuffer: {
                 estimatedBytes: "Test string",
                 estimatedRows: "Test string",
@@ -1794,6 +1860,14 @@ gapi.load('client', () => {
                     }                ],
             },
             selfLink: "Test string",
+            snapshotDefinition: {
+                baseTableReference: {
+                    datasetId: "Test string",
+                    projectId: "Test string",
+                    tableId: "Test string",
+                },
+                snapshotTime: "Test string",
+            },
             streamingBuffer: {
                 estimatedBytes: "Test string",
                 estimatedRows: "Test string",
