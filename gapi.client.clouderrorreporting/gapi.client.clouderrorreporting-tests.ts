@@ -98,6 +98,7 @@ gapi.load('client', () => {
         }, {
             groupId: "Test string",
             name: "Test string",
+            resolutionStatus: "Test string",
             trackingIssues: [
                 {
                     url: "Test string",
