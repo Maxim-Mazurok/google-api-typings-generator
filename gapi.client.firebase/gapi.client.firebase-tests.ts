@@ -2071,6 +2071,7 @@ gapi.load('client', () => {
                 realtimeDatabaseInstance: "Test string",
                 storageBucket: "Test string",
             },
+            state: "Test string",
         });
         /**
          * Requests the creation of a new AndroidApp in the specified
