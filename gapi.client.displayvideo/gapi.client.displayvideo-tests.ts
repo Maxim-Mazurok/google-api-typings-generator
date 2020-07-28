@@ -687,10 +687,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -791,10 +793,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -1142,10 +1146,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -1257,10 +1263,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -2689,10 +2697,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -2793,10 +2803,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -3144,10 +3156,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -3259,10 +3273,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -4436,10 +4452,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -4540,10 +4558,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -4891,10 +4911,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -5006,10 +5028,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -6226,10 +6250,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -6330,10 +6356,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -6681,10 +6709,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -6796,10 +6826,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -7972,10 +8004,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -8076,10 +8110,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -8427,10 +8463,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -8542,10 +8580,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -9715,10 +9755,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -9819,10 +9861,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -10170,10 +10214,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -10285,10 +10331,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -11465,10 +11513,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -11569,10 +11619,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -11920,10 +11972,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -12035,10 +12089,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -13257,10 +13313,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -13361,10 +13419,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -13712,10 +13772,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -13827,10 +13889,12 @@ gapi.load('client', () => {
                     bidAmountMicros: "Test string",
                 },
                 maximizeSpendAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalType: "Test string",
                 },
                 performanceGoalAutoBid: {
+                    customBiddingAlgorithmId: "Test string",
                     maxAverageCpmBidAmountMicros: "Test string",
                     performanceGoalAmountMicros: "Test string",
                     performanceGoalType: "Test string",
@@ -14358,6 +14422,24 @@ gapi.load('client', () => {
         });
         /** Lists combined audiences. The order is defined by the order_by parameter. */
         await gapi.client.displayvideo.combinedAudiences.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Gets a custom bidding algorithm. */
+        await gapi.client.displayvideo.customBiddingAlgorithms.get({
+            advertiserId: "Test string",
+            customBiddingAlgorithmId: "Test string",
+            partnerId: "Test string",
+        });
+        /**
+         * Lists custom bidding algorithms that are accessible to the current user and can be used in bidding stratgies. The order is defined by the order_by
+         * parameter.
+         */
+        await gapi.client.displayvideo.customBiddingAlgorithms.list({
             advertiserId: "Test string",
             filter: "Test string",
             orderBy: "Test string",
