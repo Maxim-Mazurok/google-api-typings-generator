@@ -1,7 +1,7 @@
 # TypeScript typings for Recommendations AI v1beta1
 
 Recommendations AI service enables customers to build end-to-end personalized recommendation systems without requiring a high level of expertise in machine learning, recommendation system, or Google Cloud.
-For detailed description please check [documentation](https://cloud.google.com/recommendations/docs/).
+For detailed description please check [documentation](https://cloud.google.com/recommendations-ai/docs).
 
 ## Installing
 
