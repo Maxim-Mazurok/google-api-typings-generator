@@ -148,9 +148,9 @@ gapi.load('client', () => {
             readTime: "Test string",
         });
         /**
-         * Searches all the IAM policies within the given accessible scope (e.g., a
-         * project, a folder or an organization). Callers should have
-         * `cloud.assets.SearchAllIamPolicies` permission upon the requested scope,
+         * Searches all IAM policies within the specified scope, such as a project,
+         * folder, or organization. The caller must be granted the
+         * `cloudasset.assets.searchAllIamPolicies` permission on the desired scope,
          * otherwise the request will be rejected.
          */
         await gapi.client.cloudasset.v1.searchAllIamPolicies({
@@ -160,9 +160,9 @@ gapi.load('client', () => {
             scope: "Test string",
         });
         /**
-         * Searches all the resources within the given accessible scope (e.g., a
-         * project, a folder or an organization). Callers should have
-         * `cloud.assets.SearchAllResources` permission upon the requested scope,
+         * Searches all Cloud resources within the specified scope, such as a project,
+         * folder, or organization. The caller must be granted the
+         * `cloudasset.assets.searchAllResources` permission on the desired scope,
          * otherwise the request will be rejected.
          */
         await gapi.client.cloudasset.v1.searchAllResources({

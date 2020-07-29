@@ -1259,6 +1259,7 @@ gapi.load('client', () => {
             originalFilename: "Test string",
             publishAuto: true,
             published: true,
+            publishedLink: "Test string",
             publishedOutsideDomain: true,
             size: "Test string",
         });
