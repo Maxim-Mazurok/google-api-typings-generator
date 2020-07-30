@@ -27,7 +27,7 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /** Retrieves line items in CSV format. TrueView line items are not supported. */
+        /** Retrieves line items in CSV format. YouTube & partners line items are not supported. */
         await gapi.client.doubleclickbidmanager.lineitems.downloadlineitems({} , {
             fileSpec: "Test string",
             filterIds: [
@@ -35,7 +35,7 @@ gapi.load('client', () => {
             filterType: "Test string",
             format: "Test string",
         });
-        /** Uploads line items in CSV format. TrueView line items are not supported. */
+        /** Uploads line items in CSV format. YouTube & partners line items are not supported. */
         await gapi.client.doubleclickbidmanager.lineitems.uploadlineitems({} , {
             dryRun: true,
             format: "Test string",
@@ -73,6 +73,41 @@ gapi.load('client', () => {
                     "Test string"                ],
                 options: {
                     includeOnlyTargetedUserLists: true,
+                    pathQueryOptions: {
+                        channelGrouping: {
+                            fallbackName: "Test string",
+                            name: "Test string",
+                            rules: [
+                                {
+                                    disjunctiveMatchStatements: [
+                                        {
+                                            eventFilters: [
+                                                {
+                                                    dimensionFilter: {
+                                                        filter: "Test string",
+                                                        match: "Test string",
+                                                        values: [
+                                                            "Test string"                                                        ],
+                                                    },
+                                                }                                            ],
+                                        }                                    ],
+                                    name: "Test string",
+                                }                            ],
+                        },
+                        pathFilters: [
+                            {
+                                eventFilters: [
+                                    {
+                                        dimensionFilter: {
+                                            filter: "Test string",
+                                            match: "Test string",
+                                            values: [
+                                                "Test string"                                            ],
+                                        },
+                                    }                                ],
+                                pathMatchPosition: "Test string",
+                            }                        ],
+                    },
                 },
                 type: "Test string",
             },
