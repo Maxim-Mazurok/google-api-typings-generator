@@ -37,9 +37,6 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // Manage your Ad Exchange buyer account configuration
-      'https://www.googleapis.com/auth/adexchange.buyer',
-
       // See, create, edit, and delete your Authorized Buyers and Open Bidding account entities
       'https://www.googleapis.com/auth/realtime-bidding',
     ],

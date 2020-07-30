@@ -12,8 +12,6 @@ gapi.load('client', () => {
         /** declare client_id registered in Google Developers Console */
         const client_id = '<<PUT YOUR CLIENT ID HERE>>';
         const scope = [
-            /** Manage your Ad Exchange buyer account configuration */
-            'https://www.googleapis.com/auth/adexchange.buyer',
             /** See, create, edit, and delete your Authorized Buyers and Open Bidding account entities */
             'https://www.googleapis.com/auth/realtime-bidding',
         ];
