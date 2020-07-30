@@ -162,6 +162,14 @@ gapi.load('client', () => {
                 maxNumReplicas: 42,
                 minNumReplicas: 42,
                 mode: "Test string",
+                scaleInControl: {
+                    maxScaledInReplicas: {
+                        calculated: 42,
+                        fixed: 42,
+                        percent: 42,
+                    },
+                    timeWindowSec: 42,
+                },
             },
             creationTimestamp: "Test string",
             description: "Test string",
@@ -216,6 +224,14 @@ gapi.load('client', () => {
                 maxNumReplicas: 42,
                 minNumReplicas: 42,
                 mode: "Test string",
+                scaleInControl: {
+                    maxScaledInReplicas: {
+                        calculated: 42,
+                        fixed: 42,
+                        percent: 42,
+                    },
+                    timeWindowSec: 42,
+                },
             },
             creationTimestamp: "Test string",
             description: "Test string",
@@ -258,6 +274,14 @@ gapi.load('client', () => {
                 maxNumReplicas: 42,
                 minNumReplicas: 42,
                 mode: "Test string",
+                scaleInControl: {
+                    maxScaledInReplicas: {
+                        calculated: 42,
+                        fixed: 42,
+                        percent: 42,
+                    },
+                    timeWindowSec: 42,
+                },
             },
             creationTimestamp: "Test string",
             description: "Test string",
@@ -869,6 +893,7 @@ gapi.load('client', () => {
         });
         /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.compute.disks.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             resource: "Test string",
             zone: "Test string",
@@ -1199,6 +1224,7 @@ gapi.load('client', () => {
             kind: "Test string",
             logConfig: {
                 enable: true,
+                metadata: "Test string",
             },
             name: "Test string",
             network: "Test string",
@@ -1254,6 +1280,7 @@ gapi.load('client', () => {
             kind: "Test string",
             logConfig: {
                 enable: true,
+                metadata: "Test string",
             },
             name: "Test string",
             network: "Test string",
@@ -1301,6 +1328,7 @@ gapi.load('client', () => {
             kind: "Test string",
             logConfig: {
                 enable: true,
+                metadata: "Test string",
             },
             name: "Test string",
             network: "Test string",
@@ -1783,9 +1811,6 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
-            logConfig: {
-                enable: true,
-            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -1865,9 +1890,6 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
-            logConfig: {
-                enable: true,
-            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -1936,9 +1958,6 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
-            logConfig: {
-                enable: true,
-            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -2158,6 +2177,7 @@ gapi.load('client', () => {
         });
         /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.compute.images.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             resource: "Test string",
         });
@@ -3018,6 +3038,7 @@ gapi.load('client', () => {
         });
         /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.compute.instances.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             resource: "Test string",
             zone: "Test string",
@@ -3808,6 +3829,7 @@ gapi.load('client', () => {
         });
         /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.compute.instanceTemplates.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             resource: "Test string",
         });
@@ -4378,6 +4400,7 @@ gapi.load('client', () => {
          * third-party partners who are creating Cloud Marketplace images.
          */
         await gapi.client.compute.licenses.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             resource: "Test string",
         });
@@ -4856,6 +4879,7 @@ gapi.load('client', () => {
         });
         /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.compute.nodeGroups.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             resource: "Test string",
             zone: "Test string",
@@ -5062,6 +5086,7 @@ gapi.load('client', () => {
         });
         /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.compute.nodeTemplates.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             region: "Test string",
             resource: "Test string",
@@ -5503,6 +5528,14 @@ gapi.load('client', () => {
                 maxNumReplicas: 42,
                 minNumReplicas: 42,
                 mode: "Test string",
+                scaleInControl: {
+                    maxScaledInReplicas: {
+                        calculated: 42,
+                        fixed: 42,
+                        percent: 42,
+                    },
+                    timeWindowSec: 42,
+                },
             },
             creationTimestamp: "Test string",
             description: "Test string",
@@ -5557,6 +5590,14 @@ gapi.load('client', () => {
                 maxNumReplicas: 42,
                 minNumReplicas: 42,
                 mode: "Test string",
+                scaleInControl: {
+                    maxScaledInReplicas: {
+                        calculated: 42,
+                        fixed: 42,
+                        percent: 42,
+                    },
+                    timeWindowSec: 42,
+                },
             },
             creationTimestamp: "Test string",
             description: "Test string",
@@ -5599,6 +5640,14 @@ gapi.load('client', () => {
                 maxNumReplicas: 42,
                 minNumReplicas: 42,
                 mode: "Test string",
+                scaleInControl: {
+                    maxScaledInReplicas: {
+                        calculated: 42,
+                        fixed: 42,
+                        percent: 42,
+                    },
+                    timeWindowSec: 42,
+                },
             },
             creationTimestamp: "Test string",
             description: "Test string",
@@ -6152,6 +6201,7 @@ gapi.load('client', () => {
         });
         /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.compute.regionDisks.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             region: "Test string",
             resource: "Test string",
@@ -6432,9 +6482,6 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
-            logConfig: {
-                enable: true,
-            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -6516,9 +6563,6 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
-            logConfig: {
-                enable: true,
-            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -6588,9 +6632,6 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
-            logConfig: {
-                enable: true,
-            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -9233,6 +9274,7 @@ gapi.load('client', () => {
         });
         /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.compute.reservations.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             resource: "Test string",
             zone: "Test string",
@@ -9415,6 +9457,7 @@ gapi.load('client', () => {
         });
         /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.compute.resourcePolicies.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             region: "Test string",
             resource: "Test string",
@@ -10180,6 +10223,7 @@ gapi.load('client', () => {
         });
         /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.compute.snapshots.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             resource: "Test string",
         });
@@ -10475,6 +10519,7 @@ gapi.load('client', () => {
         });
         /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.compute.subnetworks.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             region: "Test string",
             resource: "Test string",
