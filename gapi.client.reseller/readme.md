@@ -1,11 +1,11 @@
-# TypeScript typings for Google Apps Reseller API v1
+# TypeScript typings for Enterprise Apps Reseller API v1
 
-Perform common functions that are available on the Google Apps Reseller Console at scale like placing orders and viewing customer information
+Creates and manages your customers and their subscriptions.
 For detailed description please check [documentation](https://developers.google.com/google-apps/reseller/).
 
 ## Installing
 
-Install typings for Google Apps Reseller API:
+Install typings for Enterprise Apps Reseller API:
 
 ```
 npm install @types/gapi.client.reseller@v1 --save-dev
@@ -57,7 +57,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Google Apps Reseller API resources:
+After that you can use Enterprise Apps Reseller API resources:
 
 ```typescript
 
@@ -72,7 +72,7 @@ Order a new customer's account.
 await gapi.client.reseller.customers.insert({  });
 
 /*
-Patch a customer account's settings via Apiary Patch Orchestration
+Update a customer account's settings. This method supports patch semantics.
 */
 await gapi.client.reseller.customers.patch({ customerId: "customerId",  });
 
@@ -102,20 +102,17 @@ Activates a subscription previously suspended by the reseller
 await gapi.client.reseller.subscriptions.activate({ customerId: "customerId", subscriptionId: "subscriptionId",  });
 
 /*
-Update a subscription plan. Use this method to update a plan for a 30-day
-trial or a flexible plan subscription to an annual commitment plan with
-monthly or yearly payments.
+Update a subscription plan. Use this method to update a plan for a 30-day trial or a flexible plan subscription to an annual commitment plan with monthly or yearly payments.
 */
 await gapi.client.reseller.subscriptions.changePlan({ customerId: "customerId", subscriptionId: "subscriptionId",  });
 
 /*
-Update a user license&#39;s renewal settings. This is applicable for
-accounts with annual commitment plans only.
+Update a user license's renewal settings. This is applicable for accounts with annual commitment plans only.
 */
 await gapi.client.reseller.subscriptions.changeRenewalSettings({ customerId: "customerId", subscriptionId: "subscriptionId",  });
 
 /*
-Update a subscription&#39;s user license settings.
+Update a subscription's user license settings.
 */
 await gapi.client.reseller.subscriptions.changeSeats({ customerId: "customerId", subscriptionId: "subscriptionId",  });
 
@@ -135,15 +132,12 @@ Create or transfer a subscription.
 await gapi.client.reseller.subscriptions.insert({ customerId: "customerId",  });
 
 /*
-List of subscriptions managed by the reseller. The list can be all
-subscriptions, all of a customer&#39;s subscriptions, or all of a
-customer&#39;s transferable subscriptions.
+List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's transferable subscriptions.
 */
 await gapi.client.reseller.subscriptions.list({  });
 
 /*
-Immediately move a 30-day free trial subscription to a paid service
-subscription.
+Immediately move a 30-day free trial subscription to a paid service subscription.
 */
 await gapi.client.reseller.subscriptions.startPaidService({ customerId: "customerId", subscriptionId: "subscriptionId",  });
 
