@@ -35,10 +35,8 @@ gapi.load('client', () => {
             customerId: "Test string",
         });
         /**
-         * Creates new feedback for an alert. Attempting to create a feedback for
-         * a non-existent alert returns `NOT_FOUND` error. Attempting to create a
-         * feedback for an alert that is marked for deletion returns
-         * `FAILED_PRECONDITION' error.
+         * Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback
+         * for an alert that is marked for deletion returns `FAILED_PRECONDITION' error.
          */
         await gapi.client.alertcenter.alerts.feedback.create({
             alertId: "Test string",
@@ -51,10 +49,7 @@ gapi.load('client', () => {
             feedbackId: "Test string",
             type: "Test string",
         });
-        /**
-         * Lists all the feedback for an alert. Attempting to list feedbacks for
-         * a non-existent alert returns `NOT_FOUND` error.
-         */
+        /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
         await gapi.client.alertcenter.alerts.feedback.list({
             alertId: "Test string",
             customerId: "Test string",
@@ -68,10 +63,8 @@ gapi.load('client', () => {
             customerId: "Test string",
         });
         /**
-         * Creates new feedback for an alert. Attempting to create a feedback for
-         * a non-existent alert returns `NOT_FOUND` error. Attempting to create a
-         * feedback for an alert that is marked for deletion returns
-         * `FAILED_PRECONDITION' error.
+         * Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback
+         * for an alert that is marked for deletion returns `FAILED_PRECONDITION' error.
          */
         await gapi.client.alertcenter.alerts.feedback.create({
             alertId: "Test string",
@@ -84,31 +77,24 @@ gapi.load('client', () => {
             feedbackId: "Test string",
             type: "Test string",
         });
-        /**
-         * Lists all the feedback for an alert. Attempting to list feedbacks for
-         * a non-existent alert returns `NOT_FOUND` error.
-         */
+        /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
         await gapi.client.alertcenter.alerts.feedback.list({
             alertId: "Test string",
             customerId: "Test string",
             filter: "Test string",
         });
         /**
-         * Marks the specified alert for deletion. An alert that has been marked for
-         * deletion is removed from Alert Center after 30 days.
-         * Marking an alert for deletion has no effect on an alert which has
-         * already been marked for deletion. Attempting to mark a nonexistent alert
-         * for deletion results in a `NOT_FOUND` error.
+         * Marks the specified alert for deletion. An alert that has been marked for deletion is removed from Alert Center after 30 days. Marking an alert for
+         * deletion has no effect on an alert which has already been marked for deletion. Attempting to mark a nonexistent alert for deletion results in a
+         * `NOT_FOUND` error.
          */
         await gapi.client.alertcenter.alerts.delete({
             alertId: "Test string",
             customerId: "Test string",
         });
         /**
-         * Creates new feedback for an alert. Attempting to create a feedback for
-         * a non-existent alert returns `NOT_FOUND` error. Attempting to create a
-         * feedback for an alert that is marked for deletion returns
-         * `FAILED_PRECONDITION' error.
+         * Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback
+         * for an alert that is marked for deletion returns `FAILED_PRECONDITION' error.
          */
         await gapi.client.alertcenter.alerts.feedback.create({
             alertId: "Test string",
@@ -121,28 +107,20 @@ gapi.load('client', () => {
             feedbackId: "Test string",
             type: "Test string",
         });
-        /**
-         * Lists all the feedback for an alert. Attempting to list feedbacks for
-         * a non-existent alert returns `NOT_FOUND` error.
-         */
+        /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
         await gapi.client.alertcenter.alerts.feedback.list({
             alertId: "Test string",
             customerId: "Test string",
             filter: "Test string",
         });
-        /**
-         * Gets the specified alert. Attempting to get a nonexistent alert returns
-         * `NOT_FOUND` error.
-         */
+        /** Gets the specified alert. Attempting to get a nonexistent alert returns `NOT_FOUND` error. */
         await gapi.client.alertcenter.alerts.get({
             alertId: "Test string",
             customerId: "Test string",
         });
         /**
-         * Creates new feedback for an alert. Attempting to create a feedback for
-         * a non-existent alert returns `NOT_FOUND` error. Attempting to create a
-         * feedback for an alert that is marked for deletion returns
-         * `FAILED_PRECONDITION' error.
+         * Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback
+         * for an alert that is marked for deletion returns `FAILED_PRECONDITION' error.
          */
         await gapi.client.alertcenter.alerts.feedback.create({
             alertId: "Test string",
@@ -155,28 +133,20 @@ gapi.load('client', () => {
             feedbackId: "Test string",
             type: "Test string",
         });
-        /**
-         * Lists all the feedback for an alert. Attempting to list feedbacks for
-         * a non-existent alert returns `NOT_FOUND` error.
-         */
+        /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
         await gapi.client.alertcenter.alerts.feedback.list({
             alertId: "Test string",
             customerId: "Test string",
             filter: "Test string",
         });
-        /**
-         * Returns the metadata of an alert. Attempting to get metadata for
-         * a non-existent alert returns `NOT_FOUND` error.
-         */
+        /** Returns the metadata of an alert. Attempting to get metadata for a non-existent alert returns `NOT_FOUND` error. */
         await gapi.client.alertcenter.alerts.getMetadata({
             alertId: "Test string",
             customerId: "Test string",
         });
         /**
-         * Creates new feedback for an alert. Attempting to create a feedback for
-         * a non-existent alert returns `NOT_FOUND` error. Attempting to create a
-         * feedback for an alert that is marked for deletion returns
-         * `FAILED_PRECONDITION' error.
+         * Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback
+         * for an alert that is marked for deletion returns `FAILED_PRECONDITION' error.
          */
         await gapi.client.alertcenter.alerts.feedback.create({
             alertId: "Test string",
@@ -189,10 +159,7 @@ gapi.load('client', () => {
             feedbackId: "Test string",
             type: "Test string",
         });
-        /**
-         * Lists all the feedback for an alert. Attempting to list feedbacks for
-         * a non-existent alert returns `NOT_FOUND` error.
-         */
+        /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
         await gapi.client.alertcenter.alerts.feedback.list({
             alertId: "Test string",
             customerId: "Test string",
@@ -207,10 +174,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Creates new feedback for an alert. Attempting to create a feedback for
-         * a non-existent alert returns `NOT_FOUND` error. Attempting to create a
-         * feedback for an alert that is marked for deletion returns
-         * `FAILED_PRECONDITION' error.
+         * Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback
+         * for an alert that is marked for deletion returns `FAILED_PRECONDITION' error.
          */
         await gapi.client.alertcenter.alerts.feedback.create({
             alertId: "Test string",
@@ -223,21 +188,16 @@ gapi.load('client', () => {
             feedbackId: "Test string",
             type: "Test string",
         });
-        /**
-         * Lists all the feedback for an alert. Attempting to list feedbacks for
-         * a non-existent alert returns `NOT_FOUND` error.
-         */
+        /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
         await gapi.client.alertcenter.alerts.feedback.list({
             alertId: "Test string",
             customerId: "Test string",
             filter: "Test string",
         });
         /**
-         * Restores, or "undeletes", an alert that was marked for deletion within the
-         * past 30 days. Attempting to undelete an alert which was marked for deletion
-         * over 30 days ago (which has been removed from the Alert Center database) or
-         * a nonexistent alert returns a `NOT_FOUND` error. Attempting to
-         * undelete an alert which has not been marked for deletion has no effect.
+         * Restores, or "undeletes", an alert that was marked for deletion within the past 30 days. Attempting to undelete an alert which was marked for deletion
+         * over 30 days ago (which has been removed from the Alert Center database) or a nonexistent alert returns a `NOT_FOUND` error. Attempting to undelete an
+         * alert which has not been marked for deletion has no effect.
          */
         await gapi.client.alertcenter.alerts.undelete({
             alertId: "Test string",
@@ -245,10 +205,8 @@ gapi.load('client', () => {
             customerId: "Test string",
         });
         /**
-         * Creates new feedback for an alert. Attempting to create a feedback for
-         * a non-existent alert returns `NOT_FOUND` error. Attempting to create a
-         * feedback for an alert that is marked for deletion returns
-         * `FAILED_PRECONDITION' error.
+         * Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback
+         * for an alert that is marked for deletion returns `FAILED_PRECONDITION' error.
          */
         await gapi.client.alertcenter.alerts.feedback.create({
             alertId: "Test string",
@@ -261,10 +219,7 @@ gapi.load('client', () => {
             feedbackId: "Test string",
             type: "Test string",
         });
-        /**
-         * Lists all the feedback for an alert. Attempting to list feedbacks for
-         * a non-existent alert returns `NOT_FOUND` error.
-         */
+        /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
         await gapi.client.alertcenter.alerts.feedback.list({
             alertId: "Test string",
             customerId: "Test string",

@@ -69,23 +69,17 @@ Performs batch undelete operation on alerts.
 await gapi.client.alertcenter.alerts.batchUndelete({  });
 
 /*
-Marks the specified alert for deletion. An alert that has been marked for
-deletion is removed from Alert Center after 30 days.
-Marking an alert for deletion has no effect on an alert which has
-already been marked for deletion. Attempting to mark a nonexistent alert
-for deletion results in a `NOT_FOUND` error.
+Marks the specified alert for deletion. An alert that has been marked for deletion is removed from Alert Center after 30 days. Marking an alert for deletion has no effect on an alert which has already been marked for deletion. Attempting to mark a nonexistent alert for deletion results in a `NOT_FOUND` error.
 */
 await gapi.client.alertcenter.alerts.delete({ alertId: "alertId",  });
 
 /*
-Gets the specified alert. Attempting to get a nonexistent alert returns
-`NOT_FOUND` error.
+Gets the specified alert. Attempting to get a nonexistent alert returns `NOT_FOUND` error.
 */
 await gapi.client.alertcenter.alerts.get({ alertId: "alertId",  });
 
 /*
-Returns the metadata of an alert. Attempting to get metadata for
-a non-existent alert returns `NOT_FOUND` error.
+Returns the metadata of an alert. Attempting to get metadata for a non-existent alert returns `NOT_FOUND` error.
 */
 await gapi.client.alertcenter.alerts.getMetadata({ alertId: "alertId",  });
 
@@ -95,11 +89,7 @@ Lists the alerts.
 await gapi.client.alertcenter.alerts.list({  });
 
 /*
-Restores, or "undeletes", an alert that was marked for deletion within the
-past 30 days. Attempting to undelete an alert which was marked for deletion
-over 30 days ago (which has been removed from the Alert Center database) or
-a nonexistent alert returns a `NOT_FOUND` error. Attempting to
-undelete an alert which has not been marked for deletion has no effect.
+Restores, or "undeletes", an alert that was marked for deletion within the past 30 days. Attempting to undelete an alert which was marked for deletion over 30 days ago (which has been removed from the Alert Center database) or a nonexistent alert returns a `NOT_FOUND` error. Attempting to undelete an alert which has not been marked for deletion has no effect.
 */
 await gapi.client.alertcenter.alerts.undelete({ alertId: "alertId",  });
 
