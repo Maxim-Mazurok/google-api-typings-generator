@@ -17,10 +17,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Creates a new configuration. Once created, a customer can apply the
-         * configuration to devices.
-         */
+        /** Creates a new configuration. Once created, a customer can apply the configuration to devices. */
         await gapi.client.androiddeviceprovisioning.customers.configurations.create({
             parent: "Test string",
         }, {
@@ -35,10 +32,7 @@ gapi.load('client', () => {
             isDefault: true,
             name: "Test string",
         });
-        /**
-         * Deletes an unused configuration. The API call fails if the customer has
-         * devices with the configuration applied.
-         */
+        /** Deletes an unused configuration. The API call fails if the customer has devices with the configuration applied. */
         await gapi.client.androiddeviceprovisioning.customers.configurations.delete({
             name: "Test string",
         });
@@ -67,8 +61,7 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Applies a Configuration to the device to register the device for zero-touch
-         * enrollment. After applying a configuration to a device, the device
+         * Applies a Configuration to the device to register the device for zero-touch enrollment. After applying a configuration to a device, the device
          * automatically provisions itself on first boot, or next factory reset.
          */
         await gapi.client.androiddeviceprovisioning.customers.devices.applyConfiguration({
@@ -112,11 +105,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Unclaims a device from a customer and removes it from zero-touch
-         * enrollment.
-         *
-         * After removing a device, a customer must contact their reseller to register
-         * the device into zero-touch enrollment again.
+         * Unclaims a device from a customer and removes it from zero-touch enrollment. After removing a device, a customer must contact their reseller to
+         * register the device into zero-touch enrollment again.
          */
         await gapi.client.androiddeviceprovisioning.customers.devices.unclaim({
             parent: "Test string",
@@ -132,16 +122,12 @@ gapi.load('client', () => {
                 },
             },
         });
-        /**
-         * Lists the DPCs (device policy controllers) that support zero-touch
-         * enrollment.
-         */
+        /** Lists the DPCs (device policy controllers) that support zero-touch enrollment. */
         await gapi.client.androiddeviceprovisioning.customers.dpcs.list({
             parent: "Test string",
         });
         /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
+         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
          * service.
          */
         await gapi.client.androiddeviceprovisioning.operations.get({
