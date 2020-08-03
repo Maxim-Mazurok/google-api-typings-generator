@@ -33,10 +33,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead
-         * hosting the APK at a specified URL. This function is only available to
-         * organizations using Managed Play whose application is configured to
-         * restrict distribution to the organizations.
+         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
+         * organizations using Managed Play whose application is configured to restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -83,13 +81,9 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit.
-         * If you are using the Google API client libraries, please increase the
-         * timeout of the http request before calling this endpoint
-         * (a timeout of 2 minutes is recommended).
-         * See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
-         * for an example in java.
+         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
+         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
             ackBundleInstallationWarning: true,
@@ -135,11 +129,7 @@ gapi.load('client', () => {
             expansionFileType: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Patches the APK's expansion file configuration to reference another APK's
-         * expansion file.
-         * To add a new expansion file use the Upload method.
-         */
+        /** Patches the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
         await gapi.client.androidpublisher.edits.expansionfiles.patch({
             apkVersionCode: 42,
             editId: "Test string",
@@ -149,11 +139,7 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /**
-         * Updates the APK's expansion file configuration to reference another APK's
-         * expansion file.
-         * To add a new expansion file use the Upload method.
-         */
+        /** Updates the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
         await gapi.client.androidpublisher.edits.expansionfiles.update({
             apkVersionCode: 42,
             editId: "Test string",
@@ -178,10 +164,7 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Deletes all images for the specified language and image type.
-         * Returns an empty response if no images are found.
-         */
+        /** Deletes all images for the specified language and image type. Returns an empty response if no images are found. */
         await gapi.client.androidpublisher.edits.images.deleteall({
             editId: "Test string",
             imageType: "Test string",
@@ -195,10 +178,7 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Uploads an image of the specified language and image type, and adds to the
-         * edit.
-         */
+        /** Uploads an image of the specified language and image type, and adds to the edit. */
         await gapi.client.androidpublisher.edits.images.upload({
             editId: "Test string",
             imageType: "Test string",
@@ -346,10 +326,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead
-         * hosting the APK at a specified URL. This function is only available to
-         * organizations using Managed Play whose application is configured to
-         * restrict distribution to the organizations.
+         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
+         * organizations using Managed Play whose application is configured to restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -396,13 +374,9 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit.
-         * If you are using the Google API client libraries, please increase the
-         * timeout of the http request before calling this endpoint
-         * (a timeout of 2 minutes is recommended).
-         * See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
-         * for an example in java.
+         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
+         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
             ackBundleInstallationWarning: true,
@@ -448,11 +422,7 @@ gapi.load('client', () => {
             expansionFileType: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Patches the APK's expansion file configuration to reference another APK's
-         * expansion file.
-         * To add a new expansion file use the Upload method.
-         */
+        /** Patches the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
         await gapi.client.androidpublisher.edits.expansionfiles.patch({
             apkVersionCode: 42,
             editId: "Test string",
@@ -462,11 +432,7 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /**
-         * Updates the APK's expansion file configuration to reference another APK's
-         * expansion file.
-         * To add a new expansion file use the Upload method.
-         */
+        /** Updates the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
         await gapi.client.androidpublisher.edits.expansionfiles.update({
             apkVersionCode: 42,
             editId: "Test string",
@@ -491,10 +457,7 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Deletes all images for the specified language and image type.
-         * Returns an empty response if no images are found.
-         */
+        /** Deletes all images for the specified language and image type. Returns an empty response if no images are found. */
         await gapi.client.androidpublisher.edits.images.deleteall({
             editId: "Test string",
             imageType: "Test string",
@@ -508,10 +471,7 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Uploads an image of the specified language and image type, and adds to the
-         * edit.
-         */
+        /** Uploads an image of the specified language and image type, and adds to the edit. */
         await gapi.client.androidpublisher.edits.images.upload({
             editId: "Test string",
             imageType: "Test string",
@@ -659,10 +619,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead
-         * hosting the APK at a specified URL. This function is only available to
-         * organizations using Managed Play whose application is configured to
-         * restrict distribution to the organizations.
+         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
+         * organizations using Managed Play whose application is configured to restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -709,13 +667,9 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit.
-         * If you are using the Google API client libraries, please increase the
-         * timeout of the http request before calling this endpoint
-         * (a timeout of 2 minutes is recommended).
-         * See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
-         * for an example in java.
+         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
+         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
             ackBundleInstallationWarning: true,
@@ -761,11 +715,7 @@ gapi.load('client', () => {
             expansionFileType: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Patches the APK's expansion file configuration to reference another APK's
-         * expansion file.
-         * To add a new expansion file use the Upload method.
-         */
+        /** Patches the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
         await gapi.client.androidpublisher.edits.expansionfiles.patch({
             apkVersionCode: 42,
             editId: "Test string",
@@ -775,11 +725,7 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /**
-         * Updates the APK's expansion file configuration to reference another APK's
-         * expansion file.
-         * To add a new expansion file use the Upload method.
-         */
+        /** Updates the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
         await gapi.client.androidpublisher.edits.expansionfiles.update({
             apkVersionCode: 42,
             editId: "Test string",
@@ -804,10 +750,7 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Deletes all images for the specified language and image type.
-         * Returns an empty response if no images are found.
-         */
+        /** Deletes all images for the specified language and image type. Returns an empty response if no images are found. */
         await gapi.client.androidpublisher.edits.images.deleteall({
             editId: "Test string",
             imageType: "Test string",
@@ -821,10 +764,7 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Uploads an image of the specified language and image type, and adds to the
-         * edit.
-         */
+        /** Uploads an image of the specified language and image type, and adds to the edit. */
         await gapi.client.androidpublisher.edits.images.upload({
             editId: "Test string",
             imageType: "Test string",
@@ -974,10 +914,8 @@ gapi.load('client', () => {
             id: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead
-         * hosting the APK at a specified URL. This function is only available to
-         * organizations using Managed Play whose application is configured to
-         * restrict distribution to the organizations.
+         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
+         * organizations using Managed Play whose application is configured to restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -1024,13 +962,9 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit.
-         * If you are using the Google API client libraries, please increase the
-         * timeout of the http request before calling this endpoint
-         * (a timeout of 2 minutes is recommended).
-         * See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
-         * for an example in java.
+         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
+         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
             ackBundleInstallationWarning: true,
@@ -1076,11 +1010,7 @@ gapi.load('client', () => {
             expansionFileType: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Patches the APK's expansion file configuration to reference another APK's
-         * expansion file.
-         * To add a new expansion file use the Upload method.
-         */
+        /** Patches the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
         await gapi.client.androidpublisher.edits.expansionfiles.patch({
             apkVersionCode: 42,
             editId: "Test string",
@@ -1090,11 +1020,7 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /**
-         * Updates the APK's expansion file configuration to reference another APK's
-         * expansion file.
-         * To add a new expansion file use the Upload method.
-         */
+        /** Updates the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
         await gapi.client.androidpublisher.edits.expansionfiles.update({
             apkVersionCode: 42,
             editId: "Test string",
@@ -1119,10 +1045,7 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Deletes all images for the specified language and image type.
-         * Returns an empty response if no images are found.
-         */
+        /** Deletes all images for the specified language and image type. Returns an empty response if no images are found. */
         await gapi.client.androidpublisher.edits.images.deleteall({
             editId: "Test string",
             imageType: "Test string",
@@ -1136,10 +1059,7 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Uploads an image of the specified language and image type, and adds to the
-         * edit.
-         */
+        /** Uploads an image of the specified language and image type, and adds to the edit. */
         await gapi.client.androidpublisher.edits.images.upload({
             editId: "Test string",
             imageType: "Test string",
@@ -1287,10 +1207,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead
-         * hosting the APK at a specified URL. This function is only available to
-         * organizations using Managed Play whose application is configured to
-         * restrict distribution to the organizations.
+         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
+         * organizations using Managed Play whose application is configured to restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -1337,13 +1255,9 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit.
-         * If you are using the Google API client libraries, please increase the
-         * timeout of the http request before calling this endpoint
-         * (a timeout of 2 minutes is recommended).
-         * See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
-         * for an example in java.
+         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
+         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
             ackBundleInstallationWarning: true,
@@ -1389,11 +1303,7 @@ gapi.load('client', () => {
             expansionFileType: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Patches the APK's expansion file configuration to reference another APK's
-         * expansion file.
-         * To add a new expansion file use the Upload method.
-         */
+        /** Patches the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
         await gapi.client.androidpublisher.edits.expansionfiles.patch({
             apkVersionCode: 42,
             editId: "Test string",
@@ -1403,11 +1313,7 @@ gapi.load('client', () => {
             fileSize: "Test string",
             referencesVersion: 42,
         });
-        /**
-         * Updates the APK's expansion file configuration to reference another APK's
-         * expansion file.
-         * To add a new expansion file use the Upload method.
-         */
+        /** Updates the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
         await gapi.client.androidpublisher.edits.expansionfiles.update({
             apkVersionCode: 42,
             editId: "Test string",
@@ -1432,10 +1338,7 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Deletes all images for the specified language and image type.
-         * Returns an empty response if no images are found.
-         */
+        /** Deletes all images for the specified language and image type. Returns an empty response if no images are found. */
         await gapi.client.androidpublisher.edits.images.deleteall({
             editId: "Test string",
             imageType: "Test string",
@@ -1449,10 +1352,7 @@ gapi.load('client', () => {
             language: "Test string",
             packageName: "Test string",
         });
-        /**
-         * Uploads an image of the specified language and image type, and adds to the
-         * edit.
-         */
+        /** Uploads an image of the specified language and image type, and adds to the edit. */
         await gapi.client.androidpublisher.edits.images.upload({
             editId: "Test string",
             imageType: "Test string",
@@ -1704,27 +1604,17 @@ gapi.load('client', () => {
             trialPeriod: "Test string",
         });
         /**
-         * Uploads an APK to internal app sharing.
-         * If you are using the Google API client libraries, please increase the
-         * timeout of the http request before calling this endpoint
-         * (a timeout of 2 minutes is recommended).
-         *
-         * See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
-         * for an example in java.
+         * Uploads an APK to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before
+         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.internalappsharingartifacts.uploadapk({
             packageName: "Test string",
         });
         /**
-         * Uploads an app bundle to internal app sharing.
-         * If you are using the Google API client libraries, please increase the
-         * timeout of the http request before calling this endpoint
-         * (a timeout of 2 minutes is recommended).
-         *
-         * See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
-         * for an example in java.
+         * Uploads an app bundle to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before
+         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
+         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.internalappsharingartifacts.uploadbundle({
             packageName: "Test string",
