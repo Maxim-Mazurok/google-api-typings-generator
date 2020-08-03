@@ -1,7 +1,6 @@
 # TypeScript typings for Blogger API v3 v3
 
-The Blogger API provides access to posts, comments and pages of a
-    Blogger blog.
+The Blogger API provides access to posts, comments and pages of a Blogger blog.
 For detailed description please check [documentation](https://developers.google.com/blogger/docs/3.0/getting_started).
 
 ## Installing
