@@ -82,8 +82,7 @@ Lists jobs.
 await gapi.client.youtubereporting.jobs.list({  });
 
 /*
-Method for media download. Download is supported
-on the URI `/v1/media/{+name}?alt=media`.
+Method for media download. Download is supported on the URI `/v1/media/{+name}?alt=media`.
 */
 await gapi.client.youtubereporting.media.download({ resourceName: "resourceName",  });
 

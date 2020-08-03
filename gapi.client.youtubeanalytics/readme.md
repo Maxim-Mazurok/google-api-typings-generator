@@ -96,9 +96,7 @@ Creates a group.
 await gapi.client.youtubeanalytics.groups.insert({  });
 
 /*
-Returns a collection of groups that match the API request parameters. For
-example, you can retrieve all groups that the authenticated user owns,
-or you can retrieve one or more groups by their unique IDs.
+Returns a collection of groups that match the API request parameters. For example, you can retrieve all groups that the authenticated user owns, or you can retrieve one or more groups by their unique IDs.
 */
 await gapi.client.youtubeanalytics.groups.list({  });
 

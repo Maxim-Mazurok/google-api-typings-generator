@@ -46,10 +46,7 @@ gapi.load('client', () => {
             onBehalfOfContentOwner: "Test string",
             reportId: "Test string",
         });
-        /**
-         * Lists reports created by a specific job.
-         * Returns NOT_FOUND if the job does not exist.
-         */
+        /** Lists reports created by a specific job. Returns NOT_FOUND if the job does not exist. */
         await gapi.client.youtubereporting.jobs.reports.list({
             createdAfter: "Test string",
             jobId: "Test string",
@@ -70,10 +67,7 @@ gapi.load('client', () => {
             onBehalfOfContentOwner: "Test string",
             reportId: "Test string",
         });
-        /**
-         * Lists reports created by a specific job.
-         * Returns NOT_FOUND if the job does not exist.
-         */
+        /** Lists reports created by a specific job. Returns NOT_FOUND if the job does not exist. */
         await gapi.client.youtubereporting.jobs.reports.list({
             createdAfter: "Test string",
             jobId: "Test string",
@@ -94,10 +88,7 @@ gapi.load('client', () => {
             onBehalfOfContentOwner: "Test string",
             reportId: "Test string",
         });
-        /**
-         * Lists reports created by a specific job.
-         * Returns NOT_FOUND if the job does not exist.
-         */
+        /** Lists reports created by a specific job. Returns NOT_FOUND if the job does not exist. */
         await gapi.client.youtubereporting.jobs.reports.list({
             createdAfter: "Test string",
             jobId: "Test string",
@@ -120,10 +111,7 @@ gapi.load('client', () => {
             onBehalfOfContentOwner: "Test string",
             reportId: "Test string",
         });
-        /**
-         * Lists reports created by a specific job.
-         * Returns NOT_FOUND if the job does not exist.
-         */
+        /** Lists reports created by a specific job. Returns NOT_FOUND if the job does not exist. */
         await gapi.client.youtubereporting.jobs.reports.list({
             createdAfter: "Test string",
             jobId: "Test string",
@@ -133,10 +121,7 @@ gapi.load('client', () => {
             startTimeAtOrAfter: "Test string",
             startTimeBefore: "Test string",
         });
-        /**
-         * Method for media download. Download is supported
-         * on the URI `/v1/media/{+name}?alt=media`.
-         */
+        /** Method for media download. Download is supported on the URI `/v1/media/{+name}?alt=media`. */
         await gapi.client.youtubereporting.media.download({
             resourceName: "Test string",
         });
