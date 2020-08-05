@@ -53,8 +53,7 @@ Finds the full hashes that match the requested hash prefixes.
 await gapi.client.safebrowsing.fullHashes.find({  });
 
 /*
-Reports a Safe Browsing threat list hit to Google. Only projects with
-TRUSTED_REPORTER visibility can use this method.
+Reports a Safe Browsing threat list hit to Google. Only projects with TRUSTED_REPORTER visibility can use this method.
 */
 await gapi.client.safebrowsing.threatHits.create({  });
 
@@ -64,8 +63,7 @@ Lists the Safe Browsing threat lists available for download.
 await gapi.client.safebrowsing.threatLists.list({  });
 
 /*
-Fetches the most recent threat list updates. A client can request updates
-for multiple lists at once.
+Fetches the most recent threat list updates. A client can request updates for multiple lists at once.
 */
 await gapi.client.safebrowsing.threatListUpdates.fetch({  });
 
