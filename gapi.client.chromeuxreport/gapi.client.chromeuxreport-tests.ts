@@ -13,9 +13,7 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Queries the Chrome User Experience for a single `record` for a given site.
-         *
-         * Returns a `record` that contains one or more `metrics` corresponding to
+         * Queries the Chrome User Experience for a single `record` for a given site. Returns a `record` that contains one or more `metrics` corresponding to
          * performance data about the requested site.
          */
         await gapi.client.chromeuxreport.records.queryRecord({

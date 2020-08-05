@@ -1,4 +1,4 @@
-# TypeScript typings for Cloud Data Fusion API v1beta1
+# TypeScript typings for Cloud Data Fusion API v1
 
 Cloud Data Fusion is a fully-managed, cloud native, enterprise data integration service for
     quickly building and managing data pipelines. It provides a graphical interface to increase
@@ -12,7 +12,7 @@ For detailed description please check [documentation](https://cloud.google.com/d
 Install typings for Cloud Data Fusion API:
 
 ```
-npm install @types/gapi.client.datafusion@v1beta1 --save-dev
+npm install @types/gapi.client.datafusion@v1 --save-dev
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('datafusion', 'v1beta1', () => {
+gapi.client.load('datafusion', 'v1', () => {
   // now we can use gapi.client.datafusion
   // ...
 });

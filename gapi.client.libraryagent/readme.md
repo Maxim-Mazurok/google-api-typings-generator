@@ -64,8 +64,7 @@ Gets a shelf. Returns NOT_FOUND if the shelf does not exist.
 await gapi.client.libraryagent.shelves.get({ name: "name",  });
 
 /*
-Lists shelves. The order is unspecified but deterministic. Newly created
-shelves will not necessarily be added to the end of this list.
+Lists shelves. The order is unspecified but deterministic. Newly created shelves will not necessarily be added to the end of this list.
 */
 await gapi.client.libraryagent.shelves.list({  });
 ```

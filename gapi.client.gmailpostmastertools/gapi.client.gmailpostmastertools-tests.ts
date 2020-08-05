@@ -27,26 +27,18 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Gets a specific domain registered by the client.
-         * Returns NOT_FOUND if the domain does not exist.
-         */
+        /** Gets a specific domain registered by the client. Returns NOT_FOUND if the domain does not exist. */
         await gapi.client.gmailpostmastertools.domains.get({
             name: "Test string",
         });
         /**
-         * Get traffic statistics for a domain on a specific date.
-         * Returns PERMISSION_DENIED if user does not have permission to access
-         * TrafficStats for the domain.
+         * Get traffic statistics for a domain on a specific date. Returns PERMISSION_DENIED if user does not have permission to access TrafficStats for the
+         * domain.
          */
         await gapi.client.gmailpostmastertools.domains.trafficStats.get({
             name: "Test string",
         });
-        /**
-         * List traffic statistics for all available days.
-         * Returns PERMISSION_DENIED if user does not have permission to access
-         * TrafficStats for the domain.
-         */
+        /** List traffic statistics for all available days. Returns PERMISSION_DENIED if user does not have permission to access TrafficStats for the domain. */
         await gapi.client.gmailpostmastertools.domains.trafficStats.list({
             "endDate.day": 42,
             "endDate.month": 42,
@@ -59,8 +51,7 @@ gapi.load('client', () => {
             "startDate.year": 42,
         });
         /**
-         * Lists the domains that have been registered by the client. The order of
-         * domains in the response is unspecified and non-deterministic. Newly created
+         * Lists the domains that have been registered by the client. The order of domains in the response is unspecified and non-deterministic. Newly created
          * domains will not necessarily be added to the end of this list.
          */
         await gapi.client.gmailpostmastertools.domains.list({
@@ -68,18 +59,13 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Get traffic statistics for a domain on a specific date.
-         * Returns PERMISSION_DENIED if user does not have permission to access
-         * TrafficStats for the domain.
+         * Get traffic statistics for a domain on a specific date. Returns PERMISSION_DENIED if user does not have permission to access TrafficStats for the
+         * domain.
          */
         await gapi.client.gmailpostmastertools.domains.trafficStats.get({
             name: "Test string",
         });
-        /**
-         * List traffic statistics for all available days.
-         * Returns PERMISSION_DENIED if user does not have permission to access
-         * TrafficStats for the domain.
-         */
+        /** List traffic statistics for all available days. Returns PERMISSION_DENIED if user does not have permission to access TrafficStats for the domain. */
         await gapi.client.gmailpostmastertools.domains.trafficStats.list({
             "endDate.day": 42,
             "endDate.month": 42,

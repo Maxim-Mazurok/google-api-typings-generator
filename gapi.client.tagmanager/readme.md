@@ -1,7 +1,6 @@
 # TypeScript typings for Tag Manager API v2
 
-This API allows clients to access and modify container and tag
-     configuration.
+This API allows clients to access and modify container and tag configuration.
 For detailed description please check [documentation](https://developers.google.com/tag-manager).
 
 ## Installing

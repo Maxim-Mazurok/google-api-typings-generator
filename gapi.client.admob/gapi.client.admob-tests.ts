@@ -16,10 +16,7 @@ gapi.load('client', () => {
         await gapi.client.admob.accounts.get({
             name: "Test string",
         });
-        /**
-         * Generates an AdMob Mediation report based on the provided report
-         * specification.
-         */
+        /** Generates an AdMob Mediation report based on the provided report specification. */
         await gapi.client.admob.accounts.mediationReport.generate({
             parent: "Test string",
         }, {
@@ -62,10 +59,7 @@ gapi.load('client', () => {
                 timeZone: "Test string",
             },
         });
-        /**
-         * Generates an AdMob Network report based on the provided report
-         * specification.
-         */
+        /** Generates an AdMob Network report based on the provided report specification. */
         await gapi.client.admob.accounts.networkReport.generate({
             parent: "Test string",
         }, {
@@ -108,18 +102,12 @@ gapi.load('client', () => {
                 timeZone: "Test string",
             },
         });
-        /**
-         * Lists the AdMob publisher account accessible with the client credential.
-         * Currently, all credentials have access to at most one AdMob account.
-         */
+        /** Lists the AdMob publisher account accessible with the client credential. Currently, all credentials have access to at most one AdMob account. */
         await gapi.client.admob.accounts.list({
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Generates an AdMob Mediation report based on the provided report
-         * specification.
-         */
+        /** Generates an AdMob Mediation report based on the provided report specification. */
         await gapi.client.admob.accounts.mediationReport.generate({
             parent: "Test string",
         }, {
@@ -162,10 +150,7 @@ gapi.load('client', () => {
                 timeZone: "Test string",
             },
         });
-        /**
-         * Generates an AdMob Network report based on the provided report
-         * specification.
-         */
+        /** Generates an AdMob Network report based on the provided report specification. */
         await gapi.client.admob.accounts.networkReport.generate({
             parent: "Test string",
         }, {

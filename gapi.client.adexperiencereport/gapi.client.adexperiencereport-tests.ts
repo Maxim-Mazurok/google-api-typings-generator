@@ -16,10 +16,7 @@ gapi.load('client', () => {
         await gapi.client.adexperiencereport.sites.get({
             name: "Test string",
         });
-        /**
-         * Lists sites that are failing in the Ad Experience Report on at least one
-         * platform.
-         */
+        /** Lists sites that are failing in the Ad Experience Report on at least one platform. */
         await gapi.client.adexperiencereport.violatingSites.list({
         });
     }

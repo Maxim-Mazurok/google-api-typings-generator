@@ -65,9 +65,7 @@ After that you can use App Engine Admin API resources:
 ```typescript
 
 /*
-Creates an App Engine application for a Google Cloud Platform project. Required fields:
-id - The ID of the target Cloud Platform project.
-location - The region (https://cloud.google.com/appengine/docs/locations) where you want the App Engine application located.For more information about App Engine applications, see Managing Projects, Applications, and Billing (https://cloud.google.com/appengine/docs/standard/python/console/).
+Creates an App Engine application for a Google Cloud Platform project. Required fields: id - The ID of the target Cloud Platform project. location - The region (https://cloud.google.com/appengine/docs/locations) where you want the App Engine application located.For more information about App Engine applications, see Managing Projects, Applications, and Billing (https://cloud.google.com/appengine/docs/standard/python/console/).
 */
 await gapi.client.appengine.apps.create({  });
 
@@ -77,9 +75,7 @@ Gets information about an application.
 await gapi.client.appengine.apps.get({ appsId: "appsId",  });
 
 /*
-Updates the specified Application resource. You can update the following fields:
-auth_domain - Google authentication domain for controlling user access to the application.
-default_cookie_expiration - Cookie expiration policy for the application.
+Updates the specified Application resource. You can update the following fields: auth_domain - Google authentication domain for controlling user access to the application. default_cookie_expiration - Cookie expiration policy for the application.
 */
 await gapi.client.appengine.apps.patch({ appsId: "appsId",  });
 

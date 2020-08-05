@@ -38,8 +38,7 @@ After that you can use Domains RDAP API resources:
 ```typescript
 
 /*
-The RDAP API recognizes this command from the RDAP specification but
-does not support it. The response is a formatted 501 error.
+The RDAP API recognizes this command from the RDAP specification but does not support it. The response is a formatted 501 error.
 */
 await gapi.client.domainsrdap.autnum.get({ autnumId: "autnumId",  });
 
@@ -49,32 +48,27 @@ Look up RDAP information for a domain by name.
 await gapi.client.domainsrdap.domain.get({ domainName: "domainName",  });
 
 /*
-The RDAP API recognizes this command from the RDAP specification but
-does not support it. The response is a formatted 501 error.
+The RDAP API recognizes this command from the RDAP specification but does not support it. The response is a formatted 501 error.
 */
 await gapi.client.domainsrdap.entity.get({ entityId: "entityId",  });
 
 /*
-The RDAP API recognizes this command from the RDAP specification but
-does not support it. The response is a formatted 501 error.
+The RDAP API recognizes this command from the RDAP specification but does not support it. The response is a formatted 501 error.
 */
 await gapi.client.domainsrdap.ip.get({ ipId: "ipId", ipId1: "ipId1",  });
 
 /*
-The RDAP API recognizes this command from the RDAP specification but
-does not support it. The response is a formatted 501 error.
+The RDAP API recognizes this command from the RDAP specification but does not support it. The response is a formatted 501 error.
 */
 await gapi.client.domainsrdap.nameserver.get({ nameserverId: "nameserverId",  });
 
 /*
-The RDAP API recognizes this command from the RDAP specification but
-does not support it. The response is a formatted 501 error.
+The RDAP API recognizes this command from the RDAP specification but does not support it. The response is a formatted 501 error.
 */
 await gapi.client.domainsrdap.v1.getDomains({  });
 
 /*
-The RDAP API recognizes this command from the RDAP specification but
-does not support it. The response is a formatted 501 error.
+The RDAP API recognizes this command from the RDAP specification but does not support it. The response is a formatted 501 error.
 */
 await gapi.client.domainsrdap.v1.getEntities({  });
 
@@ -84,14 +78,12 @@ Get help information for the RDAP API, including links to documentation.
 await gapi.client.domainsrdap.v1.getHelp({  });
 
 /*
-The RDAP API recognizes this command from the RDAP specification but
-does not support it. The response is a formatted 501 error.
+The RDAP API recognizes this command from the RDAP specification but does not support it. The response is a formatted 501 error.
 */
 await gapi.client.domainsrdap.v1.getIp({  });
 
 /*
-The RDAP API recognizes this command from the RDAP specification but
-does not support it. The response is a formatted 501 error.
+The RDAP API recognizes this command from the RDAP specification but does not support it. The response is a formatted 501 error.
 */
 await gapi.client.domainsrdap.v1.getNameservers({  });
 ```

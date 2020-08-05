@@ -28,10 +28,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Gets remarketing tag for a buyer. A remarketing tag is a piece of
-         * JavaScript code that can be placed on a web page. When a user
-         * visits a page containing a remarketing tag, Google adds the user to a user
-         * list.
+         * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page
+         * containing a remarketing tag, Google adds the user to a user list.
          */
         await gapi.client.realtimebidding.buyers.getRemarketingTag({
             name: "Test string",
@@ -690,10 +688,7 @@ gapi.load('client', () => {
                 videoVastXml: "Test string",
             },
         });
-        /**
-         * Change the status of a user list to CLOSED. This prevents new users from
-         * being added to the user list.
-         */
+        /** Change the status of a user list to CLOSED. This prevents new users from being added to the user list. */
         await gapi.client.realtimebidding.buyers.userLists.close({
             name: "Test string",
         }, {
@@ -727,10 +722,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Gets remarketing tag for a buyer. A remarketing tag is a piece of
-         * JavaScript code that can be placed on a web page. When a user
-         * visits a page containing a remarketing tag, Google adds the user to a user
-         * list.
+         * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page
+         * containing a remarketing tag, Google adds the user to a user list.
          */
         await gapi.client.realtimebidding.buyers.userLists.getRemarketingTag({
             name: "Test string",
@@ -741,18 +734,12 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /**
-         * Change the status of a user list to OPEN. This allows new users to be added
-         * to the user list.
-         */
+        /** Change the status of a user list to OPEN. This allows new users to be added to the user list. */
         await gapi.client.realtimebidding.buyers.userLists.open({
             name: "Test string",
         }, {
         });
-        /**
-         * Update the given user list. Only user lists with URLRestrictions can be
-         * updated.
-         */
+        /** Update the given user list. Only user lists with URLRestrictions can be updated. */
         await gapi.client.realtimebidding.buyers.userLists.update({
             name: "Test string",
         }, {

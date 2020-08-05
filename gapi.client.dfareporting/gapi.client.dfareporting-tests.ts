@@ -7975,6 +7975,903 @@ gapi.load('client', () => {
             sortField: "Test string",
             sortOrder: "Test string",
         });
+        /** Updates a report. This method supports patch semantics. */
+        await gapi.client.dfareporting.reports.patch({
+            profileId: "Test string",
+            reportId: "Test string",
+        }, {
+            accountId: "Test string",
+            criteria: {
+                activities: {
+                    filters: [
+                        {
+                            dimensionName: "Test string",
+                            etag: "Test string",
+                            id: "Test string",
+                            kind: "Test string",
+                            matchType: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    kind: "Test string",
+                    metricNames: [
+                        "Test string"                    ],
+                },
+                customRichMediaEvents: {
+                    filteredEventIds: [
+                        {
+                            dimensionName: "Test string",
+                            etag: "Test string",
+                            id: "Test string",
+                            kind: "Test string",
+                            matchType: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    kind: "Test string",
+                },
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                dimensionFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                dimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                metricNames: [
+                    "Test string"                ],
+            },
+            crossDimensionReachCriteria: {
+                breakdown: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                dimension: "Test string",
+                dimensionFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                metricNames: [
+                    "Test string"                ],
+                overlapMetricNames: [
+                    "Test string"                ],
+                pivoted: true,
+            },
+            delivery: {
+                emailOwner: true,
+                emailOwnerDeliveryType: "Test string",
+                message: "Test string",
+                recipients: [
+                    {
+                        deliveryType: "Test string",
+                        email: "Test string",
+                        kind: "Test string",
+                    }                ],
+            },
+            etag: "Test string",
+            fileName: "Test string",
+            floodlightCriteria: {
+                customRichMediaEvents: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                dimensionFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                dimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                floodlightConfigId: {
+                    dimensionName: "Test string",
+                    etag: "Test string",
+                    id: "Test string",
+                    kind: "Test string",
+                    matchType: "Test string",
+                    value: "Test string",
+                },
+                metricNames: [
+                    "Test string"                ],
+                reportProperties: {
+                    includeAttributedIPConversions: true,
+                    includeUnattributedCookieConversions: true,
+                    includeUnattributedIPConversions: true,
+                },
+            },
+            format: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            lastModifiedTime: "Test string",
+            name: "Test string",
+            ownerProfileId: "Test string",
+            pathAttributionCriteria: {
+                activityFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                customChannelGrouping: {
+                    fallbackName: "Test string",
+                    kind: "Test string",
+                    name: "Test string",
+                    rules: [
+                        {
+                            disjunctiveMatchStatements: [
+                                {
+                                    eventFilters: [
+                                        {
+                                            dimensionFilter: {
+                                                dimensionName: "Test string",
+                                                ids: [
+                                                    "Test string"                                                ],
+                                                kind: "Test string",
+                                                matchType: "Test string",
+                                                values: [
+                                                    "Test string"                                                ],
+                                            },
+                                            kind: "Test string",
+                                        }                                    ],
+                                    kind: "Test string",
+                                }                            ],
+                            kind: "Test string",
+                            name: "Test string",
+                        }                    ],
+                },
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                dimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                floodlightConfigId: {
+                    dimensionName: "Test string",
+                    etag: "Test string",
+                    id: "Test string",
+                    kind: "Test string",
+                    matchType: "Test string",
+                    value: "Test string",
+                },
+                metricNames: [
+                    "Test string"                ],
+                pathFilters: [
+                    {
+                        eventFilters: [
+                            {
+                                dimensionFilter: {
+                                    dimensionName: "Test string",
+                                    ids: [
+                                        "Test string"                                    ],
+                                    kind: "Test string",
+                                    matchType: "Test string",
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                kind: "Test string",
+                            }                        ],
+                        kind: "Test string",
+                        pathMatchPosition: "Test string",
+                    }                ],
+            },
+            pathCriteria: {
+                activityFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                customChannelGrouping: {
+                    fallbackName: "Test string",
+                    kind: "Test string",
+                    name: "Test string",
+                    rules: [
+                        {
+                            disjunctiveMatchStatements: [
+                                {
+                                    eventFilters: [
+                                        {
+                                            dimensionFilter: {
+                                                dimensionName: "Test string",
+                                                ids: [
+                                                    "Test string"                                                ],
+                                                kind: "Test string",
+                                                matchType: "Test string",
+                                                values: [
+                                                    "Test string"                                                ],
+                                            },
+                                            kind: "Test string",
+                                        }                                    ],
+                                    kind: "Test string",
+                                }                            ],
+                            kind: "Test string",
+                            name: "Test string",
+                        }                    ],
+                },
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                dimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                floodlightConfigId: {
+                    dimensionName: "Test string",
+                    etag: "Test string",
+                    id: "Test string",
+                    kind: "Test string",
+                    matchType: "Test string",
+                    value: "Test string",
+                },
+                metricNames: [
+                    "Test string"                ],
+                pathFilters: [
+                    {
+                        eventFilters: [
+                            {
+                                dimensionFilter: {
+                                    dimensionName: "Test string",
+                                    ids: [
+                                        "Test string"                                    ],
+                                    kind: "Test string",
+                                    matchType: "Test string",
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                kind: "Test string",
+                            }                        ],
+                        kind: "Test string",
+                        pathMatchPosition: "Test string",
+                    }                ],
+            },
+            pathToConversionCriteria: {
+                activityFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                conversionDimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                customFloodlightVariables: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                customRichMediaEvents: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                floodlightConfigId: {
+                    dimensionName: "Test string",
+                    etag: "Test string",
+                    id: "Test string",
+                    kind: "Test string",
+                    matchType: "Test string",
+                    value: "Test string",
+                },
+                metricNames: [
+                    "Test string"                ],
+                perInteractionDimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                reportProperties: {
+                    clicksLookbackWindow: 42,
+                    impressionsLookbackWindow: 42,
+                    includeAttributedIPConversions: true,
+                    includeUnattributedCookieConversions: true,
+                    includeUnattributedIPConversions: true,
+                    maximumClickInteractions: 42,
+                    maximumImpressionInteractions: 42,
+                    maximumInteractionGap: 42,
+                    pivotOnInteractionPath: true,
+                },
+            },
+            reachCriteria: {
+                activities: {
+                    filters: [
+                        {
+                            dimensionName: "Test string",
+                            etag: "Test string",
+                            id: "Test string",
+                            kind: "Test string",
+                            matchType: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    kind: "Test string",
+                    metricNames: [
+                        "Test string"                    ],
+                },
+                customRichMediaEvents: {
+                    filteredEventIds: [
+                        {
+                            dimensionName: "Test string",
+                            etag: "Test string",
+                            id: "Test string",
+                            kind: "Test string",
+                            matchType: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    kind: "Test string",
+                },
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                dimensionFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                dimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                enableAllDimensionCombinations: true,
+                metricNames: [
+                    "Test string"                ],
+                reachByFrequencyMetricNames: [
+                    "Test string"                ],
+            },
+            schedule: {
+                active: true,
+                every: 42,
+                expirationDate: "Test string",
+                repeats: "Test string",
+                repeatsOnWeekDays: [
+                    "Test string"                ],
+                runsOnDayOfMonth: "Test string",
+                startDate: "Test string",
+            },
+            subAccountId: "Test string",
+            type: "Test string",
+        });
+        /**
+         * Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input
+         * report and user permissions.
+         */
+        await gapi.client.dfareporting.reports.compatibleFields.query({
+            profileId: "Test string",
+        }, {
+            accountId: "Test string",
+            criteria: {
+                activities: {
+                    filters: [
+                        {
+                            dimensionName: "Test string",
+                            etag: "Test string",
+                            id: "Test string",
+                            kind: "Test string",
+                            matchType: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    kind: "Test string",
+                    metricNames: [
+                        "Test string"                    ],
+                },
+                customRichMediaEvents: {
+                    filteredEventIds: [
+                        {
+                            dimensionName: "Test string",
+                            etag: "Test string",
+                            id: "Test string",
+                            kind: "Test string",
+                            matchType: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    kind: "Test string",
+                },
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                dimensionFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                dimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                metricNames: [
+                    "Test string"                ],
+            },
+            crossDimensionReachCriteria: {
+                breakdown: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                dimension: "Test string",
+                dimensionFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                metricNames: [
+                    "Test string"                ],
+                overlapMetricNames: [
+                    "Test string"                ],
+                pivoted: true,
+            },
+            delivery: {
+                emailOwner: true,
+                emailOwnerDeliveryType: "Test string",
+                message: "Test string",
+                recipients: [
+                    {
+                        deliveryType: "Test string",
+                        email: "Test string",
+                        kind: "Test string",
+                    }                ],
+            },
+            etag: "Test string",
+            fileName: "Test string",
+            floodlightCriteria: {
+                customRichMediaEvents: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                dimensionFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                dimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                floodlightConfigId: {
+                    dimensionName: "Test string",
+                    etag: "Test string",
+                    id: "Test string",
+                    kind: "Test string",
+                    matchType: "Test string",
+                    value: "Test string",
+                },
+                metricNames: [
+                    "Test string"                ],
+                reportProperties: {
+                    includeAttributedIPConversions: true,
+                    includeUnattributedCookieConversions: true,
+                    includeUnattributedIPConversions: true,
+                },
+            },
+            format: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            lastModifiedTime: "Test string",
+            name: "Test string",
+            ownerProfileId: "Test string",
+            pathAttributionCriteria: {
+                activityFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                customChannelGrouping: {
+                    fallbackName: "Test string",
+                    kind: "Test string",
+                    name: "Test string",
+                    rules: [
+                        {
+                            disjunctiveMatchStatements: [
+                                {
+                                    eventFilters: [
+                                        {
+                                            dimensionFilter: {
+                                                dimensionName: "Test string",
+                                                ids: [
+                                                    "Test string"                                                ],
+                                                kind: "Test string",
+                                                matchType: "Test string",
+                                                values: [
+                                                    "Test string"                                                ],
+                                            },
+                                            kind: "Test string",
+                                        }                                    ],
+                                    kind: "Test string",
+                                }                            ],
+                            kind: "Test string",
+                            name: "Test string",
+                        }                    ],
+                },
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                dimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                floodlightConfigId: {
+                    dimensionName: "Test string",
+                    etag: "Test string",
+                    id: "Test string",
+                    kind: "Test string",
+                    matchType: "Test string",
+                    value: "Test string",
+                },
+                metricNames: [
+                    "Test string"                ],
+                pathFilters: [
+                    {
+                        eventFilters: [
+                            {
+                                dimensionFilter: {
+                                    dimensionName: "Test string",
+                                    ids: [
+                                        "Test string"                                    ],
+                                    kind: "Test string",
+                                    matchType: "Test string",
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                kind: "Test string",
+                            }                        ],
+                        kind: "Test string",
+                        pathMatchPosition: "Test string",
+                    }                ],
+            },
+            pathCriteria: {
+                activityFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                customChannelGrouping: {
+                    fallbackName: "Test string",
+                    kind: "Test string",
+                    name: "Test string",
+                    rules: [
+                        {
+                            disjunctiveMatchStatements: [
+                                {
+                                    eventFilters: [
+                                        {
+                                            dimensionFilter: {
+                                                dimensionName: "Test string",
+                                                ids: [
+                                                    "Test string"                                                ],
+                                                kind: "Test string",
+                                                matchType: "Test string",
+                                                values: [
+                                                    "Test string"                                                ],
+                                            },
+                                            kind: "Test string",
+                                        }                                    ],
+                                    kind: "Test string",
+                                }                            ],
+                            kind: "Test string",
+                            name: "Test string",
+                        }                    ],
+                },
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                dimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                floodlightConfigId: {
+                    dimensionName: "Test string",
+                    etag: "Test string",
+                    id: "Test string",
+                    kind: "Test string",
+                    matchType: "Test string",
+                    value: "Test string",
+                },
+                metricNames: [
+                    "Test string"                ],
+                pathFilters: [
+                    {
+                        eventFilters: [
+                            {
+                                dimensionFilter: {
+                                    dimensionName: "Test string",
+                                    ids: [
+                                        "Test string"                                    ],
+                                    kind: "Test string",
+                                    matchType: "Test string",
+                                    values: [
+                                        "Test string"                                    ],
+                                },
+                                kind: "Test string",
+                            }                        ],
+                        kind: "Test string",
+                        pathMatchPosition: "Test string",
+                    }                ],
+            },
+            pathToConversionCriteria: {
+                activityFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                conversionDimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                customFloodlightVariables: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                customRichMediaEvents: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                floodlightConfigId: {
+                    dimensionName: "Test string",
+                    etag: "Test string",
+                    id: "Test string",
+                    kind: "Test string",
+                    matchType: "Test string",
+                    value: "Test string",
+                },
+                metricNames: [
+                    "Test string"                ],
+                perInteractionDimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                reportProperties: {
+                    clicksLookbackWindow: 42,
+                    impressionsLookbackWindow: 42,
+                    includeAttributedIPConversions: true,
+                    includeUnattributedCookieConversions: true,
+                    includeUnattributedIPConversions: true,
+                    maximumClickInteractions: 42,
+                    maximumImpressionInteractions: 42,
+                    maximumInteractionGap: 42,
+                    pivotOnInteractionPath: true,
+                },
+            },
+            reachCriteria: {
+                activities: {
+                    filters: [
+                        {
+                            dimensionName: "Test string",
+                            etag: "Test string",
+                            id: "Test string",
+                            kind: "Test string",
+                            matchType: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    kind: "Test string",
+                    metricNames: [
+                        "Test string"                    ],
+                },
+                customRichMediaEvents: {
+                    filteredEventIds: [
+                        {
+                            dimensionName: "Test string",
+                            etag: "Test string",
+                            id: "Test string",
+                            kind: "Test string",
+                            matchType: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    kind: "Test string",
+                },
+                dateRange: {
+                    endDate: "Test string",
+                    kind: "Test string",
+                    relativeDateRange: "Test string",
+                    startDate: "Test string",
+                },
+                dimensionFilters: [
+                    {
+                        dimensionName: "Test string",
+                        etag: "Test string",
+                        id: "Test string",
+                        kind: "Test string",
+                        matchType: "Test string",
+                        value: "Test string",
+                    }                ],
+                dimensions: [
+                    {
+                        kind: "Test string",
+                        name: "Test string",
+                        sortOrder: "Test string",
+                    }                ],
+                enableAllDimensionCombinations: true,
+                metricNames: [
+                    "Test string"                ],
+                reachByFrequencyMetricNames: [
+                    "Test string"                ],
+            },
+            schedule: {
+                active: true,
+                every: 42,
+                expirationDate: "Test string",
+                repeats: "Test string",
+                repeatsOnWeekDays: [
+                    "Test string"                ],
+                runsOnDayOfMonth: "Test string",
+                startDate: "Test string",
+            },
+            subAccountId: "Test string",
+            type: "Test string",
+        });
+        /** Retrieves a report file by its report ID and file ID. This method supports media download. */
+        await gapi.client.dfareporting.reports.files.get({
+            fileId: "Test string",
+            profileId: "Test string",
+            reportId: "Test string",
+        });
+        /** Lists files for a report. */
+        await gapi.client.dfareporting.reports.files.list({
+            maxResults: 42,
+            pageToken: "Test string",
+            profileId: "Test string",
+            reportId: "Test string",
+            sortField: "Test string",
+            sortOrder: "Test string",
+        });
         /** Runs a report. */
         await gapi.client.dfareporting.reports.run({
             profileId: "Test string",

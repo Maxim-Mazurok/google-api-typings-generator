@@ -55,6 +55,7 @@ gapi.load('client', () => {
             driveId: "Test string",
             includeCorpusRemovals: true,
             includeItemsFromAllDrives: true,
+            includePermissionsForView: "Test string",
             includeRemoved: true,
             includeTeamDriveItems: true,
             pageSize: 42,
@@ -70,6 +71,7 @@ gapi.load('client', () => {
             driveId: "Test string",
             includeCorpusRemovals: true,
             includeItemsFromAllDrives: true,
+            includePermissionsForView: "Test string",
             includeRemoved: true,
             includeTeamDriveItems: true,
             pageSize: 42,
@@ -336,6 +338,7 @@ gapi.load('client', () => {
             enforceSingleParent: true,
             fileId: "Test string",
             ignoreDefaultVisibility: true,
+            includePermissionsForView: "Test string",
             keepRevisionForever: true,
             ocrLanguage: "Test string",
             supportsAllDrives: true,
@@ -501,6 +504,7 @@ gapi.load('client', () => {
                             teamDrivePermissionType: "Test string",
                         }                    ],
                     type: "Test string",
+                    view: "Test string",
                 }            ],
             properties: {
                 A: "Test string"            },
@@ -553,6 +557,7 @@ gapi.load('client', () => {
         await gapi.client.drive.files.create({
             enforceSingleParent: true,
             ignoreDefaultVisibility: true,
+            includePermissionsForView: "Test string",
             keepRevisionForever: true,
             ocrLanguage: "Test string",
             supportsAllDrives: true,
@@ -719,6 +724,7 @@ gapi.load('client', () => {
                             teamDrivePermissionType: "Test string",
                         }                    ],
                     type: "Test string",
+                    view: "Test string",
                 }            ],
             properties: {
                 A: "Test string"            },
@@ -792,6 +798,7 @@ gapi.load('client', () => {
         await gapi.client.drive.files.get({
             acknowledgeAbuse: true,
             fileId: "Test string",
+            includePermissionsForView: "Test string",
             supportsAllDrives: true,
             supportsTeamDrives: true,
         });
@@ -801,6 +808,7 @@ gapi.load('client', () => {
             corpus: "Test string",
             driveId: "Test string",
             includeItemsFromAllDrives: true,
+            includePermissionsForView: "Test string",
             includeTeamDriveItems: true,
             orderBy: "Test string",
             pageSize: 42,
@@ -816,6 +824,7 @@ gapi.load('client', () => {
             addParents: "Test string",
             enforceSingleParent: true,
             fileId: "Test string",
+            includePermissionsForView: "Test string",
             keepRevisionForever: true,
             ocrLanguage: "Test string",
             removeParents: "Test string",
@@ -983,6 +992,7 @@ gapi.load('client', () => {
                             teamDrivePermissionType: "Test string",
                         }                    ],
                     type: "Test string",
+                    view: "Test string",
                 }            ],
             properties: {
                 A: "Test string"            },
@@ -1035,6 +1045,7 @@ gapi.load('client', () => {
         await gapi.client.drive.files.watch({
             acknowledgeAbuse: true,
             fileId: "Test string",
+            includePermissionsForView: "Test string",
             supportsAllDrives: true,
             supportsTeamDrives: true,
         }, {
@@ -1087,6 +1098,7 @@ gapi.load('client', () => {
                     teamDrivePermissionType: "Test string",
                 }            ],
             type: "Test string",
+            view: "Test string",
         });
         /** Deletes a permission. */
         await gapi.client.drive.permissions.delete({
@@ -1107,6 +1119,7 @@ gapi.load('client', () => {
         /** Lists a file's or shared drive's permissions. */
         await gapi.client.drive.permissions.list({
             fileId: "Test string",
+            includePermissionsForView: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             supportsAllDrives: true,
@@ -1148,6 +1161,7 @@ gapi.load('client', () => {
                     teamDrivePermissionType: "Test string",
                 }            ],
             type: "Test string",
+            view: "Test string",
         });
         /** Creates a new reply to a comment. */
         await gapi.client.drive.replies.create({

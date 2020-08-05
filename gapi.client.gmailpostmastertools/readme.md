@@ -59,15 +59,12 @@ After that you can use Gmail Postmaster Tools API resources:
 ```typescript
 
 /*
-Gets a specific domain registered by the client.
-Returns NOT_FOUND if the domain does not exist.
+Gets a specific domain registered by the client. Returns NOT_FOUND if the domain does not exist.
 */
 await gapi.client.gmailpostmastertools.domains.get({ name: "name",  });
 
 /*
-Lists the domains that have been registered by the client. The order of
-domains in the response is unspecified and non-deterministic. Newly created
-domains will not necessarily be added to the end of this list.
+Lists the domains that have been registered by the client. The order of domains in the response is unspecified and non-deterministic. Newly created domains will not necessarily be added to the end of this list.
 */
 await gapi.client.gmailpostmastertools.domains.list({  });
 ```

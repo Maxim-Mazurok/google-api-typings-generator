@@ -62,15 +62,12 @@ After that you can use Cloud Natural Language API resources:
 ```typescript
 
 /*
-Finds named entities (currently proper names and common nouns) in the text
-along with entity types, salience, mentions for each entity, and
-other properties.
+Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other properties.
 */
 await gapi.client.language.documents.analyzeEntities({  });
 
 /*
-Finds entities, similar to AnalyzeEntities in the text and analyzes
-sentiment associated with each entity and its mentions.
+Finds entities, similar to AnalyzeEntities in the text and analyzes sentiment associated with each entity and its mentions.
 */
 await gapi.client.language.documents.analyzeEntitySentiment({  });
 
@@ -80,15 +77,12 @@ Analyzes the sentiment of the provided text.
 await gapi.client.language.documents.analyzeSentiment({  });
 
 /*
-Analyzes the syntax of the text and provides sentence boundaries and
-tokenization along with part of speech tags, dependency trees, and other
-properties.
+Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties.
 */
 await gapi.client.language.documents.analyzeSyntax({  });
 
 /*
-A convenience method that provides all the features that analyzeSentiment,
-analyzeEntities, and analyzeSyntax provide in one call.
+A convenience method that provides all the features that analyzeSentiment, analyzeEntities, and analyzeSyntax provide in one call.
 */
 await gapi.client.language.documents.annotateText({  });
 

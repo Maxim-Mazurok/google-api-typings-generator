@@ -1,7 +1,6 @@
 # TypeScript typings for AdMob API v1
 
-The Google AdMob API lets you programmatically get reports on earnings.
-
+The Google AdMob API lets you programmatically get reports on earnings. 
 For detailed description please check [documentation](https://developers.google.com/admob/api/).
 
 ## Installing
@@ -44,8 +43,7 @@ Gets information about the specified AdMob publisher account.
 await gapi.client.admob.accounts.get({ name: "name",  });
 
 /*
-Lists the AdMob publisher account accessible with the client credential.
-Currently, all credentials have access to at most one AdMob account.
+Lists the AdMob publisher account accessible with the client credential. Currently, all credentials have access to at most one AdMob account.
 */
 await gapi.client.admob.accounts.list({  });
 ```

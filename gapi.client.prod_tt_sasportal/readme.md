@@ -89,15 +89,12 @@ Returns a requested node.
 await gapi.client.prod_tt_sasportal.nodes.get({ name: "name",  });
 
 /*
-Gets the access control policy for a resource.
-Returns an empty policy if the resource exists and does not have a policy
-set.
+Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
 */
 await gapi.client.prod_tt_sasportal.policies.get({  });
 
 /*
-Sets the access control policy on the specified resource. Replaces any
-existing policy.
+Sets the access control policy on the specified resource. Replaces any existing policy.
 */
 await gapi.client.prod_tt_sasportal.policies.set({  });
 

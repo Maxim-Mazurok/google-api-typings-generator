@@ -890,6 +890,11 @@ Retrieves list of reports.
 await gapi.client.dfareporting.reports.list({ profileId: "profileId",  });
 
 /*
+Updates a report. This method supports patch semantics.
+*/
+await gapi.client.dfareporting.reports.patch({ profileId: "profileId", reportId: "reportId",  });
+
+/*
 Runs a report.
 */
 await gapi.client.dfareporting.reports.run({ profileId: "profileId", reportId: "reportId",  });

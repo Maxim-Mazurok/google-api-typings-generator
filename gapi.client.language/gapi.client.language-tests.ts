@@ -30,9 +30,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Finds named entities (currently proper names and common nouns) in the text
-         * along with entity types, salience, mentions for each entity, and
-         * other properties.
+         * Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other
+         * properties.
          */
         await gapi.client.language.documents.analyzeEntities({
         }, {
@@ -44,10 +43,7 @@ gapi.load('client', () => {
             },
             encodingType: "Test string",
         });
-        /**
-         * Finds entities, similar to AnalyzeEntities in the text and analyzes
-         * sentiment associated with each entity and its mentions.
-         */
+        /** Finds entities, similar to AnalyzeEntities in the text and analyzes sentiment associated with each entity and its mentions. */
         await gapi.client.language.documents.analyzeEntitySentiment({
         }, {
             document: {
@@ -70,8 +66,7 @@ gapi.load('client', () => {
             encodingType: "Test string",
         });
         /**
-         * Analyzes the syntax of the text and provides sentence boundaries and
-         * tokenization along with part of speech tags, dependency trees, and other
+         * Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other
          * properties.
          */
         await gapi.client.language.documents.analyzeSyntax({
@@ -84,10 +79,7 @@ gapi.load('client', () => {
             },
             encodingType: "Test string",
         });
-        /**
-         * A convenience method that provides all the features that analyzeSentiment,
-         * analyzeEntities, and analyzeSyntax provide in one call.
-         */
+        /** A convenience method that provides all the features that analyzeSentiment, analyzeEntities, and analyzeSyntax provide in one call. */
         await gapi.client.language.documents.annotateText({
         }, {
             document: {

@@ -144,10 +144,7 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
+        /** Creates a signed device under a node or customer. */
         await gapi.client.prod_tt_sasportal.customers.devices.createSigned({
             parent: "Test string",
         }, {
@@ -646,10 +643,7 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
+        /** Creates a signed device under a node or customer. */
         await gapi.client.prod_tt_sasportal.customers.devices.createSigned({
             parent: "Test string",
         }, {
@@ -1153,10 +1147,7 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
+        /** Creates a signed device under a node or customer. */
         await gapi.client.prod_tt_sasportal.customers.devices.createSigned({
             parent: "Test string",
         }, {
@@ -1665,10 +1656,7 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
+        /** Creates a signed device under a node or customer. */
         await gapi.client.prod_tt_sasportal.nodes.devices.createSigned({
             parent: "Test string",
         }, {
@@ -2042,10 +2030,7 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
+        /** Creates a signed device under a node or customer. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.devices.createSigned({
             parent: "Test string",
         }, {
@@ -2191,10 +2176,7 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
+        /** Creates a signed device under a node or customer. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.devices.createSigned({
             parent: "Test string",
         }, {
@@ -2340,10 +2322,7 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
+        /** Creates a signed device under a node or customer. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.devices.createSigned({
             parent: "Test string",
         }, {
@@ -2491,10 +2470,7 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
+        /** Creates a signed device under a node or customer. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.devices.createSigned({
             parent: "Test string",
         }, {
@@ -2642,10 +2618,7 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
+        /** Creates a signed device under a node or customer. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.devices.createSigned({
             parent: "Test string",
         }, {
@@ -2797,10 +2770,7 @@ gapi.load('client', () => {
             serialNumber: "Test string",
             state: "Test string",
         });
-        /**
-         * Creates a signed device under a
-         * node or customer.
-         */
+        /** Creates a signed device under a node or customer. */
         await gapi.client.prod_tt_sasportal.nodes.nodes.devices.createSigned({
             parent: "Test string",
         }, {
@@ -2829,19 +2799,12 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
+        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
         await gapi.client.prod_tt_sasportal.policies.get({
         }, {
             resource: "Test string",
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. */
         await gapi.client.prod_tt_sasportal.policies.set({
         }, {
             policy: {
