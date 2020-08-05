@@ -1,6 +1,6 @@
 # TypeScript typings for DoubleClick Bid Manager API v1.1
 
-API for viewing and managing your reports in DoubleClick Bid Manager.
+DoubleClick Bid Manager API allows users to manage and create campaigns and reports.
 For detailed description please check [documentation](https://developers.google.com/bid-manager/).
 
 ## Installing
@@ -59,12 +59,14 @@ After that you can use DoubleClick Bid Manager API resources:
 ```typescript
 
 /*
-Retrieves line items in CSV format. YouTube & partners line items are not supported.
+Retrieves line items in CSV format. YouTube & partners line items are not
+supported.
 */
 await gapi.client.doubleclickbidmanager.lineitems.downloadlineitems({  });
 
 /*
-Uploads line items in CSV format. YouTube & partners line items are not supported.
+Uploads line items in CSV format. YouTube & partners line items are not
+supported.
 */
 await gapi.client.doubleclickbidmanager.lineitems.uploadlineitems({  });
 

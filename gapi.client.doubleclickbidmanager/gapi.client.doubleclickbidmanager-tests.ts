@@ -27,16 +27,24 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /** Retrieves line items in CSV format. YouTube & partners line items are not supported. */
-        await gapi.client.doubleclickbidmanager.lineitems.downloadlineitems({} , {
+        /**
+         * Retrieves line items in CSV format. YouTube & partners line items are not
+         * supported.
+         */
+        await gapi.client.doubleclickbidmanager.lineitems.downloadlineitems({
+        }, {
             fileSpec: "Test string",
             filterIds: [
                 "Test string"            ],
             filterType: "Test string",
             format: "Test string",
         });
-        /** Uploads line items in CSV format. YouTube & partners line items are not supported. */
-        await gapi.client.doubleclickbidmanager.lineitems.uploadlineitems({} , {
+        /**
+         * Uploads line items in CSV format. YouTube & partners line items are not
+         * supported.
+         */
+        await gapi.client.doubleclickbidmanager.lineitems.uploadlineitems({
+        }, {
             dryRun: true,
             format: "Test string",
             lineItems: "Test string",
@@ -153,7 +161,8 @@ gapi.load('client', () => {
             queryId: "Test string",
         });
         /** Retrieves entities in SDF format. */
-        await gapi.client.doubleclickbidmanager.sdf.download({} , {
+        await gapi.client.doubleclickbidmanager.sdf.download({
+        }, {
             fileTypes: [
                 "Test string"            ],
             filterIds: [
