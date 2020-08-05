@@ -42,6 +42,8 @@ const excludedApis = [
   'dataproc',
   'customsearch',
   'serviceconsumermanagement',
+  'servicenetworking',
+  'serviceusage',
 ];
 
 const irregularSpaces = [
