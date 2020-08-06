@@ -11,7 +11,7 @@
 // Revision: 20200805
 
 declare module 'gapi' {
-	type $TSRecord<T> = { [ P in string ]: T };
+	type $TSRecord<T> = Record<string, T>;
 	
 	export namespace gapi.client {
 		/** Load Chrome UX Report API v1 */
