@@ -12,10 +12,7 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Downloads media. Download is supported
-         * on the URI `/v1/media/{+name}?alt=media`.
-         */
+        /** Downloads media. Download is supported on the URI `/v1/media/{+name}?alt=media`. */
         await gapi.client.chat.media.download({
             resourceName: "Test string",
         });
@@ -243,10 +240,7 @@ gapi.load('client', () => {
                 name: "Test string",
             },
         });
-        /**
-         * Gets the metadata of a message attachment. The attachment data is fetched
-         * using the media API.
-         */
+        /** Gets the metadata of a message attachment. The attachment data is fetched using the media API. */
         await gapi.client.chat.spaces.messages.attachments.get({
             name: "Test string",
         });
@@ -254,10 +248,7 @@ gapi.load('client', () => {
         await gapi.client.chat.spaces.messages.delete({
             name: "Test string",
         });
-        /**
-         * Gets the metadata of a message attachment. The attachment data is fetched
-         * using the media API.
-         */
+        /** Gets the metadata of a message attachment. The attachment data is fetched using the media API. */
         await gapi.client.chat.spaces.messages.attachments.get({
             name: "Test string",
         });
@@ -265,10 +256,7 @@ gapi.load('client', () => {
         await gapi.client.chat.spaces.messages.get({
             name: "Test string",
         });
-        /**
-         * Gets the metadata of a message attachment. The attachment data is fetched
-         * using the media API.
-         */
+        /** Gets the metadata of a message attachment. The attachment data is fetched using the media API. */
         await gapi.client.chat.spaces.messages.attachments.get({
             name: "Test string",
         });
@@ -482,10 +470,7 @@ gapi.load('client', () => {
                 name: "Test string",
             },
         });
-        /**
-         * Gets the metadata of a message attachment. The attachment data is fetched
-         * using the media API.
-         */
+        /** Gets the metadata of a message attachment. The attachment data is fetched using the media API. */
         await gapi.client.chat.spaces.messages.attachments.get({
             name: "Test string",
         });
@@ -714,10 +699,7 @@ gapi.load('client', () => {
                 name: "Test string",
             },
         });
-        /**
-         * Gets the metadata of a message attachment. The attachment data is fetched
-         * using the media API.
-         */
+        /** Gets the metadata of a message attachment. The attachment data is fetched using the media API. */
         await gapi.client.chat.spaces.messages.attachments.get({
             name: "Test string",
         });
@@ -725,10 +707,7 @@ gapi.load('client', () => {
         await gapi.client.chat.spaces.messages.delete({
             name: "Test string",
         });
-        /**
-         * Gets the metadata of a message attachment. The attachment data is fetched
-         * using the media API.
-         */
+        /** Gets the metadata of a message attachment. The attachment data is fetched using the media API. */
         await gapi.client.chat.spaces.messages.attachments.get({
             name: "Test string",
         });
@@ -736,10 +715,7 @@ gapi.load('client', () => {
         await gapi.client.chat.spaces.messages.get({
             name: "Test string",
         });
-        /**
-         * Gets the metadata of a message attachment. The attachment data is fetched
-         * using the media API.
-         */
+        /** Gets the metadata of a message attachment. The attachment data is fetched using the media API. */
         await gapi.client.chat.spaces.messages.attachments.get({
             name: "Test string",
         });
@@ -953,10 +929,7 @@ gapi.load('client', () => {
                 name: "Test string",
             },
         });
-        /**
-         * Gets the metadata of a message attachment. The attachment data is fetched
-         * using the media API.
-         */
+        /** Gets the metadata of a message attachment. The attachment data is fetched using the media API. */
         await gapi.client.chat.spaces.messages.attachments.get({
             name: "Test string",
         });

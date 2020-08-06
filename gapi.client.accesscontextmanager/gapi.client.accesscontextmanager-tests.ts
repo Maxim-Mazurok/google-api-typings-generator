@@ -28,11 +28,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Create an `AccessPolicy`. Fails if this organization already has a
-         * `AccessPolicy`. The longrunning Operation will have a successful status
-         * once the `AccessPolicy` has propagated to long-lasting storage.
-         * Syntactic and basic semantic errors will be returned in `metadata` as a
-         * BadRequest proto.
+         * Create an `AccessPolicy`. Fails if this organization already has a `AccessPolicy`. The longrunning Operation will have a successful status once the
+         * `AccessPolicy` has propagated to long-lasting storage. Syntactic and basic semantic errors will be returned in `metadata` as a BadRequest proto.
          */
         await gapi.client.accesscontextmanager.accessPolicies.create({
         }, {
@@ -42,11 +39,8 @@ gapi.load('client', () => {
             title: "Test string",
         });
         /**
-         * Create an Access Level. The longrunning
-         * operation from this RPC will have a successful status once the Access
-         * Level has
-         * propagated to long-lasting storage. Access Levels containing
-         * errors will result in an error response for the first error encountered.
+         * Create an Access Level. The longrunning operation from this RPC will have a successful status once the Access Level has propagated to long-lasting
+         * storage. Access Levels containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.create({
             parent: "Test string",
@@ -94,26 +88,18 @@ gapi.load('client', () => {
             title: "Test string",
         });
         /**
-         * Delete an Access Level by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Access Level has been removed
+         * Delete an Access Level by resource name. The longrunning operation from this RPC will have a successful status once the Access Level has been removed
          * from long-lasting storage.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
             name: "Test string",
         });
-        /**
-         * Get an Access Level by resource
-         * name.
-         */
+        /** Get an Access Level by resource name. */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.get({
             accessLevelFormat: "Test string",
             name: "Test string",
         });
-        /**
-         * List all Access Levels for an access
-         * policy.
-         */
+        /** List all Access Levels for an access policy. */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.list({
             accessLevelFormat: "Test string",
             pageSize: 42,
@@ -121,11 +107,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Update an Access Level. The longrunning
-         * operation from this RPC will have a successful status once the changes to
-         * the Access Level have propagated
-         * to long-lasting storage. Access Levels containing
-         * errors will result in an error response for the first error encountered.
+         * Update an Access Level. The longrunning operation from this RPC will have a successful status once the changes to the Access Level have propagated to
+         * long-lasting storage. Access Levels containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.patch({
             name: "Test string",
@@ -174,18 +157,10 @@ gapi.load('client', () => {
             title: "Test string",
         });
         /**
-         * Replace all existing Access Levels in an Access
-         * Policy with
-         * the Access Levels provided. This
-         * is done atomically. The longrunning operation from this RPC will have a
-         * successful status once all replacements have propagated to long-lasting
-         * storage. Replacements containing errors will result in an error response
-         * for the first error encountered.  Replacement will be cancelled on error,
-         * existing Access Levels will not be
-         * affected. Operation.response field will contain
-         * ReplaceAccessLevelsResponse. Removing Access Levels contained in existing
-         * Service Perimeters will result in
-         * error.
+         * Replace all existing Access Levels in an Access Policy with the Access Levels provided. This is done atomically. The longrunning operation from this
+         * RPC will have a successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result in an error
+         * response for the first error encountered. Replacement will be cancelled on error, existing Access Levels will not be affected. Operation.response field
+         * will contain ReplaceAccessLevelsResponse. Removing Access Levels contained in existing Service Perimeters will result in error.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.replaceAll({
             parent: "Test string",
@@ -237,18 +212,12 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Commit the dry-run spec for all the Service Perimeters in an
-         * Access Policy.
-         * A commit operation on a Service Perimeter involves copying its `spec` field
-         * to that Service Perimeter's `status` field. Only Service Perimeters with
-         * `use_explicit_dry_run_spec` field set to true are affected by a commit
-         * operation. The longrunning operation from this RPC will have a successful
-         * status once the dry-run specs for all the Service Perimeters have been
-         * committed. If a commit fails, it will cause the longrunning operation to
-         * return an error response and the entire commit operation will be cancelled.
-         * When successful, Operation.response field will contain
-         * CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will
-         * be cleared after a successful commit operation.
+         * Commit the dry-run spec for all the Service Perimeters in an Access Policy. A commit operation on a Service Perimeter involves copying its `spec` field
+         * to that Service Perimeter's `status` field. Only Service Perimeters with `use_explicit_dry_run_spec` field set to true are affected by a commit
+         * operation. The longrunning operation from this RPC will have a successful status once the dry-run specs for all the Service Perimeters have been
+         * committed. If a commit fails, it will cause the longrunning operation to return an error response and the entire commit operation will be cancelled.
+         * When successful, Operation.response field will contain CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will be cleared after a
+         * successful commit operation.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.commit({
             parent: "Test string",
@@ -256,11 +225,8 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Create a Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * Service Perimeter has
-         * propagated to long-lasting storage. Service Perimeters containing
-         * errors will result in an error response for the first error encountered.
+         * Create a Service Perimeter. The longrunning operation from this RPC will have a successful status once the Service Perimeter has propagated to
+         * long-lasting storage. Service Perimeters containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
             parent: "Test string",
@@ -298,36 +264,25 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Delete a Service Perimeter by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Service Perimeter has been
+         * Delete a Service Perimeter by resource name. The longrunning operation from this RPC will have a successful status once the Service Perimeter has been
          * removed from long-lasting storage.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
             name: "Test string",
         });
-        /**
-         * Get a Service Perimeter by resource
-         * name.
-         */
+        /** Get a Service Perimeter by resource name. */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.get({
             name: "Test string",
         });
-        /**
-         * List all Service Perimeters for an
-         * access policy.
-         */
+        /** List all Service Perimeters for an access policy. */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
         });
         /**
-         * Update a Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * changes to the Service Perimeter have
-         * propagated to long-lasting storage. Service Perimeter containing
-         * errors will result in an error response for the first error encountered.
+         * Update a Service Perimeter. The longrunning operation from this RPC will have a successful status once the changes to the Service Perimeter have
+         * propagated to long-lasting storage. Service Perimeter containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.patch({
             name: "Test string",
@@ -366,16 +321,10 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Replace all existing Service Perimeters in an
-         * Access Policy
-         * with the Service Perimeters provided.
-         * This is done atomically. The longrunning operation from this
-         * RPC will have a successful status once all replacements have propagated to
-         * long-lasting storage. Replacements containing errors will result in an
-         * error response for the first error encountered. Replacement will be
-         * cancelled on error, existing Service Perimeters will not be
-         * affected. Operation.response field will contain
-         * ReplaceServicePerimetersResponse.
+         * Replace all existing Service Perimeters in an Access Policy with the Service Perimeters provided. This is done atomically. The longrunning operation
+         * from this RPC will have a successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result
+         * in an error response for the first error encountered. Replacement will be cancelled on error, existing Service Perimeters will not be affected.
+         * Operation.response field will contain ReplaceServicePerimetersResponse.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.replaceAll({
             parent: "Test string",
@@ -417,20 +366,15 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Delete an AccessPolicy by resource
-         * name. The longrunning Operation will have a successful status once the
-         * AccessPolicy
-         * has been removed from long-lasting storage.
+         * Delete an AccessPolicy by resource name. The longrunning Operation will have a successful status once the AccessPolicy has been removed from
+         * long-lasting storage.
          */
         await gapi.client.accesscontextmanager.accessPolicies.delete({
             name: "Test string",
         });
         /**
-         * Create an Access Level. The longrunning
-         * operation from this RPC will have a successful status once the Access
-         * Level has
-         * propagated to long-lasting storage. Access Levels containing
-         * errors will result in an error response for the first error encountered.
+         * Create an Access Level. The longrunning operation from this RPC will have a successful status once the Access Level has propagated to long-lasting
+         * storage. Access Levels containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.create({
             parent: "Test string",
@@ -478,26 +422,18 @@ gapi.load('client', () => {
             title: "Test string",
         });
         /**
-         * Delete an Access Level by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Access Level has been removed
+         * Delete an Access Level by resource name. The longrunning operation from this RPC will have a successful status once the Access Level has been removed
          * from long-lasting storage.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
             name: "Test string",
         });
-        /**
-         * Get an Access Level by resource
-         * name.
-         */
+        /** Get an Access Level by resource name. */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.get({
             accessLevelFormat: "Test string",
             name: "Test string",
         });
-        /**
-         * List all Access Levels for an access
-         * policy.
-         */
+        /** List all Access Levels for an access policy. */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.list({
             accessLevelFormat: "Test string",
             pageSize: 42,
@@ -505,11 +441,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Update an Access Level. The longrunning
-         * operation from this RPC will have a successful status once the changes to
-         * the Access Level have propagated
-         * to long-lasting storage. Access Levels containing
-         * errors will result in an error response for the first error encountered.
+         * Update an Access Level. The longrunning operation from this RPC will have a successful status once the changes to the Access Level have propagated to
+         * long-lasting storage. Access Levels containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.patch({
             name: "Test string",
@@ -558,18 +491,10 @@ gapi.load('client', () => {
             title: "Test string",
         });
         /**
-         * Replace all existing Access Levels in an Access
-         * Policy with
-         * the Access Levels provided. This
-         * is done atomically. The longrunning operation from this RPC will have a
-         * successful status once all replacements have propagated to long-lasting
-         * storage. Replacements containing errors will result in an error response
-         * for the first error encountered.  Replacement will be cancelled on error,
-         * existing Access Levels will not be
-         * affected. Operation.response field will contain
-         * ReplaceAccessLevelsResponse. Removing Access Levels contained in existing
-         * Service Perimeters will result in
-         * error.
+         * Replace all existing Access Levels in an Access Policy with the Access Levels provided. This is done atomically. The longrunning operation from this
+         * RPC will have a successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result in an error
+         * response for the first error encountered. Replacement will be cancelled on error, existing Access Levels will not be affected. Operation.response field
+         * will contain ReplaceAccessLevelsResponse. Removing Access Levels contained in existing Service Perimeters will result in error.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.replaceAll({
             parent: "Test string",
@@ -621,18 +546,12 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Commit the dry-run spec for all the Service Perimeters in an
-         * Access Policy.
-         * A commit operation on a Service Perimeter involves copying its `spec` field
-         * to that Service Perimeter's `status` field. Only Service Perimeters with
-         * `use_explicit_dry_run_spec` field set to true are affected by a commit
-         * operation. The longrunning operation from this RPC will have a successful
-         * status once the dry-run specs for all the Service Perimeters have been
-         * committed. If a commit fails, it will cause the longrunning operation to
-         * return an error response and the entire commit operation will be cancelled.
-         * When successful, Operation.response field will contain
-         * CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will
-         * be cleared after a successful commit operation.
+         * Commit the dry-run spec for all the Service Perimeters in an Access Policy. A commit operation on a Service Perimeter involves copying its `spec` field
+         * to that Service Perimeter's `status` field. Only Service Perimeters with `use_explicit_dry_run_spec` field set to true are affected by a commit
+         * operation. The longrunning operation from this RPC will have a successful status once the dry-run specs for all the Service Perimeters have been
+         * committed. If a commit fails, it will cause the longrunning operation to return an error response and the entire commit operation will be cancelled.
+         * When successful, Operation.response field will contain CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will be cleared after a
+         * successful commit operation.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.commit({
             parent: "Test string",
@@ -640,11 +559,8 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Create a Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * Service Perimeter has
-         * propagated to long-lasting storage. Service Perimeters containing
-         * errors will result in an error response for the first error encountered.
+         * Create a Service Perimeter. The longrunning operation from this RPC will have a successful status once the Service Perimeter has propagated to
+         * long-lasting storage. Service Perimeters containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
             parent: "Test string",
@@ -682,36 +598,25 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Delete a Service Perimeter by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Service Perimeter has been
+         * Delete a Service Perimeter by resource name. The longrunning operation from this RPC will have a successful status once the Service Perimeter has been
          * removed from long-lasting storage.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
             name: "Test string",
         });
-        /**
-         * Get a Service Perimeter by resource
-         * name.
-         */
+        /** Get a Service Perimeter by resource name. */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.get({
             name: "Test string",
         });
-        /**
-         * List all Service Perimeters for an
-         * access policy.
-         */
+        /** List all Service Perimeters for an access policy. */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
         });
         /**
-         * Update a Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * changes to the Service Perimeter have
-         * propagated to long-lasting storage. Service Perimeter containing
-         * errors will result in an error response for the first error encountered.
+         * Update a Service Perimeter. The longrunning operation from this RPC will have a successful status once the changes to the Service Perimeter have
+         * propagated to long-lasting storage. Service Perimeter containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.patch({
             name: "Test string",
@@ -750,16 +655,10 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Replace all existing Service Perimeters in an
-         * Access Policy
-         * with the Service Perimeters provided.
-         * This is done atomically. The longrunning operation from this
-         * RPC will have a successful status once all replacements have propagated to
-         * long-lasting storage. Replacements containing errors will result in an
-         * error response for the first error encountered. Replacement will be
-         * cancelled on error, existing Service Perimeters will not be
-         * affected. Operation.response field will contain
-         * ReplaceServicePerimetersResponse.
+         * Replace all existing Service Perimeters in an Access Policy with the Service Perimeters provided. This is done atomically. The longrunning operation
+         * from this RPC will have a successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result
+         * in an error response for the first error encountered. Replacement will be cancelled on error, existing Service Perimeters will not be affected.
+         * Operation.response field will contain ReplaceServicePerimetersResponse.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.replaceAll({
             parent: "Test string",
@@ -805,11 +704,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Create an Access Level. The longrunning
-         * operation from this RPC will have a successful status once the Access
-         * Level has
-         * propagated to long-lasting storage. Access Levels containing
-         * errors will result in an error response for the first error encountered.
+         * Create an Access Level. The longrunning operation from this RPC will have a successful status once the Access Level has propagated to long-lasting
+         * storage. Access Levels containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.create({
             parent: "Test string",
@@ -857,26 +753,18 @@ gapi.load('client', () => {
             title: "Test string",
         });
         /**
-         * Delete an Access Level by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Access Level has been removed
+         * Delete an Access Level by resource name. The longrunning operation from this RPC will have a successful status once the Access Level has been removed
          * from long-lasting storage.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
             name: "Test string",
         });
-        /**
-         * Get an Access Level by resource
-         * name.
-         */
+        /** Get an Access Level by resource name. */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.get({
             accessLevelFormat: "Test string",
             name: "Test string",
         });
-        /**
-         * List all Access Levels for an access
-         * policy.
-         */
+        /** List all Access Levels for an access policy. */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.list({
             accessLevelFormat: "Test string",
             pageSize: 42,
@@ -884,11 +772,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Update an Access Level. The longrunning
-         * operation from this RPC will have a successful status once the changes to
-         * the Access Level have propagated
-         * to long-lasting storage. Access Levels containing
-         * errors will result in an error response for the first error encountered.
+         * Update an Access Level. The longrunning operation from this RPC will have a successful status once the changes to the Access Level have propagated to
+         * long-lasting storage. Access Levels containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.patch({
             name: "Test string",
@@ -937,18 +822,10 @@ gapi.load('client', () => {
             title: "Test string",
         });
         /**
-         * Replace all existing Access Levels in an Access
-         * Policy with
-         * the Access Levels provided. This
-         * is done atomically. The longrunning operation from this RPC will have a
-         * successful status once all replacements have propagated to long-lasting
-         * storage. Replacements containing errors will result in an error response
-         * for the first error encountered.  Replacement will be cancelled on error,
-         * existing Access Levels will not be
-         * affected. Operation.response field will contain
-         * ReplaceAccessLevelsResponse. Removing Access Levels contained in existing
-         * Service Perimeters will result in
-         * error.
+         * Replace all existing Access Levels in an Access Policy with the Access Levels provided. This is done atomically. The longrunning operation from this
+         * RPC will have a successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result in an error
+         * response for the first error encountered. Replacement will be cancelled on error, existing Access Levels will not be affected. Operation.response field
+         * will contain ReplaceAccessLevelsResponse. Removing Access Levels contained in existing Service Perimeters will result in error.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.replaceAll({
             parent: "Test string",
@@ -1000,18 +877,12 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Commit the dry-run spec for all the Service Perimeters in an
-         * Access Policy.
-         * A commit operation on a Service Perimeter involves copying its `spec` field
-         * to that Service Perimeter's `status` field. Only Service Perimeters with
-         * `use_explicit_dry_run_spec` field set to true are affected by a commit
-         * operation. The longrunning operation from this RPC will have a successful
-         * status once the dry-run specs for all the Service Perimeters have been
-         * committed. If a commit fails, it will cause the longrunning operation to
-         * return an error response and the entire commit operation will be cancelled.
-         * When successful, Operation.response field will contain
-         * CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will
-         * be cleared after a successful commit operation.
+         * Commit the dry-run spec for all the Service Perimeters in an Access Policy. A commit operation on a Service Perimeter involves copying its `spec` field
+         * to that Service Perimeter's `status` field. Only Service Perimeters with `use_explicit_dry_run_spec` field set to true are affected by a commit
+         * operation. The longrunning operation from this RPC will have a successful status once the dry-run specs for all the Service Perimeters have been
+         * committed. If a commit fails, it will cause the longrunning operation to return an error response and the entire commit operation will be cancelled.
+         * When successful, Operation.response field will contain CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will be cleared after a
+         * successful commit operation.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.commit({
             parent: "Test string",
@@ -1019,11 +890,8 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Create a Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * Service Perimeter has
-         * propagated to long-lasting storage. Service Perimeters containing
-         * errors will result in an error response for the first error encountered.
+         * Create a Service Perimeter. The longrunning operation from this RPC will have a successful status once the Service Perimeter has propagated to
+         * long-lasting storage. Service Perimeters containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
             parent: "Test string",
@@ -1061,36 +929,25 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Delete a Service Perimeter by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Service Perimeter has been
+         * Delete a Service Perimeter by resource name. The longrunning operation from this RPC will have a successful status once the Service Perimeter has been
          * removed from long-lasting storage.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
             name: "Test string",
         });
-        /**
-         * Get a Service Perimeter by resource
-         * name.
-         */
+        /** Get a Service Perimeter by resource name. */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.get({
             name: "Test string",
         });
-        /**
-         * List all Service Perimeters for an
-         * access policy.
-         */
+        /** List all Service Perimeters for an access policy. */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
         });
         /**
-         * Update a Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * changes to the Service Perimeter have
-         * propagated to long-lasting storage. Service Perimeter containing
-         * errors will result in an error response for the first error encountered.
+         * Update a Service Perimeter. The longrunning operation from this RPC will have a successful status once the changes to the Service Perimeter have
+         * propagated to long-lasting storage. Service Perimeter containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.patch({
             name: "Test string",
@@ -1129,16 +986,10 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Replace all existing Service Perimeters in an
-         * Access Policy
-         * with the Service Perimeters provided.
-         * This is done atomically. The longrunning operation from this
-         * RPC will have a successful status once all replacements have propagated to
-         * long-lasting storage. Replacements containing errors will result in an
-         * error response for the first error encountered. Replacement will be
-         * cancelled on error, existing Service Perimeters will not be
-         * affected. Operation.response field will contain
-         * ReplaceServicePerimetersResponse.
+         * Replace all existing Service Perimeters in an Access Policy with the Service Perimeters provided. This is done atomically. The longrunning operation
+         * from this RPC will have a successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result
+         * in an error response for the first error encountered. Replacement will be cancelled on error, existing Service Perimeters will not be affected.
+         * Operation.response field will contain ReplaceServicePerimetersResponse.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.replaceAll({
             parent: "Test string",
@@ -1179,21 +1030,15 @@ gapi.load('client', () => {
                     useExplicitDryRunSpec: true,
                 }            ],
         });
-        /**
-         * List all AccessPolicies under a
-         * container.
-         */
+        /** List all AccessPolicies under a container. */
         await gapi.client.accesscontextmanager.accessPolicies.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
         });
         /**
-         * Create an Access Level. The longrunning
-         * operation from this RPC will have a successful status once the Access
-         * Level has
-         * propagated to long-lasting storage. Access Levels containing
-         * errors will result in an error response for the first error encountered.
+         * Create an Access Level. The longrunning operation from this RPC will have a successful status once the Access Level has propagated to long-lasting
+         * storage. Access Levels containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.create({
             parent: "Test string",
@@ -1241,26 +1086,18 @@ gapi.load('client', () => {
             title: "Test string",
         });
         /**
-         * Delete an Access Level by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Access Level has been removed
+         * Delete an Access Level by resource name. The longrunning operation from this RPC will have a successful status once the Access Level has been removed
          * from long-lasting storage.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
             name: "Test string",
         });
-        /**
-         * Get an Access Level by resource
-         * name.
-         */
+        /** Get an Access Level by resource name. */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.get({
             accessLevelFormat: "Test string",
             name: "Test string",
         });
-        /**
-         * List all Access Levels for an access
-         * policy.
-         */
+        /** List all Access Levels for an access policy. */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.list({
             accessLevelFormat: "Test string",
             pageSize: 42,
@@ -1268,11 +1105,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Update an Access Level. The longrunning
-         * operation from this RPC will have a successful status once the changes to
-         * the Access Level have propagated
-         * to long-lasting storage. Access Levels containing
-         * errors will result in an error response for the first error encountered.
+         * Update an Access Level. The longrunning operation from this RPC will have a successful status once the changes to the Access Level have propagated to
+         * long-lasting storage. Access Levels containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.patch({
             name: "Test string",
@@ -1321,18 +1155,10 @@ gapi.load('client', () => {
             title: "Test string",
         });
         /**
-         * Replace all existing Access Levels in an Access
-         * Policy with
-         * the Access Levels provided. This
-         * is done atomically. The longrunning operation from this RPC will have a
-         * successful status once all replacements have propagated to long-lasting
-         * storage. Replacements containing errors will result in an error response
-         * for the first error encountered.  Replacement will be cancelled on error,
-         * existing Access Levels will not be
-         * affected. Operation.response field will contain
-         * ReplaceAccessLevelsResponse. Removing Access Levels contained in existing
-         * Service Perimeters will result in
-         * error.
+         * Replace all existing Access Levels in an Access Policy with the Access Levels provided. This is done atomically. The longrunning operation from this
+         * RPC will have a successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result in an error
+         * response for the first error encountered. Replacement will be cancelled on error, existing Access Levels will not be affected. Operation.response field
+         * will contain ReplaceAccessLevelsResponse. Removing Access Levels contained in existing Service Perimeters will result in error.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.replaceAll({
             parent: "Test string",
@@ -1384,18 +1210,12 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Commit the dry-run spec for all the Service Perimeters in an
-         * Access Policy.
-         * A commit operation on a Service Perimeter involves copying its `spec` field
-         * to that Service Perimeter's `status` field. Only Service Perimeters with
-         * `use_explicit_dry_run_spec` field set to true are affected by a commit
-         * operation. The longrunning operation from this RPC will have a successful
-         * status once the dry-run specs for all the Service Perimeters have been
-         * committed. If a commit fails, it will cause the longrunning operation to
-         * return an error response and the entire commit operation will be cancelled.
-         * When successful, Operation.response field will contain
-         * CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will
-         * be cleared after a successful commit operation.
+         * Commit the dry-run spec for all the Service Perimeters in an Access Policy. A commit operation on a Service Perimeter involves copying its `spec` field
+         * to that Service Perimeter's `status` field. Only Service Perimeters with `use_explicit_dry_run_spec` field set to true are affected by a commit
+         * operation. The longrunning operation from this RPC will have a successful status once the dry-run specs for all the Service Perimeters have been
+         * committed. If a commit fails, it will cause the longrunning operation to return an error response and the entire commit operation will be cancelled.
+         * When successful, Operation.response field will contain CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will be cleared after a
+         * successful commit operation.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.commit({
             parent: "Test string",
@@ -1403,11 +1223,8 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Create a Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * Service Perimeter has
-         * propagated to long-lasting storage. Service Perimeters containing
-         * errors will result in an error response for the first error encountered.
+         * Create a Service Perimeter. The longrunning operation from this RPC will have a successful status once the Service Perimeter has propagated to
+         * long-lasting storage. Service Perimeters containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
             parent: "Test string",
@@ -1445,36 +1262,25 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Delete a Service Perimeter by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Service Perimeter has been
+         * Delete a Service Perimeter by resource name. The longrunning operation from this RPC will have a successful status once the Service Perimeter has been
          * removed from long-lasting storage.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
             name: "Test string",
         });
-        /**
-         * Get a Service Perimeter by resource
-         * name.
-         */
+        /** Get a Service Perimeter by resource name. */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.get({
             name: "Test string",
         });
-        /**
-         * List all Service Perimeters for an
-         * access policy.
-         */
+        /** List all Service Perimeters for an access policy. */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
         });
         /**
-         * Update a Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * changes to the Service Perimeter have
-         * propagated to long-lasting storage. Service Perimeter containing
-         * errors will result in an error response for the first error encountered.
+         * Update a Service Perimeter. The longrunning operation from this RPC will have a successful status once the changes to the Service Perimeter have
+         * propagated to long-lasting storage. Service Perimeter containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.patch({
             name: "Test string",
@@ -1513,16 +1319,10 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Replace all existing Service Perimeters in an
-         * Access Policy
-         * with the Service Perimeters provided.
-         * This is done atomically. The longrunning operation from this
-         * RPC will have a successful status once all replacements have propagated to
-         * long-lasting storage. Replacements containing errors will result in an
-         * error response for the first error encountered. Replacement will be
-         * cancelled on error, existing Service Perimeters will not be
-         * affected. Operation.response field will contain
-         * ReplaceServicePerimetersResponse.
+         * Replace all existing Service Perimeters in an Access Policy with the Service Perimeters provided. This is done atomically. The longrunning operation
+         * from this RPC will have a successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result
+         * in an error response for the first error encountered. Replacement will be cancelled on error, existing Service Perimeters will not be affected.
+         * Operation.response field will contain ReplaceServicePerimetersResponse.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.replaceAll({
             parent: "Test string",
@@ -1564,11 +1364,8 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Update an AccessPolicy. The
-         * longrunning Operation from this RPC will have a successful status once the
-         * changes to the AccessPolicy have propagated
-         * to long-lasting storage. Syntactic and basic semantic errors will be
-         * returned in `metadata` as a BadRequest proto.
+         * Update an AccessPolicy. The longrunning Operation from this RPC will have a successful status once the changes to the AccessPolicy have propagated to
+         * long-lasting storage. Syntactic and basic semantic errors will be returned in `metadata` as a BadRequest proto.
          */
         await gapi.client.accesscontextmanager.accessPolicies.patch({
             name: "Test string",
@@ -1580,11 +1377,8 @@ gapi.load('client', () => {
             title: "Test string",
         });
         /**
-         * Create an Access Level. The longrunning
-         * operation from this RPC will have a successful status once the Access
-         * Level has
-         * propagated to long-lasting storage. Access Levels containing
-         * errors will result in an error response for the first error encountered.
+         * Create an Access Level. The longrunning operation from this RPC will have a successful status once the Access Level has propagated to long-lasting
+         * storage. Access Levels containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.create({
             parent: "Test string",
@@ -1632,26 +1426,18 @@ gapi.load('client', () => {
             title: "Test string",
         });
         /**
-         * Delete an Access Level by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Access Level has been removed
+         * Delete an Access Level by resource name. The longrunning operation from this RPC will have a successful status once the Access Level has been removed
          * from long-lasting storage.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.delete({
             name: "Test string",
         });
-        /**
-         * Get an Access Level by resource
-         * name.
-         */
+        /** Get an Access Level by resource name. */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.get({
             accessLevelFormat: "Test string",
             name: "Test string",
         });
-        /**
-         * List all Access Levels for an access
-         * policy.
-         */
+        /** List all Access Levels for an access policy. */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.list({
             accessLevelFormat: "Test string",
             pageSize: 42,
@@ -1659,11 +1445,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Update an Access Level. The longrunning
-         * operation from this RPC will have a successful status once the changes to
-         * the Access Level have propagated
-         * to long-lasting storage. Access Levels containing
-         * errors will result in an error response for the first error encountered.
+         * Update an Access Level. The longrunning operation from this RPC will have a successful status once the changes to the Access Level have propagated to
+         * long-lasting storage. Access Levels containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.patch({
             name: "Test string",
@@ -1712,18 +1495,10 @@ gapi.load('client', () => {
             title: "Test string",
         });
         /**
-         * Replace all existing Access Levels in an Access
-         * Policy with
-         * the Access Levels provided. This
-         * is done atomically. The longrunning operation from this RPC will have a
-         * successful status once all replacements have propagated to long-lasting
-         * storage. Replacements containing errors will result in an error response
-         * for the first error encountered.  Replacement will be cancelled on error,
-         * existing Access Levels will not be
-         * affected. Operation.response field will contain
-         * ReplaceAccessLevelsResponse. Removing Access Levels contained in existing
-         * Service Perimeters will result in
-         * error.
+         * Replace all existing Access Levels in an Access Policy with the Access Levels provided. This is done atomically. The longrunning operation from this
+         * RPC will have a successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result in an error
+         * response for the first error encountered. Replacement will be cancelled on error, existing Access Levels will not be affected. Operation.response field
+         * will contain ReplaceAccessLevelsResponse. Removing Access Levels contained in existing Service Perimeters will result in error.
          */
         await gapi.client.accesscontextmanager.accessPolicies.accessLevels.replaceAll({
             parent: "Test string",
@@ -1775,18 +1550,12 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Commit the dry-run spec for all the Service Perimeters in an
-         * Access Policy.
-         * A commit operation on a Service Perimeter involves copying its `spec` field
-         * to that Service Perimeter's `status` field. Only Service Perimeters with
-         * `use_explicit_dry_run_spec` field set to true are affected by a commit
-         * operation. The longrunning operation from this RPC will have a successful
-         * status once the dry-run specs for all the Service Perimeters have been
-         * committed. If a commit fails, it will cause the longrunning operation to
-         * return an error response and the entire commit operation will be cancelled.
-         * When successful, Operation.response field will contain
-         * CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will
-         * be cleared after a successful commit operation.
+         * Commit the dry-run spec for all the Service Perimeters in an Access Policy. A commit operation on a Service Perimeter involves copying its `spec` field
+         * to that Service Perimeter's `status` field. Only Service Perimeters with `use_explicit_dry_run_spec` field set to true are affected by a commit
+         * operation. The longrunning operation from this RPC will have a successful status once the dry-run specs for all the Service Perimeters have been
+         * committed. If a commit fails, it will cause the longrunning operation to return an error response and the entire commit operation will be cancelled.
+         * When successful, Operation.response field will contain CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will be cleared after a
+         * successful commit operation.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.commit({
             parent: "Test string",
@@ -1794,11 +1563,8 @@ gapi.load('client', () => {
             etag: "Test string",
         });
         /**
-         * Create a Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * Service Perimeter has
-         * propagated to long-lasting storage. Service Perimeters containing
-         * errors will result in an error response for the first error encountered.
+         * Create a Service Perimeter. The longrunning operation from this RPC will have a successful status once the Service Perimeter has propagated to
+         * long-lasting storage. Service Perimeters containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.create({
             parent: "Test string",
@@ -1836,36 +1602,25 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Delete a Service Perimeter by resource
-         * name. The longrunning operation from this RPC will have a successful status
-         * once the Service Perimeter has been
+         * Delete a Service Perimeter by resource name. The longrunning operation from this RPC will have a successful status once the Service Perimeter has been
          * removed from long-lasting storage.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.delete({
             name: "Test string",
         });
-        /**
-         * Get a Service Perimeter by resource
-         * name.
-         */
+        /** Get a Service Perimeter by resource name. */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.get({
             name: "Test string",
         });
-        /**
-         * List all Service Perimeters for an
-         * access policy.
-         */
+        /** List all Service Perimeters for an access policy. */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
         });
         /**
-         * Update a Service Perimeter. The
-         * longrunning operation from this RPC will have a successful status once the
-         * changes to the Service Perimeter have
-         * propagated to long-lasting storage. Service Perimeter containing
-         * errors will result in an error response for the first error encountered.
+         * Update a Service Perimeter. The longrunning operation from this RPC will have a successful status once the changes to the Service Perimeter have
+         * propagated to long-lasting storage. Service Perimeter containing errors will result in an error response for the first error encountered.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.patch({
             name: "Test string",
@@ -1904,16 +1659,10 @@ gapi.load('client', () => {
             useExplicitDryRunSpec: true,
         });
         /**
-         * Replace all existing Service Perimeters in an
-         * Access Policy
-         * with the Service Perimeters provided.
-         * This is done atomically. The longrunning operation from this
-         * RPC will have a successful status once all replacements have propagated to
-         * long-lasting storage. Replacements containing errors will result in an
-         * error response for the first error encountered. Replacement will be
-         * cancelled on error, existing Service Perimeters will not be
-         * affected. Operation.response field will contain
-         * ReplaceServicePerimetersResponse.
+         * Replace all existing Service Perimeters in an Access Policy with the Service Perimeters provided. This is done atomically. The longrunning operation
+         * from this RPC will have a successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result
+         * in an error response for the first error encountered. Replacement will be cancelled on error, existing Service Perimeters will not be affected.
+         * Operation.response field will contain ReplaceServicePerimetersResponse.
          */
         await gapi.client.accesscontextmanager.accessPolicies.servicePerimeters.replaceAll({
             parent: "Test string",
@@ -1955,49 +1704,35 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Starts asynchronous cancellation on a long-running operation.  The server
-         * makes a best effort to cancel the operation, but success is not
-         * guaranteed.  If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-         * Operations.GetOperation or
-         * other methods to check whether the cancellation succeeded or whether the
-         * operation completed despite cancellation. On successful cancellation,
-         * the operation is not deleted; instead, it becomes an operation with
-         * an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to `Code.CANCELLED`.
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
+         * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
+         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
+         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
          */
         await gapi.client.accesscontextmanager.operations.cancel({
             name: "Test string",
         }, {
         });
         /**
-         * Deletes a long-running operation. This method indicates that the client is
-         * no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`.
+         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
+         * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
          */
         await gapi.client.accesscontextmanager.operations.delete({
             name: "Test string",
         });
         /**
-         * Gets the latest state of a long-running operation.  Clients can use this
-         * method to poll the operation result at intervals as recommended by the API
+         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
          * service.
          */
         await gapi.client.accesscontextmanager.operations.get({
             name: "Test string",
         });
         /**
-         * Lists operations that match the specified filter in the request. If the
-         * server doesn't support this method, it returns `UNIMPLEMENTED`.
-         *
-         * NOTE: the `name` binding allows API services to override the binding
-         * to use different resource name schemes, such as `users/&#42;/operations`. To
-         * override the binding, API services can add a binding such as
-         * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
-         * For backwards compatibility, the default name includes the operations
-         * collection id, however overriding users must ensure the name binding
-         * is the parent resource, without the operations collection id.
+         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+         * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/&#42;/operations`. To override the
+         * binding, API services can add a binding such as `"/v1/{name=users/&#42;}/operations"` to their service configuration. For backwards compatibility, the
+         * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
+         * operations collection id.
          */
         await gapi.client.accesscontextmanager.operations.list({
             filter: "Test string",
