@@ -29,10 +29,7 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Retrieves the profile information used for logging in to a virtual machine
-         * on Google Compute Engine.
-         */
+        /** Retrieves the profile information used for logging in to a virtual machine on Google Compute Engine. */
         await gapi.client.oslogin.users.getLoginProfile({
             name: "Test string",
             projectId: "Test string",
@@ -50,10 +47,7 @@ gapi.load('client', () => {
         await gapi.client.oslogin.users.sshPublicKeys.get({
             name: "Test string",
         });
-        /**
-         * Updates an SSH public key and returns the profile information. This method
-         * supports patch semantics.
-         */
+        /** Updates an SSH public key and returns the profile information. This method supports patch semantics. */
         await gapi.client.oslogin.users.sshPublicKeys.patch({
             name: "Test string",
             updateMask: "Test string",
@@ -64,8 +58,7 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Adds an SSH public key and returns the profile information. Default POSIX
-         * account information is set when no username and UID exist as part of the
+         * Adds an SSH public key and returns the profile information. Default POSIX account information is set when no username and UID exist as part of the
          * login profile.
          */
         await gapi.client.oslogin.users.importSshPublicKey({
@@ -89,10 +82,7 @@ gapi.load('client', () => {
         await gapi.client.oslogin.users.sshPublicKeys.get({
             name: "Test string",
         });
-        /**
-         * Updates an SSH public key and returns the profile information. This method
-         * supports patch semantics.
-         */
+        /** Updates an SSH public key and returns the profile information. This method supports patch semantics. */
         await gapi.client.oslogin.users.sshPublicKeys.patch({
             name: "Test string",
             updateMask: "Test string",
