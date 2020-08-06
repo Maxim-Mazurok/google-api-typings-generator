@@ -278,7 +278,7 @@ Gets the access control policy for a resource. May be empty if no such policy or
 await gapi.client.compute.disks.getIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
 
 /*
-Creates a persistent disk in the specified project using the data in the request. You can create a disk with a sourceImage, a sourceSnapshot, or create an empty 500 GB data disk by omitting all properties. You can also create a disk that is larger than the default size by specifying the sizeGb property.
+Creates a persistent disk in the specified project using the data in the request. You can create a disk from a source (sourceImage, sourceSnapshot, or sourceDisk) or create an empty 500 GB data disk by omitting all properties. You can also create a disk that is larger than the default size by specifying the sizeGb property.
 */
 await gapi.client.compute.disks.insert({ project: "project", zone: "zone",  });
 
@@ -722,6 +722,11 @@ You can specify a maximum of 1000 instances with this method per request.
 await gapi.client.compute.instanceGroupManagers.deleteInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
+Deletes selected per-instance configs for the managed instance group.
+*/
+await gapi.client.compute.instanceGroupManagers.deletePerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
+
+/*
 Returns all of the details about the specified managed instance group. Gets a list of available managed instance groups by making a list() request.
 */
 await gapi.client.compute.instanceGroupManagers.get({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
@@ -749,9 +754,19 @@ Lists all of the instances in the managed instance group. Each instance in the l
 await gapi.client.compute.instanceGroupManagers.listManagedInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
+Lists all of the per-instance configs defined for the managed instance group. The orderBy query parameter is not supported.
+*/
+await gapi.client.compute.instanceGroupManagers.listPerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
+
+/*
 Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the listManagedInstances method. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.instanceGroupManagers.patch({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
+
+/*
+Inserts or patches per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch.
+*/
+await gapi.client.compute.instanceGroupManagers.patchPerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
 Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current instance template for the managed instance group. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.
@@ -784,6 +799,11 @@ await gapi.client.compute.instanceGroupManagers.setInstanceTemplate({ instanceGr
 Modifies the target pools to which all instances in this managed instance group are assigned. The target pools automatically apply to all of the instances in the managed instance group. This operation is marked DONE when you make the request even if the instances have not yet been added to their target pools. The change might take some time to apply to all of the instances in the group depending on the size of the group.
 */
 await gapi.client.compute.instanceGroupManagers.setTargetPools({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
+
+/*
+Inserts or updates per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch.
+*/
+await gapi.client.compute.instanceGroupManagers.updatePerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
 Adds a list of instances to the specified instance group. All of the instances in the instance group must be in the same network/subnetwork. Read  Adding instances for more information.
@@ -1751,6 +1771,11 @@ You can specify a maximum of 1000 instances with this method per request.
 await gapi.client.compute.regionInstanceGroupManagers.deleteInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
+Deletes selected per-instance configs for the managed instance group.
+*/
+await gapi.client.compute.regionInstanceGroupManagers.deletePerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
+
+/*
 Returns all of the details about the specified managed instance group.
 */
 await gapi.client.compute.regionInstanceGroupManagers.get({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
@@ -1778,9 +1803,19 @@ Lists the instances in the managed instance group and instances that are schedul
 await gapi.client.compute.regionInstanceGroupManagers.listManagedInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
+Lists all of the per-instance configs defined for the managed instance group. The orderBy query parameter is not supported.
+*/
+await gapi.client.compute.regionInstanceGroupManagers.listPerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
+
+/*
 Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the listmanagedinstances method. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.regionInstanceGroupManagers.patch({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
+
+/*
+Insert or patch (for the ones that already exist) per-instance configs for the managed instance group. perInstanceConfig.instance serves as a key used to distinguish whether to perform insert or patch.
+*/
+await gapi.client.compute.regionInstanceGroupManagers.patchPerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
 Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current instance template for the managed instance group. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.
@@ -1811,6 +1846,11 @@ Modifies the target pools to which all new instances in this group are assigned.
 await gapi.client.compute.regionInstanceGroupManagers.setTargetPools({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
+Insert or update (for the ones that already exist) per-instance configs for the managed instance group. perInstanceConfig.instance serves as a key used to distinguish whether to perform insert or patch.
+*/
+await gapi.client.compute.regionInstanceGroupManagers.updatePerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
+
+/*
 Returns the specified instance group resource.
 */
 await gapi.client.compute.regionInstanceGroups.get({ instanceGroup: "instanceGroup", project: "project", region: "region",  });
@@ -1829,6 +1869,26 @@ await gapi.client.compute.regionInstanceGroups.listInstances({ instanceGroup: "i
 Sets the named ports for the specified regional instance group.
 */
 await gapi.client.compute.regionInstanceGroups.setNamedPorts({ instanceGroup: "instanceGroup", project: "project", region: "region",  });
+
+/*
+Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.delete({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
+
+/*
+Returns the specified network endpoint group. Gets a list of available network endpoint groups by making a list() request.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.get({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
+
+/*
+Creates a network endpoint group in the specified project using the parameters that are included in the request.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.insert({ project: "project", region: "region",  });
+
+/*
+Retrieves the list of regional network endpoint groups available to the specified project in the given region.
+*/
+await gapi.client.compute.regionNetworkEndpointGroups.list({ project: "project", region: "region",  });
 
 /*
 Deletes the specified NotificationEndpoint in the given region

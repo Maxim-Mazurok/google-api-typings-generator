@@ -899,9 +899,9 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Creates a persistent disk in the specified project using the data in the request. You can create a disk with a sourceImage, a sourceSnapshot, or create
-         * an empty 500 GB data disk by omitting all properties. You can also create a disk that is larger than the default size by specifying the sizeGb
-         * property.
+         * Creates a persistent disk in the specified project using the data in the request. You can create a disk from a source (sourceImage, sourceSnapshot, or
+         * sourceDisk) or create an empty 500 GB data disk by omitting all properties. You can also create a disk that is larger than the default size by
+         * specifying the sizeGb property.
          */
         await gapi.client.compute.disks.insert({
             project: "Test string",
@@ -1675,6 +1675,20 @@ gapi.load('client', () => {
         }, {
             annotations: {
                 A: "Test string"            },
+            appEngine: {
+                service: "Test string",
+                urlMask: "Test string",
+                version: "Test string",
+            },
+            cloudFunction: {
+                function: "Test string",
+                urlMask: "Test string",
+            },
+            cloudRun: {
+                service: "Test string",
+                tag: "Test string",
+                urlMask: "Test string",
+            },
             creationTimestamp: "Test string",
             defaultPort: 42,
             description: "Test string",
@@ -1683,6 +1697,7 @@ gapi.load('client', () => {
             name: "Test string",
             network: "Test string",
             networkEndpointType: "Test string",
+            region: "Test string",
             selfLink: "Test string",
             size: 42,
             subnetwork: "Test string",
@@ -2449,6 +2464,17 @@ gapi.load('client', () => {
                 {
                     fingerprint: "Test string",
                     name: "Test string",
+                    preservedState: {
+                        disks: {
+                            A: {
+                                autoDelete: "Test string",
+                                mode: "Test string",
+                                source: "Test string",
+                            }                        },
+                        metadata: {
+                            A: "Test string"                        },
+                    },
+                    status: "Test string",
                 }            ],
         });
         /**
@@ -2479,6 +2505,15 @@ gapi.load('client', () => {
             zone: "Test string",
         }, {
             instances: [
+                "Test string"            ],
+        });
+        /** Deletes selected per-instance configs for the managed instance group. */
+        await gapi.client.compute.instanceGroupManagers.deletePerInstanceConfigs({
+            instanceGroupManager: "Test string",
+            project: "Test string",
+            zone: "Test string",
+        }, {
+            names: [
                 "Test string"            ],
         });
         /** Returns all of the details about the specified managed instance group. Gets a list of available managed instance groups by making a list() request. */
@@ -2537,9 +2572,23 @@ gapi.load('client', () => {
                 }            ],
             region: "Test string",
             selfLink: "Test string",
+            statefulPolicy: {
+                preservedState: {
+                    disks: {
+                        A: {
+                            autoDelete: "Test string",
+                        }                    },
+                },
+            },
             status: {
                 autoscaler: "Test string",
                 isStable: true,
+                stateful: {
+                    hasStatefulConfig: true,
+                    perInstanceConfigs: {
+                        allEffective: true,
+                    },
+                },
                 versionTarget: {
                     isReached: true,
                 },
@@ -2608,6 +2657,16 @@ gapi.load('client', () => {
             project: "Test string",
             zone: "Test string",
         });
+        /** Lists all of the per-instance configs defined for the managed instance group. The orderBy query parameter is not supported. */
+        await gapi.client.compute.instanceGroupManagers.listPerInstanceConfigs({
+            filter: "Test string",
+            instanceGroupManager: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+            zone: "Test string",
+        });
         /**
          * Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even
          * if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the
@@ -2657,9 +2716,23 @@ gapi.load('client', () => {
                 }            ],
             region: "Test string",
             selfLink: "Test string",
+            statefulPolicy: {
+                preservedState: {
+                    disks: {
+                        A: {
+                            autoDelete: "Test string",
+                        }                    },
+                },
+            },
             status: {
                 autoscaler: "Test string",
                 isStable: true,
+                stateful: {
+                    hasStatefulConfig: true,
+                    perInstanceConfigs: {
+                        allEffective: true,
+                    },
+                },
                 versionTarget: {
                     isReached: true,
                 },
@@ -2694,6 +2767,33 @@ gapi.load('client', () => {
                     },
                 }            ],
             zone: "Test string",
+        });
+        /**
+         * Inserts or patches per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform
+         * insert or patch.
+         */
+        await gapi.client.compute.instanceGroupManagers.patchPerInstanceConfigs({
+            instanceGroupManager: "Test string",
+            project: "Test string",
+            requestId: "Test string",
+            zone: "Test string",
+        }, {
+            perInstanceConfigs: [
+                {
+                    fingerprint: "Test string",
+                    name: "Test string",
+                    preservedState: {
+                        disks: {
+                            A: {
+                                autoDelete: "Test string",
+                                mode: "Test string",
+                                source: "Test string",
+                            }                        },
+                        metadata: {
+                            A: "Test string"                        },
+                    },
+                    status: "Test string",
+                }            ],
         });
         /**
          * Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current
@@ -2763,6 +2863,33 @@ gapi.load('client', () => {
             fingerprint: "Test string",
             targetPools: [
                 "Test string"            ],
+        });
+        /**
+         * Inserts or updates per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform
+         * insert or patch.
+         */
+        await gapi.client.compute.instanceGroupManagers.updatePerInstanceConfigs({
+            instanceGroupManager: "Test string",
+            project: "Test string",
+            requestId: "Test string",
+            zone: "Test string",
+        }, {
+            perInstanceConfigs: [
+                {
+                    fingerprint: "Test string",
+                    name: "Test string",
+                    preservedState: {
+                        disks: {
+                            A: {
+                                autoDelete: "Test string",
+                                mode: "Test string",
+                                source: "Test string",
+                            }                        },
+                        metadata: {
+                            A: "Test string"                        },
+                    },
+                    status: "Test string",
+                }            ],
         });
         /**
          * Adds a list of instances to the specified instance group. All of the instances in the instance group must be in the same network/subnetwork. Read
@@ -3203,6 +3330,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             scheduling: {
                 automaticRestart: true,
+                minNodeCpus: 42,
                 nodeAffinities: [
                     {
                         key: "Test string",
@@ -3456,6 +3584,7 @@ gapi.load('client', () => {
             zone: "Test string",
         }, {
             automaticRestart: true,
+            minNodeCpus: 42,
             nodeAffinities: [
                 {
                     key: "Test string",
@@ -3702,6 +3831,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             scheduling: {
                 automaticRestart: true,
+                minNodeCpus: 42,
                 nodeAffinities: [
                     {
                         key: "Test string",
@@ -3974,6 +4104,7 @@ gapi.load('client', () => {
                     "Test string"                ],
                 scheduling: {
                     automaticRestart: true,
+                    minNodeCpus: 42,
                     nodeAffinities: [
                         {
                             key: "Test string",
@@ -4634,6 +4765,20 @@ gapi.load('client', () => {
         }, {
             annotations: {
                 A: "Test string"            },
+            appEngine: {
+                service: "Test string",
+                urlMask: "Test string",
+                version: "Test string",
+            },
+            cloudFunction: {
+                function: "Test string",
+                urlMask: "Test string",
+            },
+            cloudRun: {
+                service: "Test string",
+                tag: "Test string",
+                urlMask: "Test string",
+            },
             creationTimestamp: "Test string",
             defaultPort: 42,
             description: "Test string",
@@ -4642,6 +4787,7 @@ gapi.load('client', () => {
             name: "Test string",
             network: "Test string",
             networkEndpointType: "Test string",
+            region: "Test string",
             selfLink: "Test string",
             size: 42,
             subnetwork: "Test string",
@@ -5097,6 +5243,7 @@ gapi.load('client', () => {
             region: "Test string",
             requestId: "Test string",
         }, {
+            cpuOvercommitType: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
             id: "Test string",
@@ -6070,11 +6217,17 @@ gapi.load('client', () => {
             region: "Test string",
             requestId: "Test string",
         }, {
+            category: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
             endTimestamp: "Test string",
             id: "Test string",
             kind: "Test string",
+            licenseResource: {
+                amount: "Test string",
+                coresPerLicense: "Test string",
+                license: "Test string",
+            },
             name: "Test string",
             plan: "Test string",
             region: "Test string",
@@ -6771,6 +6924,17 @@ gapi.load('client', () => {
                 {
                     fingerprint: "Test string",
                     name: "Test string",
+                    preservedState: {
+                        disks: {
+                            A: {
+                                autoDelete: "Test string",
+                                mode: "Test string",
+                                source: "Test string",
+                            }                        },
+                        metadata: {
+                            A: "Test string"                        },
+                    },
+                    status: "Test string",
                 }            ],
         });
         /** Deletes the specified managed instance group and all of the instances in that group. */
@@ -6798,6 +6962,15 @@ gapi.load('client', () => {
             requestId: "Test string",
         }, {
             instances: [
+                "Test string"            ],
+        });
+        /** Deletes selected per-instance configs for the managed instance group. */
+        await gapi.client.compute.regionInstanceGroupManagers.deletePerInstanceConfigs({
+            instanceGroupManager: "Test string",
+            project: "Test string",
+            region: "Test string",
+        }, {
+            names: [
                 "Test string"            ],
         });
         /** Returns all of the details about the specified managed instance group. */
@@ -6856,9 +7029,23 @@ gapi.load('client', () => {
                 }            ],
             region: "Test string",
             selfLink: "Test string",
+            statefulPolicy: {
+                preservedState: {
+                    disks: {
+                        A: {
+                            autoDelete: "Test string",
+                        }                    },
+                },
+            },
             status: {
                 autoscaler: "Test string",
                 isStable: true,
+                stateful: {
+                    hasStatefulConfig: true,
+                    perInstanceConfigs: {
+                        allEffective: true,
+                    },
+                },
                 versionTarget: {
                     isReached: true,
                 },
@@ -6926,6 +7113,16 @@ gapi.load('client', () => {
             project: "Test string",
             region: "Test string",
         });
+        /** Lists all of the per-instance configs defined for the managed instance group. The orderBy query parameter is not supported. */
+        await gapi.client.compute.regionInstanceGroupManagers.listPerInstanceConfigs({
+            filter: "Test string",
+            instanceGroupManager: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+            region: "Test string",
+        });
         /**
          * Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even
          * if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the
@@ -6975,9 +7172,23 @@ gapi.load('client', () => {
                 }            ],
             region: "Test string",
             selfLink: "Test string",
+            statefulPolicy: {
+                preservedState: {
+                    disks: {
+                        A: {
+                            autoDelete: "Test string",
+                        }                    },
+                },
+            },
             status: {
                 autoscaler: "Test string",
                 isStable: true,
+                stateful: {
+                    hasStatefulConfig: true,
+                    perInstanceConfigs: {
+                        allEffective: true,
+                    },
+                },
                 versionTarget: {
                     isReached: true,
                 },
@@ -7012,6 +7223,33 @@ gapi.load('client', () => {
                     },
                 }            ],
             zone: "Test string",
+        });
+        /**
+         * Insert or patch (for the ones that already exist) per-instance configs for the managed instance group. perInstanceConfig.instance serves as a key used
+         * to distinguish whether to perform insert or patch.
+         */
+        await gapi.client.compute.regionInstanceGroupManagers.patchPerInstanceConfigs({
+            instanceGroupManager: "Test string",
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        }, {
+            perInstanceConfigs: [
+                {
+                    fingerprint: "Test string",
+                    name: "Test string",
+                    preservedState: {
+                        disks: {
+                            A: {
+                                autoDelete: "Test string",
+                                mode: "Test string",
+                                source: "Test string",
+                            }                        },
+                        metadata: {
+                            A: "Test string"                        },
+                    },
+                    status: "Test string",
+                }            ],
         });
         /**
          * Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current
@@ -7069,6 +7307,33 @@ gapi.load('client', () => {
             targetPools: [
                 "Test string"            ],
         });
+        /**
+         * Insert or update (for the ones that already exist) per-instance configs for the managed instance group. perInstanceConfig.instance serves as a key used
+         * to distinguish whether to perform insert or patch.
+         */
+        await gapi.client.compute.regionInstanceGroupManagers.updatePerInstanceConfigs({
+            instanceGroupManager: "Test string",
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        }, {
+            perInstanceConfigs: [
+                {
+                    fingerprint: "Test string",
+                    name: "Test string",
+                    preservedState: {
+                        disks: {
+                            A: {
+                                autoDelete: "Test string",
+                                mode: "Test string",
+                                source: "Test string",
+                            }                        },
+                        metadata: {
+                            A: "Test string"                        },
+                    },
+                    status: "Test string",
+                }            ],
+        });
         /** Returns the specified instance group resource. */
         await gapi.client.compute.regionInstanceGroups.get({
             instanceGroup: "Test string",
@@ -7113,6 +7378,64 @@ gapi.load('client', () => {
                     name: "Test string",
                     port: 42,
                 }            ],
+        });
+        /** Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service. */
+        await gapi.client.compute.regionNetworkEndpointGroups.delete({
+            networkEndpointGroup: "Test string",
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        });
+        /** Returns the specified network endpoint group. Gets a list of available network endpoint groups by making a list() request. */
+        await gapi.client.compute.regionNetworkEndpointGroups.get({
+            networkEndpointGroup: "Test string",
+            project: "Test string",
+            region: "Test string",
+        });
+        /** Creates a network endpoint group in the specified project using the parameters that are included in the request. */
+        await gapi.client.compute.regionNetworkEndpointGroups.insert({
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        }, {
+            annotations: {
+                A: "Test string"            },
+            appEngine: {
+                service: "Test string",
+                urlMask: "Test string",
+                version: "Test string",
+            },
+            cloudFunction: {
+                function: "Test string",
+                urlMask: "Test string",
+            },
+            cloudRun: {
+                service: "Test string",
+                tag: "Test string",
+                urlMask: "Test string",
+            },
+            creationTimestamp: "Test string",
+            defaultPort: 42,
+            description: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            name: "Test string",
+            network: "Test string",
+            networkEndpointType: "Test string",
+            region: "Test string",
+            selfLink: "Test string",
+            size: 42,
+            subnetwork: "Test string",
+            zone: "Test string",
+        });
+        /** Retrieves the list of regional network endpoint groups available to the specified project in the given region. */
+        await gapi.client.compute.regionNetworkEndpointGroups.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+            region: "Test string",
         });
         /** Deletes the specified NotificationEndpoint in the given region */
         await gapi.client.compute.regionNotificationEndpoints.delete({
