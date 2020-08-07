@@ -68,7 +68,7 @@ After that you can use Display & Video 360 API resources:
 ```typescript
 
 /*
-Audits an advertiser. Returns the counts of used entities per resource type under the advertiser provided. Used entities count towards their [respective resource limit]: (https://support.google.com/displayvideo/answer/6071450?hl=en)
+Audits an advertiser. Returns the counts of used entities per resource type under the advertiser provided. Used entities count towards their respective resource limit. See https://support.google.com/displayvideo/answer/6071450.
 */
 await gapi.client.displayvideo.advertisers.audit({ advertiserId: "advertiserId",  });
 
@@ -208,7 +208,7 @@ Downloads media. Download is supported on the URI `/download/{resource_name=**}?
 await gapi.client.displayvideo.media.download({ resourceName: "resourceName",  });
 
 /*
-Bulk edits targeting options under a single partner. The operation will delete the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.delete_requests and then create the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.create_requests .
+Bulk edits targeting options under a single partner. The operation will delete the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.deleteRequests and then create the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.createRequests .
 */
 await gapi.client.displayvideo.partners.bulkEditPartnerAssignedTargetingOptions({ partnerId: "partnerId",  });
 
@@ -228,7 +228,7 @@ Creates an SDF Download Task. Returns an Operation. An SDF Download Task is a lo
 await gapi.client.displayvideo.sdfdownloadtasks.create({  });
 
 /*
-Bulk edits user roles for a user. The operation will delete the assigned user roles provided in BulkEditAssignedUserRolesRequest.deleted_assigned_user_roles and then assign the user roles provided in BulkEditAssignedUserRolesRequest.created_assigned_user_roles.
+Bulk edits user roles for a user. The operation will delete the assigned user roles provided in BulkEditAssignedUserRolesRequest.deletedAssignedUserRoles and then assign the user roles provided in BulkEditAssignedUserRolesRequest.createdAssignedUserRoles.
 */
 await gapi.client.displayvideo.users.bulkEditAssignedUserRoles({ userId: "userId",  });
 
