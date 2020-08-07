@@ -1,7 +1,6 @@
 # TypeScript typings for Cloud Key Management Service (KMS) API v1
 
-Manages keys and performs cryptographic operations in a central cloud service, for direct use by other cloud resources and applications.
-
+Manages keys and performs cryptographic operations in a central cloud service, for direct use by other cloud resources and applications. 
 For detailed description please check [documentation](https://cloud.google.com/kms/).
 
 ## Installing
