@@ -1275,7 +1275,7 @@ gapi.load('client', () => {
             sortOrder: "Test string",
             subaccountId: "Test string",
         });
-        /** Updates an existing landing page. This method supports patch semantics. */
+        /** Updates an existing advertiser landing page. This method supports patch semantics. */
         await gapi.client.dfareporting.advertiserLandingPages.patch({
             id: "Test string",
             profileId: "Test string",
@@ -5502,7 +5502,7 @@ gapi.load('client', () => {
             id: "Test string",
             profileId: "Test string",
         });
-        /** Retrieves a list of projects, possibly filtered. This method supports paging. */
+        /** Retrieves a list of projects, possibly filtered. This method supports paging . */
         await gapi.client.dfareporting.projects.list({
             advertiserIds: "Test string",
             ids: "Test string",
@@ -5668,6 +5668,7 @@ gapi.load('client', () => {
         });
         /** Updates an existing remarketing list share. This method supports patch semantics. */
         await gapi.client.dfareporting.remarketingListShares.patch({
+            id: "Test string",
             profileId: "Test string",
             remarketingListId: "Test string",
         }, {
@@ -7975,7 +7976,7 @@ gapi.load('client', () => {
             sortField: "Test string",
             sortOrder: "Test string",
         });
-        /** Updates a report. This method supports patch semantics. */
+        /** Updates an existing report. This method supports patch semantics. */
         await gapi.client.dfareporting.reports.patch({
             profileId: "Test string",
             reportId: "Test string",
@@ -11117,7 +11118,8 @@ gapi.load('client', () => {
             profileId: "Test string",
         });
         /** Retrieves list of user profiles for a user. */
-        await gapi.client.dfareporting.userProfiles.list();
+        await gapi.client.dfareporting.userProfiles.list({
+        });
         /** Gets one user role permission group by ID. */
         await gapi.client.dfareporting.userRolePermissionGroups.get({
             id: "Test string",
