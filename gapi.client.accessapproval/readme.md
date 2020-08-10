@@ -59,12 +59,7 @@ After that you can use Access Approval API resources:
 ```typescript
 
 /*
-Deletes the settings associated with a project, folder, or organization.
-This will have the effect of disabling Access Approval for the project,
-folder, or organization, but only if all ancestors also have Access
-Approval disabled. If Access Approval is enabled at a higher level of the
-hierarchy, then Access Approval will still be enabled at this level as
-the settings are inherited.
+Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the project, folder, or organization, but only if all ancestors also have Access Approval disabled. If Access Approval is enabled at a higher level of the hierarchy, then Access Approval will still be enabled at this level as the settings are inherited.
 */
 await gapi.client.accessapproval.folders.deleteAccessApprovalSettings({ name: "name",  });
 
@@ -74,18 +69,12 @@ Gets the settings associated with a project, folder, or organization.
 await gapi.client.accessapproval.folders.getAccessApprovalSettings({ name: "name",  });
 
 /*
-Updates the settings associated with a project, folder, or organization.
-Settings to update are determined by the value of field_mask.
+Updates the settings associated with a project, folder, or organization. Settings to update are determined by the value of field_mask.
 */
 await gapi.client.accessapproval.folders.updateAccessApprovalSettings({ name: "name",  });
 
 /*
-Deletes the settings associated with a project, folder, or organization.
-This will have the effect of disabling Access Approval for the project,
-folder, or organization, but only if all ancestors also have Access
-Approval disabled. If Access Approval is enabled at a higher level of the
-hierarchy, then Access Approval will still be enabled at this level as
-the settings are inherited.
+Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the project, folder, or organization, but only if all ancestors also have Access Approval disabled. If Access Approval is enabled at a higher level of the hierarchy, then Access Approval will still be enabled at this level as the settings are inherited.
 */
 await gapi.client.accessapproval.organizations.deleteAccessApprovalSettings({ name: "name",  });
 
@@ -95,18 +84,12 @@ Gets the settings associated with a project, folder, or organization.
 await gapi.client.accessapproval.organizations.getAccessApprovalSettings({ name: "name",  });
 
 /*
-Updates the settings associated with a project, folder, or organization.
-Settings to update are determined by the value of field_mask.
+Updates the settings associated with a project, folder, or organization. Settings to update are determined by the value of field_mask.
 */
 await gapi.client.accessapproval.organizations.updateAccessApprovalSettings({ name: "name",  });
 
 /*
-Deletes the settings associated with a project, folder, or organization.
-This will have the effect of disabling Access Approval for the project,
-folder, or organization, but only if all ancestors also have Access
-Approval disabled. If Access Approval is enabled at a higher level of the
-hierarchy, then Access Approval will still be enabled at this level as
-the settings are inherited.
+Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the project, folder, or organization, but only if all ancestors also have Access Approval disabled. If Access Approval is enabled at a higher level of the hierarchy, then Access Approval will still be enabled at this level as the settings are inherited.
 */
 await gapi.client.accessapproval.projects.deleteAccessApprovalSettings({ name: "name",  });
 
@@ -116,8 +99,7 @@ Gets the settings associated with a project, folder, or organization.
 await gapi.client.accessapproval.projects.getAccessApprovalSettings({ name: "name",  });
 
 /*
-Updates the settings associated with a project, folder, or organization.
-Settings to update are determined by the value of field_mask.
+Updates the settings associated with a project, folder, or organization. Settings to update are determined by the value of field_mask.
 */
 await gapi.client.accessapproval.projects.updateAccessApprovalSettings({ name: "name",  });
 ```
