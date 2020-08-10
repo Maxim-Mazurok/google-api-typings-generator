@@ -13,11 +13,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Logs new events when playable locations are displayed, and when they are
-         * interacted with.
-         *
-         * Impressions are not partially saved; either all impressions are saved and
-         * this request succeeds, or no impressions are saved, and this request fails.
+         * Logs new events when playable locations are displayed, and when they are interacted with. Impressions are not partially saved; either all impressions
+         * are saved and this request succeeds, or no impressions are saved, and this request fails.
          */
         await gapi.client.playablelocations.v3.logImpressions({
         }, {
@@ -40,10 +37,8 @@ gapi.load('client', () => {
             requestId: "Test string",
         });
         /**
-         * Logs bad playable location reports submitted by players.
-         *
-         * Reports are not partially saved; either all reports are saved and this
-         * request succeeds, or no reports are saved, and this request fails.
+         * Logs bad playable location reports submitted by players. Reports are not partially saved; either all reports are saved and this request succeeds, or no
+         * reports are saved, and this request fails.
          */
         await gapi.client.playablelocations.v3.logPlayerReports({
         }, {
@@ -68,11 +63,8 @@ gapi.load('client', () => {
             requestId: "Test string",
         });
         /**
-         * Returns a set of playable locations that lie within a specified area,
-         * that satisfy optional filter criteria.
-         *
-         * Note: Identical `SamplePlayableLocations` requests can return different
-         * results as the state of the world changes over time.
+         * Returns a set of playable locations that lie within a specified area, that satisfy optional filter criteria. Note: Identical `SamplePlayableLocations`
+         * requests can return different results as the state of the world changes over time.
          */
         await gapi.client.playablelocations.v3.samplePlayableLocations({
         }, {
