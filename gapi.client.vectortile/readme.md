@@ -1,7 +1,6 @@
 # TypeScript typings for Semantic Tile API v1
 
-Serves vector tiles containing geospatial data.
-
+Serves vector tiles containing geospatial data. 
 For detailed description please check [documentation](https://developers.google.com/maps/contact-sales/).
 
 ## Installing
