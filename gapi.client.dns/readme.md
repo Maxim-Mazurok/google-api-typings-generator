@@ -138,8 +138,7 @@ Create a new Policy
 await gapi.client.dns.policies.create({ project: "project",  });
 
 /*
-Delete a previously created Policy. Will fail if the policy is still being
-referenced by a network.
+Delete a previously created Policy. Will fail if the policy is still being referenced by a network.
 */
 await gapi.client.dns.policies.delete({ policy: "policy", project: "project",  });
 

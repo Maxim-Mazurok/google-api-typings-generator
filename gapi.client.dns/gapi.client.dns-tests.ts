@@ -335,10 +335,7 @@ gapi.load('client', () => {
                     networkUrl: "Test string",
                 }            ],
         });
-        /**
-         * Delete a previously created Policy. Will fail if the policy is still being
-         * referenced by a network.
-         */
+        /** Delete a previously created Policy. Will fail if the policy is still being referenced by a network. */
         await gapi.client.dns.policies.delete({
             clientOperationId: "Test string",
             policy: "Test string",
