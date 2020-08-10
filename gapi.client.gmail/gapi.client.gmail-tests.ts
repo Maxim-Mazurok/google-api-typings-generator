@@ -90,7 +90,10 @@ gapi.load('client', () => {
                 threadId: "Test string",
             },
         });
-        /** Immediately and permanently deletes the specified draft. Does not simply trash it. */
+        /**
+         * Immediately and permanently deletes the specified draft.
+         * Does not simply trash it.
+         */
         await gapi.client.gmail.users.drafts.delete({
             id: "Test string",
             userId: "Test string",
@@ -109,7 +112,10 @@ gapi.load('client', () => {
             q: "Test string",
             userId: "Test string",
         });
-        /** Sends the specified, existing draft to the recipients in the `To`, `Cc`, and `Bcc` headers. */
+        /**
+         * Sends the specified, existing draft to the recipients in the
+         * `To`, `Cc`, and `Bcc` headers.
+         */
         await gapi.client.gmail.users.drafts.send({
             userId: "Test string",
         }, {
@@ -176,7 +182,10 @@ gapi.load('client', () => {
                 threadId: "Test string",
             },
         });
-        /** Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing `historyId`). */
+        /**
+         * Lists the history of all changes to the given mailbox. History results are
+         * returned in chronological order (increasing `historyId`).
+         */
         await gapi.client.gmail.users.history.list({
             historyTypes: "Test string",
             labelId: "Test string",
@@ -203,7 +212,10 @@ gapi.load('client', () => {
             threadsUnread: 42,
             type: "Test string",
         });
-        /** Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to. */
+        /**
+         * Immediately and permanently deletes the specified label and removes it from
+         * any messages and threads that it is applied to.
+         */
         await gapi.client.gmail.users.labels.delete({
             id: "Test string",
             userId: "Test string",
@@ -255,7 +267,10 @@ gapi.load('client', () => {
             threadsUnread: 42,
             type: "Test string",
         });
-        /** Deletes many messages by message ID. Provides no guarantees that messages were not already deleted or even existed at all. */
+        /**
+         * Deletes many messages by message ID.  Provides no guarantees that messages
+         * were not already deleted or even existed at all.
+         */
         await gapi.client.gmail.users.messages.batchDelete({
             userId: "Test string",
         }, {
@@ -285,7 +300,10 @@ gapi.load('client', () => {
             messageId: "Test string",
             userId: "Test string",
         });
-        /** Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer `messages.trash` instead. */
+        /**
+         * Immediately and permanently deletes the specified message. This operation
+         * cannot be undone.  Prefer `messages.trash` instead.
+         */
         await gapi.client.gmail.users.messages.delete({
             id: "Test string",
             userId: "Test string",
@@ -310,8 +328,9 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send
-         * a message.
+         * Imports a message into only this user's mailbox, with standard
+         * email delivery scanning and classification similar to receiving via SMTP.
+         * Does not send a message.
          */
         await gapi.client.gmail.users.messages.import({
             deleted: true,
@@ -352,7 +371,11 @@ gapi.load('client', () => {
             messageId: "Test string",
             userId: "Test string",
         });
-        /** Directly inserts a message into only this user's mailbox similar to `IMAP APPEND`, bypassing most scanning and classification. Does not send a message. */
+        /**
+         * Directly inserts a message into only this user's mailbox similar to
+         * `IMAP APPEND`, bypassing most scanning and classification.
+         * Does not send a message.
+         */
         await gapi.client.gmail.users.messages.insert({
             deleted: true,
             internalDateSource: "Test string",
@@ -421,7 +444,10 @@ gapi.load('client', () => {
             messageId: "Test string",
             userId: "Test string",
         });
-        /** Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc` headers. */
+        /**
+         * Sends the specified message to the recipients in the
+         * `To`, `Cc`, and `Bcc` headers.
+         */
         await gapi.client.gmail.users.messages.send({
             userId: "Test string",
         }, {
@@ -484,11 +510,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -498,23 +536,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -557,9 +610,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -568,8 +625,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -585,10 +645,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -622,7 +688,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -647,8 +716,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -666,48 +738,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -732,8 +766,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -750,7 +832,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -807,7 +892,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -832,8 +920,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -867,7 +959,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -892,8 +987,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -911,7 +1009,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -940,11 +1041,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -954,23 +1067,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -1013,9 +1141,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -1024,8 +1156,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -1041,10 +1176,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -1078,7 +1219,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -1103,8 +1247,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -1122,48 +1269,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -1188,8 +1297,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -1206,7 +1363,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -1263,7 +1423,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -1288,8 +1451,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -1323,7 +1490,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -1348,8 +1518,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -1367,7 +1540,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -1396,11 +1572,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -1410,23 +1598,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -1469,9 +1672,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -1480,8 +1687,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -1497,10 +1707,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -1534,7 +1750,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -1559,8 +1778,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -1578,48 +1800,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -1644,8 +1828,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -1662,7 +1894,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -1719,7 +1954,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -1744,8 +1982,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -1779,7 +2021,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -1804,8 +2049,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -1823,7 +2071,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -1852,11 +2103,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -1866,23 +2129,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -1925,9 +2203,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -1936,8 +2218,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -1953,10 +2238,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -1990,7 +2281,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2015,8 +2309,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -2034,48 +2331,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2100,8 +2359,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -2118,7 +2425,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2175,7 +2485,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2200,8 +2513,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -2235,7 +2552,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2260,8 +2580,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -2279,7 +2602,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2308,11 +2634,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -2322,23 +2660,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -2381,9 +2734,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -2392,8 +2749,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -2409,10 +2769,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -2446,7 +2812,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2471,8 +2840,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -2490,48 +2862,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2556,8 +2890,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -2574,7 +2956,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2631,7 +3016,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2656,8 +3044,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -2691,7 +3083,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2716,8 +3111,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -2735,7 +3133,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2760,8 +3161,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled. This
-         * method is only available to service account clients that have been delegated domain-wide authority.
+         * Updates the auto-forwarding setting for the specified account.  A verified
+         * forwarding address must be specified when auto-forwarding is enabled.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.updateAutoForwarding({
             userId: "Test string",
@@ -2771,11 +3175,23 @@ gapi.load('client', () => {
             enabled: true,
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -2785,23 +3201,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -2844,9 +3275,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -2855,8 +3290,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -2872,10 +3310,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -2909,7 +3353,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -2934,8 +3381,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -2953,48 +3403,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3019,8 +3431,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -3037,7 +3497,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3094,7 +3557,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3119,8 +3585,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -3154,7 +3624,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3179,8 +3652,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -3198,7 +3674,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3232,11 +3711,23 @@ gapi.load('client', () => {
             maxFolderSize: 42,
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -3246,23 +3737,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -3305,9 +3811,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -3316,8 +3826,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -3333,10 +3846,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -3370,7 +3889,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3395,8 +3917,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -3414,48 +3939,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3480,8 +3967,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -3498,7 +4033,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3555,7 +4093,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3580,8 +4121,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -3615,7 +4160,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3640,8 +4188,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -3659,7 +4210,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3684,9 +4238,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates language settings. If successful, the return object contains the `displayLanguage` that was saved for the user, which may differ from the value
-         * passed into the request. This is because the requested `displayLanguage` may not be directly supported by Gmail but have a close variant that is, and
-         * so the variant may be chosen and saved instead.
+         * Updates language settings.
+         *
+         * If successful, the return object contains the `displayLanguage`
+         * that was saved for the user, which may differ from the value passed into
+         * the request. This is because the requested `displayLanguage` may
+         * not be directly supported by Gmail but have a close variant that is, and so
+         * the variant may be chosen and saved instead.
          */
         await gapi.client.gmail.users.settings.updateLanguage({
             userId: "Test string",
@@ -3694,11 +4252,23 @@ gapi.load('client', () => {
             displayLanguage: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -3708,23 +4278,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -3767,9 +4352,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -3778,8 +4367,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -3795,10 +4387,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -3832,7 +4430,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3857,8 +4458,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -3876,48 +4480,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -3942,8 +4508,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -3960,7 +4574,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4017,7 +4634,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4042,8 +4662,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -4077,7 +4701,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4102,8 +4729,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -4121,7 +4751,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4153,11 +4786,23 @@ gapi.load('client', () => {
             disposition: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -4167,23 +4812,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -4226,9 +4886,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -4237,8 +4901,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -4254,10 +4921,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -4291,7 +4964,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4316,8 +4992,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -4335,48 +5014,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4401,8 +5042,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -4419,7 +5108,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4476,7 +5168,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4501,8 +5196,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -4536,7 +5235,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4561,8 +5263,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -4580,7 +5285,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4618,11 +5326,23 @@ gapi.load('client', () => {
             startTime: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -4632,23 +5352,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -4691,9 +5426,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -4702,8 +5441,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -4719,10 +5461,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -4756,7 +5504,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4781,8 +5532,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -4800,48 +5554,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4866,8 +5582,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -4884,7 +5648,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4941,7 +5708,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -4966,8 +5736,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -5001,7 +5775,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -5026,8 +5803,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -5045,7 +5825,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -5069,7 +5852,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Immediately and permanently deletes the specified thread. This operation cannot be undone. Prefer `threads.trash` instead. */
+        /**
+         * Immediately and permanently deletes the specified thread. This operation
+         * cannot be undone. Prefer `threads.trash` instead.
+         */
         await gapi.client.gmail.users.threads.delete({
             id: "Test string",
             userId: "Test string",
@@ -5090,7 +5876,10 @@ gapi.load('client', () => {
             q: "Test string",
             userId: "Test string",
         });
-        /** Modifies the labels applied to the thread. This applies to all messages in the thread. */
+        /**
+         * Modifies the labels applied to the thread. This applies to all messages
+         * in the thread.
+         */
         await gapi.client.gmail.users.threads.modify({
             id: "Test string",
             userId: "Test string",
@@ -5147,7 +5936,10 @@ gapi.load('client', () => {
                 threadId: "Test string",
             },
         });
-        /** Immediately and permanently deletes the specified draft. Does not simply trash it. */
+        /**
+         * Immediately and permanently deletes the specified draft.
+         * Does not simply trash it.
+         */
         await gapi.client.gmail.users.drafts.delete({
             id: "Test string",
             userId: "Test string",
@@ -5166,7 +5958,10 @@ gapi.load('client', () => {
             q: "Test string",
             userId: "Test string",
         });
-        /** Sends the specified, existing draft to the recipients in the `To`, `Cc`, and `Bcc` headers. */
+        /**
+         * Sends the specified, existing draft to the recipients in the
+         * `To`, `Cc`, and `Bcc` headers.
+         */
         await gapi.client.gmail.users.drafts.send({
             userId: "Test string",
         }, {
@@ -5233,7 +6028,10 @@ gapi.load('client', () => {
                 threadId: "Test string",
             },
         });
-        /** Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing `historyId`). */
+        /**
+         * Lists the history of all changes to the given mailbox. History results are
+         * returned in chronological order (increasing `historyId`).
+         */
         await gapi.client.gmail.users.history.list({
             historyTypes: "Test string",
             labelId: "Test string",
@@ -5260,7 +6058,10 @@ gapi.load('client', () => {
             threadsUnread: 42,
             type: "Test string",
         });
-        /** Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to. */
+        /**
+         * Immediately and permanently deletes the specified label and removes it from
+         * any messages and threads that it is applied to.
+         */
         await gapi.client.gmail.users.labels.delete({
             id: "Test string",
             userId: "Test string",
@@ -5312,7 +6113,10 @@ gapi.load('client', () => {
             threadsUnread: 42,
             type: "Test string",
         });
-        /** Deletes many messages by message ID. Provides no guarantees that messages were not already deleted or even existed at all. */
+        /**
+         * Deletes many messages by message ID.  Provides no guarantees that messages
+         * were not already deleted or even existed at all.
+         */
         await gapi.client.gmail.users.messages.batchDelete({
             userId: "Test string",
         }, {
@@ -5342,7 +6146,10 @@ gapi.load('client', () => {
             messageId: "Test string",
             userId: "Test string",
         });
-        /** Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer `messages.trash` instead. */
+        /**
+         * Immediately and permanently deletes the specified message. This operation
+         * cannot be undone.  Prefer `messages.trash` instead.
+         */
         await gapi.client.gmail.users.messages.delete({
             id: "Test string",
             userId: "Test string",
@@ -5367,8 +6174,9 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send
-         * a message.
+         * Imports a message into only this user's mailbox, with standard
+         * email delivery scanning and classification similar to receiving via SMTP.
+         * Does not send a message.
          */
         await gapi.client.gmail.users.messages.import({
             deleted: true,
@@ -5409,7 +6217,11 @@ gapi.load('client', () => {
             messageId: "Test string",
             userId: "Test string",
         });
-        /** Directly inserts a message into only this user's mailbox similar to `IMAP APPEND`, bypassing most scanning and classification. Does not send a message. */
+        /**
+         * Directly inserts a message into only this user's mailbox similar to
+         * `IMAP APPEND`, bypassing most scanning and classification.
+         * Does not send a message.
+         */
         await gapi.client.gmail.users.messages.insert({
             deleted: true,
             internalDateSource: "Test string",
@@ -5478,7 +6290,10 @@ gapi.load('client', () => {
             messageId: "Test string",
             userId: "Test string",
         });
-        /** Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc` headers. */
+        /**
+         * Sends the specified message to the recipients in the
+         * `To`, `Cc`, and `Bcc` headers.
+         */
         await gapi.client.gmail.users.messages.send({
             userId: "Test string",
         }, {
@@ -5541,11 +6356,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -5555,23 +6382,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -5614,9 +6456,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -5625,8 +6471,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -5642,10 +6491,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -5679,7 +6534,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -5704,8 +6562,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -5723,48 +6584,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -5789,8 +6612,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -5807,7 +6678,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -5864,7 +6738,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -5889,8 +6766,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -5924,7 +6805,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -5949,8 +6833,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -5968,7 +6855,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -5997,11 +6887,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -6011,23 +6913,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -6070,9 +6987,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -6081,8 +7002,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -6098,10 +7022,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -6135,7 +7065,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -6160,8 +7093,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -6179,48 +7115,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -6245,8 +7143,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -6263,7 +7209,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -6320,7 +7269,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -6345,8 +7297,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -6380,7 +7336,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -6405,8 +7364,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -6424,7 +7386,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -6453,11 +7418,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -6467,23 +7444,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -6526,9 +7518,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -6537,8 +7533,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -6554,10 +7553,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -6591,7 +7596,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -6616,8 +7624,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -6635,48 +7646,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -6701,8 +7674,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -6719,7 +7740,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -6776,7 +7800,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -6801,8 +7828,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -6836,7 +7867,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -6861,8 +7895,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -6880,7 +7917,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -6909,11 +7949,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -6923,23 +7975,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -6982,9 +8049,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -6993,8 +8064,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -7010,10 +8084,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -7047,7 +8127,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7072,8 +8155,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -7091,48 +8177,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7157,8 +8205,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -7175,7 +8271,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7232,7 +8331,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7257,8 +8359,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -7292,7 +8398,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7317,8 +8426,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -7336,7 +8448,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7365,11 +8480,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -7379,23 +8506,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -7438,9 +8580,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -7449,8 +8595,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -7466,10 +8615,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -7503,7 +8658,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7528,8 +8686,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -7547,48 +8708,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7613,8 +8736,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -7631,7 +8802,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7688,7 +8862,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7713,8 +8890,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -7748,7 +8929,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7773,8 +8957,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -7792,7 +8979,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7817,8 +9007,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled. This
-         * method is only available to service account clients that have been delegated domain-wide authority.
+         * Updates the auto-forwarding setting for the specified account.  A verified
+         * forwarding address must be specified when auto-forwarding is enabled.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.updateAutoForwarding({
             userId: "Test string",
@@ -7828,11 +9021,23 @@ gapi.load('client', () => {
             enabled: true,
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -7842,23 +9047,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -7901,9 +9121,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -7912,8 +9136,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -7929,10 +9156,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -7966,7 +9199,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -7991,8 +9227,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -8010,48 +9249,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8076,8 +9277,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -8094,7 +9343,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8151,7 +9403,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8176,8 +9431,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -8211,7 +9470,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8236,8 +9498,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -8255,7 +9520,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8289,11 +9557,23 @@ gapi.load('client', () => {
             maxFolderSize: 42,
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -8303,23 +9583,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -8362,9 +9657,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -8373,8 +9672,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -8390,10 +9692,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -8427,7 +9735,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8452,8 +9763,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -8471,48 +9785,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8537,8 +9813,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -8555,7 +9879,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8612,7 +9939,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8637,8 +9967,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -8672,7 +10006,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8697,8 +10034,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -8716,7 +10056,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8741,9 +10084,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates language settings. If successful, the return object contains the `displayLanguage` that was saved for the user, which may differ from the value
-         * passed into the request. This is because the requested `displayLanguage` may not be directly supported by Gmail but have a close variant that is, and
-         * so the variant may be chosen and saved instead.
+         * Updates language settings.
+         *
+         * If successful, the return object contains the `displayLanguage`
+         * that was saved for the user, which may differ from the value passed into
+         * the request. This is because the requested `displayLanguage` may
+         * not be directly supported by Gmail but have a close variant that is, and so
+         * the variant may be chosen and saved instead.
          */
         await gapi.client.gmail.users.settings.updateLanguage({
             userId: "Test string",
@@ -8751,11 +10098,23 @@ gapi.load('client', () => {
             displayLanguage: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -8765,23 +10124,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -8824,9 +10198,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -8835,8 +10213,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -8852,10 +10233,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -8889,7 +10276,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8914,8 +10304,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -8933,48 +10326,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -8999,8 +10354,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -9017,7 +10420,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9074,7 +10480,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9099,8 +10508,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -9134,7 +10547,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9159,8 +10575,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -9178,7 +10597,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9210,11 +10632,23 @@ gapi.load('client', () => {
             disposition: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -9224,23 +10658,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -9283,9 +10732,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -9294,8 +10747,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -9311,10 +10767,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -9348,7 +10810,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9373,8 +10838,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -9392,48 +10860,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9458,8 +10888,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -9476,7 +10954,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9533,7 +11014,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9558,8 +11042,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -9593,7 +11081,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9618,8 +11109,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -9637,7 +11131,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9675,11 +11172,23 @@ gapi.load('client', () => {
             startTime: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -9689,23 +11198,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -9748,9 +11272,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -9759,8 +11287,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -9776,10 +11307,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -9813,7 +11350,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9838,8 +11378,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -9857,48 +11400,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9923,8 +11428,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -9941,7 +11494,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -9998,7 +11554,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -10023,8 +11582,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -10058,7 +11621,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -10083,8 +11649,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -10102,7 +11671,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -10126,7 +11698,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Immediately and permanently deletes the specified thread. This operation cannot be undone. Prefer `threads.trash` instead. */
+        /**
+         * Immediately and permanently deletes the specified thread. This operation
+         * cannot be undone. Prefer `threads.trash` instead.
+         */
         await gapi.client.gmail.users.threads.delete({
             id: "Test string",
             userId: "Test string",
@@ -10147,7 +11722,10 @@ gapi.load('client', () => {
             q: "Test string",
             userId: "Test string",
         });
-        /** Modifies the labels applied to the thread. This applies to all messages in the thread. */
+        /**
+         * Modifies the labels applied to the thread. This applies to all messages
+         * in the thread.
+         */
         await gapi.client.gmail.users.threads.modify({
             id: "Test string",
             userId: "Test string",
@@ -10209,7 +11787,10 @@ gapi.load('client', () => {
                 threadId: "Test string",
             },
         });
-        /** Immediately and permanently deletes the specified draft. Does not simply trash it. */
+        /**
+         * Immediately and permanently deletes the specified draft.
+         * Does not simply trash it.
+         */
         await gapi.client.gmail.users.drafts.delete({
             id: "Test string",
             userId: "Test string",
@@ -10228,7 +11809,10 @@ gapi.load('client', () => {
             q: "Test string",
             userId: "Test string",
         });
-        /** Sends the specified, existing draft to the recipients in the `To`, `Cc`, and `Bcc` headers. */
+        /**
+         * Sends the specified, existing draft to the recipients in the
+         * `To`, `Cc`, and `Bcc` headers.
+         */
         await gapi.client.gmail.users.drafts.send({
             userId: "Test string",
         }, {
@@ -10295,7 +11879,10 @@ gapi.load('client', () => {
                 threadId: "Test string",
             },
         });
-        /** Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing `historyId`). */
+        /**
+         * Lists the history of all changes to the given mailbox. History results are
+         * returned in chronological order (increasing `historyId`).
+         */
         await gapi.client.gmail.users.history.list({
             historyTypes: "Test string",
             labelId: "Test string",
@@ -10322,7 +11909,10 @@ gapi.load('client', () => {
             threadsUnread: 42,
             type: "Test string",
         });
-        /** Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to. */
+        /**
+         * Immediately and permanently deletes the specified label and removes it from
+         * any messages and threads that it is applied to.
+         */
         await gapi.client.gmail.users.labels.delete({
             id: "Test string",
             userId: "Test string",
@@ -10374,7 +11964,10 @@ gapi.load('client', () => {
             threadsUnread: 42,
             type: "Test string",
         });
-        /** Deletes many messages by message ID. Provides no guarantees that messages were not already deleted or even existed at all. */
+        /**
+         * Deletes many messages by message ID.  Provides no guarantees that messages
+         * were not already deleted or even existed at all.
+         */
         await gapi.client.gmail.users.messages.batchDelete({
             userId: "Test string",
         }, {
@@ -10404,7 +11997,10 @@ gapi.load('client', () => {
             messageId: "Test string",
             userId: "Test string",
         });
-        /** Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer `messages.trash` instead. */
+        /**
+         * Immediately and permanently deletes the specified message. This operation
+         * cannot be undone.  Prefer `messages.trash` instead.
+         */
         await gapi.client.gmail.users.messages.delete({
             id: "Test string",
             userId: "Test string",
@@ -10429,8 +12025,9 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send
-         * a message.
+         * Imports a message into only this user's mailbox, with standard
+         * email delivery scanning and classification similar to receiving via SMTP.
+         * Does not send a message.
          */
         await gapi.client.gmail.users.messages.import({
             deleted: true,
@@ -10471,7 +12068,11 @@ gapi.load('client', () => {
             messageId: "Test string",
             userId: "Test string",
         });
-        /** Directly inserts a message into only this user's mailbox similar to `IMAP APPEND`, bypassing most scanning and classification. Does not send a message. */
+        /**
+         * Directly inserts a message into only this user's mailbox similar to
+         * `IMAP APPEND`, bypassing most scanning and classification.
+         * Does not send a message.
+         */
         await gapi.client.gmail.users.messages.insert({
             deleted: true,
             internalDateSource: "Test string",
@@ -10540,7 +12141,10 @@ gapi.load('client', () => {
             messageId: "Test string",
             userId: "Test string",
         });
-        /** Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc` headers. */
+        /**
+         * Sends the specified message to the recipients in the
+         * `To`, `Cc`, and `Bcc` headers.
+         */
         await gapi.client.gmail.users.messages.send({
             userId: "Test string",
         }, {
@@ -10603,11 +12207,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -10617,23 +12233,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -10676,9 +12307,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -10687,8 +12322,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -10704,10 +12342,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -10741,7 +12385,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -10766,8 +12413,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -10785,48 +12435,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -10851,8 +12463,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -10869,7 +12529,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -10926,7 +12589,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -10951,8 +12617,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -10986,7 +12656,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11011,8 +12684,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -11030,7 +12706,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11059,11 +12738,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -11073,23 +12764,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -11132,9 +12838,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -11143,8 +12853,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -11160,10 +12873,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -11197,7 +12916,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11222,8 +12944,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -11241,48 +12966,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11307,8 +12994,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -11325,7 +13060,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11382,7 +13120,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11407,8 +13148,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -11442,7 +13187,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11467,8 +13215,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -11486,7 +13237,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11515,11 +13269,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -11529,23 +13295,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -11588,9 +13369,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -11599,8 +13384,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -11616,10 +13404,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -11653,7 +13447,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11678,8 +13475,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -11697,48 +13497,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11763,8 +13525,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -11781,7 +13591,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11838,7 +13651,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11863,8 +13679,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -11898,7 +13718,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11923,8 +13746,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -11942,7 +13768,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -11971,11 +13800,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -11985,23 +13826,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -12044,9 +13900,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -12055,8 +13915,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -12072,10 +13935,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -12109,7 +13978,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -12134,8 +14006,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -12153,48 +14028,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -12219,8 +14056,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -12237,7 +14122,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -12294,7 +14182,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -12319,8 +14210,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -12354,7 +14249,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -12379,8 +14277,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -12398,7 +14299,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -12427,11 +14331,23 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -12441,23 +14357,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -12500,9 +14431,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -12511,8 +14446,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -12528,10 +14466,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -12565,7 +14509,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -12590,8 +14537,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -12609,48 +14559,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -12675,8 +14587,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -12693,7 +14653,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -12750,7 +14713,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -12775,8 +14741,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -12810,7 +14780,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -12835,8 +14808,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -12854,7 +14830,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -12879,8 +14858,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled. This
-         * method is only available to service account clients that have been delegated domain-wide authority.
+         * Updates the auto-forwarding setting for the specified account.  A verified
+         * forwarding address must be specified when auto-forwarding is enabled.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.updateAutoForwarding({
             userId: "Test string",
@@ -12890,11 +14872,23 @@ gapi.load('client', () => {
             enabled: true,
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -12904,23 +14898,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -12963,9 +14972,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -12974,8 +14987,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -12991,10 +15007,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -13028,7 +15050,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13053,8 +15078,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -13072,48 +15100,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13138,8 +15128,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -13156,7 +15194,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13213,7 +15254,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13238,8 +15282,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -13273,7 +15321,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13298,8 +15349,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -13317,7 +15371,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13351,11 +15408,23 @@ gapi.load('client', () => {
             maxFolderSize: 42,
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -13365,23 +15434,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -13424,9 +15508,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -13435,8 +15523,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -13452,10 +15543,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -13489,7 +15586,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13514,8 +15614,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -13533,48 +15636,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13599,8 +15664,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -13617,7 +15730,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13674,7 +15790,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13699,8 +15818,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -13734,7 +15857,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13759,8 +15885,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -13778,7 +15907,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13803,9 +15935,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates language settings. If successful, the return object contains the `displayLanguage` that was saved for the user, which may differ from the value
-         * passed into the request. This is because the requested `displayLanguage` may not be directly supported by Gmail but have a close variant that is, and
-         * so the variant may be chosen and saved instead.
+         * Updates language settings.
+         *
+         * If successful, the return object contains the `displayLanguage`
+         * that was saved for the user, which may differ from the value passed into
+         * the request. This is because the requested `displayLanguage` may
+         * not be directly supported by Gmail but have a close variant that is, and so
+         * the variant may be chosen and saved instead.
          */
         await gapi.client.gmail.users.settings.updateLanguage({
             userId: "Test string",
@@ -13813,11 +15949,23 @@ gapi.load('client', () => {
             displayLanguage: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -13827,23 +15975,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -13886,9 +16049,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -13897,8 +16064,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -13914,10 +16084,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -13951,7 +16127,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -13976,8 +16155,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -13995,48 +16177,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14061,8 +16205,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -14079,7 +16271,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14136,7 +16331,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14161,8 +16359,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -14196,7 +16398,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14221,8 +16426,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -14240,7 +16448,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14272,11 +16483,23 @@ gapi.load('client', () => {
             disposition: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -14286,23 +16509,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -14345,9 +16583,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -14356,8 +16598,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -14373,10 +16618,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -14410,7 +16661,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14435,8 +16689,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -14454,48 +16711,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14520,8 +16739,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -14538,7 +16805,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14595,7 +16865,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14620,8 +16893,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -14655,7 +16932,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14680,8 +16960,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -14699,7 +16982,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14737,11 +17023,23 @@ gapi.load('client', () => {
             startTime: "Test string",
         });
         /**
-         * Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of
-         * the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite
-         * organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there
-         * may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been
+         * Adds a delegate with its verification status set directly to
+         * `accepted`, without sending any verification email.  The
+         * delegate user must be a member of the same G Suite organization as the
+         * delegator user.
+         *
+         * Gmail imposes limitations on the number of delegates and delegators each
+         * user in a G Suite organization can have. These limits depend on your
+         * organization, but in general each user can have up to 25 delegates and
+         * up to 10 delegators.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * Also note that when a new delegate is created, there may be up to a one
+         * minute delay before the new delegate is available for use.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.create({
@@ -14751,23 +17049,38 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note
-         * that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Removes the specified delegate (which can be of any verification status),
+         * and revokes any verification that may have been required for using it.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.delete({
             delegateEmail: "Test string",
             userId: "Test string",
         });
         /**
-         * Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only
-         * available to service account clients that have been delegated domain-wide authority.
+         * Gets the specified delegate.
+         *
+         * Note that a delegate user must be referred to by their primary email
+         * address, and not an email alias.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.delegates.get({
             delegateEmail: "Test string",
             userId: "Test string",
         });
-        /** Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. */
+        /**
+         * Lists the delegates for the specified account.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
+         */
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
@@ -14810,9 +17123,13 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status
-         * will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Creates a forwarding address.  If ownership verification is required, a
+         * message will be sent to the recipient and the resource's verification
+         * status will be set to `pending`; otherwise, the resource will be
+         * created with verification status set to `accepted`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.create({
             userId: "Test string",
@@ -14821,8 +17138,11 @@ gapi.load('client', () => {
             verificationStatus: "Test string",
         });
         /**
-         * Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account
-         * clients that have been delegated domain-wide authority.
+         * Deletes the specified forwarding address and revokes any verification that
+         * may have been required.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.forwardingAddresses.delete({
             forwardingEmail: "Test string",
@@ -14838,10 +17158,16 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration
-         * before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's
-         * verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is
-         * provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been
+         * Creates a custom "from" send-as alias.  If an SMTP MSA is specified, Gmail
+         * will attempt to connect to the SMTP service to validate the configuration
+         * before creating the alias.  If ownership verification is required for the
+         * alias, a message will be sent to the email address and the resource's
+         * verification status will be set to `pending`; otherwise, the
+         * resource will be created with verification status set to
+         * `accepted`.  If a signature is provided, Gmail will sanitize the
+         * HTML before saving it with the alias.
+         *
+         * This method is only available to service account clients that have been
          * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.create({
@@ -14875,7 +17201,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14900,8 +17229,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Deletes the specified send-as alias.  Revokes any verification that may
+         * have been required for using it.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.delete({
             sendAsEmail: "Test string",
@@ -14919,48 +17251,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        }, {
-            encryptedKeyPassword: "Test string",
-            expiration: "Test string",
-            id: "Test string",
-            isDefault: true,
-            issuerCn: "Test string",
-            pem: "Test string",
-            pkcs12: "Test string",
-        });
-        /** Lists S/MIME configs for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Sets the default S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. */
-        await gapi.client.gmail.users.settings.sendAs.get({
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Deletes the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Gets the specified S/MIME config for the specified send-as alias. */
-        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
-            id: "Test string",
-            sendAsEmail: "Test string",
-            userId: "Test string",
-        });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -14985,8 +17279,56 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom
-         * "from" aliases.
+         * Gets the specified send-as alias.  Fails with an HTTP 404 error if the
+         * specified address is not a member of the collection.
+         */
+        await gapi.client.gmail.users.settings.sendAs.get({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Deletes the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.delete({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the specified S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.get({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        }, {
+            encryptedKeyPassword: "Test string",
+            expiration: "Test string",
+            id: "Test string",
+            isDefault: true,
+            issuerCn: "Test string",
+            pem: "Test string",
+            pkcs12: "Test string",
+        });
+        /** Lists S/MIME configs for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.list({
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /** Sets the default S/MIME config for the specified send-as alias. */
+        await gapi.client.gmail.users.settings.sendAs.smimeInfo.setDefault({
+            id: "Test string",
+            sendAsEmail: "Test string",
+            userId: "Test string",
+        });
+        /**
+         * Lists the send-as aliases for the specified account.  The result includes
+         * the primary send-as address associated with the account as well as any
+         * custom "from" aliases.
          */
         await gapi.client.gmail.users.settings.sendAs.list({
             userId: "Test string",
@@ -15003,7 +17345,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -15060,7 +17405,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -15085,8 +17433,12 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary
-         * address for the account can only be updated by service account clients that have been delegated domain-wide authority.
+         * Updates a send-as alias.  If a signature is provided, Gmail will sanitize
+         * the HTML before saving it with the alias.
+         *
+         * Addresses other than the primary address for the account can only be
+         * updated by service account clients that have been delegated domain-wide
+         * authority.
          */
         await gapi.client.gmail.users.settings.sendAs.update({
             sendAsEmail: "Test string",
@@ -15120,7 +17472,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -15145,8 +17500,11 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service
-         * account clients that have been delegated domain-wide authority.
+         * Sends a verification email to the specified send-as alias address.
+         * The verification status must be `pending`.
+         *
+         * This method is only available to service account clients that have been
+         * delegated domain-wide authority.
          */
         await gapi.client.gmail.users.settings.sendAs.verify({
             sendAsEmail: "Test string",
@@ -15164,7 +17522,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. */
+        /**
+         * Insert (upload) the given S/MIME config for the specified send-as alias.
+         * Note that pkcs12 format is required for the key.
+         */
         await gapi.client.gmail.users.settings.sendAs.smimeInfo.insert({
             sendAsEmail: "Test string",
             userId: "Test string",
@@ -15188,7 +17549,10 @@ gapi.load('client', () => {
             sendAsEmail: "Test string",
             userId: "Test string",
         });
-        /** Immediately and permanently deletes the specified thread. This operation cannot be undone. Prefer `threads.trash` instead. */
+        /**
+         * Immediately and permanently deletes the specified thread. This operation
+         * cannot be undone. Prefer `threads.trash` instead.
+         */
         await gapi.client.gmail.users.threads.delete({
             id: "Test string",
             userId: "Test string",
@@ -15209,7 +17573,10 @@ gapi.load('client', () => {
             q: "Test string",
             userId: "Test string",
         });
-        /** Modifies the labels applied to the thread. This applies to all messages in the thread. */
+        /**
+         * Modifies the labels applied to the thread. This applies to all messages
+         * in the thread.
+         */
         await gapi.client.gmail.users.threads.modify({
             id: "Test string",
             userId: "Test string",
