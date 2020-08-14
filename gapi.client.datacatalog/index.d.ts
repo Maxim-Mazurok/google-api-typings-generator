@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Google Cloud Data Catalog API v1beta1 1.0
 // Project: https://cloud.google.com/data-catalog/docs/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -20,27 +23,23 @@ declare namespace gapi.client {
     namespace datacatalog {
         interface Binding {
             /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the
-             * condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to
-             * one or more of the members in this binding. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
+             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the members in this binding. To learn which
+             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
-             * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
-             * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
-             * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
-             * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
-             * `google.com` or `example.com`.
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is
+             * on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
+             * account. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that
+             * represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `group:{emailid}`: An email address that represents a Google group. For example,
+             * `admins@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. *
+             * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service
+             * account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently
+             * deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in
+             * the binding. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -65,10 +64,9 @@ declare namespace gapi.client {
         }
         interface GetPolicyOptions {
             /**
-             * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-             * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-             * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional
+             * bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support conditions in their
+             * IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             requestedPolicyVersion?: number;
         }
@@ -80,10 +78,7 @@ declare namespace gapi.client {
             dataset?: string;
             /** Output only. Total number of shards. */
             shardCount?: string;
-            /**
-             * Output only. The table name prefix of the shards. The name of any given shard is `[table_prefix]YYYYMMDD`, for example, for shard `MyTable20180101`,
-             * the `table_prefix` is `MyTable`.
-             */
+            /** Output only. The table name prefix of the shards. The name of any given shard is `[table_prefix]YYYYMMDD`, for example, for shard `MyTable20180101`, the `table_prefix` is `MyTable`. */
             tablePrefix?: string;
         }
         interface GoogleCloudDatacatalogV1beta1BigQueryTableSpec {
@@ -100,8 +95,8 @@ declare namespace gapi.client {
             /** Optional. Description of the column. Default value is an empty string. */
             description?: string;
             /**
-             * Optional. A column's mode indicates whether the values in this column are required, nullable, etc. Only `NULLABLE`, `REQUIRED` and `REPEATED` are
-             * supported. Default mode is `NULLABLE`.
+             * Optional. A column's mode indicates whether the values in this column are required, nullable, etc. Only `NULLABLE`, `REQUIRED` and `REPEATED` are supported. Default mode is
+             * `NULLABLE`.
              */
             mode?: string;
             /** Optional. Schema of sub-columns. A column can have zero or more sub-columns. */
@@ -110,19 +105,13 @@ declare namespace gapi.client {
             type?: string;
         }
         interface GoogleCloudDatacatalogV1beta1Entry {
-            /**
-             * Specification for a group of BigQuery tables with name pattern `[prefix]YYYYMMDD`. Context:
-             * https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding.
-             */
+            /** Specification for a group of BigQuery tables with name pattern `[prefix]YYYYMMDD`. Context: https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding. */
             bigqueryDateShardedSpec?: GoogleCloudDatacatalogV1beta1BigQueryDateShardedSpec;
             /** Specification that applies to a BigQuery table. This is only valid on entries of type `TABLE`. */
             bigqueryTableSpec?: GoogleCloudDatacatalogV1beta1BigQueryTableSpec;
             /** Entry description, which can consist of several sentences or paragraphs that describe entry contents. Default value is an empty string. */
             description?: string;
-            /**
-             * Display information such as title and description. A short name to identify the entry, for example, "Analytics Data - Jan 2011". Default value is an
-             * empty string.
-             */
+            /** Display information such as title and description. A short name to identify the entry, for example, "Analytics Data - Jan 2011". Default value is an empty string. */
             displayName?: string;
             /** Specification that applies to a Cloud Storage fileset. This is only valid on entries of type FILESET. */
             gcsFilesetSpec?: GoogleCloudDatacatalogV1beta1GcsFilesetSpec;
@@ -130,37 +119,35 @@ declare namespace gapi.client {
             integratedSystem?: string;
             /**
              * The resource this metadata entry refers to. For Google Cloud Platform resources, `linked_resource` is the [full name of the
-             * resource](https://cloud.google.com/apis/design/resource_names#full_resource_name). For example, the `linked_resource` for a table resource from
-             * BigQuery is: ∗ //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId Output only when Entry is of type in the EntryType enum.
-             * For entries with user_specified_type, this field is optional and defaults to an empty string.
+             * resource](https://cloud.google.com/apis/design/resource_names#full_resource_name). For example, the `linked_resource` for a table resource from BigQuery is: *
+             * //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId Output only when Entry is of type in the EntryType enum. For entries with user_specified_type, this
+             * field is optional and defaults to an empty string.
              */
             linkedResource?: string;
             /**
-             * The Data Catalog resource name of the entry in URL format. Example: ∗
-             * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Entry and its child resources may not
-             * actually be stored in the location in this name.
+             * The Data Catalog resource name of the entry in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Entry
+             * and its child resources may not actually be stored in the location in this name.
              */
             name?: string;
             /** Schema of the entry. An entry might not have any schema attached to it. */
             schema?: GoogleCloudDatacatalogV1beta1Schema;
             /**
-             * Output only. Timestamps about the underlying resource, not about this Data Catalog entry. Output only when Entry is of type in the EntryType enum. For
-             * entries with user_specified_type, this field is optional and defaults to an empty timestamp.
+             * Output only. Timestamps about the underlying resource, not about this Data Catalog entry. Output only when Entry is of type in the EntryType enum. For entries with
+             * user_specified_type, this field is optional and defaults to an empty timestamp.
              */
             sourceSystemTimestamps?: GoogleCloudDatacatalogV1beta1SystemTimestamps;
             /** The type of the entry. Only used for Entries with types in the EntryType enum. */
             type?: string;
             /**
-             * This field indicates the entry's source system that Data Catalog does not integrate with. `user_specified_system` strings must begin with a letter or
-             * underscore and can only contain letters, numbers, and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
+             * This field indicates the entry's source system that Data Catalog does not integrate with. `user_specified_system` strings must begin with a letter or underscore and can only contain
+             * letters, numbers, and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
              */
             userSpecifiedSystem?: string;
             /**
-             * Entry type if it does not fit any of the input-allowed values listed in `EntryType` enum above. When creating an entry, users should check the enum
-             * values first, if nothing matches the entry to be created, then provide a custom value, for example "my_special_type". `user_specified_type` strings
-             * must begin with a letter or underscore and can only contain letters, numbers, and underscores; are case insensitive; must be at least 1 character and
-             * at most 64 characters long. Currently, only FILESET enum value is allowed. All other entries created through Data Catalog must use
-             * `user_specified_type`.
+             * Entry type if it does not fit any of the input-allowed values listed in `EntryType` enum above. When creating an entry, users should check the enum values first, if nothing matches
+             * the entry to be created, then provide a custom value, for example "my_special_type". `user_specified_type` strings must begin with a letter or underscore and can only contain
+             * letters, numbers, and underscores; are case insensitive; must be at least 1 character and at most 64 characters long. Currently, only FILESET enum value is allowed. All other
+             * entries created through Data Catalog must use `user_specified_type`.
              */
             userSpecifiedType?: string;
         }
@@ -172,8 +159,8 @@ declare namespace gapi.client {
             /** A short name to identify the entry group, for example, "analytics data - jan 2011". Default value is an empty string. */
             displayName?: string;
             /**
-             * The resource name of the entry group in URL format. Example: ∗ projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this
-             * EntryGroup and its child resources may not actually be stored in the location in this name.
+             * The resource name of the entry group in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this EntryGroup and its child
+             * resources may not actually be stored in the location in this name.
              */
             name?: string;
         }
@@ -189,11 +176,10 @@ declare namespace gapi.client {
         }
         interface GoogleCloudDatacatalogV1beta1FieldTypeEnumType {
             /**
-             * The set of allowed values for this enum. This set must not be empty, the display names of the values in this set must not be empty and the display
-             * names of the values must be case-insensitively unique within this set. The order of items in this list is preserved. This field can be used to Required
-             * on create; optional on update. The set of allowed values for this enum. This set must not be empty, the display names of the values in this set must
-             * not be empty and the display names of the values must be case-insensitively unique within this set. Currently, enum values can only be added to the
-             * list of allowed values. Deletion and renaming of enum values are not supported. Can have up to 500 allowed values.
+             * The set of allowed values for this enum. This set must not be empty, the display names of the values in this set must not be empty and the display names of the values must be
+             * case-insensitively unique within this set. The order of items in this list is preserved. This field can be used to Required on create; optional on update. The set of allowed values
+             * for this enum. This set must not be empty, the display names of the values in this set must not be empty and the display names of the values must be case-insensitively unique within
+             * this set. Currently, enum values can only be added to the list of allowed values. Deletion and renaming of enum values are not supported. Can have up to 500 allowed values.
              */
             allowedValues?: GoogleCloudDatacatalogV1beta1FieldTypeEnumTypeEnumValue[];
         }
@@ -203,15 +189,13 @@ declare namespace gapi.client {
         }
         interface GoogleCloudDatacatalogV1beta1GcsFilesetSpec {
             /**
-             * Required. Patterns to identify a set of files in Google Cloud Storage. See [Cloud Storage
-             * documentation](https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames) for more information. Note that bucket wildcards are currently not
-             * supported. Examples of valid file_patterns: ∗ `gs://bucket_name/dir/∗`: matches all files within `bucket_name/dir` directory. ∗
-             * `gs://bucket_name/dir/∗∗`: matches all files in `bucket_name/dir` spanning all subdirectories. ∗ `gs://bucket_name/file∗`: matches files prefixed by
-             * `file` in `bucket_name` ∗ `gs://bucket_name/??.txt`: matches files with two characters followed by `.txt` in `bucket_name` ∗
-             * `gs://bucket_name/[aeiou].txt`: matches files that contain a single vowel character followed by `.txt` in `bucket_name` ∗ `gs://bucket_name/[a-m].txt`:
-             * matches files that contain `a`, `b`, ... or `m` followed by `.txt` in `bucket_name` ∗ `gs://bucket_name/a/∗/b`: matches all files in `bucket_name` that
-             * match `a/∗/b` pattern, such as `a/c/b`, `a/d/b` ∗ `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt` You can combine wildcards to provide
-             * more powerful matches, for example: ∗ `gs://bucket_name/[a-m]??.j∗g`
+             * Required. Patterns to identify a set of files in Google Cloud Storage. See [Cloud Storage documentation](https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames) for
+             * more information. Note that bucket wildcards are currently not supported. Examples of valid file_patterns: * `gs://bucket_name/dir/*`: matches all files within `bucket_name/dir`
+             * directory. * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir` spanning all subdirectories. * `gs://bucket_name/file*`: matches files prefixed by `file` in
+             * `bucket_name` * `gs://bucket_name/??.txt`: matches files with two characters followed by `.txt` in `bucket_name` * `gs://bucket_name/[aeiou].txt`: matches files that contain a
+             * single vowel character followed by `.txt` in `bucket_name` * `gs://bucket_name/[a-m].txt`: matches files that contain `a`, `b`, ... or `m` followed by `.txt` in `bucket_name` *
+             * `gs://bucket_name/a/∗/b`: matches all files in `bucket_name` that match `a/∗/b` pattern, such as `a/c/b`, `a/d/b` * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
+             * You can combine wildcards to provide more powerful matches, for example: * `gs://bucket_name/[a-m]??.j*g`
              */
             filePatterns?: string[];
             /** Output only. Sample files contained in this fileset, not all files contained in this fileset are represented here. */
@@ -271,24 +255,21 @@ declare namespace gapi.client {
             /** Output only. Resource names of child policy tags of this policy tag. */
             childPolicyTags?: string[];
             /**
-             * Description of this policy tag. It must: contain only unicode characters, tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes
-             * long when encoded in UTF-8. If not set, defaults to an empty description. If not set, defaults to an empty description.
+             * Description of this policy tag. It must: contain only unicode characters, tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes long when encoded in UTF-8. If
+             * not set, defaults to an empty description. If not set, defaults to an empty description.
              */
             description?: string;
             /**
-             * Required. User defined name of this policy tag. It must: be unique within the parent taxonomy; contain only unicode letters, numbers, underscores,
-             * dashes and spaces; not start or end with spaces; and be at most 200 bytes long when encoded in UTF-8.
+             * Required. User defined name of this policy tag. It must: be unique within the parent taxonomy; contain only unicode letters, numbers, underscores, dashes and spaces; not start or
+             * end with spaces; and be at most 200 bytes long when encoded in UTF-8.
              */
             displayName?: string;
-            /**
-             * Output only. Resource name of this policy tag, whose format is:
-             * "projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}".
-             */
+            /** Output only. Resource name of this policy tag, whose format is: "projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}". */
             name?: string;
             /**
-             * Resource name of this policy tag's parent policy tag (e.g. for the "LatLong" policy tag in the example above, this field contains the resource name of
-             * the "Geolocation" policy tag). If empty, it means this policy tag is a top level policy tag (e.g. this field is empty for the "Geolocation" policy tag
-             * in the example above). If not set, defaults to an empty string.
+             * Resource name of this policy tag's parent policy tag (e.g. for the "LatLong" policy tag in the example above, this field contains the resource name of the "Geolocation" policy tag).
+             * If empty, it means this policy tag is a top level policy tag (e.g. this field is empty for the "Geolocation" policy tag in the example above). If not set, defaults to an empty
+             * string.
              */
             parentPolicyTag?: string;
         }
@@ -306,53 +287,45 @@ declare namespace gapi.client {
         }
         interface GoogleCloudDatacatalogV1beta1SearchCatalogRequest {
             /**
-             * Specifies the ordering of results, currently supported case-sensitive choices are: ∗ `relevance`, only supports descending ∗ `last_modified_timestamp
-             * [asc|desc]`, defaults to descending if not specified If not specified, defaults to `relevance` descending.
+             * Specifies the ordering of results, currently supported case-sensitive choices are: * `relevance`, only supports descending * `last_modified_timestamp [asc|desc]`, defaults to
+             * descending if not specified If not specified, defaults to `relevance` descending.
              */
             orderBy?: string;
             /** Number of results in the search page. If <=0 then defaults to 10. Max limit for page_size is 1000. Throws an invalid argument for page_size > 1000. */
             pageSize?: number;
             /**
-             * Optional. Pagination token returned in an earlier SearchCatalogResponse.next_page_token, which indicates that this is a continuation of a prior
-             * SearchCatalogRequest call, and that the system should return the next page of data. If empty, the first page is returned.
+             * Optional. Pagination token returned in an earlier SearchCatalogResponse.next_page_token, which indicates that this is a continuation of a prior SearchCatalogRequest call, and that
+             * the system should return the next page of data. If empty, the first page is returned.
              */
             pageToken?: string;
             /**
-             * Optional. The query string in search query syntax. An empty query string will result in all data assets (in the specified scope) that the user has
-             * access to. Query strings can be simple as "x" or more qualified as: ∗ name:x ∗ column:x ∗ description:y Note: Query tokens need to have a minimum of 3
-             * characters for substring matching to work correctly. See [Data Catalog Search
-             * Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference) for more information.
+             * Optional. The query string in search query syntax. An empty query string will result in all data assets (in the specified scope) that the user has access to. Query strings can be
+             * simple as "x" or more qualified as: * name:x * column:x * description:y Note: Query tokens need to have a minimum of 3 characters for substring matching to work correctly. See [Data
+             * Catalog Search Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference) for more information.
              */
             query?: string;
             /**
-             * Required. The scope of this search request. A `scope` that has empty `include_org_ids`, `include_project_ids` AND false `include_gcp_public_datasets`
-             * is considered invalid. Data Catalog will return an error in such a case.
+             * Required. The scope of this search request. A `scope` that has empty `include_org_ids`, `include_project_ids` AND false `include_gcp_public_datasets` is considered invalid. Data
+             * Catalog will return an error in such a case.
              */
             scope?: GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope;
         }
         interface GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope {
             /**
-             * If `true`, include Google Cloud Platform (GCP) public datasets in the search results. Info on GCP public datasets is available at
-             * https://cloud.google.com/public-datasets/. By default, GCP public datasets are excluded.
+             * If `true`, include Google Cloud Platform (GCP) public datasets in the search results. Info on GCP public datasets is available at https://cloud.google.com/public-datasets/. By
+             * default, GCP public datasets are excluded.
              */
             includeGcpPublicDatasets?: boolean;
-            /**
-             * The list of organization IDs to search within. To find your organization ID, follow instructions in
-             * https://cloud.google.com/resource-manager/docs/creating-managing-organization.
-             */
+            /** The list of organization IDs to search within. To find your organization ID, follow instructions in https://cloud.google.com/resource-manager/docs/creating-managing-organization. */
             includeOrgIds?: string[];
-            /**
-             * The list of project IDs to search within. To learn more about the distinction between project names/IDs/numbers, go to
-             * https://cloud.google.com/docs/overview/#projects.
-             */
+            /** The list of project IDs to search within. To learn more about the distinction between project names/IDs/numbers, go to https://cloud.google.com/docs/overview/#projects. */
             includeProjectIds?: string[];
             /**
-             * Optional. The list of locations to search within. 1. If empty, search will be performed in all locations; 2. If any of the locations are NOT in the
-             * valid locations list, error will be returned; 3. Otherwise, search only the given locations for matching results. Typical usage is to leave this field
-             * empty. When a location is unreachable as returned in the `SearchCatalogResponse.unreachable` field, users can repeat the search request with this
-             * parameter set to get additional information on the error. Valid locations: ∗ asia-east1 ∗ asia-east2 ∗ asia-northeast1 ∗ asia-northeast2 ∗
-             * asia-northeast3 ∗ asia-south1 ∗ asia-southeast1 ∗ australia-southeast1 ∗ eu ∗ europe-north1 ∗ europe-west1 ∗ europe-west2 ∗ europe-west3 ∗ europe-west4
-             * ∗ europe-west6 ∗ global ∗ northamerica-northeast1 ∗ southamerica-east1 ∗ us ∗ us-central1 ∗ us-east1 ∗ us-east4 ∗ us-west1 ∗ us-west2
+             * Optional. The list of locations to search within. 1. If empty, search will be performed in all locations; 2. If any of the locations are NOT in the valid locations list, error will
+             * be returned; 3. Otherwise, search only the given locations for matching results. Typical usage is to leave this field empty. When a location is unreachable as returned in the
+             * `SearchCatalogResponse.unreachable` field, users can repeat the search request with this parameter set to get additional information on the error. Valid locations: * asia-east1 *
+             * asia-east2 * asia-northeast1 * asia-northeast2 * asia-northeast3 * asia-south1 * asia-southeast1 * australia-southeast1 * eu * europe-north1 * europe-west1 * europe-west2 *
+             * europe-west3 * europe-west4 * europe-west6 * global * northamerica-northeast1 * southamerica-east1 * us * us-central1 * us-east1 * us-east4 * us-west1 * us-west2
              */
             restrictedLocations?: string[];
         }
@@ -362,26 +335,25 @@ declare namespace gapi.client {
             /** Search results. */
             results?: GoogleCloudDatacatalogV1beta1SearchCatalogResult[];
             /**
-             * Unreachable locations. Search result does not include data from those locations. Users can get additional information on the error by repeating the
-             * search request with a more restrictive parameter -- setting the value for `SearchDataCatalogRequest.scope.include_locations`.
+             * Unreachable locations. Search result does not include data from those locations. Users can get additional information on the error by repeating the search request with a more
+             * restrictive parameter -- setting the value for `SearchDataCatalogRequest.scope.include_locations`.
              */
             unreachable?: string[];
         }
         interface GoogleCloudDatacatalogV1beta1SearchCatalogResult {
             /**
-             * The full name of the cloud resource the entry belongs to. See: https://cloud.google.com/apis/design/resource_names#full_resource_name. Example: ∗
+             * The full name of the cloud resource the entry belongs to. See: https://cloud.google.com/apis/design/resource_names#full_resource_name. Example: *
              * `//bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId`
              */
             linkedResource?: string;
             /**
-             * The relative resource name of the resource in URL format. Examples: ∗
-             * `projects/{project_id}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}` ∗
+             * The relative resource name of the resource in URL format. Examples: * `projects/{project_id}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}` *
              * `projects/{project_id}/tagTemplates/{tag_template_id}`
              */
             relativeResourceName?: string;
             /**
-             * Sub-type of the search result. This is a dot-delimited description of the resource's full type, and is the same as the value callers would provide in
-             * the "type" search facet. Examples: `entry.table`, `entry.dataStream`, `tagTemplate`.
+             * Sub-type of the search result. This is a dot-delimited description of the resource's full type, and is the same as the value callers would provide in the "type" search facet.
+             * Examples: `entry.table`, `entry.dataStream`, `tagTemplate`.
              */
             searchResultSubtype?: string;
             /** Type of the search result. This field can be used to determine which Get method to call to fetch the full resource. */
@@ -390,10 +362,7 @@ declare namespace gapi.client {
         interface GoogleCloudDatacatalogV1beta1SerializedPolicyTag {
             /** Children of the policy tag if any. */
             childPolicyTags?: GoogleCloudDatacatalogV1beta1SerializedPolicyTag[];
-            /**
-             * Description of the serialized policy tag. The length of the description is limited to 2000 bytes when encoded in UTF-8. If not set, defaults to an
-             * empty description.
-             */
+            /** Description of the serialized policy tag. The length of the description is limited to 2000 bytes when encoded in UTF-8. If not set, defaults to an empty description. */
             description?: string;
             /** Required. Display name of the policy tag. Max 200 bytes when encoded in UTF-8. */
             displayName?: string;
@@ -401,10 +370,7 @@ declare namespace gapi.client {
             policyTag?: string;
         }
         interface GoogleCloudDatacatalogV1beta1SerializedTaxonomy {
-            /**
-             * Description of the serialized taxonomy. The length of the description is limited to 2000 bytes when encoded in UTF-8. If not set, defaults to an empty
-             * description.
-             */
+            /** Description of the serialized taxonomy. The length of the description is limited to 2000 bytes when encoded in UTF-8. If not set, defaults to an empty description. */
             description?: string;
             /** Required. Display name of the taxonomy. Max 200 bytes when encoded in UTF-8. */
             displayName?: string;
@@ -421,32 +387,30 @@ declare namespace gapi.client {
         }
         interface GoogleCloudDatacatalogV1beta1TableSpec {
             /**
-             * Output only. If the table is a dated shard, i.e., with name pattern `[prefix]YYYYMMDD`, `grouped_entry` is the Data Catalog resource name of the date
-             * sharded grouped entry, for example, `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`. Otherwise,
-             * `grouped_entry` is empty.
+             * Output only. If the table is a dated shard, i.e., with name pattern `[prefix]YYYYMMDD`, `grouped_entry` is the Data Catalog resource name of the date sharded grouped entry, for
+             * example, `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`. Otherwise, `grouped_entry` is empty.
              */
             groupedEntry?: string;
         }
         interface GoogleCloudDatacatalogV1beta1Tag {
             /**
-             * Resources like Entry can have schemas associated with them. This scope allows users to attach tags to an individual column based on that schema. For
-             * attaching a tag to a nested column, use `.` to separate the column names. Example: ∗ `outer_column.inner_column`
+             * Resources like Entry can have schemas associated with them. This scope allows users to attach tags to an individual column based on that schema. For attaching a tag to a nested
+             * column, use `.` to separate the column names. Example: * `outer_column.inner_column`
              */
             column?: string;
             /**
-             * Required. This maps the ID of a tag field to the value of and additional information about that field. Valid field IDs are defined by the tag's
-             * template. A tag must have at least 1 field and at most 500 fields.
+             * Required. This maps the ID of a tag field to the value of and additional information about that field. Valid field IDs are defined by the tag's template. A tag must have at least 1
+             * field and at most 500 fields.
              */
             fields?: { [P in string]: GoogleCloudDatacatalogV1beta1TagField };
             /**
-             * The resource name of the tag in URL format. Example: ∗
-             * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is a system-generated
-             * identifier. Note that this Tag may not actually be stored in the location in this name.
+             * The resource name of the tag in URL format. Example: * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is a
+             * system-generated identifier. Note that this Tag may not actually be stored in the location in this name.
              */
             name?: string;
             /**
-             * Required. The resource name of the tag template that this tag uses. Example: ∗
-             * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} This field cannot be modified after creation.
+             * Required. The resource name of the tag template that this tag uses. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} This field cannot be
+             * modified after creation.
              */
             template?: string;
             /** Output only. The display name of the tag template. */
@@ -462,8 +426,8 @@ declare namespace gapi.client {
             /** Holds the value for a tag field with enum type. This value must be one of the allowed values in the definition of this enum. */
             enumValue?: GoogleCloudDatacatalogV1beta1TagFieldEnumValue;
             /**
-             * Output only. The order of this field with respect to other fields in this tag. It can be set in Tag. For example, a higher value can indicate a more
-             * important field. The value can be negative. Multiple fields can have the same order, and field orders within a tag do not have to be sequential.
+             * Output only. The order of this field with respect to other fields in this tag. It can be set in Tag. For example, a higher value can indicate a more important field. The value can
+             * be negative. Multiple fields can have the same order, and field orders within a tag do not have to be sequential.
              */
             order?: number;
             /** Holds the value for a tag field with string type. */
@@ -479,15 +443,14 @@ declare namespace gapi.client {
             /** The display name for this template. Defaults to an empty string. */
             displayName?: string;
             /**
-             * Required. Map of tag template field IDs to the settings for the field. This map is an exhaustive list of the allowed fields. This map must contain at
-             * least one field and at most 500 fields. The keys to this map are tag template field IDs. Field IDs can contain letters (both uppercase and lowercase),
-             * numbers (0-9) and underscores (_). Field IDs must be at least 1 character long and at most 64 characters long. Field IDs must start with a letter or
-             * underscore.
+             * Required. Map of tag template field IDs to the settings for the field. This map is an exhaustive list of the allowed fields. This map must contain at least one field and at most 500
+             * fields. The keys to this map are tag template field IDs. Field IDs can contain letters (both uppercase and lowercase), numbers (0-9) and underscores (_). Field IDs must be at least
+             * 1 character long and at most 64 characters long. Field IDs must start with a letter or underscore.
              */
             fields?: { [P in string]: GoogleCloudDatacatalogV1beta1TagTemplateField };
             /**
-             * The resource name of the tag template in URL format. Example: ∗ projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} Note that
-             * this TagTemplate and its child resources may not actually be stored in the location in this name.
+             * The resource name of the tag template in URL format. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} Note that this TagTemplate and its child
+             * resources may not actually be stored in the location in this name.
              */
             name?: string;
         }
@@ -497,14 +460,13 @@ declare namespace gapi.client {
             /** Whether this is a required field. Defaults to false. */
             isRequired?: boolean;
             /**
-             * Output only. The resource name of the tag template field in URL format. Example: ∗
-             * projects/{project_id}/locations/{location}/tagTemplates/{tag_template}/fields/{field} Note that this TagTemplateField may not actually be stored in the
-             * location in this name.
+             * Output only. The resource name of the tag template field in URL format. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template}/fields/{field} Note that
+             * this TagTemplateField may not actually be stored in the location in this name.
              */
             name?: string;
             /**
-             * The order of this field with respect to other fields in this tag template. A higher value indicates a more important field. The value can be negative.
-             * Multiple fields can have the same order, and field orders within a tag do not have to be sequential.
+             * The order of this field with respect to other fields in this tag template. A higher value indicates a more important field. The value can be negative. Multiple fields can have the
+             * same order, and field orders within a tag do not have to be sequential.
              */
             order?: number;
             /** Required. The type of value this tag field can contain. */
@@ -514,13 +476,13 @@ declare namespace gapi.client {
             /** Optional. A list of policy types that are activated for this taxonomy. If not set, defaults to an empty list. */
             activatedPolicyTypes?: string[];
             /**
-             * Optional. Description of this taxonomy. It must: contain only unicode characters, tabs, newlines, carriage returns and page breaks; and be at most 2000
-             * bytes long when encoded in UTF-8. If not set, defaults to an empty description.
+             * Optional. Description of this taxonomy. It must: contain only unicode characters, tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes long when encoded in
+             * UTF-8. If not set, defaults to an empty description.
              */
             description?: string;
             /**
-             * Required. User defined name of this taxonomy. It must: contain only unicode letters, numbers, underscores, dashes and spaces; not start or end with
-             * spaces; and be at most 200 bytes long when encoded in UTF-8.
+             * Required. User defined name of this taxonomy. It must: contain only unicode letters, numbers, underscores, dashes and spaces; not start or end with spaces; and be at most 200 bytes
+             * long when encoded in UTF-8.
              */
             displayName?: string;
             /** Output only. Resource name of this taxonomy, whose format is: "projects/{project_number}/locations/{location_id}/taxonomies/{id}". */
@@ -532,42 +494,39 @@ declare namespace gapi.client {
         }
         interface Policy {
             /**
-             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the
-             * `bindings` must contain at least one member.
+             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
+             * least one member.
              */
             bindings?: Binding[];
             /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
-             * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
-             * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
-             * the version `3` policy are lost.
+             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
+             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
+             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
+             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
             /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
-             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
-             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
-             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
-             * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
-             * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
+             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
+             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
+             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
+             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
         interface SetIamPolicyRequest {
             /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy
-             * but certain Cloud Platform services (such as Projects) might reject them.
+             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Cloud Platform
+             * services (such as Projects) might reject them.
              */
             policy?: Policy;
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see
-             * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '*' or 'storage.*') are not allowed. For more information see [IAM
+             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
         }
@@ -577,11 +536,10 @@ declare namespace gapi.client {
         }
         interface CatalogResource {
             /**
-             * Searches Data Catalog for multiple resources like entries, tags that match a query. This is a custom method
-             * (https://cloud.google.com/apis/design/custom_methods) and does not return the complete resource, only the resource identifier and high level fields.
-             * Clients can subsequentally call `Get` methods. Note that Data Catalog search queries do not guarantee full recall. Query results that match your query
-             * may not be returned, even in subsequent result pages. Also note that results returned (and not returned) can vary across repeated search queries. See
-             * [Data Catalog Search Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference) for more information.
+             * Searches Data Catalog for multiple resources like entries, tags that match a query. This is a custom method (https://cloud.google.com/apis/design/custom_methods) and does not return
+             * the complete resource, only the resource identifier and high level fields. Clients can subsequentally call `Get` methods. Note that Data Catalog search queries do not guarantee full
+             * recall. Query results that match your query may not be returned, even in subsequent result pages. Also note that results returned (and not returned) can vary across repeated search
+             * queries. See [Data Catalog Search Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference) for more information.
              */
             search(request: {
                 /** V1 error format. */
@@ -636,10 +594,7 @@ declare namespace gapi.client {
             body: GoogleCloudDatacatalogV1beta1SearchCatalogRequest): Request<GoogleCloudDatacatalogV1beta1SearchCatalogResponse>;
         }
         interface EntriesResource {
-            /**
-             * Get an entry by target resource name. This method allows clients to use the resource name from the source Google Cloud Platform service to get the Data
-             * Catalog Entry.
-             */
+            /** Get an entry by target resource name. This method allows clients to use the resource name from the source Google Cloud Platform service to get the Data Catalog Entry. */
             lookup(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -654,9 +609,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The full name of the Google Cloud Platform resource the Data Catalog entry represents. See:
-                 * https://cloud.google.com/apis/design/resource_names#full_resource_name. Full names are case-sensitive. Examples: ∗
-                 * //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId ∗ //pubsub.googleapis.com/projects/projectId/topics/topicId
+                 * The full name of the Google Cloud Platform resource the Data Catalog entry represents. See: https://cloud.google.com/apis/design/resource_names#full_resource_name. Full names
+                 * are case-sensitive. Examples: * //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId * //pubsub.googleapis.com/projects/projectId/topics/topicId
                  */
                 linkedResource?: string;
                 /** OAuth 2.0 token for the current user. */
@@ -666,10 +620,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The SQL name of the entry. SQL names are case-sensitive. Examples: ∗ `pubsub.project_id.topic_id` ∗ ``pubsub.project_id.`topic.id.with.dots` `` ∗
-                 * `bigquery.table.project_id.dataset_id.table_id` ∗ `bigquery.dataset.project_id.dataset_id` ∗
-                 * `datacatalog.entry.project_id.location_id.entry_group_id.entry_id` `∗_id`s shoud satisfy the standard SQL rules for identifiers.
-                 * https://cloud.google.com/bigquery/docs/reference/standard-sql/lexical.
+                 * The SQL name of the entry. SQL names are case-sensitive. Examples: * `pubsub.project_id.topic_id` * ``pubsub.project_id.`topic.id.with.dots` `` *
+                 * `bigquery.table.project_id.dataset_id.table_id` * `bigquery.dataset.project_id.dataset_id` * `datacatalog.entry.project_id.location_id.entry_group_id.entry_id` `*_id`s shoud
+                 * satisfy the standard SQL rules for identifiers. https://cloud.google.com/bigquery/docs/reference/standard-sql/lexical.
                  */
                 sqlResource?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -681,9 +634,9 @@ declare namespace gapi.client {
         interface TagsResource {
             /**
              * Creates a tag on an Entry. Note: The project identified by the `parent` parameter for the
-             * [tag](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters) and the
-             * [tag template](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters) used to create
-             * the tag must be from the same organization.
+             * [tag](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters) and the [tag
+             * template](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters) used to create the tag must be from the same
+             * organization.
              */
             create(request: {
                 /** V1 error format. */
@@ -701,9 +654,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the resource to attach this tag to. Tags can be attached to Entries. Example: ∗
-                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Tag and its child resources may not actually
-                 * be stored in the location in this name.
+                 * Required. The name of the resource to attach this tag to. Tags can be attached to Entries. Example: *
+                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Tag and its child resources may not actually be stored in the location
+                 * in this name.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -733,9 +686,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the resource to attach this tag to. Tags can be attached to Entries. Example: ∗
-                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Tag and its child resources may not actually
-                 * be stored in the location in this name.
+                 * Required. The name of the resource to attach this tag to. Tags can be attached to Entries. Example: *
+                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Tag and its child resources may not actually be stored in the location
+                 * in this name.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -762,10 +715,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The name of the tag to delete. Example: ∗
-                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
-                 */
+                /** Required. The name of the tag to delete. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -799,9 +749,8 @@ declare namespace gapi.client {
                 /** Token that specifies which page is requested. If empty, the first page is returned. */
                 pageToken?: string;
                 /**
-                 * Required. The name of the Data Catalog resource to list the tags of. The resource could be an Entry or an EntryGroup. Examples: ∗
-                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} ∗
-                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
+                 * Required. The name of the Data Catalog resource to list the tags of. The resource could be an Entry or an EntryGroup. Examples: *
+                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -828,9 +777,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the tag in URL format. Example: ∗
-                 * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is a system-generated
-                 * identifier. Note that this Tag may not actually be stored in the location in this name.
+                 * The resource name of the tag in URL format. Example: * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is
+                 * a system-generated identifier. Note that this Tag may not actually be stored in the location in this name.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -862,9 +810,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the tag in URL format. Example: ∗
-                 * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is a system-generated
-                 * identifier. Note that this Tag may not actually be stored in the location in this name.
+                 * The resource name of the tag in URL format. Example: * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is
+                 * a system-generated identifier. Note that this Tag may not actually be stored in the location in this name.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -884,9 +831,9 @@ declare namespace gapi.client {
         }
         interface EntriesResource {
             /**
-             * Creates an entry. Only entries of 'FILESET' type or user-specified type can be created. Users should enable the Data Catalog API in the project
-             * identified by the `parent` parameter (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
-             * more information). A maximum of 100,000 entries may be created per entry group.
+             * Creates an entry. Only entries of 'FILESET' type or user-specified type can be created. Users should enable the Data Catalog API in the project identified by the `parent` parameter
+             * (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information). A maximum of 100,000 entries may be created per
+             * entry group.
              */
             create(request: {
                 /** V1 error format. */
@@ -906,8 +853,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the entry group this entry is in. Example: ∗ projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that
-                 * this Entry and its child resources may not actually be stored in the location in this name.
+                 * Required. The name of the entry group this entry is in. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this Entry and its child
+                 * resources may not actually be stored in the location in this name.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -939,8 +886,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the entry group this entry is in. Example: ∗ projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that
-                 * this Entry and its child resources may not actually be stored in the location in this name.
+                 * Required. The name of the entry group this entry is in. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this Entry and its child
+                 * resources may not actually be stored in the location in this name.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -954,9 +901,8 @@ declare namespace gapi.client {
             },
             body: GoogleCloudDatacatalogV1beta1Entry): Request<GoogleCloudDatacatalogV1beta1Entry>;
             /**
-             * Deletes an existing entry. Only entries created through CreateEntry method can be deleted. Users should enable the Data Catalog API in the project
-             * identified by the `name` parameter (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more
-             * information).
+             * Deletes an existing entry. Only entries created through CreateEntry method can be deleted. Users should enable the Data Catalog API in the project identified by the `name` parameter
+             * (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
              */
             delete(request?: {
                 /** V1 error format. */
@@ -971,7 +917,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The name of the entry. Example: ∗ projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} */
+                /** Required. The name of the entry. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -998,7 +944,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The name of the entry. Example: ∗ projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} */
+                /** Required. The name of the entry. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1012,11 +958,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudDatacatalogV1beta1Entry>;
             /**
-             * Gets the access control policy for a resource. A `NOT_FOUND` error is returned if the resource does not exist. An empty policy is returned if the
-             * resource exists but does not have a policy set on it. Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be
-             * used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to Data Catalog. Callers must have following
-             * Google IAM permission - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag templates. - `datacatalog.entries.getIamPolicy` to get policies
-             * on entries. - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups.
+             * Gets the access control policy for a resource. A `NOT_FOUND` error is returned if the resource does not exist. An empty policy is returned if the resource exists but does not have a
+             * policy set on it. Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub and any external
+             * Google Cloud Platform resources synced to Data Catalog. Callers must have following Google IAM permission - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag templates.
+             * - `datacatalog.entries.getIamPolicy` to get policies on entries. - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups.
              */
             getIamPolicy(request: {
                 /** V1 error format. */
@@ -1066,7 +1011,7 @@ declare namespace gapi.client {
                 /** Token that specifies which page is requested. If empty, the first page is returned. */
                 pageToken?: string;
                 /**
-                 * Required. The name of the entry group that contains the entries, which can be provided in URL format. Example: ∗
+                 * Required. The name of the entry group that contains the entries, which can be provided in URL format. Example: *
                  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
                  */
                 parent: string;
@@ -1075,8 +1020,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The fields to return for each Entry. If not set or empty, all fields are returned. For example, setting read_mask to contain only one path "name" will
-                 * cause ListEntries to return a list of Entries with only "name" field.
+                 * The fields to return for each Entry. If not set or empty, all fields are returned. For example, setting read_mask to contain only one path "name" will cause ListEntries to
+                 * return a list of Entries with only "name" field.
                  */
                 readMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1085,8 +1030,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudDatacatalogV1beta1ListEntriesResponse>;
             /**
-             * Updates an existing entry. Users should enable the Data Catalog API in the project identified by the `entry.name` parameter (see [Data Catalog Resource
-             * Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
+             * Updates an existing entry. Users should enable the Data Catalog API in the project identified by the `entry.name` parameter (see [Data Catalog Resource Project]
+             * (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
              */
             patch(request: {
                 /** V1 error format. */
@@ -1102,9 +1047,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The Data Catalog resource name of the entry in URL format. Example: ∗
-                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Entry and its child resources may not
-                 * actually be stored in the location in this name.
+                 * The Data Catalog resource name of the entry in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this
+                 * Entry and its child resources may not actually be stored in the location in this name.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1114,10 +1058,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The fields to update on the entry. If absent or empty, all modifiable fields are updated. The following fields are modifiable: ∗ For entries with type
-                 * `DATA_STREAM`: ∗ `schema` ∗ For entries with type `FILESET` ∗ `schema` ∗ `display_name` ∗ `description` ∗ `gcs_fileset_spec` ∗
-                 * `gcs_fileset_spec.file_patterns` ∗ For entries with `user_specified_type` ∗ `schema` ∗ `display_name` ∗ `description` ∗ user_specified_type ∗
-                 * user_specified_system ∗ linked_resource ∗ source_system_timestamps
+                 * The fields to update on the entry. If absent or empty, all modifiable fields are updated. The following fields are modifiable: * For entries with type `DATA_STREAM`: * `schema`
+                 * * For entries with type `FILESET` * `schema` * `display_name` * `description` * `gcs_fileset_spec` * `gcs_fileset_spec.file_patterns` * For entries with `user_specified_type` *
+                 * `schema` * `display_name` * `description` * user_specified_type * user_specified_system * linked_resource * source_system_timestamps
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1141,9 +1084,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The Data Catalog resource name of the entry in URL format. Example: ∗
-                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Entry and its child resources may not
-                 * actually be stored in the location in this name.
+                 * The Data Catalog resource name of the entry in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this
+                 * Entry and its child resources may not actually be stored in the location in this name.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1153,10 +1095,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The fields to update on the entry. If absent or empty, all modifiable fields are updated. The following fields are modifiable: ∗ For entries with type
-                 * `DATA_STREAM`: ∗ `schema` ∗ For entries with type `FILESET` ∗ `schema` ∗ `display_name` ∗ `description` ∗ `gcs_fileset_spec` ∗
-                 * `gcs_fileset_spec.file_patterns` ∗ For entries with `user_specified_type` ∗ `schema` ∗ `display_name` ∗ `description` ∗ user_specified_type ∗
-                 * user_specified_system ∗ linked_resource ∗ source_system_timestamps
+                 * The fields to update on the entry. If absent or empty, all modifiable fields are updated. The following fields are modifiable: * For entries with type `DATA_STREAM`: * `schema`
+                 * * For entries with type `FILESET` * `schema` * `display_name` * `description` * `gcs_fileset_spec` * `gcs_fileset_spec.file_patterns` * For entries with `user_specified_type` *
+                 * `schema` * `display_name` * `description` * user_specified_type * user_specified_system * linked_resource * source_system_timestamps
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1166,9 +1107,9 @@ declare namespace gapi.client {
             },
             body: GoogleCloudDatacatalogV1beta1Entry): Request<GoogleCloudDatacatalogV1beta1Entry>;
             /**
-             * Returns the caller's permissions on a resource. If the resource does not exist, an empty set of permissions is returned (We don't return a `NOT_FOUND`
-             * error). Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
-             * and any external Google Cloud Platform resources synced to Data Catalog. A caller is not required to have Google IAM permission to make this request.
+             * Returns the caller's permissions on a resource. If the resource does not exist, an empty set of permissions is returned (We don't return a `NOT_FOUND` error). Supported resources
+             * are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to
+             * Data Catalog. A caller is not required to have Google IAM permission to make this request.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -1202,9 +1143,9 @@ declare namespace gapi.client {
         interface TagsResource {
             /**
              * Creates a tag on an Entry. Note: The project identified by the `parent` parameter for the
-             * [tag](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters) and the
-             * [tag template](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters) used to create
-             * the tag must be from the same organization.
+             * [tag](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters) and the [tag
+             * template](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters) used to create the tag must be from the same
+             * organization.
              */
             create(request: {
                 /** V1 error format. */
@@ -1222,9 +1163,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the resource to attach this tag to. Tags can be attached to Entries. Example: ∗
-                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Tag and its child resources may not actually
-                 * be stored in the location in this name.
+                 * Required. The name of the resource to attach this tag to. Tags can be attached to Entries. Example: *
+                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Tag and its child resources may not actually be stored in the location
+                 * in this name.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1254,9 +1195,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the resource to attach this tag to. Tags can be attached to Entries. Example: ∗
-                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Tag and its child resources may not actually
-                 * be stored in the location in this name.
+                 * Required. The name of the resource to attach this tag to. Tags can be attached to Entries. Example: *
+                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id} Note that this Tag and its child resources may not actually be stored in the location
+                 * in this name.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1283,10 +1224,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The name of the tag to delete. Example: ∗
-                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
-                 */
+                /** Required. The name of the tag to delete. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1320,9 +1258,8 @@ declare namespace gapi.client {
                 /** Token that specifies which page is requested. If empty, the first page is returned. */
                 pageToken?: string;
                 /**
-                 * Required. The name of the Data Catalog resource to list the tags of. The resource could be an Entry or an EntryGroup. Examples: ∗
-                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} ∗
-                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
+                 * Required. The name of the Data Catalog resource to list the tags of. The resource could be an Entry or an EntryGroup. Examples: *
+                 * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1349,9 +1286,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the tag in URL format. Example: ∗
-                 * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is a system-generated
-                 * identifier. Note that this Tag may not actually be stored in the location in this name.
+                 * The resource name of the tag in URL format. Example: * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is
+                 * a system-generated identifier. Note that this Tag may not actually be stored in the location in this name.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1383,9 +1319,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the tag in URL format. Example: ∗
-                 * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is a system-generated
-                 * identifier. Note that this Tag may not actually be stored in the location in this name.
+                 * The resource name of the tag in URL format. Example: * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id} where `tag_id` is
+                 * a system-generated identifier. Note that this Tag may not actually be stored in the location in this name.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1405,9 +1340,8 @@ declare namespace gapi.client {
         }
         interface EntryGroupsResource {
             /**
-             * A maximum of 10,000 entry groups may be created per organization across all locations. Users should enable the Data Catalog API in the project
-             * identified by the `parent` parameter (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
-             * more information).
+             * A maximum of 10,000 entry groups may be created per organization across all locations. Users should enable the Data Catalog API in the project identified by the `parent` parameter
+             * (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
              */
             create(request: {
                 /** V1 error format. */
@@ -1419,8 +1353,8 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * Required. The id of the entry group to create. The id must begin with a letter or underscore, contain only English letters, numbers and underscores,
-                 * and be at most 64 characters.
+                 * Required. The id of the entry group to create. The id must begin with a letter or underscore, contain only English letters, numbers and underscores, and be at most 64
+                 * characters.
                  */
                 entryGroupId?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1430,8 +1364,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the project this entry group is in. Example: ∗ projects/{project_id}/locations/{location} Note that this EntryGroup and its child
-                 * resources may not actually be stored in the location in this name.
+                 * Required. The name of the project this entry group is in. Example: * projects/{project_id}/locations/{location} Note that this EntryGroup and its child resources may not
+                 * actually be stored in the location in this name.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1455,8 +1389,8 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * Required. The id of the entry group to create. The id must begin with a letter or underscore, contain only English letters, numbers and underscores,
-                 * and be at most 64 characters.
+                 * Required. The id of the entry group to create. The id must begin with a letter or underscore, contain only English letters, numbers and underscores, and be at most 64
+                 * characters.
                  */
                 entryGroupId?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1466,8 +1400,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the project this entry group is in. Example: ∗ projects/{project_id}/locations/{location} Note that this EntryGroup and its child
-                 * resources may not actually be stored in the location in this name.
+                 * Required. The name of the project this entry group is in. Example: * projects/{project_id}/locations/{location} Note that this EntryGroup and its child resources may not
+                 * actually be stored in the location in this name.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1481,9 +1415,8 @@ declare namespace gapi.client {
             },
             body: GoogleCloudDatacatalogV1beta1EntryGroup): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
             /**
-             * Deletes an EntryGroup. Only entry groups that do not contain entries can be deleted. Users should enable the Data Catalog API in the project identified
-             * by the `name` parameter (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more
-             * information).
+             * Deletes an EntryGroup. Only entry groups that do not contain entries can be deleted. Users should enable the Data Catalog API in the project identified by the `name` parameter (see
+             * [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1543,11 +1476,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
             /**
-             * Gets the access control policy for a resource. A `NOT_FOUND` error is returned if the resource does not exist. An empty policy is returned if the
-             * resource exists but does not have a policy set on it. Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be
-             * used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to Data Catalog. Callers must have following
-             * Google IAM permission - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag templates. - `datacatalog.entries.getIamPolicy` to get policies
-             * on entries. - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups.
+             * Gets the access control policy for a resource. A `NOT_FOUND` error is returned if the resource does not exist. An empty policy is returned if the resource exists but does not have a
+             * policy set on it. Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub and any external
+             * Google Cloud Platform resources synced to Data Catalog. Callers must have following Google IAM permission - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag templates.
+             * - `datacatalog.entries.getIamPolicy` to get policies on entries. - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups.
              */
             getIamPolicy(request: {
                 /** V1 error format. */
@@ -1596,10 +1528,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Token that specifies which page is requested. If empty, the first page is returned. */
                 pageToken?: string;
-                /**
-                 * Required. The name of the location that contains the entry groups, which can be provided in URL format. Example: ∗
-                 * projects/{project_id}/locations/{location}
-                 */
+                /** Required. The name of the location that contains the entry groups, which can be provided in URL format. Example: * projects/{project_id}/locations/{location} */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1611,8 +1540,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudDatacatalogV1beta1ListEntryGroupsResponse>;
             /**
-             * Updates an EntryGroup. The user should enable the Data Catalog API in the project identified by the `entry_group.name` parameter (see [Data Catalog
-             * Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
+             * Updates an EntryGroup. The user should enable the Data Catalog API in the project identified by the `entry_group.name` parameter (see [Data Catalog Resource Project]
+             * (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
              */
             patch(request: {
                 /** V1 error format. */
@@ -1628,8 +1557,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the entry group in URL format. Example: ∗ projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this
-                 * EntryGroup and its child resources may not actually be stored in the location in this name.
+                 * The resource name of the entry group in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this EntryGroup and its child
+                 * resources may not actually be stored in the location in this name.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1661,8 +1590,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the entry group in URL format. Example: ∗ projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this
-                 * EntryGroup and its child resources may not actually be stored in the location in this name.
+                 * The resource name of the entry group in URL format. Example: * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note that this EntryGroup and its child
+                 * resources may not actually be stored in the location in this name.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1680,10 +1609,10 @@ declare namespace gapi.client {
             },
             body: GoogleCloudDatacatalogV1beta1EntryGroup): Request<GoogleCloudDatacatalogV1beta1EntryGroup>;
             /**
-             * Sets the access control policy for a resource. Replaces any existing policy. Supported resources are: - Tag templates. - Entries. - Entry groups. Note,
-             * this method cannot be used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to Data Catalog. Callers
-             * must have following Google IAM permission - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. -
-             * `datacatalog.entries.setIamPolicy` to set policies on entries. - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
+             * Sets the access control policy for a resource. Replaces any existing policy. Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to
+             * manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to Data Catalog. Callers must have following Google IAM permission -
+             * `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. - `datacatalog.entries.setIamPolicy` to set policies on entries. - `datacatalog.entryGroups.setIamPolicy`
+             * to set policies on entry groups.
              */
             setIamPolicy(request: {
                 /** V1 error format. */
@@ -1713,9 +1642,9 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns the caller's permissions on a resource. If the resource does not exist, an empty set of permissions is returned (We don't return a `NOT_FOUND`
-             * error). Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
-             * and any external Google Cloud Platform resources synced to Data Catalog. A caller is not required to have Google IAM permission to make this request.
+             * Returns the caller's permissions on a resource. If the resource does not exist, an empty set of permissions is returned (We don't return a `NOT_FOUND` error). Supported resources
+             * are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to
+             * Data Catalog. A caller is not required to have Google IAM permission to make this request.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -1749,8 +1678,8 @@ declare namespace gapi.client {
         }
         interface EnumValuesResource {
             /**
-             * Renames an enum value in a tag template. The enum values have to be unique within one enum field. Thus, an enum value cannot be renamed with a name
-             * used in any other enum value within the same enum field.
+             * Renames an enum value in a tag template. The enum values have to be unique within one enum field. Thus, an enum value cannot be renamed with a name used in any other enum value
+             * within the same enum field.
              */
             rename(request: {
                 /** V1 error format. */
@@ -1766,7 +1695,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The name of the enum field value. Example: ∗
+                 * Required. The name of the enum field value. Example: *
                  * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}/enumValues/{enum_value_display_name}
                  */
                 name: string;
@@ -1797,7 +1726,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The name of the enum field value. Example: ∗
+                 * Required. The name of the enum field value. Example: *
                  * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}/enumValues/{enum_value_display_name}
                  */
                 name: string;
@@ -1816,8 +1745,8 @@ declare namespace gapi.client {
         }
         interface FieldsResource {
             /**
-             * Creates a field in a tag template. The user should enable the Data Catalog API in the project identified by the `parent` parameter (see [Data Catalog
-             * Resource Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
+             * Creates a field in a tag template. The user should enable the Data Catalog API in the project identified by the `parent` parameter (see [Data Catalog Resource
+             * Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
              */
             create(request: {
                 /** V1 error format. */
@@ -1835,7 +1764,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the project and the template location [region](https://cloud.google.com/data-catalog/docs/concepts/regions). Example: ∗
+                 * Required. The name of the project and the template location [region](https://cloud.google.com/data-catalog/docs/concepts/regions). Example: *
                  * projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
                  */
                 parent: string;
@@ -1844,8 +1773,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. The ID of the tag template field to create. Field ids can contain letters (both uppercase and lowercase), numbers (0-9), underscores (_) and
-                 * dashes (-). Field IDs must be at least 1 character long and at most 128 characters long. Field IDs must also be unique within their template.
+                 * Required. The ID of the tag template field to create. Field ids can contain letters (both uppercase and lowercase), numbers (0-9), underscores (_) and dashes (-). Field IDs must
+                 * be at least 1 character long and at most 128 characters long. Field IDs must also be unique within their template.
                  */
                 tagTemplateFieldId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1871,7 +1800,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the project and the template location [region](https://cloud.google.com/data-catalog/docs/concepts/regions). Example: ∗
+                 * Required. The name of the project and the template location [region](https://cloud.google.com/data-catalog/docs/concepts/regions). Example: *
                  * projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
                  */
                 parent: string;
@@ -1880,8 +1809,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. The ID of the tag template field to create. Field ids can contain letters (both uppercase and lowercase), numbers (0-9), underscores (_) and
-                 * dashes (-). Field IDs must be at least 1 character long and at most 128 characters long. Field IDs must also be unique within their template.
+                 * Required. The ID of the tag template field to create. Field ids can contain letters (both uppercase and lowercase), numbers (0-9), underscores (_) and dashes (-). Field IDs must
+                 * be at least 1 character long and at most 128 characters long. Field IDs must also be unique within their template.
                  */
                 tagTemplateFieldId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1891,8 +1820,8 @@ declare namespace gapi.client {
             },
             body: GoogleCloudDatacatalogV1beta1TagTemplateField): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
             /**
-             * Deletes a field in a tag template and all uses of that field. Users should enable the Data Catalog API in the project identified by the `name`
-             * parameter (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
+             * Deletes a field in a tag template and all uses of that field. Users should enable the Data Catalog API in the project identified by the `name` parameter (see [Data Catalog Resource
+             * Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1906,16 +1835,13 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Required. Currently, this field must always be set to `true`. This confirms the deletion of this field from any tags using this field. `force = false`
-                 * will be supported in the future.
+                 * Required. Currently, this field must always be set to `true`. This confirms the deletion of this field from any tags using this field. `force = false` will be supported in the
+                 * future.
                  */
                 force?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The name of the tag template field to delete. Example: ∗
-                 * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}
-                 */
+                /** Required. The name of the tag template field to delete. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1929,9 +1855,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Updates a field in a tag template. This method cannot be used to update the field type. Users should enable the Data Catalog API in the project
-             * identified by the `name` parameter (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more
-             * information).
+             * Updates a field in a tag template. This method cannot be used to update the field type. Users should enable the Data Catalog API in the project identified by the `name` parameter
+             * (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
              */
             patch(request: {
                 /** V1 error format. */
@@ -1946,10 +1871,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The name of the tag template field. Example: ∗
-                 * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}
-                 */
+                /** Required. The name of the tag template field. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1958,10 +1880,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. The field mask specifies the parts of the template to be updated. Allowed fields: ∗ `display_name` ∗ `type.enum_type` ∗ `is_required` If
-                 * `update_mask` is not set or empty, all of the allowed fields above will be updated. When updating an enum type, the provided values will be merged with
-                 * the existing values. Therefore, enum values can only be added, existing enum values cannot be deleted nor renamed. Updating a template field from
-                 * optional to required is NOT allowed.
+                 * Optional. The field mask specifies the parts of the template to be updated. Allowed fields: * `display_name` * `type.enum_type` * `is_required` If `update_mask` is not set or
+                 * empty, all of the allowed fields above will be updated. When updating an enum type, the provided values will be merged with the existing values. Therefore, enum values can only
+                 * be added, existing enum values cannot be deleted nor renamed. Updating a template field from optional to required is NOT allowed.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1984,10 +1905,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The name of the tag template field. Example: ∗
-                 * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}
-                 */
+                /** Required. The name of the tag template field. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1996,10 +1914,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. The field mask specifies the parts of the template to be updated. Allowed fields: ∗ `display_name` ∗ `type.enum_type` ∗ `is_required` If
-                 * `update_mask` is not set or empty, all of the allowed fields above will be updated. When updating an enum type, the provided values will be merged with
-                 * the existing values. Therefore, enum values can only be added, existing enum values cannot be deleted nor renamed. Updating a template field from
-                 * optional to required is NOT allowed.
+                 * Optional. The field mask specifies the parts of the template to be updated. Allowed fields: * `display_name` * `type.enum_type` * `is_required` If `update_mask` is not set or
+                 * empty, all of the allowed fields above will be updated. When updating an enum type, the provided values will be merged with the existing values. Therefore, enum values can only
+                 * be added, existing enum values cannot be deleted nor renamed. Updating a template field from optional to required is NOT allowed.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2009,8 +1926,8 @@ declare namespace gapi.client {
             },
             body: GoogleCloudDatacatalogV1beta1TagTemplateField): Request<GoogleCloudDatacatalogV1beta1TagTemplateField>;
             /**
-             * Renames a field in a tag template. The user should enable the Data Catalog API in the project identified by the `name` parameter (see [Data Catalog
-             * Resource Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
+             * Renames a field in a tag template. The user should enable the Data Catalog API in the project identified by the `name` parameter (see [Data Catalog Resource
+             * Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
              */
             rename(request: {
                 /** V1 error format. */
@@ -2025,10 +1942,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The name of the tag template. Example: ∗
-                 * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}
-                 */
+                /** Required. The name of the tag template. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2056,10 +1970,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The name of the tag template. Example: ∗
-                 * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}
-                 */
+                /** Required. The name of the tag template. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2096,7 +2007,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the project and the template location [region](https://cloud.google.com/data-catalog/docs/concepts/regions. Example: ∗
+                 * Required. The name of the project and the template location [region](https://cloud.google.com/data-catalog/docs/concepts/regions. Example: *
                  * projects/{project_id}/locations/us-central1
                  */
                 parent: string;
@@ -2129,7 +2040,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the project and the template location [region](https://cloud.google.com/data-catalog/docs/concepts/regions. Example: ∗
+                 * Required. The name of the project and the template location [region](https://cloud.google.com/data-catalog/docs/concepts/regions. Example: *
                  * projects/{project_id}/locations/us-central1
                  */
                 parent: string;
@@ -2146,8 +2057,8 @@ declare namespace gapi.client {
             },
             body: GoogleCloudDatacatalogV1beta1TagTemplate): Request<GoogleCloudDatacatalogV1beta1TagTemplate>;
             /**
-             * Deletes a tag template and all tags using the template. Users should enable the Data Catalog API in the project identified by the `name` parameter (see
-             * [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
+             * Deletes a tag template and all tags using the template. Users should enable the Data Catalog API in the project identified by the `name` parameter (see [Data Catalog Resource
+             * Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
              */
             delete(request?: {
                 /** V1 error format. */
@@ -2161,13 +2072,13 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Required. Currently, this field must always be set to `true`. This confirms the deletion of any possible tags using this template. `force = false` will
-                 * be supported in the future.
+                 * Required. Currently, this field must always be set to `true`. This confirms the deletion of any possible tags using this template. `force = false` will be supported in the
+                 * future.
                  */
                 force?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The name of the tag template to delete. Example: ∗ projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} */
+                /** Required. The name of the tag template to delete. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2194,7 +2105,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The name of the tag template. Example: ∗ projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} */
+                /** Required. The name of the tag template. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2208,11 +2119,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudDatacatalogV1beta1TagTemplate>;
             /**
-             * Gets the access control policy for a resource. A `NOT_FOUND` error is returned if the resource does not exist. An empty policy is returned if the
-             * resource exists but does not have a policy set on it. Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be
-             * used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to Data Catalog. Callers must have following
-             * Google IAM permission - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag templates. - `datacatalog.entries.getIamPolicy` to get policies
-             * on entries. - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups.
+             * Gets the access control policy for a resource. A `NOT_FOUND` error is returned if the resource does not exist. An empty policy is returned if the resource exists but does not have a
+             * policy set on it. Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub and any external
+             * Google Cloud Platform resources synced to Data Catalog. Callers must have following Google IAM permission - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag templates.
+             * - `datacatalog.entries.getIamPolicy` to get policies on entries. - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups.
              */
             getIamPolicy(request: {
                 /** V1 error format. */
@@ -2242,10 +2152,9 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /**
-             * Updates a tag template. This method cannot be used to update the fields of a template. The tag template fields are represented as separate resources
-             * and should be updated using their own create/update/delete methods. Users should enable the Data Catalog API in the project identified by the
-             * `tag_template.name` parameter (see [Data Catalog Resource Project] (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more
-             * information).
+             * Updates a tag template. This method cannot be used to update the fields of a template. The tag template fields are represented as separate resources and should be updated using
+             * their own create/update/delete methods. Users should enable the Data Catalog API in the project identified by the `tag_template.name` parameter (see [Data Catalog Resource Project]
+             * (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for more information).
              */
             patch(request: {
                 /** V1 error format. */
@@ -2261,8 +2170,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the tag template in URL format. Example: ∗ projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} Note that
-                 * this TagTemplate and its child resources may not actually be stored in the location in this name.
+                 * The resource name of the tag template in URL format. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} Note that this TagTemplate and its
+                 * child resources may not actually be stored in the location in this name.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2271,10 +2180,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The field mask specifies the parts of the template to overwrite. Allowed fields: ∗ `display_name` If absent or empty, all of the allowed fields above
-                 * will be updated.
-                 */
+                /** The field mask specifies the parts of the template to overwrite. Allowed fields: * `display_name` If absent or empty, all of the allowed fields above will be updated. */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -2297,8 +2203,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the tag template in URL format. Example: ∗ projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} Note that
-                 * this TagTemplate and its child resources may not actually be stored in the location in this name.
+                 * The resource name of the tag template in URL format. Example: * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id} Note that this TagTemplate and its
+                 * child resources may not actually be stored in the location in this name.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2307,10 +2213,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * The field mask specifies the parts of the template to overwrite. Allowed fields: ∗ `display_name` If absent or empty, all of the allowed fields above
-                 * will be updated.
-                 */
+                /** The field mask specifies the parts of the template to overwrite. Allowed fields: * `display_name` If absent or empty, all of the allowed fields above will be updated. */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -2319,10 +2222,10 @@ declare namespace gapi.client {
             },
             body: GoogleCloudDatacatalogV1beta1TagTemplate): Request<GoogleCloudDatacatalogV1beta1TagTemplate>;
             /**
-             * Sets the access control policy for a resource. Replaces any existing policy. Supported resources are: - Tag templates. - Entries. - Entry groups. Note,
-             * this method cannot be used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to Data Catalog. Callers
-             * must have following Google IAM permission - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. -
-             * `datacatalog.entries.setIamPolicy` to set policies on entries. - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
+             * Sets the access control policy for a resource. Replaces any existing policy. Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to
+             * manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to Data Catalog. Callers must have following Google IAM permission -
+             * `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. - `datacatalog.entries.setIamPolicy` to set policies on entries. - `datacatalog.entryGroups.setIamPolicy`
+             * to set policies on entry groups.
              */
             setIamPolicy(request: {
                 /** V1 error format. */
@@ -2352,9 +2255,9 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns the caller's permissions on a resource. If the resource does not exist, an empty set of permissions is returned (We don't return a `NOT_FOUND`
-             * error). Supported resources are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
-             * and any external Google Cloud Platform resources synced to Data Catalog. A caller is not required to have Google IAM permission to make this request.
+             * Returns the caller's permissions on a resource. If the resource does not exist, an empty set of permissions is returned (We don't return a `NOT_FOUND` error). Supported resources
+             * are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be used to manage policies for BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to
+             * Data Catalog. A caller is not required to have Google IAM permission to make this request.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -2569,10 +2472,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Output only. Resource name of this policy tag, whose format is:
-                 * "projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}".
-                 */
+                /** Output only. Resource name of this policy tag, whose format is: "projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}". */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2581,10 +2481,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The update mask applies to the resource. Only display_name, description and parent_policy_tag can be updated and thus can be listed in the mask. If
-                 * update_mask is not provided, all allowed fields (i.e. display_name, description and parent) will be updated. For more information including the
-                 * `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set, defaults to all of the
-                 * fields that are allowed to update.
+                 * The update mask applies to the resource. Only display_name, description and parent_policy_tag can be updated and thus can be listed in the mask. If update_mask is not provided,
+                 * all allowed fields (i.e. display_name, description and parent) will be updated. For more information including the `FieldMask` definition, see
+                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set, defaults to all of the fields that are allowed to update.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2607,10 +2506,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Output only. Resource name of this policy tag, whose format is:
-                 * "projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}".
-                 */
+                /** Output only. Resource name of this policy tag, whose format is: "projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}". */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2619,10 +2515,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The update mask applies to the resource. Only display_name, description and parent_policy_tag can be updated and thus can be listed in the mask. If
-                 * update_mask is not provided, all allowed fields (i.e. display_name, description and parent) will be updated. For more information including the
-                 * `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set, defaults to all of the
-                 * fields that are allowed to update.
+                 * The update mask applies to the resource. Only display_name, description and parent_policy_tag can be updated and thus can be listed in the mask. If update_mask is not provided,
+                 * all allowed fields (i.e. display_name, description and parent) will be updated. For more information including the `FieldMask` definition, see
+                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set, defaults to all of the fields that are allowed to update.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2773,8 +2668,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Exports all taxonomies and their policy tags in a project. This method generates SerializedTaxonomy protos with nested policy tags that can be used as
-             * an input for future ImportTaxonomies calls.
+             * Exports all taxonomies and their policy tags in a project. This method generates SerializedTaxonomy protos with nested policy tags that can be used as an input for future
+             * ImportTaxonomies calls.
              */
             export(request?: {
                 /** V1 error format. */
@@ -2861,10 +2756,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: GetIamPolicyRequest): Request<Policy>;
-            /**
-             * Imports all taxonomies and their policy tags to a project as new taxonomies. This method provides a bulk taxonomy / policy tag creation using nested
-             * proto structure.
-             */
+            /** Imports all taxonomies and their policy tags to a project as new taxonomies. This method provides a bulk taxonomy / policy tag creation using nested proto structure. */
             import(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2974,9 +2866,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The update mask applies to the resource. For the `FieldMask` definition, see
-                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set, defaults to all of the fields that are allowed to
-                 * update.
+                 * The update mask applies to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set,
+                 * defaults to all of the fields that are allowed to update.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3008,9 +2899,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The update mask applies to the resource. For the `FieldMask` definition, see
-                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set, defaults to all of the fields that are allowed to
-                 * update.
+                 * The update mask applies to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set,
+                 * defaults to all of the fields that are allowed to update.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
