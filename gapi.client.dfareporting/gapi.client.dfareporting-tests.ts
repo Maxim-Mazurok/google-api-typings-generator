@@ -1456,10 +1456,7 @@ gapi.load('client', () => {
         await gapi.client.dfareporting.browsers.list({
             profileId: "Test string",
         });
-        /**
-         * Associates a creative with the specified campaign. This method creates a default ad with dimensions matching the creative in the campaign if such a
-         * default ad does not exist already.
-         */
+        /** Associates a creative with the specified campaign. This method creates a default ad with dimensions matching the creative in the campaign if such a default ad does not exist already. */
         await gapi.client.dfareporting.campaignCreativeAssociations.insert({
             campaignId: "Test string",
             profileId: "Test string",
@@ -3711,8 +3708,8 @@ gapi.load('client', () => {
             profileId: "Test string",
         });
         /**
-         * Inserts a new dynamic targeting key. Keys must be created at the advertiser level before being assigned to the advertiser's ads, creatives, or
-         * placements. There is a maximum of 1000 keys per advertiser, out of which a maximum of 20 keys can be assigned per ad, creative, or placement.
+         * Inserts a new dynamic targeting key. Keys must be created at the advertiser level before being assigned to the advertiser's ads, creatives, or placements. There is a maximum of 1000
+         * keys per advertiser, out of which a maximum of 20 keys can be assigned per ad, creative, or placement.
          */
         await gapi.client.dfareporting.dynamicTargetingKeys.insert({
             profileId: "Test string",
@@ -5695,10 +5692,7 @@ gapi.load('client', () => {
             profileId: "Test string",
             reportId: "Test string",
         });
-        /**
-         * Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input
-         * report and user permissions.
-         */
+        /** Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions. */
         await gapi.client.dfareporting.reports.compatibleFields.query({
             profileId: "Test string",
         }, {
@@ -6157,10 +6151,7 @@ gapi.load('client', () => {
             profileId: "Test string",
             reportId: "Test string",
         });
-        /**
-         * Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input
-         * report and user permissions.
-         */
+        /** Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions. */
         await gapi.client.dfareporting.reports.compatibleFields.query({
             profileId: "Test string",
         }, {
@@ -7053,10 +7044,7 @@ gapi.load('client', () => {
             subAccountId: "Test string",
             type: "Test string",
         });
-        /**
-         * Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input
-         * report and user permissions.
-         */
+        /** Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions. */
         await gapi.client.dfareporting.reports.compatibleFields.query({
             profileId: "Test string",
         }, {
@@ -7519,10 +7507,7 @@ gapi.load('client', () => {
             sortField: "Test string",
             sortOrder: "Test string",
         });
-        /**
-         * Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input
-         * report and user permissions.
-         */
+        /** Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions. */
         await gapi.client.dfareporting.reports.compatibleFields.query({
             profileId: "Test string",
         }, {
@@ -8416,10 +8401,7 @@ gapi.load('client', () => {
             subAccountId: "Test string",
             type: "Test string",
         });
-        /**
-         * Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input
-         * report and user permissions.
-         */
+        /** Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions. */
         await gapi.client.dfareporting.reports.compatibleFields.query({
             profileId: "Test string",
         }, {
@@ -8879,10 +8861,7 @@ gapi.load('client', () => {
             reportId: "Test string",
             synchronous: true,
         });
-        /**
-         * Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input
-         * report and user permissions.
-         */
+        /** Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions. */
         await gapi.client.dfareporting.reports.compatibleFields.query({
             profileId: "Test string",
         }, {
@@ -9776,10 +9755,7 @@ gapi.load('client', () => {
             subAccountId: "Test string",
             type: "Test string",
         });
-        /**
-         * Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input
-         * report and user permissions.
-         */
+        /** Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions. */
         await gapi.client.dfareporting.reports.compatibleFields.query({
             profileId: "Test string",
         }, {
@@ -10586,8 +10562,8 @@ gapi.load('client', () => {
             width: 42,
         });
         /**
-         * Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally unique and may include values not currently in use by your account. Due to
-         * this, the list of sizes returned by this method may differ from the list seen in the Trafficking UI.
+         * Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally unique and may include values not currently in use by your account. Due to this, the list of sizes returned by
+         * this method may differ from the list seen in the Trafficking UI.
          */
         await gapi.client.dfareporting.sizes.list({
             height: 42,

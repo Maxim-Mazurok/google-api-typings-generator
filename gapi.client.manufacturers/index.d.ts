@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Manufacturer Center API v1 1.0
 // Project: https://developers.google.com/manufacturers/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -61,10 +64,7 @@ declare namespace gapi.client {
             pattern?: string;
             /** The details of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#productdetail. */
             productDetail?: ProductDetail[];
-            /**
-             * The name of the group of products related to the product. For more information, see
-             * https://support.google.com/manufacturers/answer/6124116#productline.
-             */
+            /** The name of the group of products related to the product. For more information, see https://support.google.com/manufacturers/answer/6124116#productline. */
             productLine?: string;
             /** The canonical name of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#productname. */
             productName?: string;
@@ -126,10 +126,7 @@ declare namespace gapi.client {
         }
         // tslint:disable-next-line:interface-name
         interface Image {
-            /**
-             * The URL of the image. For crawled images, this is the provided URL. For uploaded images, this is a serving URL from Google if the image has been
-             * processed successfully.
-             */
+            /** The URL of the image. For crawled images, this is the provided URL. For uploaded images, this is a serving URL from Google if the image has been processed successfully. */
             imageUrl?: string;
             /** The status of the image. @OutputOnly */
             status?: string;
@@ -177,9 +174,9 @@ declare namespace gapi.client {
             /** A server-generated list of issues associated with the product. */
             issues?: Issue[];
             /**
-             * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code
-             * (for example, US). `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` -
-             * The ID of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#id.
+             * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code (for example, US).
+             * `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` - The ID of the product. For more information, see
+             * https://support.google.com/manufacturers/answer/6124116#id.
              */
             name?: string;
             /** Parent ID in the format `accounts/{account_id}`. `account_id` - The ID of the Manufacturer Center account. */
@@ -213,9 +210,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code
-                 * (for example, US). `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` -
-                 * The ID of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#id.
+                 * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code (for example, US).
+                 * `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` - The ID of the product. For more information,
+                 * see https://support.google.com/manufacturers/answer/6124116#id.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -232,9 +229,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Gets the product from a Manufacturer Center account, including product issues. A recently updated product takes around 15 minutes to process. Changes
-             * are only visible after it has been processed. While some issues may be available once the product has been processed, other issues may take days to
-             * appear.
+             * Gets the product from a Manufacturer Center account, including product issues. A recently updated product takes around 15 minutes to process. Changes are only visible after it has
+             * been processed. While some issues may be available once the product has been processed, other issues may take days to appear.
              */
             get(request?: {
                 /** V1 error format. */
@@ -252,9 +248,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code
-                 * (for example, US). `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` -
-                 * The ID of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#id.
+                 * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code (for example, US).
+                 * `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` - The ID of the product. For more information,
+                 * see https://support.google.com/manufacturers/answer/6124116#id.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -304,12 +300,11 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListProductsResponse>;
             /**
-             * Inserts or updates the attributes of the product in a Manufacturer Center account. Creates a product with the provided attributes. If the product
-             * already exists, then all attributes are replaced with the new ones. The checks at upload time are minimal. All required attributes need to be present
-             * for a product to be valid. Issues may show up later after the API has accepted a new upload for a product and it is possible to overwrite an existing
-             * valid product with an invalid product. To detect this, you should retrieve the product and check it for issues once the new version is available.
-             * Uploaded attributes first need to be processed before they can be retrieved. Until then, new products will be unavailable, and retrieval of previously
-             * uploaded products will return the original state of the product.
+             * Inserts or updates the attributes of the product in a Manufacturer Center account. Creates a product with the provided attributes. If the product already exists, then all attributes
+             * are replaced with the new ones. The checks at upload time are minimal. All required attributes need to be present for a product to be valid. Issues may show up later after the API
+             * has accepted a new upload for a product and it is possible to overwrite an existing valid product with an invalid product. To detect this, you should retrieve the product and check
+             * it for issues once the new version is available. Uploaded attributes first need to be processed before they can be retrieved. Until then, new products will be unavailable, and
+             * retrieval of previously uploaded products will return the original state of the product.
              */
             update(request: {
                 /** V1 error format. */
@@ -325,9 +320,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code
-                 * (for example, US). `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` -
-                 * The ID of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#id.
+                 * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code (for example, US).
+                 * `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` - The ID of the product. For more information,
+                 * see https://support.google.com/manufacturers/answer/6124116#id.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -359,9 +354,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code
-                 * (for example, US). `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` -
-                 * The ID of the product. For more information, see https://support.google.com/manufacturers/answer/6124116#id.
+                 * Name in the format `{target_country}:{content_language}:{product_id}`. `target_country` - The target country of the product as a CLDR territory code (for example, US).
+                 * `content_language` - The content language of the product as a two-letter ISO 639-1 language code (for example, en). `product_id` - The ID of the product. For more information,
+                 * see https://support.google.com/manufacturers/answer/6124116#id.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */

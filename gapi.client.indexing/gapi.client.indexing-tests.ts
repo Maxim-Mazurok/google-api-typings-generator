@@ -28,8 +28,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Gets metadata about a Web Document. This method can _only_ be used to query URLs that were previously seen in successful Indexing API notifications.
-         * Includes the latest `UrlNotification` received via this API.
+         * Gets metadata about a Web Document. This method can _only_ be used to query URLs that were previously seen in successful Indexing API notifications. Includes the latest
+         * `UrlNotification` received via this API.
          */
         await gapi.client.indexing.urlNotifications.getMetadata({
             url: "Test string",

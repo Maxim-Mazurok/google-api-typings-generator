@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Firebase Dynamic Links API v1 1.0
 // Project: https://firebase.google.com/docs/dynamic-links/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -38,14 +41,13 @@ declare namespace gapi.client {
             /** Information about the Dynamic Link to be shortened. [Learn more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener). */
             dynamicLinkInfo?: DynamicLinkInfo;
             /**
-             * Full long Dynamic Link URL with desired query parameters specified. For example,
-             * "https://sample.app.goo.gl/?link=http://www.google.com&apn=com.sample", [Learn
+             * Full long Dynamic Link URL with desired query parameters specified. For example, "https://sample.app.goo.gl/?link=http://www.google.com&apn=com.sample", [Learn
              * more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).
              */
             longDynamicLink?: string;
             /**
-             * Link name to associate with the link. It's used for marketer to identify manually-created links in the Firebase console
-             * (https://console.firebase.google.com/). Links must be named to be tracked.
+             * Link name to associate with the link. It's used for marketer to identify manually-created links in the Firebase console (https://console.firebase.google.com/). Links must be named
+             * to be tracked.
              */
             name?: string;
             /** Google SDK version. Version takes the form "$major.$minor.$patch" */
@@ -65,8 +67,7 @@ declare namespace gapi.client {
             /** Information about the Dynamic Link to be shortened. [Learn more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener). */
             dynamicLinkInfo?: DynamicLinkInfo;
             /**
-             * Full long Dynamic Link URL with desired query parameters specified. For example,
-             * "https://sample.app.goo.gl/?link=http://www.google.com&apn=com.sample", [Learn
+             * Full long Dynamic Link URL with desired query parameters specified. For example, "https://sample.app.goo.gl/?link=http://www.google.com&apn=com.sample", [Learn
              * more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).
              */
             longDynamicLink?: string;
@@ -95,8 +96,8 @@ declare namespace gapi.client {
             /** Device language code setting obtained by executing JavaScript code in WebView. */
             languageCodeFromWebview?: string;
             /**
-             * Device language code raw setting. iOS does returns language code in different format than iOS WebView. For example WebView returns en_US, but iOS
-             * returns en-US. Field below will return raw value returned by iOS.
+             * Device language code raw setting. iOS does returns language code in different format than iOS WebView. For example WebView returns en_US, but iOS returns en-US. Field below will
+             * return raw value returned by iOS.
              */
             languageCodeRaw?: string;
             /** Device display resolution height. */
@@ -127,15 +128,15 @@ declare namespace gapi.client {
              */
             domainUriPrefix?: string;
             /**
-             * Dynamic Links domain that the project owns, e.g. abcd.app.goo.gl [Learn more](https://firebase.google.com/docs/dynamic-links/android/receive) on how to
-             * set up Dynamic Link domain associated with your Firebase project. Required if missing domain_uri_prefix.
+             * Dynamic Links domain that the project owns, e.g. abcd.app.goo.gl [Learn more](https://firebase.google.com/docs/dynamic-links/android/receive) on how to set up Dynamic Link domain
+             * associated with your Firebase project. Required if missing domain_uri_prefix.
              */
             dynamicLinkDomain?: string;
             /** iOS related information. See iOS related parameters in the [documentation](https://firebase.google.com/docs/dynamic-links/create-manually). */
             iosInfo?: IosInfo;
             /**
-             * The link your app will open, You can specify any URL your app can handle. This link must be a well-formatted URL, be properly URL-encoded, and use the
-             * HTTP or HTTPS scheme. See 'link' parameters in the [documentation](https://firebase.google.com/docs/dynamic-links/create-manually). Required.
+             * The link your app will open, You can specify any URL your app can handle. This link must be a well-formatted URL, be properly URL-encoded, and use the HTTP or HTTPS scheme. See
+             * 'link' parameters in the [documentation](https://firebase.google.com/docs/dynamic-links/create-manually). Required.
              */
             link?: string;
             /** Information of navigation behavior of a Firebase Dynamic Links. */
@@ -169,8 +170,8 @@ declare namespace gapi.client {
             /** Google SDK version. Version takes the form "$major.$minor.$patch" */
             sdkVersion?: string;
             /**
-             * Possible unique matched link that server need to check before performing fingerprint match. If passed link is short server need to expand the link. If
-             * link is long server need to vslidate the link.
+             * Possible unique matched link that server need to check before performing fingerprint match. If passed link is short server need to expand the link. If link is long server need to
+             * vslidate the link.
              */
             uniqueMatchLinkToCheck?: string;
             /** Strong match page information. Disambiguates between default UI and custom page to present when strong match succeeds/fails to find cookie. */
@@ -184,22 +185,18 @@ declare namespace gapi.client {
             /** The deep-link attributed post-install via one of several techniques (fingerprint, copy unique). */
             deepLink?: string;
             /**
-             * User-agent specific custom-scheme URIs for iSDK to open. This will be set according to the user-agent tha the click was originally made in. There is no
-             * Safari-equivalent custom-scheme open URLs. ie: googlechrome://www.example.com ie: firefox://open-url?url=http://www.example.com ie:
-             * opera-http://example.com
+             * User-agent specific custom-scheme URIs for iSDK to open. This will be set according to the user-agent tha the click was originally made in. There is no Safari-equivalent
+             * custom-scheme open URLs. ie: googlechrome://www.example.com ie: firefox://open-url?url=http://www.example.com ie: opera-http://example.com
              */
             externalBrowserDestinationLink?: string;
             /**
-             * The link to navigate to update the app if min version is not met. This is either (in order): 1) fallback link (from ?ifl= parameter, if specified by
-             * developer) or 2) AppStore URL (from ?isi= parameter, if specified), or 3) the payload link (from required link= parameter).
+             * The link to navigate to update the app if min version is not met. This is either (in order): 1) fallback link (from ?ifl= parameter, if specified by developer) or 2) AppStore URL
+             * (from ?isi= parameter, if specified), or 3) the payload link (from required link= parameter).
              */
             fallbackLink?: string;
             /** Invitation ID attributed post-install via one of several techniques (fingerprint, copy unique). */
             invitationId?: string;
-            /**
-             * Instruction for iSDK to attemmpt to perform strong match. For instance, if browser does not support/allow cookie or outside of support browsers, this
-             * will be false.
-             */
+            /** Instruction for iSDK to attemmpt to perform strong match. For instance, if browser does not support/allow cookie or outside of support browsers, this will be false. */
             isStrongMatchExecutable?: boolean;
             /** Describes why match failed, ie: "discarded due to low confidence". This message will be publicly visible. */
             matchMessage?: string;
@@ -208,9 +205,8 @@ declare namespace gapi.client {
             /** Which IP version the request was made from. */
             requestIpVersion?: string;
             /**
-             * The entire FDL, expanded from a short link. It is the same as the requested_link, if it is long. Parameters from this should not be used directly (ie:
-             * server can default utm_[campaign|medium|source] to a value when requested_link lack them, server determine the best fallback_link when requested_link
-             * specifies >1 fallback links).
+             * The entire FDL, expanded from a short link. It is the same as the requested_link, if it is long. Parameters from this should not be used directly (ie: server can default
+             * utm_[campaign|medium|source] to a value when requested_link lack them, server determine the best fallback_link when requested_link specifies >1 fallback links).
              */
             resolvedLink?: string;
             /** Scion campaign value to be propagated by iSDK to Scion at post-install. */
@@ -228,8 +224,8 @@ declare namespace gapi.client {
             /** APP bundle ID. */
             bundleId?: string;
             /**
-             * FDL link to be verified from an app universal link open. The FDL link can be one of: 1) short FDL. e.g. .page.link/, or 2) long FDL. e.g.
-             * .page.link/?{query params}, or 3) Invite FDL. e.g. .page.link/i/
+             * FDL link to be verified from an app universal link open. The FDL link can be one of: 1) short FDL. e.g. .page.link/, or 2) long FDL. e.g. .page.link/?{query params}, or 3) Invite
+             * FDL. e.g. .page.link/i/
              */
             requestedLink?: string;
             /** Google SDK version. Version takes the form "$major.$minor.$patch" */
@@ -257,8 +253,8 @@ declare namespace gapi.client {
         }
         interface GooglePlayAnalytics {
             /**
-             * [AdWords autotagging parameter](https://support.google.com/analytics/answer/1033981?hl=en); used to measure Google AdWords ads. This value is generated
-             * dynamically and should never be modified.
+             * [AdWords autotagging parameter](https://support.google.com/analytics/answer/1033981?hl=en); used to measure Google AdWords ads. This value is generated dynamically and should never
+             * be modified.
              */
             gclid?: string;
             /** Campaign name; used for keyword analysis to identify a specific product promotion or strategic campaign. */
@@ -278,10 +274,7 @@ declare namespace gapi.client {
             iosAppStoreId?: string;
             /** iOS bundle ID of the app. */
             iosBundleId?: string;
-            /**
-             * Custom (destination) scheme to use for iOS. By default, we’ll use the bundle ID as the custom scheme. Developer can override this behavior using this
-             * param.
-             */
+            /** Custom (destination) scheme to use for iOS. By default, we’ll use the bundle ID as the custom scheme. Developer can override this behavior using this param. */
             iosCustomScheme?: string;
             /** Link to open on iOS if the app is not installed. */
             iosFallbackLink?: string;
@@ -337,11 +330,10 @@ declare namespace gapi.client {
         }
         interface ManagedShortLinksResource {
             /**
-             * Creates a managed short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information.
-             * The created short Dynamic Link will not expire. This differs from CreateShortDynamicLink in the following ways: - The request will also contain a name
-             * for the link (non unique name for the front end). - The response must be authenticated with an auth token (generated with the admin service account). -
-             * The link will appear in the FDL list of links in the console front end. The Dynamic Link domain in the request must be owned by requester's Firebase
-             * project.
+             * Creates a managed short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link
+             * will not expire. This differs from CreateShortDynamicLink in the following ways: - The request will also contain a name for the link (non unique name for the front end). - The
+             * response must be authenticated with an auth token (generated with the admin service account). - The link will appear in the FDL list of links in the console front end. The Dynamic
+             * Link domain in the request must be owned by requester's Firebase project.
              */
             create(request: {
                 /** V1 error format. */
@@ -397,9 +389,9 @@ declare namespace gapi.client {
         }
         interface ShortLinksResource {
             /**
-             * Creates a short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The
-             * created short Dynamic Link will not expire. Repeated calls with the same long Dynamic Link or Dynamic Link information will produce the same short
-             * Dynamic Link. The Dynamic Link domain in the request must be owned by requester's Firebase project.
+             * Creates a short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link will not
+             * expire. Repeated calls with the same long Dynamic Link or Dynamic Link information will produce the same short Dynamic Link. The Dynamic Link domain in the request must be owned by
+             * requester's Firebase project.
              */
             create(request: {
                 /** V1 error format. */
@@ -454,10 +446,7 @@ declare namespace gapi.client {
             body: CreateShortDynamicLinkRequest): Request<CreateShortDynamicLinkResponse>;
         }
         interface V1Resource {
-            /**
-             * Fetches analytics stats of a short Dynamic Link for a given duration. Metrics include number of clicks, redirects, installs, app first opens, and app
-             * reopens.
-             */
+            /** Fetches analytics stats of a short Dynamic Link for a given duration. Metrics include number of clicks, redirects, installs, app first opens, and app reopens. */
             getLinkStats(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;

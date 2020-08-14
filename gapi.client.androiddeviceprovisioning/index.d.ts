@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Android Device Provisioning Partner API v1 1.0
 // Project: https://developers.google.com/zero-touch/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -46,13 +49,13 @@ declare namespace gapi.client {
             /** Required. The name of the company. For example _XYZ Corp_. Displayed to the company's employees in the zero-touch enrollment portal. */
             companyName?: string;
             /**
-             * Output only. The API resource name of the company. The resource name is one of the following formats: ∗ `partners/[PARTNER_ID]/customers/[CUSTOMER_ID]`
-             * ∗ `partners/[PARTNER_ID]/vendors/[VENDOR_ID]` ∗ `partners/[PARTNER_ID]/vendors/[VENDOR_ID]/customers/[CUSTOMER_ID]` Assigned by the server.
+             * Output only. The API resource name of the company. The resource name is one of the following formats: * `partners/[PARTNER_ID]/customers/[CUSTOMER_ID]` *
+             * `partners/[PARTNER_ID]/vendors/[VENDOR_ID]` * `partners/[PARTNER_ID]/vendors/[VENDOR_ID]/customers/[CUSTOMER_ID]` Assigned by the server.
              */
             name?: string;
             /**
-             * Required. Input only. Email address of customer's users in the owner role. At least one `owner_email` is required. Each email address must be
-             * associated with a Google Account. Owners share the same access as admins but can also add, delete, and edit your organization's portal users.
+             * Required. Input only. Email address of customer's users in the owner role. At least one `owner_email` is required. Each email address must be associated with a Google Account.
+             * Owners share the same access as admins but can also add, delete, and edit your organization's portal users.
              */
             ownerEmails?: string[];
             /** Output only. Whether any user from the company has accepted the latest Terms of Service (ToS). See TermsStatus. */
@@ -64,36 +67,32 @@ declare namespace gapi.client {
             /** Output only. The ID of the configuration. Assigned by the server. */
             configurationId?: string;
             /**
-             * Required. A short name that describes the configuration's purpose. For example, _Sales team_ or _Temporary employees_. The zero-touch enrollment portal
-             * displays this name to IT admins.
+             * Required. A short name that describes the configuration's purpose. For example, _Sales team_ or _Temporary employees_. The zero-touch enrollment portal displays this name to IT
+             * admins.
              */
             configurationName?: string;
             /**
-             * Required. The email address that device users can contact to get help. Zero-touch enrollment shows this email address to device users before device
-             * provisioning. The value is validated on input.
+             * Required. The email address that device users can contact to get help. Zero-touch enrollment shows this email address to device users before device provisioning. The value is
+             * validated on input.
              */
             contactEmail?: string;
             /**
-             * Required. The telephone number that device users can call, using another device, to get help. Zero-touch enrollment shows this number to device users
-             * before device provisioning. Accepts numerals, spaces, the plus sign, hyphens, and parentheses.
+             * Required. The telephone number that device users can call, using another device, to get help. Zero-touch enrollment shows this number to device users before device provisioning.
+             * Accepts numerals, spaces, the plus sign, hyphens, and parentheses.
              */
             contactPhone?: string;
             /**
-             * A message, containing one or two sentences, to help device users get help or give them more details about what’s happening to their device. Zero-touch
-             * enrollment shows this message before the device is provisioned.
+             * A message, containing one or two sentences, to help device users get help or give them more details about what’s happening to their device. Zero-touch enrollment shows this message
+             * before the device is provisioned.
              */
             customMessage?: string;
             /** The JSON-formatted EMM provisioning extras that are passed to the DPC. */
             dpcExtras?: string;
-            /**
-             * Required. The resource name of the selected DPC (device policy controller) in the format `customers/[CUSTOMER_ID]/dpcs/∗`. To list the supported DPCs,
-             * call `customers.dpcs.list`.
-             */
+            /** Required. The resource name of the selected DPC (device policy controller) in the format `customers/[CUSTOMER_ID]/dpcs/*`. To list the supported DPCs, call `customers.dpcs.list`. */
             dpcResourcePath?: string;
             /**
-             * Required. Whether this is the default configuration that zero-touch enrollment applies to any new devices the organization purchases in the future.
-             * Only one customer configuration can be the default. Setting this value to `true`, changes the previous default configuration's `isDefault` value to
-             * `false`.
+             * Required. Whether this is the default configuration that zero-touch enrollment applies to any new devices the organization purchases in the future. Only one customer configuration
+             * can be the default. Setting this value to `true`, changes the previous default configuration's `isDefault` value to `false`.
              */
             isDefault?: boolean;
             /** Output only. The API resource name in the format `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. Assigned by the server. */
@@ -101,8 +100,8 @@ declare namespace gapi.client {
         }
         interface CreateCustomerRequest {
             /**
-             * Required. The company data to populate the new customer. Must contain a value for `companyName` and at least one `owner_email` that's associated with a
-             * Google Account. The values for `companyId` and `name` must be empty.
+             * Required. The company data to populate the new customer. Must contain a value for `companyName` and at least one `owner_email` that's associated with a Google Account. The values
+             * for `companyId` and `name` must be empty.
              */
             customer?: Company;
         }
@@ -142,8 +141,8 @@ declare namespace gapi.client {
         }
         interface Device {
             /**
-             * Output only. The provisioning claims for a device. Devices claimed for zero-touch enrollment have a claim with the type `SECTION_TYPE_ZERO_TOUCH`. Call
-             * `partners.devices.unclaim` or `partners.devices.unclaimAsync` to remove the device from zero-touch enrollment.
+             * Output only. The provisioning claims for a device. Devices claimed for zero-touch enrollment have a claim with the type `SECTION_TYPE_ZERO_TOUCH`. Call `partners.devices.unclaim` or
+             * `partners.devices.unclaimAsync` to remove the device from zero-touch enrollment.
              */
             claims?: DeviceClaim[];
             /** Not available to resellers. */
@@ -152,10 +151,7 @@ declare namespace gapi.client {
             deviceId?: string;
             /** The hardware IDs that identify a manufactured device. To learn more, read [Identifiers](https://developers.google.com/zero-touch/guides/identifiers). */
             deviceIdentifier?: DeviceIdentifier;
-            /**
-             * The metadata attached to the device. Structured as key-value pairs. To learn more, read [Device
-             * metadata](https://developers.google.com/zero-touch/guides/metadata).
-             */
+            /** The metadata attached to the device. Structured as key-value pairs. To learn more, read [Device metadata](https://developers.google.com/zero-touch/guides/metadata). */
             deviceMetadata?: DeviceMetadata;
             /** Output only. The API resource name in the format `partners/[PARTNER_ID]/devices/[DEVICE_ID]`. Assigned by the server. */
             name?: string;
@@ -201,17 +197,11 @@ declare namespace gapi.client {
             deviceIdentifier?: DeviceIdentifier;
         }
         interface DevicesLongRunningOperationMetadata {
-            /**
-             * The number of metadata updates in the operation. This might be different from the number of updates in the request if the API can't parse some of the
-             * updates.
-             */
+            /** The number of metadata updates in the operation. This might be different from the number of updates in the request if the API can't parse some of the updates. */
             devicesCount?: number;
             /** The processing status of the operation. */
             processingStatus?: string;
-            /**
-             * The processing progress of the operation. Measured as a number from 0 to 100. A value of 10O doesnt always mean the operation completed—check for the
-             * inclusion of a `done` field.
-             */
+            /** The processing progress of the operation. Measured as a number from 0 to 100. A value of 10O doesnt always mean the operation completed—check for the inclusion of a `done` field. */
             progress?: number;
         }
         interface DevicesLongRunningOperationResponse {
@@ -224,14 +214,11 @@ declare namespace gapi.client {
             /** Output only. The title of the DPC app in Google Play. For example, _Google Apps Device Policy_. Useful in an application's user interface. */
             dpcName?: string;
             /**
-             * Output only. The API resource name in the format `customers/[CUSTOMER_ID]/dpcs/[DPC_ID]`. Assigned by the server. To maintain a reference to a DPC
-             * across customer accounts, persist and match the last path component (`DPC_ID`).
+             * Output only. The API resource name in the format `customers/[CUSTOMER_ID]/dpcs/[DPC_ID]`. Assigned by the server. To maintain a reference to a DPC across customer accounts, persist
+             * and match the last path component (`DPC_ID`).
              */
             name?: string;
-            /**
-             * Output only. The DPC's Android application ID that looks like a Java package name. Zero-touch enrollment installs the DPC app onto a device using this
-             * identifier.
-             */
+            /** Output only. The DPC's Android application ID that looks like a Java package name. Zero-touch enrollment installs the DPC app onto a device using this identifier. */
             packageName?: string;
         }
         // tslint:disable-next-line:no-empty-interface
@@ -296,30 +283,21 @@ declare namespace gapi.client {
             vendors?: Company[];
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /**
-             * This field will always be not set if the operation is created by `claimAsync`, `unclaimAsync`, or `updateMetadataAsync`. In this case, error
-             * information for each device is set in `response.perDeviceStatus.result.status`.
+             * This field will always be not set if the operation is created by `claimAsync`, `unclaimAsync`, or `updateMetadataAsync`. In this case, error information for each device is set in
+             * `response.perDeviceStatus.result.status`.
              */
             error?: Status;
-            /**
-             * This field will contain a `DevicesLongRunningOperationMetadata` object if the operation is created by `claimAsync`, `unclaimAsync`, or
-             * `updateMetadataAsync`.
-             */
+            /** This field will contain a `DevicesLongRunningOperationMetadata` object if the operation is created by `claimAsync`, `unclaimAsync`, or `updateMetadataAsync`. */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
-            /**
-             * This field will contain a `DevicesLongRunningOperationResponse` object if the operation is created by `claimAsync`, `unclaimAsync`, or
-             * `updateMetadataAsync`.
-             */
+            /** This field will contain a `DevicesLongRunningOperationResponse` object if the operation is created by `claimAsync`, `unclaimAsync`, or `updateMetadataAsync`. */
             response?: { [P in string]: any };
         }
         interface OperationPerDevice {
@@ -370,8 +348,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -479,8 +457,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The configuration to delete. An API resource name in the format `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. If the
-                 * configuration is applied to any devices, the API call fails.
+                 * Required. The configuration to delete. An API resource name in the format `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. If the configuration is applied to any
+                 * devices, the API call fails.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -617,8 +595,8 @@ declare namespace gapi.client {
         }
         interface DevicesResource {
             /**
-             * Applies a Configuration to the device to register the device for zero-touch enrollment. After applying a configuration to a device, the device
-             * automatically provisions itself on first boot, or next factory reset.
+             * Applies a Configuration to the device to register the device for zero-touch enrollment. After applying a configuration to a device, the device automatically provisions itself on
+             * first boot, or next factory reset.
              */
             applyConfiguration(request: {
                 /** V1 error format. */
@@ -790,8 +768,8 @@ declare namespace gapi.client {
             },
             body: CustomerRemoveConfigurationRequest): Request<{}>;
             /**
-             * Unclaims a device from a customer and removes it from zero-touch enrollment. After removing a device, a customer must contact their reseller to
-             * register the device into zero-touch enrollment again.
+             * Unclaims a device from a customer and removes it from zero-touch enrollment. After removing a device, a customer must contact their reseller to register the device into zero-touch
+             * enrollment again.
              */
             unclaim(request: {
                 /** V1 error format. */
@@ -913,10 +891,7 @@ declare namespace gapi.client {
             dpcs: DpcsResource;
         }
         interface OperationsResource {
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -946,9 +921,8 @@ declare namespace gapi.client {
         }
         interface CustomersResource {
             /**
-             * Creates a customer for zero-touch enrollment. After the method returns successfully, admin and owner roles can manage devices and EMM configs by
-             * calling API methods or using their zero-touch enrollment portal. The customer receives an email that welcomes them to zero-touch enrollment and
-             * explains how to sign into the portal.
+             * Creates a customer for zero-touch enrollment. After the method returns successfully, admin and owner roles can manage devices and EMM configs by calling API methods or using their
+             * zero-touch enrollment portal. The customer receives an email that welcomes them to zero-touch enrollment and explains how to sign into the portal.
              */
             create(request: {
                 /** V1 error format. */
@@ -1006,8 +980,8 @@ declare namespace gapi.client {
             },
             body: CreateCustomerRequest): Request<Company>;
             /**
-             * Lists the customers that are enrolled to the reseller identified by the `partnerId` argument. This list includes customers that the reseller created
-             * and customers that enrolled themselves using the portal.
+             * Lists the customers that are enrolled to the reseller identified by the `partnerId` argument. This list includes customers that the reseller created and customers that enrolled
+             * themselves using the portal.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1213,8 +1187,8 @@ declare namespace gapi.client {
             },
             body: FindDevicesByDeviceIdentifierRequest): Request<FindDevicesByDeviceIdentifierResponse>;
             /**
-             * Finds devices claimed for customers. The results only contain devices registered to the reseller that's identified by the `partnerId` argument. The
-             * customer's devices purchased from other resellers don't appear in the results.
+             * Finds devices claimed for customers. The results only contain devices registered to the reseller that's identified by the `partnerId` argument. The customer's devices purchased from
+             * other resellers don't appear in the results.
              */
             findByOwner(request: {
                 /** V1 error format. */
@@ -1474,8 +1448,8 @@ declare namespace gapi.client {
             },
             body: UnclaimDevicesRequest): Request<Operation>;
             /**
-             * Updates the reseller metadata attached to a batch of devices. This method updates devices asynchronously and returns an `Operation` that can be used to
-             * track progress. Read [Long‑running batch operations](/zero-touch/guides/how-it-works#operations).
+             * Updates the reseller metadata attached to a batch of devices. This method updates devices asynchronously and returns an `Operation` that can be used to track progress. Read
+             * [Long‑running batch operations](/zero-touch/guides/how-it-works#operations).
              */
             updateMetadataAsync(request: {
                 /** V1 error format. */

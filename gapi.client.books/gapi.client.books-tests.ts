@@ -251,10 +251,7 @@ gapi.load('client', () => {
             source: "Test string",
             volumeIds: "Test string",
         });
-        /**
-         * Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects
-         * will retain the existing value.
-         */
+        /** Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects will retain the existing value. */
         await gapi.client.books.myconfig.updateUserSettings({
         }, {
             kind: "Test string",

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Managed Service for Microsoft Active Directory API v1 1.0
 // Project: https://cloud.google.com/managed-microsoft-ad/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -24,27 +27,23 @@ declare namespace gapi.client {
         }
         interface Binding {
             /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the
-             * condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to
-             * one or more of the members in this binding. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
+             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the members in this binding. To learn which
+             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
-             * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
-             * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
-             * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
-             * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
-             * `google.com` or `example.com`.
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is
+             * on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
+             * account. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that
+             * represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `group:{emailid}`: An email address that represents a Google group. For example,
+             * `admins@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. *
+             * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service
+             * account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently
+             * deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in
+             * the binding. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -61,30 +60,26 @@ declare namespace gapi.client {
             /** Optional. The name of delegated administrator account used to perform Active Directory operations. If not specified, `setupadmin` will be used. */
             admin?: string;
             /**
-             * Optional. The full names of the Google Compute Engine [networks](/compute/docs/networks-and-firewalls#networks) the domain instance is connected to.
-             * Networks can be added using UpdateDomain. The domain is only available on networks listed in `authorized_networks`. If CIDR subnets overlap between
-             * networks, domain creation will fail.
+             * Optional. The full names of the Google Compute Engine [networks](/compute/docs/networks-and-firewalls#networks) the domain instance is connected to. Networks can be added using
+             * UpdateDomain. The domain is only available on networks listed in `authorized_networks`. If CIDR subnets overlap between networks, domain creation will fail.
              */
             authorizedNetworks?: string[];
             /** Output only. The time the instance was created. */
             createTime?: string;
             /**
-             * Output only. The fully-qualified domain name of the exposed domain used by clients to connect to the service. Similar to what would be chosen for an
-             * Active Directory set up on an internal network.
+             * Output only. The fully-qualified domain name of the exposed domain used by clients to connect to the service. Similar to what would be chosen for an Active Directory set up on an
+             * internal network.
              */
             fqdn?: string;
             /** Optional. Resource labels that can contain user-provided metadata. */
             labels?: { [P in string]: string };
-            /**
-             * Required. Locations where domain needs to be provisioned. regions e.g. us-west1 or us-east4 Service supports up to 4 locations at once. Each location
-             * will use a /26 block.
-             */
+            /** Required. Locations where domain needs to be provisioned. regions e.g. us-west1 or us-east4 Service supports up to 4 locations at once. Each location will use a /26 block. */
             locations?: string[];
             /** Required. The unique name of the domain using the form: `projects/{project_id}/locations/global/domains/{domain_name}`. */
             name?: string;
             /**
-             * Required. The CIDR range of internal addresses that are reserved for this domain. Reserved networks must be /24 or larger. Ranges must be unique and
-             * non-overlapping with existing subnets in [Domain].[authorized_networks].
+             * Required. The CIDR range of internal addresses that are reserved for this domain. Reserved networks must be /24 or larger. Ranges must be unique and non-overlapping with existing
+             * subnets in [Domain].[authorized_networks].
              */
             reservedIpRange?: string;
             /** Output only. The current state of this domain. */
@@ -117,8 +112,8 @@ declare namespace gapi.client {
             /** Output only. The time the operation finished running. */
             endTime?: string;
             /**
-             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have
-             * Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             requestedCancellation?: boolean;
             /** Output only. Server-defined resource path for the target of the operation. */
@@ -134,8 +129,8 @@ declare namespace gapi.client {
             /** Output only. The time the operation finished running. */
             endTime?: string;
             /**
-             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have
-             * Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             requestedCancellation?: boolean;
             /** Output only. Server-defined resource path for the target of the operation. */
@@ -151,8 +146,8 @@ declare namespace gapi.client {
             /** Output only. The time the operation finished running. */
             endTime?: string;
             /**
-             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have
-             * Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             requestedCancellation?: boolean;
             /** Output only. Server-defined resource path for the target of the operation. */
@@ -162,21 +157,17 @@ declare namespace gapi.client {
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1Instance {
             /**
-             * consumer_defined_name is the name that is set by the consumer. On the other hand Name field represents system-assigned id of an instance so consumers
-             * are not necessarily aware of it. consumer_defined_name is used for notification/UI purposes for consumer to recognize their instances.
+             * consumer_defined_name is the name that is set by the consumer. On the other hand Name field represents system-assigned id of an instance so consumers are not necessarily aware of
+             * it. consumer_defined_name is used for notification/UI purposes for consumer to recognize their instances.
              */
             consumerDefinedName?: string;
             /** Output only. Timestamp when the resource was created. */
             createTime?: string;
-            /**
-             * Optional. Resource labels to represent user provided metadata. Each label is a key-value pair, where both the key and the value are arbitrary strings
-             * provided by the user.
-             */
+            /** Optional. Resource labels to represent user provided metadata. Each label is a key-value pair, where both the key and the value are arbitrary strings provided by the user. */
             labels?: { [P in string]: string };
             /**
-             * The MaintenancePolicies that have been attached to the instance. The key must be of the type name of the oneof policy name defined in
-             * MaintenancePolicy, and the referenced policy must define the same policy type. For complete details of MaintenancePolicy, please refer to
-             * go/cloud-saas-mw-ug.
+             * The MaintenancePolicies that have been attached to the instance. The key must be of the type name of the oneof policy name defined in MaintenancePolicy, and the referenced policy
+             * must define the same policy type. For complete details of MaintenancePolicy, please refer to go/cloud-saas-mw-ug.
              */
             maintenancePolicyNames?: { [P in string]: string };
             /** The MaintenanceSchedule contains the scheduling information of published maintenance schedule. */
@@ -190,14 +181,11 @@ declare namespace gapi.client {
             /** Output only. The list of data plane resources provisioned for this instance, e.g. compute VMs. See go/get-instance-metadata. */
             provisionedResources?: GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource[];
             /**
-             * Link to the SLM instance template. Only populated when updating SLM instances via SSA's Actuation service adaptor. Service producers with custom
-             * control plane (e.g. Cloud SQL) doesn't need to populate this field. Instead they should use software_versions.
+             * Link to the SLM instance template. Only populated when updating SLM instances via SSA's Actuation service adaptor. Service producers with custom control plane (e.g. Cloud SQL)
+             * doesn't need to populate this field. Instead they should use software_versions.
              */
             slmInstanceTemplate?: string;
-            /**
-             * Output only. SLO metadata for instance classification in the Standardized dataplane SLO platform. See go/cloud-ssa-standard-slo for feature
-             * description.
-             */
+            /** Output only. SLO metadata for instance classification in the Standardized dataplane SLO platform. See go/cloud-ssa-standard-slo for feature description. */
             sloMetadata?: GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
             /** Software versions that are used to deploy this instance. This can be mutated by rollout services. */
             softwareVersions?: { [P in string]: string };
@@ -209,33 +197,26 @@ declare namespace gapi.client {
             updateTime?: string;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule {
-            /**
-             * Can this scheduled update be rescheduled? By default, it's true and API needs to do explicitly check whether it's set, if it's set as false explicitly,
-             * it's false
-             */
+            /** Can this scheduled update be rescheduled? By default, it's true and API needs to do explicitly check whether it's set, if it's set as false explicitly, it's false */
             canReschedule?: boolean;
             /** The scheduled end time for the maintenance. */
             endTime?: string;
-            /**
-             * The rollout management policy this maintenance schedule is associated with. When doing reschedule update request, the reschedule should be against this
-             * given policy.
-             */
+            /** The rollout management policy this maintenance schedule is associated with. When doing reschedule update request, the reschedule should be against this given policy. */
             rolloutManagementPolicy?: string;
             /** The scheduled start time for the maintenance. */
             startTime?: string;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings {
             /**
-             * Optional. Exclude instance from maintenance. When true, rollout service will not attempt maintenance on the instance. Rollout service will include the
-             * instance in reported rollout progress as not attempted.
+             * Optional. Exclude instance from maintenance. When true, rollout service will not attempt maintenance on the instance. Rollout service will include the instance in reported rollout
+             * progress as not attempted.
              */
             exclude?: boolean;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata {
             /**
-             * By default node is eligible if instance is eligible. But individual node might be excluded from SLO by adding entry here. For semantic see
-             * SloMetadata.exclusions. If both instance and node level exclusions are present for time period, the node level's reason will be reported by Eligibility
-             * Exporter.
+             * By default node is eligible if instance is eligible. But individual node might be excluded from SLO by adding entry here. For semantic see SloMetadata.exclusions. If both instance
+             * and node level exclusions are present for time period, the node level's reason will be reported by Eligibility Exporter.
              */
             exclusions?: GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion[];
             /** The location of the node, if different from instance location. */
@@ -245,9 +226,9 @@ declare namespace gapi.client {
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource {
             /**
-             * Type of the resource. This can be either a GCP resource or a custom one (e.g. another cloud provider's VM). For GCP compute resources use singular form
-             * of the names listed in GCP compute API documentation (https://cloud.google.com/compute/docs/reference/rest/v1/), prefixed with 'compute-', for example:
-             * 'compute-instance', 'compute-disk', 'compute-autoscaler'.
+             * Type of the resource. This can be either a GCP resource or a custom one (e.g. another cloud provider's VM). For GCP compute resources use singular form of the names listed in GCP
+             * compute API documentation (https://cloud.google.com/compute/docs/reference/rest/v1/), prefixed with 'compute-', for example: 'compute-instance', 'compute-disk',
+             * 'compute-autoscaler'.
              */
             resourceType?: string;
             /** URL identifying the resource, e.g. "https://www.googleapis.com/compute/v1/projects/...)". */
@@ -256,29 +237,22 @@ declare namespace gapi.client {
         interface GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility {
             /** Whether an instance is eligible or ineligible. */
             eligible?: boolean;
-            /**
-             * User-defined reason for the current value of instance eligibility. Usually, this can be directly mapped to the internal state. An empty reason is
-             * allowed.
-             */
+            /** User-defined reason for the current value of instance eligibility. Usually, this can be directly mapped to the internal state. An empty reason is allowed. */
             reason?: string;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion {
             /**
-             * Exclusion duration. No restrictions on the possible values. When an ongoing operation is taking longer than initially expected, an existing entry in
-             * the exclusion list can be updated by extending the duration. This is supported by the subsystem exporting eligibility data as long as such extension is
-             * committed at least 10 minutes before the original exclusion expiration - otherwise it is possible that there will be "gaps" in the exclusion
-             * application in the exported timeseries.
+             * Exclusion duration. No restrictions on the possible values. When an ongoing operation is taking longer than initially expected, an existing entry in the exclusion list can be
+             * updated by extending the duration. This is supported by the subsystem exporting eligibility data as long as such extension is committed at least 10 minutes before the original
+             * exclusion expiration - otherwise it is possible that there will be "gaps" in the exclusion application in the exported timeseries.
              */
             duration?: string;
             /**
-             * Human-readable reason for the exclusion. This should be a static string (e.g. "Disruptive update in progress") and should not contain dynamically
-             * generated data (e.g. instance name). Can be left empty.
+             * Human-readable reason for the exclusion. This should be a static string (e.g. "Disruptive update in progress") and should not contain dynamically generated data (e.g. instance
+             * name). Can be left empty.
              */
             reason?: string;
-            /**
-             * Name of an SLI that this exclusion applies to. Can be left empty, signaling that the instance should be excluded from all SLIs defined in the service
-             * SLO configuration.
-             */
+            /** Name of an SLI that this exclusion applies to. Can be left empty, signaling that the instance should be excluded from all SLIs defined in the service SLO configuration. */
             sliName?: string;
             /** Start time of the exclusion. No alignment (e.g. to a full minute) needed. */
             startTime?: string;
@@ -287,22 +261,19 @@ declare namespace gapi.client {
             /** Optional. User-defined instance eligibility. */
             eligibility?: GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
             /**
-             * List of SLO exclusion windows. When multiple entries in the list match (matching the exclusion time-window against current time point) the exclusion
-             * reason used in the first matching entry will be published. It is not needed to include expired exclusion in this list, as only the currently applicable
-             * exclusions are taken into account by the eligibility exporting subsystem (the historical state of exclusions will be reflected in the historically
-             * produced timeseries regardless of the current state). This field can be used to mark the instance as temporary ineligible for the purpose of SLO
-             * calculation. For permanent instance SLO exclusion, use of custom instance eligibility is recommended. See 'eligibility' field below.
+             * List of SLO exclusion windows. When multiple entries in the list match (matching the exclusion time-window against current time point) the exclusion reason used in the first
+             * matching entry will be published. It is not needed to include expired exclusion in this list, as only the currently applicable exclusions are taken into account by the eligibility
+             * exporting subsystem (the historical state of exclusions will be reflected in the historically produced timeseries regardless of the current state). This field can be used to mark
+             * the instance as temporary ineligible for the purpose of SLO calculation. For permanent instance SLO exclusion, use of custom instance eligibility is recommended. See 'eligibility'
+             * field below.
              */
             exclusions?: GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion[];
             /**
-             * Optional. List of nodes. Some producers need to use per-node metadata to calculate SLO. This field allows such producers to publish per-node SLO meta
-             * data, which will be consumed by SSA Eligibility Exporter and published in the form of per node metric to Monarch.
+             * Optional. List of nodes. Some producers need to use per-node metadata to calculate SLO. This field allows such producers to publish per-node SLO meta data, which will be consumed by
+             * SSA Eligibility Exporter and published in the form of per node metric to Monarch.
              */
             nodes?: GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata[];
-            /**
-             * Name of the SLO tier the Instance belongs to. This name will be expected to match the tiers specified in the service SLO configuration. Field is
-             * mandatory and must not be empty.
-             */
+            /** Name of the SLO tier the Instance belongs to. This name will be expected to match the tiers specified in the service SLO configuration. Field is mandatory and must not be empty. */
             tier?: string;
         }
         interface ListDomainsResponse {
@@ -338,28 +309,24 @@ declare namespace gapi.client {
             name?: string;
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -367,8 +334,8 @@ declare namespace gapi.client {
             /** [Output only] API version used to start the operation. */
             apiVersion?: string;
             /**
-             * [Output only] Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have
-             * Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * [Output only] Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancelRequested?: boolean;
             /** [Output only] The time the operation was created. */
@@ -384,28 +351,25 @@ declare namespace gapi.client {
         }
         interface Policy {
             /**
-             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the
-             * `bindings` must contain at least one member.
+             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
+             * least one member.
              */
             bindings?: Binding[];
             /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
-             * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
-             * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
-             * the version `3` policy are lost.
+             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
+             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
+             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
+             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
             /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
-             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
-             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
-             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
-             * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
-             * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
+             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
+             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
+             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
+             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
@@ -424,8 +388,8 @@ declare namespace gapi.client {
         }
         interface SetIamPolicyRequest {
             /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy
-             * but certain Cloud Platform services (such as Projects) might reject them.
+             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Cloud Platform
+             * services (such as Projects) might reject them.
              */
             policy?: Policy;
         }
@@ -435,15 +399,15 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see
-             * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '*' or 'storage.*') are not allowed. For more information see [IAM
+             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
         }
@@ -456,10 +420,7 @@ declare namespace gapi.client {
             createTime?: string;
             /** Output only. The last heartbeat time when the trust was known to be connected. */
             lastTrustHeartbeatTime?: string;
-            /**
-             * Optional. The trust authentication type, which decides whether the trusted side has forest/domain wide access or selective access to an approved set of
-             * resources.
-             */
+            /** Optional. The trust authentication type, which decides whether the trusted side has forest/domain wide access or selective access to an approved set of resources. */
             selectiveAuthentication?: boolean;
             /** Output only. The current state of the trust. */
             state?: string;
@@ -550,10 +511,9 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * Required. The fully qualified domain name. e.g. mydomain.myorganization.com, with the following restrictions: ∗ Must contain only lowercase letters,
-                 * numbers, periods and hyphens. ∗ Must start with a letter. ∗ Must contain between 2-64 characters. ∗ Must end with a number or a letter. ∗ Must not
-                 * start with period. ∗ First segement length (mydomain form example above) shouldn't exceed 15 chars. ∗ The last segment cannot be fully numeric. ∗ Must
-                 * be unique within the customer project.
+                 * Required. The fully qualified domain name. e.g. mydomain.myorganization.com, with the following restrictions: * Must contain only lowercase letters, numbers, periods and
+                 * hyphens. * Must start with a letter. * Must contain between 2-64 characters. * Must end with a number or a letter. * Must not start with period. * First segement length
+                 * (mydomain form example above) shouldn't exceed 15 chars. * The last segment cannot be fully numeric. * Must be unique within the customer project.
                  */
                 domainName?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -585,10 +545,9 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * Required. The fully qualified domain name. e.g. mydomain.myorganization.com, with the following restrictions: ∗ Must contain only lowercase letters,
-                 * numbers, periods and hyphens. ∗ Must start with a letter. ∗ Must contain between 2-64 characters. ∗ Must end with a number or a letter. ∗ Must not
-                 * start with period. ∗ First segement length (mydomain form example above) shouldn't exceed 15 chars. ∗ The last segment cannot be fully numeric. ∗ Must
-                 * be unique within the customer project.
+                 * Required. The fully qualified domain name. e.g. mydomain.myorganization.com, with the following restrictions: * Must contain only lowercase letters, numbers, periods and
+                 * hyphens. * Must start with a letter. * Must contain between 2-64 characters. * Must end with a number or a letter. * Must not start with period. * First segement length
+                 * (mydomain form example above) shouldn't exceed 15 chars. * The last segment cannot be fully numeric. * Must be unique within the customer project.
                  */
                 domainName?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -736,10 +695,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-                 * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+                 * conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support
+                 * conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
                 "options.requestedPolicyVersion"?: number;
                 /** Returns response with indentations and line breaks. */
@@ -771,14 +729,11 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Optional. Specifies the ordering of results. See [Sorting order](https://cloud.google.com/apis/design/design_patterns#sorting_order) for more
-                 * information.
-                 */
+                /** Optional. Specifies the ordering of results. See [Sorting order](https://cloud.google.com/apis/design/design_patterns#sorting_order) for more information. */
                 orderBy?: string;
                 /**
-                 * Optional. The maximum number of items to return. If not specified, a default value of 1000 will be used. Regardless of the page_size value, the
-                 * response may include a partial list. Callers should rely on a response's next_page_token to determine if there are additional results to list.
+                 * Optional. The maximum number of items to return. If not specified, a default value of 1000 will be used. Regardless of the page_size value, the response may include a partial
+                 * list. Callers should rely on a response's next_page_token to determine if there are additional results to list.
                  */
                 pageSize?: number;
                 /** Optional. The `next_page_token` value returned from a previous ListDomainsRequest request, if any. */
@@ -817,8 +772,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. Mask of fields to update. At least one path must be supplied in this field. The elements of the repeated paths field may only include fields
-                 * from Domain: ∗ `labels` ∗ `locations` ∗ `authorized_networks`
+                 * Required. Mask of fields to update. At least one path must be supplied in this field. The elements of the repeated paths field may only include fields from Domain: * `labels` *
+                 * `locations` * `authorized_networks`
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -850,8 +805,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. Mask of fields to update. At least one path must be supplied in this field. The elements of the repeated paths field may only include fields
-                 * from Domain: ∗ `labels` ∗ `locations` ∗ `authorized_networks`
+                 * Required. Mask of fields to update. At least one path must be supplied in this field. The elements of the repeated paths field may only include fields from Domain: * `labels` *
+                 * `locations` * `authorized_networks`
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -972,10 +927,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: ResetAdminPasswordRequest): Request<ResetAdminPasswordResponse>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-             * `PERMISSION_DENIED` errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1004,9 +956,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-             * checking. This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -1094,10 +1045,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request: {
                 /** V1 error format. */
@@ -1155,8 +1106,8 @@ declare namespace gapi.client {
             },
             body: CancelOperationRequest): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1184,10 +1135,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1215,11 +1163,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */

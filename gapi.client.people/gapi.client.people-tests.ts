@@ -55,8 +55,8 @@ gapi.load('client', () => {
             resourceNames: "Test string",
         });
         /**
-         * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are
-         * `contactGroups/myContacts` and `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
+         * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and
+         * `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
          */
         await gapi.client.people.contactGroups.members.modify({
             resourceName: "Test string",
@@ -85,8 +85,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are
-         * `contactGroups/myContacts` and `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
+         * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and
+         * `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
          */
         await gapi.client.people.contactGroups.members.modify({
             resourceName: "Test string",
@@ -102,8 +102,8 @@ gapi.load('client', () => {
             resourceName: "Test string",
         });
         /**
-         * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are
-         * `contactGroups/myContacts` and `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
+         * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and
+         * `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
          */
         await gapi.client.people.contactGroups.members.modify({
             resourceName: "Test string",
@@ -119,8 +119,8 @@ gapi.load('client', () => {
             resourceName: "Test string",
         });
         /**
-         * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are
-         * `contactGroups/myContacts` and `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
+         * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and
+         * `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
          */
         await gapi.client.people.contactGroups.members.modify({
             resourceName: "Test string",
@@ -137,8 +137,8 @@ gapi.load('client', () => {
             syncToken: "Test string",
         });
         /**
-         * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are
-         * `contactGroups/myContacts` and `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
+         * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and
+         * `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
          */
         await gapi.client.people.contactGroups.members.modify({
             resourceName: "Test string",
@@ -168,8 +168,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are
-         * `contactGroups/myContacts` and `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
+         * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and
+         * `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
          */
         await gapi.client.people.contactGroups.members.modify({
             resourceName: "Test string",
@@ -197,8 +197,8 @@ gapi.load('client', () => {
             syncToken: "Test string",
         });
         /**
-         * Create a new contact and return the person resource for that contact. The request throws a 400 error if more than one field is specified on a field
-         * that is a singleton for contact sources: ∗ biographies ∗ birthdays ∗ genders ∗ names
+         * Create a new contact and return the person resource for that contact. The request throws a 400 error if more than one field is specified on a field that is a singleton for contact
+         * sources: * biographies * birthdays * genders * names
          */
         await gapi.client.people.people.createContact({
             personFields: "Test string",
@@ -994,10 +994,7 @@ gapi.load('client', () => {
             sources: "Test string",
             syncToken: "Test string",
         });
-        /**
-         * Provides information about a person by specifying a resource name. Use `people/me` to indicate the authenticated user. The request throws a 400 error
-         * if 'personFields' is not specified.
-         */
+        /** Provides information about a person by specifying a resource name. Use `people/me` to indicate the authenticated user. The request throws a 400 error if 'personFields' is not specified. */
         await gapi.client.people.people.get({
             personFields: "Test string",
             "requestMask.includeField": "Test string",
@@ -1017,8 +1014,8 @@ gapi.load('client', () => {
             syncToken: "Test string",
         });
         /**
-         * Provides information about a list of specific people by specifying a list of requested resource names. Use `people/me` to indicate the authenticated
-         * user. The request throws a 400 error if 'personFields' is not specified.
+         * Provides information about a list of specific people by specifying a list of requested resource names. Use `people/me` to indicate the authenticated user. The request throws a 400 error
+         * if 'personFields' is not specified.
          */
         await gapi.client.people.people.getBatchGet({
             personFields: "Test string",
@@ -1082,13 +1079,12 @@ gapi.load('client', () => {
             syncToken: "Test string",
         });
         /**
-         * Update contact data for an existing contact person. Any non-contact data will not be modified. Any non-contact data in the person to update will be
-         * ignored. All fields specified in the `update_mask` will be replaced. The server returns a 400 error if `person.metadata.sources` is not specified for
-         * the contact to be updated or if there is no contact source. The server returns a 400 error with reason `"failedPrecondition"` if
-         * `person.metadata.sources.etag` is different than the contact's etag, which indicates the contact has changed since its data was read. Clients should
-         * get the latest person and merge their updates into the latest person. The server returns a 400 error if `memberships` are being updated and there are
-         * no contact group memberships specified on the person. The server returns a 400 error if more than one field is specified on a field that is a singleton
-         * for contact sources: ∗ biographies ∗ birthdays ∗ genders ∗ names
+         * Update contact data for an existing contact person. Any non-contact data will not be modified. Any non-contact data in the person to update will be ignored. All fields specified in the
+         * `update_mask` will be replaced. The server returns a 400 error if `person.metadata.sources` is not specified for the contact to be updated or if there is no contact source. The server
+         * returns a 400 error with reason `"failedPrecondition"` if `person.metadata.sources.etag` is different than the contact's etag, which indicates the contact has changed since its data was
+         * read. Clients should get the latest person and merge their updates into the latest person. The server returns a 400 error if `memberships` are being updated and there are no contact
+         * group memberships specified on the person. The server returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies *
+         * birthdays * genders * names
          */
         await gapi.client.people.people.updateContact({
             personFields: "Test string",

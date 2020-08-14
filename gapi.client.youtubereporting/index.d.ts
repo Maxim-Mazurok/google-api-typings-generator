@@ -1,6 +1,9 @@
 // Type definitions for non-npm package YouTube Reporting API v1 1.0
 // Project: https://developers.google.com/youtube/reporting/v1/reports/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -198,16 +201,13 @@ declare namespace gapi.client {
         interface ListJobsResponse {
             /** The list of jobs. */
             jobs?: Job[];
-            /**
-             * A token to retrieve next page of results. Pass this value in the ListJobsRequest.page_token field in the subsequent call to `ListJobs` method to
-             * retrieve the next page of results.
-             */
+            /** A token to retrieve next page of results. Pass this value in the ListJobsRequest.page_token field in the subsequent call to `ListJobs` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListReportsResponse {
             /**
-             * A token to retrieve next page of results. Pass this value in the ListReportsRequest.page_token field in the subsequent call to `ListReports` method to
-             * retrieve the next page of results.
+             * A token to retrieve next page of results. Pass this value in the ListReportsRequest.page_token field in the subsequent call to `ListReports` method to retrieve the next page of
+             * results.
              */
             nextPageToken?: string;
             /** The list of report types. */
@@ -215,8 +215,8 @@ declare namespace gapi.client {
         }
         interface ListReportTypesResponse {
             /**
-             * A token to retrieve next page of results. Pass this value in the ListReportTypesRequest.page_token field in the subsequent call to `ListReportTypes`
-             * method to retrieve the next page of results.
+             * A token to retrieve next page of results. Pass this value in the ListReportTypesRequest.page_token field in the subsequent call to `ListReportTypes` method to retrieve the next page
+             * of results.
              */
             nextPageToken?: string;
             /** The list of report types. */
@@ -246,8 +246,8 @@ declare namespace gapi.client {
             /** The name of the report type (max. 100 characters). */
             name?: string;
             /**
-             * True if this a system-managed report type; otherwise false. Reporting jobs for system-managed report types are created automatically and can thus not
-             * be used in the `CreateJob` method.
+             * True if this a system-managed report type; otherwise false. Reporting jobs for system-managed report types are created automatically and can thus not be used in the `CreateJob`
+             * method.
              */
             systemManaged?: boolean;
         }
@@ -308,8 +308,8 @@ declare namespace gapi.client {
                 /** Requested page size. Server may return fewer report types than requested. If unspecified, server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListReportsResponse.next_page_token returned in
-                 * response to the previous call to the `ListReports` method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListReportsResponse.next_page_token returned in response to the previous call to
+                 * the `ListReports` method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -453,10 +453,7 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * If set to true, also system-managed jobs will be returned; otherwise only user-created jobs will be returned. System-managed jobs can neither be
-                 * modified nor deleted.
-                 */
+                /** If set to true, also system-managed jobs will be returned; otherwise only user-created jobs will be returned. System-managed jobs can neither be modified nor deleted. */
                 includeSystemManaged?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
@@ -467,8 +464,8 @@ declare namespace gapi.client {
                 /** Requested page size. Server may return fewer jobs than requested. If unspecified, server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListReportTypesResponse.next_page_token returned in
-                 * response to the previous call to the `ListJobs` method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListReportTypesResponse.next_page_token returned in response to the previous call
+                 * to the `ListJobs` method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -524,10 +521,7 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * If set to true, also system-managed report types will be returned; otherwise only the report types that can be used to create new reporting jobs will
-                 * be returned.
-                 */
+                /** If set to true, also system-managed report types will be returned; otherwise only the report types that can be used to create new reporting jobs will be returned. */
                 includeSystemManaged?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
@@ -538,8 +532,8 @@ declare namespace gapi.client {
                 /** Requested page size. Server may return fewer report types than requested. If unspecified, server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListReportTypesResponse.next_page_token returned in
-                 * response to the previous call to the `ListReportTypes` method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListReportTypesResponse.next_page_token returned in response to the previous call
+                 * to the `ListReportTypes` method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */

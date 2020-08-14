@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Abusive Experience Report API v1 1.0
 // Project: https://developers.google.com/abusive-experience-report/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -21,18 +24,15 @@ declare namespace gapi.client {
         interface SiteSummaryResponse {
             /** The site's Abusive Experience Report status. */
             abusiveStatus?: string;
-            /**
-             * The time at which [enforcement](https://support.google.com/webtools/answer/7538608) against the site began or will begin. Not set when the
-             * filter_status is OFF.
-             */
+            /** The time at which [enforcement](https://support.google.com/webtools/answer/7538608) against the site began or will begin. Not set when the filter_status is OFF. */
             enforcementTime?: string;
             /** The site's [enforcement status](https://support.google.com/webtools/answer/7538608). */
             filterStatus?: string;
             /** The time at which the site's status last changed. */
             lastChangeTime?: string;
             /**
-             * A link to the full Abusive Experience Report for the site. Not set in ViolatingSitesResponse. Note that you must complete the [Search Console
-             * verification process](https://support.google.com/webmasters/answer/9008080) for the site before you can access the full report.
+             * A link to the full Abusive Experience Report for the site. Not set in ViolatingSitesResponse. Note that you must complete the [Search Console verification
+             * process](https://support.google.com/webmasters/answer/9008080) for the site before you can access the full report.
              */
             reportUrl?: string;
             /** The name of the reviewed site, e.g. `google.com`. */

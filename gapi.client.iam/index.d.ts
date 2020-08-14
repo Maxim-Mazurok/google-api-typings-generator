@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Identity and Access Management (IAM) API v1 1.0
 // Project: https://cloud.google.com/iam/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -30,8 +33,8 @@ declare namespace gapi.client {
             /** The configuration for logging of each type of permission. */
             auditLogConfigs?: AuditLogConfig[];
             /**
-             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
-             * special value that covers all services.
+             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
+             * services.
              */
             service?: string;
         }
@@ -47,27 +50,23 @@ declare namespace gapi.client {
         }
         interface Binding {
             /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the
-             * condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to
-             * one or more of the members in this binding. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
+             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the members in this binding. To learn which
+             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
-             * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
-             * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
-             * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
-             * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
-             * `google.com` or `example.com`.
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is
+             * on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
+             * account. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that
+             * represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `group:{emailid}`: An email address that represents a Google group. For example,
+             * `admins@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. *
+             * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service
+             * account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently
+             * deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in
+             * the binding. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -87,8 +86,8 @@ declare namespace gapi.client {
             /** The Role resource to create. */
             role?: Role;
             /**
-             * The role ID to use for this role. A role ID may contain alphanumeric characters, underscores (`_`), and periods (`.`). It must contain a minimum of 3
-             * characters and a maximum of 64 characters.
+             * The role ID to use for this role. A role ID may contain alphanumeric characters, underscores (`_`), and periods (`.`). It must contain a minimum of 3 characters and a maximum of 64
+             * characters.
              */
             roleId?: string;
         }
@@ -100,8 +99,8 @@ declare namespace gapi.client {
         }
         interface CreateServiceAccountRequest {
             /**
-             * Required. The account id that is used to generate the service account email address and a stable unique id. It is unique within a project, must be 6-30
-             * characters long, and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])` to comply with RFC1035.
+             * Required. The account id that is used to generate the service account email address and a stable unique id. It is unique within a project, must be 6-30 characters long, and match
+             * the regular expression `[a-z]([-a-z0-9]*[a-z0-9])` to comply with RFC1035.
              */
             accountId?: string;
             /** The ServiceAccount resource to create. Currently, only the following values are user assignable: `display_name` and `description`. */
@@ -130,9 +129,9 @@ declare namespace gapi.client {
             /** google.iam.v1.Binding.condition object to be linted. */
             condition?: Expr;
             /**
-             * The full resource name of the policy this lint request is about. The name follows the Google Cloud Platform (GCP) resource format. For example, a GCP
-             * project with ID `my-project` will be named `//cloudresourcemanager.googleapis.com/projects/my-project`. The resource name is not used to read the
-             * policy instance from the Cloud IAM database. The candidate policy for lint has to be provided in the same request object.
+             * The full resource name of the policy this lint request is about. The name follows the Google Cloud Platform (GCP) resource format. For example, a GCP project with ID `my-project`
+             * will be named `//cloudresourcemanager.googleapis.com/projects/my-project`. The resource name is not used to read the policy instance from the Cloud IAM database. The candidate
+             * policy for lint has to be provided in the same request object.
              */
             fullResourceName?: string;
         }
@@ -144,17 +143,14 @@ declare namespace gapi.client {
             /** Human readable debug message associated with the issue. */
             debugMessage?: string;
             /**
-             * The name of the field for which this lint result is about. For nested messages `field_name` consists of names of the embedded fields separated by
-             * period character. The top-level qualifier is the input object to lint in the request. For example, the `field_name` value `condition.expression`
-             * identifies a lint result for the `expression` field of the provided condition.
+             * The name of the field for which this lint result is about. For nested messages `field_name` consists of names of the embedded fields separated by period character. The top-level
+             * qualifier is the input object to lint in the request. For example, the `field_name` value `condition.expression` identifies a lint result for the `expression` field of the provided
+             * condition.
              */
             fieldName?: string;
             /** The validation unit level. */
             level?: string;
-            /**
-             * 0-based character position of problematic construct within the object identified by `field_name`. Currently, this is populated only for condition
-             * expression.
-             */
+            /** 0-based character position of problematic construct within the object identified by `field_name`. Currently, this is populated only for condition expression. */
             locationOffset?: number;
             /** The validation unit severity. */
             severity?: string;
@@ -208,28 +204,25 @@ declare namespace gapi.client {
             /** Specifies cloud audit logging configuration for this policy. */
             auditConfigs?: AuditConfig[];
             /**
-             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the
-             * `bindings` must contain at least one member.
+             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
+             * least one member.
              */
             bindings?: Binding[];
             /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
-             * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
-             * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
-             * the version `3` policy are lost.
+             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
+             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
+             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
+             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
             /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
-             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
-             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
-             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
-             * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
-             * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
+             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
+             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
+             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
+             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
@@ -239,8 +232,8 @@ declare namespace gapi.client {
         }
         interface QueryAuditableServicesRequest {
             /**
-             * Required. The full resource name to query from the list of auditable services. The name follows the Google Cloud Platform resource format. For example,
-             * a Cloud Platform project with id `my-project` will be named `//cloudresourcemanager.googleapis.com/projects/my-project`.
+             * Required. The full resource name to query from the list of auditable services. The name follows the Google Cloud Platform resource format. For example, a Cloud Platform project with
+             * id `my-project` will be named `//cloudresourcemanager.googleapis.com/projects/my-project`.
              */
             fullResourceName?: string;
         }
@@ -250,8 +243,8 @@ declare namespace gapi.client {
         }
         interface QueryGrantableRolesRequest {
             /**
-             * Required. The full resource name to query from the list of grantable roles. The name follows the Google Cloud Platform resource format. For example, a
-             * Cloud Platform project with id `my-project` will be named `//cloudresourcemanager.googleapis.com/projects/my-project`.
+             * Required. The full resource name to query from the list of grantable roles. The name follows the Google Cloud Platform resource format. For example, a Cloud Platform project with id
+             * `my-project` will be named `//cloudresourcemanager.googleapis.com/projects/my-project`.
              */
             fullResourceName?: string;
             /** Optional limit on the number of roles to include in the response. The default is 300, and the maximum is 1,000. */
@@ -268,8 +261,8 @@ declare namespace gapi.client {
         }
         interface QueryTestablePermissionsRequest {
             /**
-             * Required. The full resource name to query from the list of testable permissions. The name follows the Google Cloud Platform resource format. For
-             * example, a Cloud Platform project with id `my-project` will be named `//cloudresourcemanager.googleapis.com/projects/my-project`.
+             * Required. The full resource name to query from the list of testable permissions. The name follows the Google Cloud Platform resource format. For example, a Cloud Platform project
+             * with id `my-project` will be named `//cloudresourcemanager.googleapis.com/projects/my-project`.
              */
             fullResourceName?: string;
             /** Optional limit on the number of permissions to include in the response. The default is 100, and the maximum is 1,000. */
@@ -293,15 +286,11 @@ declare namespace gapi.client {
             /** The names of the permissions this role grants when bound in an IAM policy. */
             includedPermissions?: string[];
             /**
-             * The name of the role. When Role is used in CreateRole, the role name must not be set. When Role is used in output and other input such as UpdateRole,
-             * the role name is the complete path, e.g., roles/logging.viewer for predefined roles and organizations/{ORGANIZATION_ID}/roles/logging.viewer for custom
-             * roles.
+             * The name of the role. When Role is used in CreateRole, the role name must not be set. When Role is used in output and other input such as UpdateRole, the role name is the complete
+             * path, e.g., roles/logging.viewer for predefined roles and organizations/{ORGANIZATION_ID}/roles/logging.viewer for custom roles.
              */
             name?: string;
-            /**
-             * The current launch stage of the role. If the `ALPHA` launch stage has been selected for a role, the `stage` field will not be included in the returned
-             * definition for the role.
-             */
+            /** The current launch stage of the role. If the `ALPHA` launch stage has been selected for a role, the `stage` field will not be included in the returned definition for the role. */
             stage?: string;
             /** Optional. A human-readable title for the role. Typically this is limited to 100 UTF-8 bytes. */
             title?: string;
@@ -318,12 +307,11 @@ declare namespace gapi.client {
             /** Deprecated. Do not use. */
             etag?: string;
             /**
-             * The resource name of the service account. Use one of the following formats: ∗ `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` ∗
-             * `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you can use the `-` wildcard character instead of the project ID: ∗
-             * `projects/-/serviceAccounts/{EMAIL_ADDRESS}` ∗ `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-` wildcard character, because
-             * it can cause response messages to contain misleading error codes. For example, if you try to get the service account
-             * `projects/-/serviceAccounts/fake@example.com`, which does not exist, the response contains an HTTP `403 Forbidden` error instead of a `404 Not Found`
-             * error.
+             * The resource name of the service account. Use one of the following formats: * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+             * `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you can use the `-` wildcard character instead of the project ID: *
+             * `projects/-/serviceAccounts/{EMAIL_ADDRESS}` * `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-` wildcard character, because it can cause response messages
+             * to contain misleading error codes. For example, if you try to get the service account `projects/-/serviceAccounts/fake@example.com`, which does not exist, the response contains an
+             * HTTP `403 Forbidden` error instead of a `404 Not Found` error.
              */
             name?: string;
             /** Output only. The OAuth 2.0 client ID for the service account. */
@@ -331,9 +319,8 @@ declare namespace gapi.client {
             /** Output only. The ID of the project that owns the service account. */
             projectId?: string;
             /**
-             * Output only. The unique, stable numeric ID for the service account. Each service account retains its unique ID even if you delete the service account.
-             * For example, if you delete a service account, then create a new service account with the same name, the new service account has a different unique ID
-             * than the deleted service account.
+             * Output only. The unique, stable numeric ID for the service account. Each service account retains its unique ID even if you delete the service account. For example, if you delete a
+             * service account, then create a new service account with the same name, the new service account has a different unique ID than the deleted service account.
              */
             uniqueId?: string;
         }
@@ -347,14 +334,13 @@ declare namespace gapi.client {
             /** The resource name of the service account key in the following format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. */
             name?: string;
             /**
-             * The private key data. Only provided in `CreateServiceAccountKey` responses. Make sure to keep the private key data secure because it allows for the
-             * assertion of the service account identity. When base64 decoded, the private key data can be used to authenticate with Google API client libraries and
-             * with gcloud auth activate-service-account.
+             * The private key data. Only provided in `CreateServiceAccountKey` responses. Make sure to keep the private key data secure because it allows for the assertion of the service account
+             * identity. When base64 decoded, the private key data can be used to authenticate with Google API client libraries and with gcloud auth activate-service-account.
              */
             privateKeyData?: string;
             /**
-             * The output format for the private key. Only provided in `CreateServiceAccountKey` responses, not in `GetServiceAccountKey` or `ListServiceAccountKey`
-             * responses. Google never exposes system-managed private keys, and never retains user-managed private keys.
+             * The output format for the private key. Only provided in `CreateServiceAccountKey` responses, not in `GetServiceAccountKey` or `ListServiceAccountKey` responses. Google never exposes
+             * system-managed private keys, and never retains user-managed private keys.
              */
             privateKeyType?: string;
             /** The public key data. Only provided in `GetServiceAccountKey` responses. */
@@ -362,20 +348,20 @@ declare namespace gapi.client {
             /** The key can be used after this timestamp. */
             validAfterTime?: string;
             /**
-             * The key can be used before this timestamp. For system-managed key pairs, this timestamp is the end time for the private key signing operation. The
-             * public key could still be used for verification for a few hours after this time.
+             * The key can be used before this timestamp. For system-managed key pairs, this timestamp is the end time for the private key signing operation. The public key could still be used for
+             * verification for a few hours after this time.
              */
             validBeforeTime?: string;
         }
         interface SetIamPolicyRequest {
             /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy
-             * but certain Cloud Platform services (such as Projects) might reject them.
+             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Cloud Platform
+             * services (such as Projects) might reject them.
              */
             policy?: Policy;
             /**
-             * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the
-             * following default mask is used: `paths: "bindings, etag"`
+             * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
+             * `paths: "bindings, etag"`
              */
             updateMask?: string;
         }
@@ -384,36 +370,30 @@ declare namespace gapi.client {
             bytesToSign?: string;
         }
         interface SignBlobResponse {
-            /**
-             * Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The id of the key used to sign the
-             * blob.
-             */
+            /** Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The id of the key used to sign the blob. */
             keyId?: string;
             /** Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The signed blob. */
             signature?: string;
         }
         interface SignJwtRequest {
             /**
-             * Required. Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The JWT payload to sign.
-             * Must be a serialized JSON object that contains a JWT Claims Set. For example: `{"sub": "user@example.com", "iat": 313435}` If the JWT Claims Set
-             * contains an expiration time (`exp`) claim, it must be an integer timestamp that is not in the past and no more than 1 hour in the future. If the JWT
-             * Claims Set does not contain an expiration time (`exp`) claim, this claim is added automatically, with a timestamp that is 1 hour in the future.
+             * Required. Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The JWT payload to sign. Must be a serialized JSON
+             * object that contains a JWT Claims Set. For example: `{"sub": "user@example.com", "iat": 313435}` If the JWT Claims Set contains an expiration time (`exp`) claim, it must be an
+             * integer timestamp that is not in the past and no more than 1 hour in the future. If the JWT Claims Set does not contain an expiration time (`exp`) claim, this claim is added
+             * automatically, with a timestamp that is 1 hour in the future.
              */
             payload?: string;
         }
         interface SignJwtResponse {
-            /**
-             * Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The id of the key used to sign the
-             * JWT.
-             */
+            /** Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The id of the key used to sign the JWT. */
             keyId?: string;
             /** Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The signed JWT. */
             signedJwt?: string;
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see
-             * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '*' or 'storage.*') are not allowed. For more information see [IAM
+             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
         }
@@ -434,16 +414,16 @@ declare namespace gapi.client {
         }
         interface UploadServiceAccountKeyRequest {
             /**
-             * A field that allows clients to upload their own public key. If set, use this public key data to create a service account key for given service account.
-             * Please note, the expected format for this field is X509_PEM.
+             * A field that allows clients to upload their own public key. If set, use this public key data to create a service account key for given service account. Please note, the expected
+             * format for this field is X509_PEM.
              */
             publicKeyData?: string;
         }
         // tslint:disable-next-line:interface-name
         interface IamPoliciesResource {
             /**
-             * Lints, or validates, an IAM policy. Currently checks the google.iam.v1.Binding.condition field, which contains a condition expression for a role
-             * binding. Successful calls to this method always return an HTTP `200 OK` status code, even if the linter detects an issue in the IAM policy.
+             * Lints, or validates, an IAM policy. Currently checks the google.iam.v1.Binding.condition field, which contains a condition expression for a role binding. Successful calls to this
+             * method always return an HTTP `200 OK` status code, even if the linter detects an issue in the IAM policy.
              */
             lintPolicy(request: {
                 /** V1 error format. */
@@ -571,13 +551,12 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * The `parent` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent` value format is described below: ∗
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent` value format is described below: *
                  * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create): `projects/{PROJECT_ID}`. This method creates project-level [custom
-                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` ∗
-                 * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create): `organizations/{ORGANIZATION_ID}`. This method creates
-                 * organization-level [custom roles](/iam/docs/understanding-custom-roles). Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (∗) values are invalid; you must specify a complete project ID or
-                 * organization ID.
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` *
+                 * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create): `organizations/{ORGANIZATION_ID}`. This method creates organization-level [custom
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (*) values are invalid;
+                 * you must specify a complete project ID or organization ID.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -608,13 +587,12 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * The `parent` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent` value format is described below: ∗
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent` value format is described below: *
                  * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create): `projects/{PROJECT_ID}`. This method creates project-level [custom
-                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` ∗
-                 * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create): `organizations/{ORGANIZATION_ID}`. This method creates
-                 * organization-level [custom roles](/iam/docs/understanding-custom-roles). Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (∗) values are invalid; you must specify a complete project ID or
-                 * organization ID.
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` *
+                 * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create): `organizations/{ORGANIZATION_ID}`. This method creates organization-level [custom
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (*) values are invalid;
+                 * you must specify a complete project ID or organization ID.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -628,10 +606,10 @@ declare namespace gapi.client {
             },
             body: CreateRoleRequest): Request<Role>;
             /**
-             * Deletes a custom Role. When you delete a custom role, the following changes occur immediately: ∗ You cannot bind a member to the custom role in an IAM
-             * Policy. ∗ Existing bindings to the custom role are not changed, but they have no effect. ∗ By default, the response from ListRoles does not include the
-             * custom role. You have 7 days to undelete the custom role. After 7 days, the following changes occur: ∗ The custom role is permanently deleted and
-             * cannot be recovered. ∗ If an IAM policy contains a binding to the custom role, the binding is permanently removed.
+             * Deletes a custom Role. When you delete a custom role, the following changes occur immediately: * You cannot bind a member to the custom role in an IAM Policy. * Existing bindings to
+             * the custom role are not changed, but they have no effect. * By default, the response from ListRoles does not include the custom role. You have 7 days to undelete the custom role.
+             * After 7 days, the following changes occur: * The custom role is permanently deleted and cannot be recovered. * If an IAM policy contains a binding to the custom role, the binding is
+             * permanently removed.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -650,14 +628,13 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The `name` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: ∗
-                 * [`projects.roles.delete()`](/iam/reference/rest/v1/projects.roles/delete): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method deletes only
-                 * [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.delete()`](/iam/reference/rest/v1/organizations.roles/delete): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This
-                 * method deletes only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`projects.roles.delete()`](/iam/reference/rest/v1/projects.roles/delete): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method deletes only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
+                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` * [`organizations.roles.delete()`](/iam/reference/rest/v1/organizations.roles/delete):
+                 * `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method deletes only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the
+                 * organization level. Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must
+                 * specify a complete project ID or organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -686,17 +663,16 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The `name` parameter's value depends on the target resource for the request, namely [`roles`](/iam/reference/rest/v1/roles),
-                 * [`projects`](/iam/reference/rest/v1/projects.roles), or [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name`
-                 * value format is described below: ∗ [`roles.get()`](/iam/reference/rest/v1/roles/get): `roles/{ROLE_NAME}`. This method returns results from all
-                 * [predefined roles](/iam/docs/understanding-roles#predefined_roles) in Cloud IAM. Example request URL: `https://iam.googleapis.com/v1/roles/{ROLE_NAME}`
-                 * ∗ [`projects.roles.get()`](/iam/reference/rest/v1/projects.roles/get): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only [custom
-                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.get()`](/iam/reference/rest/v1/organizations.roles/get): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
-                 * returns only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * The `name` parameter's value depends on the target resource for the request, namely [`roles`](/iam/reference/rest/v1/roles), [`projects`](/iam/reference/rest/v1/projects.roles),
+                 * or [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`roles.get()`](/iam/reference/rest/v1/roles/get): `roles/{ROLE_NAME}`. This method returns results from all [predefined roles](/iam/docs/understanding-roles#predefined_roles)
+                 * in Cloud IAM. Example request URL: `https://iam.googleapis.com/v1/roles/{ROLE_NAME}` * [`projects.roles.get()`](/iam/reference/rest/v1/projects.roles/get):
+                 * `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level.
+                 * Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` *
+                 * [`organizations.roles.get()`](/iam/reference/rest/v1/organizations.roles/get): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
+                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must specify a complete project ID or
+                 * organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -732,15 +708,14 @@ declare namespace gapi.client {
                 pageToken?: string;
                 /**
                  * The `parent` parameter's value depends on the target resource for the request, namely [`roles`](/iam/reference/rest/v1/roles),
-                 * [`projects`](/iam/reference/rest/v1/projects.roles), or [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent`
-                 * value format is described below: ∗ [`roles.list()`](/iam/reference/rest/v1/roles/list): An empty string. This method doesn't require a resource; it
-                 * simply returns all [predefined roles](/iam/docs/understanding-roles#predefined_roles) in Cloud IAM. Example request URL:
-                 * `https://iam.googleapis.com/v1/roles` ∗ [`projects.roles.list()`](/iam/reference/rest/v1/projects.roles/list): `projects/{PROJECT_ID}`. This method
-                 * lists all project-level [custom roles](/iam/docs/understanding-custom-roles). Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` ∗ [`organizations.roles.list()`](/iam/reference/rest/v1/organizations.roles/list):
-                 * `organizations/{ORGANIZATION_ID}`. This method lists all organization-level [custom roles](/iam/docs/understanding-custom-roles). Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (∗) values are invalid; you must specify a complete project ID or
-                 * organization ID.
+                 * [`projects`](/iam/reference/rest/v1/projects.roles), or [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent` value format is described
+                 * below: * [`roles.list()`](/iam/reference/rest/v1/roles/list): An empty string. This method doesn't require a resource; it simply returns all [predefined
+                 * roles](/iam/docs/understanding-roles#predefined_roles) in Cloud IAM. Example request URL: `https://iam.googleapis.com/v1/roles` *
+                 * [`projects.roles.list()`](/iam/reference/rest/v1/projects.roles/list): `projects/{PROJECT_ID}`. This method lists all project-level [custom
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` *
+                 * [`organizations.roles.list()`](/iam/reference/rest/v1/organizations.roles/list): `organizations/{ORGANIZATION_ID}`. This method lists all organization-level [custom
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (*) values are invalid;
+                 * you must specify a complete project ID or organization ID.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -754,8 +729,8 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Optional view for the returned Role objects. When `FULL` is specified, the `includedPermissions` field is returned, which includes a list of all
-                 * permissions in the role. The default value is `BASIC`, which does not return the `includedPermissions` field.
+                 * Optional view for the returned Role objects. When `FULL` is specified, the `includedPermissions` field is returned, which includes a list of all permissions in the role. The
+                 * default value is `BASIC`, which does not return the `includedPermissions` field.
                  */
                 view?: string;
             }): Request<ListRolesResponse>;
@@ -775,14 +750,13 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The `name` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: ∗
-                 * [`projects.roles.patch()`](/iam/reference/rest/v1/projects.roles/patch): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only
-                 * [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.patch()`](/iam/reference/rest/v1/organizations.roles/patch): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This
-                 * method updates only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`projects.roles.patch()`](/iam/reference/rest/v1/projects.roles/patch): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
+                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` * [`organizations.roles.patch()`](/iam/reference/rest/v1/organizations.roles/patch):
+                 * `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the
+                 * organization level. Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must
+                 * specify a complete project ID or organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -815,14 +789,13 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The `name` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: ∗
-                 * [`projects.roles.patch()`](/iam/reference/rest/v1/projects.roles/patch): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only
-                 * [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.patch()`](/iam/reference/rest/v1/organizations.roles/patch): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This
-                 * method updates only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`projects.roles.patch()`](/iam/reference/rest/v1/projects.roles/patch): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
+                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` * [`organizations.roles.patch()`](/iam/reference/rest/v1/organizations.roles/patch):
+                 * `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the
+                 * organization level. Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must
+                 * specify a complete project ID or organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -855,14 +828,13 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The `name` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: ∗
-                 * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
-                 * only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This
-                 * method undeletes only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
+                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+                 * `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the
+                 * organization level. Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must
+                 * specify a complete project ID or organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -893,14 +865,13 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The `name` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: ∗
-                 * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
-                 * only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This
-                 * method undeletes only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
+                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+                 * `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the
+                 * organization level. Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must
+                 * specify a complete project ID or organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -992,13 +963,12 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * The `parent` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent` value format is described below: ∗
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent` value format is described below: *
                  * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create): `projects/{PROJECT_ID}`. This method creates project-level [custom
-                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` ∗
-                 * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create): `organizations/{ORGANIZATION_ID}`. This method creates
-                 * organization-level [custom roles](/iam/docs/understanding-custom-roles). Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (∗) values are invalid; you must specify a complete project ID or
-                 * organization ID.
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` *
+                 * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create): `organizations/{ORGANIZATION_ID}`. This method creates organization-level [custom
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (*) values are invalid;
+                 * you must specify a complete project ID or organization ID.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1029,13 +999,12 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * The `parent` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent` value format is described below: ∗
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent` value format is described below: *
                  * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create): `projects/{PROJECT_ID}`. This method creates project-level [custom
-                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` ∗
-                 * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create): `organizations/{ORGANIZATION_ID}`. This method creates
-                 * organization-level [custom roles](/iam/docs/understanding-custom-roles). Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (∗) values are invalid; you must specify a complete project ID or
-                 * organization ID.
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` *
+                 * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create): `organizations/{ORGANIZATION_ID}`. This method creates organization-level [custom
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (*) values are invalid;
+                 * you must specify a complete project ID or organization ID.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1049,10 +1018,10 @@ declare namespace gapi.client {
             },
             body: CreateRoleRequest): Request<Role>;
             /**
-             * Deletes a custom Role. When you delete a custom role, the following changes occur immediately: ∗ You cannot bind a member to the custom role in an IAM
-             * Policy. ∗ Existing bindings to the custom role are not changed, but they have no effect. ∗ By default, the response from ListRoles does not include the
-             * custom role. You have 7 days to undelete the custom role. After 7 days, the following changes occur: ∗ The custom role is permanently deleted and
-             * cannot be recovered. ∗ If an IAM policy contains a binding to the custom role, the binding is permanently removed.
+             * Deletes a custom Role. When you delete a custom role, the following changes occur immediately: * You cannot bind a member to the custom role in an IAM Policy. * Existing bindings to
+             * the custom role are not changed, but they have no effect. * By default, the response from ListRoles does not include the custom role. You have 7 days to undelete the custom role.
+             * After 7 days, the following changes occur: * The custom role is permanently deleted and cannot be recovered. * If an IAM policy contains a binding to the custom role, the binding is
+             * permanently removed.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1071,14 +1040,13 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The `name` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: ∗
-                 * [`projects.roles.delete()`](/iam/reference/rest/v1/projects.roles/delete): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method deletes only
-                 * [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.delete()`](/iam/reference/rest/v1/organizations.roles/delete): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This
-                 * method deletes only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`projects.roles.delete()`](/iam/reference/rest/v1/projects.roles/delete): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method deletes only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
+                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` * [`organizations.roles.delete()`](/iam/reference/rest/v1/organizations.roles/delete):
+                 * `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method deletes only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the
+                 * organization level. Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must
+                 * specify a complete project ID or organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1107,17 +1075,16 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The `name` parameter's value depends on the target resource for the request, namely [`roles`](/iam/reference/rest/v1/roles),
-                 * [`projects`](/iam/reference/rest/v1/projects.roles), or [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name`
-                 * value format is described below: ∗ [`roles.get()`](/iam/reference/rest/v1/roles/get): `roles/{ROLE_NAME}`. This method returns results from all
-                 * [predefined roles](/iam/docs/understanding-roles#predefined_roles) in Cloud IAM. Example request URL: `https://iam.googleapis.com/v1/roles/{ROLE_NAME}`
-                 * ∗ [`projects.roles.get()`](/iam/reference/rest/v1/projects.roles/get): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only [custom
-                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.get()`](/iam/reference/rest/v1/organizations.roles/get): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
-                 * returns only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * The `name` parameter's value depends on the target resource for the request, namely [`roles`](/iam/reference/rest/v1/roles), [`projects`](/iam/reference/rest/v1/projects.roles),
+                 * or [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`roles.get()`](/iam/reference/rest/v1/roles/get): `roles/{ROLE_NAME}`. This method returns results from all [predefined roles](/iam/docs/understanding-roles#predefined_roles)
+                 * in Cloud IAM. Example request URL: `https://iam.googleapis.com/v1/roles/{ROLE_NAME}` * [`projects.roles.get()`](/iam/reference/rest/v1/projects.roles/get):
+                 * `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level.
+                 * Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` *
+                 * [`organizations.roles.get()`](/iam/reference/rest/v1/organizations.roles/get): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
+                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must specify a complete project ID or
+                 * organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1153,15 +1120,14 @@ declare namespace gapi.client {
                 pageToken?: string;
                 /**
                  * The `parent` parameter's value depends on the target resource for the request, namely [`roles`](/iam/reference/rest/v1/roles),
-                 * [`projects`](/iam/reference/rest/v1/projects.roles), or [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent`
-                 * value format is described below: ∗ [`roles.list()`](/iam/reference/rest/v1/roles/list): An empty string. This method doesn't require a resource; it
-                 * simply returns all [predefined roles](/iam/docs/understanding-roles#predefined_roles) in Cloud IAM. Example request URL:
-                 * `https://iam.googleapis.com/v1/roles` ∗ [`projects.roles.list()`](/iam/reference/rest/v1/projects.roles/list): `projects/{PROJECT_ID}`. This method
-                 * lists all project-level [custom roles](/iam/docs/understanding-custom-roles). Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` ∗ [`organizations.roles.list()`](/iam/reference/rest/v1/organizations.roles/list):
-                 * `organizations/{ORGANIZATION_ID}`. This method lists all organization-level [custom roles](/iam/docs/understanding-custom-roles). Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (∗) values are invalid; you must specify a complete project ID or
-                 * organization ID.
+                 * [`projects`](/iam/reference/rest/v1/projects.roles), or [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent` value format is described
+                 * below: * [`roles.list()`](/iam/reference/rest/v1/roles/list): An empty string. This method doesn't require a resource; it simply returns all [predefined
+                 * roles](/iam/docs/understanding-roles#predefined_roles) in Cloud IAM. Example request URL: `https://iam.googleapis.com/v1/roles` *
+                 * [`projects.roles.list()`](/iam/reference/rest/v1/projects.roles/list): `projects/{PROJECT_ID}`. This method lists all project-level [custom
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` *
+                 * [`organizations.roles.list()`](/iam/reference/rest/v1/organizations.roles/list): `organizations/{ORGANIZATION_ID}`. This method lists all organization-level [custom
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (*) values are invalid;
+                 * you must specify a complete project ID or organization ID.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1175,8 +1141,8 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Optional view for the returned Role objects. When `FULL` is specified, the `includedPermissions` field is returned, which includes a list of all
-                 * permissions in the role. The default value is `BASIC`, which does not return the `includedPermissions` field.
+                 * Optional view for the returned Role objects. When `FULL` is specified, the `includedPermissions` field is returned, which includes a list of all permissions in the role. The
+                 * default value is `BASIC`, which does not return the `includedPermissions` field.
                  */
                 view?: string;
             }): Request<ListRolesResponse>;
@@ -1196,14 +1162,13 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The `name` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: ∗
-                 * [`projects.roles.patch()`](/iam/reference/rest/v1/projects.roles/patch): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only
-                 * [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.patch()`](/iam/reference/rest/v1/organizations.roles/patch): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This
-                 * method updates only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`projects.roles.patch()`](/iam/reference/rest/v1/projects.roles/patch): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
+                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` * [`organizations.roles.patch()`](/iam/reference/rest/v1/organizations.roles/patch):
+                 * `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the
+                 * organization level. Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must
+                 * specify a complete project ID or organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1236,14 +1201,13 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The `name` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: ∗
-                 * [`projects.roles.patch()`](/iam/reference/rest/v1/projects.roles/patch): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only
-                 * [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.patch()`](/iam/reference/rest/v1/organizations.roles/patch): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This
-                 * method updates only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`projects.roles.patch()`](/iam/reference/rest/v1/projects.roles/patch): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
+                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` * [`organizations.roles.patch()`](/iam/reference/rest/v1/organizations.roles/patch):
+                 * `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the
+                 * organization level. Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must
+                 * specify a complete project ID or organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1276,14 +1240,13 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The `name` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: ∗
-                 * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
-                 * only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This
-                 * method undeletes only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
+                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+                 * `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the
+                 * organization level. Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must
+                 * specify a complete project ID or organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1314,14 +1277,13 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The `name` parameter's value depends on the target resource for the request, namely [`projects`](/iam/reference/rest/v1/projects.roles) or
-                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: ∗
-                 * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
-                 * only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This
-                 * method undeletes only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
+                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+                 * `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the
+                 * organization level. Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must
+                 * specify a complete project ID or organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1353,8 +1315,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
-                 * for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * Required. The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will
+                 * infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1384,8 +1346,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
-                 * for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * Required. The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will
+                 * infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1415,9 +1377,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the service account key in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-`
-                 * as a wildcard for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the
-                 * service account.
+                 * Required. The resource name of the service account key in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-` as a wildcard for the
+                 * `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1446,9 +1407,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the service account key in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-`
-                 * as a wildcard for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the
-                 * service account.
+                 * Required. The resource name of the service account key in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-` as a wildcard for the
+                 * `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1478,15 +1438,11 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Filters the types of keys the user wants to include in the list response. Duplicate key types are not allowed. If no key type is provided, all keys are
-                 * returned.
-                 */
+                /** Filters the types of keys the user wants to include in the list response. Duplicate key types are not allowed. If no key type is provided, all keys are returned. */
                 keyTypes?: string | string[];
                 /**
-                 * Required. The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
-                 * for the `PROJECT_ID`, will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service
-                 * account.
+                 * Required. The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID`, will
+                 * infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1515,8 +1471,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the
-                 * `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the
+                 * project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1546,8 +1502,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the
-                 * `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the
+                 * project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1621,11 +1577,11 @@ declare namespace gapi.client {
             },
             body: CreateServiceAccountRequest): Request<ServiceAccount>;
             /**
-             * Deletes a ServiceAccount. ∗∗Warning:∗∗ After you delete a service account, you might not be able to undelete it. If you know that you need to re-enable
-             * the service account in the future, use DisableServiceAccount instead. If you delete a service account, IAM permanently removes the service account 30
-             * days later. Google Cloud cannot recover the service account after it is permanently removed, even if you file a support request. To help avoid
-             * unplanned outages, we recommend that you disable the service account before you delete it. Use DisableServiceAccount to disable the service account,
-             * then wait at least 24 hours and watch for unintended consequences. If there are no unintended consequences, you can delete the service account.
+             * Deletes a ServiceAccount. **Warning:** After you delete a service account, you might not be able to undelete it. If you know that you need to re-enable the service account in the
+             * future, use DisableServiceAccount instead. If you delete a service account, IAM permanently removes the service account 30 days later. Google Cloud cannot recover the service
+             * account after it is permanently removed, even if you file a support request. To help avoid unplanned outages, we recommend that you disable the service account before you delete it.
+             * Use DisableServiceAccount to disable the service account, then wait at least 24 hours and watch for unintended consequences. If there are no unintended consequences, you can delete
+             * the service account.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1641,8 +1597,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
-                 * for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * Required. The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will
+                 * infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1657,12 +1613,11 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Disables a ServiceAccount immediately. If an application uses the service account to authenticate, that application can no longer call Google APIs or
-             * access Google Cloud resources. Existing access tokens for the service account are rejected, and requests for new access tokens will fail. To re-enable
-             * the service account, use EnableServiceAccount. After you re-enable the service account, its existing access tokens will be accepted, and you can
-             * request new access tokens. To help avoid unplanned outages, we recommend that you disable the service account before you delete it. Use this method to
-             * disable the service account, then wait at least 24 hours and watch for unintended consequences. If there are no unintended consequences, you can delete
-             * the service account with DeleteServiceAccount.
+             * Disables a ServiceAccount immediately. If an application uses the service account to authenticate, that application can no longer call Google APIs or access Google Cloud resources.
+             * Existing access tokens for the service account are rejected, and requests for new access tokens will fail. To re-enable the service account, use EnableServiceAccount. After you
+             * re-enable the service account, its existing access tokens will be accepted, and you can request new access tokens. To help avoid unplanned outages, we recommend that you disable the
+             * service account before you delete it. Use this method to disable the service account, then wait at least 24 hours and watch for unintended consequences. If there are no unintended
+             * consequences, you can delete the service account with DeleteServiceAccount.
              */
             disable(request: {
                 /** V1 error format. */
@@ -1678,8 +1633,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the
-                 * `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the
+                 * project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1709,8 +1664,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the
-                 * `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the
+                 * project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1726,9 +1681,8 @@ declare namespace gapi.client {
             },
             body: DisableServiceAccountRequest): Request<{}>;
             /**
-             * Enables a ServiceAccount that was disabled by DisableServiceAccount. If the service account is already enabled, then this method has no effect. If the
-             * service account was disabled by other means—for example, if Google disabled the service account because it was compromised—you cannot use this method
-             * to enable the service account.
+             * Enables a ServiceAccount that was disabled by DisableServiceAccount. If the service account is already enabled, then this method has no effect. If the service account was disabled
+             * by other means—for example, if Google disabled the service account because it was compromised—you cannot use this method to enable the service account.
              */
             enable(request: {
                 /** V1 error format. */
@@ -1744,8 +1698,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the
-                 * `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the
+                 * project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1775,8 +1729,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the
-                 * `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the
+                 * project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1806,8 +1760,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard
-                 * for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * Required. The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will
+                 * infer the project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1822,9 +1776,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ServiceAccount>;
             /**
-             * Gets the IAM policy that is attached to a ServiceAccount. This IAM policy specifies which members have access to the service account. This method does
-             * not tell you whether the service account has been granted any roles on other resources. To check whether a service account has role grants on a
-             * resource, use the `getIamPolicy` method for that resource. For example, to view the role grants for a project, call the Resource Manager API's
+             * Gets the IAM policy that is attached to a ServiceAccount. This IAM policy specifies which members have access to the service account. This method does not tell you whether the
+             * service account has been granted any roles on other resources. To check whether a service account has role grants on a resource, use the `getIamPolicy` method for that resource. For
+             * example, to view the role grants for a project, call the Resource Manager API's
              * [`projects.getIamPolicy`](https://cloud.google.com/resource-manager/reference/rest/v1/projects/getIamPolicy) method.
              */
             getIamPolicy(request?: {
@@ -1843,10 +1797,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-                 * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+                 * conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support
+                 * conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
                 "options.requestedPolicyVersion"?: number;
                 /** Returns response with indentations and line breaks. */
@@ -1909,12 +1862,11 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the service account. Use one of the following formats: ∗ `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` ∗
-                 * `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you can use the `-` wildcard character instead of the project ID: ∗
-                 * `projects/-/serviceAccounts/{EMAIL_ADDRESS}` ∗ `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-` wildcard character, because
-                 * it can cause response messages to contain misleading error codes. For example, if you try to get the service account
-                 * `projects/-/serviceAccounts/fake@example.com`, which does not exist, the response contains an HTTP `403 Forbidden` error instead of a `404 Not Found`
-                 * error.
+                 * The resource name of the service account. Use one of the following formats: * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+                 * `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you can use the `-` wildcard character instead of the project ID: *
+                 * `projects/-/serviceAccounts/{EMAIL_ADDRESS}` * `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-` wildcard character, because it can cause response
+                 * messages to contain misleading error codes. For example, if you try to get the service account `projects/-/serviceAccounts/fake@example.com`, which does not exist, the response
+                 * contains an HTTP `403 Forbidden` error instead of a `404 Not Found` error.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1944,12 +1896,11 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the service account. Use one of the following formats: ∗ `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` ∗
-                 * `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you can use the `-` wildcard character instead of the project ID: ∗
-                 * `projects/-/serviceAccounts/{EMAIL_ADDRESS}` ∗ `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-` wildcard character, because
-                 * it can cause response messages to contain misleading error codes. For example, if you try to get the service account
-                 * `projects/-/serviceAccounts/fake@example.com`, which does not exist, the response contains an HTTP `403 Forbidden` error instead of a `404 Not Found`
-                 * error.
+                 * The resource name of the service account. Use one of the following formats: * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+                 * `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you can use the `-` wildcard character instead of the project ID: *
+                 * `projects/-/serviceAccounts/{EMAIL_ADDRESS}` * `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-` wildcard character, because it can cause response
+                 * messages to contain misleading error codes. For example, if you try to get the service account `projects/-/serviceAccounts/fake@example.com`, which does not exist, the response
+                 * contains an HTTP `403 Forbidden` error instead of a `404 Not Found` error.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1965,11 +1916,10 @@ declare namespace gapi.client {
             },
             body: PatchServiceAccountRequest): Request<ServiceAccount>;
             /**
-             * Sets the IAM policy that is attached to a ServiceAccount. Use this method to grant or revoke access to the service account. For example, you could
-             * grant a member the ability to impersonate the service account. This method does not enable the service account to access other resources. To grant
-             * roles to a service account on a resource, follow these steps: 1. Call the resource's `getIamPolicy` method to get its current IAM policy. 2. Edit the
-             * policy so that it binds the service account to an IAM role for the resource. 3. Call the resource's `setIamPolicy` method to update its IAM policy. For
-             * detailed instructions, see [Granting roles to a service account for specific
+             * Sets the IAM policy that is attached to a ServiceAccount. Use this method to grant or revoke access to the service account. For example, you could grant a member the ability to
+             * impersonate the service account. This method does not enable the service account to access other resources. To grant roles to a service account on a resource, follow these steps: 1.
+             * Call the resource's `getIamPolicy` method to get its current IAM policy. 2. Edit the policy so that it binds the service account to an IAM role for the resource. 3. Call the
+             * resource's `setIamPolicy` method to update its IAM policy. For detailed instructions, see [Granting roles to a service account for specific
              * resources](https://cloud.google.com/iam/help/service-accounts/granting-access-to-service-accounts).
              */
             setIamPolicy(request: {
@@ -2000,10 +1950,10 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * ∗∗Note:∗∗ This method is deprecated and will stop working on July 1, 2021. Use the
-             * [`signBlob`](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signBlob) method in the IAM Service Account Credentials API
-             * instead. If you currently use this method, see the [migration guide](https://cloud.google.com/iam/help/credentials/migrate-api) for instructions. Signs
-             * a blob using the system-managed private key for a ServiceAccount.
+             * **Note:** This method is deprecated and will stop working on July 1, 2021. Use the
+             * [`signBlob`](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signBlob) method in the IAM Service Account Credentials API instead. If you currently use
+             * this method, see the [migration guide](https://cloud.google.com/iam/help/credentials/migrate-api) for instructions. Signs a blob using the system-managed private key for a
+             * ServiceAccount.
              */
             signBlob(request: {
                 /** V1 error format. */
@@ -2019,9 +1969,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The resource name of the
-                 * service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the
-                 * project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * Required. Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The resource name of the service account in the
+                 * following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value
+                 * can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2051,9 +2001,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The resource name of the
-                 * service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the
-                 * project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * Required. Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The resource name of the service account in the
+                 * following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value
+                 * can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2069,10 +2019,10 @@ declare namespace gapi.client {
             },
             body: SignBlobRequest): Request<SignBlobResponse>;
             /**
-             * ∗∗Note:∗∗ This method is deprecated and will stop working on July 1, 2021. Use the
-             * [`signJwt`](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signJwt) method in the IAM Service Account Credentials API
-             * instead. If you currently use this method, see the [migration guide](https://cloud.google.com/iam/help/credentials/migrate-api) for instructions. Signs
-             * a JSON Web Token (JWT) using the system-managed private key for a ServiceAccount.
+             * **Note:** This method is deprecated and will stop working on July 1, 2021. Use the
+             * [`signJwt`](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signJwt) method in the IAM Service Account Credentials API instead. If you currently use
+             * this method, see the [migration guide](https://cloud.google.com/iam/help/credentials/migrate-api) for instructions. Signs a JSON Web Token (JWT) using the system-managed private key
+             * for a ServiceAccount.
              */
             signJwt(request: {
                 /** V1 error format. */
@@ -2088,9 +2038,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The resource name of the
-                 * service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the
-                 * project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * Required. Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The resource name of the service account in the
+                 * following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value
+                 * can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2120,9 +2070,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The resource name of the
-                 * service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the
-                 * project from the account. The `ACCOUNT` value can be the `email` address or the `unique_id` of the service account.
+                 * Required. Deprecated. [Migrate to Service Account Credentials API](https://cloud.google.com/iam/help/credentials/migrate-api). The resource name of the service account in the
+                 * following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a wildcard for the `PROJECT_ID` will infer the project from the account. The `ACCOUNT` value
+                 * can be the `email` address or the `unique_id` of the service account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2166,9 +2116,8 @@ declare namespace gapi.client {
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             /**
-             * Restores a deleted ServiceAccount. ∗∗Important:∗∗ It is not always possible to restore a deleted service account. Use this method only as a last
-             * resort. After you delete a service account, IAM permanently removes the service account 30 days later. There is no way to restore a deleted service
-             * account that has been permanently removed.
+             * Restores a deleted ServiceAccount. **Important:** It is not always possible to restore a deleted service account. Use this method only as a last resort. After you delete a service
+             * account, IAM permanently removes the service account 30 days later. There is no way to restore a deleted service account that has been permanently removed.
              */
             undelete(request: {
                 /** V1 error format. */
@@ -2184,8 +2133,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}`. Using `-` as a wildcard
-                 * for the `PROJECT_ID` will infer the project from the account.
+                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}`. Using `-` as a wildcard for the `PROJECT_ID` will
+                 * infer the project from the account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2215,8 +2164,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}`. Using `-` as a wildcard
-                 * for the `PROJECT_ID` will infer the project from the account.
+                 * The resource name of the service account in the following format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}`. Using `-` as a wildcard for the `PROJECT_ID` will
+                 * infer the project from the account.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2232,8 +2181,8 @@ declare namespace gapi.client {
             },
             body: UndeleteServiceAccountRequest): Request<UndeleteServiceAccountResponse>;
             /**
-             * ∗∗Note:∗∗ We are in the process of deprecating this method. Use PatchServiceAccount instead. Updates a ServiceAccount. You can update only the
-             * `display_name` and `description` fields.
+             * **Note:** We are in the process of deprecating this method. Use PatchServiceAccount instead. Updates a ServiceAccount. You can update only the `display_name` and `description`
+             * fields.
              */
             update(request: {
                 /** V1 error format. */
@@ -2249,12 +2198,11 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the service account. Use one of the following formats: ∗ `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` ∗
-                 * `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you can use the `-` wildcard character instead of the project ID: ∗
-                 * `projects/-/serviceAccounts/{EMAIL_ADDRESS}` ∗ `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-` wildcard character, because
-                 * it can cause response messages to contain misleading error codes. For example, if you try to get the service account
-                 * `projects/-/serviceAccounts/fake@example.com`, which does not exist, the response contains an HTTP `403 Forbidden` error instead of a `404 Not Found`
-                 * error.
+                 * The resource name of the service account. Use one of the following formats: * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+                 * `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you can use the `-` wildcard character instead of the project ID: *
+                 * `projects/-/serviceAccounts/{EMAIL_ADDRESS}` * `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-` wildcard character, because it can cause response
+                 * messages to contain misleading error codes. For example, if you try to get the service account `projects/-/serviceAccounts/fake@example.com`, which does not exist, the response
+                 * contains an HTTP `403 Forbidden` error instead of a `404 Not Found` error.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2284,12 +2232,11 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the service account. Use one of the following formats: ∗ `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` ∗
-                 * `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you can use the `-` wildcard character instead of the project ID: ∗
-                 * `projects/-/serviceAccounts/{EMAIL_ADDRESS}` ∗ `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-` wildcard character, because
-                 * it can cause response messages to contain misleading error codes. For example, if you try to get the service account
-                 * `projects/-/serviceAccounts/fake@example.com`, which does not exist, the response contains an HTTP `403 Forbidden` error instead of a `404 Not Found`
-                 * error.
+                 * The resource name of the service account. Use one of the following formats: * `projects/{PROJECT_ID}/serviceAccounts/{EMAIL_ADDRESS}` *
+                 * `projects/{PROJECT_ID}/serviceAccounts/{UNIQUE_ID}` As an alternative, you can use the `-` wildcard character instead of the project ID: *
+                 * `projects/-/serviceAccounts/{EMAIL_ADDRESS}` * `projects/-/serviceAccounts/{UNIQUE_ID}` When possible, avoid using the `-` wildcard character, because it can cause response
+                 * messages to contain misleading error codes. For example, if you try to get the service account `projects/-/serviceAccounts/fake@example.com`, which does not exist, the response
+                 * contains an HTTP `403 Forbidden` error instead of a `404 Not Found` error.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2326,17 +2273,16 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The `name` parameter's value depends on the target resource for the request, namely [`roles`](/iam/reference/rest/v1/roles),
-                 * [`projects`](/iam/reference/rest/v1/projects.roles), or [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name`
-                 * value format is described below: ∗ [`roles.get()`](/iam/reference/rest/v1/roles/get): `roles/{ROLE_NAME}`. This method returns results from all
-                 * [predefined roles](/iam/docs/understanding-roles#predefined_roles) in Cloud IAM. Example request URL: `https://iam.googleapis.com/v1/roles/{ROLE_NAME}`
-                 * ∗ [`projects.roles.get()`](/iam/reference/rest/v1/projects.roles/get): `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only [custom
-                 * roles](/iam/docs/understanding-custom-roles) that have been created at the project level. Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` ∗
-                 * [`organizations.roles.get()`](/iam/reference/rest/v1/organizations.roles/get): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
-                 * returns only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (∗) values are invalid; you must specify a
-                 * complete project ID or organization ID.
+                 * The `name` parameter's value depends on the target resource for the request, namely [`roles`](/iam/reference/rest/v1/roles), [`projects`](/iam/reference/rest/v1/projects.roles),
+                 * or [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `name` value format is described below: *
+                 * [`roles.get()`](/iam/reference/rest/v1/roles/get): `roles/{ROLE_NAME}`. This method returns results from all [predefined roles](/iam/docs/understanding-roles#predefined_roles)
+                 * in Cloud IAM. Example request URL: `https://iam.googleapis.com/v1/roles/{ROLE_NAME}` * [`projects.roles.get()`](/iam/reference/rest/v1/projects.roles/get):
+                 * `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only [custom roles](/iam/docs/understanding-custom-roles) that have been created at the project level.
+                 * Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}` *
+                 * [`organizations.roles.get()`](/iam/reference/rest/v1/organizations.roles/get): `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only [custom
+                 * roles](/iam/docs/understanding-custom-roles) that have been created at the organization level. Example request URL:
+                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}` Note: Wildcard (*) values are invalid; you must specify a complete project ID or
+                 * organization ID.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2372,15 +2318,14 @@ declare namespace gapi.client {
                 pageToken?: string;
                 /**
                  * The `parent` parameter's value depends on the target resource for the request, namely [`roles`](/iam/reference/rest/v1/roles),
-                 * [`projects`](/iam/reference/rest/v1/projects.roles), or [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent`
-                 * value format is described below: ∗ [`roles.list()`](/iam/reference/rest/v1/roles/list): An empty string. This method doesn't require a resource; it
-                 * simply returns all [predefined roles](/iam/docs/understanding-roles#predefined_roles) in Cloud IAM. Example request URL:
-                 * `https://iam.googleapis.com/v1/roles` ∗ [`projects.roles.list()`](/iam/reference/rest/v1/projects.roles/list): `projects/{PROJECT_ID}`. This method
-                 * lists all project-level [custom roles](/iam/docs/understanding-custom-roles). Example request URL:
-                 * `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` ∗ [`organizations.roles.list()`](/iam/reference/rest/v1/organizations.roles/list):
-                 * `organizations/{ORGANIZATION_ID}`. This method lists all organization-level [custom roles](/iam/docs/understanding-custom-roles). Example request URL:
-                 * `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (∗) values are invalid; you must specify a complete project ID or
-                 * organization ID.
+                 * [`projects`](/iam/reference/rest/v1/projects.roles), or [`organizations`](/iam/reference/rest/v1/organizations.roles). Each resource type's `parent` value format is described
+                 * below: * [`roles.list()`](/iam/reference/rest/v1/roles/list): An empty string. This method doesn't require a resource; it simply returns all [predefined
+                 * roles](/iam/docs/understanding-roles#predefined_roles) in Cloud IAM. Example request URL: `https://iam.googleapis.com/v1/roles` *
+                 * [`projects.roles.list()`](/iam/reference/rest/v1/projects.roles/list): `projects/{PROJECT_ID}`. This method lists all project-level [custom
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles` *
+                 * [`organizations.roles.list()`](/iam/reference/rest/v1/organizations.roles/list): `organizations/{ORGANIZATION_ID}`. This method lists all organization-level [custom
+                 * roles](/iam/docs/understanding-custom-roles). Example request URL: `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles` Note: Wildcard (*) values are invalid;
+                 * you must specify a complete project ID or organization ID.
                  */
                 parent?: string;
                 /** Returns response with indentations and line breaks. */
@@ -2394,8 +2339,8 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Optional view for the returned Role objects. When `FULL` is specified, the `includedPermissions` field is returned, which includes a list of all
-                 * permissions in the role. The default value is `BASIC`, which does not return the `includedPermissions` field.
+                 * Optional view for the returned Role objects. When `FULL` is specified, the `includedPermissions` field is returned, which includes a list of all permissions in the role. The
+                 * default value is `BASIC`, which does not return the `includedPermissions` field.
                  */
                 view?: string;
             }): Request<ListRolesResponse>;

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package HomeGraph API v1 1.0
 // Project: https://developers.google.com/actions/smarthome/create-app#request-sync
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -32,8 +35,7 @@ declare namespace gapi.client {
             /** Attributes for the traits supported by the device. */
             attributes?: { [P in string]: any };
             /**
-             * Custom device attributes stored in Home Graph and provided to your smart home Action in each
-             * [QUERY](https://developers.google.com/assistant/smarthome/reference/intent/query) and
+             * Custom device attributes stored in Home Graph and provided to your smart home Action in each [QUERY](https://developers.google.com/assistant/smarthome/reference/intent/query) and
              * [EXECUTE](https://developers.google.com/assistant/smarthome/reference/intent/execute) intent.
              */
             customData?: { [P in string]: any };
@@ -44,8 +46,8 @@ declare namespace gapi.client {
             /** Names given to this device by your smart home Action. */
             name?: DeviceNames;
             /**
-             * Indicates whether your smart home Action will report notifications to Google for this device via ReportStateAndNotification. If your smart home Action
-             * enables users to control device notifications, you should update this field and call RequestSyncDevices.
+             * Indicates whether your smart home Action will report notifications to Google for this device via ReportStateAndNotification. If your smart home Action enables users to control
+             * device notifications, you should update this field and call RequestSyncDevices.
              */
             notificationSupportedByAgent?: boolean;
             /**
@@ -112,15 +114,9 @@ declare namespace gapi.client {
             devices?: { [P in string]: { [P in string]: any } };
         }
         interface ReportStateAndNotificationDevice {
-            /**
-             * Notifications metadata for devices. See the ∗∗Device NOTIFICATIONS∗∗ section of the individual trait [reference
-             * guides](https://developers.google.com/assistant/smarthome/traits).
-             */
+            /** Notifications metadata for devices. See the **Device NOTIFICATIONS** section of the individual trait [reference guides](https://developers.google.com/assistant/smarthome/traits). */
             notifications?: { [P in string]: any };
-            /**
-             * States of devices to update. See the ∗∗Device STATES∗∗ section of the individual trait [reference
-             * guides](https://developers.google.com/assistant/smarthome/traits).
-             */
+            /** States of devices to update. See the **Device STATES** section of the individual trait [reference guides](https://developers.google.com/assistant/smarthome/traits). */
             states?: { [P in string]: any };
         }
         interface ReportStateAndNotificationRequest {
@@ -129,8 +125,8 @@ declare namespace gapi.client {
             /** Unique identifier per event (for example, a doorbell press). */
             eventId?: string;
             /**
-             * Token to maintain state in the follow up notification response. Deprecated. See the [notifications
-             * guide](https://developers.google.com/assistant/smarthome/develop/notifications) for details on implementing follow up notifications.
+             * Token to maintain state in the follow up notification response. Deprecated. See the [notifications guide](https://developers.google.com/assistant/smarthome/develop/notifications)
+             * for details on implementing follow up notifications.
              */
             followUpToken?: string;
             /** Required. State of devices to update and notification metadata for devices. */
@@ -146,8 +142,8 @@ declare namespace gapi.client {
             /** Required. Third-party user ID. */
             agentUserId?: string;
             /**
-             * Optional. If set, the request will be added to a queue and a response will be returned immediately. This enables concurrent requests for the given
-             * `agent_user_id`, but the caller will not receive any error responses.
+             * Optional. If set, the request will be added to a queue and a response will be returned immediately. This enables concurrent requests for the given `agent_user_id`, but the caller
+             * will not receive any error responses.
              */
             async?: boolean;
         }
@@ -178,10 +174,9 @@ declare namespace gapi.client {
         }
         interface AgentUsersResource {
             /**
-             * Unlinks the given third-party user from your smart home Action. All data related to this user will be deleted. For more details on how users link their
-             * accounts, see [fulfillment and authentication](https://developers.google.com/assistant/smarthome/concepts/fulfillment-authentication). The third-party
-             * user's identity is passed in via the `agent_user_id` (see DeleteAgentUserRequest). This request must be authorized using service account credentials
-             * from your Actions console project.
+             * Unlinks the given third-party user from your smart home Action. All data related to this user will be deleted. For more details on how users link their accounts, see [fulfillment
+             * and authentication](https://developers.google.com/assistant/smarthome/concepts/fulfillment-authentication). The third-party user's identity is passed in via the `agent_user_id` (see
+             * DeleteAgentUserRequest). This request must be authorized using service account credentials from your Actions console project.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -214,8 +209,8 @@ declare namespace gapi.client {
         }
         interface DevicesResource {
             /**
-             * Gets the current states in Home Graph for the given set of the third-party user's devices. The third-party user's identity is passed in via the
-             * `agent_user_id` (see QueryRequest). This request must be authorized using service account credentials from your Actions console project.
+             * Gets the current states in Home Graph for the given set of the third-party user's devices. The third-party user's identity is passed in via the `agent_user_id` (see QueryRequest).
+             * This request must be authorized using service account credentials from your Actions console project.
              */
             query(request: {
                 /** V1 error format. */
@@ -269,12 +264,11 @@ declare namespace gapi.client {
             },
             body: QueryRequest): Request<QueryResponse>;
             /**
-             * Reports device state and optionally sends device notifications. Called by your smart home Action when the state of a third-party device changes or you
-             * need to send a notification about the device. See [Implement Report State](https://developers.google.com/assistant/smarthome/develop/report-state) for
-             * more information. This method updates the device state according to its declared
-             * [traits](https://developers.google.com/assistant/smarthome/concepts/devices-traits). Publishing a new state value outside of these traits will result
-             * in an `INVALID_ARGUMENT` error response. The third-party user's identity is passed in via the `agent_user_id` (see ReportStateAndNotificationRequest).
-             * This request must be authorized using service account credentials from your Actions console project.
+             * Reports device state and optionally sends device notifications. Called by your smart home Action when the state of a third-party device changes or you need to send a notification
+             * about the device. See [Implement Report State](https://developers.google.com/assistant/smarthome/develop/report-state) for more information. This method updates the device state
+             * according to its declared [traits](https://developers.google.com/assistant/smarthome/concepts/devices-traits). Publishing a new state value outside of these traits will result in an
+             * `INVALID_ARGUMENT` error response. The third-party user's identity is passed in via the `agent_user_id` (see ReportStateAndNotificationRequest). This request must be authorized
+             * using service account credentials from your Actions console project.
              */
             reportStateAndNotification(request: {
                 /** V1 error format. */
@@ -328,9 +322,9 @@ declare namespace gapi.client {
             },
             body: ReportStateAndNotificationRequest): Request<ReportStateAndNotificationResponse>;
             /**
-             * Requests Google to send an `action.devices.SYNC` [intent](https://developers.google.com/assistant/smarthome/reference/intent/sync) to your smart home
-             * Action to update device metadata for the given user. The third-party user's identity is passed via the `agent_user_id` (see RequestSyncDevicesRequest).
-             * This request must be authorized using service account credentials from your Actions console project.
+             * Requests Google to send an `action.devices.SYNC` [intent](https://developers.google.com/assistant/smarthome/reference/intent/sync) to your smart home Action to update device
+             * metadata for the given user. The third-party user's identity is passed via the `agent_user_id` (see RequestSyncDevicesRequest). This request must be authorized using service account
+             * credentials from your Actions console project.
              */
             requestSync(request: {
                 /** V1 error format. */
@@ -384,8 +378,8 @@ declare namespace gapi.client {
             },
             body: RequestSyncDevicesRequest): Request<{}>;
             /**
-             * Gets all the devices associated with the given third-party user. The third-party user's identity is passed in via the `agent_user_id` (see
-             * SyncRequest). This request must be authorized using service account credentials from your Actions console project.
+             * Gets all the devices associated with the given third-party user. The third-party user's identity is passed in via the `agent_user_id` (see SyncRequest). This request must be
+             * authorized using service account credentials from your Actions console project.
              */
             sync(request: {
                 /** V1 error format. */

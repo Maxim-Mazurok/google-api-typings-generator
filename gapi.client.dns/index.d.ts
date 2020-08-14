@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud DNS API v1 1.0
 // Project: http://developers.google.com/cloud-dns
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -30,10 +33,7 @@ declare namespace gapi.client {
             kind?: string;
             /** The time that this operation was started by the server (output only). This is in RFC3339 text format. */
             startTime?: string;
-            /**
-             * Status of the operation (output only). A status of "done" means that the request to update the authoritative servers has been sent but the servers
-             * might not be updated yet.
-             */
+            /** Status of the operation (output only). A status of "done" means that the request to update the authoritative servers has been sent but the servers might not be updated yet. */
             status?: string;
         }
         interface ChangesListResponse {
@@ -43,10 +43,10 @@ declare namespace gapi.client {
             /** Type of resource. */
             kind?: string;
             /**
-             * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another
-             * list request using this value as your pagination token. In this way you can retrieve the complete contents of even very large collections one page at a
-             * time. However, if the contents of the collection change between the first and last paginated list request, the set of all elements returned will be an
-             * inconsistent view of the collection. There is no way to retrieve a "snapshot" of collections larger than the maximum page size.
+             * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
+             * as your pagination token. In this way you can retrieve the complete contents of even very large collections one page at a time. However, if the contents of the collection change
+             * between the first and last paginated list request, the set of all elements returned will be an inconsistent view of the collection. There is no way to retrieve a "snapshot" of
+             * collections larger than the maximum page size.
              */
             nextPageToken?: string;
         }
@@ -57,33 +57,29 @@ declare namespace gapi.client {
             creationTime?: string;
             /** A mutable string of at most 1024 characters associated with this resource for the user's convenience. Has no effect on the resource's function. */
             description?: string;
-            /**
-             * Cryptographic hashes of the DNSKEY resource record associated with this DnsKey. These digests are needed to construct a DS record that points at this
-             * DNS key. Output only.
-             */
+            /** Cryptographic hashes of the DNSKEY resource record associated with this DnsKey. These digests are needed to construct a DS record that points at this DNS key. Output only. */
             digests?: DnsKeyDigest[];
             /** Unique identifier for the resource; defined by the server (output only). */
             id?: string;
             /**
-             * Active keys will be used to sign subsequent changes to the ManagedZone. Inactive keys will still be present as DNSKEY Resource Records for the use of
-             * resolvers validating existing signatures.
+             * Active keys will be used to sign subsequent changes to the ManagedZone. Inactive keys will still be present as DNSKEY Resource Records for the use of resolvers validating existing
+             * signatures.
              */
             isActive?: boolean;
             /** Length of the key in bits. Specified at creation time then immutable. */
             keyLength?: number;
             /**
-             * The key tag is a non-cryptographic hash of the a DNSKEY resource record associated with this DnsKey. The key tag can be used to identify a DNSKEY more
-             * quickly (but it is not a unique identifier). In particular, the key tag is used in a parent zone's DS record to point at the DNSKEY in this child
-             * ManagedZone. The key tag is a number in the range [0, 65535] and the algorithm to calculate it is specified in RFC4034 Appendix B. Output only.
+             * The key tag is a non-cryptographic hash of the a DNSKEY resource record associated with this DnsKey. The key tag can be used to identify a DNSKEY more quickly (but it is not a
+             * unique identifier). In particular, the key tag is used in a parent zone's DS record to point at the DNSKEY in this child ManagedZone. The key tag is a number in the range [0, 65535]
+             * and the algorithm to calculate it is specified in RFC4034 Appendix B. Output only.
              */
             keyTag?: number;
             kind?: string;
             /** Base64 encoded public half of this key. Output only. */
             publicKey?: string;
             /**
-             * One of "KEY_SIGNING" or "ZONE_SIGNING". Keys of type KEY_SIGNING have the Secure Entry Point flag set and, when active, will be used to sign only
-             * resource record sets of type DNSKEY. Otherwise, the Secure Entry Point flag will be cleared and this key will be used to sign only resource record sets
-             * of other types. Immutable after creation time.
+             * One of "KEY_SIGNING" or "ZONE_SIGNING". Keys of type KEY_SIGNING have the Secure Entry Point flag set and, when active, will be used to sign only resource record sets of type
+             * DNSKEY. Otherwise, the Secure Entry Point flag will be cleared and this key will be used to sign only resource record sets of other types. Immutable after creation time.
              */
             type?: string;
         }
@@ -100,10 +96,10 @@ declare namespace gapi.client {
             /** Type of resource. */
             kind?: string;
             /**
-             * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another
-             * list request using this value as your pagination token. In this way you can retrieve the complete contents of even very large collections one page at a
-             * time. However, if the contents of the collection change between the first and last paginated list request, the set of all elements returned will be an
-             * inconsistent view of the collection. There is no way to retrieve a "snapshot" of collections larger than the maximum page size.
+             * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
+             * as your pagination token. In this way you can retrieve the complete contents of even very large collections one page at a time. However, if the contents of the collection change
+             * between the first and last paginated list request, the set of all elements returned will be an inconsistent view of the collection. There is no way to retrieve a "snapshot" of
+             * collections larger than the maximum page size.
              */
             nextPageToken?: string;
         }
@@ -113,9 +109,8 @@ declare namespace gapi.client {
             /** Length of the keys in bits. */
             keyLength?: number;
             /**
-             * Specifies whether this is a key signing key (KSK) or a zone signing key (ZSK). Key signing keys have the Secure Entry Point flag set and, when active,
-             * will only be used to sign resource record sets of type DNSKEY. Zone signing keys do not have the Secure Entry Point flag set and will be used to sign
-             * all other types of resource record sets.
+             * Specifies whether this is a key signing key (KSK) or a zone signing key (ZSK). Key signing keys have the Secure Entry Point flag set and, when active, will only be used to sign
+             * resource record sets of type DNSKEY. Zone signing keys do not have the Secure Entry Point flag set and will be used to sign all other types of resource record sets.
              */
             keyType?: string;
             kind?: string;
@@ -129,10 +124,7 @@ declare namespace gapi.client {
             dnsName?: string;
             /** DNSSEC configuration. */
             dnssecConfig?: ManagedZoneDnsSecConfig;
-            /**
-             * The presence for this field indicates that outbound forwarding is enabled for this zone. The value of this field contains the set of destinations to
-             * forward to.
-             */
+            /** The presence for this field indicates that outbound forwarding is enabled for this zone. The value of this field contains the set of destinations to forward to. */
             forwardingConfig?: ManagedZoneForwardingConfig;
             /** Unique identifier for the resource; defined by the server (output only) */
             id?: string;
@@ -140,15 +132,15 @@ declare namespace gapi.client {
             /** User labels. */
             labels?: { [P in string]: string };
             /**
-             * User assigned name for this resource. Must be unique within the project. The name must be 1-63 characters long, must begin with a letter, end with a
-             * letter or digit, and only contain lowercase letters, digits or dashes.
+             * User assigned name for this resource. Must be unique within the project. The name must be 1-63 characters long, must begin with a letter, end with a letter or digit, and only
+             * contain lowercase letters, digits or dashes.
              */
             name?: string;
             /** Delegate your managed_zone to these virtual name servers; defined by the server (output only) */
             nameServers?: string[];
             /**
-             * Optionally specifies the NameServerSet for this ManagedZone. A NameServerSet is a set of DNS name servers that all host the same ManagedZones. Most
-             * users will leave this field unset.
+             * Optionally specifies the NameServerSet for this ManagedZone. A NameServerSet is a set of DNS name servers that all host the same ManagedZones. Most users will leave this field
+             * unset.
              */
             nameServerSet?: string;
             /** The presence of this field indicates that DNS Peering is enabled for this zone. The value of this field contains the network to peer with. */
@@ -156,8 +148,8 @@ declare namespace gapi.client {
             /** For privately visible zones, the set of Virtual Private Cloud resources that the zone is visible from. */
             privateVisibilityConfig?: ManagedZonePrivateVisibilityConfig;
             /**
-             * The presence of this field indicates that this is a managed reverse lookup zone and Cloud DNS will resolve reverse lookup queries using automatically
-             * configured records for VPC resources. This only applies to networks listed under private_visibility_config.
+             * The presence of this field indicates that this is a managed reverse lookup zone and Cloud DNS will resolve reverse lookup queries using automatically configured records for VPC
+             * resources. This only applies to networks listed under private_visibility_config.
              */
             reverseLookupConfig?: ManagedZoneReverseLookupConfig;
             /** The zone's visibility: public zones are exposed to the Internet, while private zones are visible only to Virtual Private Cloud resources. */
@@ -179,8 +171,8 @@ declare namespace gapi.client {
         }
         interface ManagedZoneForwardingConfigNameServerTarget {
             /**
-             * Forwarding path for this NameServerTarget. If unset or set to DEFAULT, Cloud DNS will make forwarding decision based on address ranges, i.e. RFC1918
-             * addresses go to the VPC, non-RFC1918 addresses go to the Internet. When set to PRIVATE, Cloud DNS will always send queries through VPC for this target.
+             * Forwarding path for this NameServerTarget. If unset or set to DEFAULT, Cloud DNS will make forwarding decision based on address ranges, i.e. RFC1918 addresses go to the VPC,
+             * non-RFC1918 addresses go to the Internet. When set to PRIVATE, Cloud DNS will always send queries through VPC for this target.
              */
             forwardingPath?: string;
             /** IPv4 address of a target name server. */
@@ -191,10 +183,10 @@ declare namespace gapi.client {
             header?: ResponseHeader;
             kind?: string;
             /**
-             * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another
-             * list request using this value as your page token. In this way you can retrieve the complete contents of even very large collections one page at a time.
-             * However, if the contents of the collection change between the first and last paginated list request, the set of all elements returned will be an
-             * inconsistent view of the collection. There is no way to retrieve a consistent snapshot of a collection larger than the maximum page size.
+             * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
+             * as your page token. In this way you can retrieve the complete contents of even very large collections one page at a time. However, if the contents of the collection change between
+             * the first and last paginated list request, the set of all elements returned will be an inconsistent view of the collection. There is no way to retrieve a consistent snapshot of a
+             * collection larger than the maximum page size.
              */
             nextPageToken?: string;
             /** The operation resources. */
@@ -207,15 +199,12 @@ declare namespace gapi.client {
         }
         interface ManagedZonePeeringConfigTargetNetwork {
             /**
-             * The time at which the zone was deactivated, in RFC 3339 date-time format. An empty string indicates that the peering connection is active. The producer
-             * network can deactivate a zone. The zone is automatically deactivated if the producer network that the zone targeted is deleted. Output only.
+             * The time at which the zone was deactivated, in RFC 3339 date-time format. An empty string indicates that the peering connection is active. The producer network can deactivate a
+             * zone. The zone is automatically deactivated if the producer network that the zone targeted is deleted. Output only.
              */
             deactivateTime?: string;
             kind?: string;
-            /**
-             * The fully qualified URL of the VPC network to forward queries to. This should be formatted like
-             * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
-             */
+            /** The fully qualified URL of the VPC network to forward queries to. This should be formatted like https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network} */
             networkUrl?: string;
         }
         interface ManagedZonePrivateVisibilityConfig {
@@ -225,10 +214,7 @@ declare namespace gapi.client {
         }
         interface ManagedZonePrivateVisibilityConfigNetwork {
             kind?: string;
-            /**
-             * The fully qualified URL of the VPC network to bind to. This should be formatted like
-             * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
-             */
+            /** The fully qualified URL of the VPC network to bind to. This should be formatted like https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network} */
             networkUrl?: string;
         }
         interface ManagedZoneReverseLookupConfig {
@@ -241,10 +227,10 @@ declare namespace gapi.client {
             /** The managed zone resources. */
             managedZones?: ManagedZone[];
             /**
-             * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another
-             * list request using this value as your page token. In this way you can retrieve the complete contents of even very large collections one page at a time.
-             * However, if the contents of the collection change between the first and last paginated list request, the set of all elements returned will be an
-             * inconsistent view of the collection. There is no way to retrieve a consistent snapshot of a collection larger than the maximum page size.
+             * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
+             * as your page token. In this way you can retrieve the complete contents of even very large collections one page at a time. However, if the contents of the collection change between
+             * the first and last paginated list request, the set of all elements returned will be an inconsistent view of the collection. There is no way to retrieve a consistent snapshot of a
+             * collection larger than the maximum page size.
              */
             nextPageToken?: string;
         }
@@ -252,16 +238,16 @@ declare namespace gapi.client {
             /** Only populated if the operation targeted a DnsKey (output only). */
             dnsKeyContext?: OperationDnsKeyContext;
             /**
-             * Unique identifier for the resource. This is the client_operation_id if the client specified it when the mutation was initiated, otherwise, it is
-             * generated by the server. The name must be 1-63 characters long and match the regular expression [-a-z0-9]? (output only)
+             * Unique identifier for the resource. This is the client_operation_id if the client specified it when the mutation was initiated, otherwise, it is generated by the server. The name
+             * must be 1-63 characters long and match the regular expression [-a-z0-9]? (output only)
              */
             id?: string;
             kind?: string;
             /** The time that this operation was started by the server. This is in RFC3339 text format (output only). */
             startTime?: string;
             /**
-             * Status of the operation. Can be one of the following: "PENDING" or "DONE" (output only). A status of "DONE" means that the request to update the
-             * authoritative servers has been sent, but the servers might not be updated yet.
+             * Status of the operation. Can be one of the following: "PENDING" or "DONE" (output only). A status of "DONE" means that the request to update the authoritative servers has been sent,
+             * but the servers might not be updated yet.
              */
             status?: string;
             /** Type of the operation. Operations include insert, update, and delete (output only). */
@@ -288,10 +274,10 @@ declare namespace gapi.client {
             /** Type of resource. */
             kind?: string;
             /**
-             * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another
-             * list request using this value as your page token. In this way you can retrieve the complete contents of even very large collections one page at a time.
-             * However, if the contents of the collection change between the first and last paginated list request, the set of all elements returned will be an
-             * inconsistent view of the collection. There is no way to retrieve a consistent snapshot of a collection larger than the maximum page size.
+             * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
+             * as your page token. In this way you can retrieve the complete contents of even very large collections one page at a time. However, if the contents of the collection change between
+             * the first and last paginated list request, the set of all elements returned will be an inconsistent view of the collection. There is no way to retrieve a consistent snapshot of a
+             * collection larger than the maximum page size.
              */
             nextPageToken?: string;
             /** The policy resources. */
@@ -307,15 +293,15 @@ declare namespace gapi.client {
         }
         interface Policy {
             /**
-             * Sets an alternative name server for the associated networks. When specified, all DNS queries are forwarded to a name server that you choose. Names such
-             * as .internal are not available when an alternative name server is specified.
+             * Sets an alternative name server for the associated networks. When specified, all DNS queries are forwarded to a name server that you choose. Names such as .internal are not
+             * available when an alternative name server is specified.
              */
             alternativeNameServerConfig?: PolicyAlternativeNameServerConfig;
             /** A mutable string of at most 1024 characters associated with this resource for the user's convenience. Has no effect on the policy's function. */
             description?: string;
             /**
-             * Allows networks bound to this policy to receive DNS queries sent by VMs or applications over VPN connections. When enabled, a virtual IP address will
-             * be allocated from each of the sub-networks that are bound to this policy.
+             * Allows networks bound to this policy to receive DNS queries sent by VMs or applications over VPN connections. When enabled, a virtual IP address will be allocated from each of the
+             * sub-networks that are bound to this policy.
              */
             enableInboundForwarding?: boolean;
             /** Controls whether logging is enabled for the networks bound to this policy. Defaults to no logging if not set. */
@@ -331,15 +317,15 @@ declare namespace gapi.client {
         interface PolicyAlternativeNameServerConfig {
             kind?: string;
             /**
-             * Sets an alternative name server for the associated networks. When specified, all DNS queries are forwarded to a name server that you choose. Names such
-             * as .internal are not available when an alternative name server is specified.
+             * Sets an alternative name server for the associated networks. When specified, all DNS queries are forwarded to a name server that you choose. Names such as .internal are not
+             * available when an alternative name server is specified.
              */
             targetNameServers?: PolicyAlternativeNameServerConfigTargetNameServer[];
         }
         interface PolicyAlternativeNameServerConfigTargetNameServer {
             /**
-             * Forwarding path for this TargetNameServer. If unset or set to DEFAULT, Cloud DNS will make forwarding decision based on address ranges, i.e. RFC1918
-             * addresses go to the VPC, non-RFC1918 addresses go to the Internet. When set to PRIVATE, Cloud DNS will always send queries through VPC for this target.
+             * Forwarding path for this TargetNameServer. If unset or set to DEFAULT, Cloud DNS will make forwarding decision based on address ranges, i.e. RFC1918 addresses go to the VPC,
+             * non-RFC1918 addresses go to the Internet. When set to PRIVATE, Cloud DNS will always send queries through VPC for this target.
              */
             forwardingPath?: string;
             /** IPv4 address to forward to. */
@@ -348,10 +334,7 @@ declare namespace gapi.client {
         }
         interface PolicyNetwork {
             kind?: string;
-            /**
-             * The fully qualified URL of the VPC network to bind to. This should be formatted like
-             * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
-             */
+            /** The fully qualified URL of the VPC network to bind to. This should be formatted like https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network} */
             networkUrl?: string;
         }
         interface Project {
@@ -412,20 +395,17 @@ declare namespace gapi.client {
             /** Type of resource. */
             kind?: string;
             /**
-             * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another
-             * list request using this value as your pagination token. In this way you can retrieve the complete contents of even very large collections one page at a
-             * time. However, if the contents of the collection change between the first and last paginated list request, the set of all elements returned will be an
-             * inconsistent view of the collection. There is no way to retrieve a consistent snapshot of a collection larger than the maximum page size.
+             * The presence of this field indicates that there exist more results following your last page of results in pagination order. To fetch them, make another list request using this value
+             * as your pagination token. In this way you can retrieve the complete contents of even very large collections one page at a time. However, if the contents of the collection change
+             * between the first and last paginated list request, the set of all elements returned will be an inconsistent view of the collection. There is no way to retrieve a consistent snapshot
+             * of a collection larger than the maximum page size.
              */
             nextPageToken?: string;
             /** The resource record set resources. */
             rrsets?: ResourceRecordSet[];
         }
         interface ResponseHeader {
-            /**
-             * For mutating operation requests that completed successfully. This is the client_operation_id if the client specified it, otherwise it is generated by
-             * the server (output only).
-             */
+            /** For mutating operation requests that completed successfully. This is the client_operation_id if the client specified it, otherwise it is generated by the server (output only). */
             operationId?: string;
         }
         interface ChangesResource {
@@ -439,10 +419,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -474,10 +451,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -511,10 +485,7 @@ declare namespace gapi.client {
                 callback?: string;
                 /** The identifier of the requested change, from a previous ResourceRecordSetsChangeResponse. */
                 changeId: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -584,15 +555,9 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
-                /**
-                 * An optional comma-separated list of digest types to compute and display for key signing keys. If omitted, the recommended digest type will be computed
-                 * and displayed.
-                 */
+                /** An optional comma-separated list of digest types to compute and display for key signing keys. If omitted, the recommended digest type will be computed and displayed. */
                 digestType?: string;
                 /** The identifier of the requested DnsKey. */
                 dnsKeyId: string;
@@ -625,10 +590,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * An optional comma-separated list of digest types to compute and display for key signing keys. If omitted, the recommended digest type will be computed
-                 * and displayed.
-                 */
+                /** An optional comma-separated list of digest types to compute and display for key signing keys. If omitted, the recommended digest type will be computed and displayed. */
                 digestType?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -665,10 +627,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -738,10 +697,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -771,10 +727,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -804,10 +757,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -838,10 +788,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -905,10 +852,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -940,10 +884,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -975,10 +916,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1010,10 +948,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1047,10 +982,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1080,10 +1012,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1113,10 +1042,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1147,10 +1073,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1212,10 +1135,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1247,10 +1167,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1282,10 +1199,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1317,10 +1231,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1354,10 +1265,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations
-                 * collection.
-                 */
+                /** For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection. */
                 clientOperationId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;

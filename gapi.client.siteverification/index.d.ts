@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Google Site Verification API v1 1.0
 // Project: https://developers.google.com/site-verification/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -31,9 +34,8 @@ declare namespace gapi.client {
         }
         interface SiteVerificationWebResourceGettokenResponse {
             /**
-             * The verification method to use in conjunction with this token. For FILE, the token should be placed in the top-level directory of the site, stored
-             * inside a file of the same name. For META, the token should be placed in the HEAD tag of the default page that is loaded for the site. For DNS, the
-             * token should be placed in a TXT record of the domain.
+             * The verification method to use in conjunction with this token. For FILE, the token should be placed in the top-level directory of the site, stored inside a file of the same name.
+             * For META, the token should be placed in the HEAD tag of the default page that is loaded for the site. For DNS, the token should be placed in a TXT record of the domain.
              */
             method?: string;
             /** The verification token. The token must be placed appropriately in order for verification to succeed. */

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Life Sciences API v2beta 2.0
 // Project: https://cloud.google.com/life-sciences
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -392,7 +395,7 @@ declare namespace gapi.client {
              * `/`, in which case it is assumed to be a fully specified subnetwork
              * resource URL.
              *
-             * If the `∗` character appears in the value, it is replaced with the region
+             * If the `*` character appears in the value, it is replaced with the region
              * that the virtual machine has been allocated in.
              */
             subnetwork?: string;
@@ -639,7 +642,7 @@ declare namespace gapi.client {
              * despite cancellation.
              * Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission&#58;
              *
-             * ∗ `lifesciences.operations.cancel`
+             * * `lifesciences.operations.cancel`
              */
             cancel(request: {
                 /** V1 error format. */
@@ -702,7 +705,7 @@ declare namespace gapi.client {
              * recommended by the API service.
              * Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission&#58;
              *
-             * ∗ `lifesciences.operations.get`
+             * * `lifesciences.operations.get`
              */
             get(request?: {
                 /** V1 error format. */
@@ -734,7 +737,7 @@ declare namespace gapi.client {
              * Lists operations that match the specified filter in the request.
              * Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission&#58;
              *
-             * ∗ `lifesciences.operations.list`
+             * * `lifesciences.operations.list`
              */
             list(request?: {
                 /** V1 error format. */
@@ -751,14 +754,14 @@ declare namespace gapi.client {
                  * A string for filtering Operations.
                  * The following filter fields are supported&#58;
                  *
-                 * ∗ createTime&#58; The time this job was created
-                 * ∗ events&#58; The set of event (names) that have occurred while running
+                 * * createTime&#58; The time this job was created
+                 * * events&#58; The set of event (names) that have occurred while running
                  * the pipeline.  The &#58; operator can be used to determine if a
                  * particular event has occurred.
-                 * ∗ error&#58; If the pipeline is running, this value is NULL.  Once the
+                 * * error&#58; If the pipeline is running, this value is NULL.  Once the
                  * pipeline finishes, the value is the standard Google error code.
-                 * ∗ labels.key or labels."key with space" where key is a label key.
-                 * ∗ done&#58; If the pipeline is running, this value is false. Once the
+                 * * labels.key or labels."key with space" where key is a label key.
+                 * * done&#58; If the pipeline is running, this value is false. Once the
                  * pipeline finishes, the value is true.
                  */
                 filter?: string;
@@ -791,7 +794,7 @@ declare namespace gapi.client {
              * google.cloud.lifesciences.v2beta.RunPipelineResponse object if the
              * pipeline completes successfully.
              *
-             * ∗∗Note:∗∗ Before you can use this method, the ∗Life Sciences Service Agent∗
+             * **Note:** Before you can use this method, the *Life Sciences Service Agent*
              * must have access to your project. This is done automatically when the
              * Cloud Life Sciences API is first enabled, but if you delete this permission
              * you must disable and re-enable the API to grant the Life Sciences
@@ -799,7 +802,7 @@ declare namespace gapi.client {
              * Authorization requires the following [Google
              * IAM](https://cloud.google.com/iam/) permission:
              *
-             * ∗ `lifesciences.workflows.run`
+             * * `lifesciences.workflows.run`
              */
             run(request: {
                 /** V1 error format. */

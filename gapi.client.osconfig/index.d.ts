@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud OS Config API v1 1.0
 // Project: https://cloud.google.com/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -22,8 +25,8 @@ declare namespace gapi.client {
             /** List of packages to exclude from update. These packages will be excluded */
             excludes?: string[];
             /**
-             * An exclusive list of packages to be updated. These are the only packages that will be updated. If these packages are not installed, they will be
-             * ignored. This field cannot be specified with any other patch configuration fields.
+             * An exclusive list of packages to be updated. These are the only packages that will be updated. If these packages are not installed, they will be ignored. This field cannot be
+             * specified with any other patch configuration fields.
              */
             exclusivePackages?: string[];
             /** By changing the type to DIST, the patching is performed using `apt-get dist-upgrade` instead. */
@@ -65,8 +68,8 @@ declare namespace gapi.client {
             /** A Cloud Storage object containing the executable. */
             gcsObject?: GcsObject;
             /**
-             * The script interpreter to use to run the script. If no interpreter is specified the script will be executed directly, which will likely only succeed
-             * for scripts with [shebang lines] (https://en.wikipedia.org/wiki/Shebang_\(Unix\)).
+             * The script interpreter to use to run the script. If no interpreter is specified the script will be executed directly, which will likely only succeed for scripts with [shebang lines]
+             * (https://en.wikipedia.org/wiki/Shebang_\(Unix\)).
              */
             interpreter?: string;
             /** An absolute path to the executable on the VM. */
@@ -93,10 +96,7 @@ declare namespace gapi.client {
             creates?: string;
             /** Directory to extract archive to. */
             destination?: string;
-            /**
-             * Whether to overwrite existing files during extraction. If this is set to true, any existing files in the destination location will be overwritten by
-             * the extraction.
-             */
+            /** Whether to overwrite existing files during extraction. If this is set to true, any existing files in the destination location will be overwritten by the extraction. */
             overwrite?: boolean;
             /** The source archive to extract. */
             source?: File;
@@ -104,10 +104,7 @@ declare namespace gapi.client {
             type?: string;
         }
         interface File {
-            /**
-             * Defaults to false. When false, files will be subject to validations based on the file type: Remote: A checksum must be specified. GCS: An object
-             * generation number must be specified.
-             */
+            /** Defaults to false. When false, files will be subject to validations based on the file type: Remote: A checksum must be specified. GCS: An object generation number must be specified. */
             allowInsecure?: boolean;
             /** A GCS object. */
             gcs?: FileGcs;
@@ -138,10 +135,10 @@ declare namespace gapi.client {
             /** The absolute path of the file. */
             path?: string;
             /**
-             * Consists of three octal digits which represent, in order, the permissions of the owner, group, and other users for the file (similarly to the numeric
-             * mode used in the linux chmod utility). Each digit represents a three bit number with the 4 bit corresponding to the read permissions, the 2 bit
-             * corresponds to the write bit, and the one bit corresponds to the execute permission. Default behavior is 755. Below are some examples of permissions
-             * and their associated values: read, write, and execute: 7 read and execute: 5 read and write: 6 read only: 4
+             * Consists of three octal digits which represent, in order, the permissions of the owner, group, and other users for the file (similarly to the numeric mode used in the linux chmod
+             * utility). Each digit represents a three bit number with the 4 bit corresponding to the read permissions, the 2 bit corresponds to the write bit, and the one bit corresponds to the
+             * execute permission. Default behavior is 755. Below are some examples of permissions and their associated values: read, write, and execute: 7 read and execute: 5 read and write: 6
+             * read only: 4
              */
             permissions?: string;
             /** Desired state of the file. */
@@ -184,8 +181,8 @@ declare namespace gapi.client {
         }
         interface MonthlySchedule {
             /**
-             * Required. One day of the month. 1-31 indicates the 1st to the 31st day. -1 indicates the last day of the month. Months without the target day will be
-             * skipped. For example, a schedule to run "every month on the 31st" will not run in February, April, June, etc.
+             * Required. One day of the month. 1-31 indicates the 1st to the 31st day. -1 indicates the last day of the month. Months without the target day will be skipped. For example, a
+             * schedule to run "every month on the 31st" will not run in February, April, June, etc.
              */
             monthDay?: number;
             /** Required. Week day in a month. */
@@ -218,10 +215,7 @@ declare namespace gapi.client {
             name?: string;
         }
         interface PackageResourceDeb {
-            /**
-             * Whether dependencies should also be installed. install when false: `dpkg -i package` install when true: `apt-get update && apt-get -y install
-             * package.deb`
-             */
+            /** Whether dependencies should also be installed. install when false: `dpkg -i package` install when true: `apt-get update && apt-get -y install package.deb` */
             pullDeps?: boolean;
             /** A deb package. */
             source?: File;
@@ -240,8 +234,8 @@ declare namespace gapi.client {
         }
         interface PackageResourceRPM {
             /**
-             * Whether dependencies should also be installed. install when false: `rpm --upgrade --replacepkgs package.rpm` install when true: `yum -y install
-             * package.rpm` or `zypper -y install package.rpm`
+             * Whether dependencies should also be installed. install when false: `rpm --upgrade --replacepkgs package.rpm` install when true: `yum -y install package.rpm` or `zypper -y install
+             * package.rpm`
              */
             pullDeps?: boolean;
             /** An rpm package. */
@@ -285,8 +279,8 @@ declare namespace gapi.client {
             /** Output only. The last time a patch job was started by this deployment. Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. */
             lastExecuteTime?: string;
             /**
-             * Unique name for the patch deployment resource in a project. The patch deployment name is in the form:
-             * `projects/{project_id}/patchDeployments/{patch_deployment_id}`. This field is ignored when you create a new patch deployment.
+             * Unique name for the patch deployment resource in a project. The patch deployment name is in the form: `projects/{project_id}/patchDeployments/{patch_deployment_id}`. This field is
+             * ignored when you create a new patch deployment.
              */
             name?: string;
             /** Required. Schedule a one-time execution. */
@@ -305,15 +299,11 @@ declare namespace gapi.client {
             all?: boolean;
             /** Targets VM instances matching ANY of these GroupLabels. This allows targeting of disparate groups of VM instances. */
             groupLabels?: PatchInstanceFilterGroupLabel[];
-            /**
-             * Targets VMs whose name starts with one of these prefixes. Similar to labels, this is another way to group VMs when targeting configs, for example
-             * prefix="prod-".
-             */
+            /** Targets VMs whose name starts with one of these prefixes. Similar to labels, this is another way to group VMs when targeting configs, for example prefix="prod-". */
             instanceNamePrefixes?: string[];
             /**
              * Targets any of the VM instances specified. Instances are specified by their URI in the form `zones/[ZONE]/instances/[INSTANCE_NAME]`,
-             * `projects/[PROJECT_ID]/zones/[ZONE]/instances/[INSTANCE_NAME]`, or
-             * `https://www.googleapis.com/compute/v1/projects/[PROJECT_ID]/zones/[ZONE]/instances/[INSTANCE_NAME]`
+             * `projects/[PROJECT_ID]/zones/[ZONE]/instances/[INSTANCE_NAME]`, or `https://www.googleapis.com/compute/v1/projects/[PROJECT_ID]/zones/[ZONE]/instances/[INSTANCE_NAME]`
              */
             instances?: string[];
             /** Targets VM instances in ANY of these zones. Leave empty to target VM instances in any zone. */
@@ -340,7 +330,7 @@ declare namespace gapi.client {
             instanceDetailsSummary?: PatchJobInstanceDetailsSummary;
             /** Instances to patch. */
             instanceFilter?: PatchInstanceFilter;
-            /** Unique identifier for this patch job in the form `projects/∗/patchJobs/∗` */
+            /** Unique identifier for this patch job in the form `projects/∗/patchJobs/*` */
             name?: string;
             /** Patch configuration being applied. */
             patchConfig?: PatchConfig;
@@ -362,7 +352,7 @@ declare namespace gapi.client {
             failureReason?: string;
             /** The unique identifier for the instance. This identifier is defined by the server. */
             instanceSystemId?: string;
-            /** The instance name in the form `projects/∗/zones/∗/instances/∗` */
+            /** The instance name in the form `projects/∗/zones/∗/instances/*` */
             name?: string;
             /** Current state of instance patch. */
             state?: string;
@@ -378,10 +368,7 @@ declare namespace gapi.client {
             failedInstanceCount?: string;
             /** Number of instances that are inactive. */
             inactiveInstanceCount?: string;
-            /**
-             * Number of instances that do not appear to be running the agent. Check to ensure that the agent is installed, running, and able to communicate with the
-             * service.
-             */
+            /** Number of instances that do not appear to be running the agent. Check to ensure that the agent is installed, running, and able to communicate with the service. */
             noAgentDetectedInstanceCount?: string;
             /** Number of instances notified about patch job. */
             notifiedInstanceCount?: string;
@@ -404,15 +391,14 @@ declare namespace gapi.client {
         }
         interface PatchRollout {
             /**
-             * The maximum number (or percentage) of VMs per zone to disrupt at any given moment. The number of VMs calculated from multiplying the percentage by the
-             * total number of VMs in a zone is rounded up. During patching, a VM is considered disrupted from the time the agent is notified to begin until patching
-             * has completed. This disruption time includes the time to complete reboot and any post-patch steps. A VM contributes to the disruption budget if its
-             * patching operation fails either when applying the patches, running pre or post patch steps, or if it fails to respond with a success notification
-             * before timing out. VMs that are not running or do not have an active agent do not count toward this disruption budget. For zone-by-zone rollouts, if
-             * the disruption budget in a zone is exceeded, the patch job stops, because continuing to the next zone requires completion of the patch process in the
-             * previous zone. For example, if the disruption budget has a fixed value of `10`, and 8 VMs fail to patch in the current zone, the patch job continues to
-             * patch 2 VMs at a time until the zone is completed. When that zone is completed successfully, patching begins with 10 VMs at a time in the next zone. If
-             * 10 VMs in the next zone fail to patch, the patch job stops.
+             * The maximum number (or percentage) of VMs per zone to disrupt at any given moment. The number of VMs calculated from multiplying the percentage by the total number of VMs in a zone
+             * is rounded up. During patching, a VM is considered disrupted from the time the agent is notified to begin until patching has completed. This disruption time includes the time to
+             * complete reboot and any post-patch steps. A VM contributes to the disruption budget if its patching operation fails either when applying the patches, running pre or post patch
+             * steps, or if it fails to respond with a success notification before timing out. VMs that are not running or do not have an active agent do not count toward this disruption budget.
+             * For zone-by-zone rollouts, if the disruption budget in a zone is exceeded, the patch job stops, because continuing to the next zone requires completion of the patch process in the
+             * previous zone. For example, if the disruption budget has a fixed value of `10`, and 8 VMs fail to patch in the current zone, the patch job continues to patch 2 VMs at a time until
+             * the zone is completed. When that zone is completed successfully, patching begins with 10 VMs at a time in the next zone. If 10 VMs in the next zone fail to patch, the patch job
+             * stops.
              */
             disruptionBudget?: FixedOrPercent;
             /** Mode of the patch rollout. */
@@ -474,8 +460,8 @@ declare namespace gapi.client {
             /** URIs of GPG keys. */
             gpgKeys?: string[];
             /**
-             * A one word, unique name for this repository. This will be the `repo id` in the yum config file and also the `display_name` if `display_name` is
-             * omitted. This id is also used as the unique identifier when checking for resource conflicts.
+             * A one word, unique name for this repository. This will be the `repo id` in the yum config file and also the `display_name` if `display_name` is omitted. This id is also used as the
+             * unique identifier when checking for resource conflicts.
              */
             id?: string;
         }
@@ -487,8 +473,8 @@ declare namespace gapi.client {
             /** URIs of GPG keys. */
             gpgKeys?: string[];
             /**
-             * A one word, unique name for this repository. This will be the `repo id` in the zypper config file and also the `display_name` if `display_name` is
-             * omitted. This id is also used as the unique identifier when checking for GuestPolicy conflicts.
+             * A one word, unique name for this repository. This will be the `repo id` in the zypper config file and also the `display_name` if `display_name` is omitted. This id is also used as
+             * the unique identifier when checking for GuestPolicy conflicts.
              */
             id?: string;
         }
@@ -533,8 +519,8 @@ declare namespace gapi.client {
             /** List of packages to exclude from update. These packages are excluded by using the yum `--exclude` flag. */
             excludes?: string[];
             /**
-             * An exclusive list of packages to be updated. These are the only packages that will be updated. If these packages are not installed, they will be
-             * ignored. This field must not be specified with any other patch configuration fields.
+             * An exclusive list of packages to be updated. These are the only packages that will be updated. If these packages are not installed, they will be ignored. This field must not be
+             * specified with any other patch configuration fields.
              */
             exclusivePackages?: string[];
             /** Will cause patch to run `yum update-minimal` instead. */
@@ -548,8 +534,8 @@ declare namespace gapi.client {
             /** List of patches to exclude from update. */
             excludes?: string[];
             /**
-             * An exclusive list of patches to be updated. These are the only patches that will be installed using 'zypper patch patch:' command. This field must not
-             * be used with any other patch configuration fields.
+             * An exclusive list of patches to be updated. These are the only patches that will be installed using 'zypper patch patch:' command. This field must not be used with any other patch
+             * configuration fields.
              */
             exclusivePatches?: string[];
             /** Install only patches with these severities. Common severities include critical, important, moderate, and low. */
@@ -576,12 +562,11 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The project to apply this patch deployment to in the form `projects/∗`. */
+                /** Required. The project to apply this patch deployment to in the form `projects/*`. */
                 parent: string;
                 /**
-                 * Required. A name for the patch deployment in the project. When creating a name the following rules apply: ∗ Must contain only lowercase letters,
-                 * numbers, and hyphens. ∗ Must start with a letter. ∗ Must be between 1-63 characters. ∗ Must end with a number or a letter. ∗ Must be unique within the
-                 * project.
+                 * Required. A name for the patch deployment in the project. When creating a name the following rules apply: * Must contain only lowercase letters, numbers, and hyphens. * Must
+                 * start with a letter. * Must be between 1-63 characters. * Must end with a number or a letter. * Must be unique within the project.
                  */
                 patchDeploymentId?: string;
                 /** Returns response with indentations and line breaks. */
@@ -610,12 +595,11 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The project to apply this patch deployment to in the form `projects/∗`. */
+                /** Required. The project to apply this patch deployment to in the form `projects/*`. */
                 parent: string;
                 /**
-                 * Required. A name for the patch deployment in the project. When creating a name the following rules apply: ∗ Must contain only lowercase letters,
-                 * numbers, and hyphens. ∗ Must start with a letter. ∗ Must be between 1-63 characters. ∗ Must end with a number or a letter. ∗ Must be unique within the
-                 * project.
+                 * Required. A name for the patch deployment in the project. When creating a name the following rules apply: * Must contain only lowercase letters, numbers, and hyphens. * Must
+                 * start with a letter. * Must be between 1-63 characters. * Must end with a number or a letter. * Must be unique within the project.
                  */
                 patchDeploymentId?: string;
                 /** Returns response with indentations and line breaks. */
@@ -642,7 +626,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the patch deployment in the form `projects/∗/patchDeployments/∗`. */
+                /** Required. The resource name of the patch deployment in the form `projects/∗/patchDeployments/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -669,7 +653,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the patch deployment in the form `projects/∗/patchDeployments/∗`. */
+                /** Required. The resource name of the patch deployment in the form `projects/∗/patchDeployments/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -702,7 +686,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. A pagination token returned from a previous call to ListPatchDeployments that indicates where this listing should continue from. */
                 pageToken?: string;
-                /** Required. The resource name of the parent in the form `projects/∗`. */
+                /** Required. The resource name of the parent in the form `projects/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -728,10 +712,7 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * A filter expression that filters results listed in the response. This field supports filtering results by instance zone, name, state, or
-                 * `failure_reason`.
-                 */
+                /** A filter expression that filters results listed in the response. This field supports filtering results by instance zone, name, state, or `failure_reason`. */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
@@ -741,7 +722,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** A pagination token returned from a previous call that indicates where this listing should continue from. */
                 pageToken?: string;
-                /** Required. The parent for the instances are in the form of `projects/∗/patchJobs/∗`. */
+                /** Required. The parent for the instances are in the form of `projects/∗/patchJobs/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -768,7 +749,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Name of the patch in the form `projects/∗/patchJobs/∗` */
+                /** Required. Name of the patch in the form `projects/∗/patchJobs/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -796,7 +777,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Name of the patch in the form `projects/∗/patchJobs/∗` */
+                /** Required. Name of the patch in the form `projects/∗/patchJobs/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -826,7 +807,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The project in which to run this patch in the form `projects/∗` */
+                /** Required. The project in which to run this patch in the form `projects/*` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -854,7 +835,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The project in which to run this patch in the form `projects/∗` */
+                /** Required. The project in which to run this patch in the form `projects/*` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -880,7 +861,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Name of the patch in the form `projects/∗/patchJobs/∗` */
+                /** Required. Name of the patch in the form `projects/∗/patchJobs/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -906,8 +887,8 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * If provided, this field specifies the criteria that must be met by patch jobs to be included in the response. Currently, filtering is only available on
-                 * the patch_deployment field.
+                 * If provided, this field specifies the criteria that must be met by patch jobs to be included in the response. Currently, filtering is only available on the patch_deployment
+                 * field.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -918,7 +899,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** A pagination token returned from a previous call that indicates where this listing should continue from. */
                 pageToken?: string;
-                /** Required. In the form of `projects/∗` */
+                /** Required. In the form of `projects/*` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;

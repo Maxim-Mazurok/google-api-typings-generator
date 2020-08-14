@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Natural Language API v1 1.0
 // Project: https://cloud.google.com/natural-language/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -28,8 +31,8 @@ declare namespace gapi.client {
             /** The recognized entities in the input document. */
             entities?: Entity[];
             /**
-             * The language of the text, which will be the same as the language specified in the request or, if not specified, the automatically-detected language.
-             * See Document.language field for more details.
+             * The language of the text, which will be the same as the language specified in the request or, if not specified, the automatically-detected language. See Document.language field for
+             * more details.
              */
             language?: string;
         }
@@ -43,8 +46,8 @@ declare namespace gapi.client {
             /** The recognized entities in the input document with associated sentiments. */
             entities?: Entity[];
             /**
-             * The language of the text, which will be the same as the language specified in the request or, if not specified, the automatically-detected language.
-             * See Document.language field for more details.
+             * The language of the text, which will be the same as the language specified in the request or, if not specified, the automatically-detected language. See Document.language field for
+             * more details.
              */
             language?: string;
         }
@@ -58,8 +61,8 @@ declare namespace gapi.client {
             /** The overall sentiment of the input document. */
             documentSentiment?: Sentiment;
             /**
-             * The language of the text, which will be the same as the language specified in the request or, if not specified, the automatically-detected language.
-             * See Document.language field for more details.
+             * The language of the text, which will be the same as the language specified in the request or, if not specified, the automatically-detected language. See Document.language field for
+             * more details.
              */
             language?: string;
             /** The sentiment for all the sentences in the document. */
@@ -73,8 +76,8 @@ declare namespace gapi.client {
         }
         interface AnalyzeSyntaxResponse {
             /**
-             * The language of the text, which will be the same as the language specified in the request or, if not specified, the automatically-detected language.
-             * See Document.language field for more details.
+             * The language of the text, which will be the same as the language specified in the request or, if not specified, the automatically-detected language. See Document.language field for
+             * more details.
              */
             language?: string;
             /** Sentences in the input document. */
@@ -98,8 +101,8 @@ declare namespace gapi.client {
             /** Entities, along with their semantic information, in the input document. Populated if the user enables AnnotateTextRequest.Features.extract_entities. */
             entities?: Entity[];
             /**
-             * The language of the text, which will be the same as the language specified in the request or, if not specified, the automatically-detected language.
-             * See Document.language field for more details.
+             * The language of the text, which will be the same as the language specified in the request or, if not specified, the automatically-detected language. See Document.language field for
+             * more details.
              */
             language?: string;
             /** Sentences in the input document. Populated if the user enables AnnotateTextRequest.Features.extract_syntax. */
@@ -123,8 +126,8 @@ declare namespace gapi.client {
         }
         interface DependencyEdge {
             /**
-             * Represents the head of this token in the dependency tree. This is the index of the token which has an arc going to this token. The index is the
-             * position of the token in the array of tokens returned by the API method. If this token is a root token, then the `head_token_index` is its own index.
+             * Represents the head of this token in the dependency tree. This is the index of the token which has an arc going to this token. The index is the position of the token in the array of
+             * tokens returned by the API method. If this token is a root token, then the `head_token_index` is its own index.
              */
             headTokenIndex?: number;
             /** The parse label for the token. */
@@ -140,8 +143,8 @@ declare namespace gapi.client {
             gcsContentUri?: string;
             /**
              * The language of the document (if not specified, the language is automatically detected). Both ISO and BCP-47 language codes are accepted. [Language
-             * Support](https://cloud.google.com/natural-language/docs/languages) lists currently supported languages for each API method. If the language (either
-             * specified by the caller or automatically detected) is not supported by the called API method, an `INVALID_ARGUMENT` error is returned.
+             * Support](https://cloud.google.com/natural-language/docs/languages) lists currently supported languages for each API method. If the language (either specified by the caller or
+             * automatically detected) is not supported by the called API method, an `INVALID_ARGUMENT` error is returned.
              */
             language?: string;
             /** Required. If the type is not set or is `TYPE_UNSPECIFIED`, returns an `INVALID_ARGUMENT` error. */
@@ -151,20 +154,20 @@ declare namespace gapi.client {
             /** The mentions of this entity in the input document. The API currently supports proper noun mentions. */
             mentions?: EntityMention[];
             /**
-             * Metadata associated with the entity. For most entity types, the metadata is a Wikipedia URL (`wikipedia_url`) and Knowledge Graph MID (`mid`), if they
-             * are available. For the metadata associated with other entity types, see the Type table below.
+             * Metadata associated with the entity. For most entity types, the metadata is a Wikipedia URL (`wikipedia_url`) and Knowledge Graph MID (`mid`), if they are available. For the
+             * metadata associated with other entity types, see the Type table below.
              */
             metadata?: { [P in string]: string };
             /** The representative name for the entity. */
             name?: string;
             /**
-             * The salience score associated with the entity in the [0, 1.0] range. The salience score for an entity provides information about the importance or
-             * centrality of that entity to the entire document text. Scores closer to 0 are less salient, while scores closer to 1.0 are highly salient.
+             * The salience score associated with the entity in the [0, 1.0] range. The salience score for an entity provides information about the importance or centrality of that entity to the
+             * entire document text. Scores closer to 0 are less salient, while scores closer to 1.0 are highly salient.
              */
             salience?: number;
             /**
-             * For calls to AnalyzeEntitySentiment or if AnnotateTextRequest.Features.extract_entity_sentiment is set to true, this field will contain the aggregate
-             * sentiment expressed for this entity in the provided document.
+             * For calls to AnalyzeEntitySentiment or if AnnotateTextRequest.Features.extract_entity_sentiment is set to true, this field will contain the aggregate sentiment expressed for this
+             * entity in the provided document.
              */
             sentiment?: Sentiment;
             /** The entity type. */
@@ -172,8 +175,8 @@ declare namespace gapi.client {
         }
         interface EntityMention {
             /**
-             * For calls to AnalyzeEntitySentiment or if AnnotateTextRequest.Features.extract_entity_sentiment is set to true, this field will contain the sentiment
-             * expressed for this mention of the entity in the provided document.
+             * For calls to AnalyzeEntitySentiment or if AnnotateTextRequest.Features.extract_entity_sentiment is set to true, this field will contain the sentiment expressed for this mention of
+             * the entity in the provided document.
              */
             sentiment?: Sentiment;
             /** The mention text. */
@@ -220,10 +223,7 @@ declare namespace gapi.client {
             voice?: string;
         }
         interface Sentence {
-            /**
-             * For calls to AnalyzeSentiment or if AnnotateTextRequest.Features.extract_document_sentiment is set to true, this field will contain the sentiment for
-             * the sentence.
-             */
+            /** For calls to AnalyzeSentiment or if AnnotateTextRequest.Features.extract_document_sentiment is set to true, this field will contain the sentiment for the sentence. */
             sentiment?: Sentiment;
             /** The sentence text. */
             text?: TextSpan;
@@ -240,8 +240,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -262,10 +262,7 @@ declare namespace gapi.client {
             text?: TextSpan;
         }
         interface DocumentsResource {
-            /**
-             * Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other
-             * properties.
-             */
+            /** Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other properties. */
             analyzeEntities(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -421,10 +418,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: AnalyzeSentimentRequest): Request<AnalyzeSentimentResponse>;
-            /**
-             * Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other
-             * properties.
-             */
+            /** Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties. */
             analyzeSyntax(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;

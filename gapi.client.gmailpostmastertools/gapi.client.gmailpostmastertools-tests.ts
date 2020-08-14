@@ -31,10 +31,7 @@ gapi.load('client', () => {
         await gapi.client.gmailpostmastertools.domains.get({
             name: "Test string",
         });
-        /**
-         * Get traffic statistics for a domain on a specific date. Returns PERMISSION_DENIED if user does not have permission to access TrafficStats for the
-         * domain.
-         */
+        /** Get traffic statistics for a domain on a specific date. Returns PERMISSION_DENIED if user does not have permission to access TrafficStats for the domain. */
         await gapi.client.gmailpostmastertools.domains.trafficStats.get({
             name: "Test string",
         });
@@ -51,17 +48,14 @@ gapi.load('client', () => {
             "startDate.year": 42,
         });
         /**
-         * Lists the domains that have been registered by the client. The order of domains in the response is unspecified and non-deterministic. Newly created
-         * domains will not necessarily be added to the end of this list.
+         * Lists the domains that have been registered by the client. The order of domains in the response is unspecified and non-deterministic. Newly created domains will not necessarily be added
+         * to the end of this list.
          */
         await gapi.client.gmailpostmastertools.domains.list({
             pageSize: 42,
             pageToken: "Test string",
         });
-        /**
-         * Get traffic statistics for a domain on a specific date. Returns PERMISSION_DENIED if user does not have permission to access TrafficStats for the
-         * domain.
-         */
+        /** Get traffic statistics for a domain on a specific date. Returns PERMISSION_DENIED if user does not have permission to access TrafficStats for the domain. */
         await gapi.client.gmailpostmastertools.domains.trafficStats.get({
             name: "Test string",
         });

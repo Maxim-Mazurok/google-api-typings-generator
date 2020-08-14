@@ -54,8 +54,8 @@ gapi.load('client', () => {
             achievementId: "Test string",
         });
         /**
-         * Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps
-         * that the player already gained for the achievement, the achievement is not modified.
+         * Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps that the player already gained
+         * for the achievement, the achievement is not modified.
          */
         await gapi.client.games.achievements.setStepsAtLeast({
             achievementId: "Test string",
@@ -86,8 +86,8 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified `platformType`, the
-         * returned response will not include any instance data.
+         * Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified `platformType`, the returned response will not include any
+         * instance data.
          */
         await gapi.client.games.applications.get({
             applicationId: "Test string",
@@ -175,9 +175,8 @@ gapi.load('client', () => {
             clientRevision: "Test string",
         });
         /**
-         * Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, `leaderboardId` can be set to
-         * `ALL` to retrieve data for all leaderboards in a given time span. `NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request;
-         * only one parameter may be set to 'ALL'.
+         * Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, `leaderboardId` can be set to `ALL` to retrieve data for all
+         * leaderboards in a given time span. `NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request; only one parameter may be set to 'ALL'.
          */
         await gapi.client.games.scores.get({
             includeRankType: "Test string",

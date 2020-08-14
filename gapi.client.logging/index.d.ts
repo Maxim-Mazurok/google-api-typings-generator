@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Logging API v2 2.0
 // Project: https://cloud.google.com/logging/docs/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -20,16 +23,15 @@ declare namespace gapi.client {
     namespace logging {
         interface BigQueryOptions {
             /**
-             * Optional. Whether to use BigQuery's partition tables (https://cloud.google.com/bigquery/docs/partitioned-tables). By default, Logging creates dated
-             * tables based on the log entries' timestamps, e.g. syslog_20170523. With partitioned tables the date suffix is no longer present and special query
-             * syntax (https://cloud.google.com/bigquery/docs/querying-partitioned-tables) has to be used instead. In both cases, tables are sharded based on UTC
-             * timezone.
+             * Optional. Whether to use BigQuery's partition tables (https://cloud.google.com/bigquery/docs/partitioned-tables). By default, Logging creates dated tables based on the log entries'
+             * timestamps, e.g. syslog_20170523. With partitioned tables the date suffix is no longer present and special query syntax
+             * (https://cloud.google.com/bigquery/docs/querying-partitioned-tables) has to be used instead. In both cases, tables are sharded based on UTC timezone.
              */
             usePartitionedTables?: boolean;
             /**
-             * Output only. True if new timestamp column based partitioning is in use, false if legacy ingestion-time partitioning is in use. All new sinks will have
-             * this field set true and will use timestamp column based partitioning. If use_partitioned_tables is false, this value has no meaning and will be false.
-             * Legacy sinks using partitioned tables will have this field set to false.
+             * Output only. True if new timestamp column based partitioning is in use, false if legacy ingestion-time partitioning is in use. All new sinks will have this field set true and will
+             * use timestamp column based partitioning. If use_partitioned_tables is false, this value has no meaning and will be false. Legacy sinks using partitioned tables will have this field
+             * set to false.
              */
             usesTimestampColumnPartitioning?: boolean;
         }
@@ -43,22 +45,20 @@ declare namespace gapi.client {
         }
         interface CmekSettings {
             /**
-             * The resource name for the configured Cloud KMS key.KMS key name format: "projects/PROJECT_ID/locations/LOCATION/keyRings/KEYRING/cryptoKeys/KEY"For
-             * example: "projects/my-project-id/locations/my-region/keyRings/key-ring-name/cryptoKeys/key-name"To enable CMEK for the Logs Router, set this field to a
-             * valid kms_key_name for which the associated service account has the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key.The
-             * Cloud KMS key used by the Log Router can be updated by changing the kms_key_name to a new valid key name. Encryption operations that are in progress
-             * will be completed with the key that was in use when they started. Decryption operations will be completed using the key that was used at the time of
-             * encryption unless access to that key has been revoked.To disable CMEK for the Logs Router, set this field to an empty string.See Enabling CMEK for Logs
-             * Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+             * The resource name for the configured Cloud KMS key.KMS key name format: "projects/PROJECT_ID/locations/LOCATION/keyRings/KEYRING/cryptoKeys/KEY"For example:
+             * "projects/my-project-id/locations/my-region/keyRings/key-ring-name/cryptoKeys/key-name"To enable CMEK for the Logs Router, set this field to a valid kms_key_name for which the
+             * associated service account has the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key.The Cloud KMS key used by the Log Router can be updated by changing
+             * the kms_key_name to a new valid key name. Encryption operations that are in progress will be completed with the key that was in use when they started. Decryption operations will be
+             * completed using the key that was used at the time of encryption unless access to that key has been revoked.To disable CMEK for the Logs Router, set this field to an empty string.See
+             * Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
              */
             kmsKeyName?: string;
             /** Output only. The resource name of the CMEK settings. */
             name?: string;
             /**
-             * Output only. The service account that will be used by the Logs Router to access your Cloud KMS key.Before enabling CMEK for Logs Router, you must first
-             * assign the role roles/cloudkms.cryptoKeyEncrypterDecrypter to the service account that the Logs Router will use to access your Cloud KMS key. Use
-             * GetCmekSettings to obtain the service account ID.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
-             * for more information.
+             * Output only. The service account that will be used by the Logs Router to access your Cloud KMS key.Before enabling CMEK for Logs Router, you must first assign the role
+             * roles/cloudkms.cryptoKeyEncrypterDecrypter to the service account that the Logs Router will use to access your Cloud KMS key. Use GetCmekSettings to obtain the service account
+             * ID.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
              */
             serviceAccountId?: string;
         }
@@ -98,10 +98,7 @@ declare namespace gapi.client {
             requestMethod?: string;
             /** The size of the HTTP request message in bytes, including the request headers and the request body. */
             requestSize?: string;
-            /**
-             * The scheme (http, https), the host name, the path and the query portion of the URL that was requested. Example:
-             * "http://example.com/some/info?color=red".
-             */
+            /** The scheme (http, https), the host name, the path and the query portion of the URL that was requested. Example: "http://example.com/some/info?color=red". */
             requestUrl?: string;
             /** The size of the HTTP response message sent back to the client, in bytes, including the response headers and the response body. */
             responseSize?: string;
@@ -132,8 +129,8 @@ declare namespace gapi.client {
             /** A list of buckets. */
             buckets?: LogBucket[];
             /**
-             * If there might be more results than appear in this response, then nextPageToken is included. To get the next set of results, call the same method again
-             * using the value of nextPageToken as pageToken.
+             * If there might be more results than appear in this response, then nextPageToken is included. To get the next set of results, call the same method again using the value of
+             * nextPageToken as pageToken.
              */
             nextPageToken?: string;
         }
@@ -141,57 +138,50 @@ declare namespace gapi.client {
             /** A list of exclusions. */
             exclusions?: LogExclusion[];
             /**
-             * If there might be more results than appear in this response, then nextPageToken is included. To get the next set of results, call the same method again
-             * using the value of nextPageToken as pageToken.
+             * If there might be more results than appear in this response, then nextPageToken is included. To get the next set of results, call the same method again using the value of
+             * nextPageToken as pageToken.
              */
             nextPageToken?: string;
         }
         interface ListLogEntriesRequest {
             /**
-             * Optional. A filter that chooses which log entries to return. See Advanced Logs Queries (https://cloud.google.com/logging/docs/view/advanced-queries).
-             * Only log entries that match the filter are returned. An empty filter matches all log entries in the resources listed in resource_names. Referencing a
-             * parent resource that is not listed in resource_names will cause the filter to return no results. The maximum length of the filter is 20000 characters.
+             * Optional. A filter that chooses which log entries to return. See Advanced Logs Queries (https://cloud.google.com/logging/docs/view/advanced-queries). Only log entries that match the
+             * filter are returned. An empty filter matches all log entries in the resources listed in resource_names. Referencing a parent resource that is not listed in resource_names will cause
+             * the filter to return no results. The maximum length of the filter is 20000 characters.
              */
             filter?: string;
             /**
-             * Optional. How the results should be sorted. Presently, the only permitted values are "timestamp asc" (default) and "timestamp desc". The first option
-             * returns entries in order of increasing values of LogEntry.timestamp (oldest first), and the second option returns entries in order of decreasing
-             * timestamps (newest first). Entries with equal timestamps are returned in order of their insert_id values.
+             * Optional. How the results should be sorted. Presently, the only permitted values are "timestamp asc" (default) and "timestamp desc". The first option returns entries in order of
+             * increasing values of LogEntry.timestamp (oldest first), and the second option returns entries in order of decreasing timestamps (newest first). Entries with equal timestamps are
+             * returned in order of their insert_id values.
              */
             orderBy?: string;
             /**
-             * Optional. The maximum number of results to return from this request. Default is 50. If the value is negative or exceeds 1000, the request is rejected.
-             * The presence of next_page_token in the response indicates that more results might be available.
+             * Optional. The maximum number of results to return from this request. Default is 50. If the value is negative or exceeds 1000, the request is rejected. The presence of
+             * next_page_token in the response indicates that more results might be available.
              */
             pageSize?: number;
             /**
-             * Optional. If present, then retrieve the next batch of results from the preceding call to this method. page_token must be the value of next_page_token
-             * from the previous response. The values of other method parameters should be identical to those in the previous call.
+             * Optional. If present, then retrieve the next batch of results from the preceding call to this method. page_token must be the value of next_page_token from the previous response. The
+             * values of other method parameters should be identical to those in the previous call.
              */
             pageToken?: string;
-            /**
-             * Optional. Deprecated. Use resource_names instead. One or more project identifiers or project numbers from which to retrieve log entries. Example:
-             * "my-project-1A".
-             */
+            /** Optional. Deprecated. Use resource_names instead. One or more project identifiers or project numbers from which to retrieve log entries. Example: "my-project-1A". */
             projectIds?: string[];
             /**
-             * Required. Names of one or more parent resources from which to retrieve log entries: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-             * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Projects listed in the project_ids field are added to this list.
+             * Required. Names of one or more parent resources from which to retrieve log entries: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+             * "folders/[FOLDER_ID]" Projects listed in the project_ids field are added to this list.
              */
             resourceNames?: string[];
         }
         interface ListLogEntriesResponse {
-            /**
-             * A list of log entries. If entries is empty, nextPageToken may still be returned, indicating that more entries may exist. See nextPageToken for more
-             * information.
-             */
+            /** A list of log entries. If entries is empty, nextPageToken may still be returned, indicating that more entries may exist. See nextPageToken for more information. */
             entries?: LogEntry[];
             /**
-             * If there might be more results than those appearing in this response, then nextPageToken is included. To get the next set of results, call this method
-             * again using the value of nextPageToken as pageToken.If a value for next_page_token appears and the entries field is empty, it means that the search
-             * found no log entries so far but it did not have time to search all the possible log entries. Retry the method with this value for page_token to
-             * continue the search. Alternatively, consider speeding up the search by changing your filter to specify a single log name or resource type, or to narrow
-             * the time range of the search.
+             * If there might be more results than those appearing in this response, then nextPageToken is included. To get the next set of results, call this method again using the value of
+             * nextPageToken as pageToken.If a value for next_page_token appears and the entries field is empty, it means that the search found no log entries so far but it did not have time to
+             * search all the possible log entries. Retry the method with this value for page_token to continue the search. Alternatively, consider speeding up the search by changing your filter
+             * to specify a single log name or resource type, or to narrow the time range of the search.
              */
             nextPageToken?: string;
         }
@@ -199,8 +189,8 @@ declare namespace gapi.client {
             /** A list of logs-based metrics. */
             metrics?: LogMetric[];
             /**
-             * If there might be more results than appear in this response, then nextPageToken is included. To get the next set of results, call this method again
-             * using the value of nextPageToken as pageToken.
+             * If there might be more results than appear in this response, then nextPageToken is included. To get the next set of results, call this method again using the value of nextPageToken
+             * as pageToken.
              */
             nextPageToken?: string;
         }
@@ -208,15 +198,15 @@ declare namespace gapi.client {
             /** A list of log names. For example, "projects/my-project/logs/syslog" or "organizations/123/logs/cloudresourcemanager.googleapis.com%2Factivity". */
             logNames?: string[];
             /**
-             * If there might be more results than those appearing in this response, then nextPageToken is included. To get the next set of results, call this method
-             * again using the value of nextPageToken as pageToken.
+             * If there might be more results than those appearing in this response, then nextPageToken is included. To get the next set of results, call this method again using the value of
+             * nextPageToken as pageToken.
              */
             nextPageToken?: string;
         }
         interface ListMonitoredResourceDescriptorsResponse {
             /**
-             * If there might be more results than those appearing in this response, then nextPageToken is included. To get the next set of results, call this method
-             * again using the value of nextPageToken as pageToken.
+             * If there might be more results than those appearing in this response, then nextPageToken is included. To get the next set of results, call this method again using the value of
+             * nextPageToken as pageToken.
              */
             nextPageToken?: string;
             /** A list of resource descriptors. */
@@ -224,8 +214,8 @@ declare namespace gapi.client {
         }
         interface ListSinksResponse {
             /**
-             * If there might be more results than appear in this response, then nextPageToken is included. To get the next set of results, call the same method again
-             * using the value of nextPageToken as pageToken.
+             * If there might be more results than appear in this response, then nextPageToken is included. To get the next set of results, call the same method again using the value of
+             * nextPageToken as pageToken.
              */
             nextPageToken?: string;
             /** A list of sinks. */
@@ -241,13 +231,13 @@ declare namespace gapi.client {
             /** Whether the bucket has been locked. The retention period on a locked bucket may not be changed. Locked buckets may only be deleted if they are empty. */
             locked?: boolean;
             /**
-             * The resource name of the bucket. For example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id The supported locations are:
-             * "global"For the location of global it is unspecified where logs are actually stored. Once a bucket has been created, the location can not be changed.
+             * The resource name of the bucket. For example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id The supported locations are: "global"For the location of global it
+             * is unspecified where logs are actually stored. Once a bucket has been created, the location can not be changed.
              */
             name?: string;
             /**
-             * Logs will be retained by default for this amount of time, after which they will automatically be deleted. The minimum retention period is 1 day. If
-             * this value is set to zero at bucket creation time, the default time of 30 days will be used.
+             * Logs will be retained by default for this amount of time, after which they will automatically be deleted. The minimum retention period is 1 day. If this value is set to zero at
+             * bucket creation time, the default time of 30 days will be used.
              */
             retentionDays?: number;
             /** Output only. The last update timestamp of the bucket. */
@@ -257,10 +247,10 @@ declare namespace gapi.client {
             /** Optional. Information about the HTTP request associated with this log entry, if applicable. */
             httpRequest?: HttpRequest;
             /**
-             * Optional. A unique identifier for the log entry. If you provide a value, then Logging considers other log entries in the same project, with the same
-             * timestamp, and with the same insert_id to be duplicates which are removed in a single query result. However, there are no guarantees of de-duplication
-             * in the export of logs.If the insert_id is omitted when writing a log entry, the Logging API assigns its own unique identifier in this field.In queries,
-             * the insert_id is also used to order log entries that have the same log_name and timestamp values.
+             * Optional. A unique identifier for the log entry. If you provide a value, then Logging considers other log entries in the same project, with the same timestamp, and with the same
+             * insert_id to be duplicates which are removed in a single query result. However, there are no guarantees of de-duplication in the export of logs.If the insert_id is omitted when
+             * writing a log entry, the Logging API assigns its own unique identifier in this field.In queries, the insert_id is also used to order log entries that have the same log_name and
+             * timestamp values.
              */
             insertId?: string;
             /** The log entry payload, represented as a structure that is expressed as a JSON object. */
@@ -268,36 +258,33 @@ declare namespace gapi.client {
             /** Optional. A set of user-defined (key, value) data that provides additional information about the log entry. */
             labels?: { [P in string]: string };
             /**
-             * Required. The resource name of the log to which this log entry belongs: "projects/[PROJECT_ID]/logs/[LOG_ID]"
-             * "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" A project
-             * number may be used in place of PROJECT_ID. The project number is translated to its corresponding PROJECT_ID internally and the log_name field will
-             * contain PROJECT_ID in queries and exports.[LOG_ID] must be URL-encoded within log_name. Example:
-             * "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity". [LOG_ID] must be less than 512 characters long and can only include the
-             * following characters: upper and lower case alphanumeric characters, forward-slash, underscore, hyphen, and period.For backward compatibility, if
-             * log_name begins with a forward-slash, such as /projects/..., then the log entry is ingested as usual but the forward-slash is removed. Listing the log
-             * entry will not show the leading slash and filtering for a log name with a leading slash will never return any results.
+             * Required. The resource name of the log to which this log entry belongs: "projects/[PROJECT_ID]/logs/[LOG_ID]" "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
+             * "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" A project number may be used in place of PROJECT_ID. The project number is translated to its
+             * corresponding PROJECT_ID internally and the log_name field will contain PROJECT_ID in queries and exports.[LOG_ID] must be URL-encoded within log_name. Example:
+             * "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity". [LOG_ID] must be less than 512 characters long and can only include the following characters: upper
+             * and lower case alphanumeric characters, forward-slash, underscore, hyphen, and period.For backward compatibility, if log_name begins with a forward-slash, such as /projects/...,
+             * then the log entry is ingested as usual but the forward-slash is removed. Listing the log entry will not show the leading slash and filtering for a log name with a leading slash
+             * will never return any results.
              */
             logName?: string;
             /**
-             * Output only. Deprecated. Additional metadata about the monitored resource.Only k8s_container, k8s_pod, and k8s_node MonitoredResources have this field
-             * populated for GKE versions older than 1.12.6. For GKE versions 1.12.6 and above, the metadata field has been deprecated. The Kubernetes pod labels that
-             * used to be in metadata.userLabels will now be present in the labels field with a key prefix of k8s-pod/. The system labels that were present in the
-             * metadata.systemLabels field will no longer be available in the LogEntry.
+             * Output only. Deprecated. Additional metadata about the monitored resource.Only k8s_container, k8s_pod, and k8s_node MonitoredResources have this field populated for GKE versions
+             * older than 1.12.6. For GKE versions 1.12.6 and above, the metadata field has been deprecated. The Kubernetes pod labels that used to be in metadata.userLabels will now be present in
+             * the labels field with a key prefix of k8s-pod/. The system labels that were present in the metadata.systemLabels field will no longer be available in the LogEntry.
              */
             metadata?: MonitoredResourceMetadata;
             /** Optional. Information about an operation associated with the log entry, if applicable. */
             operation?: LogEntryOperation;
             /**
-             * The log entry payload, represented as a protocol buffer. Some Google Cloud Platform services use this field for their log entry payloads.The following
-             * protocol buffer types are supported; user-defined types are not supported:"type.googleapis.com/google.cloud.audit.AuditLog"
-             * "type.googleapis.com/google.appengine.logging.v1.RequestLog"
+             * The log entry payload, represented as a protocol buffer. Some Google Cloud Platform services use this field for their log entry payloads.The following protocol buffer types are
+             * supported; user-defined types are not supported:"type.googleapis.com/google.cloud.audit.AuditLog" "type.googleapis.com/google.appengine.logging.v1.RequestLog"
              */
             protoPayload?: { [P in string]: any };
             /** Output only. The time the log entry was received by Logging. */
             receiveTimestamp?: string;
             /**
-             * Required. The monitored resource that produced this log entry.Example: a log entry that reports a database error would be associated with the monitored
-             * resource designating the particular database that reported the error.
+             * Required. The monitored resource that produced this log entry.Example: a log entry that reports a database error would be associated with the monitored resource designating the
+             * particular database that reported the error.
              */
             resource?: MonitoredResource;
             /** Optional. The severity of the log entry. The default value is LogSeverity.DEFAULT. */
@@ -305,29 +292,28 @@ declare namespace gapi.client {
             /** Optional. Source code location information associated with the log entry, if any. */
             sourceLocation?: LogEntrySourceLocation;
             /**
-             * Optional. The span ID within the trace associated with the log entry.For Trace spans, this is the same format that the Trace API v2 uses: a
-             * 16-character hexadecimal encoding of an 8-byte array, such as 000000000000004a.
+             * Optional. The span ID within the trace associated with the log entry.For Trace spans, this is the same format that the Trace API v2 uses: a 16-character hexadecimal encoding of an
+             * 8-byte array, such as 000000000000004a.
              */
             spanId?: string;
             /** The log entry payload, represented as a Unicode string (UTF-8). */
             textPayload?: string;
             /**
-             * Optional. The time the event described by the log entry occurred. This time is used to compute the log entry's age and to enforce the logs retention
-             * period. If this field is omitted in a new log entry, then Logging assigns it the current time. Timestamps have nanosecond accuracy, but trailing zeros
-             * in the fractional seconds might be omitted when the timestamp is displayed.Incoming log entries must have timestamps that don't exceed the logs
-             * retention period (https://cloud.google.com/logging/quotas#logs_retention_periods) in the past, and that don't exceed 24 hours in the future. Log
-             * entries outside those time boundaries aren't ingested by Logging.
+             * Optional. The time the event described by the log entry occurred. This time is used to compute the log entry's age and to enforce the logs retention period. If this field is omitted
+             * in a new log entry, then Logging assigns it the current time. Timestamps have nanosecond accuracy, but trailing zeros in the fractional seconds might be omitted when the timestamp
+             * is displayed.Incoming log entries must have timestamps that don't exceed the logs retention period (https://cloud.google.com/logging/quotas#logs_retention_periods) in the past, and
+             * that don't exceed 24 hours in the future. Log entries outside those time boundaries aren't ingested by Logging.
              */
             timestamp?: string;
             /**
-             * Optional. Resource name of the trace associated with the log entry, if any. If it contains a relative resource name, the name is assumed to be relative
-             * to //tracing.googleapis.com. Example: projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824
+             * Optional. Resource name of the trace associated with the log entry, if any. If it contains a relative resource name, the name is assumed to be relative to //tracing.googleapis.com.
+             * Example: projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824
              */
             trace?: string;
             /**
-             * Optional. The sampling decision of the trace associated with the log entry.True means that the trace resource name in the trace field was sampled for
-             * storage in a trace backend. False means that the trace was not sampled for storage when this log entry was written, or the sampling decision was
-             * unknown at the time. A non-sampled trace value is still useful as a request correlation identifier. The default is False.
+             * Optional. The sampling decision of the trace associated with the log entry.True means that the trace resource name in the trace field was sampled for storage in a trace backend.
+             * False means that the trace was not sampled for storage when this log entry was written, or the sampling decision was unknown at the time. A non-sampled trace value is still useful
+             * as a request correlation identifier. The default is False.
              */
             traceSampled?: boolean;
         }
@@ -339,8 +325,8 @@ declare namespace gapi.client {
             /** Optional. Set this to True if this is the last log entry in the operation. */
             last?: boolean;
             /**
-             * Optional. An arbitrary producer identifier. The combination of id and producer must be globally unique. Examples for producer:
-             * "MyDivision.MyBigCompany.com", "github.com/MyProject/MyApplication".
+             * Optional. An arbitrary producer identifier. The combination of id and producer must be globally unique. Examples for producer: "MyDivision.MyBigCompany.com",
+             * "github.com/MyProject/MyApplication".
              */
             producer?: string;
         }
@@ -348,9 +334,9 @@ declare namespace gapi.client {
             /** Optional. Source file name. Depending on the runtime environment, this might be a simple name or a fully-qualified name. */
             file?: string;
             /**
-             * Optional. Human-readable name of the function or method being invoked, with optional context such as the class or package name. This information may be
-             * used in contexts such as the logs viewer, where a file and line number are less meaningful. The format can vary by language. For example:
-             * qual.if.ied.Class.method (Java), dir/package.func (Go), function (Python).
+             * Optional. Human-readable name of the function or method being invoked, with optional context such as the class or package name. This information may be used in contexts such as the
+             * logs viewer, where a file and line number are less meaningful. The format can vary by language. For example: qual.if.ied.Class.method (Java), dir/package.func (Go), function
+             * (Python).
              */
             function?: string;
             /** Optional. Line within the source file. 1-based; 0 indicates no line number available. */
@@ -361,21 +347,17 @@ declare namespace gapi.client {
             createTime?: string;
             /** Optional. A description of this exclusion. */
             description?: string;
-            /**
-             * Optional. If set to True, then this exclusion is disabled and it does not exclude any log entries. You can update an exclusion to change the value of
-             * this field.
-             */
+            /** Optional. If set to True, then this exclusion is disabled and it does not exclude any log entries. You can update an exclusion to change the value of this field. */
             disabled?: boolean;
             /**
-             * Required. An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced-queries) that matches the log entries to be excluded. By using
-             * the sample function (https://cloud.google.com/logging/docs/view/advanced-queries#sample), you can exclude less than 100% of the matching log entries.
-             * For example, the following query matches 99% of low-severity log entries from Google Cloud Storage buckets:"resource.type=gcs_bucket severity<ERROR
-             * sample(insertId, 0.99)"
+             * Required. An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced-queries) that matches the log entries to be excluded. By using the sample function
+             * (https://cloud.google.com/logging/docs/view/advanced-queries#sample), you can exclude less than 100% of the matching log entries. For example, the following query matches 99% of
+             * low-severity log entries from Google Cloud Storage buckets:"resource.type=gcs_bucket severity<ERROR sample(insertId, 0.99)"
              */
             filter?: string;
             /**
-             * Required. A client-assigned identifier, such as "load-balancer-exclusion". Identifiers are limited to 100 characters and can include only letters,
-             * digits, underscores, hyphens, and periods. First character has to be alphanumeric.
+             * Required. A client-assigned identifier, such as "load-balancer-exclusion". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and
+             * periods. First character has to be alphanumeric.
              */
             name?: string;
             /** Output only. The last update timestamp of the exclusion.This field may not be present for older exclusions. */
@@ -393,8 +375,8 @@ declare namespace gapi.client {
         }
         interface LogMetric {
             /**
-             * Optional. The bucket_options are required when the logs-based metric is using a DISTRIBUTION value type and it describes the bucket boundaries used to
-             * create a histogram of the extracted values.
+             * Optional. The bucket_options are required when the logs-based metric is using a DISTRIBUTION value type and it describes the bucket boundaries used to create a histogram of the
+             * extracted values.
              */
             bucketOptions?: BucketOptions;
             /** Output only. The creation timestamp of the metric.This field may not be present for older metrics. */
@@ -402,47 +384,43 @@ declare namespace gapi.client {
             /** Optional. A description of this metric, which is used in documentation. The maximum length of the description is 8000 characters. */
             description?: string;
             /**
-             * Required. An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced_filters) which is used to match log entries. Example:
-             * "resource.type=gae_app AND severity>=ERROR" The maximum length of the filter is 20000 characters.
+             * Required. An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced_filters) which is used to match log entries. Example: "resource.type=gae_app AND
+             * severity>=ERROR" The maximum length of the filter is 20000 characters.
              */
             filter?: string;
             /**
-             * Optional. A map from a label key string to an extractor expression which is used to extract data from a log entry field and assign as the label value.
-             * Each label key specified in the LabelDescriptor must have an associated extractor expression in this map. The syntax of the extractor expression is the
-             * same as for the value_extractor field.The extracted value is converted to the type defined in the label descriptor. If the either the extraction or the
-             * type conversion fails, the label will have a default value. The default value for a string label is an empty string, for an integer label its 0, and
-             * for a boolean label its false.Note that there are upper bounds on the maximum number of labels and the number of active time series that are allowed in
-             * a project.
+             * Optional. A map from a label key string to an extractor expression which is used to extract data from a log entry field and assign as the label value. Each label key specified in
+             * the LabelDescriptor must have an associated extractor expression in this map. The syntax of the extractor expression is the same as for the value_extractor field.The extracted value
+             * is converted to the type defined in the label descriptor. If the either the extraction or the type conversion fails, the label will have a default value. The default value for a
+             * string label is an empty string, for an integer label its 0, and for a boolean label its false.Note that there are upper bounds on the maximum number of labels and the number of
+             * active time series that are allowed in a project.
              */
             labelExtractors?: { [P in string]: string };
             /**
-             * Optional. The metric descriptor associated with the logs-based metric. If unspecified, it uses a default metric descriptor with a DELTA metric kind,
-             * INT64 value type, with no labels and a unit of "1". Such a metric counts the number of log entries matching the filter expression.The name, type, and
-             * description fields in the metric_descriptor are output only, and is constructed using the name and description field in the LogMetric.To create a
-             * logs-based metric that records a distribution of log values, a DELTA metric kind with a DISTRIBUTION value type must be used along with a
-             * value_extractor expression in the LogMetric.Each label in the metric descriptor must have a matching label name as the key and an extractor expression
-             * as the value in the label_extractors map.The metric_kind and value_type fields in the metric_descriptor cannot be updated once initially configured.
-             * New labels can be added in the metric_descriptor, but existing labels cannot be modified except for their description.
+             * Optional. The metric descriptor associated with the logs-based metric. If unspecified, it uses a default metric descriptor with a DELTA metric kind, INT64 value type, with no labels
+             * and a unit of "1". Such a metric counts the number of log entries matching the filter expression.The name, type, and description fields in the metric_descriptor are output only, and
+             * is constructed using the name and description field in the LogMetric.To create a logs-based metric that records a distribution of log values, a DELTA metric kind with a DISTRIBUTION
+             * value type must be used along with a value_extractor expression in the LogMetric.Each label in the metric descriptor must have a matching label name as the key and an extractor
+             * expression as the value in the label_extractors map.The metric_kind and value_type fields in the metric_descriptor cannot be updated once initially configured. New labels can be
+             * added in the metric_descriptor, but existing labels cannot be modified except for their description.
              */
             metricDescriptor?: MetricDescriptor;
             /**
-             * Required. The client-assigned metric identifier. Examples: "error_count", "nginx/requests".Metric identifiers are limited to 100 characters and can
-             * include only the following characters: A-Z, a-z, 0-9, and the special characters _-.,+!∗',()%/. The forward-slash character (/) denotes a hierarchy of
-             * name pieces, and it cannot be the first character of the name.The metric identifier in this field must not be URL-encoded
-             * (https://en.wikipedia.org/wiki/Percent-encoding). However, when the metric identifier appears as the [METRIC_ID] part of a metric_name API parameter,
-             * then the metric identifier must be URL-encoded. Example: "projects/my-project/metrics/nginx%2Frequests".
+             * Required. The client-assigned metric identifier. Examples: "error_count", "nginx/requests".Metric identifiers are limited to 100 characters and can include only the following
+             * characters: A-Z, a-z, 0-9, and the special characters _-.,+!*',()%/. The forward-slash character (/) denotes a hierarchy of name pieces, and it cannot be the first character of the
+             * name.The metric identifier in this field must not be URL-encoded (https://en.wikipedia.org/wiki/Percent-encoding). However, when the metric identifier appears as the [METRIC_ID]
+             * part of a metric_name API parameter, then the metric identifier must be URL-encoded. Example: "projects/my-project/metrics/nginx%2Frequests".
              */
             name?: string;
             /** Output only. The last update timestamp of the metric.This field may not be present for older metrics. */
             updateTime?: string;
             /**
-             * Optional. A value_extractor is required when using a distribution logs-based metric to extract the values to record from a log entry. Two functions are
-             * supported for value extraction: EXTRACT(field) or REGEXP_EXTRACT(field, regex). The argument are: 1. field: The name of the log entry field from which
-             * the value is to be extracted. 2. regex: A regular expression using the Google RE2 syntax (https://github.com/google/re2/wiki/Syntax) with a single
-             * capture group to extract data from the specified log entry field. The value of the field is converted to a string before applying the regex. It is an
-             * error to specify a regex that does not include exactly one capture group.The result of the extraction must be convertible to a double type, as the
-             * distribution always records double values. If either the extraction or the conversion to double fails, then those values are not recorded in the
-             * distribution.Example: REGEXP_EXTRACT(jsonPayload.request, ".∗quantity=(\d+).∗")
+             * Optional. A value_extractor is required when using a distribution logs-based metric to extract the values to record from a log entry. Two functions are supported for value
+             * extraction: EXTRACT(field) or REGEXP_EXTRACT(field, regex). The argument are: 1. field: The name of the log entry field from which the value is to be extracted. 2. regex: A regular
+             * expression using the Google RE2 syntax (https://github.com/google/re2/wiki/Syntax) with a single capture group to extract data from the specified log entry field. The value of the
+             * field is converted to a string before applying the regex. It is an error to specify a regex that does not include exactly one capture group.The result of the extraction must be
+             * convertible to a double type, as the distribution always records double values. If either the extraction or the conversion to double fails, then those values are not recorded in the
+             * distribution.Example: REGEXP_EXTRACT(jsonPayload.request, ".*quantity=(\d+).*")
              */
             valueExtractor?: string;
             /** Deprecated. The API version that created or updated this metric. The v2 format is used by default and cannot be changed. */
@@ -457,36 +435,30 @@ declare namespace gapi.client {
             description?: string;
             /**
              * Required. The export destination: "storage.googleapis.com/[GCS_BUCKET]" "bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET]"
-             * "pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]" The sink's writer_identity, set when the sink is created, must have permission to write
-             * to the destination or else the log entries are not exported. For more information, see Exporting Logs with Sinks
-             * (https://cloud.google.com/logging/docs/api/tasks/exporting-logs).
+             * "pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]" The sink's writer_identity, set when the sink is created, must have permission to write to the destination or else
+             * the log entries are not exported. For more information, see Exporting Logs with Sinks (https://cloud.google.com/logging/docs/api/tasks/exporting-logs).
              */
             destination?: string;
             /** Optional. If set to True, then this sink is disabled and it does not export any log entries. */
             disabled?: boolean;
-            /**
-             * Optional. Log entries that match any of the exclusion filters will not be exported. If a log entry is matched by both filter and one of
-             * exclusion_filters it will not be exported.
-             */
+            /** Optional. Log entries that match any of the exclusion filters will not be exported. If a log entry is matched by both filter and one of exclusion_filters it will not be exported. */
             exclusions?: LogExclusion[];
             /**
-             * Optional. An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced-queries). The only exported log entries are those that are in
-             * the resource owning the sink and that match the filter. For example: logName="projects/[PROJECT_ID]/logs/[LOG_ID]" AND severity>=ERROR
+             * Optional. An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced-queries). The only exported log entries are those that are in the resource owning the sink and
+             * that match the filter. For example: logName="projects/[PROJECT_ID]/logs/[LOG_ID]" AND severity>=ERROR
              */
             filter?: string;
             /**
-             * Optional. This field applies only to sinks owned by organizations and folders. If the field is false, the default, only the logs owned by the sink's
-             * parent resource are available for export. If the field is true, then logs from all the projects, folders, and billing accounts contained in the sink's
-             * parent resource are also available for export. Whether a particular log entry from the children is exported depends on the sink's filter expression.
-             * For example, if this field is true, then the filter resource.type=gce_instance would export all Compute Engine VM instance log entries from all
-             * projects in the sink's parent. To only export entries from certain child projects, filter on the project part of the log name:
-             * logName:("projects/test-project1/" OR "projects/test-project2/") AND resource.type=gce_instance
+             * Optional. This field applies only to sinks owned by organizations and folders. If the field is false, the default, only the logs owned by the sink's parent resource are available
+             * for export. If the field is true, then logs from all the projects, folders, and billing accounts contained in the sink's parent resource are also available for export. Whether a
+             * particular log entry from the children is exported depends on the sink's filter expression. For example, if this field is true, then the filter resource.type=gce_instance would
+             * export all Compute Engine VM instance log entries from all projects in the sink's parent. To only export entries from certain child projects, filter on the project part of the log
+             * name: logName:("projects/test-project1/" OR "projects/test-project2/") AND resource.type=gce_instance
              */
             includeChildren?: boolean;
             /**
-             * Required. The client-assigned sink identifier, unique within the project. Example: "my-syslog-errors-to-pubsub". Sink identifiers are limited to 100
-             * characters and can include only the following characters: upper and lower-case alphanumeric characters, underscores, hyphens, and periods. First
-             * character has to be alphanumeric.
+             * Required. The client-assigned sink identifier, unique within the project. Example: "my-syslog-errors-to-pubsub". Sink identifiers are limited to 100 characters and can include only
+             * the following characters: upper and lower-case alphanumeric characters, underscores, hyphens, and periods. First character has to be alphanumeric.
              */
             name?: string;
             /** Deprecated. This field is unused. */
@@ -494,11 +466,10 @@ declare namespace gapi.client {
             /** Output only. The last update timestamp of the sink.This field may not be present for older sinks. */
             updateTime?: string;
             /**
-             * Output only. An IAM identity—a service account or group—under which Logging writes the exported log entries to the sink's destination. This field is
-             * set by sinks.create and sinks.update based on the value of unique_writer_identity in those methods.Until you grant this identity write-access to the
-             * destination, log entry exports from this sink will fail. For more information, see Granting Access for a Resource
-             * (https://cloud.google.com/iam/docs/granting-roles-to-service-accounts#granting_access_to_a_service_account_for_a_resource). Consult the destination
-             * service's documentation to determine the appropriate IAM roles to assign to the identity.
+             * Output only. An IAM identity—a service account or group—under which Logging writes the exported log entries to the sink's destination. This field is set by sinks.create and
+             * sinks.update based on the value of unique_writer_identity in those methods.Until you grant this identity write-access to the destination, log entry exports from this sink will fail.
+             * For more information, see Granting Access for a Resource (https://cloud.google.com/iam/docs/granting-roles-to-service-accounts#granting_access_to_a_service_account_for_a_resource).
+             * Consult the destination service's documentation to determine the appropriate IAM roles to assign to the identity.
              */
             writerIdentity?: string;
         }
@@ -506,15 +477,15 @@ declare namespace gapi.client {
             /** A detailed description of the metric, which can be used in documentation. */
             description?: string;
             /**
-             * A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example "Request count". This
-             * field is optional but it is recommended to be set for any metrics associated with user-visible concepts, such as Quota.
+             * A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example "Request count". This field is optional but it is
+             * recommended to be set for any metrics associated with user-visible concepts, such as Quota.
              */
             displayName?: string;
             /**
-             * The set of labels that can be used to describe a specific instance of this metric type.The label key name must follow: Only upper and lower-case
-             * letters, digits and underscores (_) are allowed. Label name must start with a letter or digit. The maximum length of a label name is 100 characters.For
-             * example, the appengine.googleapis.com/http/server/response_latencies metric type has a label for the HTTP response code, response_code, so you can look
-             * at latencies for successful responses or just for responses that failed.
+             * The set of labels that can be used to describe a specific instance of this metric type.The label key name must follow: Only upper and lower-case letters, digits and underscores (_)
+             * are allowed. Label name must start with a letter or digit. The maximum length of a label name is 100 characters.For example, the
+             * appengine.googleapis.com/http/server/response_latencies metric type has a label for the HTTP response code, response_code, so you can look at latencies for successful responses or
+             * just for responses that failed.
              */
             labels?: LabelDescriptor[];
             /** Optional. The launch stage of the metric definition. */
@@ -524,72 +495,65 @@ declare namespace gapi.client {
             /** Whether the metric records instantaneous values, changes to a value, etc. Some combinations of metric_kind and value_type might not be supported. */
             metricKind?: string;
             /**
-             * Read-only. If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with
-             * this metric type can only be associated with one of the monitored resource types listed here.
+             * Read-only. If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with this metric type can only be
+             * associated with one of the monitored resource types listed here.
              */
             monitoredResourceTypes?: string[];
             /** The resource name of the metric descriptor. */
             name?: string;
             /**
-             * The metric type, including its DNS name prefix. The type is not URL-encoded.All service defined metrics must be prefixed with the service name, in the
-             * format of {service name}/{relative metric name}, such as cloudsql.googleapis.com/database/cpu/utilization. The relative metric name must follow: Only
-             * upper and lower-case letters, digits, '/' and underscores '_' are allowed. The maximum number of characters allowed for the relative_metric_name is
-             * 100.All user-defined metric types have the DNS name custom.googleapis.com, external.googleapis.com, or logging.googleapis.com/user/.Metric types should
-             * use a natural hierarchical grouping. For example: "custom.googleapis.com/invoice/paid/amount" "external.googleapis.com/prometheus/up"
-             * "appengine.googleapis.com/http/server/response_latencies"
+             * The metric type, including its DNS name prefix. The type is not URL-encoded.All service defined metrics must be prefixed with the service name, in the format of {service
+             * name}/{relative metric name}, such as cloudsql.googleapis.com/database/cpu/utilization. The relative metric name must follow: Only upper and lower-case letters, digits, '/' and
+             * underscores '_' are allowed. The maximum number of characters allowed for the relative_metric_name is 100.All user-defined metric types have the DNS name custom.googleapis.com,
+             * external.googleapis.com, or logging.googleapis.com/user/.Metric types should use a natural hierarchical grouping. For example: "custom.googleapis.com/invoice/paid/amount"
+             * "external.googleapis.com/prometheus/up" "appengine.googleapis.com/http/server/response_latencies"
              */
             type?: string;
             /**
-             * The units in which the metric value is reported. It is only applicable if the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the
-             * representation of the stored metric values.Different systems may scale the values to be more easily displayed (so a value of 0.02KBy might be displayed
-             * as 20By, and a value of 3523KBy might be displayed as 3.5MBy). However, if the unit is KBy, then the value of the metric is always in thousands of
-             * bytes, no matter how it may be displayed..If you want a custom metric to record the exact number of CPU-seconds used by a job, you can create an INT64
-             * CUMULATIVE metric whose unit is s{CPU} (or equivalently 1s{CPU} or just s). If the job uses 12,005 CPU-seconds, then the value is written as
-             * 12005.Alternatively, if you want a custom metric to record data in a more granular way, you can create a DOUBLE CUMULATIVE metric whose unit is
-             * ks{CPU}, and then write the value 12.005 (which is 12005/1000), or use Kis{CPU} and write 11.723 (which is 12005/1024).The supported units are a subset
-             * of The Unified Code for Units of Measure (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT) bit bit By byte s second min minute h hour d
-             * day 1 dimensionlessPrefixes (PREFIX) k kilo (10^3) M mega (10^6) G giga (10^9) T tera (10^12) P peta (10^15) E exa (10^18) Z zetta (10^21) Y yotta
-             * (10^24) m milli (10^-3) u micro (10^-6) n nano (10^-9) p pico (10^-12) f femto (10^-15) a atto (10^-18) z zepto (10^-21) y yocto (10^-24) Ki kibi
-             * (2^10) Mi mebi (2^20) Gi gibi (2^30) Ti tebi (2^40) Pi pebi (2^50)GrammarThe grammar also includes these connectors: / division or ratio (as an infix
-             * operator). For examples, kBy/{email} or MiBy/10ms (although you should almost never have /s in a metric unit; rates should always be computed at query
-             * time from the underlying cumulative or delta value). . multiplication or composition (as an infix operator). For examples, GBy.d or k{watt}.h.The
-             * grammar for a unit is as follows: Expression = Component { "." Component } { "/" Component } ; Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ] |
-             * Annotation | "1" ; Annotation = "{" NAME "}" ; Notes: Annotation is just a comment if it follows a UNIT. If the annotation is used alone, then the unit
-             * is equivalent to 1. For examples, {request}/s == 1/s, By{transmitted}/s == By/s. NAME is a sequence of non-blank printable ASCII characters not
-             * containing { or }. 1 represents a unitary dimensionless unit (https://en.wikipedia.org/wiki/Dimensionless_quantity) of 1, such as in 1/s. It is
-             * typically used when none of the basic units are appropriate. For example, "new users per day" can be represented as 1/d or {new-users}/d (and a metric
-             * value 5 would mean "5 new users). Alternatively, "thousands of page views per day" would be represented as 1000/d or k1/d or k{page_views}/d (and a
-             * metric value of 5.3 would mean "5300 page views per day"). % represents dimensionless value of 1/100, and annotates values giving a percentage (so the
-             * metric values are typically in the range of 0..100, and a metric value 3 means "3 percent"). 10^2.% indicates a metric contains a ratio, typically in
-             * the range 0..1, that will be multiplied by 100 and displayed as a percentage (so a metric value 0.03 means "3 percent").
+             * The units in which the metric value is reported. It is only applicable if the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the representation of the stored metric
+             * values.Different systems may scale the values to be more easily displayed (so a value of 0.02KBy might be displayed as 20By, and a value of 3523KBy might be displayed as 3.5MBy).
+             * However, if the unit is KBy, then the value of the metric is always in thousands of bytes, no matter how it may be displayed..If you want a custom metric to record the exact number
+             * of CPU-seconds used by a job, you can create an INT64 CUMULATIVE metric whose unit is s{CPU} (or equivalently 1s{CPU} or just s). If the job uses 12,005 CPU-seconds, then the value
+             * is written as 12005.Alternatively, if you want a custom metric to record data in a more granular way, you can create a DOUBLE CUMULATIVE metric whose unit is ks{CPU}, and then write
+             * the value 12.005 (which is 12005/1000), or use Kis{CPU} and write 11.723 (which is 12005/1024).The supported units are a subset of The Unified Code for Units of Measure
+             * (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT) bit bit By byte s second min minute h hour d day 1 dimensionlessPrefixes (PREFIX) k kilo (10^3) M mega (10^6) G
+             * giga (10^9) T tera (10^12) P peta (10^15) E exa (10^18) Z zetta (10^21) Y yotta (10^24) m milli (10^-3) u micro (10^-6) n nano (10^-9) p pico (10^-12) f femto (10^-15) a atto
+             * (10^-18) z zepto (10^-21) y yocto (10^-24) Ki kibi (2^10) Mi mebi (2^20) Gi gibi (2^30) Ti tebi (2^40) Pi pebi (2^50)GrammarThe grammar also includes these connectors: / division or
+             * ratio (as an infix operator). For examples, kBy/{email} or MiBy/10ms (although you should almost never have /s in a metric unit; rates should always be computed at query time from
+             * the underlying cumulative or delta value). . multiplication or composition (as an infix operator). For examples, GBy.d or k{watt}.h.The grammar for a unit is as follows: Expression
+             * = Component { "." Component } { "/" Component } ; Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ] | Annotation | "1" ; Annotation = "{" NAME "}" ; Notes: Annotation is just a
+             * comment if it follows a UNIT. If the annotation is used alone, then the unit is equivalent to 1. For examples, {request}/s == 1/s, By{transmitted}/s == By/s. NAME is a sequence of
+             * non-blank printable ASCII characters not containing { or }. 1 represents a unitary dimensionless unit (https://en.wikipedia.org/wiki/Dimensionless_quantity) of 1, such as in 1/s. It
+             * is typically used when none of the basic units are appropriate. For example, "new users per day" can be represented as 1/d or {new-users}/d (and a metric value 5 would mean "5 new
+             * users). Alternatively, "thousands of page views per day" would be represented as 1000/d or k1/d or k{page_views}/d (and a metric value of 5.3 would mean "5300 page views per day").
+             * % represents dimensionless value of 1/100, and annotates values giving a percentage (so the metric values are typically in the range of 0..100, and a metric value 3 means "3
+             * percent"). 10^2.% indicates a metric contains a ratio, typically in the range 0..1, that will be multiplied by 100 and displayed as a percentage (so a metric value 0.03 means "3
+             * percent").
              */
             unit?: string;
             /** Whether the measurement is an integer, a floating-point number, etc. Some combinations of metric_kind and value_type might not be supported. */
             valueType?: string;
         }
         interface MetricDescriptorMetadata {
-            /**
-             * The delay of data points caused by ingestion. Data points older than this age are guaranteed to be ingested and available to be read, excluding data
-             * loss due to errors.
-             */
+            /** The delay of data points caused by ingestion. Data points older than this age are guaranteed to be ingested and available to be read, excluding data loss due to errors. */
             ingestDelay?: string;
             /** Deprecated. Must use the MetricDescriptor.launch_stage instead. */
             launchStage?: string;
             /**
-             * The sampling period of metric data points. For metrics which are written periodically, consecutive data points are stored at this time interval,
-             * excluding data loss due to errors. Metrics with a higher granularity have a smaller sampling period.
+             * The sampling period of metric data points. For metrics which are written periodically, consecutive data points are stored at this time interval, excluding data loss due to errors.
+             * Metrics with a higher granularity have a smaller sampling period.
              */
             samplePeriod?: string;
         }
         interface MonitoredResource {
             /**
-             * Required. Values for all of the labels listed in the associated monitored resource descriptor. For example, Compute Engine VM instances use the labels
-             * "project_id", "instance_id", and "zone".
+             * Required. Values for all of the labels listed in the associated monitored resource descriptor. For example, Compute Engine VM instances use the labels "project_id", "instance_id",
+             * and "zone".
              */
             labels?: { [P in string]: string };
             /**
-             * Required. The monitored resource type. This field must match the type field of a MonitoredResourceDescriptor object. For example, the type of a Compute
-             * Engine VM instance is gce_instance.
+             * Required. The monitored resource type. This field must match the type field of a MonitoredResourceDescriptor object. For example, the type of a Compute Engine VM instance is
+             * gce_instance.
              */
             type?: string;
         }
@@ -597,38 +561,37 @@ declare namespace gapi.client {
             /** Optional. A detailed description of the monitored resource type that might be used in documentation. */
             description?: string;
             /**
-             * Optional. A concise name for the monitored resource type that might be displayed in user interfaces. It should be a Title Cased Noun Phrase, without
-             * any article or other determiners. For example, "Google Cloud SQL Database".
+             * Optional. A concise name for the monitored resource type that might be displayed in user interfaces. It should be a Title Cased Noun Phrase, without any article or other
+             * determiners. For example, "Google Cloud SQL Database".
              */
             displayName?: string;
             /**
-             * Required. A set of labels used to describe instances of this monitored resource type. The label key name must follow: Only upper and lower-case
-             * letters, digits and underscores (_) are allowed. Label name must start with a letter or digit. The maximum length of a label name is 100 characters.For
-             * example, an individual Google Cloud SQL database is identified by values for the labels database_id and location.
+             * Required. A set of labels used to describe instances of this monitored resource type. The label key name must follow: Only upper and lower-case letters, digits and underscores (_)
+             * are allowed. Label name must start with a letter or digit. The maximum length of a label name is 100 characters.For example, an individual Google Cloud SQL database is identified by
+             * values for the labels database_id and location.
              */
             labels?: LabelDescriptor[];
             /** Optional. The launch stage of the monitored resource definition. */
             launchStage?: string;
             /**
-             * Optional. The resource name of the monitored resource descriptor: "projects/{project_id}/monitoredResourceDescriptors/{type}" where {type} is the value
-             * of the type field in this object and {project_id} is a project ID that provides API-specific context for accessing the type. APIs that do not use
-             * project information can use the resource name format "monitoredResourceDescriptors/{type}".
+             * Optional. The resource name of the monitored resource descriptor: "projects/{project_id}/monitoredResourceDescriptors/{type}" where {type} is the value of the type field in this
+             * object and {project_id} is a project ID that provides API-specific context for accessing the type. APIs that do not use project information can use the resource name format
+             * "monitoredResourceDescriptors/{type}".
              */
             name?: string;
             /**
-             * Required. The monitored resource type. For example, the type cloudsql_database represents databases in Google Cloud SQL.All service defined monitored
-             * resource types must be prefixed with the service name, in the format of {service name}/{relative resource name}. The relative resource name must
-             * follow: Only upper and lower-case letters and digits are allowed. It must start with upper case character and is recommended to use Upper Camel Case
-             * style. The maximum number of characters allowed for the relative_resource_name is 100.Note there are legacy service monitored resources not following
-             * this rule.
+             * Required. The monitored resource type. For example, the type cloudsql_database represents databases in Google Cloud SQL.All service defined monitored resource types must be prefixed
+             * with the service name, in the format of {service name}/{relative resource name}. The relative resource name must follow: Only upper and lower-case letters and digits are allowed. It
+             * must start with upper case character and is recommended to use Upper Camel Case style. The maximum number of characters allowed for the relative_resource_name is 100.Note there are
+             * legacy service monitored resources not following this rule.
              */
             type?: string;
         }
         interface MonitoredResourceMetadata {
             /**
-             * Output only. Values for predefined system metadata labels. System labels are a kind of metadata extracted by Google, including "machine_image", "vpc",
-             * "subnet_id", "security_group", "name", etc. System label values can be only strings, Boolean values, or a list of strings. For example: { "name":
-             * "my-test-instance", "security_group": ["a", "b", "c"], "spot_instance": false }
+             * Output only. Values for predefined system metadata labels. System labels are a kind of metadata extracted by Google, including "machine_image", "vpc", "subnet_id", "security_group",
+             * "name", etc. System label values can be only strings, Boolean values, or a list of strings. For example: { "name": "my-test-instance", "security_group": ["a", "b", "c"],
+             * "spot_instance": false }
              */
             systemLabels?: { [P in string]: any };
             /** Output only. A map of user-defined metadata labels. */
@@ -646,8 +609,8 @@ declare namespace gapi.client {
             /** Whether this request is finished or active. */
             finished?: boolean;
             /**
-             * Whether this is the first RequestLog entry for this request. If an active request has several RequestLog entries written to Stackdriver Logging, then
-             * this field will be set for one of them.
+             * Whether this is the first RequestLog entry for this request. If an active request has several RequestLog entries written to Stackdriver Logging, then this field will be set for one
+             * of them.
              */
             first?: boolean;
             /** Internet host and port number of the resource being requested. */
@@ -656,10 +619,7 @@ declare namespace gapi.client {
             httpVersion?: string;
             /** An identifier for the instance that handled the request. */
             instanceId?: string;
-            /**
-             * If the instance processing this request belongs to a manually scaled module, then this is the 0-based index of the instance. Otherwise, this value is
-             * -1.
-             */
+            /** If the instance processing this request belongs to a manually scaled module, then this is the 0-based index of the instance. Otherwise, this value is -1. */
             instanceIndex?: number;
             /** Origin IP address. */
             ip?: string;
@@ -674,9 +634,9 @@ declare namespace gapi.client {
             /** Module of the application that handled this request. */
             moduleId?: string;
             /**
-             * The logged-in user who made the request.Most likely, this is the part of the user's email before the @ sign. The field value is the same for different
-             * requests from the same user, but different users can have similar names. This information is also available to the application via the App Engine Users
-             * API.This field will be populated starting with App Engine 1.9.21.
+             * The logged-in user who made the request.Most likely, this is the part of the user's email before the @ sign. The field value is the same for different requests from the same user,
+             * but different users can have similar names. This information is also available to the application via the App Engine Users API.This field will be populated starting with App Engine
+             * 1.9.21.
              */
             nickname?: string;
             /** Time this request spent in the pending request queue. */
@@ -684,20 +644,20 @@ declare namespace gapi.client {
             /** Referrer URL of request. */
             referrer?: string;
             /**
-             * Globally unique identifier for a request, which is based on the request start time. Request IDs for requests which started later will compare greater
-             * as strings than those for requests which started earlier.
+             * Globally unique identifier for a request, which is based on the request start time. Request IDs for requests which started later will compare greater as strings than those for
+             * requests which started earlier.
              */
             requestId?: string;
             /**
-             * Contains the path and query portion of the URL that was requested. For example, if the URL was "http://example.com/app?name=val", the resource would be
-             * "/app?name=val". The fragment identifier, which is identified by the # character, is not included.
+             * Contains the path and query portion of the URL that was requested. For example, if the URL was "http://example.com/app?name=val", the resource would be "/app?name=val". The fragment
+             * identifier, which is identified by the # character, is not included.
              */
             resource?: string;
             /** Size in bytes sent back to client by request. */
             responseSize?: string;
             /**
-             * Source code for the application that handled this request. There can be more than one source reference per deployed application if source code is
-             * distributed among multiple repositories.
+             * Source code for the application that handled this request. There can be more than one source reference per deployed application if source code is distributed among multiple
+             * repositories.
              */
             sourceReference?: SourceReference[];
             /** Time when the request started. */
@@ -725,9 +685,8 @@ declare namespace gapi.client {
             /** Source file name. Depending on the runtime environment, this might be a simple name or a fully-qualified name. */
             file?: string;
             /**
-             * Human-readable name of the function or method being invoked, with optional context such as the class or package name. This information is used in
-             * contexts such as the logs viewer, where a file and line number are less meaningful. The format can vary by language. For example:
-             * qual.if.ied.Class.method (Java), dir/package.func (Go), function (Python).
+             * Human-readable name of the function or method being invoked, with optional context such as the class or package name. This information is used in contexts such as the logs viewer,
+             * where a file and line number are less meaningful. The format can vary by language. For example: qual.if.ied.Class.method (Java), dir/package.func (Go), function (Python).
              */
             functionName?: string;
             /** Line within the source file. */
@@ -744,44 +703,41 @@ declare namespace gapi.client {
         }
         interface WriteLogEntriesRequest {
             /**
-             * Optional. If true, the request should expect normal response, but the entries won't be persisted nor exported. Useful for checking whether the logging
-             * API endpoints are working properly before sending valuable data.
+             * Optional. If true, the request should expect normal response, but the entries won't be persisted nor exported. Useful for checking whether the logging API endpoints are working
+             * properly before sending valuable data.
              */
             dryRun?: boolean;
             /**
-             * Required. The log entries to send to Logging. The order of log entries in this list does not matter. Values supplied in this method's log_name,
-             * resource, and labels fields are copied into those log entries in this list that do not include values for their corresponding fields. For more
-             * information, see the LogEntry type.If the timestamp or insert_id fields are missing in log entries, then this method supplies the current time or a
-             * unique identifier, respectively. The supplied values are chosen so that, among the log entries that did not supply their own values, the entries
-             * earlier in the list will sort before the entries later in the list. See the entries.list method.Log entries with timestamps that are more than the logs
-             * retention period (https://cloud.google.com/logging/quota-policy) in the past or more than 24 hours in the future will not be available when calling
-             * entries.list. However, those log entries can still be exported with LogSinks (https://cloud.google.com/logging/docs/api/tasks/exporting-logs).To
-             * improve throughput and to avoid exceeding the quota limit (https://cloud.google.com/logging/quota-policy) for calls to entries.write, you should try to
-             * include several log entries in this list, rather than calling this method for each individual log entry.
+             * Required. The log entries to send to Logging. The order of log entries in this list does not matter. Values supplied in this method's log_name, resource, and labels fields are
+             * copied into those log entries in this list that do not include values for their corresponding fields. For more information, see the LogEntry type.If the timestamp or insert_id
+             * fields are missing in log entries, then this method supplies the current time or a unique identifier, respectively. The supplied values are chosen so that, among the log entries
+             * that did not supply their own values, the entries earlier in the list will sort before the entries later in the list. See the entries.list method.Log entries with timestamps that
+             * are more than the logs retention period (https://cloud.google.com/logging/quota-policy) in the past or more than 24 hours in the future will not be available when calling
+             * entries.list. However, those log entries can still be exported with LogSinks (https://cloud.google.com/logging/docs/api/tasks/exporting-logs).To improve throughput and to avoid
+             * exceeding the quota limit (https://cloud.google.com/logging/quota-policy) for calls to entries.write, you should try to include several log entries in this list, rather than calling
+             * this method for each individual log entry.
              */
             entries?: LogEntry[];
             /**
-             * Optional. Default labels that are added to the labels field of all log entries in entries. If a log entry already has a label with the same key as a
-             * label in this parameter, then the log entry's label is not changed. See LogEntry.
+             * Optional. Default labels that are added to the labels field of all log entries in entries. If a log entry already has a label with the same key as a label in this parameter, then
+             * the log entry's label is not changed. See LogEntry.
              */
             labels?: { [P in string]: string };
             /**
-             * Optional. A default log resource name that is assigned to all log entries in entries that do not specify a value for log_name:
-             * "projects/[PROJECT_ID]/logs/[LOG_ID]" "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
-             * "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For example: "projects/my-project-id/logs/syslog"
-             * "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity" The permission logging.logEntries.create is needed on each project,
-             * organization, billing account, or folder that is receiving new log entries, whether the resource is specified in logName or in an individual log entry.
+             * Optional. A default log resource name that is assigned to all log entries in entries that do not specify a value for log_name: "projects/[PROJECT_ID]/logs/[LOG_ID]"
+             * "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For example:
+             * "projects/my-project-id/logs/syslog" "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity" The permission logging.logEntries.create is needed on each
+             * project, organization, billing account, or folder that is receiving new log entries, whether the resource is specified in logName or in an individual log entry.
              */
             logName?: string;
             /**
-             * Optional. Whether valid entries should be written even if some other entries fail due to INVALID_ARGUMENT or PERMISSION_DENIED errors. If any entry is
-             * not written, then the response status is the error associated with one of the failed entries and the response includes error details keyed by the
-             * entries' zero-based index in the entries.write method.
+             * Optional. Whether valid entries should be written even if some other entries fail due to INVALID_ARGUMENT or PERMISSION_DENIED errors. If any entry is not written, then the response
+             * status is the error associated with one of the failed entries and the response includes error details keyed by the entries' zero-based index in the entries.write method.
              */
             partialSuccess?: boolean;
             /**
-             * Optional. A default monitored resource object that is assigned to all log entries in entries that do not specify a value for resource. Example: {
-             * "type": "gce_instance", "labels": { "zone": "us-central1-a", "instance_id": "00000000000000000000" }} See LogEntry.
+             * Optional. A default monitored resource object that is assigned to all log entries in entries that do not specify a value for resource. Example: { "type": "gce_instance", "labels": {
+             * "zone": "us-central1-a", "instance_id": "00000000000000000000" }} See LogEntry.
              */
             resource?: MonitoredResource;
         }
@@ -805,9 +761,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name of the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -823,10 +778,7 @@ declare namespace gapi.client {
             }): Request<LogBucket>;
         }
         interface ExclusionsResource {
-            /**
-             * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-             * in a resource.
-             */
+            /** Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. */
             create(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -843,8 +795,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -874,8 +826,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -903,9 +855,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of an existing exclusion to delete: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of an existing exclusion to delete: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -934,9 +885,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of an existing exclusion: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of an existing exclusion: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -967,18 +917,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose exclusions are to be listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Required. The parent resource whose exclusions are to be listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]"
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1005,9 +955,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1017,9 +966,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the
-                 * LogExclusion included in this request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the
-                 * filter and description of an exclusion, specify an update_mask of "filter,description".
+                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the LogExclusion included in this
+                 * request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the filter and description of an exclusion, specify an
+                 * update_mask of "filter,description".
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1043,9 +992,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1055,9 +1003,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the
-                 * LogExclusion included in this request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the
-                 * filter and description of an exclusion, specify an update_mask of "filter,description".
+                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the LogExclusion included in this
+                 * request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the filter and description of an exclusion, specify an
+                 * update_mask of "filter,description".
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1076,10 +1024,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits,
-                 * underscores, hyphens, and periods.
-                 */
+                /** Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
                 bucketId?: string;
                 /** JSONP */
                 callback?: string;
@@ -1089,10 +1034,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
-                 * "projects/my-logging-project/locations/global"
-                 */
+                /** Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example: "projects/my-logging-project/locations/global" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1112,10 +1054,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits,
-                 * underscores, hyphens, and periods.
-                 */
+                /** Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
                 bucketId?: string;
                 /** JSONP */
                 callback?: string;
@@ -1125,10 +1064,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
-                 * "projects/my-logging-project/locations/global"
-                 */
+                /** Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example: "projects/my-logging-project/locations/global" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1140,10 +1076,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: LogBucket): Request<LogBucket>;
-            /**
-             * Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be
-             * permanently deleted.
-             */
+            /** Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be permanently deleted. */
             delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1159,9 +1092,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to delete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1192,20 +1124,19 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose buckets are to be listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
-                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of the resource must be specified, but supplying the character - in place of
-                 * LOCATION_ID will return all buckets.
+                 * Required. The parent resource whose buckets are to be listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of the resource must be specified, but
+                 * supplying the character - in place of LOCATION_ID will return all buckets.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1218,9 +1149,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListBucketsResponse>;
             /**
-             * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention
-             * period is decreased and the bucket is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
-             * FAILED_PRECONDITION will be returned.A buckets region may not be modified after it is created. This method is in Beta.
+             * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the
+             * bucket is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be
+             * modified after it is created. This method is in Beta.
              */
             patch(request: {
                 /** V1 error format. */
@@ -1237,10 +1168,9 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to update. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission "resourcemanager.projects.updateLiens" to set
-                 * the locked property
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission
+                 * "resourcemanager.projects.updateLiens" to set the locked property
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1250,9 +1180,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update
-                 * mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see
-                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=retention_days.
+                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+                 * updateMask=retention_days.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1277,10 +1207,9 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to update. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission "resourcemanager.projects.updateLiens" to set
-                 * the locked property
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission
+                 * "resourcemanager.projects.updateLiens" to set the locked property
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1290,9 +1219,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update
-                 * mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see
-                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=retention_days.
+                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+                 * updateMask=retention_days.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1317,9 +1246,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to undelete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1350,9 +1278,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to undelete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1373,8 +1300,8 @@ declare namespace gapi.client {
         }
         interface LogsResource {
             /**
-             * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
-             * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
+             * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received
+             * after the delete operation with a timestamp before the operation will be deleted.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1391,9 +1318,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name of the log to delete: "projects/[PROJECT_ID]/logs/[LOG_ID]" "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For example,
-                 * "projects/my-project-id/logs/syslog", "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity". For more information about log
-                 * names, see LogEntry.
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For example, "projects/my-project-id/logs/syslog",
+                 * "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity". For more information about log names, see LogEntry.
                  */
                 logName: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1424,19 +1350,16 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
-                /**
-                 * Required. The resource name that owns the logs: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]"
-                 */
+                /** Required. The resource name that owns the logs: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1450,8 +1373,8 @@ declare namespace gapi.client {
         }
         interface SinksResource {
             /**
-             * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
-             * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
+             * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted
+             * to write to the destination. A sink can export log entries only from the resource owning the sink.
              */
             create(request: {
                 /** V1 error format. */
@@ -1469,8 +1392,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1478,11 +1401,10 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's
-                 * parent is a project, then the value returned as writer_identity is the same group or service account used by Logging before the addition of writer
-                 * identities to this API. The sink's destination must be in the same project as the sink itself.If this field is set to true, or if the sink is owned by
-                 * a non-project resource such as an organization, then the value of writer_identity will be a unique service account used only for exports from the new
-                 * sink. For more information, see writer_identity in LogSink.
+                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's parent is a project, then
+                 * the value returned as writer_identity is the same group or service account used by Logging before the addition of writer identities to this API. The sink's destination must be
+                 * in the same project as the sink itself.If this field is set to true, or if the sink is owned by a non-project resource such as an organization, then the value of writer_identity
+                 * will be a unique service account used only for exports from the new sink. For more information, see writer_identity in LogSink.
                  */
                 uniqueWriterIdentity?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1508,8 +1430,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1517,11 +1439,10 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's
-                 * parent is a project, then the value returned as writer_identity is the same group or service account used by Logging before the addition of writer
-                 * identities to this API. The sink's destination must be in the same project as the sink itself.If this field is set to true, or if the sink is owned by
-                 * a non-project resource such as an organization, then the value of writer_identity will be a unique service account used only for exports from the new
-                 * sink. For more information, see writer_identity in LogSink.
+                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's parent is a project, then
+                 * the value returned as writer_identity is the same group or service account used by Logging before the addition of writer identities to this API. The sink's destination must be
+                 * in the same project as the sink itself.If this field is set to true, or if the sink is owned by a non-project resource such as an organization, then the value of writer_identity
+                 * will be a unique service account used only for exports from the new sink. For more information, see writer_identity in LogSink.
                  */
                 uniqueWriterIdentity?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1608,18 +1529,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose sinks are to be listed: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Required. The parent resource whose sinks are to be listed: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]"
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1632,8 +1553,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListSinksResponse>;
             /**
-             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-             * might also have a new writer_identity; see the unique_writer_identity field.
+             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+             * writer_identity; see the unique_writer_identity field.
              */
             patch(request: {
                 /** V1 error format. */
@@ -1661,17 +1582,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -1708,17 +1628,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -1729,8 +1648,8 @@ declare namespace gapi.client {
             },
             body: LogSink): Request<LogSink>;
             /**
-             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-             * might also have a new writer_identity; see the unique_writer_identity field.
+             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+             * writer_identity; see the unique_writer_identity field.
              */
             update(request: {
                 /** V1 error format. */
@@ -1758,17 +1677,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -1805,17 +1723,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -1835,8 +1752,8 @@ declare namespace gapi.client {
         }
         interface EntriesResource {
             /**
-             * Lists log entries. Use this method to retrieve log entries that originated from a project/folder/organization/billing account. For ways to export log
-             * entries, see Exporting Logs (https://cloud.google.com/logging/docs/export).
+             * Lists log entries. Use this method to retrieve log entries that originated from a project/folder/organization/billing account. For ways to export log entries, see Exporting Logs
+             * (https://cloud.google.com/logging/docs/export).
              */
             list(request: {
                 /** V1 error format. */
@@ -1890,9 +1807,9 @@ declare namespace gapi.client {
             },
             body: ListLogEntriesRequest): Request<ListLogEntriesResponse>;
             /**
-             * Writes log entries to Logging. This API method is the only way to send log entries to Logging. This method is used, directly or indirectly, by the
-             * Logging agent (fluentd) and all logging libraries configured to use Logging. A single request may contain log entries for a maximum of 1000 different
-             * resources (projects, organizations, billing accounts or folders)
+             * Writes log entries to Logging. This API method is the only way to send log entries to Logging. This method is used, directly or indirectly, by the Logging agent (fluentd) and all
+             * logging libraries configured to use Logging. A single request may contain log entries for a maximum of 1000 different resources (projects, organizations, billing accounts or
+             * folders)
              */
             write(request: {
                 /** V1 error format. */
@@ -1947,10 +1864,7 @@ declare namespace gapi.client {
             body: WriteLogEntriesRequest): Request<{}>;
         }
         interface ExclusionsResource {
-            /**
-             * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-             * in a resource.
-             */
+            /** Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. */
             create(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1967,8 +1881,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1998,8 +1912,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2027,9 +1941,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of an existing exclusion to delete: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of an existing exclusion to delete: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2058,9 +1971,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of an existing exclusion: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of an existing exclusion: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2091,18 +2003,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose exclusions are to be listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Required. The parent resource whose exclusions are to be listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]"
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2129,9 +2041,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2141,9 +2052,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the
-                 * LogExclusion included in this request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the
-                 * filter and description of an exclusion, specify an update_mask of "filter,description".
+                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the LogExclusion included in this
+                 * request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the filter and description of an exclusion, specify an
+                 * update_mask of "filter,description".
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2167,9 +2078,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2179,9 +2089,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the
-                 * LogExclusion included in this request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the
-                 * filter and description of an exclusion, specify an update_mask of "filter,description".
+                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the LogExclusion included in this
+                 * request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the filter and description of an exclusion, specify an
+                 * update_mask of "filter,description".
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2192,10 +2102,7 @@ declare namespace gapi.client {
             body: LogExclusion): Request<LogExclusion>;
         }
         interface ExclusionsResource {
-            /**
-             * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-             * in a resource.
-             */
+            /** Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. */
             create(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2212,8 +2119,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2243,8 +2150,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2272,9 +2179,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of an existing exclusion to delete: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of an existing exclusion to delete: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2303,9 +2209,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of an existing exclusion: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of an existing exclusion: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2336,18 +2241,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose exclusions are to be listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Required. The parent resource whose exclusions are to be listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]"
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2374,9 +2279,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2386,9 +2290,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the
-                 * LogExclusion included in this request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the
-                 * filter and description of an exclusion, specify an update_mask of "filter,description".
+                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the LogExclusion included in this
+                 * request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the filter and description of an exclusion, specify an
+                 * update_mask of "filter,description".
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2412,9 +2316,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2424,9 +2327,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the
-                 * LogExclusion included in this request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the
-                 * filter and description of an exclusion, specify an update_mask of "filter,description".
+                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the LogExclusion included in this
+                 * request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the filter and description of an exclusion, specify an
+                 * update_mask of "filter,description".
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2445,10 +2348,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits,
-                 * underscores, hyphens, and periods.
-                 */
+                /** Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
                 bucketId?: string;
                 /** JSONP */
                 callback?: string;
@@ -2458,10 +2358,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
-                 * "projects/my-logging-project/locations/global"
-                 */
+                /** Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example: "projects/my-logging-project/locations/global" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -2481,10 +2378,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits,
-                 * underscores, hyphens, and periods.
-                 */
+                /** Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
                 bucketId?: string;
                 /** JSONP */
                 callback?: string;
@@ -2494,10 +2388,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
-                 * "projects/my-logging-project/locations/global"
-                 */
+                /** Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example: "projects/my-logging-project/locations/global" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -2509,10 +2400,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: LogBucket): Request<LogBucket>;
-            /**
-             * Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be
-             * permanently deleted.
-             */
+            /** Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be permanently deleted. */
             delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2528,9 +2416,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to delete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2560,9 +2447,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name of the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2593,20 +2479,19 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose buckets are to be listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
-                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of the resource must be specified, but supplying the character - in place of
-                 * LOCATION_ID will return all buckets.
+                 * Required. The parent resource whose buckets are to be listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of the resource must be specified, but
+                 * supplying the character - in place of LOCATION_ID will return all buckets.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2619,9 +2504,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListBucketsResponse>;
             /**
-             * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention
-             * period is decreased and the bucket is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
-             * FAILED_PRECONDITION will be returned.A buckets region may not be modified after it is created. This method is in Beta.
+             * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the
+             * bucket is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be
+             * modified after it is created. This method is in Beta.
              */
             patch(request: {
                 /** V1 error format. */
@@ -2638,10 +2523,9 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to update. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission "resourcemanager.projects.updateLiens" to set
-                 * the locked property
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission
+                 * "resourcemanager.projects.updateLiens" to set the locked property
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2651,9 +2535,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update
-                 * mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see
-                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=retention_days.
+                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+                 * updateMask=retention_days.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2678,10 +2562,9 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to update. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission "resourcemanager.projects.updateLiens" to set
-                 * the locked property
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission
+                 * "resourcemanager.projects.updateLiens" to set the locked property
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2691,9 +2574,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update
-                 * mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see
-                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=retention_days.
+                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+                 * updateMask=retention_days.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2718,9 +2601,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to undelete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2751,9 +2633,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to undelete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2774,8 +2655,8 @@ declare namespace gapi.client {
         }
         interface LogsResource {
             /**
-             * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
-             * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
+             * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received
+             * after the delete operation with a timestamp before the operation will be deleted.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -2792,9 +2673,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name of the log to delete: "projects/[PROJECT_ID]/logs/[LOG_ID]" "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For example,
-                 * "projects/my-project-id/logs/syslog", "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity". For more information about log
-                 * names, see LogEntry.
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For example, "projects/my-project-id/logs/syslog",
+                 * "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity". For more information about log names, see LogEntry.
                  */
                 logName: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2825,19 +2705,16 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
-                /**
-                 * Required. The resource name that owns the logs: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]"
-                 */
+                /** Required. The resource name that owns the logs: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -2851,8 +2728,8 @@ declare namespace gapi.client {
         }
         interface SinksResource {
             /**
-             * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
-             * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
+             * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted
+             * to write to the destination. A sink can export log entries only from the resource owning the sink.
              */
             create(request: {
                 /** V1 error format. */
@@ -2870,8 +2747,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2879,11 +2756,10 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's
-                 * parent is a project, then the value returned as writer_identity is the same group or service account used by Logging before the addition of writer
-                 * identities to this API. The sink's destination must be in the same project as the sink itself.If this field is set to true, or if the sink is owned by
-                 * a non-project resource such as an organization, then the value of writer_identity will be a unique service account used only for exports from the new
-                 * sink. For more information, see writer_identity in LogSink.
+                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's parent is a project, then
+                 * the value returned as writer_identity is the same group or service account used by Logging before the addition of writer identities to this API. The sink's destination must be
+                 * in the same project as the sink itself.If this field is set to true, or if the sink is owned by a non-project resource such as an organization, then the value of writer_identity
+                 * will be a unique service account used only for exports from the new sink. For more information, see writer_identity in LogSink.
                  */
                 uniqueWriterIdentity?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2909,8 +2785,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2918,11 +2794,10 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's
-                 * parent is a project, then the value returned as writer_identity is the same group or service account used by Logging before the addition of writer
-                 * identities to this API. The sink's destination must be in the same project as the sink itself.If this field is set to true, or if the sink is owned by
-                 * a non-project resource such as an organization, then the value of writer_identity will be a unique service account used only for exports from the new
-                 * sink. For more information, see writer_identity in LogSink.
+                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's parent is a project, then
+                 * the value returned as writer_identity is the same group or service account used by Logging before the addition of writer identities to this API. The sink's destination must be
+                 * in the same project as the sink itself.If this field is set to true, or if the sink is owned by a non-project resource such as an organization, then the value of writer_identity
+                 * will be a unique service account used only for exports from the new sink. For more information, see writer_identity in LogSink.
                  */
                 uniqueWriterIdentity?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3009,18 +2884,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose sinks are to be listed: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Required. The parent resource whose sinks are to be listed: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]"
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3033,8 +2908,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListSinksResponse>;
             /**
-             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-             * might also have a new writer_identity; see the unique_writer_identity field.
+             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+             * writer_identity; see the unique_writer_identity field.
              */
             patch(request: {
                 /** V1 error format. */
@@ -3062,17 +2937,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -3109,17 +2983,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -3130,8 +3003,8 @@ declare namespace gapi.client {
             },
             body: LogSink): Request<LogSink>;
             /**
-             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-             * might also have a new writer_identity; see the unique_writer_identity field.
+             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+             * writer_identity; see the unique_writer_identity field.
              */
             update(request: {
                 /** V1 error format. */
@@ -3159,17 +3032,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -3206,17 +3078,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -3242,10 +3113,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits,
-                 * underscores, hyphens, and periods.
-                 */
+                /** Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
                 bucketId?: string;
                 /** JSONP */
                 callback?: string;
@@ -3255,10 +3123,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
-                 * "projects/my-logging-project/locations/global"
-                 */
+                /** Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example: "projects/my-logging-project/locations/global" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -3278,10 +3143,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits,
-                 * underscores, hyphens, and periods.
-                 */
+                /** Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
                 bucketId?: string;
                 /** JSONP */
                 callback?: string;
@@ -3291,10 +3153,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
-                 * "projects/my-logging-project/locations/global"
-                 */
+                /** Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example: "projects/my-logging-project/locations/global" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -3306,10 +3165,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: LogBucket): Request<LogBucket>;
-            /**
-             * Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be
-             * permanently deleted.
-             */
+            /** Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be permanently deleted. */
             delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3325,9 +3181,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to delete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3357,9 +3212,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name of the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3390,20 +3244,19 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose buckets are to be listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
-                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of the resource must be specified, but supplying the character - in place of
-                 * LOCATION_ID will return all buckets.
+                 * Required. The parent resource whose buckets are to be listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of the resource must be specified, but
+                 * supplying the character - in place of LOCATION_ID will return all buckets.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3416,9 +3269,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListBucketsResponse>;
             /**
-             * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention
-             * period is decreased and the bucket is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
-             * FAILED_PRECONDITION will be returned.A buckets region may not be modified after it is created. This method is in Beta.
+             * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the
+             * bucket is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be
+             * modified after it is created. This method is in Beta.
              */
             patch(request: {
                 /** V1 error format. */
@@ -3435,10 +3288,9 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to update. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission "resourcemanager.projects.updateLiens" to set
-                 * the locked property
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission
+                 * "resourcemanager.projects.updateLiens" to set the locked property
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3448,9 +3300,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update
-                 * mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see
-                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=retention_days.
+                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+                 * updateMask=retention_days.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3475,10 +3327,9 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to update. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission "resourcemanager.projects.updateLiens" to set
-                 * the locked property
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission
+                 * "resourcemanager.projects.updateLiens" to set the locked property
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3488,9 +3339,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update
-                 * mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see
-                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=retention_days.
+                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+                 * updateMask=retention_days.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3515,9 +3366,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to undelete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3548,9 +3398,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to undelete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3571,8 +3420,8 @@ declare namespace gapi.client {
         }
         interface LogsResource {
             /**
-             * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
-             * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
+             * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received
+             * after the delete operation with a timestamp before the operation will be deleted.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -3589,9 +3438,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name of the log to delete: "projects/[PROJECT_ID]/logs/[LOG_ID]" "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For example,
-                 * "projects/my-project-id/logs/syslog", "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity". For more information about log
-                 * names, see LogEntry.
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For example, "projects/my-project-id/logs/syslog",
+                 * "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity". For more information about log names, see LogEntry.
                  */
                 logName: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3622,19 +3470,16 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
-                /**
-                 * Required. The resource name that owns the logs: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]"
-                 */
+                /** Required. The resource name that owns the logs: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -3664,13 +3509,13 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3684,10 +3529,7 @@ declare namespace gapi.client {
             }): Request<ListMonitoredResourceDescriptorsResponse>;
         }
         interface ExclusionsResource {
-            /**
-             * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-             * in a resource.
-             */
+            /** Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. */
             create(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3704,8 +3546,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3735,8 +3577,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3764,9 +3606,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of an existing exclusion to delete: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of an existing exclusion to delete: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3795,9 +3636,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of an existing exclusion: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of an existing exclusion: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3828,18 +3668,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose exclusions are to be listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Required. The parent resource whose exclusions are to be listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]"
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3866,9 +3706,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3878,9 +3717,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the
-                 * LogExclusion included in this request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the
-                 * filter and description of an exclusion, specify an update_mask of "filter,description".
+                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the LogExclusion included in this
+                 * request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the filter and description of an exclusion, specify an
+                 * update_mask of "filter,description".
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3904,9 +3743,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3916,9 +3754,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the
-                 * LogExclusion included in this request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the
-                 * filter and description of an exclusion, specify an update_mask of "filter,description".
+                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the LogExclusion included in this
+                 * request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the filter and description of an exclusion, specify an
+                 * update_mask of "filter,description".
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3937,10 +3775,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits,
-                 * underscores, hyphens, and periods.
-                 */
+                /** Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
                 bucketId?: string;
                 /** JSONP */
                 callback?: string;
@@ -3950,10 +3785,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
-                 * "projects/my-logging-project/locations/global"
-                 */
+                /** Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example: "projects/my-logging-project/locations/global" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -3973,10 +3805,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits,
-                 * underscores, hyphens, and periods.
-                 */
+                /** Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
                 bucketId?: string;
                 /** JSONP */
                 callback?: string;
@@ -3986,10 +3815,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
-                 * "projects/my-logging-project/locations/global"
-                 */
+                /** Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example: "projects/my-logging-project/locations/global" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -4001,10 +3827,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: LogBucket): Request<LogBucket>;
-            /**
-             * Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be
-             * permanently deleted.
-             */
+            /** Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be permanently deleted. */
             delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -4020,9 +3843,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to delete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4052,9 +3874,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name of the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4085,20 +3906,19 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose buckets are to be listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
-                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of the resource must be specified, but supplying the character - in place of
-                 * LOCATION_ID will return all buckets.
+                 * Required. The parent resource whose buckets are to be listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of the resource must be specified, but
+                 * supplying the character - in place of LOCATION_ID will return all buckets.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -4111,9 +3931,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListBucketsResponse>;
             /**
-             * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention
-             * period is decreased and the bucket is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
-             * FAILED_PRECONDITION will be returned.A buckets region may not be modified after it is created. This method is in Beta.
+             * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the
+             * bucket is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be
+             * modified after it is created. This method is in Beta.
              */
             patch(request: {
                 /** V1 error format. */
@@ -4130,10 +3950,9 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to update. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission "resourcemanager.projects.updateLiens" to set
-                 * the locked property
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission
+                 * "resourcemanager.projects.updateLiens" to set the locked property
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4143,9 +3962,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update
-                 * mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see
-                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=retention_days.
+                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+                 * updateMask=retention_days.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -4170,10 +3989,9 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to update. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission "resourcemanager.projects.updateLiens" to set
-                 * the locked property
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission
+                 * "resourcemanager.projects.updateLiens" to set the locked property
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4183,9 +4001,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update
-                 * mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see
-                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=retention_days.
+                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+                 * updateMask=retention_days.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -4210,9 +4028,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to undelete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4243,9 +4060,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to undelete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4266,8 +4082,8 @@ declare namespace gapi.client {
         }
         interface LogsResource {
             /**
-             * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
-             * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
+             * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received
+             * after the delete operation with a timestamp before the operation will be deleted.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -4284,9 +4100,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name of the log to delete: "projects/[PROJECT_ID]/logs/[LOG_ID]" "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For example,
-                 * "projects/my-project-id/logs/syslog", "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity". For more information about log
-                 * names, see LogEntry.
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For example, "projects/my-project-id/logs/syslog",
+                 * "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity". For more information about log names, see LogEntry.
                  */
                 logName: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4317,19 +4132,16 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
-                /**
-                 * Required. The resource name that owns the logs: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]"
-                 */
+                /** Required. The resource name that owns the logs: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -4343,8 +4155,8 @@ declare namespace gapi.client {
         }
         interface SinksResource {
             /**
-             * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
-             * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
+             * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted
+             * to write to the destination. A sink can export log entries only from the resource owning the sink.
              */
             create(request: {
                 /** V1 error format. */
@@ -4362,8 +4174,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -4371,11 +4183,10 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's
-                 * parent is a project, then the value returned as writer_identity is the same group or service account used by Logging before the addition of writer
-                 * identities to this API. The sink's destination must be in the same project as the sink itself.If this field is set to true, or if the sink is owned by
-                 * a non-project resource such as an organization, then the value of writer_identity will be a unique service account used only for exports from the new
-                 * sink. For more information, see writer_identity in LogSink.
+                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's parent is a project, then
+                 * the value returned as writer_identity is the same group or service account used by Logging before the addition of writer identities to this API. The sink's destination must be
+                 * in the same project as the sink itself.If this field is set to true, or if the sink is owned by a non-project resource such as an organization, then the value of writer_identity
+                 * will be a unique service account used only for exports from the new sink. For more information, see writer_identity in LogSink.
                  */
                 uniqueWriterIdentity?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -4401,8 +4212,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -4410,11 +4221,10 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's
-                 * parent is a project, then the value returned as writer_identity is the same group or service account used by Logging before the addition of writer
-                 * identities to this API. The sink's destination must be in the same project as the sink itself.If this field is set to true, or if the sink is owned by
-                 * a non-project resource such as an organization, then the value of writer_identity will be a unique service account used only for exports from the new
-                 * sink. For more information, see writer_identity in LogSink.
+                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's parent is a project, then
+                 * the value returned as writer_identity is the same group or service account used by Logging before the addition of writer identities to this API. The sink's destination must be
+                 * in the same project as the sink itself.If this field is set to true, or if the sink is owned by a non-project resource such as an organization, then the value of writer_identity
+                 * will be a unique service account used only for exports from the new sink. For more information, see writer_identity in LogSink.
                  */
                 uniqueWriterIdentity?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -4501,18 +4311,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose sinks are to be listed: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Required. The parent resource whose sinks are to be listed: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]"
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -4525,8 +4335,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListSinksResponse>;
             /**
-             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-             * might also have a new writer_identity; see the unique_writer_identity field.
+             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+             * writer_identity; see the unique_writer_identity field.
              */
             patch(request: {
                 /** V1 error format. */
@@ -4554,17 +4364,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -4601,17 +4410,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -4622,8 +4430,8 @@ declare namespace gapi.client {
             },
             body: LogSink): Request<LogSink>;
             /**
-             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-             * might also have a new writer_identity; see the unique_writer_identity field.
+             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+             * writer_identity; see the unique_writer_identity field.
              */
             update(request: {
                 /** V1 error format. */
@@ -4651,17 +4459,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -4698,17 +4505,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -4721,9 +4527,8 @@ declare namespace gapi.client {
         }
         interface OrganizationsResource {
             /**
-             * Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once
-             * configured, it applies to all projects and folders in the GCP organization.See Enabling CMEK for Logs Router
-             * (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+             * Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all
+             * projects and folders in the GCP organization.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
              */
             getCmekSettings(request?: {
                 /** V1 error format. */
@@ -4740,8 +4545,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource for which to retrieve CMEK settings. "projects/[PROJECT_ID]/cmekSettings" "organizations/[ORGANIZATION_ID]/cmekSettings"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings" "folders/[FOLDER_ID]/cmekSettings" Example: "organizations/12345/cmekSettings".Note: CMEK for the
-                 * Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings" "folders/[FOLDER_ID]/cmekSettings" Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can currently
+                 * only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4756,10 +4561,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<CmekSettings>;
             /**
-             * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations.
-             * Once configured, it applies to all projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the
-             * associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is
-             * disabled.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+             * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to
+             * all projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required
+             * roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled.See Enabling CMEK for Logs Router
+             * (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
              */
             updateCmekSettings(request: {
                 /** V1 error format. */
@@ -4776,8 +4581,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name for the CMEK settings to update. "projects/[PROJECT_ID]/cmekSettings" "organizations/[ORGANIZATION_ID]/cmekSettings"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings" "folders/[FOLDER_ID]/cmekSettings" Example: "organizations/12345/cmekSettings".Note: CMEK for the
-                 * Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings" "folders/[FOLDER_ID]/cmekSettings" Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can currently
+                 * only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4787,8 +4592,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update
-                 * mask. Output only fields cannot be updated.See FieldMask for more information.Example: "updateMask=kmsKeyName"
+                 * Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update mask. Output only fields
+                 * cannot be updated.See FieldMask for more information.Example: "updateMask=kmsKeyName"
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -4813,8 +4618,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name for the CMEK settings to update. "projects/[PROJECT_ID]/cmekSettings" "organizations/[ORGANIZATION_ID]/cmekSettings"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings" "folders/[FOLDER_ID]/cmekSettings" Example: "organizations/12345/cmekSettings".Note: CMEK for the
-                 * Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings" "folders/[FOLDER_ID]/cmekSettings" Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can currently
+                 * only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4824,8 +4629,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update
-                 * mask. Output only fields cannot be updated.See FieldMask for more information.Example: "updateMask=kmsKeyName"
+                 * Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update mask. Output only fields
+                 * cannot be updated.See FieldMask for more information.Example: "updateMask=kmsKeyName"
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -4840,10 +4645,7 @@ declare namespace gapi.client {
             sinks: SinksResource;
         }
         interface ExclusionsResource {
-            /**
-             * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-             * in a resource.
-             */
+            /** Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. */
             create(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -4860,8 +4662,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -4891,8 +4693,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The parent resource in which to create the exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -4920,9 +4722,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of an existing exclusion to delete: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of an existing exclusion to delete: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4951,9 +4752,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of an existing exclusion: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of an existing exclusion: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4984,18 +4784,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose exclusions are to be listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Required. The parent resource whose exclusions are to be listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]"
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -5022,9 +4822,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5034,9 +4833,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the
-                 * LogExclusion included in this request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the
-                 * filter and description of an exclusion, specify an update_mask of "filter,description".
+                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the LogExclusion included in this
+                 * request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the filter and description of an exclusion, specify an
+                 * update_mask of "filter,description".
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -5060,9 +4859,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
-                 * "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
+                 * Required. The resource name of the exclusion to update: "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]" "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]" "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example: "projects/my-project-id/exclusions/my-exclusion-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5072,9 +4870,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the
-                 * LogExclusion included in this request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the
-                 * filter and description of an exclusion, specify an update_mask of "filter,description".
+                 * Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the LogExclusion included in this
+                 * request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the filter and description of an exclusion, specify an
+                 * update_mask of "filter,description".
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -5093,10 +4891,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits,
-                 * underscores, hyphens, and periods.
-                 */
+                /** Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
                 bucketId?: string;
                 /** JSONP */
                 callback?: string;
@@ -5106,10 +4901,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
-                 * "projects/my-logging-project/locations/global"
-                 */
+                /** Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example: "projects/my-logging-project/locations/global" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -5129,10 +4921,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits,
-                 * underscores, hyphens, and periods.
-                 */
+                /** Required. A client-assigned identifier such as "my-bucket". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. */
                 bucketId?: string;
                 /** JSONP */
                 callback?: string;
@@ -5142,10 +4931,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
-                 * "projects/my-logging-project/locations/global"
-                 */
+                /** Required. The resource in which to create the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example: "projects/my-logging-project/locations/global" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -5157,10 +4943,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: LogBucket): Request<LogBucket>;
-            /**
-             * Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be
-             * permanently deleted.
-             */
+            /** Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be permanently deleted. */
             delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -5176,9 +4959,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to delete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5208,9 +4990,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name of the bucket: "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5241,20 +5022,19 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose buckets are to be listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
-                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of the resource must be specified, but supplying the character - in place of
-                 * LOCATION_ID will return all buckets.
+                 * Required. The parent resource whose buckets are to be listed: "projects/[PROJECT_ID]/locations/[LOCATION_ID]" "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of the resource must be specified, but
+                 * supplying the character - in place of LOCATION_ID will return all buckets.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -5267,9 +5047,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListBucketsResponse>;
             /**
-             * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention
-             * period is decreased and the bucket is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
-             * FAILED_PRECONDITION will be returned.A buckets region may not be modified after it is created. This method is in Beta.
+             * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the
+             * bucket is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be
+             * modified after it is created. This method is in Beta.
              */
             patch(request: {
                 /** V1 error format. */
@@ -5286,10 +5066,9 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to update. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission "resourcemanager.projects.updateLiens" to set
-                 * the locked property
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission
+                 * "resourcemanager.projects.updateLiens" to set the locked property
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5299,9 +5078,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update
-                 * mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see
-                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=retention_days.
+                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+                 * updateMask=retention_days.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -5326,10 +5105,9 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to update. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission "resourcemanager.projects.updateLiens" to set
-                 * the locked property
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also requires permission
+                 * "resourcemanager.projects.updateLiens" to set the locked property
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5339,9 +5117,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update
-                 * mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see
-                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=retention_days.
+                 * Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+                 * updateMask=retention_days.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -5366,9 +5144,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to undelete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5399,9 +5176,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The full resource name of the bucket to undelete. "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
-                 * Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+                 * "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+                 * "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example: "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5422,8 +5198,8 @@ declare namespace gapi.client {
         }
         interface LogsResource {
             /**
-             * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
-             * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
+             * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received
+             * after the delete operation with a timestamp before the operation will be deleted.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -5440,9 +5216,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name of the log to delete: "projects/[PROJECT_ID]/logs/[LOG_ID]" "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For example,
-                 * "projects/my-project-id/logs/syslog", "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity". For more information about log
-                 * names, see LogEntry.
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]" "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For example, "projects/my-project-id/logs/syslog",
+                 * "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity". For more information about log names, see LogEntry.
                  */
                 logName: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5473,19 +5248,16 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
-                /**
-                 * Required. The resource name that owns the logs: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]"
-                 */
+                /** Required. The resource name that owns the logs: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -5625,13 +5397,13 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /** Required. The name of the project containing the metrics: "projects/[PROJECT_ID]" */
@@ -5660,8 +5432,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the metric to update: "projects/[PROJECT_ID]/metrics/[METRIC_ID]" The updated metric must be provided in the request and
-                 * it's name field must be the same as [METRIC_ID] If the metric does not exist in [PROJECT_ID], then a new metric is created.
+                 * Required. The resource name of the metric to update: "projects/[PROJECT_ID]/metrics/[METRIC_ID]" The updated metric must be provided in the request and it's name field must be
+                 * the same as [METRIC_ID] If the metric does not exist in [PROJECT_ID], then a new metric is created.
                  */
                 metricName: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5691,8 +5463,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the metric to update: "projects/[PROJECT_ID]/metrics/[METRIC_ID]" The updated metric must be provided in the request and
-                 * it's name field must be the same as [METRIC_ID] If the metric does not exist in [PROJECT_ID], then a new metric is created.
+                 * Required. The resource name of the metric to update: "projects/[PROJECT_ID]/metrics/[METRIC_ID]" The updated metric must be provided in the request and it's name field must be
+                 * the same as [METRIC_ID] If the metric does not exist in [PROJECT_ID], then a new metric is created.
                  */
                 metricName: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5710,8 +5482,8 @@ declare namespace gapi.client {
         }
         interface SinksResource {
             /**
-             * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
-             * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
+             * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted
+             * to write to the destination. A sink can export log entries only from the resource owning the sink.
              */
             create(request: {
                 /** V1 error format. */
@@ -5729,8 +5501,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -5738,11 +5510,10 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's
-                 * parent is a project, then the value returned as writer_identity is the same group or service account used by Logging before the addition of writer
-                 * identities to this API. The sink's destination must be in the same project as the sink itself.If this field is set to true, or if the sink is owned by
-                 * a non-project resource such as an organization, then the value of writer_identity will be a unique service account used only for exports from the new
-                 * sink. For more information, see writer_identity in LogSink.
+                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's parent is a project, then
+                 * the value returned as writer_identity is the same group or service account used by Logging before the addition of writer identities to this API. The sink's destination must be
+                 * in the same project as the sink itself.If this field is set to true, or if the sink is owned by a non-project resource such as an organization, then the value of writer_identity
+                 * will be a unique service account used only for exports from the new sink. For more information, see writer_identity in LogSink.
                  */
                 uniqueWriterIdentity?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -5768,8 +5539,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -5777,11 +5548,10 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's
-                 * parent is a project, then the value returned as writer_identity is the same group or service account used by Logging before the addition of writer
-                 * identities to this API. The sink's destination must be in the same project as the sink itself.If this field is set to true, or if the sink is owned by
-                 * a non-project resource such as an organization, then the value of writer_identity will be a unique service account used only for exports from the new
-                 * sink. For more information, see writer_identity in LogSink.
+                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's parent is a project, then
+                 * the value returned as writer_identity is the same group or service account used by Logging before the addition of writer identities to this API. The sink's destination must be
+                 * in the same project as the sink itself.If this field is set to true, or if the sink is owned by a non-project resource such as an organization, then the value of writer_identity
+                 * will be a unique service account used only for exports from the new sink. For more information, see writer_identity in LogSink.
                  */
                 uniqueWriterIdentity?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -5868,18 +5638,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose sinks are to be listed: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Required. The parent resource whose sinks are to be listed: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]"
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -5892,8 +5662,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListSinksResponse>;
             /**
-             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-             * might also have a new writer_identity; see the unique_writer_identity field.
+             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+             * writer_identity; see the unique_writer_identity field.
              */
             patch(request: {
                 /** V1 error format. */
@@ -5921,17 +5691,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -5968,17 +5737,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -5989,8 +5757,8 @@ declare namespace gapi.client {
             },
             body: LogSink): Request<LogSink>;
             /**
-             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-             * might also have a new writer_identity; see the unique_writer_identity field.
+             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+             * writer_identity; see the unique_writer_identity field.
              */
             update(request: {
                 /** V1 error format. */
@@ -6018,17 +5786,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -6065,17 +5832,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -6095,8 +5861,8 @@ declare namespace gapi.client {
         }
         interface SinksResource {
             /**
-             * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
-             * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
+             * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted
+             * to write to the destination. A sink can export log entries only from the resource owning the sink.
              */
             create(request: {
                 /** V1 error format. */
@@ -6114,8 +5880,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -6123,11 +5889,10 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's
-                 * parent is a project, then the value returned as writer_identity is the same group or service account used by Logging before the addition of writer
-                 * identities to this API. The sink's destination must be in the same project as the sink itself.If this field is set to true, or if the sink is owned by
-                 * a non-project resource such as an organization, then the value of writer_identity will be a unique service account used only for exports from the new
-                 * sink. For more information, see writer_identity in LogSink.
+                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's parent is a project, then
+                 * the value returned as writer_identity is the same group or service account used by Logging before the addition of writer identities to this API. The sink's destination must be
+                 * in the same project as the sink itself.If this field is set to true, or if the sink is owned by a non-project resource such as an organization, then the value of writer_identity
+                 * will be a unique service account used only for exports from the new sink. For more information, see writer_identity in LogSink.
                  */
                 uniqueWriterIdentity?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -6153,8 +5918,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
-                 * "folders/[FOLDER_ID]" Examples: "projects/my-logging-project", "organizations/123456789".
+                 * Required. The resource in which to create the sink: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Examples: "projects/my-logging-project", "organizations/123456789".
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -6162,11 +5927,10 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's
-                 * parent is a project, then the value returned as writer_identity is the same group or service account used by Logging before the addition of writer
-                 * identities to this API. The sink's destination must be in the same project as the sink itself.If this field is set to true, or if the sink is owned by
-                 * a non-project resource such as an organization, then the value of writer_identity will be a unique service account used only for exports from the new
-                 * sink. For more information, see writer_identity in LogSink.
+                 * Optional. Determines the kind of IAM identity returned as writer_identity in the new sink. If this value is omitted or set to false, and if the sink's parent is a project, then
+                 * the value returned as writer_identity is the same group or service account used by Logging before the addition of writer identities to this API. The sink's destination must be
+                 * in the same project as the sink itself.If this field is set to true, or if the sink is owned by a non-project resource such as an organization, then the value of writer_identity
+                 * will be a unique service account used only for exports from the new sink. For more information, see writer_identity in LogSink.
                  */
                 uniqueWriterIdentity?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -6253,18 +6017,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response
-                 * indicates that more results might be available.
+                 * Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results
+                 * might be available.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from
-                 * the previous response. The values of other method parameters should be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response.
+                 * The values of other method parameters should be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. The parent resource whose sinks are to be listed: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
+                 * Required. The parent resource whose sinks are to be listed: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+                 * "folders/[FOLDER_ID]"
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -6277,8 +6041,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListSinksResponse>;
             /**
-             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-             * might also have a new writer_identity; see the unique_writer_identity field.
+             * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+             * writer_identity; see the unique_writer_identity field.
              */
             update(request: {
                 /** V1 error format. */
@@ -6306,17 +6070,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -6353,17 +6116,16 @@ declare namespace gapi.client {
                  */
                 sinkName: string;
                 /**
-                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the
-                 * updated sink depends on both the old and new values of this field: If the old and new values of this field are both false or both true, then there is
-                 * no change to the sink's writer_identity. If the old value is false and the new value is true, then writer_identity is changed to a unique service
-                 * account. It is an error if the old value is true and the new value is set to false or defaulted to false.
+                 * Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both
+                 * the old and new values of this field: If the old and new values of this field are both false or both true, then there is no change to the sink's writer_identity. If the old
+                 * value is false and the new value is true, then writer_identity is changed to a unique service account. It is an error if the old value is true and the new value is set to false
+                 * or defaulted to false.
                  */
                 uniqueWriterIdentity?: boolean;
                 /**
-                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask.
-                 * name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility
-                 * purposes: destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an
-                 * error.For a detailed FieldMask definition, see
+                 * Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only
+                 * fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes: destination,filter,includeChildren At some
+                 * point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see
                  * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample: updateMask=filter.
                  */
                 updateMask?: string;
@@ -6376,9 +6138,8 @@ declare namespace gapi.client {
         }
         interface V2Resource {
             /**
-             * Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once
-             * configured, it applies to all projects and folders in the GCP organization.See Enabling CMEK for Logs Router
-             * (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+             * Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all
+             * projects and folders in the GCP organization.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
              */
             getCmekSettings(request?: {
                 /** V1 error format. */
@@ -6395,8 +6156,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource for which to retrieve CMEK settings. "projects/[PROJECT_ID]/cmekSettings" "organizations/[ORGANIZATION_ID]/cmekSettings"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings" "folders/[FOLDER_ID]/cmekSettings" Example: "organizations/12345/cmekSettings".Note: CMEK for the
-                 * Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings" "folders/[FOLDER_ID]/cmekSettings" Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can currently
+                 * only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -6411,10 +6172,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<CmekSettings>;
             /**
-             * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations.
-             * Once configured, it applies to all projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the
-             * associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is
-             * disabled.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+             * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to
+             * all projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required
+             * roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled.See Enabling CMEK for Logs Router
+             * (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
              */
             updateCmekSettings(request: {
                 /** V1 error format. */
@@ -6431,8 +6192,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name for the CMEK settings to update. "projects/[PROJECT_ID]/cmekSettings" "organizations/[ORGANIZATION_ID]/cmekSettings"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings" "folders/[FOLDER_ID]/cmekSettings" Example: "organizations/12345/cmekSettings".Note: CMEK for the
-                 * Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings" "folders/[FOLDER_ID]/cmekSettings" Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can currently
+                 * only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -6442,8 +6203,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update
-                 * mask. Output only fields cannot be updated.See FieldMask for more information.Example: "updateMask=kmsKeyName"
+                 * Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update mask. Output only fields
+                 * cannot be updated.See FieldMask for more information.Example: "updateMask=kmsKeyName"
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -6468,8 +6229,8 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * Required. The resource name for the CMEK settings to update. "projects/[PROJECT_ID]/cmekSettings" "organizations/[ORGANIZATION_ID]/cmekSettings"
-                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings" "folders/[FOLDER_ID]/cmekSettings" Example: "organizations/12345/cmekSettings".Note: CMEK for the
-                 * Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.
+                 * "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings" "folders/[FOLDER_ID]/cmekSettings" Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can currently
+                 * only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -6479,8 +6240,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update
-                 * mask. Output only fields cannot be updated.See FieldMask for more information.Example: "updateMask=kmsKeyName"
+                 * Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update mask. Output only fields
+                 * cannot be updated.See FieldMask for more information.Example: "updateMask=kmsKeyName"
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */

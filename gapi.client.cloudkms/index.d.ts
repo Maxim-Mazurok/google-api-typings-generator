@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Key Management Service (KMS) API v1 1.0
 // Project: https://cloud.google.com/kms/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -22,13 +25,11 @@ declare namespace gapi.client {
             /** Required. The data encrypted with the named CryptoKeyVersion's public key using OAEP. */
             ciphertext?: string;
             /**
-             * Optional. An optional CRC32C checksum of the AsymmetricDecryptRequest.ciphertext. If specified, KeyManagementService will verify the integrity of the
-             * received AsymmetricDecryptRequest.ciphertext using this checksum. KeyManagementService will report an error if the checksum verification fails. If you
-             * receive a checksum error, your client should verify that CRC32C(AsymmetricDecryptRequest.ciphertext) is equal to
-             * AsymmetricDecryptRequest.ciphertext_crc32c, and if so, perform a limited number of retries. A persistent mismatch may indicate an issue in your
-             * computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a
-             * non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This field
-             * is in Beta.
+             * Optional. An optional CRC32C checksum of the AsymmetricDecryptRequest.ciphertext. If specified, KeyManagementService will verify the integrity of the received
+             * AsymmetricDecryptRequest.ciphertext using this checksum. KeyManagementService will report an error if the checksum verification fails. If you receive a checksum error, your client
+             * should verify that CRC32C(AsymmetricDecryptRequest.ciphertext) is equal to AsymmetricDecryptRequest.ciphertext_crc32c, and if so, perform a limited number of retries. A persistent
+             * mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it
+             * is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This field is in Beta.
              */
             ciphertextCrc32c?: string;
         }
@@ -36,19 +37,17 @@ declare namespace gapi.client {
             /** The decrypted data originally encrypted with the matching public key. */
             plaintext?: string;
             /**
-             * Integrity verification field. A CRC32C checksum of the returned AsymmetricDecryptResponse.plaintext. An integrity check of
-             * AsymmetricDecryptResponse.plaintext can be performed by computing the CRC32C checksum of AsymmetricDecryptResponse.plaintext and comparing your results
-             * to this field. Discard the response in case of non-matching checksum values, and perform a limited number of retries. A persistent mismatch may
-             * indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different
-             * languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support
+             * Integrity verification field. A CRC32C checksum of the returned AsymmetricDecryptResponse.plaintext. An integrity check of AsymmetricDecryptResponse.plaintext can be performed by
+             * computing the CRC32C checksum of AsymmetricDecryptResponse.plaintext and comparing your results to this field. Discard the response in case of non-matching checksum values, and
+             * perform a limited number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of
+             * compatibility across different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support
              * this type. NOTE: This field is in Beta.
              */
             plaintextCrc32c?: string;
             /**
-             * Integrity verification field. A flag indicating whether AsymmetricDecryptRequest.ciphertext_crc32c was received by KeyManagementService and used for
-             * the integrity verification of the ciphertext. A false value of this field indicates either that AsymmetricDecryptRequest.ciphertext_crc32c was left
-             * unset or that it was not delivered to KeyManagementService. If you've set AsymmetricDecryptRequest.ciphertext_crc32c but this field is still false,
-             * discard the response and perform a limited number of retries. NOTE: This field is in Beta.
+             * Integrity verification field. A flag indicating whether AsymmetricDecryptRequest.ciphertext_crc32c was received by KeyManagementService and used for the integrity verification of
+             * the ciphertext. A false value of this field indicates either that AsymmetricDecryptRequest.ciphertext_crc32c was left unset or that it was not delivered to KeyManagementService. If
+             * you've set AsymmetricDecryptRequest.ciphertext_crc32c but this field is still false, discard the response and perform a limited number of retries. NOTE: This field is in Beta.
              */
             verifiedCiphertextCrc32c?: boolean;
         }
@@ -56,37 +55,31 @@ declare namespace gapi.client {
             /** Required. The digest of the data to sign. The digest must be produced with the same digest algorithm as specified by the key version's algorithm. */
             digest?: Digest;
             /**
-             * Optional. An optional CRC32C checksum of the AsymmetricSignRequest.digest. If specified, KeyManagementService will verify the integrity of the received
-             * AsymmetricSignRequest.digest using this checksum. KeyManagementService will report an error if the checksum verification fails. If you receive a
-             * checksum error, your client should verify that CRC32C(AsymmetricSignRequest.digest) is equal to AsymmetricSignRequest.digest_crc32c, and if so, perform
-             * a limited number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as
-             * int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely
-             * downconverted to uint32 in languages that support this type. NOTE: This field is in Beta.
+             * Optional. An optional CRC32C checksum of the AsymmetricSignRequest.digest. If specified, KeyManagementService will verify the integrity of the received AsymmetricSignRequest.digest
+             * using this checksum. KeyManagementService will report an error if the checksum verification fails. If you receive a checksum error, your client should verify that
+             * CRC32C(AsymmetricSignRequest.digest) is equal to AsymmetricSignRequest.digest_crc32c, and if so, perform a limited number of retries. A persistent mismatch may indicate an issue in
+             * your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which
+             * will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This field is in Beta.
              */
             digestCrc32c?: string;
         }
         interface AsymmetricSignResponse {
-            /**
-             * The resource name of the CryptoKeyVersion used for signing. Check this field to verify that the intended resource was used for signing. NOTE: This
-             * field is in Beta.
-             */
+            /** The resource name of the CryptoKeyVersion used for signing. Check this field to verify that the intended resource was used for signing. NOTE: This field is in Beta. */
             name?: string;
             /** The created signature. */
             signature?: string;
             /**
-             * Integrity verification field. A CRC32C checksum of the returned AsymmetricSignResponse.signature. An integrity check of
-             * AsymmetricSignResponse.signature can be performed by computing the CRC32C checksum of AsymmetricSignResponse.signature and comparing your results to
-             * this field. Discard the response in case of non-matching checksum values, and perform a limited number of retries. A persistent mismatch may indicate
-             * an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different languages.
-             * However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type.
-             * NOTE: This field is in Beta.
+             * Integrity verification field. A CRC32C checksum of the returned AsymmetricSignResponse.signature. An integrity check of AsymmetricSignResponse.signature can be performed by
+             * computing the CRC32C checksum of AsymmetricSignResponse.signature and comparing your results to this field. Discard the response in case of non-matching checksum values, and perform
+             * a limited number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of
+             * compatibility across different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support
+             * this type. NOTE: This field is in Beta.
              */
             signatureCrc32c?: string;
             /**
-             * Integrity verification field. A flag indicating whether AsymmetricSignRequest.digest_crc32c was received by KeyManagementService and used for the
-             * integrity verification of the digest. A false value of this field indicates either that AsymmetricSignRequest.digest_crc32c was left unset or that it
-             * was not delivered to KeyManagementService. If you've set AsymmetricSignRequest.digest_crc32c but this field is still false, discard the response and
-             * perform a limited number of retries. NOTE: This field is in Beta.
+             * Integrity verification field. A flag indicating whether AsymmetricSignRequest.digest_crc32c was received by KeyManagementService and used for the integrity verification of the
+             * digest. A false value of this field indicates either that AsymmetricSignRequest.digest_crc32c was left unset or that it was not delivered to KeyManagementService. If you've set
+             * AsymmetricSignRequest.digest_crc32c but this field is still false, discard the response and perform a limited number of retries. NOTE: This field is in Beta.
              */
             verifiedDigestCrc32c?: boolean;
         }
@@ -94,8 +87,8 @@ declare namespace gapi.client {
             /** The configuration for logging of each type of permission. */
             auditLogConfigs?: AuditLogConfig[];
             /**
-             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
-             * special value that covers all services.
+             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
+             * services.
              */
             service?: string;
         }
@@ -107,27 +100,23 @@ declare namespace gapi.client {
         }
         interface Binding {
             /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the
-             * condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to
-             * one or more of the members in this binding. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
+             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the members in this binding. To learn which
+             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
-             * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
-             * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
-             * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
-             * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
-             * `google.com` or `example.com`.
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is
+             * on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
+             * account. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that
+             * represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `group:{emailid}`: An email address that represents a Google group. For example,
+             * `admins@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. *
+             * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service
+             * account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently
+             * deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in
+             * the binding. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -138,31 +127,29 @@ declare namespace gapi.client {
             createTime?: string;
             /** Labels with user-defined metadata. For more information, see [Labeling Keys](https://cloud.google.com/kms/docs/labeling-keys). */
             labels?: { [P in string]: string };
-            /** Output only. The resource name for this CryptoKey in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗`. */
+            /** Output only. The resource name for this CryptoKey in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/*`. */
             name?: string;
             /**
-             * At next_rotation_time, the Key Management Service will automatically: 1. Create a new version of this CryptoKey. 2. Mark the new version as primary.
-             * Key rotations performed manually via CreateCryptoKeyVersion and UpdateCryptoKeyPrimaryVersion do not affect next_rotation_time. Keys with purpose
-             * ENCRYPT_DECRYPT support automatic rotation. For other keys, this field must be omitted.
+             * At next_rotation_time, the Key Management Service will automatically: 1. Create a new version of this CryptoKey. 2. Mark the new version as primary. Key rotations performed manually
+             * via CreateCryptoKeyVersion and UpdateCryptoKeyPrimaryVersion do not affect next_rotation_time. Keys with purpose ENCRYPT_DECRYPT support automatic rotation. For other keys, this
+             * field must be omitted.
              */
             nextRotationTime?: string;
             /**
-             * Output only. A copy of the "primary" CryptoKeyVersion that will be used by Encrypt when this CryptoKey is given in EncryptRequest.name. The CryptoKey's
-             * primary version can be updated via UpdateCryptoKeyPrimaryVersion. Keys with purpose ENCRYPT_DECRYPT may have a primary. For other keys, this field will
-             * be omitted.
+             * Output only. A copy of the "primary" CryptoKeyVersion that will be used by Encrypt when this CryptoKey is given in EncryptRequest.name. The CryptoKey's primary version can be
+             * updated via UpdateCryptoKeyPrimaryVersion. Keys with purpose ENCRYPT_DECRYPT may have a primary. For other keys, this field will be omitted.
              */
             primary?: CryptoKeyVersion;
             /** Immutable. The immutable purpose of this CryptoKey. */
             purpose?: string;
             /**
-             * next_rotation_time will be advanced by this period when the service automatically rotates a key. Must be at least 24 hours and at most 876,000 hours.
-             * If rotation_period is set, next_rotation_time must also be set. Keys with purpose ENCRYPT_DECRYPT support automatic rotation. For other keys, this
-             * field must be omitted.
+             * next_rotation_time will be advanced by this period when the service automatically rotates a key. Must be at least 24 hours and at most 876,000 hours. If rotation_period is set,
+             * next_rotation_time must also be set. Keys with purpose ENCRYPT_DECRYPT support automatic rotation. For other keys, this field must be omitted.
              */
             rotationPeriod?: string;
             /**
-             * A template describing settings for new CryptoKeyVersion instances. The properties of new CryptoKeyVersion instances created by either
-             * CreateCryptoKeyVersion or auto-rotation are controlled by this template.
+             * A template describing settings for new CryptoKeyVersion instances. The properties of new CryptoKeyVersion instances created by either CreateCryptoKeyVersion or auto-rotation are
+             * controlled by this template.
              */
             versionTemplate?: CryptoKeyVersionTemplate;
         }
@@ -170,8 +157,8 @@ declare namespace gapi.client {
             /** Output only. The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports. */
             algorithm?: string;
             /**
-             * Output only. Statement that was generated and signed by the HSM at key creation time. Use this statement to verify attributes of the key as stored on
-             * the HSM, independently of Google. Only provided for key versions with protection_level HSM.
+             * Output only. Statement that was generated and signed by the HSM at key creation time. Use this statement to verify attributes of the key as stored on the HSM, independently of
+             * Google. Only provided for key versions with protection_level HSM.
              */
             attestation?: KeyOperationAttestation;
             /** Output only. The time at which this CryptoKeyVersion was created. */
@@ -180,10 +167,7 @@ declare namespace gapi.client {
             destroyEventTime?: string;
             /** Output only. The time this CryptoKeyVersion's key material is scheduled for destruction. Only present if state is DESTROY_SCHEDULED. */
             destroyTime?: string;
-            /**
-             * ExternalProtectionLevelOptions stores a group of additional fields for configuring a CryptoKeyVersion that are specific to the EXTERNAL protection
-             * level.
-             */
+            /** ExternalProtectionLevelOptions stores a group of additional fields for configuring a CryptoKeyVersion that are specific to the EXTERNAL protection level. */
             externalProtectionLevelOptions?: ExternalProtectionLevelOptions;
             /** Output only. The time this CryptoKeyVersion's key material was generated. */
             generateTime?: string;
@@ -193,7 +177,7 @@ declare namespace gapi.client {
             importJob?: string;
             /** Output only. The time at which this CryptoKeyVersion's key material was imported. */
             importTime?: string;
-            /** Output only. The resource name for this CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/∗`. */
+            /** Output only. The resource name for this CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/*`. */
             name?: string;
             /** Output only. The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion. */
             protectionLevel?: string;
@@ -202,8 +186,8 @@ declare namespace gapi.client {
         }
         interface CryptoKeyVersionTemplate {
             /**
-             * Required. Algorithm to use when creating a CryptoKeyVersion based on this template. For backwards compatibility, GOOGLE_SYMMETRIC_ENCRYPTION is implied
-             * if both this field is omitted and CryptoKey.purpose is ENCRYPT_DECRYPT.
+             * Required. Algorithm to use when creating a CryptoKeyVersion based on this template. For backwards compatibility, GOOGLE_SYMMETRIC_ENCRYPTION is implied if both this field is omitted
+             * and CryptoKey.purpose is ENCRYPT_DECRYPT.
              */
             algorithm?: string;
             /** ProtectionLevel to use when creating a CryptoKeyVersion based on this template. Immutable. Defaults to SOFTWARE. */
@@ -213,24 +197,22 @@ declare namespace gapi.client {
             /** Optional. Optional data that must match the data originally supplied in EncryptRequest.additional_authenticated_data. */
             additionalAuthenticatedData?: string;
             /**
-             * Optional. An optional CRC32C checksum of the DecryptRequest.additional_authenticated_data. If specified, KeyManagementService will verify the integrity
-             * of the received DecryptRequest.additional_authenticated_data using this checksum. KeyManagementService will report an error if the checksum
-             * verification fails. If you receive a checksum error, your client should verify that CRC32C(DecryptRequest.additional_authenticated_data) is equal to
-             * DecryptRequest.additional_authenticated_data_crc32c, and if so, perform a limited number of retries. A persistent mismatch may indicate an issue in
-             * your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a
-             * non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This field
-             * is in Beta.
+             * Optional. An optional CRC32C checksum of the DecryptRequest.additional_authenticated_data. If specified, KeyManagementService will verify the integrity of the received
+             * DecryptRequest.additional_authenticated_data using this checksum. KeyManagementService will report an error if the checksum verification fails. If you receive a checksum error, your
+             * client should verify that CRC32C(DecryptRequest.additional_authenticated_data) is equal to DecryptRequest.additional_authenticated_data_crc32c, and if so, perform a limited number
+             * of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across
+             * different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This
+             * field is in Beta.
              */
             additionalAuthenticatedDataCrc32c?: string;
             /** Required. The encrypted data originally returned in EncryptResponse.ciphertext. */
             ciphertext?: string;
             /**
-             * Optional. An optional CRC32C checksum of the DecryptRequest.ciphertext. If specified, KeyManagementService will verify the integrity of the received
-             * DecryptRequest.ciphertext using this checksum. KeyManagementService will report an error if the checksum verification fails. If you receive a checksum
-             * error, your client should verify that CRC32C(DecryptRequest.ciphertext) is equal to DecryptRequest.ciphertext_crc32c, and if so, perform a limited
-             * number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for
-             * reasons of compatibility across different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely
-             * downconverted to uint32 in languages that support this type. NOTE: This field is in Beta.
+             * Optional. An optional CRC32C checksum of the DecryptRequest.ciphertext. If specified, KeyManagementService will verify the integrity of the received DecryptRequest.ciphertext using
+             * this checksum. KeyManagementService will report an error if the checksum verification fails. If you receive a checksum error, your client should verify that
+             * CRC32C(DecryptRequest.ciphertext) is equal to DecryptRequest.ciphertext_crc32c, and if so, perform a limited number of retries. A persistent mismatch may indicate an issue in your
+             * computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which will
+             * never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This field is in Beta.
              */
             ciphertextCrc32c?: string;
         }
@@ -238,12 +220,11 @@ declare namespace gapi.client {
             /** The decrypted data originally supplied in EncryptRequest.plaintext. */
             plaintext?: string;
             /**
-             * Integrity verification field. A CRC32C checksum of the returned DecryptResponse.plaintext. An integrity check of DecryptResponse.plaintext can be
-             * performed by computing the CRC32C checksum of DecryptResponse.plaintext and comparing your results to this field. Discard the response in case of
-             * non-matching checksum values, and perform a limited number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C
-             * checksum. Note: receiving this response message indicates that KeyManagementService is able to successfully decrypt the ciphertext. Note: This field is
-             * defined as int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and
-             * can be safely downconverted to uint32 in languages that support this type. NOTE: This field is in Beta.
+             * Integrity verification field. A CRC32C checksum of the returned DecryptResponse.plaintext. An integrity check of DecryptResponse.plaintext can be performed by computing the CRC32C
+             * checksum of DecryptResponse.plaintext and comparing your results to this field. Discard the response in case of non-matching checksum values, and perform a limited number of
+             * retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: receiving this response message indicates that KeyManagementService is able to
+             * successfully decrypt the ciphertext. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which will
+             * never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This field is in Beta.
              */
             plaintextCrc32c?: string;
         }
@@ -260,34 +241,31 @@ declare namespace gapi.client {
         }
         interface EncryptRequest {
             /**
-             * Optional. Optional data that, if specified, must also be provided during decryption through DecryptRequest.additional_authenticated_data. The maximum
-             * size depends on the key version's protection_level. For SOFTWARE keys, the AAD must be no larger than 64KiB. For HSM keys, the combined length of the
-             * plaintext and additional_authenticated_data fields must be no larger than 8KiB.
+             * Optional. Optional data that, if specified, must also be provided during decryption through DecryptRequest.additional_authenticated_data. The maximum size depends on the key
+             * version's protection_level. For SOFTWARE keys, the AAD must be no larger than 64KiB. For HSM keys, the combined length of the plaintext and additional_authenticated_data fields must
+             * be no larger than 8KiB.
              */
             additionalAuthenticatedData?: string;
             /**
-             * Optional. An optional CRC32C checksum of the EncryptRequest.additional_authenticated_data. If specified, KeyManagementService will verify the integrity
-             * of the received EncryptRequest.additional_authenticated_data using this checksum. KeyManagementService will report an error if the checksum
-             * verification fails. If you receive a checksum error, your client should verify that CRC32C(EncryptRequest.additional_authenticated_data) is equal to
-             * EncryptRequest.additional_authenticated_data_crc32c, and if so, perform a limited number of retries. A persistent mismatch may indicate an issue in
-             * your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a
-             * non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This field
-             * is in Beta.
+             * Optional. An optional CRC32C checksum of the EncryptRequest.additional_authenticated_data. If specified, KeyManagementService will verify the integrity of the received
+             * EncryptRequest.additional_authenticated_data using this checksum. KeyManagementService will report an error if the checksum verification fails. If you receive a checksum error, your
+             * client should verify that CRC32C(EncryptRequest.additional_authenticated_data) is equal to EncryptRequest.additional_authenticated_data_crc32c, and if so, perform a limited number
+             * of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across
+             * different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This
+             * field is in Beta.
              */
             additionalAuthenticatedDataCrc32c?: string;
             /**
-             * Required. The data to encrypt. Must be no larger than 64KiB. The maximum size depends on the key version's protection_level. For SOFTWARE keys, the
-             * plaintext must be no larger than 64KiB. For HSM keys, the combined length of the plaintext and additional_authenticated_data fields must be no larger
-             * than 8KiB.
+             * Required. The data to encrypt. Must be no larger than 64KiB. The maximum size depends on the key version's protection_level. For SOFTWARE keys, the plaintext must be no larger than
+             * 64KiB. For HSM keys, the combined length of the plaintext and additional_authenticated_data fields must be no larger than 8KiB.
              */
             plaintext?: string;
             /**
-             * Optional. An optional CRC32C checksum of the EncryptRequest.plaintext. If specified, KeyManagementService will verify the integrity of the received
-             * EncryptRequest.plaintext using this checksum. KeyManagementService will report an error if the checksum verification fails. If you receive a checksum
-             * error, your client should verify that CRC32C(EncryptRequest.plaintext) is equal to EncryptRequest.plaintext_crc32c, and if so, perform a limited number
-             * of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of
-             * compatibility across different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to
-             * uint32 in languages that support this type. NOTE: This field is in Beta.
+             * Optional. An optional CRC32C checksum of the EncryptRequest.plaintext. If specified, KeyManagementService will verify the integrity of the received EncryptRequest.plaintext using
+             * this checksum. KeyManagementService will report an error if the checksum verification fails. If you receive a checksum error, your client should verify that
+             * CRC32C(EncryptRequest.plaintext) is equal to EncryptRequest.plaintext_crc32c, and if so, perform a limited number of retries. A persistent mismatch may indicate an issue in your
+             * computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which will
+             * never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This field is in Beta.
              */
             plaintextCrc32c?: string;
         }
@@ -295,27 +273,26 @@ declare namespace gapi.client {
             /** The encrypted data. */
             ciphertext?: string;
             /**
-             * Integrity verification field. A CRC32C checksum of the returned EncryptResponse.ciphertext. An integrity check of EncryptResponse.ciphertext can be
-             * performed by computing the CRC32C checksum of EncryptResponse.ciphertext and comparing your results to this field. Discard the response in case of
-             * non-matching checksum values, and perform a limited number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C
-             * checksum. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a non-negative integer, which
-             * will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This field is in Beta.
+             * Integrity verification field. A CRC32C checksum of the returned EncryptResponse.ciphertext. An integrity check of EncryptResponse.ciphertext can be performed by computing the CRC32C
+             * checksum of EncryptResponse.ciphertext and comparing your results to this field. Discard the response in case of non-matching checksum values, and perform a limited number of
+             * retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different
+             * languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This field is
+             * in Beta.
              */
             ciphertextCrc32c?: string;
             /** The resource name of the CryptoKeyVersion used in encryption. Check this field to verify that the intended resource was used for encryption. */
             name?: string;
             /**
-             * Integrity verification field. A flag indicating whether EncryptRequest.additional_authenticated_data_crc32c was received by KeyManagementService and
-             * used for the integrity verification of the AAD. A false value of this field indicates either that EncryptRequest.additional_authenticated_data_crc32c
-             * was left unset or that it was not delivered to KeyManagementService. If you've set EncryptRequest.additional_authenticated_data_crc32c but this field
-             * is still false, discard the response and perform a limited number of retries. NOTE: This field is in Beta.
+             * Integrity verification field. A flag indicating whether EncryptRequest.additional_authenticated_data_crc32c was received by KeyManagementService and used for the integrity
+             * verification of the AAD. A false value of this field indicates either that EncryptRequest.additional_authenticated_data_crc32c was left unset or that it was not delivered to
+             * KeyManagementService. If you've set EncryptRequest.additional_authenticated_data_crc32c but this field is still false, discard the response and perform a limited number of retries.
+             * NOTE: This field is in Beta.
              */
             verifiedAdditionalAuthenticatedDataCrc32c?: boolean;
             /**
-             * Integrity verification field. A flag indicating whether EncryptRequest.plaintext_crc32c was received by KeyManagementService and used for the integrity
-             * verification of the plaintext. A false value of this field indicates either that EncryptRequest.plaintext_crc32c was left unset or that it was not
-             * delivered to KeyManagementService. If you've set EncryptRequest.plaintext_crc32c but this field is still false, discard the response and perform a
-             * limited number of retries. NOTE: This field is in Beta.
+             * Integrity verification field. A flag indicating whether EncryptRequest.plaintext_crc32c was received by KeyManagementService and used for the integrity verification of the
+             * plaintext. A false value of this field indicates either that EncryptRequest.plaintext_crc32c was left unset or that it was not delivered to KeyManagementService. If you've set
+             * EncryptRequest.plaintext_crc32c but this field is still false, discard the response and perform a limited number of retries. NOTE: This field is in Beta.
              */
             verifiedPlaintextCrc32c?: boolean;
         }
@@ -340,19 +317,18 @@ declare namespace gapi.client {
             /** Required. The name of the ImportJob that was used to wrap this key material. */
             importJob?: string;
             /**
-             * Wrapped key material produced with RSA_OAEP_3072_SHA1_AES_256 or RSA_OAEP_4096_SHA1_AES_256. This field contains the concatenation of two wrapped keys:
-             * 1. An ephemeral AES-256 wrapping key wrapped with the public_key using RSAES-OAEP with SHA-1, MGF1 with SHA-1, and an empty label. 2. The key to be
-             * imported, wrapped with the ephemeral AES-256 key using AES-KWP (RFC 5649). If importing symmetric key material, it is expected that the unwrapped key
-             * contains plain bytes. If importing asymmetric key material, it is expected that the unwrapped key is in PKCS#8-encoded DER format (the PrivateKeyInfo
-             * structure from RFC 5208). This format is the same as the format produced by PKCS#11 mechanism CKM_RSA_AES_KEY_WRAP.
+             * Wrapped key material produced with RSA_OAEP_3072_SHA1_AES_256 or RSA_OAEP_4096_SHA1_AES_256. This field contains the concatenation of two wrapped keys: 1. An ephemeral AES-256
+             * wrapping key wrapped with the public_key using RSAES-OAEP with SHA-1, MGF1 with SHA-1, and an empty label. 2. The key to be imported, wrapped with the ephemeral AES-256 key using
+             * AES-KWP (RFC 5649). If importing symmetric key material, it is expected that the unwrapped key contains plain bytes. If importing asymmetric key material, it is expected that the
+             * unwrapped key is in PKCS#8-encoded DER format (the PrivateKeyInfo structure from RFC 5208). This format is the same as the format produced by PKCS#11 mechanism CKM_RSA_AES_KEY_WRAP.
              */
             rsaAesWrappedKey?: string;
         }
         // tslint:disable-next-line:interface-name
         interface ImportJob {
             /**
-             * Output only. Statement that was generated and signed by the key creator (for example, an HSM) at key creation time. Use this statement to verify
-             * attributes of the key as stored on the HSM, independently of Google. Only present if the chosen ImportMethod is one with a protection level of HSM.
+             * Output only. Statement that was generated and signed by the key creator (for example, an HSM) at key creation time. Use this statement to verify attributes of the key as stored on
+             * the HSM, independently of Google. Only present if the chosen ImportMethod is one with a protection level of HSM.
              */
             attestation?: KeyOperationAttestation;
             /** Output only. The time at which this ImportJob was created. */
@@ -365,12 +341,9 @@ declare namespace gapi.client {
             generateTime?: string;
             /** Required. Immutable. The wrapping method to be used for incoming key material. */
             importMethod?: string;
-            /** Output only. The resource name for this ImportJob in the format `projects/∗/locations/∗/keyRings/∗/importJobs/∗`. */
+            /** Output only. The resource name for this ImportJob in the format `projects/∗/locations/∗/keyRings/∗/importJobs/*`. */
             name?: string;
-            /**
-             * Required. Immutable. The protection level of the ImportJob. This must match the protection_level of the version_template on the CryptoKey you attempt
-             * to import into.
-             */
+            /** Required. Immutable. The protection level of the ImportJob. This must match the protection_level of the version_template on the CryptoKey you attempt to import into. */
             protectionLevel?: string;
             /** Output only. The public key with which to wrap key material prior to import. Only returned if state is ACTIVE. */
             publicKey?: WrappingPublicKey;
@@ -386,7 +359,7 @@ declare namespace gapi.client {
         interface KeyRing {
             /** Output only. The time at which this KeyRing was created. */
             createTime?: string;
-            /** Output only. The resource name for the KeyRing in the format `projects/∗/locations/∗/keyRings/∗`. */
+            /** Output only. The resource name for the KeyRing in the format `projects/∗/locations/∗/keyRings/*`. */
             name?: string;
         }
         interface ListCryptoKeysResponse {
@@ -449,28 +422,25 @@ declare namespace gapi.client {
             /** Specifies cloud audit logging configuration for this policy. */
             auditConfigs?: AuditConfig[];
             /**
-             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the
-             * `bindings` must contain at least one member.
+             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
+             * least one member.
              */
             bindings?: Binding[];
             /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
-             * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
-             * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
-             * the version `3` policy are lost.
+             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
+             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
+             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
+             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
             /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
-             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
-             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
-             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
-             * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
-             * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
+             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
+             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
+             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
+             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
@@ -481,16 +451,14 @@ declare namespace gapi.client {
             name?: string;
             /**
              * The public key, encoded in PEM format. For more information, see the [RFC 7468](https://tools.ietf.org/html/rfc7468) sections for [General
-             * Considerations](https://tools.ietf.org/html/rfc7468#section-2) and [Textual Encoding of Subject Public Key Info]
-             * (https://tools.ietf.org/html/rfc7468#section-13).
+             * Considerations](https://tools.ietf.org/html/rfc7468#section-2) and [Textual Encoding of Subject Public Key Info] (https://tools.ietf.org/html/rfc7468#section-13).
              */
             pem?: string;
             /**
-             * Integrity verification field. A CRC32C checksum of the returned PublicKey.pem. An integrity check of PublicKey.pem can be performed by computing the
-             * CRC32C checksum of PublicKey.pem and comparing your results to this field. Discard the response in case of non-matching checksum values, and perform a
-             * limited number of retries. A persistent mismatch may indicate an issue in your computation of the CRC32C checksum. Note: This field is defined as int64
-             * for reasons of compatibility across different languages. However, it is a non-negative integer, which will never exceed 2^32-1, and can be safely
-             * downconverted to uint32 in languages that support this type. NOTE: This field is in Beta.
+             * Integrity verification field. A CRC32C checksum of the returned PublicKey.pem. An integrity check of PublicKey.pem can be performed by computing the CRC32C checksum of PublicKey.pem
+             * and comparing your results to this field. Discard the response in case of non-matching checksum values, and perform a limited number of retries. A persistent mismatch may indicate
+             * an issue in your computation of the CRC32C checksum. Note: This field is defined as int64 for reasons of compatibility across different languages. However, it is a non-negative
+             * integer, which will never exceed 2^32-1, and can be safely downconverted to uint32 in languages that support this type. NOTE: This field is in Beta.
              */
             pemCrc32c?: string;
         }
@@ -499,20 +467,20 @@ declare namespace gapi.client {
         }
         interface SetIamPolicyRequest {
             /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy
-             * but certain Cloud Platform services (such as Projects) might reject them.
+             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Cloud Platform
+             * services (such as Projects) might reject them.
              */
             policy?: Policy;
             /**
-             * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the
-             * following default mask is used: `paths: "bindings, etag"`
+             * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
+             * `paths: "bindings, etag"`
              */
             updateMask?: string;
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see
-             * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '*' or 'storage.*') are not allowed. For more information see [IAM
+             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
         }
@@ -527,16 +495,12 @@ declare namespace gapi.client {
         interface WrappingPublicKey {
             /**
              * The public key, encoded in PEM format. For more information, see the [RFC 7468](https://tools.ietf.org/html/rfc7468) sections for [General
-             * Considerations](https://tools.ietf.org/html/rfc7468#section-2) and [Textual Encoding of Subject Public Key Info]
-             * (https://tools.ietf.org/html/rfc7468#section-13).
+             * Considerations](https://tools.ietf.org/html/rfc7468#section-2) and [Textual Encoding of Subject Public Key Info] (https://tools.ietf.org/html/rfc7468#section-13).
              */
             pem?: string;
         }
         interface CryptoKeyVersionsResource {
-            /**
-             * Decrypts data that was encrypted with a public key retrieved from GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose
-             * ASYMMETRIC_DECRYPT.
-             */
+            /** Decrypts data that was encrypted with a public key retrieved from GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_DECRYPT. */
             asymmetricDecrypt(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -592,10 +556,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: AsymmetricDecryptRequest): Request<AsymmetricDecryptResponse>;
-            /**
-             * Signs data using a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_SIGN, producing a signature that can be verified with the public key retrieved
-             * from GetPublicKey.
-             */
+            /** Signs data using a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_SIGN, producing a signature that can be verified with the public key retrieved from GetPublicKey. */
             asymmetricSign(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -708,9 +669,9 @@ declare namespace gapi.client {
             },
             body: CryptoKeyVersion): Request<CryptoKeyVersion>;
             /**
-             * Schedule a CryptoKeyVersion for destruction. Upon calling this method, CryptoKeyVersion.state will be set to DESTROY_SCHEDULED and destroy_time will be
-             * set to a time 24 hours in the future, at which point the state will be changed to DESTROYED, and the key material will be irrevocably destroyed. Before
-             * the destroy_time is reached, RestoreCryptoKeyVersion may be called to reverse the process.
+             * Schedule a CryptoKeyVersion for destruction. Upon calling this method, CryptoKeyVersion.state will be set to DESTROY_SCHEDULED and destroy_time will be set to a time 24 hours in the
+             * future, at which point the state will be changed to DESTROYED, and the key material will be irrevocably destroyed. Before the destroy_time is reached, RestoreCryptoKeyVersion may be
+             * called to reverse the process.
              */
             destroy(request: {
                 /** V1 error format. */
@@ -822,8 +783,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<PublicKey>;
             /**
-             * Imports a new CryptoKeyVersion into an existing CryptoKey using the wrapped key material provided in the request. The version ID will be assigned the
-             * next sequential id within the CryptoKey.
+             * Imports a new CryptoKeyVersion into an existing CryptoKey using the wrapped key material provided in the request. The version ID will be assigned the next sequential id within the
+             * CryptoKey.
              */
             import(request: {
                 /** V1 error format. */
@@ -902,18 +863,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see
-                 * [Sorting and filtering list results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+                 * Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see [Sorting and filtering list
+                 * results](https://cloud.google.com/kms/docs/sorting-and-filtering).
                  */
                 orderBy?: string;
                 /**
-                 * Optional. Optional limit on the number of CryptoKeyVersions to include in the response. Further CryptoKeyVersions can subsequently be obtained by
-                 * including the ListCryptoKeyVersionsResponse.next_page_token in a subsequent request. If unspecified, the server will pick an appropriate default.
+                 * Optional. Optional limit on the number of CryptoKeyVersions to include in the response. Further CryptoKeyVersions can subsequently be obtained by including the
+                 * ListCryptoKeyVersionsResponse.next_page_token in a subsequent request. If unspecified, the server will pick an appropriate default.
                  */
                 pageSize?: number;
                 /** Optional. Optional pagination token, returned earlier via ListCryptoKeyVersionsResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the CryptoKey to list, in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗`. */
+                /** Required. The resource name of the CryptoKey to list, in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -927,8 +888,8 @@ declare namespace gapi.client {
                 view?: string;
             }): Request<ListCryptoKeyVersionsResponse>;
             /**
-             * Update a CryptoKeyVersion's metadata. state may be changed between ENABLED and DISABLED using this method. See DestroyCryptoKeyVersion and
-             * RestoreCryptoKeyVersion to move between other states.
+             * Update a CryptoKeyVersion's metadata. state may be changed between ENABLED and DISABLED using this method. See DestroyCryptoKeyVersion and RestoreCryptoKeyVersion to move between
+             * other states.
              */
             patch(request: {
                 /** V1 error format. */
@@ -943,7 +904,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/∗`. */
+                /** Output only. The resource name for this CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -973,7 +934,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/∗`. */
+                /** Output only. The resource name for this CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -989,10 +950,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: CryptoKeyVersion): Request<CryptoKeyVersion>;
-            /**
-             * Restore a CryptoKeyVersion in the DESTROY_SCHEDULED state. Upon restoration of the CryptoKeyVersion, state will be set to DISABLED, and destroy_time
-             * will be cleared.
-             */
+            /** Restore a CryptoKeyVersion in the DESTROY_SCHEDULED state. Upon restoration of the CryptoKeyVersion, state will be set to DISABLED, and destroy_time will be cleared. */
             restore(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1075,8 +1033,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * If set to true, the request will create a CryptoKey without any CryptoKeyVersions. You must manually call CreateCryptoKeyVersion or
-                 * ImportCryptoKeyVersion before you can use this CryptoKey.
+                 * If set to true, the request will create a CryptoKey without any CryptoKeyVersions. You must manually call CreateCryptoKeyVersion or ImportCryptoKeyVersion before you can use
+                 * this CryptoKey.
                  */
                 skipInitialVersionCreation?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1110,8 +1068,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * If set to true, the request will create a CryptoKey without any CryptoKeyVersions. You must manually call CreateCryptoKeyVersion or
-                 * ImportCryptoKeyVersion before you can use this CryptoKey.
+                 * If set to true, the request will create a CryptoKey without any CryptoKeyVersions. You must manually call CreateCryptoKeyVersion or ImportCryptoKeyVersion before you can use
+                 * this CryptoKey.
                  */
                 skipInitialVersionCreation?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1190,10 +1148,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The resource name of the CryptoKey or CryptoKeyVersion to use for encryption. If a CryptoKey is specified, the server will use its primary
-                 * version.
-                 */
+                /** Required. The resource name of the CryptoKey or CryptoKeyVersion to use for encryption. If a CryptoKey is specified, the server will use its primary version. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1221,10 +1176,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The resource name of the CryptoKey or CryptoKeyVersion to use for encryption. If a CryptoKey is specified, the server will use its primary
-                 * version.
-                 */
+                /** Required. The resource name of the CryptoKey or CryptoKeyVersion to use for encryption. If a CryptoKey is specified, the server will use its primary version. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1282,10 +1234,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-                 * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+                 * conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support
+                 * conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
                 "options.requestedPolicyVersion"?: number;
                 /** Returns response with indentations and line breaks. */
@@ -1321,8 +1272,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see
-                 * [Sorting and filtering list results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+                 * Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see [Sorting and filtering list
+                 * results](https://cloud.google.com/kms/docs/sorting-and-filtering).
                  */
                 orderBy?: string;
                 /**
@@ -1332,7 +1283,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Optional pagination token, returned earlier via ListCryptoKeysResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the KeyRing to list, in the format `projects/∗/locations/∗/keyRings/∗`. */
+                /** Required. The resource name of the KeyRing to list, in the format `projects/∗/locations/∗/keyRings/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1359,7 +1310,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CryptoKey in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗`. */
+                /** Output only. The resource name for this CryptoKey in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1389,7 +1340,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CryptoKey in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗`. */
+                /** Output only. The resource name for this CryptoKey in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1405,10 +1356,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: CryptoKey): Request<CryptoKey>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-             * `PERMISSION_DENIED` errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1437,9 +1385,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-             * checking. This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -1632,10 +1579,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-                 * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+                 * conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support
+                 * conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
                 "options.requestedPolicyVersion"?: number;
                 /** Returns response with indentations and line breaks. */
@@ -1671,8 +1617,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see
-                 * [Sorting and filtering list results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+                 * Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see [Sorting and filtering list
+                 * results](https://cloud.google.com/kms/docs/sorting-and-filtering).
                  */
                 orderBy?: string;
                 /**
@@ -1682,7 +1628,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Optional pagination token, returned earlier via ListImportJobsResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the KeyRing to list, in the format `projects/∗/locations/∗/keyRings/∗`. */
+                /** Required. The resource name of the KeyRing to list, in the format `projects/∗/locations/∗/keyRings/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1693,10 +1639,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListImportJobsResponse>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-             * `PERMISSION_DENIED` errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1725,9 +1668,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-             * checking. This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -1776,7 +1718,7 @@ declare namespace gapi.client {
                 keyRingId?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/∗/locations/∗`. */
+                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/∗/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1806,7 +1748,7 @@ declare namespace gapi.client {
                 keyRingId?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/∗/locations/∗`. */
+                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/∗/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1862,10 +1804,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-                 * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+                 * conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support
+                 * conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
                 "options.requestedPolicyVersion"?: number;
                 /** Returns response with indentations and line breaks. */
@@ -1901,8 +1842,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see
-                 * [Sorting and filtering list results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+                 * Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see [Sorting and filtering list
+                 * results](https://cloud.google.com/kms/docs/sorting-and-filtering).
                  */
                 orderBy?: string;
                 /**
@@ -1912,7 +1853,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Optional pagination token, returned earlier via ListKeyRingsResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/∗/locations/∗`. */
+                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/∗/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1923,10 +1864,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListKeyRingsResponse>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-             * `PERMISSION_DENIED` errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1955,9 +1893,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-             * checking. This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */

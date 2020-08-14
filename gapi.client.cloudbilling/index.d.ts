@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Billing API v1 1.0
 // Project: https://cloud.google.com/billing/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -96,29 +99,29 @@ declare namespace gapi.client {
              * Specifies the identities requesting access for a Cloud Platform resource.
              * `members` can have the following values:
              *
-             * ∗ `allUsers`: A special identifier that represents anyone who is
+             * * `allUsers`: A special identifier that represents anyone who is
              * on the internet; with or without a Google account.
              *
-             * ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
+             * * `allAuthenticatedUsers`: A special identifier that represents anyone
              * who is authenticated with a Google account or a service account.
              *
-             * ∗ `user:{emailid}`: An email address that represents a specific Google
+             * * `user:{emailid}`: An email address that represents a specific Google
              * account. For example, `alice@example.com` .
              *
              *
-             * ∗ `serviceAccount:{emailid}`: An email address that represents a service
+             * * `serviceAccount:{emailid}`: An email address that represents a service
              * account. For example, `my-other-app@appspot.gserviceaccount.com`.
              *
-             * ∗ `group:{emailid}`: An email address that represents a Google group.
+             * * `group:{emailid}`: An email address that represents a Google group.
              * For example, `admins@example.com`.
              *
-             * ∗ `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+             * * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
              * identifier) representing a user that has been recently deleted. For
              * example, `alice@example.com?uid=123456789012345678901`. If the user is
              * recovered, this value reverts to `user:{emailid}` and the recovered user
              * retains the role in the binding.
              *
-             * ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
+             * * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
              * unique identifier) representing a service account that has been recently
              * deleted. For example,
              * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`.
@@ -126,14 +129,14 @@ declare namespace gapi.client {
              * `serviceAccount:{emailid}` and the undeleted service account retains the
              * role in the binding.
              *
-             * ∗ `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
+             * * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
              * identifier) representing a Google group that has been recently
              * deleted. For example, `admins@example.com?uid=123456789012345678901`. If
              * the group is recovered, this value reverts to `group:{emailid}` and the
              * recovered group retains the role in the binding.
              *
              *
-             * ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the
+             * * `domain:{domain}`: The G Suite domain (primary) that represents all the
              * users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
@@ -273,7 +276,7 @@ declare namespace gapi.client {
              * systems are expected to put that etag in the request to `setIamPolicy` to
              * ensure that their change will be applied to the same version of the policy.
              *
-             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
+             * **Important:** If you use IAM Conditions, you must include the `etag` field
              * whenever you call `setIamPolicy`. If you omit this field, then IAM allows
              * you to overwrite a version `3` policy with a version `1` policy, and all of
              * the conditions in the version `3` policy are lost.
@@ -288,13 +291,13 @@ declare namespace gapi.client {
              * Any operation that affects conditional role bindings must specify version
              * `3`. This requirement applies to the following operations:
              *
-             * ∗ Getting a policy that includes a conditional role binding
-             * ∗ Adding a conditional role binding to a policy
-             * ∗ Changing a conditional role binding in a policy
-             * ∗ Removing any role binding, with or without a condition, from a policy
+             * * Getting a policy that includes a conditional role binding
+             * * Adding a conditional role binding to a policy
+             * * Changing a conditional role binding in a policy
+             * * Removing any role binding, with or without a condition, from a policy
              * that includes conditions
              *
-             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
+             * **Important:** If you use IAM Conditions, you must include the `etag` field
              * whenever you call `setIamPolicy`. If you omit this field, then IAM allows
              * you to overwrite a version `3` policy with a version `1` policy, and all of
              * the conditions in the version `3` policy are lost.
@@ -317,7 +320,7 @@ declare namespace gapi.client {
              * Conversion factor for converting from price per usage_unit to price per
              * base_unit, and start_usage_amount to start_usage_amount in base_unit.
              * unit_price / base_unit_conversion_factor = price per base_unit.
-             * start_usage_amount ∗ base_unit_conversion_factor = start_usage_amount in
+             * start_usage_amount * base_unit_conversion_factor = start_usage_amount in
              * base_unit.
              */
             baseUnitConversionFactor?: number;
@@ -329,7 +332,7 @@ declare namespace gapi.client {
             /**
              * The recommended quantity of units for displaying pricing info. When
              * displaying pricing info it is recommended to display:
-             * (unit_price ∗ display_quantity) per display_quantity usage_unit.
+             * (unit_price * display_quantity) per display_quantity usage_unit.
              * This field does not affect the pricing formula and is for display purposes
              * only.
              * Example: If the unit_price is "0.0001 USD", the usage_unit is "GB" and
@@ -365,7 +368,7 @@ declare namespace gapi.client {
              * specified in the request. This includes any surcharge collected for billing
              * in non USD currency. If a currency is not specified in the request this
              * defaults to 1.0.
-             * Example: USD ∗ currency_conversion_rate = JPY
+             * Example: USD * currency_conversion_rate = JPY
              */
             currencyConversionRate?: number;
             /**
@@ -485,7 +488,7 @@ declare namespace gapi.client {
         interface TestIamPermissionsRequest {
             /**
              * The set of permissions to check for the `resource`. Permissions with
-             * wildcards (such as '∗' or 'storage.∗') are not allowed. For more
+             * wildcards (such as '*' or 'storage.*') are not allowed. For more
              * information see
              * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
@@ -948,7 +951,7 @@ declare namespace gapi.client {
              * billing account, this method changes the billing account used for resource
              * usage charges.
              *
-             * ∗Note:∗ Incurred charges that have not yet been reported in the transaction
+             * *Note:* Incurred charges that have not yet been reported in the transaction
              * history of the GCP Console might be billed to the new billing
              * account, even if the charge occurred before the new billing account was
              * assigned to the project.
@@ -966,11 +969,11 @@ declare namespace gapi.client {
              * associated account. The current authenticated user must be either an owner
              * of the project or an owner of the billing account for the project.
              *
-             * Note that associating a project with a ∗closed∗ billing account will have
+             * Note that associating a project with a *closed* billing account will have
              * much the same effect as disabling billing on the project: any paid
              * resources used by the project will be shut down. Thus, unless you wish to
              * disable billing, you should always call this method with the name of an
-             * ∗open∗ billing account.
+             * *open* billing account.
              */
             updateBillingInfo(request: {
                 /** V1 error format. */

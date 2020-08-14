@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Tool Results API v1beta3 1.0
 // Project: https://firebase.google.com/docs/test-lab/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -34,8 +37,8 @@ declare namespace gapi.client {
             /** The InstrumentationTestRunner class. Required */
             testRunnerClass?: string;
             /**
-             * Each target must be fully qualified with the package name or class name, in one of these formats: - "package package_name" - "class
-             * package_name.class_name" - "class package_name.class_name#method_name" If empty, all targets in the module will be run.
+             * Each target must be fully qualified with the package name or class name, in one of these formats: - "package package_name" - "class package_name.class_name" - "class
+             * package_name.class_name#method_name" If empty, all targets in the module will be run.
              */
             testTargets?: string[];
             /** The flag indicates whether Android Test Orchestrator will be used to run test or not. */
@@ -74,15 +77,14 @@ declare namespace gapi.client {
         }
         interface Any {
             /**
-             * A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one "/" character.
-             * The last segment of the URL's path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a
-             * canonical form (e.g., leading "." is not accepted). In practice, teams usually precompile into the binary all types that they expect it to use in the
-             * context of Any. However, for URLs which use the scheme `http`, `https`, or no scheme, one can optionally set up a type server that maps type URLs to
-             * message definitions as follows: ∗ If no scheme is provided, `https` is assumed. ∗ An HTTP GET on the URL must yield a google.protobuf.Type value in
-             * binary format, or produce an error. ∗ Applications are allowed to cache lookup results based on the URL, or have them precompiled into a binary to
-             * avoid any lookup. Therefore, binary compatibility needs to be preserved on changes to types. (Use versioned type names to manage breaking changes.)
-             * Note: this functionality is not currently available in the official protobuf release, and it is not used for type URLs beginning with
-             * type.googleapis.com. Schemes other than `http`, `https` (or the empty scheme) might be used with implementation specific semantics.
+             * A URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one "/" character. The last segment of the URL's
+             * path must represent the fully qualified name of the type (as in `path/google.protobuf.Duration`). The name should be in a canonical form (e.g., leading "." is not accepted). In
+             * practice, teams usually precompile into the binary all types that they expect it to use in the context of Any. However, for URLs which use the scheme `http`, `https`, or no scheme,
+             * one can optionally set up a type server that maps type URLs to message definitions as follows: * If no scheme is provided, `https` is assumed. * An HTTP GET on the URL must yield a
+             * google.protobuf.Type value in binary format, or produce an error. * Applications are allowed to cache lookup results based on the URL, or have them precompiled into a binary to
+             * avoid any lookup. Therefore, binary compatibility needs to be preserved on changes to types. (Use versioned type names to manage breaking changes.) Note: this functionality is not
+             * currently available in the official protobuf release, and it is not used for type URLs beginning with type.googleapis.com. Schemes other than `http`, `https` (or the empty scheme)
+             * might be used with implementation specific semantics.
              */
             typeUrl?: string;
             /** Must be a valid serialized protocol buffer of the above specified type. */
@@ -90,14 +92,11 @@ declare namespace gapi.client {
         }
         interface AppStartTime {
             /**
-             * Optional. The time from app start to reaching the developer-reported "fully drawn" time. This is only stored if the app includes a call to
-             * Activity.reportFullyDrawn(). See https://developer.android.com/topic/performance/launch-time.html#time-full
+             * Optional. The time from app start to reaching the developer-reported "fully drawn" time. This is only stored if the app includes a call to Activity.reportFullyDrawn(). See
+             * https://developer.android.com/topic/performance/launch-time.html#time-full
              */
             fullyDrawnTime?: Duration;
-            /**
-             * The time from app start to the first displayed activity being drawn, as reported in Logcat. See
-             * https://developer.android.com/topic/performance/launch-time.html#time-initial
-             */
+            /** The time from app start to the first displayed activity being drawn, as reported in Logcat. See https://developer.android.com/topic/performance/launch-time.html#time-initial */
             initialDisplayTime?: Duration;
         }
         // tslint:disable-next-line:no-empty-interface
@@ -133,14 +132,14 @@ declare namespace gapi.client {
         }
         interface Duration {
             /**
-             * Signed fractions of a second at nanosecond resolution of the span of time. Durations less than one second are represented with a 0 `seconds` field and
-             * a positive or negative `nanos` field. For durations of one second or more, a non-zero value for the `nanos` field must be of the same sign as the
-             * `seconds` field. Must be from -999,999,999 to +999,999,999 inclusive.
+             * Signed fractions of a second at nanosecond resolution of the span of time. Durations less than one second are represented with a 0 `seconds` field and a positive or negative `nanos`
+             * field. For durations of one second or more, a non-zero value for the `nanos` field must be of the same sign as the `seconds` field. Must be from -999,999,999 to +999,999,999
+             * inclusive.
              */
             nanos?: number;
             /**
-             * Signed seconds of the span of time. Must be from -315,576,000,000 to +315,576,000,000 inclusive. Note: these bounds are computed from: 60 sec/min ∗ 60
-             * min/hr ∗ 24 hr/day ∗ 365.25 days/year ∗ 10000 years
+             * Signed seconds of the span of time. Must be from -315,576,000,000 to +315,576,000,000 inclusive. Note: these bounds are computed from: 60 sec/min * 60 min/hr * 24 hr/day * 365.25
+             * days/year * 10000 years
              */
             seconds?: string;
         }
@@ -162,8 +161,8 @@ declare namespace gapi.client {
             /** Output only. The time when the Environment was created. */
             creationTime?: Timestamp;
             /**
-             * Dimension values describing the environment. Dimension values always consist of "Model", "Version", "Locale", and "Orientation". - In response: always
-             * set - In create request: always set - In update request: never set
+             * Dimension values describing the environment. Dimension values always consist of "Model", "Version", "Locale", and "Orientation". - In response: always set - In create request:
+             * always set - In update request: never set
              */
             dimensionValue?: EnvironmentDimensionValueEntry[];
             /** A short human-readable name to display in the UI. Maximum of 100 characters. For example: Nexus 5, API 27. */
@@ -189,25 +188,21 @@ declare namespace gapi.client {
         }
         interface Execution {
             /**
-             * The time when the Execution status transitioned to COMPLETE. This value will be set automatically when state transitions to COMPLETE. - In response:
-             * set if the execution state is COMPLETE. - In create/update request: never set
+             * The time when the Execution status transitioned to COMPLETE. This value will be set automatically when state transitions to COMPLETE. - In response: set if the execution state is
+             * COMPLETE. - In create/update request: never set
              */
             completionTime?: Timestamp;
-            /**
-             * The time when the Execution was created. This value will be set automatically when CreateExecution is called. - In response: always set - In
-             * create/update request: never set
-             */
+            /** The time when the Execution was created. This value will be set automatically when CreateExecution is called. - In response: always set - In create/update request: never set */
             creationTime?: Timestamp;
             /**
-             * The dimensions along which different steps in this execution may vary. This must remain fixed over the life of the execution. Returns INVALID_ARGUMENT
-             * if this field is set in an update request. Returns INVALID_ARGUMENT if the same name occurs in more than one dimension_definition. Returns
-             * INVALID_ARGUMENT if the size of the list is over 100. - In response: present if set by create - In create request: optional - In update request: never
-             * set
+             * The dimensions along which different steps in this execution may vary. This must remain fixed over the life of the execution. Returns INVALID_ARGUMENT if this field is set in an
+             * update request. Returns INVALID_ARGUMENT if the same name occurs in more than one dimension_definition. Returns INVALID_ARGUMENT if the size of the list is over 100. - In response:
+             * present if set by create - In create request: optional - In update request: never set
              */
             dimensionDefinitions?: any[];
             /**
-             * A unique identifier within a History for this Execution. Returns INVALID_ARGUMENT if this field is set or overwritten by the caller. - In response
-             * always set - In create/update request: never set
+             * A unique identifier within a History for this Execution. Returns INVALID_ARGUMENT if this field is set or overwritten by the caller. - In response always set - In create/update
+             * request: never set
              */
             executionId?: string;
             /** Classify the result, for example into SUCCESS or FAILURE - In response: present if set by create/update request - In create/update request: optional */
@@ -215,10 +210,10 @@ declare namespace gapi.client {
             /** Lightweight information about execution request. - In response: present if set by create - In create: optional - In update: optional */
             specification?: Specification;
             /**
-             * The initial state is IN_PROGRESS. The only legal state transitions is from IN_PROGRESS to COMPLETE. A PRECONDITION_FAILED will be returned if an
-             * invalid transition is requested. The state can only be set to COMPLETE once. A FAILED_PRECONDITION will be returned if the state is set to COMPLETE
-             * multiple times. If the state is set to COMPLETE, all the in-progress steps within the execution will be set as COMPLETE. If the outcome of the step is
-             * not set, the outcome will be set to INCONCLUSIVE. - In response always set - In create/update request: optional
+             * The initial state is IN_PROGRESS. The only legal state transitions is from IN_PROGRESS to COMPLETE. A PRECONDITION_FAILED will be returned if an invalid transition is requested. The
+             * state can only be set to COMPLETE once. A FAILED_PRECONDITION will be returned if the state is set to COMPLETE multiple times. If the state is set to COMPLETE, all the in-progress
+             * steps within the execution will be set as COMPLETE. If the outcome of the step is not set, the outcome will be set to INCONCLUSIVE. - In response always set - In create/update
+             * request: optional
              */
             state?: string;
             /** TestExecution Matrix ID that the TestExecutionService uses. - In response: present if set by create - In create: optional - In update: never set */
@@ -230,10 +225,7 @@ declare namespace gapi.client {
         interface FailureDetail {
             /** If the failure was severe because the system (app) under test crashed. */
             crashed?: boolean;
-            /**
-             * If the Roboscript failed to complete successfully, e.g., because a Roboscript action or assertion failed or a Roboscript action could not be matched
-             * during the entire crawl.
-             */
+            /** If the Roboscript failed to complete successfully, e.g., because a Roboscript action or assertion failed or a Roboscript action could not be matched during the entire crawl. */
             failedRoboscript?: boolean;
             /** If an app is not installed and thus no test can be run with the app. This might be caused by trying to run a test on an unsupported platform. */
             notInstalled?: boolean;
@@ -250,9 +242,9 @@ declare namespace gapi.client {
         }
         interface FileReference {
             /**
-             * The URI of a file stored in Google Cloud Storage. For example: http://storage.googleapis.com/mybucket/path/to/test.xml or in gsutil format:
-             * gs://mybucket/path/to/test.xml with version-specific info, gs://mybucket/path/to/test.xml#1360383693690000 An INVALID_ARGUMENT error will be returned
-             * if the URI format is not supported. - In response: always set - In create/update request: always set
+             * The URI of a file stored in Google Cloud Storage. For example: http://storage.googleapis.com/mybucket/path/to/test.xml or in gsutil format: gs://mybucket/path/to/test.xml with
+             * version-specific info, gs://mybucket/path/to/test.xml#1360383693690000 An INVALID_ARGUMENT error will be returned if the URI format is not supported. - In response: always set - In
+             * create/update request: always set
              */
             fileUri?: string;
         }
@@ -289,14 +281,11 @@ declare namespace gapi.client {
             renderMillis?: string;
         }
         interface History {
-            /**
-             * A short human-readable (plain text) name to display in the UI. Maximum of 100 characters. - In response: present if set during create. - In create
-             * request: optional
-             */
+            /** A short human-readable (plain text) name to display in the UI. Maximum of 100 characters. - In response: present if set during create. - In create request: optional */
             displayName?: string;
             /**
-             * A unique identifier within a project for this History. Returns INVALID_ARGUMENT if this field is set or overwritten by the caller. - In response always
-             * set - In create request: never set
+             * A unique identifier within a project for this History. Returns INVALID_ARGUMENT if this field is set or overwritten by the caller. - In response always set - In create request:
+             * never set
              */
             historyId?: string;
             /** A name to uniquely identify a history within a project. Maximum of 200 characters. - In response always set - In create request: always set */
@@ -325,15 +314,15 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface InconclusiveDetail {
             /**
-             * If the end user aborted the test execution before a pass or fail could be determined. For example, the user pressed ctrl-c which sent a kill signal to
-             * the test runner while the test was running.
+             * If the end user aborted the test execution before a pass or fail could be determined. For example, the user pressed ctrl-c which sent a kill signal to the test runner while the test
+             * was running.
              */
             abortedByUser?: boolean;
             /** If results are being provided to the user in certain cases of infrastructure failures */
             hasErrorLogs?: boolean;
             /**
-             * If the test runner could not determine success or failure because the test depends on a component other than the system under test which failed. For
-             * example, a mobile test requires provisioning a device where the test executes, and that provisioning can fail.
+             * If the test runner could not determine success or failure because the test depends on a component other than the system under test which failed. For example, a mobile test requires
+             * provisioning a device where the test executes, and that provisioning can fail.
              */
             infrastructureFailure?: boolean;
         }
@@ -412,9 +401,9 @@ declare namespace gapi.client {
             /** Histories. */
             histories?: History[];
             /**
-             * A continuation token to resume the query at the next item. Will only be set if there are more histories to fetch. Tokens are valid for up to one hour
-             * from the time of the first list request. For instance, if you make a list request at 1PM and use the token from this first request 10 minutes later,
-             * the token from this second response will only be valid for 50 minutes.
+             * A continuation token to resume the query at the next item. Will only be set if there are more histories to fetch. Tokens are valid for up to one hour from the time of the first list
+             * request. For instance, if you make a list request at 1PM and use the token from this first request 10 minutes later, the token from this second response will only be valid for 50
+             * minutes.
              */
             nextPageToken?: string;
         }
@@ -424,8 +413,8 @@ declare namespace gapi.client {
         }
         interface ListPerfSamplesResponse {
             /**
-             * Optional, returned if result size exceeds the page size specified in the request (or the default page size, 500, if unspecified). It indicates the last
-             * sample timestamp to be used as page_token in subsequent request
+             * Optional, returned if result size exceeds the page size specified in the request (or the default page size, 500, if unspecified). It indicates the last sample timestamp to be used
+             * as page_token in subsequent request
              */
             nextPageToken?: string;
             perfSamples?: PerfSample[];
@@ -436,36 +425,26 @@ declare namespace gapi.client {
         }
         interface ListStepAccessibilityClustersResponse {
             /**
-             * A sequence of accessibility suggestions, grouped into clusters. Within the sequence, clusters that belong to the same SuggestionCategory should be
-             * adjacent. Within each category, clusters should be ordered by their SuggestionPriority (ERRORs first). The categories should be ordered by their
-             * highest priority cluster.
+             * A sequence of accessibility suggestions, grouped into clusters. Within the sequence, clusters that belong to the same SuggestionCategory should be adjacent. Within each category,
+             * clusters should be ordered by their SuggestionPriority (ERRORs first). The categories should be ordered by their highest priority cluster.
              */
             clusters?: SuggestionClusterProto[];
-            /**
-             * A full resource name of the step. For example, projects/my-project/histories/bh.1234567890abcdef/executions/
-             * 1234567890123456789/steps/bs.1234567890abcdef Always presents.
-             */
+            /** A full resource name of the step. For example, projects/my-project/histories/bh.1234567890abcdef/executions/ 1234567890123456789/steps/bs.1234567890abcdef Always presents. */
             name?: string;
         }
         interface ListStepsResponse {
-            /**
-             * A continuation token to resume the query at the next item. If set, indicates that there are more steps to read, by calling list again with this value
-             * in the page_token field.
-             */
+            /** A continuation token to resume the query at the next item. If set, indicates that there are more steps to read, by calling list again with this value in the page_token field. */
             nextPageToken?: string;
             /** Steps. */
             steps?: Step[];
         }
         interface ListStepThumbnailsResponse {
-            /**
-             * A continuation token to resume the query at the next item. If set, indicates that there are more thumbnails to read, by calling list again with this
-             * value in the page_token field.
-             */
+            /** A continuation token to resume the query at the next item. If set, indicates that there are more thumbnails to read, by calling list again with this value in the page_token field. */
             nextPageToken?: string;
             /**
-             * A list of image data. Images are returned in a deterministic order; they are ordered by these factors, in order of importance: ∗ First, by their
-             * associated test case. Images without a test case are considered greater than images with one. ∗ Second, by their creation time. Images without a
-             * creation time are greater than images with one. ∗ Third, by the order in which they were added to the step (by calls to CreateStep or UpdateStep).
+             * A list of image data. Images are returned in a deterministic order; they are ordered by these factors, in order of importance: * First, by their associated test case. Images without
+             * a test case are considered greater than images with one. * Second, by their creation time. Images without a creation time are greater than images with one. * Third, by the order in
+             * which they were added to the step (by calls to CreateStep or UpdateStep).
              */
             thumbnails?: Image[];
         }
@@ -489,10 +468,10 @@ declare namespace gapi.client {
             /** State of the resource */
             state?: string;
             /**
-             * The combined and rolled-up result of each test suite that was run as part of this environment. Combining: When the test cases from a suite are run in
-             * different steps (sharding), the results are added back together in one overview. (e.g., if shard1 has 2 failures and shard2 has 1 failure than the
-             * overview failure_count = 3). Rollup: When test cases from the same suite are run multiple times (flaky), the results are combined (e.g., if
-             * testcase1.run1 fails, testcase1.run2 passes, and both testcase2.run1 and testcase2.run2 fail then the overview flaky_count = 1 and failure_count = 1).
+             * The combined and rolled-up result of each test suite that was run as part of this environment. Combining: When the test cases from a suite are run in different steps (sharding), the
+             * results are added back together in one overview. (e.g., if shard1 has 2 failures and shard2 has 1 failure than the overview failure_count = 3). Rollup: When test cases from the same
+             * suite are run multiple times (flaky), the results are combined (e.g., if testcase1.run1 fails, testcase1.run2 passes, and both testcase2.run1 and testcase2.run2 fail then the
+             * overview flaky_count = 1 and failure_count = 1).
              */
             testSuiteOverviews?: TestSuiteOverview[];
         }
@@ -658,8 +637,8 @@ declare namespace gapi.client {
         }
         interface SafeHtmlProto {
             /**
-             * IMPORTANT: Never set or read this field, even from tests, it is private. See documentation at the top of .proto file for programming language packages
-             * with which to create or read this message.
+             * IMPORTANT: Never set or read this field, even from tests, it is private. See documentation at the top of .proto file for programming language packages with which to create or read
+             * this message.
              */
             privateDoNotAccessOrElseSafeHtmlWrappedValue?: string;
         }
@@ -679,8 +658,8 @@ declare namespace gapi.client {
             /** A unique identifier for the cluster. @OutputOnly */
             clusterId?: string;
             /**
-             * A singular screen that represents the cluster as a whole. This screen will act as the "cover" of the entire cluster. When users look at the clusters,
-             * only the key screen from each cluster will be shown. Which screen is the key screen is determined by the ClusteringAlgorithm
+             * A singular screen that represents the cluster as a whole. This screen will act as the "cover" of the entire cluster. When users look at the clusters, only the key screen from each
+             * cluster will be shown. Which screen is the key screen is determined by the ClusteringAlgorithm
              */
             keyScreen?: Screen;
             /** Full list of screens. */
@@ -688,8 +667,8 @@ declare namespace gapi.client {
         }
         interface ShardSummary {
             /**
-             * Summaries of the steps belonging to the shard. With flaky_test_attempts enabled from TestExecutionService, more than one run (Step) can present. And
-             * the runs will be sorted by multistep_number.
+             * Summaries of the steps belonging to the shard. With flaky_test_attempts enabled from TestExecutionService, more than one run (Step) can present. And the runs will be sorted by
+             * multistep_number.
              */
             runs?: any[];
             /** Merged result of the shard. */
@@ -723,90 +702,77 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
         interface Step {
             /**
-             * The time when the step status was set to complete. This value will be set automatically when state transitions to COMPLETE. - In response: set if the
-             * execution state is COMPLETE. - In create/update request: never set
+             * The time when the step status was set to complete. This value will be set automatically when state transitions to COMPLETE. - In response: set if the execution state is COMPLETE. -
+             * In create/update request: never set
              */
             completionTime?: Timestamp;
             /** The time when the step was created. - In response: always set - In create/update request: never set */
             creationTime?: Timestamp;
-            /**
-             * A description of this tool For example: mvn clean package -D skipTests=true - In response: present if set by create/update request - In create/update
-             * request: optional
-             */
+            /** A description of this tool For example: mvn clean package -D skipTests=true - In response: present if set by create/update request - In create/update request: optional */
             description?: string;
             /**
-             * How much the device resource is used to perform the test. This is the device usage used for billing purpose, which is different from the run_duration,
-             * for example, infrastructure failure won't be charged for device usage. PRECONDITION_FAILED will be returned if one attempts to set a device_usage on a
-             * step which already has this field set. - In response: present if previously set. - In create request: optional - In update request: optional
+             * How much the device resource is used to perform the test. This is the device usage used for billing purpose, which is different from the run_duration, for example, infrastructure
+             * failure won't be charged for device usage. PRECONDITION_FAILED will be returned if one attempts to set a device_usage on a step which already has this field set. - In response:
+             * present if previously set. - In create request: optional - In update request: optional
              */
             deviceUsageDuration?: Duration;
             /**
-             * If the execution containing this step has any dimension_definition set, then this field allows the child to specify the values of the dimensions. The
-             * keys must exactly match the dimension_definition of the execution. For example, if the execution has `dimension_definition = ['attempt', 'device']`
-             * then a step must define values for those dimensions, eg. `dimension_value = ['attempt': '1', 'device': 'Nexus 6']` If a step does not participate in
-             * one dimension of the matrix, the value for that dimension should be empty string. For example, if one of the tests is executed by a runner which does
-             * not support retries, the step could have `dimension_value = ['attempt': '', 'device': 'Nexus 6']` If the step does not participate in any dimensions of
-             * the matrix, it may leave dimension_value unset. A PRECONDITION_FAILED will be returned if any of the keys do not exist in the dimension_definition of
-             * the execution. A PRECONDITION_FAILED will be returned if another step in this execution already has the same name and dimension_value, but differs on
-             * other data fields, for example, step field is different. A PRECONDITION_FAILED will be returned if dimension_value is set, and there is a
-             * dimension_definition in the execution which is not specified as one of the keys. - In response: present if set by create - In create request: optional
-             * - In update request: never set
+             * If the execution containing this step has any dimension_definition set, then this field allows the child to specify the values of the dimensions. The keys must exactly match the
+             * dimension_definition of the execution. For example, if the execution has `dimension_definition = ['attempt', 'device']` then a step must define values for those dimensions, eg.
+             * `dimension_value = ['attempt': '1', 'device': 'Nexus 6']` If a step does not participate in one dimension of the matrix, the value for that dimension should be empty string. For
+             * example, if one of the tests is executed by a runner which does not support retries, the step could have `dimension_value = ['attempt': '', 'device': 'Nexus 6']` If the step does
+             * not participate in any dimensions of the matrix, it may leave dimension_value unset. A PRECONDITION_FAILED will be returned if any of the keys do not exist in the
+             * dimension_definition of the execution. A PRECONDITION_FAILED will be returned if another step in this execution already has the same name and dimension_value, but differs on other
+             * data fields, for example, step field is different. A PRECONDITION_FAILED will be returned if dimension_value is set, and there is a dimension_definition in the execution which is
+             * not specified as one of the keys. - In response: present if set by create - In create request: optional - In update request: never set
              */
             dimensionValue?: StepDimensionValueEntry[];
-            /**
-             * Whether any of the outputs of this step are images whose thumbnails can be fetched with ListThumbnails. - In response: always set - In create/update
-             * request: never set
-             */
+            /** Whether any of the outputs of this step are images whose thumbnails can be fetched with ListThumbnails. - In response: always set - In create/update request: never set */
             hasImages?: boolean;
             /**
-             * Arbitrary user-supplied key/value pairs that are associated with the step. Users are responsible for managing the key namespace such that keys don't
-             * accidentally collide. An INVALID_ARGUMENT will be returned if the number of labels exceeds 100 or if the length of any of the keys or values exceeds
-             * 100 characters. - In response: always set - In create request: optional - In update request: optional; any new key/value pair will be added to the map,
-             * and any new value for an existing key will update that key's value
+             * Arbitrary user-supplied key/value pairs that are associated with the step. Users are responsible for managing the key namespace such that keys don't accidentally collide. An
+             * INVALID_ARGUMENT will be returned if the number of labels exceeds 100 or if the length of any of the keys or values exceeds 100 characters. - In response: always set - In create
+             * request: optional - In update request: optional; any new key/value pair will be added to the map, and any new value for an existing key will update that key's value
              */
             labels?: StepLabelsEntry[];
             /**
-             * Details when multiple steps are run with the same configuration as a group. These details can be used identify which group this step is part of. It
-             * also identifies the groups 'primary step' which indexes all the group members. - In response: present if previously set. - In create request: optional,
-             * set iff this step was performed more than once. - In update request: optional
+             * Details when multiple steps are run with the same configuration as a group. These details can be used identify which group this step is part of. It also identifies the groups
+             * 'primary step' which indexes all the group members. - In response: present if previously set. - In create request: optional, set iff this step was performed more than once. - In
+             * update request: optional
              */
             multiStep?: MultiStep;
             /**
-             * A short human-readable name to display in the UI. Maximum of 100 characters. For example: Clean build A PRECONDITION_FAILED will be returned upon
-             * creating a new step if it shares its name and dimension_value with an existing step. If two steps represent a similar action, but have different
-             * dimension values, they should share the same name. For instance, if the same set of tests is run on two different platforms, the two steps should have
-             * the same name. - In response: always set - In create request: always set - In update request: never set
+             * A short human-readable name to display in the UI. Maximum of 100 characters. For example: Clean build A PRECONDITION_FAILED will be returned upon creating a new step if it shares
+             * its name and dimension_value with an existing step. If two steps represent a similar action, but have different dimension values, they should share the same name. For instance, if
+             * the same set of tests is run on two different platforms, the two steps should have the same name. - In response: always set - In create request: always set - In update request:
+             * never set
              */
             name?: string;
-            /**
-             * Classification of the result, for example into SUCCESS or FAILURE - In response: present if set by create/update request - In create/update request:
-             * optional
-             */
+            /** Classification of the result, for example into SUCCESS or FAILURE - In response: present if set by create/update request - In create/update request: optional */
             outcome?: Outcome;
             /**
-             * How long it took for this step to run. If unset, this is set to the difference between creation_time and completion_time when the step is set to the
-             * COMPLETE state. In some cases, it is appropriate to set this value separately: For instance, if a step is created, but the operation it represents is
-             * queued for a few minutes before it executes, it would be appropriate not to include the time spent queued in its run_duration. PRECONDITION_FAILED will
-             * be returned if one attempts to set a run_duration on a step which already has this field set. - In response: present if previously set; always present
-             * on COMPLETE step - In create request: optional - In update request: optional
+             * How long it took for this step to run. If unset, this is set to the difference between creation_time and completion_time when the step is set to the COMPLETE state. In some cases,
+             * it is appropriate to set this value separately: For instance, if a step is created, but the operation it represents is queued for a few minutes before it executes, it would be
+             * appropriate not to include the time spent queued in its run_duration. PRECONDITION_FAILED will be returned if one attempts to set a run_duration on a step which already has this
+             * field set. - In response: present if previously set; always present on COMPLETE step - In create request: optional - In update request: optional
              */
             runDuration?: Duration;
             /**
-             * The initial state is IN_PROGRESS. The only legal state transitions are ∗ IN_PROGRESS -> COMPLETE A PRECONDITION_FAILED will be returned if an invalid
-             * transition is requested. It is valid to create Step with a state set to COMPLETE. The state can only be set to COMPLETE once. A PRECONDITION_FAILED
-             * will be returned if the state is set to COMPLETE multiple times. - In response: always set - In create/update request: optional
+             * The initial state is IN_PROGRESS. The only legal state transitions are * IN_PROGRESS -> COMPLETE A PRECONDITION_FAILED will be returned if an invalid transition is requested. It is
+             * valid to create Step with a state set to COMPLETE. The state can only be set to COMPLETE once. A PRECONDITION_FAILED will be returned if the state is set to COMPLETE multiple times.
+             * - In response: always set - In create/update request: optional
              */
             state?: string;
             /**
-             * A unique identifier within a Execution for this Step. Returns INVALID_ARGUMENT if this field is set or overwritten by the caller. - In response: always
-             * set - In create/update request: never set
+             * A unique identifier within a Execution for this Step. Returns INVALID_ARGUMENT if this field is set or overwritten by the caller. - In response: always set - In create/update
+             * request: never set
              */
             stepId?: string;
             /** An execution of a test runner. */
@@ -833,8 +799,8 @@ declare namespace gapi.client {
             /** Category in which these types of suggestions should appear. Always set. */
             category?: string;
             /**
-             * A sequence of suggestions. All of the suggestions within a cluster must have the same SuggestionPriority and belong to the same SuggestionCategory.
-             * Suggestions with the same screenshot URL should be adjacent.
+             * A sequence of suggestions. All of the suggestions within a cluster must have the same SuggestionPriority and belong to the same SuggestionCategory. Suggestions with the same
+             * screenshot URL should be adjacent.
              */
             suggestions?: SuggestionProto[];
         }
@@ -846,23 +812,19 @@ declare namespace gapi.client {
             /** Relative importance of a suggestion. Always set. */
             priority?: string;
             /**
-             * A somewhat human readable identifier of the source view, if it does not have a resource_name. This is a path within the accessibility hierarchy, an
-             * element with resource name; similar to an XPath.
+             * A somewhat human readable identifier of the source view, if it does not have a resource_name. This is a path within the accessibility hierarchy, an element with resource name;
+             * similar to an XPath.
              */
             pseudoResourceId?: string;
             /** Region within the screenshot that is relevant to this suggestion. Optional. */
             region?: RegionProto;
             /** Reference to a view element, identified by its resource name, if it has one. */
             resourceName?: string;
-            /**
-             * ID of the screen for the suggestion. It is used for getting the corresponding screenshot path. For example, screen_id "1" corresponds to "1.png" file
-             * in GCS. Always set.
-             */
+            /** ID of the screen for the suggestion. It is used for getting the corresponding screenshot path. For example, screen_id "1" corresponds to "1.png" file in GCS. Always set. */
             screenId?: string;
             /**
-             * Relative importance of a suggestion as compared with other suggestions that have the same priority and category. This is a meaningless value that can
-             * be used to order suggestions that are in the same category and have the same priority. The larger values have higher priority (i.e., are more
-             * important). Optional.
+             * Relative importance of a suggestion as compared with other suggestions that have the same priority and category. This is a meaningless value that can be used to order suggestions
+             * that are in the same category and have the same priority. The larger values have higher priority (i.e., are more important). Optional.
              */
             secondaryPriority?: number;
             /** Concise message, in the user's language, representing the suggestion, which may contain markup. Always set. */
@@ -878,8 +840,8 @@ declare namespace gapi.client {
             /** Why the test case was skipped. Present only for skipped test case */
             skippedMessage?: string;
             /**
-             * The stack trace details if the test case failed or encountered an error. The maximum size of the stack traces is 100KiB, beyond which the stack track
-             * will be truncated. Zero if the test case passed.
+             * The stack trace details if the test case failed or encountered an error. The maximum size of the stack traces is 100KiB, beyond which the stack track will be truncated. Zero if the
+             * test case passed.
              */
             stackTraces?: StackTrace[];
             /** The start time of the test case. */
@@ -903,22 +865,19 @@ declare namespace gapi.client {
         }
         interface TestExecutionStep {
             /**
-             * Issues observed during the test execution. For example, if the mobile app under test crashed during the test, the error message and the stack trace
-             * content can be recorded here to assist debugging. - In response: present if set by create or update - In create/update request: optional
+             * Issues observed during the test execution. For example, if the mobile app under test crashed during the test, the error message and the stack trace content can be recorded here to
+             * assist debugging. - In response: present if set by create or update - In create/update request: optional
              */
             testIssues?: TestIssue[];
             /**
-             * List of test suite overview contents. This could be parsed from xUnit XML log by server, or uploaded directly by user. This references should only be
-             * called when test suites are fully parsed or uploaded. The maximum allowed number of test suite overviews per step is 1000. - In response: always set -
-             * In create request: optional - In update request: never (use publishXunitXmlFiles custom method instead)
+             * List of test suite overview contents. This could be parsed from xUnit XML log by server, or uploaded directly by user. This references should only be called when test suites are
+             * fully parsed or uploaded. The maximum allowed number of test suite overviews per step is 1000. - In response: always set - In create request: optional - In update request: never
+             * (use publishXunitXmlFiles custom method instead)
              */
             testSuiteOverviews?: TestSuiteOverview[];
             /** The timing break down of the test execution. - In response: present if set by create or update - In create/update request: optional */
             testTiming?: TestTiming;
-            /**
-             * Represents the execution of the test runner. The exit code of this tool will be used to determine if the test passed. - In response: always set - In
-             * create/update request: optional
-             */
+            /** Represents the execution of the test runner. The exit code of this tool will be used to determine if the test passed. - In response: always set - In create/update request: optional */
             toolExecution?: ToolExecution;
         }
         interface TestIssue {
@@ -940,14 +899,11 @@ declare namespace gapi.client {
             elapsedTime?: Duration;
             /** Number of test cases in error, typically set by the service by parsing the xml_source. - In create/response: always set - In update request: never */
             errorCount?: number;
-            /**
-             * Number of failed test cases, typically set by the service by parsing the xml_source. May also be set by the user. - In create/response: always set - In
-             * update request: never
-             */
+            /** Number of failed test cases, typically set by the service by parsing the xml_source. May also be set by the user. - In create/response: always set - In update request: never */
             failureCount?: number;
             /**
-             * Number of flaky test cases, set by the service by rolling up flaky test attempts. Present only for rollup test suite overview at environment level. A
-             * step cannot have flaky test cases.
+             * Number of flaky test cases, set by the service by rolling up flaky test attempts. Present only for rollup test suite overview at environment level. A step cannot have flaky test
+             * cases.
              */
             flakyCount?: number;
             /** The name of the test suite. - In create/response: always set - In update request: never */
@@ -957,8 +913,8 @@ declare namespace gapi.client {
             /** Number of test cases, typically set by the service by parsing the xml_source. - In create/response: always set - In update request: never */
             totalCount?: number;
             /**
-             * If this test suite was parsed from XML, this is the URI where the original XML file is stored. Note: Multiple test suites can share the same xml_source
-             * Returns INVALID_ARGUMENT if the uri format is not supported. - In create/response: optional - In update request: never
+             * If this test suite was parsed from XML, this is the URI where the original XML file is stored. Note: Multiple test suites can share the same xml_source Returns INVALID_ARGUMENT if
+             * the uri format is not supported. - In create/response: optional - In update request: never
              */
             xmlSource?: FileReference;
         }
@@ -970,8 +926,8 @@ declare namespace gapi.client {
             /** The thumbnail's content type, i.e. "image/png". Always set. */
             contentType?: string;
             /**
-             * The thumbnail file itself. That is, the bytes here are precisely the bytes that make up the thumbnail file; they can be served as an image as-is (with
-             * the appropriate content type.) Always set.
+             * The thumbnail file itself. That is, the bytes here are precisely the bytes that make up the thumbnail file; they can be served as an image as-is (with the appropriate content type.)
+             * Always set.
              */
             data?: string;
             /** The height of the thumbnail, in pixels. Always set. */
@@ -981,8 +937,8 @@ declare namespace gapi.client {
         }
         interface Timestamp {
             /**
-             * Non-negative fractions of a second at nanosecond resolution. Negative second values with fractions must still have non-negative nanos values that count
-             * forward in time. Must be from 0 to 999,999,999 inclusive.
+             * Non-negative fractions of a second at nanosecond resolution. Negative second values with fractions must still have non-negative nanos values that count forward in time. Must be from
+             * 0 to 999,999,999 inclusive.
              */
             nanos?: number;
             /** Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive. */
@@ -990,25 +946,24 @@ declare namespace gapi.client {
         }
         interface ToolExecution {
             /**
-             * The full tokenized command line including the program name (equivalent to argv in a C program). - In response: present if set by create request - In
-             * create request: optional - In update request: never set
+             * The full tokenized command line including the program name (equivalent to argv in a C program). - In response: present if set by create request - In create request: optional - In
+             * update request: never set
              */
             commandLineArguments?: string[];
             /**
-             * Tool execution exit code. This field will be set once the tool has exited. - In response: present if set by create/update request - In create request:
-             * optional - In update request: optional, a FAILED_PRECONDITION error will be returned if an exit_code is already set.
+             * Tool execution exit code. This field will be set once the tool has exited. - In response: present if set by create/update request - In create request: optional - In update request:
+             * optional, a FAILED_PRECONDITION error will be returned if an exit_code is already set.
              */
             exitCode?: ToolExitCode;
             /**
-             * References to any plain text logs output the tool execution. This field can be set before the tool has exited in order to be able to have access to a
-             * live view of the logs while the tool is running. The maximum allowed number of tool logs per step is 1000. - In response: present if set by
-             * create/update request - In create request: optional - In update request: optional, any value provided will be appended to the existing list
+             * References to any plain text logs output the tool execution. This field can be set before the tool has exited in order to be able to have access to a live view of the logs while the
+             * tool is running. The maximum allowed number of tool logs per step is 1000. - In response: present if set by create/update request - In create request: optional - In update request:
+             * optional, any value provided will be appended to the existing list
              */
             toolLogs?: FileReference[];
             /**
-             * References to opaque files of any format output by the tool execution. The maximum allowed number of tool outputs per step is 1000. - In response:
-             * present if set by create/update request - In create request: optional - In update request: optional, any value provided will be appended to the
-             * existing list
+             * References to opaque files of any format output by the tool execution. The maximum allowed number of tool outputs per step is 1000. - In response: present if set by create/update
+             * request - In create request: optional - In update request: optional, any value provided will be appended to the existing list
              */
             toolOutputs?: ToolOutputReference[];
         }
@@ -1092,9 +1047,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ScreenshotCluster>;
             /**
-             * Lists Screenshot Clusters Returns the list of screenshot clusters corresponding to an execution. Screenshot clusters are created after the execution is
-             * finished. Clusters are created from a set of screenshots. Between any two screenshots, a matching score is calculated based off their metadata that
-             * determines how similar they are. Screenshots are placed in the cluster that has screens which have the highest matching scores.
+             * Lists Screenshot Clusters Returns the list of screenshot clusters corresponding to an execution. Screenshot clusters are created after the execution is finished. Clusters are
+             * created from a set of screenshots. Between any two screenshots, a matching score is calculated based off their metadata that determines how similar they are. Screenshots are placed
+             * in the cluster that has screens which have the highest matching scores.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1129,8 +1084,8 @@ declare namespace gapi.client {
         }
         interface EnvironmentsResource {
             /**
-             * Gets an Environment. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project -
-             * INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Environment does not exist
+             * Gets an Environment. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request
+             * is malformed - NOT_FOUND - if the Environment does not exist
              */
             get(request?: {
                 /** V1 error format. */
@@ -1165,9 +1120,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Environment>;
             /**
-             * Lists Environments for a given Execution. The Environments are sorted by display name. May return any of the following canonical error codes: -
-             * PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing
-             * Execution does not exist
+             * Lists Environments for a given Execution. The Environments are sorted by display name. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is
+             * not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing Execution does not exist
              */
             list(request?: {
                 /** V1 error format. */
@@ -1206,8 +1160,8 @@ declare namespace gapi.client {
         }
         interface PerfMetricsSummaryResource {
             /**
-             * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created. May return any of the following error code(s): -
-             * NOT_FOUND - The containing Step does not exist
+             * Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created. May return any of the following error code(s): - NOT_FOUND - The containing Step does
+             * not exist
              */
             create(request: {
                 /** V1 error format. */
@@ -1279,10 +1233,9 @@ declare namespace gapi.client {
         }
         interface SamplesResource {
             /**
-             * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a
-             * large request payload - duplicates and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements
-             * successfully inserted is returned in the response (omits items which already existed in the database). May return any of the following canonical error
-             * codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
+             * Creates a batch of PerfSamples - a client can submit multiple batches of Perf Samples through repeated calls to this method in order to split up a large request payload - duplicates
+             * and existing timestamp entries will be ignored. - the batch operation may partially succeed - the set of elements successfully inserted is returned in the response (omits items
+             * which already existed in the database). May return any of the following canonical error codes: - NOT_FOUND - The containing PerfSampleSeries does not exist
              */
             batchCreate(request: {
                 /** V1 error format. */
@@ -1356,10 +1309,10 @@ declare namespace gapi.client {
             },
             body: BatchCreatePerfSamplesRequest): Request<BatchCreatePerfSamplesResponse>;
             /**
-             * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples;
-             * and maximum size allowed 5000 - The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size,
-             * submit a subsequent request including the page token to return the rest of the samples up to the page limit May return any of the following canonical
-             * error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND - The containing PerfSampleSeries does not exist
+             * Lists the Performance Samples of a given Sample Series - The list results are sorted by timestamps ascending - The default page size is 500 samples; and maximum size allowed 5000 -
+             * The response token indicates the last returned PerfSample timestamp - When the results size exceeds the page size, submit a subsequent request including the page token to return the
+             * rest of the samples up to the page limit May return any of the following canonical error codes: - OUT_OF_RANGE - The specified request page_token is out of valid range - NOT_FOUND -
+             * The containing PerfSampleSeries does not exist
              */
             list(request?: {
                 /** V1 error format. */
@@ -1402,8 +1355,8 @@ declare namespace gapi.client {
         }
         interface PerfSampleSeriesResource {
             /**
-             * Creates a PerfSampleSeries. May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step -
-             * NOT_FOUND - The containing Step does not exist
+             * Creates a PerfSampleSeries. May return any of the following error code(s): - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step
+             * does not exist
              */
             create(request: {
                 /** V1 error format. */
@@ -1508,9 +1461,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<PerfSampleSeries>;
             /**
-             * Lists PerfSampleSeries for a given Step. The request provides an optional filter which specifies one or more PerfMetricsType to include in the result;
-             * if none returns all. The resulting PerfSampleSeries are sorted by ids. May return any of the following canonical error codes: - NOT_FOUND - The
-             * containing Step does not exist
+             * Lists PerfSampleSeries for a given Step. The request provides an optional filter which specifies one or more PerfMetricsType to include in the result; if none returns all. The
+             * resulting PerfSampleSeries are sorted by ids. May return any of the following canonical error codes: - NOT_FOUND - The containing Step does not exist
              */
             list(request?: {
                 /** V1 error format. */
@@ -1550,9 +1502,8 @@ declare namespace gapi.client {
         }
         interface TestCasesResource {
             /**
-             * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development. May return any of the following canonical error
-             * codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
-             * containing Test Case does not exist
+             * Gets details of a Test Case for a Step. Experimental test cases API. Still in active development. May return any of the following canonical error codes: - PERMISSION_DENIED - if the
+             * user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing Test Case does not exist
              */
             get(request?: {
                 /** V1 error format. */
@@ -1589,9 +1540,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<TestCase>;
             /**
-             * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development. May return any of the following canonical error codes: -
-             * PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing
-             * Step does not exist
+             * Lists Test Cases attached to a Step. Experimental test cases API. Still in active development. May return any of the following canonical error codes: - PERMISSION_DENIED - if the
+             * user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing Step does not exist
              */
             list(request?: {
                 /** V1 error format. */
@@ -1632,9 +1582,8 @@ declare namespace gapi.client {
         }
         interface ThumbnailsResource {
             /**
-             * Lists thumbnails of images attached to a step. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not
-             * authorized to read from the project, or from any of the images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not
-             * exist, or if any of the images do not exist
+             * Lists thumbnails of images attached to a step. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project,
+             * or from any of the images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist
              */
             list(request?: {
                 /** V1 error format. */
@@ -1675,9 +1624,9 @@ declare namespace gapi.client {
         }
         interface StepsResource {
             /**
-             * Lists accessibility clusters for a given Step May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not
-             * authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an argument in the request happens to be
-             * invalid; e.g. if the locale format is incorrect - NOT_FOUND - if the containing Step does not exist
+             * Lists accessibility clusters for a given Step May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project -
+             * INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an argument in the request happens to be invalid; e.g. if the locale format is incorrect - NOT_FOUND - if
+             * the containing Step does not exist
              */
             accessibilityClusters(request?: {
                 /** V1 error format. */
@@ -1693,14 +1642,11 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The accepted format is the canonical Unicode format with hyphen as a delimiter. Language must be lowercase, Language Script - Capitalized, Region -
-                 * UPPERCASE. See http://www.unicode.org/reports/tr35/#Unicode_locale_identifier for details. Required.
+                 * The accepted format is the canonical Unicode format with hyphen as a delimiter. Language must be lowercase, Language Script - Capitalized, Region - UPPERCASE. See
+                 * http://www.unicode.org/reports/tr35/#Unicode_locale_identifier for details. Required.
                  */
                 locale?: string;
-                /**
-                 * A full resource name of the step. For example, projects/my-project/histories/bh.1234567890abcdef/executions/
-                 * 1234567890123456789/steps/bs.1234567890abcdef Required.
-                 */
+                /** A full resource name of the step. For example, projects/my-project/histories/bh.1234567890abcdef/executions/ 1234567890123456789/steps/bs.1234567890abcdef Required. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1714,9 +1660,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListStepAccessibilityClustersResponse>;
             /**
-             * Creates a Step. The returned Step will have the id set. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not
-             * authorized to write to project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the step is too large (more than 10Mib) -
-             * NOT_FOUND - if the containing Execution does not exist
+             * Creates a Step. The returned Step will have the id set. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to
+             * project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the step is too large (more than 10Mib) - NOT_FOUND - if the containing Execution does not exist
              */
             create(request: {
                 /** V1 error format. */
@@ -1786,8 +1731,8 @@ declare namespace gapi.client {
             },
             body: Step): Request<Step>;
             /**
-             * Gets a Step. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project -
-             * INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Step does not exist
+             * Gets a Step. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is
+             * malformed - NOT_FOUND - if the Step does not exist
              */
             get(request?: {
                 /** V1 error format. */
@@ -1855,10 +1800,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<PerfMetricsSummary>;
             /**
-             * Lists Steps for a given Execution. The steps are sorted by creation_time in descending order. The step_id key will be used to order the steps with the
-             * same creation_time. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project -
-             * INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an argument in the request happens to be invalid; e.g. if an attempt is made
-             * to list the children of a nonexistent Step - NOT_FOUND - if the containing Execution does not exist
+             * Lists Steps for a given Execution. The steps are sorted by creation_time in descending order. The step_id key will be used to order the steps with the same creation_time. May return
+             * any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed -
+             * FAILED_PRECONDITION - if an argument in the request happens to be invalid; e.g. if an attempt is made to list the children of a nonexistent Step - NOT_FOUND - if the containing
+             * Execution does not exist
              */
             list(request?: {
                 /** V1 error format. */
@@ -1895,9 +1840,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListStepsResponse>;
             /**
-             * Updates an existing Step with the supplied partial entity. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is
-             * not authorized to write project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the requested state transition is illegal
-             * (e.g try to upload a duplicate xml file), if the updated step is too large (more than 10Mib) - NOT_FOUND - if the containing Execution does not exist
+             * Updates an existing Step with the supplied partial entity. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write
+             * project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the requested state transition is illegal (e.g try to upload a duplicate xml file), if the
+             * updated step is too large (more than 10Mib) - NOT_FOUND - if the containing Execution does not exist
              */
             patch(request: {
                 /** V1 error format. */
@@ -1971,9 +1916,9 @@ declare namespace gapi.client {
             },
             body: Step): Request<Step>;
             /**
-             * Publish xml files to an existing Step. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to
-             * write project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the requested state transition is illegal, e.g try to upload
-             * a duplicate xml file or a file too large. - NOT_FOUND - if the containing Execution does not exist
+             * Publish xml files to an existing Step. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write project - INVALID_ARGUMENT
+             * - if the request is malformed - FAILED_PRECONDITION - if the requested state transition is illegal, e.g try to upload a duplicate xml file or a file too large. - NOT_FOUND - if the
+             * containing Execution does not exist
              */
             publishXunitXmlFiles(request: {
                 /** V1 error format. */
@@ -2049,8 +1994,8 @@ declare namespace gapi.client {
         }
         interface ExecutionsResource {
             /**
-             * Creates an Execution. The returned Execution will have the id set. May return any of the following canonical error codes: - PERMISSION_DENIED - if the
-             * user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing History does not exist
+             * Creates an Execution. The returned Execution will have the id set. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to
+             * write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing History does not exist
              */
             create(request: {
                 /** V1 error format. */
@@ -2116,8 +2061,8 @@ declare namespace gapi.client {
             },
             body: Execution): Request<Execution>;
             /**
-             * Gets an Execution. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project -
-             * INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Execution does not exist
+             * Gets an Execution. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request
+             * is malformed - NOT_FOUND - if the Execution does not exist
              */
             get(request?: {
                 /** V1 error format. */
@@ -2150,9 +2095,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Execution>;
             /**
-             * Lists Executions for a given History. The executions are sorted by creation_time in descending order. The execution_id key will be used to order the
-             * executions with the same creation_time. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to
-             * read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing History does not exist
+             * Lists Executions for a given History. The executions are sorted by creation_time in descending order. The execution_id key will be used to order the executions with the same
+             * creation_time. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is
+             * malformed - NOT_FOUND - if the containing History does not exist
              */
             list(request?: {
                 /** V1 error format. */
@@ -2187,9 +2132,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListExecutionsResponse>;
             /**
-             * Updates an existing Execution with the supplied partial entity. May return any of the following canonical error codes: - PERMISSION_DENIED - if the
-             * user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the requested state transition
-             * is illegal - NOT_FOUND - if the containing History does not exist
+             * Updates an existing Execution with the supplied partial entity. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write
+             * to project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the requested state transition is illegal - NOT_FOUND - if the containing History does not
+             * exist
              */
             patch(request: {
                 /** V1 error format. */
@@ -2264,8 +2209,8 @@ declare namespace gapi.client {
         }
         interface HistoriesResource {
             /**
-             * Creates a History. The returned History will have the id set. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user
-             * is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing project does not exist
+             * Creates a History. The returned History will have the id set. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to
+             * project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing project does not exist
              */
             create(request: {
                 /** V1 error format. */
@@ -2327,8 +2272,8 @@ declare namespace gapi.client {
             },
             body: History): Request<History>;
             /**
-             * Gets a History. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project -
-             * INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the History does not exist
+             * Gets a History. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is
+             * malformed - NOT_FOUND - if the History does not exist
              */
             get(request?: {
                 /** V1 error format. */
@@ -2359,9 +2304,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<History>;
             /**
-             * Lists Histories for a given Project. The histories are sorted by modification time in descending order. The history_id key will be used to order the
-             * history with the same modification time. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to
-             * read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the History does not exist
+             * Lists Histories for a given Project. The histories are sorted by modification time in descending order. The history_id key will be used to order the history with the same
+             * modification time. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is
+             * malformed - NOT_FOUND - if the History does not exist
              */
             list(request?: {
                 /** V1 error format. */
@@ -2381,8 +2326,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The maximum number of Histories to fetch. Default value: 20. The server will use this default if the field is not set or has a value of 0. Any value
-                 * greater than 100 will be treated as 100. Optional.
+                 * The maximum number of Histories to fetch. Default value: 20. The server will use this default if the field is not set or has a value of 0. Any value greater than 100 will be
+                 * treated as 100. Optional.
                  */
                 pageSize?: number;
                 /** A continuation token to resume the query at the next item. Optional. */
@@ -2401,10 +2346,7 @@ declare namespace gapi.client {
             executions: ExecutionsResource;
         }
         interface ProjectsResource {
-            /**
-             * Gets the Tool Results settings for a project. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not
-             * authorized to read from project
-             */
+            /** Gets the Tool Results settings for a project. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from project */
             getSettings(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2432,15 +2374,14 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ProjectSettings>;
             /**
-             * Creates resources for settings which have not yet been set. Currently, this creates a single resource: a Google Cloud Storage bucket, to be used as the
-             * default bucket for this project. The bucket is created in an FTL-own storage project. Except for in rare cases, calling this method in parallel from
-             * multiple clients will only create a single bucket. In order to avoid unnecessary storage charges, the bucket is configured to automatically delete
-             * objects older than 90 days. The bucket is created with the following permissions: - Owner access for owners of central storage project (FTL-owned) -
-             * Writer access for owners/editors of customer project - Reader access for viewers of customer project The default ACL on objects created in the bucket
-             * is: - Owner access for owners of central storage project - Reader access for owners/editors/viewers of customer project See Google Cloud Storage
-             * documentation for more details. If there is already a default bucket set and the project can access the bucket, this call does nothing. However, if the
-             * project doesn't have the permission to access the bucket or the bucket is deleted, a new bucket will be created. May return any canonical error codes,
-             * including the following: - PERMISSION_DENIED - if the user is not authorized to write to project - Any error code raised by Google Cloud Storage
+             * Creates resources for settings which have not yet been set. Currently, this creates a single resource: a Google Cloud Storage bucket, to be used as the default bucket for this
+             * project. The bucket is created in an FTL-own storage project. Except for in rare cases, calling this method in parallel from multiple clients will only create a single bucket. In
+             * order to avoid unnecessary storage charges, the bucket is configured to automatically delete objects older than 90 days. The bucket is created with the following permissions: -
+             * Owner access for owners of central storage project (FTL-owned) - Writer access for owners/editors of customer project - Reader access for viewers of customer project The default ACL
+             * on objects created in the bucket is: - Owner access for owners of central storage project - Reader access for owners/editors/viewers of customer project See Google Cloud Storage
+             * documentation for more details. If there is already a default bucket set and the project can access the bucket, this call does nothing. However, if the project doesn't have the
+             * permission to access the bucket or the bucket is deleted, a new bucket will be created. May return any canonical error codes, including the following: - PERMISSION_DENIED - if the
+             * user is not authorized to write to project - Any error code raised by Google Cloud Storage
              */
             initializeSettings(request?: {
                 /** V1 error format. */

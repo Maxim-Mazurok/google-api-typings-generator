@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud SQL Admin API v1beta4 1.0
 // Project: https://developers.google.com/cloud-sql/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -19,9 +22,9 @@ declare namespace gapi.client {
 
     namespace sql {
         interface AclEntry {
-            /** The time when this access control entry expires in RFC 3339 format, for example ∗2012-11-15T16:19:00.094Z∗. */
+            /** The time when this access control entry expires in RFC 3339 format, for example *2012-11-15T16:19:00.094Z*. */
             expirationTime?: string;
-            /** This is always ∗sql#aclEntry∗. */
+            /** This is always *sql#aclEntry*. */
             kind?: string;
             /** Optional. A label to identify this entry. */
             name?: string;
@@ -39,7 +42,7 @@ declare namespace gapi.client {
             binaryLogEnabled?: boolean;
             /** Whether this configuration is enabled. */
             enabled?: boolean;
-            /** This is always ∗sql#backupConfiguration∗. */
+            /** This is always *sql#backupConfiguration*. */
             kind?: string;
             /** Location of the backup */
             location?: string;
@@ -47,7 +50,7 @@ declare namespace gapi.client {
             pointInTimeRecoveryEnabled?: boolean;
             /** Reserved for future use. */
             replicationLogArchivingEnabled?: boolean;
-            /** Start time for the daily backup configuration in UTC timezone in the 24 hour format - ∗HH:MM∗. */
+            /** Start time for the daily backup configuration in UTC timezone in the 24 hour format - *HH:MM*. */
             startTime?: string;
         }
         interface BackupRun {
@@ -59,9 +62,9 @@ declare namespace gapi.client {
             diskEncryptionConfiguration?: DiskEncryptionConfiguration;
             /** Encryption status specific to a backup. Applies only to Second Generation instances. */
             diskEncryptionStatus?: DiskEncryptionStatus;
-            /** The time the backup operation completed in UTC timezone in RFC 3339 format, for example ∗2012-11-15T16:19:00.094Z∗. */
+            /** The time the backup operation completed in UTC timezone in RFC 3339 format, for example *2012-11-15T16:19:00.094Z*. */
             endTime?: string;
-            /** The time the run was enqueued in UTC timezone in RFC 3339 format, for example ∗2012-11-15T16:19:00.094Z∗. */
+            /** The time the run was enqueued in UTC timezone in RFC 3339 format, for example *2012-11-15T16:19:00.094Z*. */
             enqueuedTime?: string;
             /** Information about why the backup operation failed. This is only present if the run has the FAILED status. */
             error?: OperationError;
@@ -69,25 +72,25 @@ declare namespace gapi.client {
             id?: string;
             /** Name of the database instance. */
             instance?: string;
-            /** This is always ∗sql#backupRun∗. */
+            /** This is always *sql#backupRun*. */
             kind?: string;
             /** Location of the backups. */
             location?: string;
             /** The URI of this resource. */
             selfLink?: string;
-            /** The time the backup operation actually started in UTC timezone in RFC 3339 format, for example ∗2012-11-15T16:19:00.094Z∗. */
+            /** The time the backup operation actually started in UTC timezone in RFC 3339 format, for example *2012-11-15T16:19:00.094Z*. */
             startTime?: string;
             /** The status of this run. */
             status?: string;
             /** The type of this run; can be either "AUTOMATED" or "ON_DEMAND". */
             type?: string;
-            /** The start time of the backup window during which this the backup was attempted in RFC 3339 format, for example ∗2012-11-15T16:19:00.094Z∗. */
+            /** The start time of the backup window during which this the backup was attempted in RFC 3339 format, for example *2012-11-15T16:19:00.094Z*. */
             windowStartTime?: string;
         }
         interface BackupRunsListResponse {
             /** A list of backup runs in reverse chronological order of the enqueued time. */
             items?: BackupRun[];
-            /** This is always ∗sql#backupRunsList∗. */
+            /** This is always *sql#backupRunsList*. */
             kind?: string;
             /** The continuation token, used to page through large result sets. Provide this value in a subsequent request to return the next page of results. */
             nextPageToken?: string;
@@ -97,18 +100,18 @@ declare namespace gapi.client {
             binLogFileName?: string;
             /** Position (offset) within the binary log file. */
             binLogPosition?: string;
-            /** This is always ∗sql#binLogCoordinates∗. */
+            /** This is always *sql#binLogCoordinates*. */
             kind?: string;
         }
         interface CloneContext {
             /**
-             * Binary log coordinates, if specified, identify the position up to which the source instance is cloned. If not specified, the source instance is cloned
-             * up to the most recent binary log coordinates.
+             * Binary log coordinates, if specified, identify the position up to which the source instance is cloned. If not specified, the source instance is cloned up to the most recent binary
+             * log coordinates.
              */
             binLogCoordinates?: BinLogCoordinates;
             /** Name of the Cloud SQL instance to be created as a clone. */
             destinationInstanceName?: string;
-            /** This is always ∗sql#cloneContext∗. */
+            /** This is always *sql#cloneContext*. */
             kind?: string;
             /** Reserved for future use. */
             pitrTimestampMs?: string;
@@ -124,7 +127,7 @@ declare namespace gapi.client {
             etag?: string;
             /** The name of the Cloud SQL instance. This does not include the project ID. */
             instance?: string;
-            /** This is always ∗sql#database∗. */
+            /** This is always *sql#database*. */
             kind?: string;
             /** The name of the database in the Cloud SQL instance. This does not include the project ID or instance name. */
             name?: string;
@@ -136,66 +139,66 @@ declare namespace gapi.client {
         }
         interface DatabaseFlags {
             /**
-             * The name of the flag. These flags are passed at instance startup, so include both server options and system variables for MySQL. Flags are specified
-             * with underscores, not hyphens. For more information, see Configuring Database Flags in the Cloud SQL documentation.
+             * The name of the flag. These flags are passed at instance startup, so include both server options and system variables for MySQL. Flags are specified with underscores, not hyphens.
+             * For more information, see Configuring Database Flags in the Cloud SQL documentation.
              */
             name?: string;
-            /** The value of the flag. Booleans are set to ∗on∗ for true and ∗off∗ for false. This field must be omitted if the flag doesn't take a value. */
+            /** The value of the flag. Booleans are set to *on* for true and *off* for false. This field must be omitted if the flag doesn't take a value. */
             value?: string;
         }
         interface DatabaseInstance {
             /**
-             * ∗SECOND_GEN∗: Cloud SQL database instance. ∗EXTERNAL∗: A database server that is not managed by Google. This property is read-only; use the ∗tier∗
-             * property in the ∗settings∗ object to determine the database type.
+             * *SECOND_GEN*: Cloud SQL database instance. *EXTERNAL*: A database server that is not managed by Google. This property is read-only; use the *tier* property in the *settings* object
+             * to determine the database type.
              */
             backendType?: string;
             /** Connection name of the Cloud SQL instance used in connection strings. */
             connectionName?: string;
             /**
-             * The current disk usage of the instance in bytes. This property has been deprecated. Use the "cloudsql.googleapis.com/database/disk/bytes_used" metric
-             * in Cloud Monitoring API instead. Please see this announcement for details.
+             * The current disk usage of the instance in bytes. This property has been deprecated. Use the "cloudsql.googleapis.com/database/disk/bytes_used" metric in Cloud Monitoring API
+             * instead. Please see this announcement for details.
              */
             currentDiskSize?: string;
             /**
-             * The database engine type and version. The ∗databaseVersion∗ field cannot be changed after instance creation. MySQL instances: ∗MYSQL_5_7∗ (default), or
-             * ∗MYSQL_5_6∗. PostgreSQL instances: ∗POSTGRES_9_6∗, ∗POSTGRES_10∗, ∗POSTGRES_11∗ or ∗POSTGRES_12∗ (default). SQL Server instances:
-             * ∗SQLSERVER_2017_STANDARD∗ (default), ∗SQLSERVER_2017_ENTERPRISE∗, ∗SQLSERVER_2017_EXPRESS∗, or ∗SQLSERVER_2017_WEB∗.
+             * The database engine type and version. The *databaseVersion* field cannot be changed after instance creation. MySQL instances: *MYSQL_5_7* (default), or *MYSQL_5_6*. PostgreSQL
+             * instances: *POSTGRES_9_6*, *POSTGRES_10*, *POSTGRES_11* or *POSTGRES_12* (default). SQL Server instances: *SQLSERVER_2017_STANDARD* (default), *SQLSERVER_2017_ENTERPRISE*,
+             * *SQLSERVER_2017_EXPRESS*, or *SQLSERVER_2017_WEB*.
              */
             databaseVersion?: string;
             /** Disk encryption configuration specific to an instance. Applies only to Second Generation instances. */
             diskEncryptionConfiguration?: DiskEncryptionConfiguration;
             /** Disk encryption status specific to an instance. Applies only to Second Generation instances. */
             diskEncryptionStatus?: DiskEncryptionStatus;
-            /** This field is deprecated and will be removed from a future version of the API. Use the ∗settings.settingsVersion∗ field instead. */
+            /** This field is deprecated and will be removed from a future version of the API. Use the *settings.settingsVersion* field instead. */
             etag?: string;
             /** The name and status of the failover replica. This property is applicable only to Second Generation instances. */
             failoverReplica?: {
                 /**
-                 * The availability status of the failover replica. A false status indicates that the failover replica is out of sync. The master can only failover to the
-                 * failover replica when the status is true.
+                 * The availability status of the failover replica. A false status indicates that the failover replica is out of sync. The master can only failover to the failover replica when the
+                 * status is true.
                  */
                 available?: boolean;
                 /**
-                 * The name of the failover replica. If specified at instance creation, a failover replica is created for the instance. The name doesn't include the
-                 * project ID. This property is applicable only to Second Generation instances.
+                 * The name of the failover replica. If specified at instance creation, a failover replica is created for the instance. The name doesn't include the project ID. This property is
+                 * applicable only to Second Generation instances.
                  */
                 name?: string;
             };
             /**
-             * The Compute Engine zone that the instance is currently serving from. This value could be different from the zone that was specified when the instance
-             * was created if the instance has failed over to its secondary zone.
+             * The Compute Engine zone that the instance is currently serving from. This value could be different from the zone that was specified when the instance was created if the instance has
+             * failed over to its secondary zone.
              */
             gceZone?: string;
             /**
-             * The instance type. This can be one of the following. ∗CLOUD_SQL_INSTANCE∗: A Cloud SQL instance that is not replicating from a master.
-             * ∗ON_PREMISES_INSTANCE∗: An instance running on the customer's premises. ∗READ_REPLICA_INSTANCE∗: A Cloud SQL instance configured as a read-replica.
+             * The instance type. This can be one of the following. *CLOUD_SQL_INSTANCE*: A Cloud SQL instance that is not replicating from a master. *ON_PREMISES_INSTANCE*: An instance running on
+             * the customer's premises. *READ_REPLICA_INSTANCE*: A Cloud SQL instance configured as a read-replica.
              */
             instanceType?: string;
             /** The assigned IP addresses for the instance. */
             ipAddresses?: IpMapping[];
             /** The IPv6 address assigned to the instance. (Deprecated) This property was applicable only to First Generation instances. */
             ipv6Address?: string;
-            /** This is always ∗sql#instance∗. */
+            /** This is always *sql#instance*. */
             kind?: string;
             /** The name of the instance which will act as master in the replication setup. */
             masterInstanceName?: string;
@@ -208,8 +211,8 @@ declare namespace gapi.client {
             /** The project ID of the project containing the Cloud SQL instance. The Google apps domain is prefixed if applicable. */
             project?: string;
             /**
-             * The geographical region. Can be ∗us-central∗ (∗FIRST_GEN∗ instances only) ∗us-central1∗ (∗SECOND_GEN∗ instances only) ∗asia-east1∗ or ∗europe-west1∗.
-             * Defaults to ∗us-central∗ or ∗us-central1∗ depending on the instance type. The region cannot be changed after instance creation.
+             * The geographical region. Can be *us-central* (*FIRST_GEN* instances only) *us-central1* (*SECOND_GEN* instances only) *asia-east1* or *europe-west1*. Defaults to *us-central* or
+             * *us-central1* depending on the instance type. The region cannot be changed after instance creation.
              */
             region?: string;
             /** Configuration specific to failover replicas and read replicas. */
@@ -229,9 +232,9 @@ declare namespace gapi.client {
             /** The user settings. */
             settings?: Settings;
             /**
-             * The current serving state of the Cloud SQL instance. This can be one of the following. ∗RUNNABLE∗: The instance is running, or is ready to run when
-             * accessed. ∗SUSPENDED∗: The instance is not available, for example due to problems with billing. ∗PENDING_CREATE∗: The instance is being created.
-             * ∗MAINTENANCE∗: The instance is down for maintenance. ∗FAILED∗: The instance creation failed. ∗UNKNOWN_STATE∗: The state of the instance is unknown.
+             * The current serving state of the Cloud SQL instance. This can be one of the following. *RUNNABLE*: The instance is running, or is ready to run when accessed. *SUSPENDED*: The
+             * instance is not available, for example due to problems with billing. *PENDING_CREATE*: The instance is being created. *MAINTENANCE*: The instance is down for maintenance. *FAILED*:
+             * The instance creation failed. *UNKNOWN_STATE*: The state of the instance is unknown.
              */
             state?: string;
             /** If the instance state is SUSPENDED, the reason for the suspension. */
@@ -240,31 +243,30 @@ declare namespace gapi.client {
         interface DatabasesListResponse {
             /** List of database resources in the instance. */
             items?: Database[];
-            /** This is always ∗sql#databasesList∗. */
+            /** This is always *sql#databasesList*. */
             kind?: string;
         }
         interface DemoteMasterConfiguration {
-            /** This is always ∗sql#demoteMasterConfiguration∗. */
+            /** This is always *sql#demoteMasterConfiguration*. */
             kind?: string;
             /**
-             * MySQL specific configuration when replicating from a MySQL on-premises master. Replication configuration information such as the username, password,
-             * certificates, and keys are not stored in the instance metadata. The configuration information is used only to set up the replication connection and is
-             * stored by MySQL in a file named ∗master.info∗ in the data directory.
+             * MySQL specific configuration when replicating from a MySQL on-premises master. Replication configuration information such as the username, password, certificates, and keys are not
+             * stored in the instance metadata. The configuration information is used only to set up the replication connection and is stored by MySQL in a file named *master.info* in the data
+             * directory.
              */
             mysqlReplicaConfiguration?: DemoteMasterMySqlReplicaConfiguration;
         }
         interface DemoteMasterContext {
-            /** This is always ∗sql#demoteMasterContext∗. */
+            /** This is always *sql#demoteMasterContext*. */
             kind?: string;
             /** The name of the instance which will act as on-premises master in the replication setup. */
             masterInstanceName?: string;
             /** Configuration specific to read-replicas replicating from the on-premises master. */
             replicaConfiguration?: DemoteMasterConfiguration;
             /**
-             * Verify GTID consistency for demote operation. Default value: ∗True∗. Second Generation instances only. Setting this flag to false enables you to bypass
-             * GTID consistency check between on-premises master and Cloud SQL instance during the demotion operation but also exposes you to the risk of future
-             * replication failures. Change the value only if you know the reason for the GTID divergence and are confident that doing so will not cause any
-             * replication issues.
+             * Verify GTID consistency for demote operation. Default value: *True*. Second Generation instances only. Setting this flag to false enables you to bypass GTID consistency check
+             * between on-premises master and Cloud SQL instance during the demotion operation but also exposes you to the risk of future replication failures. Change the value only if you know
+             * the reason for the GTID divergence and are confident that doing so will not cause any replication issues.
              */
             verifyGtidConsistency?: boolean;
         }
@@ -274,11 +276,11 @@ declare namespace gapi.client {
             /** PEM representation of the replica's x509 certificate. */
             clientCertificate?: string;
             /**
-             * PEM representation of the replica's private key. The corresponsing public key is encoded in the client's certificate. The format of the replica's
-             * private key can be either PKCS #1 or PKCS #8.
+             * PEM representation of the replica's private key. The corresponsing public key is encoded in the client's certificate. The format of the replica's private key can be either PKCS #1
+             * or PKCS #8.
              */
             clientKey?: string;
-            /** This is always ∗sql#demoteMasterMysqlReplicaConfiguration∗. */
+            /** This is always *sql#demoteMasterMysqlReplicaConfiguration*. */
             kind?: string;
             /** The password for the replication connection. */
             password?: string;
@@ -286,13 +288,13 @@ declare namespace gapi.client {
             username?: string;
         }
         interface DiskEncryptionConfiguration {
-            /** This is always ∗sql#diskEncryptionConfiguration∗. */
+            /** This is always *sql#diskEncryptionConfiguration*. */
             kind?: string;
             /** Resource name of KMS key for disk encryption */
             kmsKeyName?: string;
         }
         interface DiskEncryptionStatus {
-            /** This is always ∗sql#diskEncryptionStatus∗. */
+            /** This is always *sql#diskEncryptionStatus*. */
             kind?: string;
             /** KMS key version used to encrypt the Cloud SQL instance resource */
             kmsKeyVersionName?: string;
@@ -304,15 +306,14 @@ declare namespace gapi.client {
                 selectQuery?: string;
             };
             /**
-             * Databases to be exported. ∗MySQL instances:∗ If ∗fileType∗ is ∗SQL∗ and no database is specified, all databases are exported, except for the ∗mysql∗
-             * system database. If ∗fileType∗ is ∗CSV∗, you can specify one database, either by using this property or by using the ∗csvExportOptions.selectQuery∗
-             * property, which takes precedence over this property. ∗PostgreSQL instances:∗ You must specify one database to be exported. If ∗fileType∗ is ∗CSV∗, this
-             * database must match the one specified in the ∗csvExportOptions.selectQuery∗ property.
+             * Databases to be exported. *MySQL instances:* If *fileType* is *SQL* and no database is specified, all databases are exported, except for the *mysql* system database. If *fileType*
+             * is *CSV*, you can specify one database, either by using this property or by using the *csvExportOptions.selectQuery* property, which takes precedence over this property. *PostgreSQL
+             * instances:* You must specify one database to be exported. If *fileType* is *CSV*, this database must match the one specified in the *csvExportOptions.selectQuery* property.
              */
             databases?: string[];
-            /** The file type for the specified uri. ∗SQL∗: The file contains SQL statements. ∗CSV∗: The file contains CSV data. */
+            /** The file type for the specified uri. *SQL*: The file contains SQL statements. *CSV*: The file contains CSV data. */
             fileType?: string;
-            /** This is always ∗sql#exportContext∗. */
+            /** This is always *sql#exportContext*. */
             kind?: string;
             /** Option for export offload. */
             offload?: boolean;
@@ -321,27 +322,27 @@ declare namespace gapi.client {
                 /** Options for exporting from MySQL. */
                 mysqlExportOptions?: {
                     /**
-                     * Option to include SQL statement required to set up replication. If set to ∗1∗, the dump file includes a CHANGE MASTER TO statement with the binary log
-                     * coordinates. If set to ∗2∗, the CHANGE MASTER TO statement is written as a SQL comment, and has no effect. All other values are ignored.
+                     * Option to include SQL statement required to set up replication. If set to *1*, the dump file includes a CHANGE MASTER TO statement with the binary log coordinates. If set to
+                     * *2*, the CHANGE MASTER TO statement is written as a SQL comment, and has no effect. All other values are ignored.
                      */
                     masterData?: number;
                 };
                 /** Export only schemas. */
                 schemaOnly?: boolean;
                 /**
-                 * Tables to export, or that were exported, from the specified database. If you specify tables, specify one and only one database. For PostgreSQL
-                 * instances, you can specify only one table.
+                 * Tables to export, or that were exported, from the specified database. If you specify tables, specify one and only one database. For PostgreSQL instances, you can specify only
+                 * one table.
                  */
                 tables?: string[];
             };
             /**
-             * The path to the file in Google Cloud Storage where the export will be stored. The URI is in the form ∗gs: //bucketName/fileName∗. If the file already
-             * exists, the requests // succeeds, but the operation fails. If ∗fileType∗ is // ∗SQL∗ and the filename ends with .gz, the contents are // compressed.
+             * The path to the file in Google Cloud Storage where the export will be stored. The URI is in the form *gs: //bucketName/fileName*. If the file already exists, the requests //
+             * succeeds, but the operation fails. If *fileType* is // *SQL* and the filename ends with .gz, the contents are // compressed.
              */
             uri?: string;
         }
         interface FailoverContext {
-            /** This is always ∗sql#failoverContext∗. */
+            /** This is always *sql#failoverContext*. */
             kind?: string;
             /** The current settings version of this instance. Request will be rejected if this version doesn't match the current settings version. */
             settingsVersion?: string;
@@ -349,35 +350,29 @@ declare namespace gapi.client {
         interface Flag {
             /** Use this field if only certain integers are accepted. Can be combined with min_value and max_value to add additional values. */
             allowedIntValues?: string[];
-            /** For ∗STRING∗ flags, a list of strings that the value can be set to. */
+            /** For *STRING* flags, a list of strings that the value can be set to. */
             allowedStringValues?: string[];
-            /**
-             * The database version this flag applies to. Can be ∗MYSQL_5_5∗, ∗MYSQL_5_6∗, or ∗MYSQL_5_7∗. ∗MYSQL_5_7∗ is applicable only to Second Generation
-             * instances.
-             */
+            /** The database version this flag applies to. Can be *MYSQL_5_5*, *MYSQL_5_6*, or *MYSQL_5_7*. *MYSQL_5_7* is applicable only to Second Generation instances. */
             appliesTo?: string[];
             /** Whether or not the flag is considered in beta. */
             inBeta?: boolean;
-            /** This is always ∗sql#flag∗. */
+            /** This is always *sql#flag*. */
             kind?: string;
-            /** For ∗INTEGER∗ flags, the maximum allowed value. */
+            /** For *INTEGER* flags, the maximum allowed value. */
             maxValue?: string;
-            /** For ∗INTEGER∗ flags, the minimum allowed value. */
+            /** For *INTEGER* flags, the minimum allowed value. */
             minValue?: string;
-            /** This is the name of the flag. Flag names always use underscores, not hyphens, for example: ∗max_allowed_packet∗ */
+            /** This is the name of the flag. Flag names always use underscores, not hyphens, for example: *max_allowed_packet* */
             name?: string;
             /** Indicates whether changing this flag will trigger a database restart. Only applicable to Second Generation instances. */
             requiresRestart?: boolean;
-            /**
-             * The type of the flag. Flags are typed to being ∗BOOLEAN∗, ∗STRING∗, ∗INTEGER∗ or ∗NONE∗. ∗NONE∗ is used for flags which do not take a value, such as
-             * ∗skip_grant_tables∗.
-             */
+            /** The type of the flag. Flags are typed to being *BOOLEAN*, *STRING*, *INTEGER* or *NONE*. *NONE* is used for flags which do not take a value, such as *skip_grant_tables*. */
             type?: string;
         }
         interface FlagsListResponse {
             /** List of flags. */
             items?: Flag[];
-            /** This is always ∗sql#flagsList∗. */
+            /** This is always *sql#flagsList*. */
             kind?: string;
         }
         // tslint:disable-next-line:interface-name
@@ -385,16 +380,13 @@ declare namespace gapi.client {
             /** Import parameters specific to SQL Server .BAK files */
             bakImportOptions?: {
                 encryptionOptions?: {
-                    /**
-                     * Path to the Certificate (.cer) in Cloud Storage, in the form ∗gs://bucketName/fileName∗. The instance must have write permissions to the bucket and
-                     * read access to the file.
-                     */
+                    /** Path to the Certificate (.cer) in Cloud Storage, in the form *gs://bucketName/fileName*. The instance must have write permissions to the bucket and read access to the file. */
                     certPath?: string;
                     /** Password that encrypts the private key */
                     pvkPassword?: string;
                     /**
-                     * Path to the Certificate Private Key (.pvk) in Cloud Storage, in the form ∗gs://bucketName/fileName∗. The instance must have write permissions to the
-                     * bucket and read access to the file.
+                     * Path to the Certificate Private Key (.pvk) in Cloud Storage, in the form *gs://bucketName/fileName*. The instance must have write permissions to the bucket and read access
+                     * to the file.
                      */
                     pvkPath?: string;
                 };
@@ -407,19 +399,19 @@ declare namespace gapi.client {
                 table?: string;
             };
             /**
-             * The target database for the import. If ∗fileType∗ is ∗SQL∗, this field is required only if the import file does not specify a database, and is
-             * overridden by any database specification in the import file. If ∗fileType∗ is ∗CSV∗, one database must be specified.
+             * The target database for the import. If *fileType* is *SQL*, this field is required only if the import file does not specify a database, and is overridden by any database
+             * specification in the import file. If *fileType* is *CSV*, one database must be specified.
              */
             database?: string;
-            /** The file type for the specified uri. ∗SQL∗: The file contains SQL statements. ∗CSV∗: The file contains CSV data. */
+            /** The file type for the specified uri. *SQL*: The file contains SQL statements. *CSV*: The file contains CSV data. */
             fileType?: string;
             /** The PostgreSQL user for this import operation. PostgreSQL instances only. */
             importUser?: string;
-            /** This is always ∗sql#importContext∗. */
+            /** This is always *sql#importContext*. */
             kind?: string;
             /**
-             * Path to the import file in Cloud Storage, in the form ∗gs: //bucketName/fileName∗. Compressed gzip files (.gz) are supported // when ∗fileType∗ is
-             * ∗SQL∗. The instance must have // write permissions to the bucket and read access to the file.
+             * Path to the import file in Cloud Storage, in the form *gs: //bucketName/fileName*. Compressed gzip files (.gz) are supported // when *fileType* is *SQL*. The instance must have //
+             * write permissions to the bucket and read access to the file.
              */
             uri?: string;
         }
@@ -452,7 +444,7 @@ declare namespace gapi.client {
         interface InstancesListResponse {
             /** List of database instance resources. */
             items?: DatabaseInstance[];
-            /** This is always ∗sql#instancesList∗. */
+            /** This is always *sql#instancesList*. */
             kind?: string;
             /** The continuation token, used to page through large result sets. Provide this value in a subsequent request to return the next page of results. */
             nextPageToken?: string;
@@ -464,7 +456,7 @@ declare namespace gapi.client {
             activeVersion?: string;
             /** List of server CA certificates for the instance. */
             certs?: SslCert[];
-            /** This is always ∗sql#instancesListServerCas∗. */
+            /** This is always *sql#instancesListServerCas*. */
             kind?: string;
         }
         // tslint:disable-next-line:interface-name
@@ -484,16 +476,13 @@ declare namespace gapi.client {
         }
         // tslint:disable-next-line:interface-name
         interface IpConfiguration {
-            /**
-             * The list of external networks that are allowed to connect to the instance using the IP. In 'CIDR' notation, also known as 'slash' notation (for
-             * example: ∗192.168.100.0/24∗).
-             */
+            /** The list of external networks that are allowed to connect to the instance using the IP. In 'CIDR' notation, also known as 'slash' notation (for example: *192.168.100.0/24*). */
             authorizedNetworks?: AclEntry[];
             /** Whether the instance is assigned a public IP address or not. */
             ipv4Enabled?: boolean;
             /**
-             * The resource link for the VPC network from which the Cloud SQL instance is accessible for private IP. For example,
-             * ∗/projects/myProject/global/networks/default∗. This setting can be updated, but it cannot be removed after it is set.
+             * The resource link for the VPC network from which the Cloud SQL instance is accessible for private IP. For example, ∗/projects/myProject/global/networks/default*. This setting can be
+             * updated, but it cannot be removed after it is set.
              */
             privateNetwork?: string;
             /** Whether SSL connections over IP are enforced or not. */
@@ -503,21 +492,18 @@ declare namespace gapi.client {
         interface IpMapping {
             /** The IP address assigned. */
             ipAddress?: string;
-            /**
-             * The due time for this IP to be retired in RFC 3339 format, for example ∗2012-11-15T16:19:00.094Z∗. This field is only available when the IP is
-             * scheduled to be retired.
-             */
+            /** The due time for this IP to be retired in RFC 3339 format, for example *2012-11-15T16:19:00.094Z*. This field is only available when the IP is scheduled to be retired. */
             timeToRetire?: string;
             /**
-             * The type of this IP address. A ∗PRIMARY∗ address is a public address that can accept incoming connections. A ∗PRIVATE∗ address is a private address
-             * that can accept incoming connections. An ∗OUTGOING∗ address is the source address of connections originating from the instance, if supported.
+             * The type of this IP address. A *PRIMARY* address is a public address that can accept incoming connections. A *PRIVATE* address is a private address that can accept incoming
+             * connections. An *OUTGOING* address is the source address of connections originating from the instance, if supported.
              */
             type?: string;
         }
         interface LocationPreference {
             /** The App Engine application to follow, it must be in the same region as the Cloud SQL instance. */
             followGaeApplication?: string;
-            /** This is always ∗sql#locationPreference∗. */
+            /** This is always *sql#locationPreference*. */
             kind?: string;
             /** The preferred Compute Engine zone (for example: us-central1-a, us-central1-b, etc.). */
             zone?: string;
@@ -527,9 +513,9 @@ declare namespace gapi.client {
             day?: number;
             /** hour of day - 0 to 23. */
             hour?: number;
-            /** This is always ∗sql#maintenanceWindow∗. */
+            /** This is always *sql#maintenanceWindow*. */
             kind?: string;
-            /** Maintenance timing setting: ∗canary∗ (Earlier) or ∗stable∗ (Later). Learn more. */
+            /** Maintenance timing setting: *canary* (Earlier) or *stable* (Later). Learn more. */
             updateTrack?: string;
         }
         interface MySqlReplicaConfiguration {
@@ -542,12 +528,11 @@ declare namespace gapi.client {
             /** Seconds to wait between connect retries. MySQL's default is 60 seconds. */
             connectRetryInterval?: number;
             /**
-             * Path to a SQL dump file in Google Cloud Storage from which the replica instance is to be created. The URI is in the form gs://bucketName/fileName.
-             * Compressed gzip files (.gz) are also supported. Dumps have the binlog co-ordinates from which replication begins. This can be accomplished by setting
-             * --master-data to 1 when using mysqldump.
+             * Path to a SQL dump file in Google Cloud Storage from which the replica instance is to be created. The URI is in the form gs://bucketName/fileName. Compressed gzip files (.gz) are
+             * also supported. Dumps have the binlog co-ordinates from which replication begins. This can be accomplished by setting --master-data to 1 when using mysqldump.
              */
             dumpFilePath?: string;
-            /** This is always ∗sql#mysqlReplicaConfiguration∗. */
+            /** This is always *sql#mysqlReplicaConfiguration*. */
             kind?: string;
             /** Interval in milliseconds between replication heartbeats. */
             masterHeartbeatPeriod?: string;
@@ -571,7 +556,7 @@ declare namespace gapi.client {
             dumpFilePath?: string;
             /** The host and port of the on-premises instance in host:port format */
             hostPort?: string;
-            /** This is always ∗sql#onPremisesConfiguration∗. */
+            /** This is always *sql#onPremisesConfiguration*. */
             kind?: string;
             /** The password for connecting to on-premises instance. */
             password?: string;
@@ -579,7 +564,7 @@ declare namespace gapi.client {
             username?: string;
         }
         interface Operation {
-            /** The time this operation finished in UTC timezone in RFC 3339 format, for example ∗2012-11-15T16:19:00.094Z∗. */
+            /** The time this operation finished in UTC timezone in RFC 3339 format, for example *2012-11-15T16:19:00.094Z*. */
             endTime?: string;
             /** If errors occurred during processing of this operation, this field will be populated. */
             error?: OperationErrors;
@@ -587,25 +572,22 @@ declare namespace gapi.client {
             exportContext?: ExportContext;
             /** The context for import operation, if applicable. */
             importContext?: ImportContext;
-            /** The time this operation was enqueued in UTC timezone in RFC 3339 format, for example ∗2012-11-15T16:19:00.094Z∗. */
+            /** The time this operation was enqueued in UTC timezone in RFC 3339 format, for example *2012-11-15T16:19:00.094Z*. */
             insertTime?: string;
-            /** This is always ∗sql#operation∗. */
+            /** This is always *sql#operation*. */
             kind?: string;
-            /**
-             * An identifier that uniquely identifies the operation. You can use this identifier to retrieve the Operations resource that has information about the
-             * operation.
-             */
+            /** An identifier that uniquely identifies the operation. You can use this identifier to retrieve the Operations resource that has information about the operation. */
             name?: string;
             /**
-             * The type of the operation. Valid values are: ∗CREATE∗ ∗DELETE∗ ∗UPDATE∗ ∗RESTART∗ ∗IMPORT∗ ∗EXPORT∗ ∗BACKUP_VOLUME∗ ∗RESTORE_VOLUME∗ ∗CREATE_USER∗
-             * ∗DELETE_USER∗ ∗CREATE_DATABASE∗ ∗DELETE_DATABASE∗
+             * The type of the operation. Valid values are: *CREATE* *DELETE* *UPDATE* *RESTART* *IMPORT* *EXPORT* *BACKUP_VOLUME* *RESTORE_VOLUME* *CREATE_USER* *DELETE_USER* *CREATE_DATABASE*
+             * *DELETE_DATABASE*
              */
             operationType?: string;
             /** The URI of this resource. */
             selfLink?: string;
-            /** The time this operation actually started in UTC timezone in RFC 3339 format, for example ∗2012-11-15T16:19:00.094Z∗. */
+            /** The time this operation actually started in UTC timezone in RFC 3339 format, for example *2012-11-15T16:19:00.094Z*. */
             startTime?: string;
-            /** The status of an operation. Valid values are: ∗PENDING∗ ∗RUNNING∗ ∗DONE∗ ∗SQL_OPERATION_STATUS_UNSPECIFIED∗ */
+            /** The status of an operation. Valid values are: *PENDING* *RUNNING* *DONE* *SQL_OPERATION_STATUS_UNSPECIFIED* */
             status?: string;
             /** Name of the database instance related to this operation. */
             targetId?: string;
@@ -618,7 +600,7 @@ declare namespace gapi.client {
         interface OperationError {
             /** Identifies the specific error that occurred. */
             code?: string;
-            /** This is always ∗sql#operationError∗. */
+            /** This is always *sql#operationError*. */
             kind?: string;
             /** Additional information about the error encountered. */
             message?: string;
@@ -626,40 +608,36 @@ declare namespace gapi.client {
         interface OperationErrors {
             /** The list of errors encountered while processing this operation. */
             errors?: OperationError[];
-            /** This is always ∗sql#operationErrors∗. */
+            /** This is always *sql#operationErrors*. */
             kind?: string;
         }
         interface OperationsListResponse {
             /** List of operation resources. */
             items?: Operation[];
-            /** This is always ∗sql#operationsList∗. */
+            /** This is always *sql#operationsList*. */
             kind?: string;
             /** The continuation token, used to page through large result sets. Provide this value in a subsequent request to return the next page of results. */
             nextPageToken?: string;
         }
         interface ReplicaConfiguration {
             /**
-             * Specifies if the replica is the failover target. If the field is set to ∗true∗ the replica will be designated as a failover replica. In case the master
-             * instance fails, the replica instance will be promoted as the new master instance. Only one replica can be specified as failover target, and the replica
-             * has to be in different zone with the master instance.
+             * Specifies if the replica is the failover target. If the field is set to *true* the replica will be designated as a failover replica. In case the master instance fails, the replica
+             * instance will be promoted as the new master instance. Only one replica can be specified as failover target, and the replica has to be in different zone with the master instance.
              */
             failoverTarget?: boolean;
-            /** This is always ∗sql#replicaConfiguration∗. */
+            /** This is always *sql#replicaConfiguration*. */
             kind?: string;
             /**
-             * MySQL specific configuration when replicating from a MySQL on-premises master. Replication configuration information such as the username, password,
-             * certificates, and keys are not stored in the instance metadata. The configuration information is used only to set up the replication connection and is
-             * stored by MySQL in a file named ∗master.info∗ in the data directory.
+             * MySQL specific configuration when replicating from a MySQL on-premises master. Replication configuration information such as the username, password, certificates, and keys are not
+             * stored in the instance metadata. The configuration information is used only to set up the replication connection and is stored by MySQL in a file named *master.info* in the data
+             * directory.
              */
             mysqlReplicaConfiguration?: MySqlReplicaConfiguration;
         }
         interface Reschedule {
             /** Required. The type of the reschedule. */
             rescheduleType?: string;
-            /**
-             * Optional. Timestamp when the maintenance shall be rescheduled to if reschedule_type=SPECIFIC_TIME, in RFC 3339 format, for example
-             * ∗2012-11-15T16:19:00.094Z∗.
-             */
+            /** Optional. Timestamp when the maintenance shall be rescheduled to if reschedule_type=SPECIFIC_TIME, in RFC 3339 format, for example *2012-11-15T16:19:00.094Z*. */
             scheduleTime?: string;
         }
         interface RestoreBackupContext {
@@ -667,30 +645,28 @@ declare namespace gapi.client {
             backupRunId?: string;
             /** The ID of the instance that the backup was taken from. */
             instanceId?: string;
-            /** This is always ∗sql#restoreBackupContext∗. */
+            /** This is always *sql#restoreBackupContext*. */
             kind?: string;
             /** The full project ID of the source instance. */
             project?: string;
         }
         interface RotateServerCaContext {
-            /** This is always ∗sql#rotateServerCaContext∗. */
+            /** This is always *sql#rotateServerCaContext*. */
             kind?: string;
             /** The fingerprint of the next version to be rotated to. If left unspecified, will be rotated to the most recently added server CA version. */
             nextVersion?: string;
         }
         interface Settings {
             /**
-             * The activation policy specifies when the instance is activated; it is applicable only when the instance state is RUNNABLE. Valid values: ∗ALWAYS∗: The
-             * instance is on, and remains so even in the absence of connection requests. ∗NEVER∗: The instance is off; it is not activated, even if a connection
-             * request arrives.
+             * The activation policy specifies when the instance is activated; it is applicable only when the instance state is RUNNABLE. Valid values: *ALWAYS*: The instance is on, and remains so
+             * even in the absence of connection requests. *NEVER*: The instance is off; it is not activated, even if a connection request arrives.
              */
             activationPolicy?: string;
             /** The App Engine app IDs that can access this instance. (Deprecated) Applied to First Generation instances only. */
             authorizedGaeApplications?: string[];
             /**
-             * Availability type. Potential values: ∗ZONAL∗: The instance serves data from only one zone. Outages in that zone affect data accessibility. ∗REGIONAL∗:
-             * The instance can serve data from more than one zone in a region (it is highly available). For more information, see Overview of the High Availability
-             * Configuration.
+             * Availability type. Potential values: *ZONAL*: The instance serves data from only one zone. Outages in that zone affect data accessibility. *REGIONAL*: The instance can serve data
+             * from more than one zone in a region (it is highly available). For more information, see Overview of the High Availability Configuration.
              */
             availabilityType?: string;
             /** The daily backup configuration for the instance. */
@@ -698,8 +674,8 @@ declare namespace gapi.client {
             /** The name of server Instance collation. */
             collation?: string;
             /**
-             * Configuration specific to read replica instances. Indicates whether database flags for crash-safe replication are enabled. This property was only
-             * applicable to First Generation instances.
+             * Configuration specific to read replica instances. Indicates whether database flags for crash-safe replication are enabled. This property was only applicable to First Generation
+             * instances.
              */
             crashSafeReplicationEnabled?: boolean;
             /** The database flags passed to the instance at startup. */
@@ -711,36 +687,33 @@ declare namespace gapi.client {
             /** The type of data disk: PD_SSD (default) or PD_HDD. Not used for First Generation instances. */
             dataDiskType?: string;
             /**
-             * The settings for IP Management. This allows to enable or disable the instance IP and manage which external networks can connect to the instance. The
-             * IPv4 address cannot be disabled for Second Generation instances.
+             * The settings for IP Management. This allows to enable or disable the instance IP and manage which external networks can connect to the instance. The IPv4 address cannot be disabled
+             * for Second Generation instances.
              */
             ipConfiguration?: IpConfiguration;
-            /** This is always ∗sql#settings∗. */
+            /** This is always *sql#settings*. */
             kind?: string;
             /**
-             * The location preference settings. This allows the instance to be located as near as possible to either an App Engine app or Compute Engine zone for
-             * better performance. App Engine co-location was only applicable to First Generation instances.
+             * The location preference settings. This allows the instance to be located as near as possible to either an App Engine app or Compute Engine zone for better performance. App Engine
+             * co-location was only applicable to First Generation instances.
              */
             locationPreference?: LocationPreference;
             /** The maintenance window for this instance. This specifies when the instance can be restarted for maintenance purposes. */
             maintenanceWindow?: MaintenanceWindow;
-            /** The pricing plan for this instance. This can be either ∗PER_USE∗ or ∗PACKAGE∗. Only ∗PER_USE∗ is supported for Second Generation instances. */
+            /** The pricing plan for this instance. This can be either *PER_USE* or *PACKAGE*. Only *PER_USE* is supported for Second Generation instances. */
             pricingPlan?: string;
-            /**
-             * The type of replication this instance uses. This can be either ∗ASYNCHRONOUS∗ or ∗SYNCHRONOUS∗. (Deprecated_ This property was only applicable to First
-             * Generation instances.
-             */
+            /** The type of replication this instance uses. This can be either *ASYNCHRONOUS* or *SYNCHRONOUS*. (Deprecated_ This property was only applicable to First Generation instances. */
             replicationType?: string;
             /**
-             * The version of instance settings. This is a required field for update method to make sure concurrent updates are handled properly. During update, use
-             * the most recent settingsVersion value for this instance and do not try to update this value.
+             * The version of instance settings. This is a required field for update method to make sure concurrent updates are handled properly. During update, use the most recent settingsVersion
+             * value for this instance and do not try to update this value.
              */
             settingsVersion?: string;
             /** Configuration to increase storage size automatically. The default value is true. */
             storageAutoResize?: boolean;
             /** The maximum size to which storage capacity can be automatically increased. The default value is 0, which specifies that there is no limit. */
             storageAutoResizeLimit?: string;
-            /** The tier (or machine type) for this instance, for example ∗db-n1-standard-1∗ (MySQL instances) or ∗db-custom-1-3840∗ (PostgreSQL instances). */
+            /** The tier (or machine type) for this instance, for example *db-n1-standard-1* (MySQL instances) or *db-custom-1-3840* (PostgreSQL instances). */
             tier?: string;
             /** User-provided labels, represented as a dictionary where each label is a single key value pair. */
             userLabels?: { [P in string]: string };
@@ -748,7 +721,7 @@ declare namespace gapi.client {
         interface SqlExternalSyncSettingError {
             /** Additional information about the error encountered. */
             detail?: string;
-            /** This is always ∗sql#migrationSettingError∗. */
+            /** This is always *sql#migrationSettingError*. */
             kind?: string;
             /** Identifies the specific error that occurred. */
             type?: string;
@@ -760,7 +733,7 @@ declare namespace gapi.client {
         interface SqlInstancesVerifyExternalSyncSettingsResponse {
             /** List of migration violations. */
             errors?: SqlExternalSyncSettingError[];
-            /** This is always ∗sql#migrationSettingErrorList∗. */
+            /** This is always *sql#migrationSettingErrorList*. */
             kind?: string;
         }
         interface SqlScheduledMaintenance {
@@ -789,13 +762,13 @@ declare namespace gapi.client {
             certSerialNumber?: string;
             /** User supplied name. Constrained to [a-zA-Z.-_ ]+. */
             commonName?: string;
-            /** The time when the certificate was created in RFC 3339 format, for example ∗2012-11-15T16:19:00.094Z∗ */
+            /** The time when the certificate was created in RFC 3339 format, for example *2012-11-15T16:19:00.094Z* */
             createTime?: string;
-            /** The time when the certificate expires in RFC 3339 format, for example ∗2012-11-15T16:19:00.094Z∗. */
+            /** The time when the certificate expires in RFC 3339 format, for example *2012-11-15T16:19:00.094Z*. */
             expirationTime?: string;
             /** Name of the database instance. */
             instance?: string;
-            /** This is always ∗sql#sslCert∗. */
+            /** This is always *sql#sslCert*. */
             kind?: string;
             /** The URI of this resource. */
             selfLink?: string;
@@ -819,26 +792,23 @@ declare namespace gapi.client {
         interface SslCertsInsertResponse {
             /** The new client certificate and private key. */
             clientCert?: SslCertDetail;
-            /** This is always ∗sql#sslCertsInsert∗. */
+            /** This is always *sql#sslCertsInsert*. */
             kind?: string;
             /** The operation to track the ssl certs insert request. */
             operation?: Operation;
-            /**
-             * The server Certificate Authority's certificate. If this is missing you can force a new one to be generated by calling resetSslConfig method on
-             * instances resource.
-             */
+            /** The server Certificate Authority's certificate. If this is missing you can force a new one to be generated by calling resetSslConfig method on instances resource. */
             serverCaCert?: SslCert;
         }
         interface SslCertsListResponse {
             /** List of client certificates for the instance. */
             items?: SslCert[];
-            /** This is always ∗sql#sslCertsList∗. */
+            /** This is always *sql#sslCertsList*. */
             kind?: string;
         }
         interface Tier {
             /** The maximum disk size of this tier in bytes. */
             DiskQuota?: string;
-            /** This is always ∗sql#tier∗. */
+            /** This is always *sql#tier*. */
             kind?: string;
             /** The maximum RAM usage of this tier in bytes. */
             RAM?: string;
@@ -850,34 +820,34 @@ declare namespace gapi.client {
         interface TiersListResponse {
             /** List of tiers. */
             items?: Tier[];
-            /** This is always ∗sql#tiersList∗. */
+            /** This is always *sql#tiersList*. */
             kind?: string;
         }
         interface TruncateLogContext {
-            /** This is always ∗sql#truncateLogContext∗. */
+            /** This is always *sql#truncateLogContext*. */
             kind?: string;
-            /** The type of log to truncate. Valid values are ∗MYSQL_GENERAL_TABLE∗ and ∗MYSQL_SLOW_TABLE∗. */
+            /** The type of log to truncate. Valid values are *MYSQL_GENERAL_TABLE* and *MYSQL_SLOW_TABLE*. */
             logType?: string;
         }
         interface User {
             /** This field is deprecated and will be removed from a future version of the API. */
             etag?: string;
             /**
-             * The host name from which the user can connect. For ∗insert∗ operations, host defaults to an empty string. For ∗update∗ operations, host is specified as
-             * part of the request URL. The host name cannot be updated after insertion.
+             * The host name from which the user can connect. For *insert* operations, host defaults to an empty string. For *update* operations, host is specified as part of the request URL. The
+             * host name cannot be updated after insertion.
              */
             host?: string;
-            /** The name of the Cloud SQL instance. This does not include the project ID. Can be omitted for ∗update∗ since it is already specified on the URL. */
+            /** The name of the Cloud SQL instance. This does not include the project ID. Can be omitted for *update* since it is already specified on the URL. */
             instance?: string;
-            /** This is always ∗sql#user∗. */
+            /** This is always *sql#user*. */
             kind?: string;
-            /** The name of the user in the Cloud SQL instance. Can be omitted for ∗update∗ since it is already specified in the URL. */
+            /** The name of the user in the Cloud SQL instance. Can be omitted for *update* since it is already specified in the URL. */
             name?: string;
             /** The password for the user. */
             password?: string;
             /**
-             * The project ID of the project containing the Cloud SQL database. The Google apps domain is prefixed if applicable. Can be omitted for ∗update∗ since it
-             * is already specified on the URL.
+             * The project ID of the project containing the Cloud SQL database. The Google apps domain is prefixed if applicable. Can be omitted for *update* since it is already specified on the
+             * URL.
              */
             project?: string;
             sqlserverUserDetails?: SqlServerUserDetails;
@@ -887,12 +857,9 @@ declare namespace gapi.client {
         interface UsersListResponse {
             /** List of user resources in the instance. */
             items?: User[];
-            /** This is always ∗sql#usersList∗. */
+            /** This is always *sql#usersList*. */
             kind?: string;
-            /**
-             * An identifier that uniquely identifies the operation. You can use this identifier to retrieve the Operations resource that has information about the
-             * operation.
-             */
+            /** An identifier that uniquely identifies the operation. You can use this identifier to retrieve the Operations resource that has information about the operation. */
             nextPageToken?: string;
         }
         interface BackupRunsResource {
@@ -1365,9 +1332,8 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /**
-             * Add a new trusted Certificate Authority (CA) version for the specified instance. Required to prepare for a certificate rotation. If a CA version was
-             * previously added but never used in a certificate rotation, this operation replaces that version. There cannot be more than one CA version waiting to be
-             * rotated in.
+             * Add a new trusted Certificate Authority (CA) version for the specified instance. Required to prepare for a certificate rotation. If a CA version was previously added but never used
+             * in a certificate rotation, this operation replaces that version. There cannot be more than one CA version waiting to be rotated in.
              */
             addServerCa(request?: {
                 /** V1 error format. */
@@ -1824,10 +1790,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter expression that filters resources listed in the response. The expression is in the form of field:value. For example,
-                 * 'instanceType:CLOUD_SQL_INSTANCE'. Fields can be nested as needed as per their JSON representation, such as 'settings.userLabels.auto_start:true'.
-                 * Multiple filter queries are space-separated. For example. 'state:RUNNABLE instanceType:CLOUD_SQL_INSTANCE'. By default, each expression is an AND
-                 * expression. However, you can include AND and OR expressions explicitly.
+                 * A filter expression that filters resources listed in the response. The expression is in the form of field:value. For example, 'instanceType:CLOUD_SQL_INSTANCE'. Fields can be
+                 * nested as needed as per their JSON representation, such as 'settings.userLabels.auto_start:true'. Multiple filter queries are space-separated. For example. 'state:RUNNABLE
+                 * instanceType:CLOUD_SQL_INSTANCE'. By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1850,9 +1815,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<InstancesListResponse>;
             /**
-             * Lists all of the trusted Certificate Authorities (CAs) for the specified instance. There can be up to three CAs listed: the CA that was used to sign
-             * the certificate that is currently in use, a CA that has been added but not yet used to sign a certificate, and a CA used to sign a certificate that has
-             * previously rotated out.
+             * Lists all of the trusted Certificate Authorities (CAs) for the specified instance. There can be up to three CAs listed: the CA that was used to sign the certificate that is
+             * currently in use, a CA that has been added but not yet used to sign a certificate, and a CA used to sign a certificate that has previously rotated out.
              */
             listServerCas(request?: {
                 /** V1 error format. */
@@ -2524,8 +2488,8 @@ declare namespace gapi.client {
         }
         interface SslCertsResource {
             /**
-             * Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use
-             * the certificate to authenticate as themselves when connecting to the database.
+             * Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use the certificate to
+             * authenticate as themselves when connecting to the database.
              */
             createEphemeral(request: {
                 /** V1 error format. */
@@ -2617,10 +2581,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<Operation>;
-            /**
-             * Retrieves a particular SSL certificate. Does not include the private key (required for usage). The private key must be saved from the response to
-             * initial creation.
-             */
+            /** Retrieves a particular SSL certificate. Does not include the private key (required for usage). The private key must be saved from the response to initial creation. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2651,10 +2612,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<SslCert>;
-            /**
-             * Creates an SSL certificate and returns it along with the private key and server certificate authority. The new certificate will not be usable until the
-             * instance is restarted.
-             */
+            /** Creates an SSL certificate and returns it along with the private key and server certificate authority. The new certificate will not be usable until the instance is restarted. */
             insert(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;

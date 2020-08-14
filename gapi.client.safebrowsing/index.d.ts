@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Safe Browsing API v4 4.0
 // Project: https://developers.google.com/safe-browsing/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -34,19 +37,16 @@ declare namespace gapi.client {
             /** Requests the lists for a specific language. Expects ISO 639 alpha-2 format. */
             language?: string;
             /**
-             * Sets the maximum number of entries that the client is willing to have in the local database for the specified list. This should be a power of 2 between
-             * 2∗∗10 and 2∗∗20. If zero, no database size limit is set.
+             * Sets the maximum number of entries that the client is willing to have in the local database for the specified list. This should be a power of 2 between 2**10 and 2**20. If zero, no
+             * database size limit is set.
              */
             maxDatabaseEntries?: number;
             /**
-             * The maximum size in number of entries. The update will not contain more entries than this value. This should be a power of 2 between 2∗∗10 and 2∗∗20.
-             * If zero, no update size limit is set.
+             * The maximum size in number of entries. The update will not contain more entries than this value. This should be a power of 2 between 2**10 and 2**20. If zero, no update size limit
+             * is set.
              */
             maxUpdateEntries?: number;
-            /**
-             * Requests the list for a specific geographic location. If not set the server may pick that value based on the user's IP address. Expects ISO 3166-1
-             * alpha-2 format.
-             */
+            /** Requests the list for a specific geographic location. If not set the server may pick that value based on the user's IP address. Expects ISO 3166-1 alpha-2 format. */
             region?: string;
             /** The compression types supported by the client. */
             supportedCompressions?: string[];
@@ -79,10 +79,7 @@ declare namespace gapi.client {
         interface FindFullHashesResponse {
             /** The full hashes that matched the requested prefixes. */
             matches?: ThreatMatch[];
-            /**
-             * The minimum duration the client must wait before issuing any find hashes request. If this field is not set, clients can issue a request as soon as they
-             * want.
-             */
+            /** The minimum duration the client must wait before issuing any find hashes request. If this field is not set, clients can issue a request as soon as they want. */
             minimumWaitDuration?: string;
             /** For requested entities that did not match the threat list, how long to cache the response. */
             negativeCacheDuration?: string;
@@ -117,8 +114,8 @@ declare namespace gapi.client {
             /** A set of entries to add to a local threat type's list. Repeated to allow for a combination of compressed and raw data to be sent in a single response. */
             additions?: ThreatEntrySet[];
             /**
-             * The expected SHA256 hash of the client state; that is, of the sorted list of all hashes present in the database after applying the provided update. If
-             * the client state doesn't match the expected state, the client must disregard this update and retry later.
+             * The expected SHA256 hash of the client state; that is, of the sorted list of all hashes present in the database after applying the provided update. If the client state doesn't match
+             * the expected state, the client must disregard this update and retry later.
              */
             checksum?: Checksum;
             /** The new client state, in encrypted format. Opaque to clients. */
@@ -143,10 +140,7 @@ declare namespace gapi.client {
         interface RawHashes {
             /** The number of bytes for each prefix encoded below. This field can be anywhere from 4 (shortest prefix) to 32 (full SHA256 hash). */
             prefixSize?: number;
-            /**
-             * The hashes, in binary format, concatenated into one long string. Hashes are sorted in lexicographic order. For JSON API users, hashes are
-             * base64-encoded.
-             */
+            /** The hashes, in binary format, concatenated into one long string. Hashes are sorted in lexicographic order. For JSON API users, hashes are base64-encoded. */
             rawHashes?: string;
         }
         interface RawIndices {
@@ -156,15 +150,9 @@ declare namespace gapi.client {
         interface RiceDeltaEncoding {
             /** The encoded deltas that are encoded using the Golomb-Rice coder. */
             encodedData?: string;
-            /**
-             * The offset of the first entry in the encoded data, or, if only a single integer was encoded, that single integer's value. If the field is empty or
-             * missing, assume zero.
-             */
+            /** The offset of the first entry in the encoded data, or, if only a single integer was encoded, that single integer's value. If the field is empty or missing, assume zero. */
             firstValue?: string;
-            /**
-             * The number of entries that are delta encoded in the encoded data. If only a single integer was encoded, this will be zero and the single value will be
-             * stored in `first_value`.
-             */
+            /** The number of entries that are delta encoded in the encoded data. If only a single integer was encoded, this will be zero and the single value will be stored in `first_value`. */
             numEntries?: number;
             /** The Golomb-Rice parameter, which is a number between 2 and 28. This field is missing (that is, zero) if `num_entries` is zero. */
             riceParameter?: number;
@@ -172,10 +160,7 @@ declare namespace gapi.client {
         interface ThreatEntry {
             /** The digest of an executable in SHA256 format. The API supports both binary and hex digests. For JSON requests, digests are base64-encoded. */
             digest?: string;
-            /**
-             * A hash prefix, consisting of the most significant 4-32 bytes of a SHA256 hash. This field is in binary format. For JSON requests, hashes are
-             * base64-encoded.
-             */
+            /** A hash prefix, consisting of the most significant 4-32 bytes of a SHA256 hash. This field is in binary format. For JSON requests, hashes are base64-encoded. */
             hash?: string;
             /** A URL. */
             url?: string;
@@ -192,13 +177,13 @@ declare namespace gapi.client {
             /** The raw removal indices for a local list. */
             rawIndices?: RawIndices;
             /**
-             * The encoded 4-byte prefixes of SHA256-formatted entries, using a Golomb-Rice encoding. The hashes are converted to uint32, sorted in ascending order,
-             * then delta encoded and stored as encoded_data.
+             * The encoded 4-byte prefixes of SHA256-formatted entries, using a Golomb-Rice encoding. The hashes are converted to uint32, sorted in ascending order, then delta encoded and stored
+             * as encoded_data.
              */
             riceHashes?: RiceDeltaEncoding;
             /**
-             * The encoded local, lexicographically-sorted list indices, using a Golomb-Rice encoding. Used for sending compressed removal indices. The removal
-             * indices (uint32) are sorted in ascending order, then delta encoded and stored as encoded_data.
+             * The encoded local, lexicographically-sorted list indices, using a Golomb-Rice encoding. Used for sending compressed removal indices. The removal indices (uint32) are sorted in
+             * ascending order, then delta encoded and stored as encoded_data.
              */
             riceIndices?: RiceDeltaEncoding;
         }

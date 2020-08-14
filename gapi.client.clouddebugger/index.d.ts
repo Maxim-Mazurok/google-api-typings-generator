@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Debugger API v2 2.0
 // Project: https://cloud.google.com/debugger
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -113,8 +116,8 @@ declare namespace gapi.client {
              *
              * Examples (final state):
              *
-             * ∗   `Invalid line number` referring to location
-             * ∗   `Field f not found in class C` referring to condition
+             * *   `Invalid line number` referring to location
+             * *   `Field f not found in class C` referring to condition
              */
             status?: StatusMessage;
             /** E-mail address of the user that created this breakpoint */
@@ -243,9 +246,9 @@ declare namespace gapi.client {
              *
              * Examples:
              *
-             * ∗   `Failed to load '$0' which helps debug $1 the first time it
+             * *   `Failed to load '$0' which helps debug $1 the first time it
              * is loaded.  Again, $0 is very important.`
-             * ∗   `Please pay $$10 to use $0 instead of $1.`
+             * *   `Please pay $$10 to use $0 instead of $1.`
              */
             format?: string;
             /** Optional parameters to be embedded into the message. */
@@ -445,9 +448,9 @@ declare namespace gapi.client {
              *
              * Examples of error message applied to value:
              *
-             * ∗   `Malformed string`,
-             * ∗   `Field f not found in class C`
-             * ∗   `Null pointer dereference`
+             * *   `Malformed string`,
+             * *   `Field f not found in class C`
+             * *   `Null pointer dereference`
              */
             status?: StatusMessage;
             /**

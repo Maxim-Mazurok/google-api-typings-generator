@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Android Management API v1 1.0
 // Project: https://developers.google.com/android/management
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -29,10 +32,7 @@ declare namespace gapi.client {
             packageName?: string;
         }
         interface ApiLevelCondition {
-            /**
-             * The minimum desired Android Framework API level. If the device doesn't meet the minimum requirement, this condition is satisfied. Must be greater than
-             * zero.
-             */
+            /** The minimum desired Android Framework API level. If the device doesn't meet the minimum requirement, this condition is satisfied. Must be greater than zero. */
             minApiLevel?: number;
         }
         interface Application {
@@ -63,16 +63,15 @@ declare namespace gapi.client {
         }
         interface ApplicationPolicy {
             /**
-             * List of the app’s track IDs that a device belonging to the enterprise can access. If the list contains multiple track IDs, devices receive the latest
-             * version among all accessible tracks. If the list contains no track IDs, devices only have access to the app’s production track. More details about each
-             * track are available in AppTrackInfo.
+             * List of the app’s track IDs that a device belonging to the enterprise can access. If the list contains multiple track IDs, devices receive the latest version among all accessible
+             * tracks. If the list contains no track IDs, devices only have access to the app’s production track. More details about each track are available in AppTrackInfo.
              */
             accessibleTrackIds?: string[];
             /** Controls whether the app can communicate with itself across a device’s work and personal profiles, subject to user consent. */
             connectedWorkAndPersonalApp?: string;
             /**
-             * The default policy for all permissions requested by the app. If specified, this overrides the policy-level default_permission_policy which applies to
-             * all apps. It does not override the permission_grants which applies to all apps.
+             * The default policy for all permissions requested by the app. If specified, this overrides the policy-level default_permission_policy which applies to all apps. It does not override
+             * the permission_grants which applies to all apps.
              */
             defaultPermissionPolicy?: string;
             /** The scopes delegated to the app from Android Device Policy. */
@@ -81,24 +80,20 @@ declare namespace gapi.client {
             disabled?: boolean;
             /** The type of installation to perform. */
             installType?: string;
-            /**
-             * Whether the app is allowed to lock itself in full-screen mode. DEPRECATED. Use InstallType KIOSK or kioskCustomLauncherEnabled to to configure a
-             * dedicated device.
-             */
+            /** Whether the app is allowed to lock itself in full-screen mode. DEPRECATED. Use InstallType KIOSK or kioskCustomLauncherEnabled to to configure a dedicated device. */
             lockTaskAllowed?: boolean;
             /**
-             * Managed configuration applied to the app. The format for the configuration is dictated by the ManagedProperty values supported by the app. Each field
-             * name in the managed configuration must match the key field of the ManagedProperty. The field value must be compatible with the type of the
-             * ManagedProperty: ∗type∗ ∗JSON value∗ BOOL true or false STRING string INTEGER number CHOICE string MULTISELECT array of strings HIDDEN string
-             * BUNDLE_ARRAY array of objects
+             * Managed configuration applied to the app. The format for the configuration is dictated by the ManagedProperty values supported by the app. Each field name in the managed
+             * configuration must match the key field of the ManagedProperty. The field value must be compatible with the type of the ManagedProperty: *type* *JSON value* BOOL true or false STRING
+             * string INTEGER number CHOICE string MULTISELECT array of strings HIDDEN string BUNDLE_ARRAY array of objects
              */
             managedConfiguration?: { [P in string]: any };
             /** The managed configurations template for the app, saved from the managed configurations iframe. This field is ignored if managed_configuration is set. */
             managedConfigurationTemplate?: ManagedConfigurationTemplate;
             /**
-             * The minimum version of the app that runs on the device. If set, the device attempts to update the app to at least this version code. If the app is not
-             * up-to-date, the device will contain a NonComplianceDetail with non_compliance_reason set to APP_NOT_UPDATED. The app must already be published to
-             * Google Play with a version code greater than or equal to this value. At most 20 apps may specify a minimum version code per policy.
+             * The minimum version of the app that runs on the device. If set, the device attempts to update the app to at least this version code. If the app is not up-to-date, the device will
+             * contain a NonComplianceDetail with non_compliance_reason set to APP_NOT_UPDATED. The app must already be published to Google Play with a version code greater than or equal to this
+             * value. At most 20 apps may specify a minimum version code per policy.
              */
             minimumVersionCode?: number;
             /** The package name of the app. For example, com.google.android.youtube for the YouTube app. */
@@ -119,14 +114,11 @@ declare namespace gapi.client {
             keyedAppStates?: KeyedAppState[];
             /** Package name of the app. */
             packageName?: string;
-            /**
-             * The SHA-256 hash of the app's APK file, which can be used to verify the app hasn't been modified. Each byte of the hash value is represented as a
-             * two-digit hexadecimal number.
-             */
+            /** The SHA-256 hash of the app's APK file, which can be used to verify the app hasn't been modified. Each byte of the hash value is represented as a two-digit hexadecimal number. */
             packageSha256Hash?: string;
             /**
-             * The SHA-1 hash of each android.content.pm.Signature (https://developer.android.com/reference/android/content/pm/Signature.html) associated with the app
-             * package. Each byte of each hash value is represented as a two-digit hexadecimal number.
+             * The SHA-1 hash of each android.content.pm.Signature (https://developer.android.com/reference/android/content/pm/Signature.html) associated with the app package. Each byte of each
+             * hash value is represented as a two-digit hexadecimal number.
              */
             signingKeyCertFingerprints?: string[];
             /** Application state. */
@@ -147,32 +139,29 @@ declare namespace gapi.client {
             trackId?: string;
         }
         interface BlockAction {
-            /**
-             * Number of days the policy is non-compliant before the device or work profile is blocked. To block access immediately, set to 0. blockAfterDays must be
-             * less than wipeAfterDays.
-             */
+            /** Number of days the policy is non-compliant before the device or work profile is blocked. To block access immediately, set to 0. blockAfterDays must be less than wipeAfterDays. */
             blockAfterDays?: number;
             /** Specifies the scope of this BlockAction. Only applicable to devices that are company-owned. */
             blockScope?: string;
         }
         interface ChoosePrivateKeyRule {
             /**
-             * The package names for which outgoing requests are subject to this rule. If no package names are specified, then the rule applies to all packages. For
-             * each package name listed, the rule applies to that package and all other packages that shared the same Android UID. The SHA256 hash of the signing key
-             * signatures of each package_name will be verified against those provided by Play
+             * The package names for which outgoing requests are subject to this rule. If no package names are specified, then the rule applies to all packages. For each package name listed, the
+             * rule applies to that package and all other packages that shared the same Android UID. The SHA256 hash of the signing key signatures of each package_name will be verified against
+             * those provided by Play
              */
             packageNames?: string[];
             /** The alias of the private key to be used. */
             privateKeyAlias?: string;
-            /** The URL pattern to match against the URL of the outgoing request. The pattern may contain asterisk (∗) wildcards. Any URL is matched if unspecified. */
+            /** The URL pattern to match against the URL of the outgoing request. The pattern may contain asterisk (*) wildcards. Any URL is matched if unspecified. */
             urlPattern?: string;
         }
         interface Command {
             /** The timestamp at which the command was created. The timestamp is automatically generated by the server. */
             createTime?: string;
             /**
-             * The duration for which the command is valid. The command will expire if not executed by the device during this time. The default duration if
-             * unspecified is ten minutes. There is no maximum duration.
+             * The duration for which the command is valid. The command will expire if not executed by the device during this time. The default duration if unspecified is ten minutes. There is no
+             * maximum duration.
              */
             duration?: string;
             /** If the command failed, an error code explaining the failure. This is not set when the command is cancelled by the caller. */
@@ -184,8 +173,8 @@ declare namespace gapi.client {
             /** The type of the command. */
             type?: string;
             /**
-             * The resource name of the user that owns the device in the form enterprises/{enterpriseId}/users/{userId}. This is automatically generated by the server
-             * based on the device the command is sent to.
+             * The resource name of the user that owns the device in the form enterprises/{enterpriseId}/users/{userId}. This is automatically generated by the server based on the device the
+             * command is sent to.
              */
             userName?: string;
         }
@@ -193,8 +182,8 @@ declare namespace gapi.client {
             /** A condition which is satisfied if the Android Framework API level on the device doesn't meet a minimum requirement. */
             apiLevelCondition?: ApiLevelCondition;
             /**
-             * If set to true, the rule includes a mitigating action to disable apps so that the device is effectively disabled, but app data is preserved. If the
-             * device is running an app in locked task mode, the app will be closed and a UI showing the reason for non-compliance will be displayed.
+             * If set to true, the rule includes a mitigating action to disable apps so that the device is effectively disabled, but app data is preserved. If the device is running an app in
+             * locked task mode, the app will be closed and a UI showing the reason for non-compliance will be displayed.
              */
             disableApps?: boolean;
             /** A condition which is satisfied if there exists any matching NonComplianceDetail for the device. */
@@ -203,10 +192,7 @@ declare namespace gapi.client {
             packageNamesToDisable?: string[];
         }
         interface Date {
-            /**
-             * Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not
-             * significant.
-             */
+            /** Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not significant. */
             day?: number;
             /** Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day. */
             month?: number;
@@ -226,10 +212,7 @@ declare namespace gapi.client {
             appliedState?: string;
             /** Device settings information. This information is only available if deviceSettingsEnabled is true in the device's policy. */
             deviceSettings?: DeviceSettings;
-            /**
-             * If the device state is DISABLED, an optional message that is displayed on the device indicating the reason the device is disabled. This field can be
-             * modified by a patch request.
-             */
+            /** If the device state is DISABLED, an optional message that is displayed on the device indicating the reason the device is disabled. This field can be modified by a patch request. */
             disabledReason?: UserFacingMessage;
             /** Detailed information about displays on the device. This information is only available if displayInfoEnabled is true in the device's policy. */
             displays?: Display[];
@@ -251,10 +234,7 @@ declare namespace gapi.client {
             lastStatusReportTime?: string;
             /** The type of management mode Android Device Policy takes on the device. This influences which policy settings are supported. */
             managementMode?: string;
-            /**
-             * Events related to memory and storage measurements in chronological order. This information is only available if memoryInfoEnabled is true in the
-             * device's policy.
-             */
+            /** Events related to memory and storage measurements in chronological order. This information is only available if memoryInfoEnabled is true in the device's policy. */
             memoryEvents?: MemoryEvent[];
             /** Memory information. This information is only available if memoryInfoEnabled is true in the device's policy. */
             memoryInfo?: MemoryInfo;
@@ -269,19 +249,16 @@ declare namespace gapi.client {
             /** Whether the device is compliant with its policy. */
             policyCompliant?: boolean;
             /**
-             * The name of the policy applied to the device, in the form enterprises/{enterpriseId}/policies/{policyId}. If not specified, the policy_name for the
-             * device's user is applied. This field can be modified by a patch request. You can specify only the policyId when calling enterprises.devices.patch, as
-             * long as the policyId doesn’t contain any slashes. The rest of the policy name is inferred.
+             * The name of the policy applied to the device, in the form enterprises/{enterpriseId}/policies/{policyId}. If not specified, the policy_name for the device's user is applied. This
+             * field can be modified by a patch request. You can specify only the policyId when calling enterprises.devices.patch, as long as the policyId doesn’t contain any slashes. The rest of
+             * the policy name is inferred.
              */
             policyName?: string;
-            /**
-             * Power management events on the device in chronological order. This information is only available if powerManagementEventsEnabled is true in the
-             * device's policy.
-             */
+            /** Power management events on the device in chronological order. This information is only available if powerManagementEventsEnabled is true in the device's policy. */
             powerManagementEvents?: PowerManagementEvent[];
             /**
-             * If the same physical device has been enrolled multiple times, this field contains its previous device names. The serial number is used as the unique
-             * identifier to determine if the same physical device has enrolled previously. The names are in chronological order.
+             * If the same physical device has been enrolled multiple times, this field contains its previous device names. The serial number is used as the unique identifier to determine if the
+             * same physical device has enrolled previously. The names are in chronological order.
              */
             previousDeviceNames?: string[];
             /** Device's security posture value that reflects how secure the device is. */
@@ -289,14 +266,11 @@ declare namespace gapi.client {
             /** Detailed information about the device software. This information is only available if softwareInfoEnabled is true in the device's policy. */
             softwareInfo?: SoftwareInfo;
             /**
-             * The state to be applied to the device. This field can be modified by a patch request. Note that when calling enterprises.devices.patch, ACTIVE and
-             * DISABLED are the only allowable values. To enter the device into a DELETED state, call enterprises.devices.delete.
+             * The state to be applied to the device. This field can be modified by a patch request. Note that when calling enterprises.devices.patch, ACTIVE and DISABLED are the only allowable
+             * values. To enter the device into a DELETED state, call enterprises.devices.delete.
              */
             state?: string;
-            /**
-             * Map of selected system properties name and value related to the device. This information is only available if systemPropertiesEnabled is true in the
-             * device's policy.
-             */
+            /** Map of selected system properties name and value related to the device. This information is only available if systemPropertiesEnabled is true in the device's policy. */
             systemProperties?: { [P in string]: string };
             /** The user who owns the device. */
             user?: User;
@@ -340,9 +314,9 @@ declare namespace gapi.client {
         }
         interface EnrollmentToken {
             /**
-             * Optional, arbitrary data associated with the enrollment token. This could contain, for example, the ID of an org unit the device is assigned to after
-             * enrollment. After a device enrolls with the token, this data will be exposed in the enrollment_token_data field of the Device resource. The data must
-             * be 1024 characters or less; otherwise, the creation request will fail.
+             * Optional, arbitrary data associated with the enrollment token. This could contain, for example, the ID of an org unit the device is assigned to after enrollment. After a device
+             * enrolls with the token, this data will be exposed in the enrollment_token_data field of the Device resource. The data must be 1024 characters or less; otherwise, the creation
+             * request will fail.
              */
             additionalData?: string;
             /** Controls personal usage on devices provisioned using this enrollment token. */
@@ -351,28 +325,24 @@ declare namespace gapi.client {
             duration?: string;
             /** The expiration time of the token. This is a read-only field generated by the server. */
             expirationTimestamp?: string;
-            /**
-             * The name of the enrollment token, which is generated by the server during creation, in the form
-             * enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}.
-             */
+            /** The name of the enrollment token, which is generated by the server during creation, in the form enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}. */
             name?: string;
             /** Whether the enrollment token is for one time use only. If the flag is set to true, only one device can use it for registration. */
             oneTimeOnly?: boolean;
             /**
-             * The name of the policy initially applied to the enrolled device, in the form enterprises/{enterpriseId}/policies/{policyId}. If not specified, the
-             * policy_name for the device’s user is applied. If user_name is also not specified, enterprises/{enterpriseId}/policies/default is applied by default.
-             * When updating this field, you can specify only the policyId as long as the policyId doesn’t contain any slashes. The rest of the policy name will be
-             * inferred.
+             * The name of the policy initially applied to the enrolled device, in the form enterprises/{enterpriseId}/policies/{policyId}. If not specified, the policy_name for the device’s user
+             * is applied. If user_name is also not specified, enterprises/{enterpriseId}/policies/default is applied by default. When updating this field, you can specify only the policyId as
+             * long as the policyId doesn’t contain any slashes. The rest of the policy name will be inferred.
              */
             policyName?: string;
             /**
-             * A JSON string whose UTF-8 representation can be used to generate a QR code to enroll a device with this enrollment token. To enroll a device using NFC,
-             * the NFC record must contain a serialized java.util.Properties representation of the properties in the JSON.
+             * A JSON string whose UTF-8 representation can be used to generate a QR code to enroll a device with this enrollment token. To enroll a device using NFC, the NFC record must contain a
+             * serialized java.util.Properties representation of the properties in the JSON.
              */
             qrCode?: string;
             /**
-             * The user associated with this enrollment token. If it's specified when the enrollment token is created and the user does not exist, the user will be
-             * created. This field must not contain personally identifiable information. Only the account_identifier field needs to be set.
+             * The user associated with this enrollment token. If it's specified when the enrollment token is created and the user does not exist, the user will be created. This field must not
+             * contain personally identifiable information. Only the account_identifier field needs to be set.
              */
             user?: User;
             /** The token value that's passed to the device and authorizes the device to enroll. This is a read-only field generated by the server. */
@@ -386,21 +356,18 @@ declare namespace gapi.client {
             /** The name of the enterprise displayed to users. */
             enterpriseDisplayName?: string;
             /**
-             * An image displayed as a logo during device provisioning. Supported types are: image/bmp, image/gif, image/x-ico, image/jpeg, image/png, image/webp,
-             * image/vnd.wap.wbmp, image/x-adobe-dng.
+             * An image displayed as a logo during device provisioning. Supported types are: image/bmp, image/gif, image/x-ico, image/jpeg, image/png, image/webp, image/vnd.wap.wbmp,
+             * image/x-adobe-dng.
              */
             logo?: ExternalData;
             /** The name of the enterprise which is generated by the server during creation, in the form enterprises/{enterpriseId}. */
             name?: string;
             /**
-             * A color in RGB format that indicates the predominant color to display in the device management app UI. The color components are stored as follows: (red
-             * << 16) | (green << 8) | blue, where the value of each component is between 0 and 255, inclusive.
+             * A color in RGB format that indicates the predominant color to display in the device management app UI. The color components are stored as follows: (red << 16) | (green << 8) | blue,
+             * where the value of each component is between 0 and 255, inclusive.
              */
             primaryColor?: number;
-            /**
-             * The topic that Cloud Pub/Sub notifications are published to, in the form projects/{project}/topics/{topic}. This field is only required if Pub/Sub
-             * notifications are enabled.
-             */
+            /** The topic that Cloud Pub/Sub notifications are published to, in the form projects/{project}/topics/{topic}. This field is only required if Pub/Sub notifications are enabled. */
             pubsubTopic?: string;
             /** Sign-in details of the enterprise. */
             signinDetails?: SigninDetail[];
@@ -411,15 +378,15 @@ declare namespace gapi.client {
             /** The base-64 encoded SHA-256 hash of the content hosted at url. If the content doesn't match this hash, Android Device Policy won't use the data. */
             sha256Hash?: string;
             /**
-             * The absolute URL to the data, which must use either the http or https scheme. Android Device Policy doesn't provide any credentials in the GET request,
-             * so the URL must be publicly accessible. Including a long, random component in the URL may be used to prevent attackers from discovering the URL.
+             * The absolute URL to the data, which must use either the http or https scheme. Android Device Policy doesn't provide any credentials in the GET request, so the URL must be publicly
+             * accessible. Including a long, random component in the URL may be used to prevent attackers from discovering the URL.
              */
             url?: string;
         }
         interface FreezePeriod {
             /**
-             * The end date (inclusive) of the freeze period. Must be no later than 90 days from the start date. If the end date is earlier than the start date, the
-             * freeze period is considered wrapping year-end. Note: year must not be set. For example, {"month": 1,"date": 30}.
+             * The end date (inclusive) of the freeze period. Must be no later than 90 days from the start date. If the end date is earlier than the start date, the freeze period is considered
+             * wrapping year-end. Note: year must not be set. For example, {"month": 1,"date": 30}.
              */
             endDate?: Date;
             /** The start date (inclusive) of the freeze period. Note: year must not be set. For example, {"month": 1,"date": 30}. */
@@ -460,10 +427,7 @@ declare namespace gapi.client {
             batteryTemperatures?: number[];
             /** Current CPU temperatures in Celsius for each CPU on the device. */
             cpuTemperatures?: number[];
-            /**
-             * CPU usages in percentage for each core available on the device. Usage is 0 for each unplugged core. Empty array implies that CPU usage is not supported
-             * in the system.
-             */
+            /** CPU usages in percentage for each core available on the device. Usage is 0 for each unplugged core. Empty array implies that CPU usage is not supported in the system. */
             cpuUsages?: number[];
             /** The time the measurements were taken. */
             createTime?: string;
@@ -478,20 +442,20 @@ declare namespace gapi.client {
             /** The creation time of the app state on the device. */
             createTime?: string;
             /**
-             * Optionally, a machine-readable value to be read by the EMM. For example, setting values that the admin can choose to query against in the EMM console
-             * (e.g. “notify me if the battery_warning data < 10”).
+             * Optionally, a machine-readable value to be read by the EMM. For example, setting values that the admin can choose to query against in the EMM console (e.g. “notify me if the
+             * battery_warning data < 10”).
              */
             data?: string;
             /**
-             * The key for the app state. Acts as a point of reference for what the app is providing state for. For example, when providing managed configuration
-             * feedback, this key could be the managed configuration key.
+             * The key for the app state. Acts as a point of reference for what the app is providing state for. For example, when providing managed configuration feedback, this key could be the
+             * managed configuration key.
              */
             key?: string;
             /** The time the app state was most recently updated. */
             lastUpdateTime?: string;
             /**
-             * Optionally, a free-form message string to explain the app state. If the state was triggered by a particular value (e.g. a managed configuration value),
-             * it should be included in the message.
+             * Optionally, a free-form message string to explain the app state. If the state was triggered by a particular value (e.g. a managed configuration value), it should be included in the
+             * message.
              */
             message?: string;
             /** The severity of the app state. */
@@ -505,8 +469,8 @@ declare namespace gapi.client {
             /** Specifies whether system info and notifications are disabled in kiosk mode. */
             statusBar?: string;
             /**
-             * Specifies whether system error dialogs for crashed or unresponsive apps are blocked in kiosk mode. When blocked, the system will force-stop the app as
-             * if the user chooses the "close app" option on the UI.
+             * Specifies whether system error dialogs for crashed or unresponsive apps are blocked in kiosk mode. When blocked, the system will force-stop the app as if the user chooses the "close
+             * app" option on the UI.
              */
             systemErrorWarnings?: string;
             /** Specifies which navigation features are enabled (e.g. Home, Overview buttons) in kiosk mode. */
@@ -596,16 +560,13 @@ declare namespace gapi.client {
             /** If the policy setting could not be applied, the current value of the setting on the device. */
             currentValue?: any;
             /**
-             * For settings with nested fields, if a particular nested field is out of compliance, this specifies the full path to the offending field. The path is
-             * formatted in the same way the policy JSON field would be referenced in JavaScript, that is: 1) For object-typed fields, the field name is followed by a
-             * dot then by a subfield name. 2) For array-typed fields, the field name is followed by the array index enclosed in brackets. For example, to indicate a
-             * problem with the url field in the externalData field in the 3rd application, the path would be applications[2].externalData.url
+             * For settings with nested fields, if a particular nested field is out of compliance, this specifies the full path to the offending field. The path is formatted in the same way the
+             * policy JSON field would be referenced in JavaScript, that is: 1) For object-typed fields, the field name is followed by a dot then by a subfield name. 2) For array-typed fields, the
+             * field name is followed by the array index enclosed in brackets. For example, to indicate a problem with the url field in the externalData field in the 3rd application, the path
+             * would be applications[2].externalData.url
              */
             fieldPath?: string;
-            /**
-             * If package_name is set and the non-compliance reason is APP_NOT_INSTALLED or APP_NOT_UPDATED, the detailed reason the app can't be installed or
-             * updated.
-             */
+            /** If package_name is set and the non-compliance reason is APP_NOT_INSTALLED or APP_NOT_UPDATED, the detailed reason the app can't be installed or updated. */
             installationFailureReason?: string;
             /** The reason the device is not in compliance with the setting. */
             nonComplianceReason?: string;
@@ -628,20 +589,19 @@ declare namespace gapi.client {
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should
-             * be a resource name ending with operations/{unique_id}.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should be a resource name ending
+             * with operations/{unique_id}.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is
-             * google.protobuf.Empty. If the original method is standard Get/Create/Update, the response should be the resource. For other methods, the response
-             * should have the type XxxResponse, where Xxx is the original method name. For example, if the original method name is TakeSnapshot(), the inferred
-             * response type is TakeSnapshotResponse.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is google.protobuf.Empty. If the original
+             * method is standard Get/Create/Update, the response should be the resource. For other methods, the response should have the type XxxResponse, where Xxx is the original method name.
+             * For example, if the original method name is TakeSnapshot(), the inferred response type is TakeSnapshotResponse.
              */
             response?: { [P in string]: any };
         }
@@ -655,13 +615,13 @@ declare namespace gapi.client {
             /** Password expiration timeout. */
             passwordExpirationTimeout?: string;
             /**
-             * The length of the password history. After setting this field, the user won't be able to enter a new password that is the same as any password in the
-             * history. A value of 0 means there is no restriction.
+             * The length of the password history. After setting this field, the user won't be able to enter a new password that is the same as any password in the history. A value of 0 means
+             * there is no restriction.
              */
             passwordHistoryLength?: number;
             /**
-             * The minimum allowed password length. A value of 0 means there is no restriction. Only enforced when password_quality is NUMERIC, NUMERIC_COMPLEX,
-             * ALPHABETIC, ALPHANUMERIC, or COMPLEX.
+             * The minimum allowed password length. A value of 0 means there is no restriction. Only enforced when password_quality is NUMERIC, NUMERIC_COMPLEX, ALPHABETIC, ALPHANUMERIC, or
+             * COMPLEX.
              */
             passwordMinimumLength?: number;
             /** Minimum number of letters required in the password. Only enforced when password_quality is COMPLEX. */
@@ -681,9 +641,8 @@ declare namespace gapi.client {
             /** The scope that the password requirement applies to. */
             passwordScope?: string;
             /**
-             * The length of time after a device or work profile is unlocked using a strong form of authentication (password, PIN, pattern) that it can be unlocked
-             * using any other authentication method (e.g. fingerprint, trust agents, face). After the specified time period elapses, only strong forms of
-             * authentication can be used to unlock the device or work profile.
+             * The length of time after a device or work profile is unlocked using a strong form of authentication (password, PIN, pattern) that it can be unlocked using any other authentication
+             * method (e.g. fingerprint, trust agents, face). After the specified time period elapses, only strong forms of authentication can be used to unlock the device or work profile.
              */
             requirePasswordUnlock?: string;
         }
@@ -695,19 +654,18 @@ declare namespace gapi.client {
         }
         interface PersistentPreferredActivity {
             /**
-             * The intent actions to match in the filter. If any actions are included in the filter, then an intent's action must be one of those values for it to
-             * match. If no actions are included, the intent action is ignored.
+             * The intent actions to match in the filter. If any actions are included in the filter, then an intent's action must be one of those values for it to match. If no actions are
+             * included, the intent action is ignored.
              */
             actions?: string[];
             /**
-             * The intent categories to match in the filter. An intent includes the categories that it requires, all of which must be included in the filter in order
-             * to match. In other words, adding a category to the filter has no impact on matching unless that category is specified in the intent.
+             * The intent categories to match in the filter. An intent includes the categories that it requires, all of which must be included in the filter in order to match. In other words,
+             * adding a category to the filter has no impact on matching unless that category is specified in the intent.
              */
             categories?: string[];
             /**
-             * The activity that should be the default intent handler. This should be an Android component name, e.g. com.android.enterprise.app/.MainActivity.
-             * Alternatively, the value may be the package name of an app, which causes Android Device Policy to choose an appropriate activity from the app to handle
-             * the intent.
+             * The activity that should be the default intent handler. This should be an Android component name, e.g. com.android.enterprise.app/.MainActivity. Alternatively, the value may be the
+             * package name of an app, which causes Android Device Policy to choose an appropriate activity from the app to handle the intent.
              */
             receiverActivity?: string;
         }
@@ -738,16 +696,13 @@ declare namespace gapi.client {
             addUserDisabled?: boolean;
             /** Whether adjusting the master volume is disabled. */
             adjustVolumeDisabled?: boolean;
-            /**
-             * Security policies set to the most secure values by default. To maintain the security posture of a device, we don't recommend overriding any of the
-             * default values.
-             */
+            /** Security policies set to the most secure values by default. To maintain the security posture of a device, we don't recommend overriding any of the default values. */
             advancedSecurityOverrides?: AdvancedSecurityOverrides;
             /** Configuration for an always-on VPN connection. Use with vpn_config_disabled to prevent modification of this setting. */
             alwaysOnVpnPackage?: AlwaysOnVpnPackage;
             /**
-             * The app tracks for Android Device Policy the device can access. The device receives the latest version among all accessible tracks. If no tracks are
-             * specified, then the device only uses the production track.
+             * The app tracks for Android Device Policy the device can access. The device receives the latest version among all accessible tracks. If no tracks are specified, then the device only
+             * uses the production track.
              */
             androidDevicePolicyTracks?: string[];
             /** The app auto update policy, which controls when automatic app updates can be applied. */
@@ -757,8 +712,8 @@ declare namespace gapi.client {
             /** Whether auto time is required, which prevents the user from manually setting the date and time. */
             autoTimeRequired?: boolean;
             /**
-             * Whether applications other than the ones configured in applications are blocked from being installed. When set, applications that were installed under
-             * a previous policy but no longer appear in the policy are automatically uninstalled.
+             * Whether applications other than the ones configured in applications are blocked from being installed. When set, applications that were installed under a previous policy but no
+             * longer appear in the policy are automatically uninstalled.
              */
             blockApplicationsEnabled?: boolean;
             /** Whether configuring bluetooth is disabled. */
@@ -772,13 +727,13 @@ declare namespace gapi.client {
             /** Whether configuring cell broadcast is disabled. */
             cellBroadcastsConfigDisabled?: boolean;
             /**
-             * Rules for automatically choosing a private key and certificate to authenticate the device to a server. The rules are ordered by increasing precedence,
-             * so if an outgoing request matches more than one rule, the last rule defines which private key to use.
+             * Rules for automatically choosing a private key and certificate to authenticate the device to a server. The rules are ordered by increasing precedence, so if an outgoing request
+             * matches more than one rule, the last rule defines which private key to use.
              */
             choosePrivateKeyRules?: ChoosePrivateKeyRule[];
             /**
-             * Rules declaring which mitigating actions to take when a device is not compliant with its policy. When the conditions for multiple rules are satisfied,
-             * all of the mitigating actions for the rules are taken. There is a maximum limit of 100 rules. Use policy enforcement rules instead.
+             * Rules declaring which mitigating actions to take when a device is not compliant with its policy. When the conditions for multiple rules are satisfied, all of the mitigating actions
+             * for the rules are taken. There is a maximum limit of 100 rules. Use policy enforcement rules instead.
              */
             complianceRules?: ComplianceRule[];
             /** Whether creating windows besides app windows is disabled. */
@@ -800,8 +755,8 @@ declare namespace gapi.client {
             /** Whether factory resetting from settings is disabled. */
             factoryResetDisabled?: boolean;
             /**
-             * Email addresses of device administrators for factory reset protection. When the device is factory reset, it will require one of these admins to log in
-             * with the Google account email and password to unlock the device. If no admins are specified, the device won't provide factory reset protection.
+             * Email addresses of device administrators for factory reset protection. When the device is factory reset, it will require one of these admins to log in with the Google account email
+             * and password to unlock the device. If no admins are specified, the device won't provide factory reset protection.
              */
             frpAdminEmails?: string[];
             /** Whether the user is allowed to have fun. Controls whether the Easter egg game in Settings is disabled. */
@@ -814,14 +769,11 @@ declare namespace gapi.client {
             keyguardDisabled?: boolean;
             /** Disabled keyguard customizations, such as widgets. */
             keyguardDisabledFeatures?: string[];
-            /**
-             * Settings controlling the behavior of a device in kiosk mode. To enable kiosk mode, set kioskCustomLauncherEnabled to true or specify an app in the
-             * policy with installType KIOSK.
-             */
+            /** Settings controlling the behavior of a device in kiosk mode. To enable kiosk mode, set kioskCustomLauncherEnabled to true or specify an app in the policy with installType KIOSK. */
             kioskCustomization?: KioskCustomization;
             /**
-             * Whether the kiosk custom launcher is enabled. This replaces the home screen with a launcher that locks down the device to the apps installed via the
-             * applications setting. Apps appear on a single page in alphabetical order. Use kioskCustomization to further configure the kiosk device behavior.
+             * Whether the kiosk custom launcher is enabled. This replaces the home screen with a launcher that locks down the device to the apps installed via the applications setting. Apps
+             * appear on a single page in alphabetical order. Use kioskCustomization to further configure the kiosk device behavior.
              */
             kioskCustomLauncherEnabled?: boolean;
             /** The degree of location detection enabled. The user may change the value unless the user is otherwise blocked from accessing device settings. */
@@ -841,10 +793,9 @@ declare namespace gapi.client {
             /** The name of the policy in the form enterprises/{enterpriseId}/policies/{policyId}. */
             name?: string;
             /**
-             * Whether the network escape hatch is enabled. If a network connection can't be made at boot time, the escape hatch prompts the user to temporarily
-             * connect to a network in order to refresh the device policy. After applying policy, the temporary network will be forgotten and the device will continue
-             * booting. This prevents being unable to connect to a network if there is no suitable network in the last policy and the device boots into an app in lock
-             * task mode, or the user is otherwise unable to reach device settings.
+             * Whether the network escape hatch is enabled. If a network connection can't be made at boot time, the escape hatch prompts the user to temporarily connect to a network in order to
+             * refresh the device policy. After applying policy, the temporary network will be forgotten and the device will continue booting. This prevents being unable to connect to a network if
+             * there is no suitable network in the last policy and the device boots into an app in lock task mode, or the user is otherwise unable to reach device settings.
              */
             networkEscapeHatchEnabled?: boolean;
             /** Whether resetting network settings is disabled. */
@@ -855,25 +806,18 @@ declare namespace gapi.client {
             outgoingBeamDisabled?: boolean;
             /** Whether outgoing calls are disabled. */
             outgoingCallsDisabled?: boolean;
-            /**
-             * Password requirement policies. Different policies can be set for work profile or fully managed devices by setting the password_scope field in the
-             * policy.
-             */
+            /** Password requirement policies. Different policies can be set for work profile or fully managed devices by setting the password_scope field in the policy. */
             passwordPolicies?: PasswordRequirements[];
             /** Password requirements. The field password_requirements.require_password_unlock must not be set. DEPRECATED - Use password_policies. */
             passwordRequirements?: PasswordRequirements;
             /** Explicit permission or group grants or denials for all apps. These values override the default_permission_policy. */
             permissionGrants?: PermissionGrant[];
             /**
-             * Specifies permitted accessibility services. If the field is not set, any accessibility service can be used. If the field is set, only the accessibility
-             * services in this list and the system's built-in accessibility service can be used. In particular, if the field is set to empty, only the system's
-             * built-in accessibility servicess can be used.
+             * Specifies permitted accessibility services. If the field is not set, any accessibility service can be used. If the field is set, only the accessibility services in this list and the
+             * system's built-in accessibility service can be used. In particular, if the field is set to empty, only the system's built-in accessibility servicess can be used.
              */
             permittedAccessibilityServices?: PackageNameList;
-            /**
-             * If present, only the input methods provided by packages in this list are permitted. If this field is present, but the list is empty, then only system
-             * input methods are permitted.
-             */
+            /** If present, only the input methods provided by packages in this list are permitted. If this field is present, but the list is empty, then only system input methods are permitted. */
             permittedInputMethods?: PackageNameList;
             /** Default intent handler activities. */
             persistentPreferredActivities?: PersistentPreferredActivity[];
@@ -884,14 +828,13 @@ declare namespace gapi.client {
             /** Rules that define the behavior when a particular policy can not be applied on device */
             policyEnforcementRules?: PolicyEnforcementRule[];
             /**
-             * Allows showing UI on a device for a user to choose a private key alias if there are no matching rules in ChoosePrivateKeyRules. For devices below
-             * Android P, setting this may leave enterprise keys vulnerable.
+             * Allows showing UI on a device for a user to choose a private key alias if there are no matching rules in ChoosePrivateKeyRules. For devices below Android P, setting this may leave
+             * enterprise keys vulnerable.
              */
             privateKeySelectionEnabled?: boolean;
             /**
-             * The network-independent global HTTP proxy. Typically proxies should be configured per-network in open_network_configuration. However for unusual
-             * configurations like general internal filtering a global HTTP proxy may be useful. If the proxy is not accessible, network access may break. The global
-             * proxy is only a recommendation and some apps may ignore it.
+             * The network-independent global HTTP proxy. Typically proxies should be configured per-network in open_network_configuration. However for unusual configurations like general internal
+             * filtering a global HTTP proxy may be useful. If the proxy is not accessible, network access may break. The global proxy is only a recommendation and some apps may ignore it.
              */
             recommendedGlobalProxy?: ProxyInfo;
             /** Whether removing other users is disabled. */
@@ -908,34 +851,25 @@ declare namespace gapi.client {
             setWallpaperDisabled?: boolean;
             /** Whether location sharing is disabled. */
             shareLocationDisabled?: boolean;
-            /**
-             * A message displayed to the user in the settings screen wherever functionality has been disabled by the admin. If the message is longer than 200
-             * characters it may be truncated.
-             */
+            /** A message displayed to the user in the settings screen wherever functionality has been disabled by the admin. If the message is longer than 200 characters it may be truncated. */
             shortSupportMessage?: UserFacingMessage;
-            /**
-             * Flag to skip hints on the first use. Enterprise admin can enable the system recommendation for apps to skip their user tutorial and other introductory
-             * hints on first start-up.
-             */
+            /** Flag to skip hints on the first use. Enterprise admin can enable the system recommendation for apps to skip their user tutorial and other introductory hints on first start-up. */
             skipFirstUseHintsEnabled?: boolean;
             /** Whether sending and receiving SMS messages is disabled. */
             smsDisabled?: boolean;
             /**
-             * Whether the status bar is disabled. This disables notifications, quick settings, and other screen overlays that allow escape from full-screen mode.
-             * DEPRECATED. To disable the status bar on a kiosk device, use InstallType KIOSK or kioskCustomLauncherEnabled.
+             * Whether the status bar is disabled. This disables notifications, quick settings, and other screen overlays that allow escape from full-screen mode. DEPRECATED. To disable the status
+             * bar on a kiosk device, use InstallType KIOSK or kioskCustomLauncherEnabled.
              */
             statusBarDisabled?: boolean;
             /** Status reporting settings */
             statusReportingSettings?: StatusReportingSettings;
             /**
-             * The battery plugged in modes for which the device stays on. When using this setting, it is recommended to clear maximum_time_to_lock so that the device
-             * doesn't lock itself while it stays on.
+             * The battery plugged in modes for which the device stays on. When using this setting, it is recommended to clear maximum_time_to_lock so that the device doesn't lock itself while it
+             * stays on.
              */
             stayOnPluggedModes?: string[];
-            /**
-             * The system update policy, which controls how OS updates are applied. If the update type is WINDOWED, the update window will automatically apply to Play
-             * app updates as well.
-             */
+            /** The system update policy, which controls how OS updates are applied. If the update type is WINDOWED, the update window will automatically apply to Play app updates as well. */
             systemUpdate?: SystemUpdate;
             /** Whether configuring tethering and portable hotspots is disabled. */
             tetheringConfigDisabled?: boolean;
@@ -958,8 +892,8 @@ declare namespace gapi.client {
         }
         interface PolicyEnforcementRule {
             /**
-             * An action to block access to apps and data on a fully managed device or in a work profile. This action also triggers a user-facing notification with
-             * information (where possible) on how to correct the compliance issue. Note: wipeAction must also be specified.
+             * An action to block access to apps and data on a fully managed device or in a work profile. This action also triggers a user-facing notification with information (where possible) on
+             * how to correct the compliance issue. Note: wipeAction must also be specified.
              */
             blockAction?: BlockAction;
             /** The top-level policy to enforce. For example, applications or passwordPolicies. */
@@ -982,7 +916,7 @@ declare namespace gapi.client {
             eventType?: string;
         }
         interface ProxyInfo {
-            /** For a direct proxy, the hosts for which the proxy is bypassed. The host names may contain wildcards such as ∗.example.com. */
+            /** For a direct proxy, the hosts for which the proxy is bypassed. The host names may contain wildcards such as *.example.com. */
             excludedHosts?: string[];
             /** The host of the direct proxy. */
             host?: string;
@@ -1007,24 +941,21 @@ declare namespace gapi.client {
         }
         interface SigninDetail {
             /**
-             * Controls whether personal usage is allowed on a device provisioned with this enrollment token.For company-owned devices: Enabling personal usage allows
-             * the user to set up a work profile on the device. Disabling personal usage requires the user provision the device as a fully managed device.For
-             * personally-owned devices: Enabling personal usage allows the user to set up a work profile on the device. Disabling personal usage will prevent the
-             * device from provisioning. Personal usage cannot be disabled on personally-owned device.
+             * Controls whether personal usage is allowed on a device provisioned with this enrollment token.For company-owned devices: Enabling personal usage allows the user to set up a work
+             * profile on the device. Disabling personal usage requires the user provision the device as a fully managed device.For personally-owned devices: Enabling personal usage allows the
+             * user to set up a work profile on the device. Disabling personal usage will prevent the device from provisioning. Personal usage cannot be disabled on personally-owned device.
              */
             allowPersonalUsage?: string;
             /**
-             * A JSON string whose UTF-8 representation can be used to generate a QR code to enroll a device with this enrollment token. To enroll a device using NFC,
-             * the NFC record must contain a serialized java.util.Properties representation of the properties in the JSON. This is a read-only field generated by the
-             * server.
+             * A JSON string whose UTF-8 representation can be used to generate a QR code to enroll a device with this enrollment token. To enroll a device using NFC, the NFC record must contain a
+             * serialized java.util.Properties representation of the properties in the JSON. This is a read-only field generated by the server.
              */
             qrCode?: string;
             /** An enterprise wide enrollment token used to trigger custom sign-in flow. This is a read-only field generated by the server. */
             signinEnrollmentToken?: string;
             /**
-             * Sign-in URL for authentication when device is provisioned with a sign-in enrollment token. The sign-in endpoint should finish authentication flow with
-             * a URL in the form of https://enterprise.google.com/android/enroll?et= for a successful login, or https://enterprise.google.com/android/enroll/invalid
-             * for a failed login.
+             * Sign-in URL for authentication when device is provisioned with a sign-in enrollment token. The sign-in endpoint should finish authentication flow with a URL in the form of
+             * https://enterprise.google.com/android/enroll?et= for a successful login, or https://enterprise.google.com/android/enroll/invalid for a failed login.
              */
             signinUrl?: string;
         }
@@ -1048,8 +979,8 @@ declare namespace gapi.client {
             /** The system bootloader version number, e.g. 0.6.7. */
             bootloaderVersion?: string;
             /**
-             * SHA-256 hash of android.content.pm.Signature (https://developer.android.com/reference/android/content/pm/Signature.html) associated with the system
-             * package, which can be used to verify that the system build hasn't been modified.
+             * SHA-256 hash of android.content.pm.Signature (https://developer.android.com/reference/android/content/pm/Signature.html) associated with the system package, which can be used to
+             * verify that the system build hasn't been modified.
              */
             deviceBuildSignature?: string;
             /** Kernel version, for example, 2.6.32.9-g103d848. */
@@ -1065,8 +996,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -1094,19 +1025,19 @@ declare namespace gapi.client {
         }
         interface SystemUpdate {
             /**
-             * If the type is WINDOWED, the end of the maintenance window, measured as the number of minutes after midnight in device's local time. This value must be
-             * between 0 and 1439, inclusive. If this value is less than start_minutes, then the maintenance window spans midnight. If the maintenance window
-             * specified is smaller than 30 minutes, the actual window is extended to 30 minutes beyond the start time.
+             * If the type is WINDOWED, the end of the maintenance window, measured as the number of minutes after midnight in device's local time. This value must be between 0 and 1439,
+             * inclusive. If this value is less than start_minutes, then the maintenance window spans midnight. If the maintenance window specified is smaller than 30 minutes, the actual window is
+             * extended to 30 minutes beyond the start time.
              */
             endMinutes?: number;
             /**
-             * An annually repeating time period in which over-the-air (OTA) system updates are postponed to freeze the OS version running on a device. To prevent
-             * freezing the device indefinitely, each freeze period must be separated by at least 60 days.
+             * An annually repeating time period in which over-the-air (OTA) system updates are postponed to freeze the OS version running on a device. To prevent freezing the device indefinitely,
+             * each freeze period must be separated by at least 60 days.
              */
             freezePeriods?: FreezePeriod[];
             /**
-             * If the type is WINDOWED, the start of the maintenance window, measured as the number of minutes after midnight in the device's local time. This value
-             * must be between 0 and 1439, inclusive.
+             * If the type is WINDOWED, the start of the maintenance window, measured as the number of minutes after midnight in the device's local time. This value must be between 0 and 1439,
+             * inclusive.
              */
             startMinutes?: number;
             /** The type of system update to configure. */
@@ -1120,22 +1051,18 @@ declare namespace gapi.client {
         }
         interface User {
             /**
-             * A unique identifier you create for this user, such as user342 or asset#44418. This field must be set when the user is created and can't be updated.
-             * This field must not contain personally identifiable information (PII). This identifier must be 1024 characters or less; otherwise, the update policy
-             * request will fail.
+             * A unique identifier you create for this user, such as user342 or asset#44418. This field must be set when the user is created and can't be updated. This field must not contain
+             * personally identifiable information (PII). This identifier must be 1024 characters or less; otherwise, the update policy request will fail.
              */
             accountIdentifier?: string;
         }
         interface UserFacingMessage {
             /**
-             * The default message displayed if no localized message is specified or the user's locale doesn't match with any of the localized messages. A default
-             * message must be provided if any localized messages are provided.
+             * The default message displayed if no localized message is specified or the user's locale doesn't match with any of the localized messages. A default message must be provided if any
+             * localized messages are provided.
              */
             defaultMessage?: string;
-            /**
-             * A map containing pairs, where locale is a well-formed BCP 47 language (https://www.w3.org/International/articles/language-tags/) code, such as en-US,
-             * es-ES, or fr.
-             */
+            /** A map containing pairs, where locale is a well-formed BCP 47 language (https://www.w3.org/International/articles/language-tags/) code, such as en-US, es-ES, or fr. */
             localizedMessages?: { [P in string]: string };
         }
         interface WebApp {
@@ -1150,31 +1077,28 @@ declare namespace gapi.client {
             /** The title of the web app as displayed to the user (e.g., amongst a list of other applications, or as a label for an icon). */
             title?: string;
             /**
-             * The current version of the app.Note that the version can automatically increase during the lifetime of the web app, while Google does internal
-             * housekeeping to keep the web app up-to-date.
+             * The current version of the app.Note that the version can automatically increase during the lifetime of the web app, while Google does internal housekeeping to keep the web app
+             * up-to-date.
              */
             versionCode?: string;
         }
         interface WebAppIcon {
             /**
-             * The actual bytes of the image in a base64url encoded string (c.f. RFC4648, section 5 "Base 64 Encoding with URL and Filename Safe Alphabet"). - The
-             * image type can be png or jpg. - The image should ideally be square. - The image should ideally have a size of 512x512.
+             * The actual bytes of the image in a base64url encoded string (c.f. RFC4648, section 5 "Base 64 Encoding with URL and Filename Safe Alphabet"). - The image type can be png or jpg. -
+             * The image should ideally be square. - The image should ideally have a size of 512x512.
              */
             imageData?: string;
         }
         interface WebToken {
             /**
-             * The features to enable. Use this if you want to control exactly which feature(s) will be activated; leave empty to allow all features.Restrictions /
-             * things to note: - If no features are listed here, all features are enabled — this is the default behavior where you give access to all features to your
-             * admins. - This must not contain any FEATURE_UNSPECIFIED values. - Repeated values are ignored
+             * The features to enable. Use this if you want to control exactly which feature(s) will be activated; leave empty to allow all features.Restrictions / things to note: - If no features
+             * are listed here, all features are enabled — this is the default behavior where you give access to all features to your admins. - This must not contain any FEATURE_UNSPECIFIED
+             * values. - Repeated values are ignored
              */
             enabledFeatures?: string[];
             /** The name of the web token, which is generated by the server during creation in the form enterprises/{enterpriseId}/webTokens/{webTokenId}. */
             name?: string;
-            /**
-             * The URL of the parent frame hosting the iframe with the embedded UI. To prevent XSS, the iframe may not be hosted at other URLs. The URL must use the
-             * https scheme.
-             */
+            /** The URL of the parent frame hosting the iframe with the embedded UI. To prevent XSS, the iframe may not be hosted at other URLs. The URL must use the https scheme. */
             parentFrameUrl?: string;
             /** Permissions available to an admin in the embedded UI. An admin must have all of these permissions in order to view the UI. This field is deprecated. */
             permissions?: string[];
@@ -1202,10 +1126,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * The preferred language for localized application info, as a BCP47 tag (e.g. "en-US", "de"). If not specified the default language of the application
-                 * will be used.
-                 */
+                /** The preferred language for localized application info, as a BCP47 tag (e.g. "en-US", "de"). If not specified the default language of the application will be used. */
                 languageCode?: string;
                 /** The name of the application in the form enterprises/{enterpriseId}/applications/{package_name}. */
                 name: string;
@@ -1223,10 +1144,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
+             * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
              */
             cancel(request?: {
                 /** V1 error format. */
@@ -1255,8 +1176,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns google.rpc.Code.UNIMPLEMENTED.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1284,10 +1205,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1315,11 +1233,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
-             * binding allows API services to override the binding to use different resource name schemes, such as users/∗/operations. To override the binding, API
-             * services can add a binding such as "/v1/{name=users/∗}/operations" to their service configuration. For backwards compatibility, the default name
-             * includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection
-             * id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name binding allows API services to
+             * override the binding to use different resource name schemes, such as users/∗/operations. To override the binding, API services can add a binding such as
+             * "/v1/{name=users/*}/operations" to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1384,8 +1301,8 @@ declare namespace gapi.client {
                 /** Optional flags that control the device wiping behavior. */
                 wipeDataFlags?: string | string[];
                 /**
-                 * Optional. A short message displayed to the user before wiping the work profile on personal devices. This has no effect on company owned devices. The
-                 * maximum message length is 200 characters.
+                 * Optional. A short message displayed to the user before wiping the work profile on personal devices. This has no effect on company owned devices. The maximum message length is
+                 * 200 characters.
                  */
                 wipeReasonMessage?: string;
             }): Request<{}>;
@@ -1416,10 +1333,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<Device>;
-            /**
-             * Issues a command to a device. The Operation resource returned contains a Command in its metadata field. Use the get operation method to get the status
-             * of the command.
-             */
+            /** Issues a command to a device. The Operation resource returned contains a Command in its metadata field. Use the get operation method to get the status of the command. */
             issueCommand(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2232,9 +2146,9 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * The callback URL that the admin will be redirected to after successfully creating an enterprise. Before redirecting there the system will add a query
-                 * parameter to this URL named enterpriseToken which will contain an opaque token to be used for the create enterprise request. The URL will be parsed
-                 * then reformatted in order to add the enterpriseToken parameter, so there may be some minor formatting changes.
+                 * The callback URL that the admin will be redirected to after successfully creating an enterprise. Before redirecting there the system will add a query parameter to this URL named
+                 * enterpriseToken which will contain an opaque token to be used for the create enterprise request. The URL will be parsed then reformatted in order to add the enterpriseToken
+                 * parameter, so there may be some minor formatting changes.
                  */
                 callbackUrl?: string;
                 /** Selector specifying which fields to include in a partial response. */

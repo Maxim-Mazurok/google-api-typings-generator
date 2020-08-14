@@ -28,8 +28,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page
-         * containing a remarketing tag, Google adds the user to a user list.
+         * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google adds
+         * the user to a user list.
          */
         await gapi.client.realtimebidding.buyers.getRemarketingTag({
             name: "Test string",
@@ -722,8 +722,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page
-         * containing a remarketing tag, Google adds the user to a user list.
+         * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google adds
+         * the user to a user list.
          */
         await gapi.client.realtimebidding.buyers.userLists.getRemarketingTag({
             name: "Test string",

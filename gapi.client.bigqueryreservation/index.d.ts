@@ -1,6 +1,9 @@
 // Type definitions for non-npm package BigQuery Reservation API v1 1.0
 // Project: https://cloud.google.com/bigquery/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -48,8 +51,8 @@ declare namespace gapi.client {
             /** Capacity commitment commitment plan. */
             plan?: string;
             /**
-             * The plan this capacity commitment is converted to after commitment_end_time passes. Once the plan is changed, committed period is extended according to
-             * commitment plan. Only applicable for ANNUAL and TRIAL commitments.
+             * The plan this capacity commitment is converted to after commitment_end_time passes. Once the plan is changed, committed period is extended according to commitment plan. Only
+             * applicable for ANNUAL and TRIAL commitments.
              */
             renewalPlan?: string;
             /** Number of slots in this commitment. */
@@ -90,8 +93,8 @@ declare namespace gapi.client {
         }
         interface MergeCapacityCommitmentsRequest {
             /**
-             * Ids of capacity commitments to merge. These capacity commitments must exist under admin project and location specified in the parent. ID is the last
-             * portion of capacity commitment name e.g., 'abc' for projects/myproject/locations/US/capacityCommitments/abc
+             * Ids of capacity commitments to merge. These capacity commitments must exist under admin project and location specified in the parent. ID is the last portion of capacity commitment
+             * name e.g., 'abc' for projects/myproject/locations/US/capacityCommitments/abc
              */
             capacityCommitmentIds?: string[];
         }
@@ -100,28 +103,24 @@ declare namespace gapi.client {
             destinationId?: string;
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -129,17 +128,16 @@ declare namespace gapi.client {
             /** Output only. Creation time of the reservation. */
             creationTime?: string;
             /**
-             * If false, any query using this reservation will use idle slots from other reservations within the same admin project. If true, a query using this
-             * reservation will execute with the slot capacity specified above at most.
+             * If false, any query using this reservation will use idle slots from other reservations within the same admin project. If true, a query using this reservation will execute with the
+             * slot capacity specified above at most.
              */
             ignoreIdleSlots?: boolean;
             /** The resource name of the reservation, e.g., `projects/∗/locations/∗/reservations/team1-prod`. */
             name?: string;
             /**
-             * Minimum slots available to this reservation. A slot is a unit of computational power in BigQuery, and serves as the unit of parallelism. Queries using
-             * this reservation might use more slots during runtime if ignore_idle_slots is set to false. If the new reservation's slot capacity exceed the parent's
-             * slot capacity or if total slot capacity of the new reservation and its siblings exceeds the parent's slot capacity, the request will fail with
-             * `google.rpc.Code.RESOURCE_EXHAUSTED`.
+             * Minimum slots available to this reservation. A slot is a unit of computational power in BigQuery, and serves as the unit of parallelism. Queries using this reservation might use
+             * more slots during runtime if ignore_idle_slots is set to false. If the new reservation's slot capacity exceed the parent's slot capacity or if total slot capacity of the new
+             * reservation and its siblings exceeds the parent's slot capacity, the request will fail with `google.rpc.Code.RESOURCE_EXHAUSTED`.
              */
             slotCapacity?: string;
             /** Output only. Last update time of the reservation. */
@@ -173,15 +171,15 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
         interface OperationsResource {
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -210,11 +208,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -310,10 +307,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: CapacityCommitment): Request<CapacityCommitment>;
-            /**
-             * Deletes a capacity commitment. Attempting to delete capacity commitment before its commitment_end_time will fail with the error code
-             * `google.rpc.Code.FAILED_PRECONDITION`.
-             */
+            /** Deletes a capacity commitment. Attempting to delete capacity commitment before its commitment_end_time will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`. */
             delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -399,9 +393,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListCapacityCommitmentsResponse>;
             /**
-             * Merges capacity commitments of the same plan into a single commitment. The resulting capacity commitment has the greater commitment_end_time out of the
-             * to-be-merged capacity commitments. Attempting to merge capacity commitments of different plan will fail with the error code
-             * `google.rpc.Code.FAILED_PRECONDITION`.
+             * Merges capacity commitments of the same plan into a single commitment. The resulting capacity commitment has the greater commitment_end_time out of the to-be-merged capacity
+             * commitments. Attempting to merge capacity commitments of different plan will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`.
              */
             merge(request: {
                 /** V1 error format. */
@@ -459,8 +452,8 @@ declare namespace gapi.client {
             },
             body: MergeCapacityCommitmentsRequest): Request<CapacityCommitment>;
             /**
-             * Updates an existing capacity commitment. Only `plan` and `renewal_plan` fields can be updated. Plan can only be changed to a plan of a longer
-             * commitment period. Attempting to change to a plan with shorter commitment period will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`.
+             * Updates an existing capacity commitment. Only `plan` and `renewal_plan` fields can be updated. Plan can only be changed to a plan of a longer commitment period. Attempting to change
+             * to a plan with shorter commitment period will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`.
              */
             patch(request: {
                 /** V1 error format. */
@@ -522,9 +515,9 @@ declare namespace gapi.client {
             },
             body: CapacityCommitment): Request<CapacityCommitment>;
             /**
-             * Splits capacity commitment to two commitments of the same plan and `commitment_end_time`. A common use case is to enable downgrading commitments. For
-             * example, in order to downgrade from 10000 slots to 8000, you might split a 10000 capacity commitment into commitments of 2000 and 8000. Then, you would
-             * change the plan of the first one to `FLEX` and then delete it.
+             * Splits capacity commitment to two commitments of the same plan and `commitment_end_time`. A common use case is to enable downgrading commitments. For example, in order to downgrade
+             * from 10000 slots to 8000, you might split a 10000 capacity commitment into commitments of 2000 and 8000. Then, you would change the plan of the first one to `FLEX` and then delete
+             * it.
              */
             split(request: {
                 /** V1 error format. */
@@ -584,15 +577,13 @@ declare namespace gapi.client {
         }
         interface AssignmentsResource {
             /**
-             * Creates an assignment object which allows the given project to submit jobs of a certain type using slots from the specified reservation. Currently a
-             * resource (project, folder, organization) can only have one assignment per each (job_type, location) combination, and that reservation will be used for
-             * all jobs of the matching type. Different assignments can be created on different levels of the projects, folders or organization hierarchy. During
-             * query execution, the assignment is looked up at the project, folder and organization levels in that order. The first assignment found is applied to the
-             * query. When creating assignments, it does not matter if other assignments exist at higher levels. Example: ∗ The organization `organizationA` contains
-             * two projects, `project1` and `project2`. ∗ Assignments for all three entities (`organizationA`, `project1`, and `project2`) could all be created and
-             * mapped to the same or different reservations. Returns `google.rpc.Code.PERMISSION_DENIED` if user does not have 'bigquery.admin' permissions on the
-             * project using the reservation and the project that owns this reservation. Returns `google.rpc.Code.INVALID_ARGUMENT` when location of the assignment
-             * does not match location of the reservation.
+             * Creates an assignment object which allows the given project to submit jobs of a certain type using slots from the specified reservation. Currently a resource (project, folder,
+             * organization) can only have one assignment per each (job_type, location) combination, and that reservation will be used for all jobs of the matching type. Different assignments can
+             * be created on different levels of the projects, folders or organization hierarchy. During query execution, the assignment is looked up at the project, folder and organization levels
+             * in that order. The first assignment found is applied to the query. When creating assignments, it does not matter if other assignments exist at higher levels. Example: * The
+             * organization `organizationA` contains two projects, `project1` and `project2`. * Assignments for all three entities (`organizationA`, `project1`, and `project2`) could all be
+             * created and mapped to the same or different reservations. Returns `google.rpc.Code.PERMISSION_DENIED` if user does not have 'bigquery.admin' permissions on the project using the
+             * reservation and the project that owns this reservation. Returns `google.rpc.Code.INVALID_ARGUMENT` when location of the assignment does not match location of the reservation.
              */
             create(request: {
                 /** V1 error format. */
@@ -650,10 +641,9 @@ declare namespace gapi.client {
             },
             body: Assignment): Request<Assignment>;
             /**
-             * Deletes a assignment. No expansion will happen. Example: ∗ Organization `organizationA` contains two projects, `project1` and `project2`. ∗ Reservation
-             * `res1` exists and was created previously. ∗ CreateAssignment was used previously to define the following associations between entities and
-             * reservations: `` and `` In this example, deletion of the `` assignment won't affect the other assignment ``. After said deletion, queries from
-             * `project1` will still use `res1` while queries from `project2` will switch to use on-demand mode.
+             * Deletes a assignment. No expansion will happen. Example: * Organization `organizationA` contains two projects, `project1` and `project2`. * Reservation `res1` exists and was created
+             * previously. * CreateAssignment was used previously to define the following associations between entities and reservations: `` and `` In this example, deletion of the `` assignment
+             * won't affect the other assignment ``. After said deletion, queries from `project1` will still use `res1` while queries from `project2` will switch to use on-demand mode.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -682,11 +672,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Lists assignments. Only explicitly created assignments will be returned. Example: ∗ Organization `organizationA` contains two projects, `project1` and
-             * `project2`. ∗ Reservation `res1` exists and was created previously. ∗ CreateAssignment was used previously to define the following associations between
-             * entities and reservations: `` and `` In this example, ListAssignments will just return the above two assignments for reservation `res1`, and no
-             * expansion/merge will happen. The wildcard "-" can be used for reservations in the request. In that case all assignments belongs to the specified
-             * project and location will be listed. ∗∗Note∗∗ "-" cannot be used for projects nor locations.
+             * Lists assignments. Only explicitly created assignments will be returned. Example: * Organization `organizationA` contains two projects, `project1` and `project2`. * Reservation
+             * `res1` exists and was created previously. * CreateAssignment was used previously to define the following associations between entities and reservations: `` and `` In this example,
+             * ListAssignments will just return the above two assignments for reservation `res1`, and no expansion/merge will happen. The wildcard "-" can be used for reservations in the request.
+             * In that case all assignments belongs to the specified project and location will be listed. **Note** "-" cannot be used for projects nor locations.
              */
             list(request?: {
                 /** V1 error format. */
@@ -719,8 +708,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListAssignmentsResponse>;
             /**
-             * Moves an assignment under a new reservation. This differs from removing an existing assignment and recreating a new one by providing a transactional
-             * change that ensures an assignee always has an associated reservation.
+             * Moves an assignment under a new reservation. This differs from removing an existing assignment and recreating a new one by providing a transactional change that ensures an assignee
+             * always has an associated reservation.
              */
             move(request: {
                 /** V1 error format. */
@@ -1015,12 +1004,11 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<BiReservation>;
             /**
-             * Looks up assignments for a specified resource for a particular region. If the request is about a project: 1. Assignments created on the project will be
-             * returned if they exist. 2. Otherwise assignments created on the closest ancestor will be returned. 3. Assignments for different JobTypes will all be
-             * returned. The same logic applies if the request is about a folder. If the request is about an organization, then assignments created on the
-             * organization will be returned (organization doesn't have ancestors). Comparing to ListAssignments, there are some behavior differences: 1. permission
-             * on the assignee will be verified in this API. 2. Hierarchy lookup (project->folder->organization) happens in this API. 3. Parent here is
-             * `projects/∗/locations/∗`, instead of `projects/∗/locations/∗reservations/∗`.
+             * Looks up assignments for a specified resource for a particular region. If the request is about a project: 1. Assignments created on the project will be returned if they exist. 2.
+             * Otherwise assignments created on the closest ancestor will be returned. 3. Assignments for different JobTypes will all be returned. The same logic applies if the request is about a
+             * folder. If the request is about an organization, then assignments created on the organization will be returned (organization doesn't have ancestors). Comparing to ListAssignments,
+             * there are some behavior differences: 1. permission on the assignee will be verified in this API. 2. Hierarchy lookup (project->folder->organization) happens in this API. 3. Parent
+             * here is `projects/∗/locations/*`, instead of `projects/∗/locations/*reservations/*`.
              */
             searchAllAssignments(request?: {
                 /** V1 error format. */
@@ -1045,10 +1033,7 @@ declare namespace gapi.client {
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /**
-                 * Please specify resource name as assignee in the query. Examples: ∗ `assignee=projects/myproject` ∗ `assignee=folders/123` ∗
-                 * `assignee=organizations/456`
-                 */
+                /** Please specify resource name as assignee in the query. Examples: * `assignee=projects/myproject` * `assignee=folders/123` * `assignee=organizations/456` */
                 query?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
@@ -1058,12 +1043,11 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<SearchAllAssignmentsResponse>;
             /**
-             * Looks up assignments for a specified resource for a particular region. If the request is about a project: 1. Assignments created on the project will be
-             * returned if they exist. 2. Otherwise assignments created on the closest ancestor will be returned. 3. Assignments for different JobTypes will all be
-             * returned. The same logic applies if the request is about a folder. If the request is about an organization, then assignments created on the
-             * organization will be returned (organization doesn't have ancestors). Comparing to ListAssignments, there are some behavior differences: 1. permission
-             * on the assignee will be verified in this API. 2. Hierarchy lookup (project->folder->organization) happens in this API. 3. Parent here is
-             * `projects/∗/locations/∗`, instead of `projects/∗/locations/∗reservations/∗`. ∗∗Note∗∗ "-" cannot be used for projects nor locations.
+             * Looks up assignments for a specified resource for a particular region. If the request is about a project: 1. Assignments created on the project will be returned if they exist. 2.
+             * Otherwise assignments created on the closest ancestor will be returned. 3. Assignments for different JobTypes will all be returned. The same logic applies if the request is about a
+             * folder. If the request is about an organization, then assignments created on the organization will be returned (organization doesn't have ancestors). Comparing to ListAssignments,
+             * there are some behavior differences: 1. permission on the assignee will be verified in this API. 2. Hierarchy lookup (project->folder->organization) happens in this API. 3. Parent
+             * here is `projects/∗/locations/*`, instead of `projects/∗/locations/*reservations/*`. **Note** "-" cannot be used for projects nor locations.
              */
             searchAssignments(request?: {
                 /** V1 error format. */
@@ -1088,10 +1072,7 @@ declare namespace gapi.client {
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /**
-                 * Please specify resource name as assignee in the query. Examples: ∗ `assignee=projects/myproject` ∗ `assignee=folders/123` ∗
-                 * `assignee=organizations/456`
-                 */
+                /** Please specify resource name as assignee in the query. Examples: * `assignee=projects/myproject` * `assignee=folders/123` * `assignee=organizations/456` */
                 query?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
@@ -1101,8 +1082,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<SearchAssignmentsResponse>;
             /**
-             * Updates a BI reservation. Only fields specified in the `field_mask` are updated. A singleton BI reservation always exists with default size 0. In order
-             * to reserve BI capacity it needs to be updated to an amount greater than 0. In order to release BI capacity reservation size must be set to 0.
+             * Updates a BI reservation. Only fields specified in the `field_mask` are updated. A singleton BI reservation always exists with default size 0. In order to reserve BI capacity it
+             * needs to be updated to an amount greater than 0. In order to release BI capacity reservation size must be set to 0.
              */
             updateBiReservation(request: {
                 /** V1 error format. */

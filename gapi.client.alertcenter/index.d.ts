@@ -1,6 +1,9 @@
 // Type definitions for non-npm package G Suite Alert Center API v1beta1 1.0
 // Project: https://developers.google.com/admin-sdk/alertcenter/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -22,8 +25,8 @@ declare namespace gapi.client {
             /** Required. The email of the user that this event belongs to. */
             email?: string;
             /**
-             * Optional. Details of the login action associated with the warning event. This is only available for: ∗ Suspicious login ∗ Suspicious login (less secure
-             * app) ∗ Suspicious programmatic login ∗ User suspended (suspicious activity)
+             * Optional. Details of the login action associated with the warning event. This is only available for: * Suspicious login * Suspicious login (less secure app) * Suspicious
+             * programmatic login * User suspended (suspicious activity)
              */
             loginDetails?: LoginDetails;
         }
@@ -41,18 +44,15 @@ declare namespace gapi.client {
             /** Query that is used to get the data from the associated source. */
             query?: string;
             /**
-             * List of alert IDs superseded by this alert. It is used to indicate that this alert is essentially extension of superseded alerts and we found the
-             * relationship after creating these alerts.
+             * List of alert IDs superseded by this alert. It is used to indicate that this alert is essentially extension of superseded alerts and we found the relationship after creating these
+             * alerts.
              */
             supersededAlerts?: string[];
-            /**
-             * Alert ID superseding this alert. It is used to indicate that superseding alert is essentially extension of this alert and we found the relationship
-             * after creating both alerts.
-             */
+            /** Alert ID superseding this alert. It is used to indicate that superseding alert is essentially extension of this alert and we found the relationship after creating both alerts. */
             supersedingAlert?: string;
             /** Alert threshold is for example “COUNT > 5”. */
             threshold?: string;
-            /** The trigger sources for this rule. ∗ GMAIL_EVENTS ∗ DEVICE_EVENTS ∗ USER_EVENTS */
+            /** The trigger sources for this rule. * GMAIL_EVENTS * DEVICE_EVENTS * USER_EVENTS */
             triggerSource?: string;
             /** The timestamp of the last update to the rule. */
             updateTime?: string;
@@ -71,16 +71,15 @@ declare namespace gapi.client {
             /** Output only. `True` if this alert is marked for deletion. */
             deleted?: boolean;
             /**
-             * Optional. The time the event that caused this alert ceased being active. If provided, the end time must not be earlier than the start time. If not
-             * provided, it indicates an ongoing alert.
+             * Optional. The time the event that caused this alert ceased being active. If provided, the end time must not be earlier than the start time. If not provided, it indicates an ongoing
+             * alert.
              */
             endTime?: string;
             /**
-             * Optional. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of an alert from overwriting each other. It
-             * is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform alert updates in order to avoid race conditions: An
-             * `etag` is returned in the response which contains alerts, and systems are expected to put that etag in the request to update alert to ensure that their
-             * change will be applied to the same version of the alert. If no `etag` is provided in the call to update alert, then the existing alert is overwritten
-             * blindly.
+             * Optional. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of an alert from overwriting each other. It is strongly suggested that
+             * systems make use of the `etag` in the read-modify-write cycle to perform alert updates in order to avoid race conditions: An `etag` is returned in the response which contains
+             * alerts, and systems are expected to put that etag in the request to update alert to ensure that their change will be applied to the same version of the alert. If no `etag` is
+             * provided in the call to update alert, then the existing alert is overwritten blindly.
              */
             etag?: string;
             /** Output only. The metadata associated with this alert. */
@@ -88,8 +87,8 @@ declare namespace gapi.client {
             /** Output only. An optional [Security Investigation Tool](https://support.google.com/a/answer/7575955) query for this alert. */
             securityInvestigationToolLink?: string;
             /**
-             * Required. A unique identifier for the system that reported the alert. This is output only after alert is created. Supported sources are any of the
-             * following: ∗ Google Operations ∗ Mobile device management ∗ Gmail phishing ∗ Domain wide takeout ∗ State sponsored attack ∗ Google identity
+             * Required. A unique identifier for the system that reported the alert. This is output only after alert is created. Supported sources are any of the following: * Google Operations *
+             * Mobile device management * Gmail phishing * Domain wide takeout * State sponsored attack * Google identity
              */
             source?: string;
             /** Required. The time the event that caused this alert was started or detected. */
@@ -124,19 +123,18 @@ declare namespace gapi.client {
             /** Output only. The unique identifier of the Google account of the customer. */
             customerId?: string;
             /**
-             * Optional. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of an alert metadata from overwriting each
-             * other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform metatdata updates in order to avoid race
-             * conditions: An `etag` is returned in the response which contains alert metadata, and systems are expected to put that etag in the request to update
-             * alert metadata to ensure that their change will be applied to the same version of the alert metadata. If no `etag` is provided in the call to update
-             * alert metadata, then the existing alert metadata is overwritten blindly.
+             * Optional. `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of an alert metadata from overwriting each other. It is strongly suggested
+             * that systems make use of the `etag` in the read-modify-write cycle to perform metatdata updates in order to avoid race conditions: An `etag` is returned in the response which
+             * contains alert metadata, and systems are expected to put that etag in the request to update alert metadata to ensure that their change will be applied to the same version of the
+             * alert metadata. If no `etag` is provided in the call to update alert metadata, then the existing alert metadata is overwritten blindly.
              */
             etag?: string;
             /**
-             * The severity value of the alert. Alert Center will set this field at alert creation time, default's to an empty string when it could not be determined.
-             * The supported values for update actions on this field are the following: ∗ HIGH ∗ MEDIUM ∗ LOW
+             * The severity value of the alert. Alert Center will set this field at alert creation time, default's to an empty string when it could not be determined. The supported values for
+             * update actions on this field are the following: * HIGH * MEDIUM * LOW
              */
             severity?: string;
-            /** The current status of the alert. The supported values are the following: ∗ NOT_STARTED ∗ IN_PROGRESS ∗ CLOSED */
+            /** The current status of the alert. The supported values are the following: * NOT_STARTED * IN_PROGRESS * CLOSED */
             status?: string;
             /** Output only. The time this metadata was last updated. */
             updateTime?: string;
@@ -223,8 +221,8 @@ declare namespace gapi.client {
         }
         interface DlpRuleViolation {
             /**
-             * Details about the violated DLP rule. Admins can use the predefined detectors provided by Google Cloud DLP https://cloud.google.com/dlp/ when setting up
-             * a DLP rule. Matched Cloud DLP detectors in this violation if any will be captured in the MatchInfo.predefined_detector.
+             * Details about the violated DLP rule. Admins can use the predefined detectors provided by Google Cloud DLP https://cloud.google.com/dlp/ when setting up a DLP rule. Matched Cloud DLP
+             * detectors in this violation if any will be captured in the MatchInfo.predefined_detector.
              */
             ruleViolationInfo?: RuleViolationInfo;
         }
@@ -262,10 +260,7 @@ declare namespace gapi.client {
         interface GoogleOperations {
             /** The list of emails which correspond to the users directly affected by the incident. */
             affectedUserEmails?: string[];
-            /**
-             * Optional. Application-specific data for an incident, provided when the G Suite application which reported the incident cannot be completely restored to
-             * a valid state.
-             */
+            /** Optional. Application-specific data for an incident, provided when the G Suite application which reported the incident cannot be completely restored to a valid state. */
             attachmentData?: Attachment;
             /** A detailed, freeform incident description. */
             description?: string;
@@ -280,8 +275,8 @@ declare namespace gapi.client {
             /** The list of alerts. */
             alerts?: Alert[];
             /**
-             * The token for the next page. If not empty, indicates that there may be more alerts that match the listing request; this value can be used in a
-             * subsequent ListAlertsRequest to get alerts continuing from last result of the current list call.
+             * The token for the next page. If not empty, indicates that there may be more alerts that match the listing request; this value can be used in a subsequent ListAlertsRequest to get
+             * alerts continuing from last result of the current list call.
              */
             nextPageToken?: string;
         }
@@ -361,9 +356,9 @@ declare namespace gapi.client {
             /** List of matches that were found in the resource content. */
             matchInfo?: MatchInfo[];
             /**
-             * Resource recipients. For Drive, they are grantees that the Drive file was shared with at the time of rule triggering. Valid values include user emails,
-             * group emails, domains, or 'anyone' if the file was publicly accessible. If the file was private the recipients list will be empty. For Gmail, they are
-             * emails of the users or groups that the Gmail message was sent to.
+             * Resource recipients. For Drive, they are grantees that the Drive file was shared with at the time of rule triggering. Valid values include user emails, group emails, domains, or
+             * 'anyone' if the file was publicly accessible. If the file was private the recipients list will be empty. For Gmail, they are emails of the users or groups that the Gmail message was
+             * sent to.
              */
             recipients?: string[];
             /** Details of the resource which violated the rule. */
@@ -393,8 +388,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -425,10 +420,7 @@ declare namespace gapi.client {
             serialNumber?: string;
         }
         interface UndeleteAlertRequest {
-            /**
-             * Optional. The unique identifier of the G Suite organization account of the customer the alert is associated with. Inferred from the caller identity if
-             * not provided.
-             */
+            /** Optional. The unique identifier of the G Suite organization account of the customer the alert is associated with. Inferred from the caller identity if not provided. */
             customerId?: string;
         }
         interface User {
@@ -445,8 +437,8 @@ declare namespace gapi.client {
         }
         interface FeedbackResource {
             /**
-             * Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback
-             * for an alert that is marked for deletion returns `FAILED_PRECONDITION' error.
+             * Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback for an alert that is marked
+             * for deletion returns `FAILED_PRECONDITION' error.
              */
             create(request: {
                 /** V1 error format. */
@@ -459,10 +451,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The unique identifier of the G Suite organization account of the customer the alert is associated with. Inferred from the caller identity if
-                 * not provided.
-                 */
+                /** Optional. The unique identifier of the G Suite organization account of the customer the alert is associated with. Inferred from the caller identity if not provided. */
                 customerId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -492,10 +481,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The unique identifier of the G Suite organization account of the customer the alert is associated with. Inferred from the caller identity if
-                 * not provided.
-                 */
+                /** Optional. The unique identifier of the G Suite organization account of the customer the alert is associated with. Inferred from the caller identity if not provided. */
                 customerId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -525,16 +511,13 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The unique identifier of the G Suite organization account of the customer the alert feedback are associated with. Inferred from the caller
-                 * identity if not provided.
-                 */
+                /** Optional. The unique identifier of the G Suite organization account of the customer the alert feedback are associated with. Inferred from the caller identity if not provided. */
                 customerId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. A query string for filtering alert feedback results. For more details, see [Query filters](/admin-sdk/alertcenter/guides/query-filters) and
-                 * [Supported query filter fields](/admin-sdk/alertcenter/reference/filter-fields#alerts.feedback.list).
+                 * Optional. A query string for filtering alert feedback results. For more details, see [Query filters](/admin-sdk/alertcenter/guides/query-filters) and [Supported query filter
+                 * fields](/admin-sdk/alertcenter/reference/filter-fields#alerts.feedback.list).
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -657,9 +640,8 @@ declare namespace gapi.client {
             },
             body: BatchUndeleteAlertsRequest): Request<BatchUndeleteAlertsResponse>;
             /**
-             * Marks the specified alert for deletion. An alert that has been marked for deletion is removed from Alert Center after 30 days. Marking an alert for
-             * deletion has no effect on an alert which has already been marked for deletion. Attempting to mark a nonexistent alert for deletion results in a
-             * `NOT_FOUND` error.
+             * Marks the specified alert for deletion. An alert that has been marked for deletion is removed from Alert Center after 30 days. Marking an alert for deletion has no effect on an
+             * alert which has already been marked for deletion. Attempting to mark a nonexistent alert for deletion results in a `NOT_FOUND` error.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -672,10 +654,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The unique identifier of the G Suite organization account of the customer the alert is associated with. Inferred from the caller identity if
-                 * not provided.
-                 */
+                /** Optional. The unique identifier of the G Suite organization account of the customer the alert is associated with. Inferred from the caller identity if not provided. */
                 customerId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -704,10 +683,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The unique identifier of the G Suite organization account of the customer the alert is associated with. Inferred from the caller identity if
-                 * not provided.
-                 */
+                /** Optional. The unique identifier of the G Suite organization account of the customer the alert is associated with. Inferred from the caller identity if not provided. */
                 customerId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -736,10 +712,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The unique identifier of the G Suite organization account of the customer the alert metadata is associated with. Inferred from the caller
-                 * identity if not provided.
-                 */
+                /** Optional. The unique identifier of the G Suite organization account of the customer the alert metadata is associated with. Inferred from the caller identity if not provided. */
                 customerId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -766,16 +739,13 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The unique identifier of the G Suite organization account of the customer the alerts are associated with. Inferred from the caller identity
-                 * if not provided.
-                 */
+                /** Optional. The unique identifier of the G Suite organization account of the customer the alerts are associated with. Inferred from the caller identity if not provided. */
                 customerId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. A query string for filtering alert results. For more details, see [Query filters](/admin-sdk/alertcenter/guides/query-filters) and [Supported
-                 * query filter fields](/admin-sdk/alertcenter/reference/filter-fields#alerts.list).
+                 * Optional. A query string for filtering alert results. For more details, see [Query filters](/admin-sdk/alertcenter/guides/query-filters) and [Supported query filter
+                 * fields](/admin-sdk/alertcenter/reference/filter-fields#alerts.list).
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -783,16 +753,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The sort order of the list results. If not specified results may be returned in arbitrary order. You can sort the results in descending order
-                 * based on the creation timestamp using `order_by="create_time desc"`. Currently, supported sorting are `create_time asc`, `create_time desc`,
-                 * `update_time desc`
+                 * Optional. The sort order of the list results. If not specified results may be returned in arbitrary order. You can sort the results in descending order based on the creation
+                 * timestamp using `order_by="create_time desc"`. Currently, supported sorting are `create_time asc`, `create_time desc`, `update_time desc`
                  */
                 orderBy?: string;
                 /** Optional. The requested page size. Server may return fewer items than requested. If unspecified, server picks an appropriate default. */
                 pageSize?: number;
                 /**
-                 * Optional. A token identifying a page of results the server should return. If empty, a new iteration is started. To continue an iteration, pass in the
-                 * value from the previous ListAlertsResponse's next_page_token field.
+                 * Optional. A token identifying a page of results the server should return. If empty, a new iteration is started. To continue an iteration, pass in the value from the previous
+                 * ListAlertsResponse's next_page_token field.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -805,9 +774,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListAlertsResponse>;
             /**
-             * Restores, or "undeletes", an alert that was marked for deletion within the past 30 days. Attempting to undelete an alert which was marked for deletion
-             * over 30 days ago (which has been removed from the Alert Center database) or a nonexistent alert returns a `NOT_FOUND` error. Attempting to undelete an
-             * alert which has not been marked for deletion has no effect.
+             * Restores, or "undeletes", an alert that was marked for deletion within the past 30 days. Attempting to undelete an alert which was marked for deletion over 30 days ago (which has
+             * been removed from the Alert Center database) or a nonexistent alert returns a `NOT_FOUND` error. Attempting to undelete an alert which has not been marked for deletion has no
+             * effect.
              */
             undelete(request: {
                 /** V1 error format. */
@@ -877,10 +846,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The unique identifier of the G Suite organization account of the customer the alert settings are associated with. Inferred from the caller
-                 * identity if not provided.
-                 */
+                /** Optional. The unique identifier of the G Suite organization account of the customer the alert settings are associated with. Inferred from the caller identity if not provided. */
                 customerId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -907,10 +873,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The unique identifier of the G Suite organization account of the customer the alert settings are associated with. Inferred from the caller
-                 * identity if not provided.
-                 */
+                /** Optional. The unique identifier of the G Suite organization account of the customer the alert settings are associated with. Inferred from the caller identity if not provided. */
                 customerId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -938,10 +901,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The unique identifier of the G Suite organization account of the customer the alert settings are associated with. Inferred from the caller
-                 * identity if not provided.
-                 */
+                /** Optional. The unique identifier of the G Suite organization account of the customer the alert settings are associated with. Inferred from the caller identity if not provided. */
                 customerId?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;

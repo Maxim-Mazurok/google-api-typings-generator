@@ -158,9 +158,8 @@ gapi.load('client', () => {
             databaseVersion: "Test string",
         });
         /**
-         * Add a new trusted Certificate Authority (CA) version for the specified instance. Required to prepare for a certificate rotation. If a CA version was
-         * previously added but never used in a certificate rotation, this operation replaces that version. There cannot be more than one CA version waiting to be
-         * rotated in.
+         * Add a new trusted Certificate Authority (CA) version for the specified instance. Required to prepare for a certificate rotation. If a CA version was previously added but never used in a
+         * certificate rotation, this operation replaces that version. There cannot be more than one CA version waiting to be rotated in.
          */
         await gapi.client.sql.instances.addServerCa({
             instance: "Test string",
@@ -428,9 +427,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Lists all of the trusted Certificate Authorities (CAs) for the specified instance. There can be up to three CAs listed: the CA that was used to sign
-         * the certificate that is currently in use, a CA that has been added but not yet used to sign a certificate, and a CA used to sign a certificate that has
-         * previously rotated out.
+         * Lists all of the trusted Certificate Authorities (CAs) for the specified instance. There can be up to three CAs listed: the CA that was used to sign the certificate that is currently in
+         * use, a CA that has been added but not yet used to sign a certificate, and a CA used to sign a certificate that has previously rotated out.
          */
         await gapi.client.sql.instances.listServerCas({
             instance: "Test string",
@@ -798,8 +796,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use
-         * the certificate to authenticate as themselves when connecting to the database.
+         * Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use the certificate to authenticate as
+         * themselves when connecting to the database.
          */
         await gapi.client.sql.sslCerts.createEphemeral({
             instance: "Test string",
@@ -813,19 +811,13 @@ gapi.load('client', () => {
             project: "Test string",
             sha1Fingerprint: "Test string",
         });
-        /**
-         * Retrieves a particular SSL certificate. Does not include the private key (required for usage). The private key must be saved from the response to
-         * initial creation.
-         */
+        /** Retrieves a particular SSL certificate. Does not include the private key (required for usage). The private key must be saved from the response to initial creation. */
         await gapi.client.sql.sslCerts.get({
             instance: "Test string",
             project: "Test string",
             sha1Fingerprint: "Test string",
         });
-        /**
-         * Creates an SSL certificate and returns it along with the private key and server certificate authority. The new certificate will not be usable until the
-         * instance is restarted.
-         */
+        /** Creates an SSL certificate and returns it along with the private key and server certificate authority. The new certificate will not be usable until the instance is restarted. */
         await gapi.client.sql.sslCerts.insert({
             instance: "Test string",
             project: "Test string",

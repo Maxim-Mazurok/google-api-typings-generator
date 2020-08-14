@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Trace API v2 2.0
 // Project: https://cloud.google.com/trace
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -26,14 +29,13 @@ declare namespace gapi.client {
         }
         interface Attributes {
             /**
-             * The set of attributes. Each attribute's key can be up to 128 bytes long. The value can be a string up to 256 bytes, a signed 64-bit integer, or the
-             * Boolean values `true` and `false`. For example: "/instance_id": { "string_value": { "value": "my-instance" } } "/http/request_bytes": { "int_value":
-             * 300 } "abc.com/myattribute": { "bool_value": false }
+             * The set of attributes. Each attribute's key can be up to 128 bytes long. The value can be a string up to 256 bytes, a signed 64-bit integer, or the Boolean values `true` and
+             * `false`. For example: "/instance_id": { "string_value": { "value": "my-instance" } } "/http/request_bytes": { "int_value": 300 } "abc.com/myattribute": { "bool_value": false }
              */
             attributeMap?: { [P in string]: AttributeValue };
             /**
-             * The number of attributes that were discarded. Attributes can be discarded because their keys are too long or because there are too many attributes. If
-             * this value is 0 then all attributes are valid.
+             * The number of attributes that were discarded. Attributes can be discarded because their keys are too long or because there are too many attributes. If this value is 0 then all
+             * attributes are valid.
              */
             droppedAttributesCount?: number;
         }
@@ -90,43 +92,43 @@ declare namespace gapi.client {
             /** Optional. The number of child spans that were generated while this span was active. If set, allows implementation to detect missing child spans. */
             childSpanCount?: number;
             /**
-             * Required. A description of the span's operation (up to 128 bytes). Trace displays the description in the Google Cloud Platform Console. For example,
-             * the display name can be a qualified method name or a file name and a line number where the operation is called. A best practice is to use the same
-             * display name within an application and at the same call point. This makes it easier to correlate spans in different traces.
+             * Required. A description of the span's operation (up to 128 bytes). Trace displays the description in the Google Cloud Platform Console. For example, the display name can be a
+             * qualified method name or a file name and a line number where the operation is called. A best practice is to use the same display name within an application and at the same call
+             * point. This makes it easier to correlate spans in different traces.
              */
             displayName?: TruncatableString;
             /**
-             * Required. The end time of the span. On the client side, this is the time kept by the local machine where the span execution ends. On the server side,
-             * this is the time when the server application handler stops running.
+             * Required. The end time of the span. On the client side, this is the time kept by the local machine where the span execution ends. On the server side, this is the time when the
+             * server application handler stops running.
              */
             endTime?: string;
             /** Links associated with the span. You can have up to 128 links per Span. */
             links?: Links;
             /**
-             * Required. The resource name of the span in the following format: projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier for a
-             * trace within a project; it is a 32-character hexadecimal encoding of a 16-byte array. [SPAN_ID] is a unique identifier for a span within a trace; it is
-             * a 16-character hexadecimal encoding of an 8-byte array. It should not be zero.
+             * Required. The resource name of the span in the following format: projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier for a trace within a project; it is a
+             * 32-character hexadecimal encoding of a 16-byte array. [SPAN_ID] is a unique identifier for a span within a trace; it is a 16-character hexadecimal encoding of an 8-byte array. It
+             * should not be zero.
              */
             name?: string;
             /** The [SPAN_ID] of this span's parent span. If this is a root span, then this field must be empty. */
             parentSpanId?: string;
             /**
-             * Optional. Set this parameter to indicate whether this span is in the same process as its parent. If you do not set this parameter, Trace is unable to
-             * take advantage of this helpful information.
+             * Optional. Set this parameter to indicate whether this span is in the same process as its parent. If you do not set this parameter, Trace is unable to take advantage of this helpful
+             * information.
              */
             sameProcessAsParentSpan?: boolean;
             /** Required. The [SPAN_ID] portion of the span's resource name. */
             spanId?: string;
             /**
-             * Optional. Distinguishes between spans generated in a particular context. For example, two spans with the same name may be distinguished using `CLIENT`
-             * (caller) and `SERVER` (callee) to identify an RPC call.
+             * Optional. Distinguishes between spans generated in a particular context. For example, two spans with the same name may be distinguished using `CLIENT` (caller) and `SERVER` (callee)
+             * to identify an RPC call.
              */
             spanKind?: string;
             /** Stack trace captured at the start of the span. */
             stackTrace?: StackTrace;
             /**
-             * Required. The start time of the span. On the client side, this is the time kept by the local machine where the span execution starts. On the server
-             * side, this is the time when the server's application handler starts running.
+             * Required. The start time of the span. On the client side, this is the time kept by the local machine where the span execution starts. On the server side, this is the time when the
+             * server's application handler starts running.
              */
             startTime?: string;
             /** Optional. The final status for this span. */
@@ -145,10 +147,7 @@ declare namespace gapi.client {
             lineNumber?: string;
             /** The binary module from where the code was loaded. */
             loadModule?: Module;
-            /**
-             * An un-mangled function name, if `function_name` is [mangled](http://www.avabodh.com/cxxin/namemangling.html). The name can be fully-qualified (up to
-             * 1024 bytes).
-             */
+            /** An un-mangled function name, if `function_name` is [mangled](http://www.avabodh.com/cxxin/namemangling.html). The name can be fully-qualified (up to 1024 bytes). */
             originalFunctionName?: TruncatableString;
             /** The version of the deployed source code (up to 128 bytes). */
             sourceVersion?: TruncatableString;
@@ -163,9 +162,9 @@ declare namespace gapi.client {
             /** Stack frames in this stack trace. A maximum of 128 frames are allowed. */
             stackFrames?: StackFrames;
             /**
-             * The hash ID is used to conserve network bandwidth for duplicate stack traces within a single trace. Often multiple spans will have identical stack
-             * traces. The first occurrence of a stack trace should contain both the `stackFrame` content and a value in `stackTraceHashId`. Subsequent spans within
-             * the same request can refer to that stack trace by only setting `stackTraceHashId`.
+             * The hash ID is used to conserve network bandwidth for duplicate stack traces within a single trace. Often multiple spans will have identical stack traces. The first occurrence of a
+             * stack trace should contain both the `stackFrame` content and a value in `stackTraceHashId`. Subsequent spans within the same request can refer to that stack trace by only setting
+             * `stackTraceHashId`.
              */
             stackTraceHashId?: string;
         }
@@ -175,8 +174,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -200,9 +199,9 @@ declare namespace gapi.client {
             /** The number of bytes removed from the original string. If this value is 0, then the string was not shortened. */
             truncatedByteCount?: number;
             /**
-             * The shortened string. For example, if the original string is 500 bytes long and the limit of the string is 128 bytes, then `value` contains the first
-             * 128 bytes of the 500-byte string. Truncation always happens on a UTF8 character boundary. If there are multi-byte characters in the string, then the
-             * length of the shortened string might be less than the size limit.
+             * The shortened string. For example, if the original string is 500 bytes long and the limit of the string is 128 bytes, then `value` contains the first 128 bytes of the 500-byte
+             * string. Truncation always happens on a UTF8 character boundary. If there are multi-byte characters in the string, then the length of the shortened string might be less than the size
+             * limit.
              */
             value?: string;
         }
@@ -222,9 +221,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the span in the following format: projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier for a
-                 * trace within a project; it is a 32-character hexadecimal encoding of a 16-byte array. [SPAN_ID] is a unique identifier for a span within a trace; it is
-                 * a 16-character hexadecimal encoding of an 8-byte array. It should not be zero.
+                 * Required. The resource name of the span in the following format: projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier for a trace within a project; it is
+                 * a 32-character hexadecimal encoding of a 16-byte array. [SPAN_ID] is a unique identifier for a span within a trace; it is a 16-character hexadecimal encoding of an 8-byte array.
+                 * It should not be zero.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -254,9 +253,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the span in the following format: projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier for a
-                 * trace within a project; it is a 32-character hexadecimal encoding of a 16-byte array. [SPAN_ID] is a unique identifier for a span within a trace; it is
-                 * a 16-character hexadecimal encoding of an 8-byte array. It should not be zero.
+                 * Required. The resource name of the span in the following format: projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier for a trace within a project; it is
+                 * a 32-character hexadecimal encoding of a 16-byte array. [SPAN_ID] is a unique identifier for a span within a trace; it is a 16-character hexadecimal encoding of an 8-byte array.
+                 * It should not be zero.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */

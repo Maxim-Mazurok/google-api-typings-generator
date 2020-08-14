@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Ad Experience Report API v1 1.0
 // Project: https://developers.google.com/ad-experience-report/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -21,10 +24,7 @@ declare namespace gapi.client {
         interface PlatformSummary {
             /** The site's Ad Experience Report status on this platform. */
             betterAdsStatus?: string;
-            /**
-             * The time at which [enforcement](https://support.google.com/webtools/answer/7308033) against the site began or will begin on this platform. Not set when
-             * the filter_status is OFF.
-             */
+            /** The time at which [enforcement](https://support.google.com/webtools/answer/7308033) against the site began or will begin on this platform. Not set when the filter_status is OFF. */
             enforcementTime?: string;
             /** The site's [enforcement status](https://support.google.com/webtools/answer/7308033) on this platform. */
             filterStatus?: string;
@@ -33,8 +33,8 @@ declare namespace gapi.client {
             /** The site's regions on this platform. No longer populated, because there is no longer any semantic difference between sites in different regions. */
             region?: string[];
             /**
-             * A link to the full Ad Experience Report for the site on this platform.. Not set in ViolatingSitesResponse. Note that you must complete the [Search
-             * Console verification process](https://support.google.com/webmasters/answer/9008080) for the site before you can access the full report.
+             * A link to the full Ad Experience Report for the site on this platform.. Not set in ViolatingSitesResponse. Note that you must complete the [Search Console verification
+             * process](https://support.google.com/webmasters/answer/9008080) for the site before you can access the full report.
              */
             reportUrl?: string;
             /** Whether the site is currently under review on this platform. */

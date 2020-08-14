@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Bigtable Admin API v2 2.0
 // Project: https://cloud.google.com/bigtable/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -36,7 +39,7 @@ declare namespace gapi.client {
             multiClusterRoutingUseAny?: any;
             /**
              * The unique name of the app profile. Values are of the form
-             * `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9∗`.
+             * `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
              */
             name?: string;
             /** Use a single-cluster routing policy. */
@@ -80,7 +83,7 @@ declare namespace gapi.client {
              * A globally unique identifier for the backup which cannot be
              * changed. Values are of the form
              * `projects/{project}/instances/{instance}/clusters/{cluster}/
-             * backups/_a-zA-Z0-9∗`
+             * backups/_a-zA-Z0-9*`
              * The final segment of the name must be between 1 and 50 characters
              * in length.
              *
@@ -143,29 +146,29 @@ declare namespace gapi.client {
              * Specifies the identities requesting access for a Cloud Platform resource.
              * `members` can have the following values:
              *
-             * ∗ `allUsers`: A special identifier that represents anyone who is
+             * * `allUsers`: A special identifier that represents anyone who is
              * on the internet; with or without a Google account.
              *
-             * ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
+             * * `allAuthenticatedUsers`: A special identifier that represents anyone
              * who is authenticated with a Google account or a service account.
              *
-             * ∗ `user:{emailid}`: An email address that represents a specific Google
+             * * `user:{emailid}`: An email address that represents a specific Google
              * account. For example, `alice@example.com` .
              *
              *
-             * ∗ `serviceAccount:{emailid}`: An email address that represents a service
+             * * `serviceAccount:{emailid}`: An email address that represents a service
              * account. For example, `my-other-app@appspot.gserviceaccount.com`.
              *
-             * ∗ `group:{emailid}`: An email address that represents a Google group.
+             * * `group:{emailid}`: An email address that represents a Google group.
              * For example, `admins@example.com`.
              *
-             * ∗ `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+             * * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
              * identifier) representing a user that has been recently deleted. For
              * example, `alice@example.com?uid=123456789012345678901`. If the user is
              * recovered, this value reverts to `user:{emailid}` and the recovered user
              * retains the role in the binding.
              *
-             * ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
+             * * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
              * unique identifier) representing a service account that has been recently
              * deleted. For example,
              * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`.
@@ -173,14 +176,14 @@ declare namespace gapi.client {
              * `serviceAccount:{emailid}` and the undeleted service account retains the
              * role in the binding.
              *
-             * ∗ `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
+             * * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
              * identifier) representing a Google group that has been recently
              * deleted. For example, `admins@example.com?uid=123456789012345678901`. If
              * the group is recovered, this value reverts to `group:{emailid}` and the
              * recovered group retains the role in the binding.
              *
              *
-             * ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the
+             * * `domain:{domain}`: The G Suite domain (primary) that represents all the
              * users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
@@ -216,7 +219,7 @@ declare namespace gapi.client {
             location?: string;
             /**
              * The unique name of the cluster. Values are of the form
-             * `projects/{project}/instances/{instance}/clusters/a-z∗`.
+             * `projects/{project}/instances/{instance}/clusters/a-z*`.
              */
             name?: string;
             /**
@@ -333,10 +336,10 @@ declare namespace gapi.client {
              *
              * Example:
              *
-             * ∗ Row keys := `["a", "apple", "custom", "customer_1", "customer_2",`
+             * * Row keys := `["a", "apple", "custom", "customer_1", "customer_2",`
              * `"other", "zz"]`
-             * ∗ initial_split_keys := `["apple", "customer_1", "customer_2", "other"]`
-             * ∗ Key assignment:
+             * * initial_split_keys := `["apple", "customer_1", "customer_2", "other"]`
+             * * Key assignment:
              * - Tablet 1 `[, apple)                => {"a"}.`
              * - Tablet 2 `[apple, customer_1)      => {"apple", "custom"}.`
              * - Tablet 3 `[customer_1, customer_2) => {"customer_1"}.`
@@ -455,12 +458,12 @@ declare namespace gapi.client {
              * deployment strategies. They can be used to filter resources and aggregate
              * metrics.
              *
-             * ∗ Label keys must be between 1 and 63 characters long and must conform to
+             * * Label keys must be between 1 and 63 characters long and must conform to
              * the regular expression: `\p{Ll}\p{Lo}{0,62}`.
-             * ∗ Label values must be between 0 and 63 characters long and must conform to
+             * * Label values must be between 0 and 63 characters long and must conform to
              * the regular expression: `[\p{Ll}\p{Lo}\p{N}_-]{0,63}`.
-             * ∗ No more than 64 labels can be associated with a given resource.
-             * ∗ Keys and values must both be under 128 bytes.
+             * * No more than 64 labels can be associated with a given resource.
+             * * Keys and values must both be under 128 bytes.
              */
             labels?: { [P in string]: string };
             /**
@@ -693,7 +696,7 @@ declare namespace gapi.client {
              * systems are expected to put that etag in the request to `setIamPolicy` to
              * ensure that their change will be applied to the same version of the policy.
              *
-             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
+             * **Important:** If you use IAM Conditions, you must include the `etag` field
              * whenever you call `setIamPolicy`. If you omit this field, then IAM allows
              * you to overwrite a version `3` policy with a version `1` policy, and all of
              * the conditions in the version `3` policy are lost.
@@ -708,13 +711,13 @@ declare namespace gapi.client {
              * Any operation that affects conditional role bindings must specify version
              * `3`. This requirement applies to the following operations:
              *
-             * ∗ Getting a policy that includes a conditional role binding
-             * ∗ Adding a conditional role binding to a policy
-             * ∗ Changing a conditional role binding in a policy
-             * ∗ Removing any role binding, with or without a condition, from a policy
+             * * Getting a policy that includes a conditional role binding
+             * * Adding a conditional role binding to a policy
+             * * Changing a conditional role binding in a policy
+             * * Removing any role binding, with or without a condition, from a policy
              * that includes conditions
              *
-             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
+             * **Important:** If you use IAM Conditions, you must include the `etag` field
              * whenever you call `setIamPolicy`. If you omit this field, then IAM allows
              * you to overwrite a version `3` policy with a version `1` policy, and all of
              * the conditions in the version `3` policy are lost.
@@ -843,7 +846,7 @@ declare namespace gapi.client {
             granularity?: string;
             /**
              * The unique name of the table. Values are of the form
-             * `projects/{project}/instances/{instance}/tables/_a-zA-Z0-9∗`.
+             * `projects/{project}/instances/{instance}/tables/_a-zA-Z0-9*`.
              * Views: `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`
              */
             name?: string;
@@ -867,7 +870,7 @@ declare namespace gapi.client {
         interface TestIamPermissionsRequest {
             /**
              * The set of permissions to check for the `resource`. Permissions with
-             * wildcards (such as '∗' or 'storage.∗') are not allowed. For more
+             * wildcards (such as '*' or 'storage.*') are not allowed. For more
              * information see
              * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
@@ -911,7 +914,7 @@ declare namespace gapi.client {
              * NOTE: the `name` binding allows API services to override the binding
              * to use different resource name schemes, such as `users/∗/operations`. To
              * override the binding, API services can add a binding such as
-             * `"/v1/{name=users/∗}/operations"` to their service configuration.
+             * `"/v1/{name=users/*}/operations"` to their service configuration.
              * For backwards compatibility, the default name includes the operations
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
@@ -1264,7 +1267,7 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The unique name of the app profile. Values are of the form
-                 * `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9∗`.
+                 * `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1302,7 +1305,7 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The unique name of the app profile. Values are of the form
-                 * `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9∗`.
+                 * `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1347,7 +1350,7 @@ declare namespace gapi.client {
                  * the full backup name, of the form:
                  * `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup_id}`.
                  * This string must be between 1 and 50 characters in length and match the
-                 * regex _a-zA-Z0-9∗.
+                 * regex _a-zA-Z0-9*.
                  */
                 backupId?: string;
                 /** JSONP */
@@ -1388,7 +1391,7 @@ declare namespace gapi.client {
                  * the full backup name, of the form:
                  * `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup_id}`.
                  * This string must be between 1 and 50 characters in length and match the
-                 * regex _a-zA-Z0-9∗.
+                 * regex _a-zA-Z0-9*.
                  */
                 backupId?: string;
                 /** JSONP */
@@ -1536,13 +1539,13 @@ declare namespace gapi.client {
                  * roughly synonymous with equality. Filter rules are case insensitive.
                  *
                  * The fields eligible for filtering are:
-                 * ∗ `name`
-                 * ∗ `source_table`
-                 * ∗ `state`
-                 * ∗ `start_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
-                 * ∗ `end_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
-                 * ∗ `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
-                 * ∗ `size_bytes`
+                 * * `name`
+                 * * `source_table`
+                 * * `state`
+                 * * `start_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
+                 * * `end_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
+                 * * `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
+                 * * `size_bytes`
                  *
                  * To filter on multiple expressions, provide each separate expression within
                  * parentheses. By default, each expression is an AND expression. However,
@@ -1550,16 +1553,16 @@ declare namespace gapi.client {
                  *
                  * Some examples of using filters are:
                  *
-                 * ∗ `name:"exact"` --> The backup's name is the string "exact".
-                 * ∗ `name:howl` --> The backup's name contains the string "howl".
-                 * ∗ `source_table:prod`
+                 * * `name:"exact"` --> The backup's name is the string "exact".
+                 * * `name:howl` --> The backup's name contains the string "howl".
+                 * * `source_table:prod`
                  * --> The source_table's name contains the string "prod".
-                 * ∗ `state:CREATING` --> The backup is pending creation.
-                 * ∗ `state:READY` --> The backup is fully created and ready for use.
-                 * ∗ `(name:howl) AND (start_time < \"2018-03-28T14:50:00Z\")`
+                 * * `state:CREATING` --> The backup is pending creation.
+                 * * `state:READY` --> The backup is fully created and ready for use.
+                 * * `(name:howl) AND (start_time < \"2018-03-28T14:50:00Z\")`
                  * --> The backup name contains the string "howl" and start_time
                  * of the backup is before 2018-03-28T14:50:00Z.
-                 * ∗ `size_bytes > 10000000000` --> The backup's size is greater than 10GB
+                 * * `size_bytes > 10000000000` --> The backup's size is greater than 10GB
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1572,13 +1575,13 @@ declare namespace gapi.client {
                  * syntax is described at https://aip.dev/132#ordering.
                  *
                  * Fields supported are:
-                 * ∗ name
-                 * ∗ source_table
-                 * ∗ expire_time
-                 * ∗ start_time
-                 * ∗ end_time
-                 * ∗ size_bytes
-                 * ∗ state
+                 * * name
+                 * * source_table
+                 * * expire_time
+                 * * start_time
+                 * * end_time
+                 * * size_bytes
+                 * * state
                  *
                  * For example, "start_time". The default sorting order is ascending.
                  * To specify descending order for the field, a suffix " desc" should
@@ -1635,7 +1638,7 @@ declare namespace gapi.client {
                  * A globally unique identifier for the backup which cannot be
                  * changed. Values are of the form
                  * `projects/{project}/instances/{instance}/clusters/{cluster}/
-                 * backups/_a-zA-Z0-9∗`
+                 * backups/_a-zA-Z0-9*`
                  * The final segment of the name must be between 1 and 50 characters
                  * in length.
                  *
@@ -1682,7 +1685,7 @@ declare namespace gapi.client {
                  * A globally unique identifier for the backup which cannot be
                  * changed. Values are of the form
                  * `projects/{project}/instances/{instance}/clusters/{cluster}/
-                 * backups/_a-zA-Z0-9∗`
+                 * backups/_a-zA-Z0-9*`
                  * The final segment of the name must be between 1 and 50 characters
                  * in length.
                  *
@@ -1964,7 +1967,7 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The unique name of the cluster. Values are of the form
-                 * `projects/{project}/instances/{instance}/clusters/a-z∗`.
+                 * `projects/{project}/instances/{instance}/clusters/a-z*`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1995,7 +1998,7 @@ declare namespace gapi.client {
                 key?: string;
                 /**
                  * The unique name of the cluster. Values are of the form
-                 * `projects/{project}/instances/{instance}/clusters/a-z∗`.
+                 * `projects/{project}/instances/{instance}/clusters/a-z*`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */

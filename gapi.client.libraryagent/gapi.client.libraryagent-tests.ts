@@ -32,8 +32,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Borrow a book from the library. Returns the book if it is borrowed successfully. Returns NOT_FOUND if the book does not exist in the library. Returns
-         * quota exceeded error if the amount of books borrowed exceeds allocation quota in any dimensions.
+         * Borrow a book from the library. Returns the book if it is borrowed successfully. Returns NOT_FOUND if the book does not exist in the library. Returns quota exceeded error if the amount
+         * of books borrowed exceeds allocation quota in any dimensions.
          */
         await gapi.client.libraryagent.shelves.books.borrow({
             name: "Test string",
@@ -43,18 +43,15 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Lists books in a shelf. The order is unspecified but deterministic. Newly created books will not necessarily be added to the end of this list. Returns
-         * NOT_FOUND if the shelf does not exist.
+         * Lists books in a shelf. The order is unspecified but deterministic. Newly created books will not necessarily be added to the end of this list. Returns NOT_FOUND if the shelf does not
+         * exist.
          */
         await gapi.client.libraryagent.shelves.books.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
         });
-        /**
-         * Return a book to the library. Returns the book if it is returned to the library successfully. Returns error if the book does not belong to the library
-         * or the users didn't borrow before.
-         */
+        /** Return a book to the library. Returns the book if it is returned to the library successfully. Returns error if the book does not belong to the library or the users didn't borrow before. */
         await gapi.client.libraryagent.shelves.books.return({
             name: "Test string",
         });
@@ -64,8 +61,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Borrow a book from the library. Returns the book if it is borrowed successfully. Returns NOT_FOUND if the book does not exist in the library. Returns
-         * quota exceeded error if the amount of books borrowed exceeds allocation quota in any dimensions.
+         * Borrow a book from the library. Returns the book if it is borrowed successfully. Returns NOT_FOUND if the book does not exist in the library. Returns quota exceeded error if the amount
+         * of books borrowed exceeds allocation quota in any dimensions.
          */
         await gapi.client.libraryagent.shelves.books.borrow({
             name: "Test string",
@@ -75,18 +72,15 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Lists books in a shelf. The order is unspecified but deterministic. Newly created books will not necessarily be added to the end of this list. Returns
-         * NOT_FOUND if the shelf does not exist.
+         * Lists books in a shelf. The order is unspecified but deterministic. Newly created books will not necessarily be added to the end of this list. Returns NOT_FOUND if the shelf does not
+         * exist.
          */
         await gapi.client.libraryagent.shelves.books.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
         });
-        /**
-         * Return a book to the library. Returns the book if it is returned to the library successfully. Returns error if the book does not belong to the library
-         * or the users didn't borrow before.
-         */
+        /** Return a book to the library. Returns the book if it is returned to the library successfully. Returns error if the book does not belong to the library or the users didn't borrow before. */
         await gapi.client.libraryagent.shelves.books.return({
             name: "Test string",
         });

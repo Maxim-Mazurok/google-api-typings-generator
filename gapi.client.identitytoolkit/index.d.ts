@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Google Identity Toolkit API v3 3.0
 // Project: https://developers.google.com/identity-toolkit/v3/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -115,8 +118,8 @@ declare namespace gapi.client {
             /** The URI to which the IDP redirects the user after the federated login flow. */
             continueUri?: string;
             /**
-             * The query parameter that client can customize by themselves in auth url. The following parameters are reserved for server so that they cannot be
-             * customized by clients: client_id, response_type, scope, redirect_uri, state, oauth_token.
+             * The query parameter that client can customize by themselves in auth url. The following parameters are reserved for server so that they cannot be customized by clients: client_id,
+             * response_type, scope, redirect_uri, state, oauth_token.
              */
             customParameter?: { [P in string]: string };
             /** The hosted domain to restrict sign-in to accounts at that domain for Google Apps hosted accounts. */
@@ -131,17 +134,11 @@ declare namespace gapi.client {
             openidRealm?: string;
             /** The native app package for OTA installation. */
             otaApp?: string;
-            /**
-             * The IdP ID. For white listed IdPs it's a short domain name e.g. google.com, aol.com, live.net and yahoo.com. For other OpenID IdPs it's the OP
-             * identifier.
-             */
+            /** The IdP ID. For white listed IdPs it's a short domain name e.g. google.com, aol.com, live.net and yahoo.com. For other OpenID IdPs it's the OP identifier. */
             providerId?: string;
             /** The session_id passed by client. */
             sessionId?: string;
-            /**
-             * For multi-tenant use cases, in order to construct sign-in URL with the correct IDP parameters, Firebear needs to know which Tenant to retrieve IDP
-             * configs from.
-             */
+            /** For multi-tenant use cases, in order to construct sign-in URL with the correct IDP parameters, Firebear needs to know which Tenant to retrieve IDP configs from. */
             tenantId?: string;
             /** Tenant project number to be used for idp discovery. */
             tenantProjectNumber?: string;
@@ -362,10 +359,7 @@ declare namespace gapi.client {
             phoneNumber?: string;
             /** The photo url of the user. */
             photoUrl?: string;
-            /**
-             * For multi-tenant use cases, in order to construct sign-in URL with the correct IDP parameters, Firebear needs to know which Tenant to retrieve IDP
-             * configs from.
-             */
+            /** For multi-tenant use cases, in order to construct sign-in URL with the correct IDP parameters, Firebear needs to know which Tenant to retrieve IDP configs from. */
             tenantId?: string;
             /** Tenant project number to be used for idp discovery. */
             tenantProjectNumber?: string;
@@ -401,8 +395,8 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyVerifyAssertionRequest {
             /**
-             * When it's true, automatically creates a new account if the user doesn't exist. When it's false, allows existing user to sign in normally and throws
-             * exception if the user doesn't exist.
+             * When it's true, automatically creates a new account if the user doesn't exist. When it's false, allows existing user to sign in normally and throws exception if the user doesn't
+             * exist.
              */
             autoCreate?: boolean;
             /** GCP project number of the requesting delegated app. Currently only intended for Firebase V1 migration. */
@@ -425,10 +419,7 @@ declare namespace gapi.client {
             returnSecureToken?: boolean;
             /** Session ID, which should match the one in previous createAuthUri request. */
             sessionId?: string;
-            /**
-             * For multi-tenant use cases, in order to construct sign-in URL with the correct IDP parameters, Firebear needs to know which Tenant to retrieve IDP
-             * configs from.
-             */
+            /** For multi-tenant use cases, in order to construct sign-in URL with the correct IDP parameters, Firebear needs to know which Tenant to retrieve IDP configs from. */
             tenantId?: string;
             /** Tenant project number to be used for idp discovery. */
             tenantProjectNumber?: string;
@@ -464,10 +455,7 @@ declare namespace gapi.client {
             pendingIdToken?: string;
             /** Whether return sts id token and refresh token instead of gitkit token. */
             returnSecureToken?: boolean;
-            /**
-             * For multi-tenant use cases, in order to construct sign-in URL with the correct IDP parameters, Firebear needs to know which Tenant to retrieve IDP
-             * configs from.
-             */
+            /** For multi-tenant use cases, in order to construct sign-in URL with the correct IDP parameters, Firebear needs to know which Tenant to retrieve IDP configs from. */
             tenantId?: string;
             /** Tenant project number to be used for idp discovery. */
             tenantProjectNumber?: string;
@@ -582,10 +570,7 @@ declare namespace gapi.client {
                 federatedId?: string;
                 /** The user's photo url at the IDP. */
                 photoUrl?: string;
-                /**
-                 * The IdP ID. For whitelisted IdPs it's a short domain name, e.g., google.com, aol.com, live.net and yahoo.com. For other OpenID IdPs it's the OP
-                 * identifier.
-                 */
+                /** The IdP ID. For whitelisted IdPs it's a short domain name, e.g., google.com, aol.com, live.net and yahoo.com. For other OpenID IdPs it's the OP identifier. */
                 providerId?: string;
             }>;
             /** If idToken is STS id token, then this field will be refresh token. */
@@ -657,10 +642,7 @@ declare namespace gapi.client {
                 phoneNumber?: string;
                 /** The user's photo url at the IDP. */
                 photoUrl?: string;
-                /**
-                 * The IdP ID. For white listed IdPs it's a short domain name, e.g., google.com, aol.com, live.net and yahoo.com. For other OpenID IdPs it's the OP
-                 * identifier.
-                 */
+                /** The IdP ID. For white listed IdPs it's a short domain name, e.g., google.com, aol.com, live.net and yahoo.com. For other OpenID IdPs it's the OP identifier. */
                 providerId?: string;
                 /** User's raw identifier directly returned from IDP. */
                 rawId?: string;
@@ -709,10 +691,7 @@ declare namespace gapi.client {
             fullName?: string;
             /** The ID token. */
             idToken?: string;
-            /**
-             * It's the identifier param in the createAuthUri request if the identifier is an email. It can be used to check whether the user input email is different
-             * from the asserted email.
-             */
+            /** It's the identifier param in the createAuthUri request if the identifier is an email. It can be used to check whether the user input email is different from the asserted email. */
             inputEmail?: string;
             /** True if it's a new user sign-in, false if it's a returning user. */
             isNewUser?: boolean;
@@ -749,9 +728,8 @@ declare namespace gapi.client {
             /** The URI of the public accessible profiel picture. */
             photoUrl?: string;
             /**
-             * The IdP ID. For white listed IdPs it's a short domain name e.g. google.com, aol.com, live.net and yahoo.com. If the "providerId" param is set to OpenID
-             * OP identifer other than the whilte listed IdPs the OP identifier is returned. If the "identifier" param is federated ID in the createAuthUri request.
-             * The domain part of the federated ID is returned.
+             * The IdP ID. For white listed IdPs it's a short domain name e.g. google.com, aol.com, live.net and yahoo.com. If the "providerId" param is set to OpenID OP identifer other than the
+             * whilte listed IdPs the OP identifier is returned. If the "identifier" param is federated ID in the createAuthUri request. The domain part of the federated ID is returned.
              */
             providerId?: string;
             /** Raw IDP-returned user info. */

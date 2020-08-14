@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Data Fusion API v1 1.0
 // Project: https://cloud.google.com/data-fusion/docs
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -26,8 +29,8 @@ declare namespace gapi.client {
             /** The configuration for logging of each type of permission. */
             auditLogConfigs?: AuditLogConfig[];
             /**
-             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
-             * special value that covers all services.
+             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
+             * services.
              */
             service?: string;
         }
@@ -39,27 +42,23 @@ declare namespace gapi.client {
         }
         interface Binding {
             /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the
-             * condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to
-             * one or more of the members in this binding. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
+             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the members in this binding. To learn which
+             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
-             * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
-             * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
-             * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
-             * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
-             * `google.com` or `example.com`.
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is
+             * on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
+             * account. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that
+             * represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `group:{emailid}`: An email address that represents a Google group. For example,
+             * `admins@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. *
+             * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service
+             * account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently
+             * deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in
+             * the binding. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -101,10 +100,7 @@ declare namespace gapi.client {
             enableStackdriverMonitoring?: boolean;
             /** Output only. Cloud Storage bucket generated by Data Fusion in the customer project. */
             gcsBucket?: string;
-            /**
-             * The resource labels for instance to use to annotate any related underlying resources such as GCE VMs. The character '=' is not allowed to be used
-             * within the labels.
-             */
+            /** The resource labels for instance to use to annotate any related underlying resources such as GCE VMs. The character '=' is not allowed to be used within the labels. */
             labels?: { [P in string]: string };
             /** Output only. The name of this instance is in the form of projects/{project}/locations/{location}/instances/{instance}. */
             name?: string;
@@ -115,8 +111,8 @@ declare namespace gapi.client {
             /** Output only. P4 service account for the customer project. */
             p4ServiceAccount?: string;
             /**
-             * Specifies whether the Data Fusion instance should be private. If set to true, all Data Fusion nodes will have private IP addresses and will not be able
-             * to access the public internet.
+             * Specifies whether the Data Fusion instance should be private. If set to true, all Data Fusion nodes will have private IP addresses and will not be able to access the public
+             * internet.
              */
             privateInstance?: boolean;
             /** Output only. Deprecated. Use tenant_project_id instead to extract the tenant project ID. */
@@ -177,40 +173,33 @@ declare namespace gapi.client {
             name?: string;
         }
         interface NetworkConfig {
-            /**
-             * The IP range in CIDR notation to use for the managed Data Fusion instance nodes. This range must not overlap with any other ranges used in the customer
-             * network.
-             */
+            /** The IP range in CIDR notation to use for the managed Data Fusion instance nodes. This range must not overlap with any other ranges used in the customer network. */
             ipAllocation?: string;
             /**
-             * Name of the network in the customer project with which the Tenant Project will be peered for executing pipelines. In case of shared VPC where the
-             * network resides in another host project the network should specified in the form of projects/{host-project-id}/global/networks/{network}
+             * Name of the network in the customer project with which the Tenant Project will be peered for executing pipelines. In case of shared VPC where the network resides in another host
+             * project the network should specified in the form of projects/{host-project-id}/global/networks/{network}
              */
             network?: string;
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -222,8 +211,8 @@ declare namespace gapi.client {
             /** The time the operation finished running. */
             endTime?: string;
             /**
-             * Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value
-             * with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a google.rpc.Status.code of
+             * 1, corresponding to `Code.CANCELLED`.
              */
             requestedCancellation?: boolean;
             /** Human-readable status of the operation if any. */
@@ -237,28 +226,25 @@ declare namespace gapi.client {
             /** Specifies cloud audit logging configuration for this policy. */
             auditConfigs?: AuditConfig[];
             /**
-             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the
-             * `bindings` must contain at least one member.
+             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
+             * least one member.
              */
             bindings?: Binding[];
             /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
-             * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
-             * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
-             * the version `3` policy are lost.
+             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
+             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
+             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
+             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
             /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
-             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
-             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
-             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
-             * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
-             * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
+             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
+             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
+             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
+             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
@@ -267,13 +253,13 @@ declare namespace gapi.client {
         }
         interface SetIamPolicyRequest {
             /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy
-             * but certain Cloud Platform services (such as Projects) might reject them.
+             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Cloud Platform
+             * services (such as Projects) might reject them.
              */
             policy?: Policy;
             /**
-             * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the
-             * following default mask is used: `paths: "bindings, etag"`
+             * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
+             * `paths: "bindings, etag"`
              */
             updateMask?: string;
         }
@@ -283,15 +269,15 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see
-             * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '*' or 'storage.*') are not allowed. For more information see [IAM
+             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
         }
@@ -440,10 +426,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-                 * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+                 * conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support
+                 * conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
                 "options.requestedPolicyVersion"?: number;
                 /** Returns response with indentations and line breaks. */
@@ -482,8 +467,8 @@ declare namespace gapi.client {
                 /** The next_page_token value to use if there are additional results to retrieve for this list request. */
                 pageToken?: string;
                 /**
-                 * The project and location for which to retrieve instance information in the format projects/{project}/locations/{location}. If the location is specified
-                 * as '-' (wildcard), then all regions available to the project are queried, and the results are aggregated.
+                 * The project and location for which to retrieve instance information in the format projects/{project}/locations/{location}. If the location is specified as '-' (wildcard), then
+                 * all regions available to the project are queried, and the results are aggregated.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -518,9 +503,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Field mask is used to specify the fields that the update will overwrite in an instance resource. The fields specified in the update_mask are relative
-                 * to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask, all the supported fields
-                 * (labels, options, and version currently) will be overwritten.
+                 * Field mask is used to specify the fields that the update will overwrite in an instance resource. The fields specified in the update_mask are relative to the resource, not the
+                 * full request. A field will be overwritten if it is in the mask. If the user does not provide a mask, all the supported fields (labels, options, and version currently) will be
+                 * overwritten.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -552,9 +537,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Field mask is used to specify the fields that the update will overwrite in an instance resource. The fields specified in the update_mask are relative
-                 * to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask, all the supported fields
-                 * (labels, options, and version currently) will be overwritten.
+                 * Field mask is used to specify the fields that the update will overwrite in an instance resource. The fields specified in the update_mask are relative to the resource, not the
+                 * full request. A field will be overwritten if it is in the mask. If the user does not provide a mask, all the supported fields (labels, options, and version currently) will be
+                 * overwritten.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -619,10 +604,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: RestartInstanceRequest): Request<Operation>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-             * `PERMISSION_DENIED` errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -651,9 +633,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-             * checking. This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -685,10 +666,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request: {
                 /** V1 error format. */
@@ -746,8 +727,8 @@ declare namespace gapi.client {
             },
             body: CancelOperationRequest): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -775,10 +756,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -806,11 +784,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -861,8 +838,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Whether or not to return the latest patch of every available minor version. If true, only the latest patch will be returned. Ex. if allowed versions is
-                 * [6.1.1, 6.1.2, 6.2.0] then response will be [6.1.2, 6.2.0]
+                 * Whether or not to return the latest patch of every available minor version. If true, only the latest patch will be returned. Ex. if allowed versions is [6.1.1, 6.1.2, 6.2.0]
+                 * then response will be [6.1.2, 6.2.0]
                  */
                 latestPatchOnly?: boolean;
                 /** OAuth 2.0 token for the current user. */

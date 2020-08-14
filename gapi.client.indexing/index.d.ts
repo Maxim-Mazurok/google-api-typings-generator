@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Indexing API v3 3.0
 // Project: https://developers.google.com/search/apis/indexing-api/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -27,10 +30,7 @@ declare namespace gapi.client {
             notifyTime?: string;
             /** The URL life cycle event that Google is being notified about. */
             type?: string;
-            /**
-             * The object of this notification. The URL must be owned by the publisher of this notification and, in case of `URL_UPDATED` notifications, it _must_ be
-             * crawlable by Google.
-             */
+            /** The object of this notification. The URL must be owned by the publisher of this notification and, in case of `URL_UPDATED` notifications, it _must_ be crawlable by Google. */
             url?: string;
         }
         interface UrlNotificationMetadata {
@@ -43,8 +43,8 @@ declare namespace gapi.client {
         }
         interface UrlNotificationsResource {
             /**
-             * Gets metadata about a Web Document. This method can _only_ be used to query URLs that were previously seen in successful Indexing API notifications.
-             * Includes the latest `UrlNotification` received via this API.
+             * Gets metadata about a Web Document. This method can _only_ be used to query URLs that were previously seen in successful Indexing API notifications. Includes the latest
+             * `UrlNotification` received via this API.
              */
             getMetadata(request?: {
                 /** V1 error format. */

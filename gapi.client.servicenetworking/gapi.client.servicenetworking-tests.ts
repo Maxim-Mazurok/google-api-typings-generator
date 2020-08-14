@@ -30,35 +30,31 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-         * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-         * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-         * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
+         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
+         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
+         * 1, corresponding to `Code.CANCELLED`.
          */
         await gapi.client.servicenetworking.operations.cancel({
             name: "Test string",
         }, {
         });
         /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-         * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
+         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
          */
         await gapi.client.servicenetworking.operations.delete({
             name: "Test string",
         });
-        /**
-         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
+        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
         await gapi.client.servicenetworking.operations.get({
             name: "Test string",
         });
         /**
-         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-         * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-         * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-         * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-         * operations collection id.
+         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services to
+         * override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+         * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+         * ensure the name binding is the parent resource, without the operations collection id.
          */
         await gapi.client.servicenetworking.operations.list({
             filter: "Test string",
@@ -67,10 +63,9 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * For service producers, provisions a new subnet in a peered service's shared VPC network in the requested region and with the requested size that's
-         * expressed as a CIDR range (number of leading bits of ipV4 network mask). The method checks against the assigned allocated ranges to find a
-         * non-conflicting IP address range. The method will reuse a subnet if subsequent calls contain the same subnet name, region, and prefix length. This
-         * method will make producer's tenant project to be a shared VPC service project as needed.
+         * For service producers, provisions a new subnet in a peered service's shared VPC network in the requested region and with the requested size that's expressed as a CIDR range (number of
+         * leading bits of ipV4 network mask). The method checks against the assigned allocated ranges to find a non-conflicting IP address range. The method will reuse a subnet if subsequent
+         * calls contain the same subnet name, region, and prefix length. This method will make producer's tenant project to be a shared VPC service project as needed.
          */
         await gapi.client.servicenetworking.services.addSubnetwork({
             parent: "Test string",
@@ -87,10 +82,9 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The
-         * administrator of the service consumer's VPC network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning
-         * subnetworks in the service producer's VPC network. This connection is used for all supported services in the service producer's organization, so it
-         * only needs to be invoked once.
+         * Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The administrator of the service consumer's VPC
+         * network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning subnetworks in the service producer's VPC network. This connection is used
+         * for all supported services in the service producer's organization, so it only needs to be invoked once.
          */
         await gapi.client.servicenetworking.services.connections.create({
             parent: "Test string",
@@ -175,10 +169,7 @@ gapi.load('client', () => {
             dnsSuffix: "Test string",
             name: "Test string",
         });
-        /**
-         * Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer
-         * project.
-         */
+        /** Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. */
         await gapi.client.servicenetworking.services.dnsZones.remove({
             parent: "Test string",
         }, {
@@ -186,8 +177,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be
-         * selected from within a whitelisted set of roles. Each role is applied at only the granularity specified in the whitelist.
+         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within a whitelisted set of
+         * roles. Each role is applied at only the granularity specified in the whitelist.
          */
         await gapi.client.servicenetworking.services.roles.add({
             parent: "Test string",
@@ -206,10 +197,9 @@ gapi.load('client', () => {
             consumerNetwork: "Test string",
         });
         /**
-         * Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The
-         * administrator of the service consumer's VPC network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning
-         * subnetworks in the service producer's VPC network. This connection is used for all supported services in the service producer's organization, so it
-         * only needs to be invoked once.
+         * Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The administrator of the service consumer's VPC
+         * network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning subnetworks in the service producer's VPC network. This connection is used
+         * for all supported services in the service producer's organization, so it only needs to be invoked once.
          */
         await gapi.client.servicenetworking.services.connections.create({
             parent: "Test string",
@@ -294,10 +284,7 @@ gapi.load('client', () => {
             dnsSuffix: "Test string",
             name: "Test string",
         });
-        /**
-         * Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer
-         * project.
-         */
+        /** Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. */
         await gapi.client.servicenetworking.services.dnsZones.remove({
             parent: "Test string",
         }, {
@@ -305,8 +292,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be
-         * selected from within a whitelisted set of roles. Each role is applied at only the granularity specified in the whitelist.
+         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within a whitelisted set of
+         * roles. Each role is applied at only the granularity specified in the whitelist.
          */
         await gapi.client.servicenetworking.services.roles.add({
             parent: "Test string",
@@ -325,10 +312,9 @@ gapi.load('client', () => {
             consumerNetwork: "Test string",
         });
         /**
-         * Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The
-         * administrator of the service consumer's VPC network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning
-         * subnetworks in the service producer's VPC network. This connection is used for all supported services in the service producer's organization, so it
-         * only needs to be invoked once.
+         * Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The administrator of the service consumer's VPC
+         * network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning subnetworks in the service producer's VPC network. This connection is used
+         * for all supported services in the service producer's organization, so it only needs to be invoked once.
          */
         await gapi.client.servicenetworking.services.connections.create({
             parent: "Test string",
@@ -413,10 +399,7 @@ gapi.load('client', () => {
             dnsSuffix: "Test string",
             name: "Test string",
         });
-        /**
-         * Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer
-         * project.
-         */
+        /** Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. */
         await gapi.client.servicenetworking.services.dnsZones.remove({
             parent: "Test string",
         }, {
@@ -424,8 +407,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be
-         * selected from within a whitelisted set of roles. Each role is applied at only the granularity specified in the whitelist.
+         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within a whitelisted set of
+         * roles. Each role is applied at only the granularity specified in the whitelist.
          */
         await gapi.client.servicenetworking.services.roles.add({
             parent: "Test string",
@@ -438,9 +421,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Service producers can use this method to find a currently unused range within consumer allocated ranges. This returned range is not reserved, and not
-         * guaranteed to remain unused. It will validate previously provided allocated ranges, find non-conflicting sub-range of requested size (expressed in
-         * number of leading bits of ipv4 network mask, as in CIDR range notation).
+         * Service producers can use this method to find a currently unused range within consumer allocated ranges. This returned range is not reserved, and not guaranteed to remain unused. It
+         * will validate previously provided allocated ranges, find non-conflicting sub-range of requested size (expressed in number of leading bits of ipv4 network mask, as in CIDR range
+         * notation).
          */
         await gapi.client.servicenetworking.services.searchRange({
             parent: "Test string",
@@ -449,10 +432,9 @@ gapi.load('client', () => {
             network: "Test string",
         });
         /**
-         * Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The
-         * administrator of the service consumer's VPC network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning
-         * subnetworks in the service producer's VPC network. This connection is used for all supported services in the service producer's organization, so it
-         * only needs to be invoked once.
+         * Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The administrator of the service consumer's VPC
+         * network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning subnetworks in the service producer's VPC network. This connection is used
+         * for all supported services in the service producer's organization, so it only needs to be invoked once.
          */
         await gapi.client.servicenetworking.services.connections.create({
             parent: "Test string",
@@ -537,10 +519,7 @@ gapi.load('client', () => {
             dnsSuffix: "Test string",
             name: "Test string",
         });
-        /**
-         * Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer
-         * project.
-         */
+        /** Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. */
         await gapi.client.servicenetworking.services.dnsZones.remove({
             parent: "Test string",
         }, {
@@ -548,8 +527,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be
-         * selected from within a whitelisted set of roles. Each role is applied at only the granularity specified in the whitelist.
+         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within a whitelisted set of
+         * roles. Each role is applied at only the granularity specified in the whitelist.
          */
         await gapi.client.servicenetworking.services.roles.add({
             parent: "Test string",
@@ -562,8 +541,8 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Service producers use this method to validate if the consumer provided network, project and requested range are valid. This allows them to use a
-         * fail-fast mechanism for consumer requests, and not have to wait for AddSubnetwork operation completion to determine if user request is invalid.
+         * Service producers use this method to validate if the consumer provided network, project and requested range are valid. This allows them to use a fail-fast mechanism for consumer
+         * requests, and not have to wait for AddSubnetwork operation completion to determine if user request is invalid.
          */
         await gapi.client.servicenetworking.services.validate({
             parent: "Test string",
@@ -580,10 +559,9 @@ gapi.load('client', () => {
             validateNetwork: true,
         });
         /**
-         * Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The
-         * administrator of the service consumer's VPC network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning
-         * subnetworks in the service producer's VPC network. This connection is used for all supported services in the service producer's organization, so it
-         * only needs to be invoked once.
+         * Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The administrator of the service consumer's VPC
+         * network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning subnetworks in the service producer's VPC network. This connection is used
+         * for all supported services in the service producer's organization, so it only needs to be invoked once.
          */
         await gapi.client.servicenetworking.services.connections.create({
             parent: "Test string",
@@ -668,10 +646,7 @@ gapi.load('client', () => {
             dnsSuffix: "Test string",
             name: "Test string",
         });
-        /**
-         * Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer
-         * project.
-         */
+        /** Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. */
         await gapi.client.servicenetworking.services.dnsZones.remove({
             parent: "Test string",
         }, {
@@ -679,8 +654,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be
-         * selected from within a whitelisted set of roles. Each role is applied at only the granularity specified in the whitelist.
+         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within a whitelisted set of
+         * roles. Each role is applied at only the granularity specified in the whitelist.
          */
         await gapi.client.servicenetworking.services.roles.add({
             parent: "Test string",

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Container Analysis API v1alpha1 1.0
 // Project: https://cloud.google.com/container-analysis/api/reference/rest/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -24,16 +27,14 @@ declare namespace gapi.client {
             /** Artifact ID, if any; for container images, this will be a URL by digest like gcr.io/projectID/imagename@sha256:123456 */
             id?: string;
             /**
-             * Name of the artifact. This may be the path to a binary or jar file, or in the case of a container build, the name used to push the container image to
-             * Google Container Registry, as presented to `docker push`. This field is deprecated in favor of the plural `names` field; it continues to exist here to
-             * allow existing BuildProvenance serialized to json in google.devtools.containeranalysis.v1alpha1.BuildDetails.provenance_bytes to deserialize back into
-             * proto.
+             * Name of the artifact. This may be the path to a binary or jar file, or in the case of a container build, the name used to push the container image to Google Container Registry, as
+             * presented to `docker push`. This field is deprecated in favor of the plural `names` field; it continues to exist here to allow existing BuildProvenance serialized to json in
+             * google.devtools.containeranalysis.v1alpha1.BuildDetails.provenance_bytes to deserialize back into proto.
              */
             name?: string;
             /**
-             * Related artifact names. This may be the path to a binary or jar file, or in the case of a container build, the name used to push the container image to
-             * Google Container Registry, as presented to `docker push`. Note that a single Artifact ID can have multiple names, for example if two tags are applied
-             * to one image.
+             * Related artifact names. This may be the path to a binary or jar file, or in the case of a container build, the name used to push the container image to Google Container Registry, as
+             * presented to `docker push`. Note that a single Artifact ID can have multiple names, for example if two tags are applied to one image.
              */
             names?: string[];
         }
@@ -55,27 +56,23 @@ declare namespace gapi.client {
         }
         interface Binding {
             /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the
-             * condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to
-             * one or more of the members in this binding. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
+             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the members in this binding. To learn which
+             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
-             * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
-             * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
-             * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
-             * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
-             * `google.com` or `example.com`.
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is
+             * on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
+             * account. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that
+             * represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `group:{emailid}`: An email address that represents a Google group. For example,
+             * `admins@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. *
+             * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service
+             * account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently
+             * deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in
+             * the binding. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -85,10 +82,10 @@ declare namespace gapi.client {
             /** The actual provenance */
             provenance?: BuildProvenance;
             /**
-             * Serialized JSON representation of the provenance, used in generating the `BuildSignature` in the corresponding Result. After verifying the signature,
-             * `provenance_bytes` can be unmarshalled and compared to the provenance to confirm that it is unchanged. A base64-encoded string representation of the
-             * provenance bytes is used for the signature in order to interoperate with openssl which expects this format for signature verification. The serialized
-             * form is captured both to avoid ambiguity in how the provenance is marshalled to json as well to prevent incompatibilities with future changes.
+             * Serialized JSON representation of the provenance, used in generating the `BuildSignature` in the corresponding Result. After verifying the signature, `provenance_bytes` can be
+             * unmarshalled and compared to the provenance to confirm that it is unchanged. A base64-encoded string representation of the provenance bytes is used for the signature in order to
+             * interoperate with openssl which expects this format for signature verification. The serialized form is captured both to avoid ambiguity in how the provenance is marshalled to json
+             * as well to prevent incompatibilities with future changes.
              */
             provenanceBytes?: string;
         }
@@ -104,8 +101,8 @@ declare namespace gapi.client {
             /** Time at which the build was created. */
             createTime?: string;
             /**
-             * E-mail address of the user who initiated this build. Note that this was the user's e-mail address at the time the build was initiated; this address may
-             * not represent the same end-user for all time.
+             * E-mail address of the user who initiated this build. Note that this was the user's e-mail address at the time the build was initiated; this address may not represent the same
+             * end-user for all time.
              */
             creator?: string;
             /** Time at which execution of the build was finished. */
@@ -125,18 +122,17 @@ declare namespace gapi.client {
         }
         interface BuildSignature {
             /**
-             * An Id for the key used to sign. This could be either an Id for the key stored in `public_key` (such as the Id or fingerprint for a PGP key, or the CN
-             * for a cert), or a reference to an external key (such as a reference to a key in Cloud Key Management Service).
+             * An Id for the key used to sign. This could be either an Id for the key stored in `public_key` (such as the Id or fingerprint for a PGP key, or the CN for a cert), or a reference to
+             * an external key (such as a reference to a key in Cloud Key Management Service).
              */
             keyId?: string;
             /** The type of the key, either stored in `public_key` or referenced in `key_id` */
             keyType?: string;
             /**
-             * Public key of the builder which can be used to verify that the related findings are valid and unchanged. If `key_type` is empty, this defaults to PEM
-             * encoded public keys. This field may be empty if `key_id` references an external key. For Cloud Build based signatures, this is a PEM encoded public
-             * key. To verify the Cloud Build signature, place the contents of this field into a file (public.pem). The signature field is base64-decoded into its
-             * binary representation in signature.bin, and the provenance bytes from `BuildDetails` are base64-decoded into a binary representation in signed.bin.
-             * OpenSSL can then verify the signature: `openssl sha256 -verify public.pem -signature signature.bin signed.bin`
+             * Public key of the builder which can be used to verify that the related findings are valid and unchanged. If `key_type` is empty, this defaults to PEM encoded public keys. This field
+             * may be empty if `key_id` references an external key. For Cloud Build based signatures, this is a PEM encoded public key. To verify the Cloud Build signature, place the contents of
+             * this field into a file (public.pem). The signature field is base64-decoded into its binary representation in signature.bin, and the provenance bytes from `BuildDetails` are
+             * base64-decoded into a binary representation in signed.bin. OpenSSL can then verify the signature: `openssl sha256 -verify public.pem -signature signature.bin signed.bin`
              */
             publicKey?: string;
             /** Signature of the related `BuildProvenance`, encoded in a base64 string. */
@@ -196,15 +192,15 @@ declare namespace gapi.client {
             /** The fingerprint of the derived image. */
             fingerprint?: Fingerprint;
             /**
-             * This contains layer-specific metadata, if populated it has length "distance" and is ordered with [distance] being the layer immediately following the
-             * base image and [1] being the final layer.
+             * This contains layer-specific metadata, if populated it has length "distance" and is ordered with [distance] being the layer immediately following the base image and [1] being the
+             * final layer.
              */
             layerInfo?: Layer[];
         }
         interface Detail {
             /**
-             * The cpe_uri in [cpe format] (https://cpe.mitre.org/specification/) in which the vulnerability manifests. Examples include distro or storage location
-             * for vulnerable jar. This field can be used as a filter in list requests.
+             * The cpe_uri in [cpe format] (https://cpe.mitre.org/specification/) in which the vulnerability manifests. Examples include distro or storage location for vulnerable jar. This field
+             * can be used as a filter in list requests.
              */
             cpeUri?: string;
             /** A vendor-specific description of this note. */
@@ -227,10 +223,7 @@ declare namespace gapi.client {
         interface Discovered {
             /** The status of discovery for the resource. */
             analysisStatus?: string;
-            /**
-             * When an error is encountered this will contain a LocalizedMessage under details to show to the user. The LocalizedMessage output only and populated by
-             * the API.
-             */
+            /** When an error is encountered this will contain a LocalizedMessage under details to show to the user. The LocalizedMessage output only and populated by the API. */
             analysisStatusError?: Status;
             /** Whether the resource is continuously analyzed. */
             continuousAnalysis?: string;
@@ -280,8 +273,8 @@ declare namespace gapi.client {
             /** The ordered list of v2 blobs that represent a given image. */
             v2Blob?: string[];
             /**
-             * Output only. The name of the image's v2 blobs computed via: [bottom] := v2_blobbottom := sha256(v2_blob[N] + " " + v2_name[N+1]) Only the name of the
-             * final blob is kept. This field can be used as a filter in list requests.
+             * Output only. The name of the image's v2 blobs computed via: [bottom] := v2_blobbottom := sha256(v2_blob[N] + " " + v2_name[N+1]) Only the name of the final blob is kept. This field
+             * can be used as a filter in list requests.
              */
             v2Name?: string;
         }
@@ -291,10 +284,9 @@ declare namespace gapi.client {
         }
         interface GetPolicyOptions {
             /**
-             * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-             * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-             * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional
+             * bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support conditions in their
+             * IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             requestedPolicyVersion?: number;
         }
@@ -471,8 +463,8 @@ declare namespace gapi.client {
             /** The resource for which the `Occurrence` applies. */
             resource?: Resource;
             /**
-             * The unique URL of the image or the container for which the `Occurrence` applies. For example, https://gcr.io/project/image@sha256:foo This field can be
-             * used as a filter in list requests.
+             * The unique URL of the image or the container for which the `Occurrence` applies. For example, https://gcr.io/project/image@sha256:foo This field can be used as a filter in list
+             * requests.
              */
             resourceUrl?: string;
             /** Output only. The time this `Occurrence` was last updated. */
@@ -483,28 +475,24 @@ declare namespace gapi.client {
             vulnerabilityDetails?: VulnerabilityDetails;
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -523,51 +511,47 @@ declare namespace gapi.client {
         }
         interface PgpSignedAttestation {
             /**
-             * Type (for example schema) of the attestation payload that was signed. The verifier must ensure that the provided type is one that the verifier
-             * supports, and that the attestation payload is a valid instantiation of that type (for example by validating a JSON schema).
+             * Type (for example schema) of the attestation payload that was signed. The verifier must ensure that the provided type is one that the verifier supports, and that the attestation
+             * payload is a valid instantiation of that type (for example by validating a JSON schema).
              */
             contentType?: string;
             /**
-             * The cryptographic fingerprint of the key used to generate the signature, as output by, e.g. `gpg --list-keys`. This should be the version 4, full
-             * 160-bit fingerprint, expressed as a 40 character hexadecimal string. See https://tools.ietf.org/html/rfc4880#section-12.2 for details. Implementations
-             * may choose to acknowledge "LONG", "SHORT", or other abbreviated key IDs, but only the full fingerprint is guaranteed to work. In gpg, the full
-             * fingerprint can be retrieved from the `fpr` field returned when calling --list-keys with --with-colons. For example: ``` gpg --with-colons
-             * --with-fingerprint --force-v4-certs \ --list-keys attester@example.com tru::1:1513631572:0:3:1:5 pub:......
+             * The cryptographic fingerprint of the key used to generate the signature, as output by, e.g. `gpg --list-keys`. This should be the version 4, full 160-bit fingerprint, expressed as a
+             * 40 character hexadecimal string. See https://tools.ietf.org/html/rfc4880#section-12.2 for details. Implementations may choose to acknowledge "LONG", "SHORT", or other abbreviated
+             * key IDs, but only the full fingerprint is guaranteed to work. In gpg, the full fingerprint can be retrieved from the `fpr` field returned when calling --list-keys with
+             * --with-colons. For example: ``` gpg --with-colons --with-fingerprint --force-v4-certs \ --list-keys attester@example.com tru::1:1513631572:0:3:1:5 pub:......
              * fpr:::::::::24FF6481B76AC91E66A00AC657A93A81EF3AE6FB: ``` Above, the fingerprint is `24FF6481B76AC91E66A00AC657A93A81EF3AE6FB`.
              */
             pgpKeyId?: string;
             /**
-             * The raw content of the signature, as output by GNU Privacy Guard (GPG) or equivalent. Since this message only supports attached signatures, the payload
-             * that was signed must be attached. While the signature format supported is dependent on the verification implementation, currently only ASCII-armored
-             * (`--armor` to gpg), non-clearsigned (`--sign` rather than `--clearsign` to gpg) are supported. Concretely, `gpg --sign --armor --output=signature.gpg
-             * payload.json` will create the signature content expected in this field in `signature.gpg` for the `payload.json` attestation payload.
+             * The raw content of the signature, as output by GNU Privacy Guard (GPG) or equivalent. Since this message only supports attached signatures, the payload that was signed must be
+             * attached. While the signature format supported is dependent on the verification implementation, currently only ASCII-armored (`--armor` to gpg), non-clearsigned (`--sign` rather
+             * than `--clearsign` to gpg) are supported. Concretely, `gpg --sign --armor --output=signature.gpg payload.json` will create the signature content expected in this field in
+             * `signature.gpg` for the `payload.json` attestation payload.
              */
             signature?: string;
         }
         interface Policy {
             /**
-             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the
-             * `bindings` must contain at least one member.
+             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
+             * least one member.
              */
             bindings?: Binding[];
             /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
-             * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
-             * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
-             * the version `3` policy are lost.
+             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
+             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
+             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
+             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
             /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
-             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
-             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
-             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
-             * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
-             * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
+             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
+             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
+             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
+             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
@@ -611,8 +595,8 @@ declare namespace gapi.client {
         }
         interface SetIamPolicyRequest {
             /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy
-             * but certain Cloud Platform services (such as Projects) might reject them.
+             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Cloud Platform
+             * services (such as Projects) might reject them.
              */
             policy?: Policy;
         }
@@ -624,8 +608,8 @@ declare namespace gapi.client {
         }
         interface Source {
             /**
-             * If provided, some of the source code used for the build may be found in these locations, in the case where the source repository had multiple remotes
-             * or submodules. This list will not include the context specified in the context field.
+             * If provided, some of the source code used for the build may be found in these locations, in the case where the source repository had multiple remotes or submodules. This list will
+             * not include the context specified in the context field.
              */
             additionalContexts?: GoogleDevtoolsContaineranalysisV1alpha1SourceContext[];
             /** If provided, the input binary artifacts for the build came from this location. */
@@ -633,9 +617,9 @@ declare namespace gapi.client {
             /** If provided, the source code used for the build came from this location. */
             context?: GoogleDevtoolsContaineranalysisV1alpha1SourceContext;
             /**
-             * Hash(es) of the build source, which can be used to verify that the original source integrity was maintained in the build. The keys to this map are file
-             * paths used as build source and the values contain the hash values for those files. If the build source came in a single package such as a gzipped
-             * tarfile (.tar.gz), the FileHash will be for the single path to that file.
+             * Hash(es) of the build source, which can be used to verify that the original source integrity was maintained in the build. The keys to this map are file paths used as build source
+             * and the values contain the hash values for those files. If the build source came in a single package such as a gzipped tarfile (.tar.gz), the FileHash will be for the single path to
+             * that file.
              */
             fileHashes?: { [P in string]: FileHashes };
             /** If provided, get source from this location in a Cloud Repo. */
@@ -649,8 +633,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -664,8 +648,8 @@ declare namespace gapi.client {
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see
-             * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '*' or 'storage.*') are not allowed. For more information see [IAM
+             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
         }
@@ -698,10 +682,7 @@ declare namespace gapi.client {
             version?: Version;
         }
         interface UpgradeOccurrence {
-            /**
-             * Metadata about the upgrade for available for the specific operating system for the resource_url. This allows efficient filtering, as well as making it
-             * easier to use the occurrence.
-             */
+            /** Metadata about the upgrade for available for the specific operating system for the resource_url. This allows efficient filtering, as well as making it easier to use the occurrence. */
             distribution?: UpgradeDistribution;
             /** Required - The package this Upgrade is for. */
             package?: string;
@@ -721,10 +702,7 @@ declare namespace gapi.client {
         interface VulnerabilityDetails {
             /** Output only. The CVSS score of this vulnerability. CVSS score is on a scale of 0-10 where 0 indicates low severity and 10 indicates high severity. */
             cvssScore?: number;
-            /**
-             * The distro assigned severity for this vulnerability when that is available and note provider assigned severity when distro has not yet assigned a
-             * severity for this vulnerability.
-             */
+            /** The distro assigned severity for this vulnerability when that is available and note provider assigned severity when distro has not yet assigned a severity for this vulnerability. */
             effectiveSeverity?: string;
             /** The set of affected locations and their fixes (if available) within the associated resource. */
             packageIssue?: PackageIssue[];
@@ -735,8 +713,8 @@ declare namespace gapi.client {
         }
         interface VulnerabilityLocation {
             /**
-             * The cpe_uri in [cpe format] (https://cpe.mitre.org/specification/) format. Examples include distro or storage location for vulnerable jar. This field
-             * can be used as a filter in list requests.
+             * The cpe_uri in [cpe format] (https://cpe.mitre.org/specification/) format. Examples include distro or storage location for vulnerable jar. This field can be used as a filter in list
+             * requests.
              */
             cpeUri?: string;
             /** The package being described. */
@@ -747,10 +725,7 @@ declare namespace gapi.client {
         interface VulnerabilityType {
             /** The CVSS score for this Vulnerability. */
             cvssScore?: number;
-            /**
-             * All information about the package to specifically identify this vulnerability. One entry per (version range and cpe_uri) the package vulnerability has
-             * manifested in.
-             */
+            /** All information about the package to specifically identify this vulnerability. One entry per (version range and cpe_uri) the package vulnerability has manifested in. */
             details?: Detail[];
             /** Note provider assigned impact of the vulnerability */
             severity?: string;
@@ -910,11 +885,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Note>;
             /**
-             * Gets the access control policy for a note or an `Occurrence` resource. Requires `containeranalysis.notes.setIamPolicy` or
-             * `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or occurrence, respectively. Attempting to call this method on a
-             * resource without the required permission will result in a `PERMISSION_DENIED` error. Attempting to call this method on a non-existent resource will
-             * result in a `NOT_FOUND` error if the user has list permission on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes the
-             * following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for occurrences and projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
+             * Gets the access control policy for a note or an `Occurrence` resource. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if
+             * the resource is a note or occurrence, respectively. Attempting to call this method on a resource without the required permission will result in a `PERMISSION_DENIED` error.
+             * Attempting to call this method on a non-existent resource will result in a `NOT_FOUND` error if the user has list permission on the project, or a `PERMISSION_DENIED` error
+             * otherwise. The resource takes the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for occurrences and projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
              */
             getIamPolicy(request: {
                 /** V1 error format. */
@@ -1039,12 +1013,11 @@ declare namespace gapi.client {
             },
             body: Note): Request<Note>;
             /**
-             * Sets the access control policy on the specified `Note` or `Occurrence`. Requires `containeranalysis.notes.setIamPolicy` or
-             * `containeranalysis.occurrences.setIamPolicy` permission if the resource is a `Note` or an `Occurrence`, respectively. Attempting to call this method
-             * without these permissions will result in a ` `PERMISSION_DENIED` error. Attempting to call this method on a non-existent resource will result in a
-             * `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or
-             * a `PERMISSION_DENIED` error otherwise. The resource takes the following formats: `projects/{projectid}/occurrences/{occurrenceid}` for occurrences and
-             * projects/{projectid}/notes/{noteid} for notes
+             * Sets the access control policy on the specified `Note` or `Occurrence`. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if
+             * the resource is a `Note` or an `Occurrence`, respectively. Attempting to call this method without these permissions will result in a ` `PERMISSION_DENIED` error. Attempting to call
+             * this method on a non-existent resource will result in a `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission on a `Note` or
+             * `containeranalysis.occurrences.list` on an `Occurrence`, or a `PERMISSION_DENIED` error otherwise. The resource takes the following formats:
+             * `projects/{projectid}/occurrences/{occurrenceid}` for occurrences and projects/{projectid}/notes/{noteid} for notes
              */
             setIamPolicy(request: {
                 /** V1 error format. */
@@ -1074,10 +1047,10 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns the permissions that a caller has on the specified note or occurrence resource. Requires list permission on the project (for example,
-             * "storage.objects.list" on the containing bucket for testing permission of an object). Attempting to call this method on a non-existent resource will
-             * result in a `NOT_FOUND` error if the user has list permission on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes the
-             * following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for `Occurrences` and `projects/{PROJECT_ID}/notes/{NOTE_ID}` for `Notes`
+             * Returns the permissions that a caller has on the specified note or occurrence resource. Requires list permission on the project (for example, "storage.objects.list" on the
+             * containing bucket for testing permission of an object). Attempting to call this method on a non-existent resource will result in a `NOT_FOUND` error if the user has list permission
+             * on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for `Occurrences` and
+             * `projects/{PROJECT_ID}/notes/{NOTE_ID}` for `Notes`
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -1224,11 +1197,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Occurrence>;
             /**
-             * Gets the access control policy for a note or an `Occurrence` resource. Requires `containeranalysis.notes.setIamPolicy` or
-             * `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or occurrence, respectively. Attempting to call this method on a
-             * resource without the required permission will result in a `PERMISSION_DENIED` error. Attempting to call this method on a non-existent resource will
-             * result in a `NOT_FOUND` error if the user has list permission on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes the
-             * following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for occurrences and projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
+             * Gets the access control policy for a note or an `Occurrence` resource. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if
+             * the resource is a note or occurrence, respectively. Attempting to call this method on a resource without the required permission will result in a `PERMISSION_DENIED` error.
+             * Attempting to call this method on a non-existent resource will result in a `NOT_FOUND` error if the user has list permission on the project, or a `PERMISSION_DENIED` error
+             * otherwise. The resource takes the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for occurrences and projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
              */
             getIamPolicy(request: {
                 /** V1 error format. */
@@ -1411,12 +1383,11 @@ declare namespace gapi.client {
             },
             body: Occurrence): Request<Occurrence>;
             /**
-             * Sets the access control policy on the specified `Note` or `Occurrence`. Requires `containeranalysis.notes.setIamPolicy` or
-             * `containeranalysis.occurrences.setIamPolicy` permission if the resource is a `Note` or an `Occurrence`, respectively. Attempting to call this method
-             * without these permissions will result in a ` `PERMISSION_DENIED` error. Attempting to call this method on a non-existent resource will result in a
-             * `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or
-             * a `PERMISSION_DENIED` error otherwise. The resource takes the following formats: `projects/{projectid}/occurrences/{occurrenceid}` for occurrences and
-             * projects/{projectid}/notes/{noteid} for notes
+             * Sets the access control policy on the specified `Note` or `Occurrence`. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if
+             * the resource is a `Note` or an `Occurrence`, respectively. Attempting to call this method without these permissions will result in a ` `PERMISSION_DENIED` error. Attempting to call
+             * this method on a non-existent resource will result in a `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission on a `Note` or
+             * `containeranalysis.occurrences.list` on an `Occurrence`, or a `PERMISSION_DENIED` error otherwise. The resource takes the following formats:
+             * `projects/{projectid}/occurrences/{occurrenceid}` for occurrences and projects/{projectid}/notes/{noteid} for notes
              */
             setIamPolicy(request: {
                 /** V1 error format. */
@@ -1446,10 +1417,10 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns the permissions that a caller has on the specified note or occurrence resource. Requires list permission on the project (for example,
-             * "storage.objects.list" on the containing bucket for testing permission of an object). Attempting to call this method on a non-existent resource will
-             * result in a `NOT_FOUND` error if the user has list permission on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes the
-             * following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for `Occurrences` and `projects/{PROJECT_ID}/notes/{NOTE_ID}` for `Notes`
+             * Returns the permissions that a caller has on the specified note or occurrence resource. Requires list permission on the project (for example, "storage.objects.list" on the
+             * containing bucket for testing permission of an object). Attempting to call this method on a non-existent resource will result in a `NOT_FOUND` error if the user has list permission
+             * on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for `Occurrences` and
+             * `projects/{PROJECT_ID}/notes/{NOTE_ID}` for `Notes`
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -1536,10 +1507,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: CreateOperationRequest): Request<Operation>;
-            /**
-             * Updates an existing operation returns an error if operation does not exist. The only valid operations are to update mark the done bit change the
-             * result.
-             */
+            /** Updates an existing operation returns an error if operation does not exist. The only valid operations are to update mark the done bit change the result. */
             patch(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1879,11 +1847,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Note>;
             /**
-             * Gets the access control policy for a note or an `Occurrence` resource. Requires `containeranalysis.notes.setIamPolicy` or
-             * `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or occurrence, respectively. Attempting to call this method on a
-             * resource without the required permission will result in a `PERMISSION_DENIED` error. Attempting to call this method on a non-existent resource will
-             * result in a `NOT_FOUND` error if the user has list permission on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes the
-             * following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for occurrences and projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
+             * Gets the access control policy for a note or an `Occurrence` resource. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if
+             * the resource is a note or occurrence, respectively. Attempting to call this method on a resource without the required permission will result in a `PERMISSION_DENIED` error.
+             * Attempting to call this method on a non-existent resource will result in a `NOT_FOUND` error if the user has list permission on the project, or a `PERMISSION_DENIED` error
+             * otherwise. The resource takes the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for occurrences and projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
              */
             getIamPolicy(request: {
                 /** V1 error format. */
@@ -2008,12 +1975,11 @@ declare namespace gapi.client {
             },
             body: Note): Request<Note>;
             /**
-             * Sets the access control policy on the specified `Note` or `Occurrence`. Requires `containeranalysis.notes.setIamPolicy` or
-             * `containeranalysis.occurrences.setIamPolicy` permission if the resource is a `Note` or an `Occurrence`, respectively. Attempting to call this method
-             * without these permissions will result in a ` `PERMISSION_DENIED` error. Attempting to call this method on a non-existent resource will result in a
-             * `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or
-             * a `PERMISSION_DENIED` error otherwise. The resource takes the following formats: `projects/{projectid}/occurrences/{occurrenceid}` for occurrences and
-             * projects/{projectid}/notes/{noteid} for notes
+             * Sets the access control policy on the specified `Note` or `Occurrence`. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if
+             * the resource is a `Note` or an `Occurrence`, respectively. Attempting to call this method without these permissions will result in a ` `PERMISSION_DENIED` error. Attempting to call
+             * this method on a non-existent resource will result in a `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission on a `Note` or
+             * `containeranalysis.occurrences.list` on an `Occurrence`, or a `PERMISSION_DENIED` error otherwise. The resource takes the following formats:
+             * `projects/{projectid}/occurrences/{occurrenceid}` for occurrences and projects/{projectid}/notes/{noteid} for notes
              */
             setIamPolicy(request: {
                 /** V1 error format. */
@@ -2043,10 +2009,10 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns the permissions that a caller has on the specified note or occurrence resource. Requires list permission on the project (for example,
-             * "storage.objects.list" on the containing bucket for testing permission of an object). Attempting to call this method on a non-existent resource will
-             * result in a `NOT_FOUND` error if the user has list permission on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes the
-             * following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for `Occurrences` and `projects/{PROJECT_ID}/notes/{NOTE_ID}` for `Notes`
+             * Returns the permissions that a caller has on the specified note or occurrence resource. Requires list permission on the project (for example, "storage.objects.list" on the
+             * containing bucket for testing permission of an object). Attempting to call this method on a non-existent resource will result in a `NOT_FOUND` error if the user has list permission
+             * on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for `Occurrences` and
+             * `projects/{PROJECT_ID}/notes/{NOTE_ID}` for `Notes`
              */
             testIamPermissions(request: {
                 /** V1 error format. */

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Ad Exchange Buyer API v1.4 1.4
 // Project: https://developers.google.com/ad-exchange/buyer-rest
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -20,16 +23,14 @@ declare namespace gapi.client {
     namespace adexchangebuyer {
         interface Account {
             /**
-             * When this is false, bid requests that include a deal ID for a private auction or preferred deal are always sent to your bidder. When true, all active
-             * pretargeting configs will be applied to private auctions and preferred deals. Programmatic Guaranteed deals (when enabled) are always sent to your
-             * bidder.
+             * When this is false, bid requests that include a deal ID for a private auction or preferred deal are always sent to your bidder. When true, all active pretargeting configs will be
+             * applied to private auctions and preferred deals. Programmatic Guaranteed deals (when enabled) are always sent to your bidder.
              */
             applyPretargetingToNonGuaranteedDeals?: boolean;
             /** Your bidder locations that have distinct URLs. */
             bidderLocation?: Array<{
                 /**
-                 * The protocol that the bidder endpoint is using. OpenRTB protocols with prefix PROTOCOL_OPENRTB_PROTOBUF use proto buffer, otherwise use JSON.  Allowed
-                 * values:
+                 * The protocol that the bidder endpoint is using. OpenRTB protocols with prefix PROTOCOL_OPENRTB_PROTOBUF use proto buffer, otherwise use JSON.  Allowed values:
                  * - PROTOCOL_ADX
                  * - PROTOCOL_OPENRTB_2_2
                  * - PROTOCOL_OPENRTB_2_3
@@ -43,8 +44,7 @@ declare namespace gapi.client {
                 /** The maximum queries per second the Ad Exchange will send. */
                 maximumQps?: number;
                 /**
-                 * The geographical region the Ad Exchange should send requests from. Only used by some quota systems, but always setting the value is recommended.
-                 * Allowed values:
+                 * The geographical region the Ad Exchange should send requests from. Only used by some quota systems, but always setting the value is recommended. Allowed values:
                  * - ASIA
                  * - EUROPE
                  * - US_EAST
@@ -63,8 +63,8 @@ declare namespace gapi.client {
             /** Resource type. */
             kind?: string;
             /**
-             * The maximum number of active creatives that an account can have, where a creative is active if it was inserted or bid with in the last 30 days. Please
-             * contact your technical account manager if you need to change this.
+             * The maximum number of active creatives that an account can have, where a creative is active if it was inserted or bid with in the last 30 days. Please contact your technical account
+             * manager if you need to change this.
              */
             maximumActiveCreatives?: number;
             /** The sum of all bidderLocation.maximumQps values cannot exceed this. Please contact your technical account manager if you need to change this. */
@@ -104,10 +104,7 @@ declare namespace gapi.client {
             accountId?: number;
             /** Account name. */
             accountName?: string;
-            /**
-             * A list of adgroup IDs associated with this particular account. These IDs may show up as part of a realtime bidding BidRequest, which indicates a bid
-             * request for this account.
-             */
+            /** A list of adgroup IDs associated with this particular account. These IDs may show up as part of a realtime bidding BidRequest, which indicates a bid request for this account. */
             billingId?: string[];
             /** Resource type. */
             kind?: string;
@@ -159,18 +156,16 @@ declare namespace gapi.client {
             adChoicesDestinationUrl?: string;
             adTechnologyProviders?: {
                 /**
-                 * The detected ad technology provider IDs for this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for mapping of
-                 * provider ID to provided name, a privacy policy URL, and a list of domains which can be attributed to the provider. If this creative contains provider
-                 * IDs that are outside of those listed in the `BidRequest.adslot.consented_providers_settings.consented_providers` field on the  Authorized Buyers
-                 * Real-Time Bidding protocol or the `BidRequest.user.ext.consented_providers_settings.consented_providers` field on the OpenRTB protocol, a bid submitted
-                 * for a European Economic Area (EEA) user with this creative is not compliant with the GDPR policies as mentioned in the "Third-party Ad Technology
-                 * Vendors" section of Authorized Buyers Program Guidelines.
+                 * The detected ad technology provider IDs for this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for mapping of provider ID to provided name, a
+                 * privacy policy URL, and a list of domains which can be attributed to the provider. If this creative contains provider IDs that are outside of those listed in the
+                 * `BidRequest.adslot.consented_providers_settings.consented_providers` field on the  Authorized Buyers Real-Time Bidding protocol or the
+                 * `BidRequest.user.ext.consented_providers_settings.consented_providers` field on the OpenRTB protocol, a bid submitted for a European Economic Area (EEA) user with this creative
+                 * is not compliant with the GDPR policies as mentioned in the "Third-party Ad Technology Vendors" section of Authorized Buyers Program Guidelines.
                  */
                 detectedProviderIds?: string[];
                 /**
-                 * Whether the creative contains an unidentified ad technology provider. If true, a bid submitted for a European Economic Area (EEA) user with this
-                 * creative is not compliant with the GDPR policies as mentioned in the "Third-party Ad Technology Vendors" section of Authorized Buyers Program
-                 * Guidelines.
+                 * Whether the creative contains an unidentified ad technology provider. If true, a bid submitted for a European Economic Area (EEA) user with this creative is not compliant with
+                 * the GDPR policies as mentioned in the "Third-party Ad Technology Vendors" section of Authorized Buyers Program Guidelines.
                  */
                 hasUnidentifiedProvider?: boolean;
             };
@@ -181,8 +176,8 @@ declare namespace gapi.client {
             /** The agency id for this creative. */
             agencyId?: string;
             /**
-             * The last upload timestamp of this creative if it was uploaded via API. Read-only. The value of this field is generated, and will be ignored for
-             * uploads. (formatted RFC 3339 timestamp).
+             * The last upload timestamp of this creative if it was uploaded via API. Read-only. The value of this field is generated, and will be ignored for uploads. (formatted RFC 3339
+             * timestamp).
              */
             apiUploadTimestamp?: string;
             /**
@@ -213,16 +208,15 @@ declare namespace gapi.client {
                 reason?: string;
             }>;
             /**
-             * Creative status identity type that the creative item applies to. Ad Exchange real-time bidding is migrating to the sizeless creative verification.
-             * Originally, Ad Exchange assigned creative verification status to a unique combination of a buyer creative ID and creative dimensions. Post-migration, a
-             * single verification status will be assigned at the buyer creative ID level. This field allows to distinguish whether a given creative status applies to
-             * a unique combination of a buyer creative ID and creative dimensions, or to a buyer creative ID as a whole.
+             * Creative status identity type that the creative item applies to. Ad Exchange real-time bidding is migrating to the sizeless creative verification. Originally, Ad Exchange assigned
+             * creative verification status to a unique combination of a buyer creative ID and creative dimensions. Post-migration, a single verification status will be assigned at the buyer
+             * creative ID level. This field allows to distinguish whether a given creative status applies to a unique combination of a buyer creative ID and creative dimensions, or to a buyer
+             * creative ID as a whole.
              */
             creativeStatusIdentityType?: string;
             /**
-             * Top-level deals status. Read-only. This field should not be set in requests. If disapproved, an entry for auctionType=DIRECT_DEALS (or ALL) in
-             * servingRestrictions will also exist. Note that this may be nuanced with other contextual restrictions, in which case it may be preferable to read from
-             * servingRestrictions directly.
+             * Top-level deals status. Read-only. This field should not be set in requests. If disapproved, an entry for auctionType=DIRECT_DEALS (or ALL) in servingRestrictions will also exist.
+             * Note that this may be nuanced with other contextual restrictions, in which case it may be preferable to read from servingRestrictions directly.
              */
             dealsStatus?: string;
             /** Detected domains for this creative. Read-only. This field should not be set in requests. */
@@ -290,30 +284,19 @@ declare namespace gapi.client {
                 videoURL?: string;
             };
             /**
-             * Top-level open auction status. Read-only. This field should not be set in requests. If disapproved, an entry for auctionType=OPEN_AUCTION (or ALL) in
-             * servingRestrictions will also exist. Note that this may be nuanced with other contextual restrictions, in which case it may be preferable to read from
-             * ServingRestrictions directly.
+             * Top-level open auction status. Read-only. This field should not be set in requests. If disapproved, an entry for auctionType=OPEN_AUCTION (or ALL) in servingRestrictions will also
+             * exist. Note that this may be nuanced with other contextual restrictions, in which case it may be preferable to read from ServingRestrictions directly.
              */
             openAuctionStatus?: string;
-            /**
-             * Detected product categories, if any. Each category is represented by an integer as defined in  ad-product-categories.txt. Read-only. This field should
-             * not be set in requests.
-             */
+            /** Detected product categories, if any. Each category is represented by an integer as defined in  ad-product-categories.txt. Read-only. This field should not be set in requests. */
             productCategories?: number[];
-            /**
-             * All restricted categories for the ads that may be shown from this snippet. Each category is represented by an integer as defined in the
-             * ad-restricted-categories.txt.
-             */
+            /** All restricted categories for the ads that may be shown from this snippet. Each category is represented by an integer as defined in the  ad-restricted-categories.txt. */
             restrictedCategories?: number[];
-            /**
-             * Detected sensitive categories, if any. Each category is represented by an integer as defined in  ad-sensitive-categories.txt. Read-only. This field
-             * should not be set in requests.
-             */
+            /** Detected sensitive categories, if any. Each category is represented by an integer as defined in  ad-sensitive-categories.txt. Read-only. This field should not be set in requests. */
             sensitiveCategories?: number[];
             /**
-             * The granular status of this ad in specific contexts. A context here relates to where something ultimately serves (for example, a physical location, a
-             * platform, an HTTPS vs HTTP request, or the type of auction). Read-only. This field should not be set in requests. See the examples in the Creatives
-             * guide for more details.
+             * The granular status of this ad in specific contexts. A context here relates to where something ultimately serves (for example, a physical location, a platform, an HTTPS vs HTTP
+             * request, or the type of auction). Read-only. This field should not be set in requests. See the examples in the Creatives guide for more details.
              */
             servingRestrictions?: Array<{
                 /** All known contexts/restrictions. */
@@ -323,17 +306,16 @@ declare namespace gapi.client {
                     /** The type of context (e.g., location, platform, auction type, SSL-ness). */
                     contextType?: string;
                     /**
-                     * Only set when contextType=LOCATION. Represents the geo criterias this restriction applies to. Impressions are considered to match a context if either
-                     * the user location or publisher location matches a given geoCriteriaId.
+                     * Only set when contextType=LOCATION. Represents the geo criterias this restriction applies to. Impressions are considered to match a context if either the user location or
+                     * publisher location matches a given geoCriteriaId.
                      */
                     geoCriteriaId?: number[];
                     /** Only set when contextType=PLATFORM. Represents the platforms this restriction applies to. */
                     platform?: string[];
                 }>;
                 /**
-                 * The reasons for disapproval within this restriction, if any. Note that not all disapproval reasons may be categorized, so it is possible for the
-                 * creative to have a status of DISAPPROVED or CONDITIONALLY_APPROVED with an empty list for disapproval_reasons. In this case, please reach out to your
-                 * TAM to help debug the issue.
+                 * The reasons for disapproval within this restriction, if any. Note that not all disapproval reasons may be categorized, so it is possible for the creative to have a status of
+                 * DISAPPROVED or CONDITIONALLY_APPROVED with an empty list for disapproval_reasons. In this case, please reach out to your TAM to help debug the issue.
                  */
                 disapprovalReasons?: Array<{
                     /** Additional details about the reason for disapproval. */
@@ -348,15 +330,9 @@ declare namespace gapi.client {
             vendorType?: number[];
             /** The version for this creative. Read-only. This field should not be set in requests. */
             version?: number;
-            /**
-             * The URL to fetch a video ad. If set, HTMLSnippet, videoVastXML, and nativeAd should not be set. Note, this is different from
-             * resource.native_ad.video_url above.
-             */
+            /** The URL to fetch a video ad. If set, HTMLSnippet, videoVastXML, and nativeAd should not be set. Note, this is different from resource.native_ad.video_url above. */
             videoURL?: string;
-            /**
-             * The contents of a VAST document for a video ad. This document should conform to the VAST 2.0 or 3.0 standard. If set, HTMLSnippet, videoURL, and
-             * nativeAd and should not be set.
-             */
+            /** The contents of a VAST document for a video ad. This document should conform to the VAST 2.0 or 3.0 standard. If set, HTMLSnippet, videoURL, and nativeAd and should not be set. */
             videoVastXML?: string;
             /** Ad width. */
             width?: number;
@@ -383,10 +359,7 @@ declare namespace gapi.client {
             nextPageToken?: string;
         }
         interface DealServingMetadata {
-            /**
-             * True if alcohol ads are allowed for this deal (read-only). This field is only populated when querying for finalized orders using the method
-             * GetFinalizedOrderDeals
-             */
+            /** True if alcohol ads are allowed for this deal (read-only). This field is only populated when querying for finalized orders using the method GetFinalizedOrderDeals */
             alcoholAdsAllowed?: boolean;
             /** Tracks which parties (if any) have paused a deal. (readonly, except via PauseResumeOrderDeals action) */
             dealPauseStatus?: DealServingMetadataDealPauseStatus;
@@ -403,8 +376,8 @@ declare namespace gapi.client {
             /** Visibility of the URL in bid requests. */
             brandingType?: string;
             /**
-             * Indicates that this ExternalDealId exists under at least two different AdxInventoryDeals. Currently, the only case that the same ExternalDealId will
-             * exist is programmatic cross sell case.
+             * Indicates that this ExternalDealId exists under at least two different AdxInventoryDeals. Currently, the only case that the same ExternalDealId will exist is programmatic cross sell
+             * case.
              */
             crossListedExternalDealIdType?: string;
             /** Description for the proposed terms of the deal. */
@@ -438,15 +411,15 @@ declare namespace gapi.client {
         }
         interface DealTermsGuaranteedFixedPriceTermsBillingInfo {
             /**
-             * The timestamp (in ms since epoch) when the original reservation price for the deal was first converted to DFP currency. This is used to convert the
-             * contracted price into buyer's currency without discrepancy.
+             * The timestamp (in ms since epoch) when the original reservation price for the deal was first converted to DFP currency. This is used to convert the contracted price into buyer's
+             * currency without discrepancy.
              */
             currencyConversionTimeMs?: string;
             /** The DFP line item id associated with this deal. For features like CPD, buyers can retrieve the DFP line item for billing reconciliation. */
             dfpLineItemId?: string;
             /**
-             * The original contracted quantity (# impressions) for this deal. To ensure delivery, sometimes the publisher will book the deal with a impression
-             * buffer, such that guaranteed_looks is greater than the contracted quantity. However clients are billed using the original contracted quantity.
+             * The original contracted quantity (# impressions) for this deal. To ensure delivery, sometimes the publisher will book the deal with a impression buffer, such that guaranteed_looks
+             * is greater than the contracted quantity. However clients are billed using the original contracted quantity.
              */
             originalContractedQuantity?: string;
             /** The original reservation price for the deal, if the currency code is different from the one used in negotiation. */
@@ -502,19 +475,18 @@ declare namespace gapi.client {
             /** Name of the dimension mainly for debugging purposes, except for the case of CREATIVE_SIZE. For CREATIVE_SIZE, strings are used instead of ids. */
             name?: string;
             /**
-             * Percent of total impressions for a dimension type. e.g. {dimension_type: 'GENDER', [{dimension_value: {id: 1, name: 'MALE', percentage: 60}}]} Gender
-             * MALE is 60% of all impressions which have gender.
+             * Percent of total impressions for a dimension type. e.g. {dimension_type: 'GENDER', [{dimension_value: {id: 1, name: 'MALE', percentage: 60}}]} Gender MALE is 60% of all impressions
+             * which have gender.
              */
             percentage?: number;
         }
         interface EditAllOrderDealsRequest {
             /**
-             * List of deals to edit. Service may perform 3 different operations based on comparison of deals in this list vs deals already persisted in database: 1.
-             * Add new deal to proposal If a deal in this list does not exist in the proposal, the service will create a new deal and add it to the proposal.
-             * Validation will follow AddOrderDealsRequest. 2. Update existing deal in the proposal If a deal in this list already exist in the proposal, the service
-             * will update that existing deal to this new deal in the request. Validation will follow UpdateOrderDealsRequest. 3. Delete deals from the proposal (just
-             * need the id) If a existing deal in the proposal is not present in this list, the service will delete that deal from the proposal. Validation will
-             * follow DeleteOrderDealsRequest.
+             * List of deals to edit. Service may perform 3 different operations based on comparison of deals in this list vs deals already persisted in database: 1. Add new deal to proposal If a
+             * deal in this list does not exist in the proposal, the service will create a new deal and add it to the proposal. Validation will follow AddOrderDealsRequest. 2. Update existing deal
+             * in the proposal If a deal in this list already exist in the proposal, the service will update that existing deal to this new deal in the request. Validation will follow
+             * UpdateOrderDealsRequest. 3. Delete deals from the proposal (just need the id) If a existing deal in the proposal is not present in this list, the service will delete that deal from
+             * the proposal. Validation will follow DeleteOrderDealsRequest.
              */
             deals?: MarketplaceDeal[];
             /** If specified, also updates the proposal in the batch transaction. This is useful when the proposal and the deals need to be updated in one transaction. */
@@ -540,8 +512,8 @@ declare namespace gapi.client {
         }
         interface GetOrderNotesResponse {
             /**
-             * The list of matching notes. The notes for a proposal are ordered from oldest to newest. If the notes span multiple proposals, they will be grouped by
-             * proposal, with the notes for the most recently modified proposal appearing first.
+             * The list of matching notes. The notes for a proposal are ordered from oldest to newest. If the notes span multiple proposals, they will be grouped by proposal, with the notes for
+             * the most recently modified proposal appearing first.
              */
             notes?: MarketplaceNote[];
         }
@@ -567,8 +539,8 @@ declare namespace gapi.client {
             /** Metadata about the serving status of this deal (readonly, writes via custom actions) */
             dealServingMetadata?: DealServingMetadata;
             /**
-             * The set of fields around delivery control that are interesting for a buyer to see but are non-negotiable. These are set by the publisher. This message
-             * is assigned an id of 100 since some day we would want to model this as a protobuf extension.
+             * The set of fields around delivery control that are interesting for a buyer to see but are non-negotiable. These are set by the publisher. This message is assigned an id of 100 since
+             * some day we would want to model this as a protobuf extension.
              */
             deliveryControl?: DeliveryControl;
             /** The external deal id assigned to this deal once the deal is finalized. This is the deal-id that shows up in serving/reporting etc. (readonly) */
@@ -593,10 +565,7 @@ declare namespace gapi.client {
             productId?: string;
             /** The revision number of the product that the deal was created from (readonly, except on create) */
             productRevisionNumber?: string;
-            /**
-             * Specifies the creative source for programmatic deals, PUBLISHER means creative is provided by seller and ADVERTISR means creative is provided by buyer.
-             * (buyer-readonly)
-             */
+            /** Specifies the creative source for programmatic deals, PUBLISHER means creative is provided by seller and ADVERTISR means creative is provided by buyer. (buyer-readonly) */
             programmaticCreativeSource?: string;
             proposalId?: string;
             /** Optional Seller contact information for the deal (buyer-readonly) */
@@ -717,10 +686,7 @@ declare namespace gapi.client {
             excludedGeoCriteriaIds?: string[];
             /** Requests containing any of these placements will not match. */
             excludedPlacements?: Array<{
-                /**
-                 * The value of the placement. Interpretation depends on the placement type, e.g. URL for a site placement, channel name for a channel placement, app id
-                 * for a mobile app placement.
-                 */
+                /** The value of the placement. Interpretation depends on the placement type, e.g. URL for a site placement, channel name for a channel placement, app id for a mobile app placement. */
                 token?: string;
                 /** The type of the placement. */
                 type?: string;
@@ -738,13 +704,13 @@ declare namespace gapi.client {
             /** Request containing any of these language codes will match. */
             languages?: string[];
             /**
-             * The maximum QPS allocated to this pretargeting configuration, used for pretargeting-level QPS limits. By default, this is not set, which indicates that
-             * there is no QPS limit at the configuration level (a global or account-level limit may still be imposed).
+             * The maximum QPS allocated to this pretargeting configuration, used for pretargeting-level QPS limits. By default, this is not set, which indicates that there is no QPS limit at the
+             * configuration level (a global or account-level limit may still be imposed).
              */
             maximumQps?: string;
             /**
-             * Requests where the predicted viewability is below the specified decile will not match. E.g. if the buyer sets this value to 5, requests from slots
-             * where the predicted viewability is below 50% will not match. If the predicted viewability is unknown this field will be ignored.
+             * Requests where the predicted viewability is below the specified decile will not match. E.g. if the buyer sets this value to 5, requests from slots where the predicted viewability is
+             * below 50% will not match. If the predicted viewability is unknown this field will be ignored.
              */
             minimumViewabilityDecile?: number;
             /** Requests containing any of these mobile carrier ids will match. Values are from mobile-carriers.csv in the downloadable files section. */
@@ -755,27 +721,21 @@ declare namespace gapi.client {
             mobileOperatingSystemVersions?: string[];
             /** Requests containing any of these placements will match. */
             placements?: Array<{
-                /**
-                 * The value of the placement. Interpretation depends on the placement type, e.g. URL for a site placement, channel name for a channel placement, app id
-                 * for a mobile app placement.
-                 */
+                /** The value of the placement. Interpretation depends on the placement type, e.g. URL for a site placement, channel name for a channel placement, app id for a mobile app placement. */
                 token?: string;
                 /** The type of the placement. */
                 type?: string;
             }>;
-            /**
-             * Requests matching any of these platforms will match. Possible values are PRETARGETING_PLATFORM_MOBILE, PRETARGETING_PLATFORM_DESKTOP, and
-             * PRETARGETING_PLATFORM_TABLET.
-             */
+            /** Requests matching any of these platforms will match. Possible values are PRETARGETING_PLATFORM_MOBILE, PRETARGETING_PLATFORM_DESKTOP, and PRETARGETING_PLATFORM_TABLET. */
             platforms?: string[];
             /**
-             * Creative attributes should be declared here if all creatives corresponding to this pretargeting configuration have that creative attribute. Values are
-             * from pretargetable-creative-attributes.txt in the downloadable files section.
+             * Creative attributes should be declared here if all creatives corresponding to this pretargeting configuration have that creative attribute. Values are from
+             * pretargetable-creative-attributes.txt in the downloadable files section.
              */
             supportedCreativeAttributes?: string[];
             /**
-             * Requests containing the specified type of user data will match. Possible values are HOSTED_MATCH_DATA, which means the request is cookie-targetable and
-             * has a match in the buyer's hosted match table, and COOKIE_OR_IDFA, which means the request has either a targetable cookie or an iOS IDFA.
+             * Requests containing the specified type of user data will match. Possible values are HOSTED_MATCH_DATA, which means the request is cookie-targetable and has a match in the buyer's
+             * hosted match table, and COOKIE_OR_IDFA, which means the request has either a targetable cookie or an iOS IDFA.
              */
             userIdentifierDataRequired?: string[];
             /** Requests containing any of these user list ids will match. */
@@ -815,10 +775,7 @@ declare namespace gapi.client {
             auctionTier?: string;
             /** Reference to the buyer that will get billed. */
             billedBuyer?: Buyer;
-            /**
-             * The buyer who will pay this price. If unset, all buyers can pay this price (if the advertisers match, and there's no more specific rule matching the
-             * buyer).
-             */
+            /** The buyer who will pay this price. If unset, all buyers can pay this price (if the advertisers match, and there's no more specific rule matching the buyer). */
             buyer?: Buyer;
             /** The specified price */
             price?: Price;
@@ -839,8 +796,8 @@ declare namespace gapi.client {
             /** The role that created the offer. Set to BUYER for buyer initiated offers. */
             creatorRole?: string;
             /**
-             * The set of fields around delivery control that are interesting for a buyer to see but are non-negotiable. These are set by the publisher. This message
-             * is assigned an id of 100 since some day we would want to model this as a protobuf extension.
+             * The set of fields around delivery control that are interesting for a buyer to see but are non-negotiable. These are set by the publisher. This message is assigned an id of 100 since
+             * some day we would want to model this as a protobuf extension.
              */
             deliveryControl?: DeliveryControl;
             /** The proposed end time for the deal (ms since epoch) (buyer-readonly) */
@@ -848,8 +805,8 @@ declare namespace gapi.client {
             /** Inventory availability dates. (times are in ms since epoch) The granularity is generally in the order of seconds. (buyer-readonly) */
             flightStartTimeMs?: string;
             /**
-             * If the creator has already signed off on the product, then the buyer can finalize the deal by accepting the product as is. When copying to a proposal,
-             * if any of the terms are changed, then auto_finalize is automatically set to false.
+             * If the creator has already signed off on the product, then the buyer can finalize the deal by accepting the product as is. When copying to a proposal, if any of the terms are
+             * changed, then auto_finalize is automatically set to false.
              */
             hasCreatorSignedOff?: boolean;
             /** What exchange will provide this inventory (readonly, except on create). */
@@ -863,8 +820,8 @@ declare namespace gapi.client {
             /** Optional legacy offer id if this offer is a preferred deal offer. */
             legacyOfferId?: string;
             /**
-             * Marketplace publisher profile Id. This Id differs from the regular publisher_profile_id in that 1. This is a new id, the old Id will be deprecated in
-             * 2017. 2. This id uniquely identifies a publisher profile by itself.
+             * Marketplace publisher profile Id. This Id differs from the regular publisher_profile_id in that 1. This is a new id, the old Id will be deprecated in 2017. 2. This id uniquely
+             * identifies a publisher profile by itself.
              */
             marketplacePublisherProfileId?: string;
             /** The name for this product as set by the seller. (buyer-readonly) */
@@ -874,8 +831,8 @@ declare namespace gapi.client {
             /** The unique id for the product (readonly) */
             productId?: string;
             /**
-             * Id of the publisher profile for a given seller. A (seller.account_id, publisher_profile_id) pair uniquely identifies a publisher profile. Buyers can
-             * call the PublisherProfiles::List endpoint to get a list of publisher profiles for a given seller.
+             * Id of the publisher profile for a given seller. A (seller.account_id, publisher_profile_id) pair uniquely identifies a publisher profile. Buyers can call the PublisherProfiles::List
+             * endpoint to get a list of publisher profiles for a given seller.
              */
             publisherProfileId?: string;
             /** Publisher self-provided forecast information. */
@@ -885,8 +842,8 @@ declare namespace gapi.client {
             /** Information about the seller that created this product (readonly, except on create) */
             seller?: Seller;
             /**
-             * Targeting that is shared between the buyer and the seller. Each targeting criteria has a specified key and for each key there is a list of inclusion
-             * value or exclusion values. (buyer-readonly)
+             * Targeting that is shared between the buyer and the seller. Each targeting criteria has a specified key and for each key there is a list of inclusion value or exclusion values.
+             * (buyer-readonly)
              */
             sharedTargetings?: SharedTargeting[];
             /** The state of the product. (buyer-readonly) */
@@ -910,23 +867,20 @@ declare namespace gapi.client {
             /** IDs of DBM advertisers permission to this proposal. */
             dbmAdvertiserIds?: string[];
             /**
-             * When an proposal is in an accepted state, indicates whether the buyer has signed off. Once both sides have signed off on a deal, the proposal can be
-             * finalized by the seller. (seller-readonly)
+             * When an proposal is in an accepted state, indicates whether the buyer has signed off. Once both sides have signed off on a deal, the proposal can be finalized by the seller.
+             * (seller-readonly)
              */
             hasBuyerSignedOff?: boolean;
             /**
-             * When an proposal is in an accepted state, indicates whether the buyer has signed off Once both sides have signed off on a deal, the proposal can be
-             * finalized by the seller. (buyer-readonly)
+             * When an proposal is in an accepted state, indicates whether the buyer has signed off Once both sides have signed off on a deal, the proposal can be finalized by the seller.
+             * (buyer-readonly)
              */
             hasSellerSignedOff?: boolean;
             /** What exchange will provide this inventory (readonly, except on create). */
             inventorySource?: string;
             /** True if the proposal is being renegotiated (readonly). */
             isRenegotiating?: boolean;
-            /**
-             * True, if the buyside inventory setup is complete for this proposal. (readonly, except via OrderSetupCompleted action) Deprecated in favor of deal level
-             * setup complete flag.
-             */
+            /** True, if the buyside inventory setup is complete for this proposal. (readonly, except via OrderSetupCompleted action) Deprecated in favor of deal level setup complete flag. */
             isSetupComplete?: boolean;
             /** Identifies what kind of resource this is. Value: the fixed string "adexchangebuyer#proposal". */
             kind?: string;
@@ -1267,10 +1221,7 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<Budget>;
-            /**
-             * Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request. This method
-             * supports patch semantics.
-             */
+            /** Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request. This method supports patch semantics. */
             patch(request: {
                 /** The account id associated with the budget being updated. */
                 accountId: string;
@@ -1460,10 +1411,7 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** When specified, only creatives having the given open auction status are returned. */
                 openAuctionStatusFilter?: string;
-                /**
-                 * A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous
-                 * response. Optional.
-                 */
+                /** A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response. Optional. */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1711,10 +1659,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Query string to retrieve specific notes. To search the text contents of notes, please use syntax like "WHERE note.note = "foo" or "WHERE note.note LIKE
-                 * "%bar%"
-                 */
+                /** Query string to retrieve specific notes. To search the text contents of notes, please use syntax like "WHERE note.note = "foo" or "WHERE note.note LIKE "%bar%" */
                 pqlQuery?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1786,8 +1731,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * A continuation token, used to page through performance reports. To retrieve the next page, set this parameter to the value of "nextPageToken" from the
-                 * previous response. Optional.
+                 * A continuation token, used to page through performance reports. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response.
+                 * Optional.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -2104,8 +2049,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The last known revision number to update. If the head revision in the marketplace database has since changed, an error will be thrown. The caller
-                 * should then fetch the latest proposal at head revision and retry the update at that revision.
+                 * The last known revision number to update. If the head revision in the marketplace database has since changed, an error will be thrown. The caller should then fetch the latest
+                 * proposal at head revision and retry the update at that revision.
                  */
                 revisionNumber: string;
                 /** The proposed action to take on the proposal. This field is required and it must be set when updating a proposal. */
@@ -2131,8 +2076,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The last known revision number to update. If the head revision in the marketplace database has since changed, an error will be thrown. The caller
-                 * should then fetch the latest proposal at head revision and retry the update at that revision.
+                 * The last known revision number to update. If the head revision in the marketplace database has since changed, an error will be thrown. The caller should then fetch the latest
+                 * proposal at head revision and retry the update at that revision.
                  */
                 revisionNumber: string;
                 /** The proposed action to take on the proposal. This field is required and it must be set when updating a proposal. */
@@ -2196,8 +2141,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The last known revision number to update. If the head revision in the marketplace database has since changed, an error will be thrown. The caller
-                 * should then fetch the latest proposal at head revision and retry the update at that revision.
+                 * The last known revision number to update. If the head revision in the marketplace database has since changed, an error will be thrown. The caller should then fetch the latest
+                 * proposal at head revision and retry the update at that revision.
                  */
                 revisionNumber: string;
                 /** The proposed action to take on the proposal. This field is required and it must be set when updating a proposal. */
@@ -2223,8 +2168,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The last known revision number to update. If the head revision in the marketplace database has since changed, an error will be thrown. The caller
-                 * should then fetch the latest proposal at head revision and retry the update at that revision.
+                 * The last known revision number to update. If the head revision in the marketplace database has since changed, an error will be thrown. The caller should then fetch the latest
+                 * proposal at head revision and retry the update at that revision.
                  */
                 revisionNumber: string;
                 /** The proposed action to take on the proposal. This field is required and it must be set when updating a proposal. */

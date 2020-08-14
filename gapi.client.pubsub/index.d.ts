@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Pub/Sub API v1 1.0
 // Project: https://cloud.google.com/pubsub/docs
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -24,27 +27,23 @@ declare namespace gapi.client {
         }
         interface Binding {
             /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the
-             * condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to
-             * one or more of the members in this binding. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
+             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the members in this binding. To learn which
+             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
-             * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
-             * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
-             * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
-             * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
-             * `google.com` or `example.com`.
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is
+             * on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
+             * account. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that
+             * represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `group:{emailid}`: An email address that represents a Google group. For example,
+             * `admins@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. *
+             * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service
+             * account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently
+             * deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in
+             * the binding. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -54,26 +53,23 @@ declare namespace gapi.client {
             /** See Creating and managing labels. */
             labels?: { [P in string]: string };
             /**
-             * Required. The subscription whose backlog the snapshot retains. Specifically, the created snapshot is guaranteed to retain: (a) The existing backlog on
-             * the subscription. More precisely, this is defined as the messages in the subscription's backlog that are unacknowledged upon the successful completion
-             * of the `CreateSnapshot` request; as well as: (b) Any messages published to the subscription's topic following the successful completion of the
-             * CreateSnapshot request. Format is `projects/{project}/subscriptions/{sub}`.
+             * Required. The subscription whose backlog the snapshot retains. Specifically, the created snapshot is guaranteed to retain: (a) The existing backlog on the subscription. More
+             * precisely, this is defined as the messages in the subscription's backlog that are unacknowledged upon the successful completion of the `CreateSnapshot` request; as well as: (b) Any
+             * messages published to the subscription's topic following the successful completion of the CreateSnapshot request. Format is `projects/{project}/subscriptions/{sub}`.
              */
             subscription?: string;
         }
         interface DeadLetterPolicy {
             /**
-             * The name of the topic to which dead letter messages should be published. Format is `projects/{project}/topics/{topic}`.The Cloud Pub/Sub service
-             * account associated with the enclosing subscription's parent project (i.e., service-{project_number}@gcp-sa-pubsub.iam.gserviceaccount.com) must have
-             * permission to Publish() to this topic. The operation will fail if the topic does not exist. Users should ensure that there is a subscription attached
-             * to this topic since messages published to a topic with no subscriptions are lost.
+             * The name of the topic to which dead letter messages should be published. Format is `projects/{project}/topics/{topic}`.The Cloud Pub/Sub service account associated with the
+             * enclosing subscription's parent project (i.e., service-{project_number}@gcp-sa-pubsub.iam.gserviceaccount.com) must have permission to Publish() to this topic. The operation will
+             * fail if the topic does not exist. Users should ensure that there is a subscription attached to this topic since messages published to a topic with no subscriptions are lost.
              */
             deadLetterTopic?: string;
             /**
-             * The maximum number of delivery attempts for any message. The value must be between 5 and 100. The number of delivery attempts is defined as 1 + (the
-             * sum of number of NACKs and number of times the acknowledgement deadline has been exceeded for the message). A NACK is any call to ModifyAckDeadline
-             * with a 0 deadline. Note that client libraries may automatically extend ack_deadlines. This field will be honored on a best effort basis. If this
-             * parameter is 0, a default value of 5 is used.
+             * The maximum number of delivery attempts for any message. The value must be between 5 and 100. The number of delivery attempts is defined as 1 + (the sum of number of NACKs and
+             * number of times the acknowledgement deadline has been exceeded for the message). A NACK is any call to ModifyAckDeadline with a 0 deadline. Note that client libraries may
+             * automatically extend ack_deadlines. This field will be honored on a best effort basis. If this parameter is 0, a default value of 5 is used.
              */
             maxDeliveryAttempts?: number;
         }
@@ -85,9 +81,9 @@ declare namespace gapi.client {
         }
         interface ExpirationPolicy {
             /**
-             * Specifies the "time-to-live" duration for an associated resource. The resource expires if it is not active for a period of `ttl`. The definition of
-             * "activity" depends on the type of the associated resource. The minimum and maximum allowed values for `ttl` depend on the type of the associated
-             * resource, as well. If `ttl` is not set, the associated resource never expires.
+             * Specifies the "time-to-live" duration for an associated resource. The resource expires if it is not active for a period of `ttl`. The definition of "activity" depends on the type of
+             * the associated resource. The minimum and maximum allowed values for `ttl` depend on the type of the associated resource, as well. If `ttl` is not set, the associated resource never
+             * expires.
              */
             ttl?: string;
         }
@@ -108,19 +104,13 @@ declare namespace gapi.client {
             snapshots?: Snapshot[];
         }
         interface ListSubscriptionsResponse {
-            /**
-             * If not empty, indicates that there may be more subscriptions that match the request; this value should be passed in a new `ListSubscriptionsRequest` to
-             * get more subscriptions.
-             */
+            /** If not empty, indicates that there may be more subscriptions that match the request; this value should be passed in a new `ListSubscriptionsRequest` to get more subscriptions. */
             nextPageToken?: string;
             /** The subscriptions that match the request. */
             subscriptions?: Subscription[];
         }
         interface ListTopicSnapshotsResponse {
-            /**
-             * If not empty, indicates that there may be more snapshots that match the request; this value should be passed in a new `ListTopicSnapshotsRequest` to
-             * get more snapshots.
-             */
+            /** If not empty, indicates that there may be more snapshots that match the request; this value should be passed in a new `ListTopicSnapshotsRequest` to get more snapshots. */
             nextPageToken?: string;
             /** The names of the snapshots that match the request. */
             snapshots?: string[];
@@ -132,28 +122,24 @@ declare namespace gapi.client {
             topics?: Topic[];
         }
         interface ListTopicSubscriptionsResponse {
-            /**
-             * If not empty, indicates that there may be more subscriptions that match the request; this value should be passed in a new
-             * `ListTopicSubscriptionsRequest` to get more subscriptions.
-             */
+            /** If not empty, indicates that there may be more subscriptions that match the request; this value should be passed in a new `ListTopicSubscriptionsRequest` to get more subscriptions. */
             nextPageToken?: string;
             /** The names of subscriptions attached to the topic specified in the request. */
             subscriptions?: string[];
         }
         interface MessageStoragePolicy {
             /**
-             * A list of IDs of GCP regions where messages that are published to the topic may be persisted in storage. Messages published by publishers running in
-             * non-allowed GCP regions (or running outside of GCP altogether) will be routed for storage in one of the allowed regions. An empty list means that no
-             * regions are allowed, and is not a valid configuration.
+             * A list of IDs of GCP regions where messages that are published to the topic may be persisted in storage. Messages published by publishers running in non-allowed GCP regions (or
+             * running outside of GCP altogether) will be routed for storage in one of the allowed regions. An empty list means that no regions are allowed, and is not a valid configuration.
              */
             allowedPersistenceRegions?: string[];
         }
         interface ModifyAckDeadlineRequest {
             /**
-             * Required. The new ack deadline with respect to the time this request was sent to the Pub/Sub system. For example, if the value is 10, the new ack
-             * deadline will expire 10 seconds after the `ModifyAckDeadline` call was made. Specifying zero might immediately make the message available for delivery
-             * to another subscriber client. This typically results in an increase in the rate of message redeliveries (that is, duplicates). The minimum deadline you
-             * can specify is 0 seconds. The maximum deadline you can specify is 600 seconds (10 minutes).
+             * Required. The new ack deadline with respect to the time this request was sent to the Pub/Sub system. For example, if the value is 10, the new ack deadline will expire 10 seconds
+             * after the `ModifyAckDeadline` call was made. Specifying zero might immediately make the message available for delivery to another subscriber client. This typically results in an
+             * increase in the rate of message redeliveries (that is, duplicates). The minimum deadline you can specify is 0 seconds. The maximum deadline you can specify is 600 seconds (10
+             * minutes).
              */
             ackDeadlineSeconds?: number;
             /** Required. List of acknowledgment IDs. */
@@ -161,48 +147,45 @@ declare namespace gapi.client {
         }
         interface ModifyPushConfigRequest {
             /**
-             * Required. The push configuration for future deliveries. An empty `pushConfig` indicates that the Pub/Sub system should stop pushing messages from the
-             * given subscription and allow messages to be pulled and acknowledged - effectively pausing the subscription if `Pull` or `StreamingPull` is not called.
+             * Required. The push configuration for future deliveries. An empty `pushConfig` indicates that the Pub/Sub system should stop pushing messages from the given subscription and allow
+             * messages to be pulled and acknowledged - effectively pausing the subscription if `Pull` or `StreamingPull` is not called.
              */
             pushConfig?: PushConfig;
         }
         interface OidcToken {
             /**
-             * Audience to be used when generating OIDC token. The audience claim identifies the recipients that the JWT is intended for. The audience value is a
-             * single case-sensitive string. Having multiple values (array) for the audience field is not supported. More info about the OIDC JWT token audience here:
-             * https://tools.ietf.org/html/rfc7519#section-4.1.3 Note: if not specified, the Push endpoint URL will be used.
+             * Audience to be used when generating OIDC token. The audience claim identifies the recipients that the JWT is intended for. The audience value is a single case-sensitive string.
+             * Having multiple values (array) for the audience field is not supported. More info about the OIDC JWT token audience here: https://tools.ietf.org/html/rfc7519#section-4.1.3 Note: if
+             * not specified, the Push endpoint URL will be used.
              */
             audience?: string;
             /**
-             * [Service account email](https://cloud.google.com/iam/docs/service-accounts) to be used for generating the OIDC token. The caller (for
-             * CreateSubscription, UpdateSubscription, and ModifyPushConfig RPCs) must have the iam.serviceAccounts.actAs permission for the service account.
+             * [Service account email](https://cloud.google.com/iam/docs/service-accounts) to be used for generating the OIDC token. The caller (for CreateSubscription, UpdateSubscription, and
+             * ModifyPushConfig RPCs) must have the iam.serviceAccounts.actAs permission for the service account.
              */
             serviceAccountEmail?: string;
         }
         interface Policy {
             /**
-             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the
-             * `bindings` must contain at least one member.
+             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
+             * least one member.
              */
             bindings?: Binding[];
             /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
-             * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
-             * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
-             * the version `3` policy are lost.
+             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
+             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
+             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
+             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
             /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
-             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
-             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
-             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
-             * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
-             * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
+             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
+             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
+             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
+             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
@@ -220,52 +203,44 @@ declare namespace gapi.client {
             /** The message data field. If this field is empty, the message must contain at least one attribute. */
             data?: string;
             /**
-             * ID of this message, assigned by the server when the message is published. Guaranteed to be unique within the topic. This value may be read by a
-             * subscriber that receives a `PubsubMessage` via a `Pull` call or a push delivery. It must not be populated by the publisher in a `Publish` call.
+             * ID of this message, assigned by the server when the message is published. Guaranteed to be unique within the topic. This value may be read by a subscriber that receives a
+             * `PubsubMessage` via a `Pull` call or a push delivery. It must not be populated by the publisher in a `Publish` call.
              */
             messageId?: string;
             /**
-             * If non-empty, identifies related messages for which publish order should be respected. If a `Subscription` has `enable_message_ordering` set to `true`,
-             * messages published with the same non-empty `ordering_key` value will be delivered to subscribers in the order in which they are received by the Pub/Sub
-             * system. All `PubsubMessage`s published in a given `PublishRequest` must specify the same `ordering_key` value.
+             * If non-empty, identifies related messages for which publish order should be respected. If a `Subscription` has `enable_message_ordering` set to `true`, messages published with the
+             * same non-empty `ordering_key` value will be delivered to subscribers in the order in which they are received by the Pub/Sub system. All `PubsubMessage`s published in a given
+             * `PublishRequest` must specify the same `ordering_key` value.
              */
             orderingKey?: string;
-            /**
-             * The time at which the message was published, populated by the server when it receives the `Publish` call. It must not be populated by the publisher in
-             * a `Publish` call.
-             */
+            /** The time at which the message was published, populated by the server when it receives the `Publish` call. It must not be populated by the publisher in a `Publish` call. */
             publishTime?: string;
         }
         interface PullRequest {
-            /**
-             * Required. The maximum number of messages to return for this request. Must be a positive integer. The Pub/Sub system may return fewer than the number
-             * specified.
-             */
+            /** Required. The maximum number of messages to return for this request. Must be a positive integer. The Pub/Sub system may return fewer than the number specified. */
             maxMessages?: number;
             /**
-             * Optional. If this field set to true, the system will respond immediately even if it there are no messages available to return in the `Pull` response.
-             * Otherwise, the system may wait (for a bounded amount of time) until at least one message is available, rather than returning no messages. Warning:
-             * setting this field to `true` is discouraged because it adversely impacts the performance of `Pull` operations. We recommend that users do not set this
-             * field.
+             * Optional. If this field set to true, the system will respond immediately even if it there are no messages available to return in the `Pull` response. Otherwise, the system may wait
+             * (for a bounded amount of time) until at least one message is available, rather than returning no messages. Warning: setting this field to `true` is discouraged because it adversely
+             * impacts the performance of `Pull` operations. We recommend that users do not set this field.
              */
             returnImmediately?: boolean;
         }
         interface PullResponse {
             /**
-             * Received Pub/Sub messages. The list will be empty if there are no more messages available in the backlog. For JSON, the response can be entirely empty.
-             * The Pub/Sub system may return fewer than the `maxMessages` requested even if there are more messages available in the backlog.
+             * Received Pub/Sub messages. The list will be empty if there are no more messages available in the backlog. For JSON, the response can be entirely empty. The Pub/Sub system may return
+             * fewer than the `maxMessages` requested even if there are more messages available in the backlog.
              */
             receivedMessages?: ReceivedMessage[];
         }
         interface PushConfig {
             /**
-             * Endpoint configuration attributes that can be used to control different aspects of the message delivery. The only currently supported attribute is
-             * `x-goog-version`, which you can use to change the format of the pushed message. This attribute indicates the version of the data expected by the
-             * endpoint. This controls the shape of the pushed message (i.e., its fields and metadata). If not present during the `CreateSubscription` call, it will
-             * default to the version of the Pub/Sub API used to make such call. If not present in a `ModifyPushConfig` call, its value will not be changed.
-             * `GetSubscription` calls will always return a valid version, even if the subscription was created without this attribute. The only supported values for
-             * the `x-goog-version` attribute are: ∗ `v1beta1`: uses the push format defined in the v1beta1 Pub/Sub API. ∗ `v1` or `v1beta2`: uses the push format
-             * defined in the v1 Pub/Sub API. For example: attributes { "x-goog-version": "v1" }
+             * Endpoint configuration attributes that can be used to control different aspects of the message delivery. The only currently supported attribute is `x-goog-version`, which you can
+             * use to change the format of the pushed message. This attribute indicates the version of the data expected by the endpoint. This controls the shape of the pushed message (i.e., its
+             * fields and metadata). If not present during the `CreateSubscription` call, it will default to the version of the Pub/Sub API used to make such call. If not present in a
+             * `ModifyPushConfig` call, its value will not be changed. `GetSubscription` calls will always return a valid version, even if the subscription was created without this attribute. The
+             * only supported values for the `x-goog-version` attribute are: * `v1beta1`: uses the push format defined in the v1beta1 Pub/Sub API. * `v1` or `v1beta2`: uses the push format defined
+             * in the v1 Pub/Sub API. For example: attributes { "x-goog-version": "v1" }
              */
             attributes?: { [P in string]: string };
             /** If specified, Pub/Sub will generate and attach an OIDC JWT token as an `Authorization` header in the HTTP request for every pushed message. */
@@ -277,11 +252,10 @@ declare namespace gapi.client {
             /** This ID can be used to acknowledge the received message. */
             ackId?: string;
             /**
-             * The approximate number of times that Cloud Pub/Sub has attempted to deliver the associated message to a subscriber. More precisely, this is 1 + (number
-             * of NACKs) + (number of ack_deadline exceeds) for this message. A NACK is any call to ModifyAckDeadline with a 0 deadline. An ack_deadline exceeds event
-             * is whenever a message is not acknowledged within ack_deadline. Note that ack_deadline is initially Subscription.ackDeadlineSeconds, but may get
-             * extended automatically by the client library. Upon the first delivery of a given message, `delivery_attempt` will have a value of 1. The value is
-             * calculated at best effort and is approximate. If a DeadLetterPolicy is not set on the subscription, this will be 0.
+             * The approximate number of times that Cloud Pub/Sub has attempted to deliver the associated message to a subscriber. More precisely, this is 1 + (number of NACKs) + (number of
+             * ack_deadline exceeds) for this message. A NACK is any call to ModifyAckDeadline with a 0 deadline. An ack_deadline exceeds event is whenever a message is not acknowledged within
+             * ack_deadline. Note that ack_deadline is initially Subscription.ackDeadlineSeconds, but may get extended automatically by the client library. Upon the first delivery of a given
+             * message, `delivery_attempt` will have a value of 1. The value is calculated at best effort and is approximate. If a DeadLetterPolicy is not set on the subscription, this will be 0.
              */
             deliveryAttempt?: number;
             /** The message. */
@@ -297,11 +271,10 @@ declare namespace gapi.client {
             /** The snapshot to seek to. The snapshot's topic must be the same as that of the provided subscription. Format is `projects/{project}/snapshots/{snap}`. */
             snapshot?: string;
             /**
-             * The time to seek to. Messages retained in the subscription that were published before this time are marked as acknowledged, and messages retained in
-             * the subscription that were published after this time are marked as unacknowledged. Note that this operation affects only those messages retained in the
-             * subscription (configured by the combination of `message_retention_duration` and `retain_acked_messages`). For example, if `time` corresponds to a point
-             * before the message retention window (or to a point before the system's notion of the subscription creation time), only retained messages will be marked
-             * as unacknowledged, and already-expunged messages will not be restored.
+             * The time to seek to. Messages retained in the subscription that were published before this time are marked as acknowledged, and messages retained in the subscription that were
+             * published after this time are marked as unacknowledged. Note that this operation affects only those messages retained in the subscription (configured by the combination of
+             * `message_retention_duration` and `retain_acked_messages`). For example, if `time` corresponds to a point before the message retention window (or to a point before the system's
+             * notion of the subscription creation time), only retained messages will be marked as unacknowledged, and already-expunged messages will not be restored.
              */
             time?: string;
         }
@@ -310,18 +283,17 @@ declare namespace gapi.client {
         }
         interface SetIamPolicyRequest {
             /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy
-             * but certain Cloud Platform services (such as Projects) might reject them.
+             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Cloud Platform
+             * services (such as Projects) might reject them.
              */
             policy?: Policy;
         }
         interface Snapshot {
             /**
-             * The snapshot is guaranteed to exist up until this time. A newly-created snapshot expires no later than 7 days from the time of its creation. Its exact
-             * lifetime is determined at creation by the existing backlog in the source subscription. Specifically, the lifetime of the snapshot is `7 days - (age of
-             * oldest unacked message in the subscription)`. For example, consider a subscription whose oldest unacked message is 3 days old. If a snapshot is created
-             * from this subscription, the snapshot -- which will always capture this 3-day-old backlog as long as the snapshot exists -- will expire in 4 days. The
-             * service will refuse to create a snapshot that would expire in less than 1 hour after creation.
+             * The snapshot is guaranteed to exist up until this time. A newly-created snapshot expires no later than 7 days from the time of its creation. Its exact lifetime is determined at
+             * creation by the existing backlog in the source subscription. Specifically, the lifetime of the snapshot is `7 days - (age of oldest unacked message in the subscription)`. For
+             * example, consider a subscription whose oldest unacked message is 3 days old. If a snapshot is created from this subscription, the snapshot -- which will always capture this
+             * 3-day-old backlog as long as the snapshot exists -- will expire in 4 days. The service will refuse to create a snapshot that would expire in less than 1 hour after creation.
              */
             expireTime?: string;
             /** See [Creating and managing labels] (https://cloud.google.com/pubsub/docs/labels). */
@@ -333,85 +305,79 @@ declare namespace gapi.client {
         }
         interface Subscription {
             /**
-             * The approximate amount of time (on a best-effort basis) Pub/Sub waits for the subscriber to acknowledge receipt before resending the message. In the
-             * interval after the message is delivered and before it is acknowledged, it is considered to be ∗outstanding∗. During that time period, the message will
-             * not be redelivered (on a best-effort basis). For pull subscriptions, this value is used as the initial value for the ack deadline. To override this
-             * value for a given message, call `ModifyAckDeadline` with the corresponding `ack_id` if using non-streaming pull or send the `ack_id` in a
-             * `StreamingModifyAckDeadlineRequest` if using streaming pull. The minimum custom deadline you can specify is 10 seconds. The maximum custom deadline you
-             * can specify is 600 seconds (10 minutes). If this parameter is 0, a default value of 10 seconds is used. For push delivery, this value is also used to
-             * set the request timeout for the call to the push endpoint. If the subscriber never acknowledges the message, the Pub/Sub system will eventually
-             * redeliver the message.
+             * The approximate amount of time (on a best-effort basis) Pub/Sub waits for the subscriber to acknowledge receipt before resending the message. In the interval after the message is
+             * delivered and before it is acknowledged, it is considered to be *outstanding*. During that time period, the message will not be redelivered (on a best-effort basis). For pull
+             * subscriptions, this value is used as the initial value for the ack deadline. To override this value for a given message, call `ModifyAckDeadline` with the corresponding `ack_id` if
+             * using non-streaming pull or send the `ack_id` in a `StreamingModifyAckDeadlineRequest` if using streaming pull. The minimum custom deadline you can specify is 10 seconds. The
+             * maximum custom deadline you can specify is 600 seconds (10 minutes). If this parameter is 0, a default value of 10 seconds is used. For push delivery, this value is also used to set
+             * the request timeout for the call to the push endpoint. If the subscriber never acknowledges the message, the Pub/Sub system will eventually redeliver the message.
              */
             ackDeadlineSeconds?: number;
             /**
-             * A policy that specifies the conditions for dead lettering messages in this subscription. If dead_letter_policy is not set, dead lettering is disabled.
-             * The Cloud Pub/Sub service account associated with this subscriptions's parent project (i.e.,
-             * service-{project_number}@gcp-sa-pubsub.iam.gserviceaccount.com) must have permission to Acknowledge() messages on this subscription.
+             * A policy that specifies the conditions for dead lettering messages in this subscription. If dead_letter_policy is not set, dead lettering is disabled. The Cloud Pub/Sub service
+             * account associated with this subscriptions's parent project (i.e., service-{project_number}@gcp-sa-pubsub.iam.gserviceaccount.com) must have permission to Acknowledge() messages on
+             * this subscription.
              */
             deadLetterPolicy?: DeadLetterPolicy;
             /**
-             * Indicates whether the subscription is detached from its topic. Detached subscriptions don't receive messages from their topic and don't retain any
-             * backlog. `Pull` and `StreamingPull` requests will return FAILED_PRECONDITION. If the subscription is a push subscription, pushes to the endpoint will
-             * not be made.
+             * Indicates whether the subscription is detached from its topic. Detached subscriptions don't receive messages from their topic and don't retain any backlog. `Pull` and
+             * `StreamingPull` requests will return FAILED_PRECONDITION. If the subscription is a push subscription, pushes to the endpoint will not be made.
              */
             detached?: boolean;
             /**
-             * If true, messages published with the same `ordering_key` in `PubsubMessage` will be delivered to the subscribers in the order in which they are
-             * received by the Pub/Sub system. Otherwise, they may be delivered in any order.
+             * If true, messages published with the same `ordering_key` in `PubsubMessage` will be delivered to the subscribers in the order in which they are received by the Pub/Sub system.
+             * Otherwise, they may be delivered in any order.
              */
             enableMessageOrdering?: boolean;
             /**
-             * A policy that specifies the conditions for this subscription's expiration. A subscription is considered active as long as any connected subscriber is
-             * successfully consuming messages from the subscription or is issuing operations on the subscription. If `expiration_policy` is not set, a ∗default
-             * policy∗ with `ttl` of 31 days will be used. The minimum allowed value for `expiration_policy.ttl` is 1 day.
+             * A policy that specifies the conditions for this subscription's expiration. A subscription is considered active as long as any connected subscriber is successfully consuming messages
+             * from the subscription or is issuing operations on the subscription. If `expiration_policy` is not set, a *default policy* with `ttl` of 31 days will be used. The minimum allowed
+             * value for `expiration_policy.ttl` is 1 day.
              */
             expirationPolicy?: ExpirationPolicy;
             /**
-             * An expression written in the Pub/Sub [filter language](https://cloud.google.com/pubsub/docs/filtering). If non-empty, then only `PubsubMessage`s whose
-             * `attributes` field matches the filter are delivered on this subscription. If empty, then no messages are filtered out.
+             * An expression written in the Pub/Sub [filter language](https://cloud.google.com/pubsub/docs/filtering). If non-empty, then only `PubsubMessage`s whose `attributes` field matches the
+             * filter are delivered on this subscription. If empty, then no messages are filtered out.
              */
             filter?: string;
             /** See Creating and managing labels. */
             labels?: { [P in string]: string };
             /**
-             * How long to retain unacknowledged messages in the subscription's backlog, from the moment a message is published. If `retain_acked_messages` is true,
-             * then this also configures the retention of acknowledged messages, and thus configures how far back in time a `Seek` can be done. Defaults to 7 days.
-             * Cannot be more than 7 days or less than 10 minutes.
+             * How long to retain unacknowledged messages in the subscription's backlog, from the moment a message is published. If `retain_acked_messages` is true, then this also configures the
+             * retention of acknowledged messages, and thus configures how far back in time a `Seek` can be done. Defaults to 7 days. Cannot be more than 7 days or less than 10 minutes.
              */
             messageRetentionDuration?: string;
             /**
-             * Required. The name of the subscription. It must have the format `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must start with a
-             * letter, and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
-             * signs (`%`). It must be between 3 and 255 characters in length, and it must not start with `"goog"`.
+             * Required. The name of the subscription. It must have the format `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must start with a letter, and contain only
+             * letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters in
+             * length, and it must not start with `"goog"`.
              */
             name?: string;
             /**
-             * If push delivery is used with this subscription, this field is used to configure it. An empty `pushConfig` signifies that the subscriber will pull and
-             * ack messages using API methods.
+             * If push delivery is used with this subscription, this field is used to configure it. An empty `pushConfig` signifies that the subscriber will pull and ack messages using API
+             * methods.
              */
             pushConfig?: PushConfig;
             /**
-             * Indicates whether to retain acknowledged messages. If true, then messages are not expunged from the subscription's backlog, even if they are
-             * acknowledged, until they fall out of the `message_retention_duration` window. This must be true if you would like to [Seek to a timestamp]
-             * (https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time).
+             * Indicates whether to retain acknowledged messages. If true, then messages are not expunged from the subscription's backlog, even if they are acknowledged, until they fall out of the
+             * `message_retention_duration` window. This must be true if you would like to [Seek to a timestamp] (https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time).
              */
             retainAckedMessages?: boolean;
             /**
-             * A policy that specifies how Pub/Sub retries message delivery for this subscription. If not set, the default retry policy is applied. This generally
-             * implies that messages will be retried as soon as possible for healthy subscribers. RetryPolicy will be triggered on NACKs or acknowledgement deadline
-             * exceeded events for a given message.
+             * A policy that specifies how Pub/Sub retries message delivery for this subscription. If not set, the default retry policy is applied. This generally implies that messages will be
+             * retried as soon as possible for healthy subscribers. RetryPolicy will be triggered on NACKs or acknowledgement deadline exceeded events for a given message.
              */
             retryPolicy?: RetryPolicy;
             /**
-             * Required. The name of the topic from which this subscription is receiving messages. Format is `projects/{project}/topics/{topic}`. The value of this
-             * field will be `_deleted-topic_` if the topic has been deleted.
+             * Required. The name of the topic from which this subscription is receiving messages. Format is `projects/{project}/topics/{topic}`. The value of this field will be `_deleted-topic_`
+             * if the topic has been deleted.
              */
             topic?: string;
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see
-             * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '*' or 'storage.*') are not allowed. For more information see [IAM
+             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
         }
@@ -422,20 +388,17 @@ declare namespace gapi.client {
         interface Topic {
             /**
              * The resource name of the Cloud KMS CryptoKey to be used to protect access to messages published on this topic. The expected format is
-             * `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗`.
+             * `projects/∗/locations/∗/keyRings/∗/cryptoKeys/*`.
              */
             kmsKeyName?: string;
             /** See [Creating and managing labels] (https://cloud.google.com/pubsub/docs/labels). */
             labels?: { [P in string]: string };
-            /**
-             * Policy constraining the set of Google Cloud Platform regions where messages published to the topic may be stored. If not present, then no constraints
-             * are in effect.
-             */
+            /** Policy constraining the set of Google Cloud Platform regions where messages published to the topic may be stored. If not present, then no constraints are in effect. */
             messageStoragePolicy?: MessageStoragePolicy;
             /**
-             * Required. The name of the topic. It must have the format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter, and contain only
-             * letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be
-             * between 3 and 255 characters in length, and it must not start with `"goog"`.
+             * Required. The name of the topic. It must have the format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter, and contain only letters (`[A-Za-z]`), numbers
+             * (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters in length, and it must not start
+             * with `"goog"`.
              */
             name?: string;
         }
@@ -455,21 +418,19 @@ declare namespace gapi.client {
             /** Required. The updated topic object. */
             topic?: Topic;
             /**
-             * Required. Indicates which fields in the provided topic to update. Must be specified and non-empty. Note that if `update_mask` contains
-             * "message_storage_policy" but the `message_storage_policy` is not set in the `topic` provided above, then the updated value is determined by the policy
-             * configured at the project or organization level.
+             * Required. Indicates which fields in the provided topic to update. Must be specified and non-empty. Note that if `update_mask` contains "message_storage_policy" but the
+             * `message_storage_policy` is not set in the `topic` provided above, then the updated value is determined by the policy configured at the project or organization level.
              */
             updateMask?: string;
         }
         interface SnapshotsResource {
             /**
-             * Creates a snapshot from the requested subscription. Snapshots are used in [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-             * which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the
-             * state captured by a snapshot. If the snapshot already exists, returns `ALREADY_EXISTS`. If the requested subscription doesn't exist, returns
-             * `NOT_FOUND`. If the backlog in the subscription is too old -- and the resulting snapshot would expire in less than 1 hour -- then `FAILED_PRECONDITION`
-             * is returned. See also the `Snapshot.expire_time` field. If the name is not provided in the request, the server will assign a random name for this
-             * snapshot on the same project as the subscription, conforming to the [resource name format] (https://cloud.google.com/pubsub/docs/admin#resource_names).
-             * The generated name is populated in the returned Snapshot object. Note that for REST API requests, you must specify a name in the request.
+             * Creates a snapshot from the requested subscription. Snapshots are used in [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message
+             * acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot. If the snapshot already exists,
+             * returns `ALREADY_EXISTS`. If the requested subscription doesn't exist, returns `NOT_FOUND`. If the backlog in the subscription is too old -- and the resulting snapshot would expire
+             * in less than 1 hour -- then `FAILED_PRECONDITION` is returned. See also the `Snapshot.expire_time` field. If the name is not provided in the request, the server will assign a random
+             * name for this snapshot on the same project as the subscription, conforming to the [resource name format] (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated
+             * name is populated in the returned Snapshot object. Note that for REST API requests, you must specify a name in the request.
              */
             create(request: {
                 /** V1 error format. */
@@ -485,9 +446,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. User-provided name for this snapshot. If the name is not provided in the request, the server will assign a random name for this snapshot on
-                 * the same project as the subscription. Note that for REST API requests, you must specify a name. See the resource name rules. Format is
-                 * `projects/{project}/snapshots/{snap}`.
+                 * Required. User-provided name for this snapshot. If the name is not provided in the request, the server will assign a random name for this snapshot on the same project as the
+                 * subscription. Note that for REST API requests, you must specify a name. See the resource name rules. Format is `projects/{project}/snapshots/{snap}`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -517,9 +477,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. User-provided name for this snapshot. If the name is not provided in the request, the server will assign a random name for this snapshot on
-                 * the same project as the subscription. Note that for REST API requests, you must specify a name. See the resource name rules. Format is
-                 * `projects/{project}/snapshots/{snap}`.
+                 * Required. User-provided name for this snapshot. If the name is not provided in the request, the server will assign a random name for this snapshot on the same project as the
+                 * subscription. Note that for REST API requests, you must specify a name. See the resource name rules. Format is `projects/{project}/snapshots/{snap}`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -535,10 +494,10 @@ declare namespace gapi.client {
             },
             body: CreateSnapshotRequest): Request<Snapshot>;
             /**
-             * Removes an existing snapshot. Snapshots are used in [Seek] (https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage
-             * message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a
-             * snapshot. When the snapshot is deleted, all messages retained in the snapshot are immediately dropped. After a snapshot is deleted, a new one may be
-             * created with the same name, but the new one has no association with the old snapshot or its subscription, unless the same subscription is specified.
+             * Removes an existing snapshot. Snapshots are used in [Seek] (https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in
+             * bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot. When the snapshot is deleted, all messages retained
+             * in the snapshot are immediately dropped. After a snapshot is deleted, a new one may be created with the same name, but the new one has no association with the old snapshot or its
+             * subscription, unless the same subscription is specified.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -567,8 +526,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Gets the configuration details of a snapshot. Snapshots are used in Seek operations, which allow you to manage message acknowledgments in bulk. That
-             * is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot.
+             * Gets the configuration details of a snapshot. Snapshots are used in Seek operations, which allow you to manage message acknowledgments in bulk. That is, you can set the
+             * acknowledgment state of messages in an existing subscription to the state captured by a snapshot.
              */
             get(request?: {
                 /** V1 error format. */
@@ -613,10 +572,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-                 * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+                 * conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support
+                 * conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
                 "options.requestedPolicyVersion"?: number;
                 /** Returns response with indentations and line breaks. */
@@ -631,9 +589,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Policy>;
             /**
-             * Lists the existing snapshots. Snapshots are used in [Seek]( https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage
-             * message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a
-             * snapshot.
+             * Lists the existing snapshots. Snapshots are used in [Seek]( https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in
+             * bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot.
              */
             list(request?: {
                 /** V1 error format. */
@@ -653,8 +610,8 @@ declare namespace gapi.client {
                 /** Maximum number of snapshots to return. */
                 pageSize?: number;
                 /**
-                 * The value returned by the last `ListSnapshotsResponse`; indicates that this is a continuation of a prior `ListSnapshots` call, and that the system
-                 * should return the next page of data.
+                 * The value returned by the last `ListSnapshotsResponse`; indicates that this is a continuation of a prior `ListSnapshots` call, and that the system should return the next page of
+                 * data.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -669,8 +626,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListSnapshotsResponse>;
             /**
-             * Updates an existing snapshot. Snapshots are used in Seek operations, which allow you to manage message acknowledgments in bulk. That is, you can set
-             * the acknowledgment state of messages in an existing subscription to the state captured by a snapshot.
+             * Updates an existing snapshot. Snapshots are used in Seek operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of
+             * messages in an existing subscription to the state captured by a snapshot.
              */
             patch(request: {
                 /** V1 error format. */
@@ -727,10 +684,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: UpdateSnapshotRequest): Request<Snapshot>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-             * `PERMISSION_DENIED` errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -759,9 +713,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-             * checking. This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -793,9 +746,8 @@ declare namespace gapi.client {
         }
         interface SubscriptionsResource {
             /**
-             * Acknowledges the messages associated with the `ack_ids` in the `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages from the
-             * subscription. Acknowledging a message whose ack deadline has expired may succeed, but such a message may be redelivered later. Acknowledging a message
-             * more than once will not result in an error.
+             * Acknowledges the messages associated with the `ack_ids` in the `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages from the subscription. Acknowledging a
+             * message whose ack deadline has expired may succeed, but such a message may be redelivered later. Acknowledging a message more than once will not result in an error.
              */
             acknowledge(request: {
                 /** V1 error format. */
@@ -853,11 +805,10 @@ declare namespace gapi.client {
             },
             body: AcknowledgeRequest): Request<{}>;
             /**
-             * Creates a subscription to a given topic. See the [resource name rules] (https://cloud.google.com/pubsub/docs/admin#resource_names). If the subscription
-             * already exists, returns `ALREADY_EXISTS`. If the corresponding topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the request,
-             * the server will assign a random name for this subscription on the same project as the topic, conforming to the [resource name format]
-             * (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated name is populated in the returned Subscription object. Note that for REST
-             * API requests, you must specify a name in the request.
+             * Creates a subscription to a given topic. See the [resource name rules] (https://cloud.google.com/pubsub/docs/admin#resource_names). If the subscription already exists, returns
+             * `ALREADY_EXISTS`. If the corresponding topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the request, the server will assign a random name for this
+             * subscription on the same project as the topic, conforming to the [resource name format] (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated name is populated
+             * in the returned Subscription object. Note that for REST API requests, you must specify a name in the request.
              */
             create(request: {
                 /** V1 error format. */
@@ -873,9 +824,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The name of the subscription. It must have the format `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must start with a
-                 * letter, and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
-                 * signs (`%`). It must be between 3 and 255 characters in length, and it must not start with `"goog"`.
+                 * Required. The name of the subscription. It must have the format `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must start with a letter, and contain only
+                 * letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters
+                 * in length, and it must not start with `"goog"`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -905,9 +856,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The name of the subscription. It must have the format `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must start with a
-                 * letter, and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
-                 * signs (`%`). It must be between 3 and 255 characters in length, and it must not start with `"goog"`.
+                 * Required. The name of the subscription. It must have the format `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must start with a letter, and contain only
+                 * letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters
+                 * in length, and it must not start with `"goog"`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -923,9 +874,8 @@ declare namespace gapi.client {
             },
             body: Subscription): Request<Subscription>;
             /**
-             * Deletes an existing subscription. All messages retained in the subscription are immediately dropped. Calls to `Pull` after deletion will return
-             * `NOT_FOUND`. After a subscription is deleted, a new one may be created with the same name, but the new one has no association with the old subscription
-             * or its topic unless the same topic is specified.
+             * Deletes an existing subscription. All messages retained in the subscription are immediately dropped. Calls to `Pull` after deletion will return `NOT_FOUND`. After a subscription is
+             * deleted, a new one may be created with the same name, but the new one has no association with the old subscription or its topic unless the same topic is specified.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -954,8 +904,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Detaches a subscription from this topic. All messages retained in the subscription are dropped. Subsequent `Pull` and `StreamingPull` requests will
-             * return FAILED_PRECONDITION. If the subscription is a push subscription, pushes to the endpoint will stop.
+             * Detaches a subscription from this topic. All messages retained in the subscription are dropped. Subsequent `Pull` and `StreamingPull` requests will return FAILED_PRECONDITION. If
+             * the subscription is a push subscription, pushes to the endpoint will stop.
              */
             detach(request?: {
                 /** V1 error format. */
@@ -1027,10 +977,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-                 * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+                 * conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support
+                 * conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
                 "options.requestedPolicyVersion"?: number;
                 /** Returns response with indentations and line breaks. */
@@ -1063,8 +1012,8 @@ declare namespace gapi.client {
                 /** Maximum number of subscriptions to return. */
                 pageSize?: number;
                 /**
-                 * The value returned by the last `ListSubscriptionsResponse`; indicates that this is a continuation of a prior `ListSubscriptions` call, and that the
-                 * system should return the next page of data.
+                 * The value returned by the last `ListSubscriptionsResponse`; indicates that this is a continuation of a prior `ListSubscriptions` call, and that the system should return the next
+                 * page of data.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1079,9 +1028,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListSubscriptionsResponse>;
             /**
-             * Modifies the ack deadline for a specific message. This method is useful to indicate that more time is needed to process a message by the subscriber, or
-             * to make the message available for redelivery if the processing was interrupted. Note that this does not modify the subscription-level
-             * `ackDeadlineSeconds` used for subsequent messages.
+             * Modifies the ack deadline for a specific message. This method is useful to indicate that more time is needed to process a message by the subscriber, or to make the message available
+             * for redelivery if the processing was interrupted. Note that this does not modify the subscription-level `ackDeadlineSeconds` used for subsequent messages.
              */
             modifyAckDeadline(request: {
                 /** V1 error format. */
@@ -1139,9 +1087,8 @@ declare namespace gapi.client {
             },
             body: ModifyAckDeadlineRequest): Request<{}>;
             /**
-             * Modifies the `PushConfig` for a specified subscription. This may be used to change a push subscription to a pull one (signified by an empty
-             * `PushConfig`) or vice versa, or change the endpoint URL and other attributes of a push subscription. Messages will accumulate for delivery continuously
-             * through the call regardless of changes to the `PushConfig`.
+             * Modifies the `PushConfig` for a specified subscription. This may be used to change a push subscription to a pull one (signified by an empty `PushConfig`) or vice versa, or change
+             * the endpoint URL and other attributes of a push subscription. Messages will accumulate for delivery continuously through the call regardless of changes to the `PushConfig`.
              */
             modifyPushConfig(request: {
                 /** V1 error format. */
@@ -1213,9 +1160,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The name of the subscription. It must have the format `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must start with a
-                 * letter, and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
-                 * signs (`%`). It must be between 3 and 255 characters in length, and it must not start with `"goog"`.
+                 * Required. The name of the subscription. It must have the format `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must start with a letter, and contain only
+                 * letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters
+                 * in length, and it must not start with `"goog"`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1245,9 +1192,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The name of the subscription. It must have the format `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must start with a
-                 * letter, and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
-                 * signs (`%`). It must be between 3 and 255 characters in length, and it must not start with `"goog"`.
+                 * Required. The name of the subscription. It must have the format `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must start with a letter, and contain only
+                 * letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters
+                 * in length, and it must not start with `"goog"`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1320,9 +1267,8 @@ declare namespace gapi.client {
             body: PullRequest): Request<PullResponse>;
             /**
              * Seeks an existing subscription to a point in time or to a given snapshot, whichever is provided in the request. Snapshots are used in [Seek](
-             * https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the
-             * acknowledgment state of messages in an existing subscription to the state captured by a snapshot. Note that both the subscription and the snapshot must
-             * be on the same topic.
+             * https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of
+             * messages in an existing subscription to the state captured by a snapshot. Note that both the subscription and the snapshot must be on the same topic.
              */
             seek(request: {
                 /** V1 error format. */
@@ -1379,10 +1325,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: SeekRequest): Request<{}>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-             * `PERMISSION_DENIED` errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1411,9 +1354,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-             * checking. This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -1445,9 +1387,8 @@ declare namespace gapi.client {
         }
         interface SnapshotsResource {
             /**
-             * Lists the names of the snapshots on this topic. Snapshots are used in [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations, which
-             * allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state
-             * captured by a snapshot.
+             * Lists the names of the snapshots on this topic. Snapshots are used in [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message
+             * acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1467,8 +1408,8 @@ declare namespace gapi.client {
                 /** Maximum number of snapshot names to return. */
                 pageSize?: number;
                 /**
-                 * The value returned by the last `ListTopicSnapshotsResponse`; indicates that this is a continuation of a prior `ListTopicSnapshots` call, and that the
-                 * system should return the next page of data.
+                 * The value returned by the last `ListTopicSnapshotsResponse`; indicates that this is a continuation of a prior `ListTopicSnapshots` call, and that the system should return the
+                 * next page of data.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1503,8 +1444,8 @@ declare namespace gapi.client {
                 /** Maximum number of subscription names to return. */
                 pageSize?: number;
                 /**
-                 * The value returned by the last `ListTopicSubscriptionsResponse`; indicates that this is a continuation of a prior `ListTopicSubscriptions` call, and
-                 * that the system should return the next page of data.
+                 * The value returned by the last `ListTopicSubscriptionsResponse`; indicates that this is a continuation of a prior `ListTopicSubscriptions` call, and that the system should
+                 * return the next page of data.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1535,9 +1476,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The name of the topic. It must have the format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter, and contain only
-                 * letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be
-                 * between 3 and 255 characters in length, and it must not start with `"goog"`.
+                 * Required. The name of the topic. It must have the format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter, and contain only letters (`[A-Za-z]`),
+                 * numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters in length, and it
+                 * must not start with `"goog"`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1567,9 +1508,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The name of the topic. It must have the format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter, and contain only
-                 * letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be
-                 * between 3 and 255 characters in length, and it must not start with `"goog"`.
+                 * Required. The name of the topic. It must have the format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter, and contain only letters (`[A-Za-z]`),
+                 * numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters in length, and it
+                 * must not start with `"goog"`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1585,9 +1526,8 @@ declare namespace gapi.client {
             },
             body: Topic): Request<Topic>;
             /**
-             * Deletes the topic with the given name. Returns `NOT_FOUND` if the topic does not exist. After a topic is deleted, a new topic may be created with the
-             * same name; this is an entirely new topic with none of the old configuration or subscriptions. Existing subscriptions to this topic are not deleted, but
-             * their `topic` field is set to `_deleted-topic_`.
+             * Deletes the topic with the given name. Returns `NOT_FOUND` if the topic does not exist. After a topic is deleted, a new topic may be created with the same name; this is an entirely
+             * new topic with none of the old configuration or subscriptions. Existing subscriptions to this topic are not deleted, but their `topic` field is set to `_deleted-topic_`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1659,10 +1599,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-                 * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+                 * conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support
+                 * conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
                 "options.requestedPolicyVersion"?: number;
                 /** Returns response with indentations and line breaks. */
@@ -1694,10 +1633,7 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Maximum number of topics to return. */
                 pageSize?: number;
-                /**
-                 * The value returned by the last `ListTopicsResponse`; indicates that this is a continuation of a prior `ListTopics` call, and that the system should
-                 * return the next page of data.
-                 */
+                /** The value returned by the last `ListTopicsResponse`; indicates that this is a continuation of a prior `ListTopics` call, and that the system should return the next page of data. */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1725,9 +1661,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The name of the topic. It must have the format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter, and contain only
-                 * letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be
-                 * between 3 and 255 characters in length, and it must not start with `"goog"`.
+                 * Required. The name of the topic. It must have the format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter, and contain only letters (`[A-Za-z]`),
+                 * numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters in length, and it
+                 * must not start with `"goog"`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1757,9 +1693,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The name of the topic. It must have the format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter, and contain only
-                 * letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be
-                 * between 3 and 255 characters in length, and it must not start with `"goog"`.
+                 * Required. The name of the topic. It must have the format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter, and contain only letters (`[A-Za-z]`),
+                 * numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters in length, and it
+                 * must not start with `"goog"`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1830,10 +1766,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: PublishRequest): Request<PublishResponse>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-             * `PERMISSION_DENIED` errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1862,9 +1795,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-             * checking. This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Filestore API v1 1.0
 // Project: https://cloud.google.com/filestore/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -32,21 +35,17 @@ declare namespace gapi.client {
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1Instance {
             /**
-             * consumer_defined_name is the name that is set by the consumer. On the other hand Name field represents system-assigned id of an instance so consumers
-             * are not necessarily aware of it. consumer_defined_name is used for notification/UI purposes for consumer to recognize their instances.
+             * consumer_defined_name is the name that is set by the consumer. On the other hand Name field represents system-assigned id of an instance so consumers are not necessarily aware of
+             * it. consumer_defined_name is used for notification/UI purposes for consumer to recognize their instances.
              */
             consumerDefinedName?: string;
             /** Output only. Timestamp when the resource was created. */
             createTime?: string;
-            /**
-             * Optional. Resource labels to represent user provided metadata. Each label is a key-value pair, where both the key and the value are arbitrary strings
-             * provided by the user.
-             */
+            /** Optional. Resource labels to represent user provided metadata. Each label is a key-value pair, where both the key and the value are arbitrary strings provided by the user. */
             labels?: { [P in string]: string };
             /**
-             * The MaintenancePolicies that have been attached to the instance. The key must be of the type name of the oneof policy name defined in
-             * MaintenancePolicy, and the referenced policy must define the same policy type. For complete details of MaintenancePolicy, please refer to
-             * go/cloud-saas-mw-ug.
+             * The MaintenancePolicies that have been attached to the instance. The key must be of the type name of the oneof policy name defined in MaintenancePolicy, and the referenced policy
+             * must define the same policy type. For complete details of MaintenancePolicy, please refer to go/cloud-saas-mw-ug.
              */
             maintenancePolicyNames?: { [P in string]: string };
             /** The MaintenanceSchedule contains the scheduling information of published maintenance schedule. */
@@ -60,14 +59,11 @@ declare namespace gapi.client {
             /** Output only. The list of data plane resources provisioned for this instance, e.g. compute VMs. See go/get-instance-metadata. */
             provisionedResources?: GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource[];
             /**
-             * Link to the SLM instance template. Only populated when updating SLM instances via SSA's Actuation service adaptor. Service producers with custom
-             * control plane (e.g. Cloud SQL) doesn't need to populate this field. Instead they should use software_versions.
+             * Link to the SLM instance template. Only populated when updating SLM instances via SSA's Actuation service adaptor. Service producers with custom control plane (e.g. Cloud SQL)
+             * doesn't need to populate this field. Instead they should use software_versions.
              */
             slmInstanceTemplate?: string;
-            /**
-             * Output only. SLO metadata for instance classification in the Standardized dataplane SLO platform. See go/cloud-ssa-standard-slo for feature
-             * description.
-             */
+            /** Output only. SLO metadata for instance classification in the Standardized dataplane SLO platform. See go/cloud-ssa-standard-slo for feature description. */
             sloMetadata?: GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
             /** Software versions that are used to deploy this instance. This can be mutated by rollout services. */
             softwareVersions?: { [P in string]: string };
@@ -79,33 +75,26 @@ declare namespace gapi.client {
             updateTime?: string;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule {
-            /**
-             * Can this scheduled update be rescheduled? By default, it's true and API needs to do explicitly check whether it's set, if it's set as false explicitly,
-             * it's false
-             */
+            /** Can this scheduled update be rescheduled? By default, it's true and API needs to do explicitly check whether it's set, if it's set as false explicitly, it's false */
             canReschedule?: boolean;
             /** The scheduled end time for the maintenance. */
             endTime?: string;
-            /**
-             * The rollout management policy this maintenance schedule is associated with. When doing reschedule update request, the reschedule should be against this
-             * given policy.
-             */
+            /** The rollout management policy this maintenance schedule is associated with. When doing reschedule update request, the reschedule should be against this given policy. */
             rolloutManagementPolicy?: string;
             /** The scheduled start time for the maintenance. */
             startTime?: string;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings {
             /**
-             * Optional. Exclude instance from maintenance. When true, rollout service will not attempt maintenance on the instance. Rollout service will include the
-             * instance in reported rollout progress as not attempted.
+             * Optional. Exclude instance from maintenance. When true, rollout service will not attempt maintenance on the instance. Rollout service will include the instance in reported rollout
+             * progress as not attempted.
              */
             exclude?: boolean;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata {
             /**
-             * By default node is eligible if instance is eligible. But individual node might be excluded from SLO by adding entry here. For semantic see
-             * SloMetadata.exclusions. If both instance and node level exclusions are present for time period, the node level's reason will be reported by Eligibility
-             * Exporter.
+             * By default node is eligible if instance is eligible. But individual node might be excluded from SLO by adding entry here. For semantic see SloMetadata.exclusions. If both instance
+             * and node level exclusions are present for time period, the node level's reason will be reported by Eligibility Exporter.
              */
             exclusions?: GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion[];
             /** The location of the node, if different from instance location. */
@@ -115,9 +104,9 @@ declare namespace gapi.client {
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource {
             /**
-             * Type of the resource. This can be either a GCP resource or a custom one (e.g. another cloud provider's VM). For GCP compute resources use singular form
-             * of the names listed in GCP compute API documentation (https://cloud.google.com/compute/docs/reference/rest/v1/), prefixed with 'compute-', for example:
-             * 'compute-instance', 'compute-disk', 'compute-autoscaler'.
+             * Type of the resource. This can be either a GCP resource or a custom one (e.g. another cloud provider's VM). For GCP compute resources use singular form of the names listed in GCP
+             * compute API documentation (https://cloud.google.com/compute/docs/reference/rest/v1/), prefixed with 'compute-', for example: 'compute-instance', 'compute-disk',
+             * 'compute-autoscaler'.
              */
             resourceType?: string;
             /** URL identifying the resource, e.g. "https://www.googleapis.com/compute/v1/projects/...)". */
@@ -126,29 +115,22 @@ declare namespace gapi.client {
         interface GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility {
             /** Whether an instance is eligible or ineligible. */
             eligible?: boolean;
-            /**
-             * User-defined reason for the current value of instance eligibility. Usually, this can be directly mapped to the internal state. An empty reason is
-             * allowed.
-             */
+            /** User-defined reason for the current value of instance eligibility. Usually, this can be directly mapped to the internal state. An empty reason is allowed. */
             reason?: string;
         }
         interface GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion {
             /**
-             * Exclusion duration. No restrictions on the possible values. When an ongoing operation is taking longer than initially expected, an existing entry in
-             * the exclusion list can be updated by extending the duration. This is supported by the subsystem exporting eligibility data as long as such extension is
-             * committed at least 10 minutes before the original exclusion expiration - otherwise it is possible that there will be "gaps" in the exclusion
-             * application in the exported timeseries.
+             * Exclusion duration. No restrictions on the possible values. When an ongoing operation is taking longer than initially expected, an existing entry in the exclusion list can be
+             * updated by extending the duration. This is supported by the subsystem exporting eligibility data as long as such extension is committed at least 10 minutes before the original
+             * exclusion expiration - otherwise it is possible that there will be "gaps" in the exclusion application in the exported timeseries.
              */
             duration?: string;
             /**
-             * Human-readable reason for the exclusion. This should be a static string (e.g. "Disruptive update in progress") and should not contain dynamically
-             * generated data (e.g. instance name). Can be left empty.
+             * Human-readable reason for the exclusion. This should be a static string (e.g. "Disruptive update in progress") and should not contain dynamically generated data (e.g. instance
+             * name). Can be left empty.
              */
             reason?: string;
-            /**
-             * Name of an SLI that this exclusion applies to. Can be left empty, signaling that the instance should be excluded from all SLIs defined in the service
-             * SLO configuration.
-             */
+            /** Name of an SLI that this exclusion applies to. Can be left empty, signaling that the instance should be excluded from all SLIs defined in the service SLO configuration. */
             sliName?: string;
             /** Start time of the exclusion. No alignment (e.g. to a full minute) needed. */
             startTime?: string;
@@ -157,22 +139,19 @@ declare namespace gapi.client {
             /** Optional. User-defined instance eligibility. */
             eligibility?: GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
             /**
-             * List of SLO exclusion windows. When multiple entries in the list match (matching the exclusion time-window against current time point) the exclusion
-             * reason used in the first matching entry will be published. It is not needed to include expired exclusion in this list, as only the currently applicable
-             * exclusions are taken into account by the eligibility exporting subsystem (the historical state of exclusions will be reflected in the historically
-             * produced timeseries regardless of the current state). This field can be used to mark the instance as temporary ineligible for the purpose of SLO
-             * calculation. For permanent instance SLO exclusion, use of custom instance eligibility is recommended. See 'eligibility' field below.
+             * List of SLO exclusion windows. When multiple entries in the list match (matching the exclusion time-window against current time point) the exclusion reason used in the first
+             * matching entry will be published. It is not needed to include expired exclusion in this list, as only the currently applicable exclusions are taken into account by the eligibility
+             * exporting subsystem (the historical state of exclusions will be reflected in the historically produced timeseries regardless of the current state). This field can be used to mark
+             * the instance as temporary ineligible for the purpose of SLO calculation. For permanent instance SLO exclusion, use of custom instance eligibility is recommended. See 'eligibility'
+             * field below.
              */
             exclusions?: GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion[];
             /**
-             * Optional. List of nodes. Some producers need to use per-node metadata to calculate SLO. This field allows such producers to publish per-node SLO meta
-             * data, which will be consumed by SSA Eligibility Exporter and published in the form of per node metric to Monarch.
+             * Optional. List of nodes. Some producers need to use per-node metadata to calculate SLO. This field allows such producers to publish per-node SLO meta data, which will be consumed by
+             * SSA Eligibility Exporter and published in the form of per node metric to Monarch.
              */
             nodes?: GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata[];
-            /**
-             * Name of the SLO tier the Instance belongs to. This name will be expected to match the tiers specified in the service SLO configuration. Field is
-             * mandatory and must not be empty.
-             */
+            /** Name of the SLO tier the Instance belongs to. This name will be expected to match the tiers specified in the service SLO configuration. Field is mandatory and must not be empty. */
             tier?: string;
         }
         // tslint:disable-next-line:interface-name
@@ -200,9 +179,8 @@ declare namespace gapi.client {
         }
         interface ListInstancesResponse {
             /**
-             * A list of instances in the project for the specified location. If the {location} value in the request is "-", the response contains a list of instances
-             * from all locations. If any location is unreachable, the response will only return instances in reachable locations and the "unreachable" field will be
-             * populated with a list of unreachable locations.
+             * A list of instances in the project for the specified location. If the {location} value in the request is "-", the response contains a list of instances from all locations. If any
+             * location is unreachable, the response will only return instances in reachable locations and the "unreachable" field will be populated with a list of unreachable locations.
              */
             instances?: Instance[];
             /** The token you can use to retrieve the next page of results. Not returned if there are no more results in the list. */
@@ -236,8 +214,8 @@ declare namespace gapi.client {
         }
         interface NetworkConfig {
             /**
-             * Output only. IPv4 addresses in the format {octet 1}.{octet 2}.{octet 3}.{octet 4} or IPv6 addresses in the format {block 1}:{block 2}:{block 3}:{block
-             * 4}:{block 5}:{block 6}:{block 7}:{block 8}.
+             * Output only. IPv4 addresses in the format {octet 1}.{octet 2}.{octet 3}.{octet 4} or IPv6 addresses in the format {block 1}:{block 2}:{block 3}:{block 4}:{block 5}:{block 6}:{block
+             * 7}:{block 8}.
              */
             ipAddresses?: string[];
             /** Internet protocol versions for which the instance has IP addresses assigned. For this version, only MODE_IPV4 is supported. */
@@ -245,35 +223,31 @@ declare namespace gapi.client {
             /** The name of the Google Compute Engine [VPC network](/compute/docs/networks-and-firewalls#networks) to which the instance is connected. */
             network?: string;
             /**
-             * A /29 CIDR block in one of the [internal IP address ranges](https://www.arin.net/knowledge/address_filters.html) that identifies the range of IP
-             * addresses reserved for this instance. For example, 10.0.0.0/29 or 192.168.0.0/29. The range you specify can't overlap with either existing subnets or
-             * assigned IP address ranges for other Cloud Filestore instances in the selected VPC network.
+             * A /29 CIDR block in one of the [internal IP address ranges](https://www.arin.net/knowledge/address_filters.html) that identifies the range of IP addresses reserved for this
+             * instance. For example, 10.0.0.0/29 or 192.168.0.0/29. The range you specify can't overlap with either existing subnets or assigned IP address ranges for other Cloud Filestore
+             * instances in the selected VPC network.
              */
             reservedIpRange?: string;
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -281,8 +255,8 @@ declare namespace gapi.client {
             /** [Output only] API version used to start the operation. */
             apiVersion?: string;
             /**
-             * [Output only] Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have
-             * Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * [Output only] Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancelRequested?: boolean;
             /** [Output only] The time the operation was created. */
@@ -302,8 +276,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -328,8 +302,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The instance's project and location, in the format projects/{project_id}/locations/{location}. In Cloud Filestore, locations map to GCP
-                 * zones, for example ∗∗us-west1-b∗∗.
+                 * Required. The instance's project and location, in the format projects/{project_id}/locations/{location}. In Cloud Filestore, locations map to GCP zones, for example
+                 * **us-west1-b**.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -361,8 +335,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The instance's project and location, in the format projects/{project_id}/locations/{location}. In Cloud Filestore, locations map to GCP
-                 * zones, for example ∗∗us-west1-b∗∗.
+                 * Required. The instance's project and location, in the format projects/{project_id}/locations/{location}. In Cloud Filestore, locations map to GCP zones, for example
+                 * **us-west1-b**.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -454,9 +428,8 @@ declare namespace gapi.client {
                 /** The next_page_token value to use if there are additional results to retrieve for this list request. */
                 pageToken?: string;
                 /**
-                 * Required. The project and location for which to retrieve instance information, in the format projects/{project_id}/locations/{location}. In Cloud
-                 * Filestore, locations map to GCP zones, for example ∗∗us-west1-b∗∗. To retrieve instance information for all locations, use "-" for the {location}
-                 * value.
+                 * Required. The project and location for which to retrieve instance information, in the format projects/{project_id}/locations/{location}. In Cloud Filestore, locations map to GCP
+                 * zones, for example **us-west1-b**. To retrieve instance information for all locations, use "-" for the {location} value.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -491,8 +464,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Mask of fields to update. At least one path must be supplied in this field. The elements of the repeated paths field may only include these fields: ∗
-                 * "description" ∗ "file_shares" ∗ "labels"
+                 * Mask of fields to update. At least one path must be supplied in this field. The elements of the repeated paths field may only include these fields: * "description" *
+                 * "file_shares" * "labels"
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -524,8 +497,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Mask of fields to update. At least one path must be supplied in this field. The elements of the repeated paths field may only include these fields: ∗
-                 * "description" ∗ "file_shares" ∗ "labels"
+                 * Mask of fields to update. At least one path must be supplied in this field. The elements of the repeated paths field may only include these fields: * "description" *
+                 * "file_shares" * "labels"
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -537,10 +510,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request: {
                 /** V1 error format. */
@@ -598,8 +571,8 @@ declare namespace gapi.client {
             },
             body: CancelOperationRequest): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -627,10 +600,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -658,11 +628,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */

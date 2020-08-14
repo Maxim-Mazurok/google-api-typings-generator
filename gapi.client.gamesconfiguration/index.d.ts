@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Google Play Game Services Publishing API v1configuration 1.0
 // Project: https://developers.google.com/games/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -59,16 +62,13 @@ declare namespace gapi.client {
             nextPageToken?: string;
         }
         interface GamesNumberAffixConfiguration {
-            /**
-             * When the language requires special treatment of "small" numbers (as with 2, 3, and 4 in Czech; or numbers ending 2, 3, or 4 but not 12, 13, or 14 in
-             * Polish).
-             */
+            /** When the language requires special treatment of "small" numbers (as with 2, 3, and 4 in Czech; or numbers ending 2, 3, or 4 but not 12, 13, or 14 in Polish). */
             few?: LocalizedStringBundle;
             /** When the language requires special treatment of "large" numbers (as with numbers ending 11-99 in Maltese). */
             many?: LocalizedStringBundle;
             /**
-             * When the language requires special treatment of numbers like one (as with the number 1 in English and most other languages; in Russian, any number
-             * ending in 1 but not ending in 11 is in this class).
+             * When the language requires special treatment of numbers like one (as with the number 1 in English and most other languages; in Russian, any number ending in 1 but not ending in 11
+             * is in this class).
              */
             one?: LocalizedStringBundle;
             /** When the language does not require special treatment of the given quantity (as with all numbers in Chinese, or 42 in English). */
@@ -278,8 +278,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may
-                 * be less than the specified `maxResults`.
+                 * The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the
+                 * specified `maxResults`.
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -512,8 +512,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may
-                 * be less than the specified `maxResults`.
+                 * The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the
+                 * specified `maxResults`.
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */

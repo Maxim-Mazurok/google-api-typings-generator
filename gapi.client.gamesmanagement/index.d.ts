@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Google Play Game Management v1management 1.0
 // Project: https://developers.google.com/games/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -32,8 +35,8 @@ declare namespace gapi.client {
         }
         interface AchievementResetResponse {
             /**
-             * The current state of the achievement. This is the same as the initial state of the achievement. Possible values are: - "`HIDDEN`"- Achievement is
-             * hidden. - "`REVEALED`" - Achievement is revealed. - "`UNLOCKED`" - Achievement is unlocked.
+             * The current state of the achievement. This is the same as the initial state of the achievement. Possible values are: - "`HIDDEN`"- Achievement is hidden. - "`REVEALED`" -
+             * Achievement is revealed. - "`UNLOCKED`" - Achievement is unlocked.
              */
             currentState?: string;
             /** The ID of an achievement for which player state has been updated. */
@@ -104,8 +107,8 @@ declare namespace gapi.client {
                 givenName?: string;
             };
             /**
-             * The player ID that was used for this player the first time they signed into the game in question. This is only populated for calls to player.get for
-             * the requesting player, only if the player ID has subsequently changed, and only to clients that support remapping player IDs.
+             * The player ID that was used for this player the first time they signed into the game in question. This is only populated for calls to player.get for the requesting player, only if
+             * the player ID has subsequently changed, and only to clients that support remapping player IDs.
              */
             originalPlayerId?: string;
             /** The ID of the player. */
@@ -127,8 +130,8 @@ declare namespace gapi.client {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#playerScoreResetResponse`. */
             kind?: string;
             /**
-             * The time spans of the updated score. Possible values are: - "`ALL_TIME`" - The score is an all-time score. - "`WEEKLY`" - The score is a weekly score.
-             * - "`DAILY`" - The score is a daily score.
+             * The time spans of the updated score. Possible values are: - "`ALL_TIME`" - The score is an all-time score. - "`WEEKLY`" - The score is a weekly score. - "`DAILY`" - The score is a
+             * daily score.
              */
             resetScoreTimeSpans?: string[];
         }
@@ -144,10 +147,7 @@ declare namespace gapi.client {
             leaderboard_ids?: string[];
         }
         interface AchievementsResource {
-            /**
-             * Resets the achievement with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your
-             * application.
-             */
+            /** Resets the achievement with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. */
             reset(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -174,10 +174,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<AchievementResetResponse>;
-            /**
-             * Resets all achievements for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for
-             * your application.
-             */
+            /** Resets all achievements for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for your application. */
             resetAll(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -227,10 +224,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<void>;
-            /**
-             * Resets the achievement with the given ID for all players. This method is only available to user accounts for your developer console. Only draft
-             * achievements can be reset.
-             */
+            /** Resets the achievement with the given ID for all players. This method is only available to user accounts for your developer console. Only draft achievements can be reset. */
             resetForAllPlayers(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -257,10 +251,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<void>;
-            /**
-             * Resets achievements with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft
-             * achievements may be reset.
-             */
+            /** Resets achievements with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft achievements may be reset. */
             resetMultipleForAllPlayers(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -331,8 +322,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may
-                 * be less than the specified `maxResults`.
+                 * The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may be less than the
+                 * specified `maxResults`.
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -350,10 +341,7 @@ declare namespace gapi.client {
             }): Request<HiddenPlayerList>;
         }
         interface EventsResource {
-            /**
-             * Resets all player progress on the event with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester
-             * accounts for your application.
-             */
+            /** Resets all player progress on the event with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. */
             reset(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -380,10 +368,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<void>;
-            /**
-             * Resets all player progress on all events for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your
-             * application.
-             */
+            /** Resets all player progress on all events for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. */
             resetAll(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -433,10 +418,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<void>;
-            /**
-             * Resets the event with the given ID for all players. This method is only available to user accounts for your developer console. Only draft events can be
-             * reset.
-             */
+            /** Resets the event with the given ID for all players. This method is only available to user accounts for your developer console. Only draft events can be reset. */
             resetForAllPlayers(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -463,10 +445,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<void>;
-            /**
-             * Resets events with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft events may be
-             * reset.
-             */
+            /** Resets events with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft events may be reset. */
             resetMultipleForAllPlayers(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -580,10 +559,7 @@ declare namespace gapi.client {
             }): Request<void>;
         }
         interface ScoresResource {
-            /**
-             * Resets scores for the leaderboard with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester
-             * accounts for your application.
-             */
+            /** Resets scores for the leaderboard with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. */
             reset(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -610,10 +586,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<PlayerScoreResetResponse>;
-            /**
-             * Resets all scores for all leaderboards for the currently authenticated players. This method is only accessible to whitelisted tester accounts for your
-             * application.
-             */
+            /** Resets all scores for all leaderboards for the currently authenticated players. This method is only accessible to whitelisted tester accounts for your application. */
             resetAll(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -663,10 +636,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<void>;
-            /**
-             * Resets scores for the leaderboard with the given ID for all players. This method is only available to user accounts for your developer console. Only
-             * draft leaderboards can be reset.
-             */
+            /** Resets scores for the leaderboard with the given ID for all players. This method is only available to user accounts for your developer console. Only draft leaderboards can be reset. */
             resetForAllPlayers(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -694,8 +664,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /**
-             * Resets scores for the leaderboards with the given IDs for all players. This method is only available to user accounts for your developer console. Only
-             * draft leaderboards may be reset.
+             * Resets scores for the leaderboards with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft leaderboards may be
+             * reset.
              */
             resetMultipleForAllPlayers(request: {
                 /** V1 error format. */

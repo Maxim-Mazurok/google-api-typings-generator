@@ -738,9 +738,8 @@ gapi.load('client', () => {
             shipmentGroupId: "Test string",
         });
         /**
-         * Creates a refund invoice for one or more shipment groups, and triggers a refund for orderinvoice enabled orders. This can only be used for line items
-         * that have previously been charged using `createChargeInvoice`. All amounts (except for the summary) are incremental with respect to the previous
-         * invoice.
+         * Creates a refund invoice for one or more shipment groups, and triggers a refund for orderinvoice enabled orders. This can only be used for line items that have previously been charged
+         * using `createChargeInvoice`. All amounts (except for the summary) are incremental with respect to the previous invoice.
          */
         await gapi.client.content.orderinvoices.createrefundinvoice({
             merchantId: "Test string",
@@ -1121,11 +1120,10 @@ gapi.load('client', () => {
             templateName: "Test string",
         });
         /**
-         * Deprecated. Notifies that item return and refund was handled directly by merchant outside of Google payments processing (e.g. cash refund done in
-         * store).
-         * Note: We recommend calling the returnrefundlineitem method to refund in-store returns. We will issue the refund directly to the customer. This helps to
-         * prevent possible differences arising between merchant and Google transaction records. We also recommend having the point of sale system communicate
-         * with Google to ensure that customers do not receive a double refund by first refunding via Google then via an in-store return.
+         * Deprecated. Notifies that item return and refund was handled directly by merchant outside of Google payments processing (e.g. cash refund done in store).
+         * Note: We recommend calling the returnrefundlineitem method to refund in-store returns. We will issue the refund directly to the customer. This helps to prevent possible differences
+         * arising between merchant and Google transaction records. We also recommend having the point of sale system communicate with Google to ensure that customers do not receive a double
+         * refund by first refunding via Google then via an in-store return.
          */
         await gapi.client.content.orders.instorerefundlineitem({
             merchantId: "Test string",
@@ -1223,9 +1221,9 @@ gapi.load('client', () => {
             reasonText: "Test string",
         });
         /**
-         * Returns and refunds a line item. Note that this method can only be called on fully shipped orders. Please also note that the Orderreturns API is the
-         * preferred way to handle returns after you receive a return from a customer. You can use Orderreturns.list or Orderreturns.get to search for the return,
-         * and then use Orderreturns.processreturn to issue the refund. If the return cannot be found, then we recommend using this API to issue a refund.
+         * Returns and refunds a line item. Note that this method can only be called on fully shipped orders. Please also note that the Orderreturns API is the preferred way to handle returns
+         * after you receive a return from a customer. You can use Orderreturns.list or Orderreturns.get to search for the return, and then use Orderreturns.processreturn to issue the refund. If
+         * the return cannot be found, then we recommend using this API to issue a refund.
          */
         await gapi.client.content.orders.returnrefundlineitem({
             merchantId: "Test string",
@@ -1247,9 +1245,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Sets (or overrides if it already exists) merchant provided annotations in the form of key-value pairs. A common use case would be to supply us with
-         * additional structured information about a line item that cannot be provided via other methods. Submitted key-value pairs can be retrieved as part of
-         * the orders resource.
+         * Sets (or overrides if it already exists) merchant provided annotations in the form of key-value pairs. A common use case would be to supply us with additional structured information
+         * about a line item that cannot be provided via other methods. Submitted key-value pairs can be retrieved as part of the orders resource.
          */
         await gapi.client.content.orders.setlineitemmetadata({
             merchantId: "Test string",
@@ -1610,10 +1607,7 @@ gapi.load('client', () => {
             merchantId: "Test string",
             productId: "Test string",
         });
-        /**
-         * Uploads a product to your Merchant Center account. If an item with the same channel, contentLanguage, offerId, and targetCountry already exists, this
-         * method updates that entry.
-         */
+        /** Uploads a product to your Merchant Center account. If an item with the same channel, contentLanguage, offerId, and targetCountry already exists, this method updates that entry. */
         await gapi.client.content.products.insert({
             feedId: "Test string",
             merchantId: "Test string",
@@ -1782,8 +1776,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Lists the products in your Merchant Center account. The response might contain fewer items than specified by maxResults. Rely on nextPageToken to
-         * determine if there are more items to be requested.
+         * Lists the products in your Merchant Center account. The response might contain fewer items than specified by maxResults. Rely on nextPageToken to determine if there are more items to be
+         * requested.
          */
         await gapi.client.content.products.list({
             maxResults: 42,
@@ -1859,10 +1853,7 @@ gapi.load('client', () => {
                     },
                 }            ],
         });
-        /**
-         * Update the regional inventory of a product in your Merchant Center account. If a regional inventory with the same region ID already exists, this method
-         * updates that entry.
-         */
+        /** Update the regional inventory of a product in your Merchant Center account. If a regional inventory with the same region ID already exists, this method updates that entry. */
         await gapi.client.content.regionalinventory.insert({
             merchantId: "Test string",
             productId: "Test string",

@@ -27,33 +27,21 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Resets the achievement with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your
-         * application.
-         */
+        /** Resets the achievement with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. */
         await gapi.client.gamesmanagement.achievements.reset({
             achievementId: "Test string",
         });
-        /**
-         * Resets all achievements for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for
-         * your application.
-         */
+        /** Resets all achievements for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for your application. */
         await gapi.client.gamesmanagement.achievements.resetAll({
         });
         /** Resets all draft achievements for all players. This method is only available to user accounts for your developer console. */
         await gapi.client.gamesmanagement.achievements.resetAllForAllPlayers({
         });
-        /**
-         * Resets the achievement with the given ID for all players. This method is only available to user accounts for your developer console. Only draft
-         * achievements can be reset.
-         */
+        /** Resets the achievement with the given ID for all players. This method is only available to user accounts for your developer console. Only draft achievements can be reset. */
         await gapi.client.gamesmanagement.achievements.resetForAllPlayers({
             achievementId: "Test string",
         });
-        /**
-         * Resets achievements with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft
-         * achievements may be reset.
-         */
+        /** Resets achievements with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft achievements may be reset. */
         await gapi.client.gamesmanagement.achievements.resetMultipleForAllPlayers({
         }, {
             achievement_ids: [
@@ -66,33 +54,21 @@ gapi.load('client', () => {
             maxResults: 42,
             pageToken: "Test string",
         });
-        /**
-         * Resets all player progress on the event with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester
-         * accounts for your application.
-         */
+        /** Resets all player progress on the event with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. */
         await gapi.client.gamesmanagement.events.reset({
             eventId: "Test string",
         });
-        /**
-         * Resets all player progress on all events for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your
-         * application.
-         */
+        /** Resets all player progress on all events for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. */
         await gapi.client.gamesmanagement.events.resetAll({
         });
         /** Resets all draft events for all players. This method is only available to user accounts for your developer console. */
         await gapi.client.gamesmanagement.events.resetAllForAllPlayers({
         });
-        /**
-         * Resets the event with the given ID for all players. This method is only available to user accounts for your developer console. Only draft events can be
-         * reset.
-         */
+        /** Resets the event with the given ID for all players. This method is only available to user accounts for your developer console. Only draft events can be reset. */
         await gapi.client.gamesmanagement.events.resetForAllPlayers({
             eventId: "Test string",
         });
-        /**
-         * Resets events with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft events may be
-         * reset.
-         */
+        /** Resets events with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft events may be reset. */
         await gapi.client.gamesmanagement.events.resetMultipleForAllPlayers({
         }, {
             event_ids: [
@@ -109,33 +85,21 @@ gapi.load('client', () => {
             applicationId: "Test string",
             playerId: "Test string",
         });
-        /**
-         * Resets scores for the leaderboard with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester
-         * accounts for your application.
-         */
+        /** Resets scores for the leaderboard with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. */
         await gapi.client.gamesmanagement.scores.reset({
             leaderboardId: "Test string",
         });
-        /**
-         * Resets all scores for all leaderboards for the currently authenticated players. This method is only accessible to whitelisted tester accounts for your
-         * application.
-         */
+        /** Resets all scores for all leaderboards for the currently authenticated players. This method is only accessible to whitelisted tester accounts for your application. */
         await gapi.client.gamesmanagement.scores.resetAll({
         });
         /** Resets scores for all draft leaderboards for all players. This method is only available to user accounts for your developer console. */
         await gapi.client.gamesmanagement.scores.resetAllForAllPlayers({
         });
-        /**
-         * Resets scores for the leaderboard with the given ID for all players. This method is only available to user accounts for your developer console. Only
-         * draft leaderboards can be reset.
-         */
+        /** Resets scores for the leaderboard with the given ID for all players. This method is only available to user accounts for your developer console. Only draft leaderboards can be reset. */
         await gapi.client.gamesmanagement.scores.resetForAllPlayers({
             leaderboardId: "Test string",
         });
-        /**
-         * Resets scores for the leaderboards with the given IDs for all players. This method is only available to user accounts for your developer console. Only
-         * draft leaderboards may be reset.
-         */
+        /** Resets scores for the leaderboards with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft leaderboards may be reset. */
         await gapi.client.gamesmanagement.scores.resetMultipleForAllPlayers({
         }, {
             kind: "Test string",

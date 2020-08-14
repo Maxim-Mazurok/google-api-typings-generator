@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Storage Transfer API v1 1.0
 // Project: https://cloud.google.com/storage-transfer/docs
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -25,10 +28,7 @@ declare namespace gapi.client {
             secretAccessKey?: string;
         }
         interface AwsS3Data {
-            /**
-             * Required. AWS access key used to sign the API requests to the AWS S3 bucket. Permissions on the bucket must be granted to the access ID of the AWS
-             * access key.
-             */
+            /** Required. AWS access key used to sign the API requests to the AWS S3 bucket. Permissions on the bucket must be granted to the access ID of the AWS access key. */
             awsAccessKey?: AwsAccessKey;
             /** Required. S3 Bucket name (see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/create-bucket-get-location-example.html)). */
             bucketName?: string;
@@ -49,10 +49,7 @@ declare namespace gapi.client {
             sasToken?: string;
         }
         interface Date {
-            /**
-             * Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not
-             * significant.
-             */
+            /** Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not significant. */
             day?: number;
             /** Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day. */
             month?: number;
@@ -85,10 +82,7 @@ declare namespace gapi.client {
             accountEmail?: string;
         }
         interface HttpData {
-            /**
-             * Required. The URL that points to the file that stores the object list entries. This file must allow public access. Currently, only URLs with HTTP and
-             * HTTPS schemes are supported.
-             */
+            /** Required. The URL that points to the file that stores the object list entries. This file must allow public access. Currently, only URLs with HTTP and HTTPS schemes are supported. */
             listUrl?: string;
         }
         interface ListOperationsResponse {
@@ -109,8 +103,8 @@ declare namespace gapi.client {
             /** Required. The desired format of the notification message payloads. */
             payloadFormat?: string;
             /**
-             * Required. The `Topic.name` of the Cloud Pub/Sub topic to which to publish notifications. Must be of the format: `projects/{project}/topics/{topic}`.
-             * Not matching this format will result in an INVALID_ARGUMENT error.
+             * Required. The `Topic.name` of the Cloud Pub/Sub topic to which to publish notifications. Must be of the format: `projects/{project}/topics/{topic}`. Not matching this format will
+             * result in an INVALID_ARGUMENT error.
              */
             pubsubTopic?: string;
         }
@@ -118,63 +112,51 @@ declare namespace gapi.client {
             /** `exclude_prefixes` must follow the requirements described for include_prefixes. The max size of `exclude_prefixes` is 1000. */
             excludePrefixes?: string[];
             /**
-             * If `include_prefixes` is specified, objects that satisfy the object conditions must have names that start with one of the `include_prefixes` and that
-             * do not start with any of the exclude_prefixes. If `include_prefixes` is not specified, all objects except those that have names starting with one of
-             * the `exclude_prefixes` must satisfy the object conditions. Requirements: ∗ Each include-prefix and exclude-prefix can contain any sequence of Unicode
-             * characters, to a max length of 1024 bytes when UTF8-encoded, and must not contain Carriage Return or Line Feed characters. Wildcard matching and
-             * regular expression matching are not supported. ∗ Each include-prefix and exclude-prefix must omit the leading slash. For example, to include the
-             * `requests.gz` object in a transfer from `s3://my-aws-bucket/logs/y=2015/requests.gz`, specify the include prefix as `logs/y=2015/requests.gz`. ∗ None
-             * of the include-prefix or the exclude-prefix values can be empty, if specified. ∗ Each include-prefix must include a distinct portion of the object
-             * namespace. No include-prefix may be a prefix of another include-prefix. ∗ Each exclude-prefix must exclude a distinct portion of the object namespace.
-             * No exclude-prefix may be a prefix of another exclude-prefix. ∗ If `include_prefixes` is specified, then each exclude-prefix must start with the value
-             * of a path explicitly included by `include_prefixes`. The max size of `include_prefixes` is 1000.
+             * If `include_prefixes` is specified, objects that satisfy the object conditions must have names that start with one of the `include_prefixes` and that do not start with any of the
+             * exclude_prefixes. If `include_prefixes` is not specified, all objects except those that have names starting with one of the `exclude_prefixes` must satisfy the object conditions.
+             * Requirements: * Each include-prefix and exclude-prefix can contain any sequence of Unicode characters, to a max length of 1024 bytes when UTF8-encoded, and must not contain Carriage
+             * Return or Line Feed characters. Wildcard matching and regular expression matching are not supported. * Each include-prefix and exclude-prefix must omit the leading slash. For
+             * example, to include the `requests.gz` object in a transfer from `s3://my-aws-bucket/logs/y=2015/requests.gz`, specify the include prefix as `logs/y=2015/requests.gz`. * None of the
+             * include-prefix or the exclude-prefix values can be empty, if specified. * Each include-prefix must include a distinct portion of the object namespace. No include-prefix may be a
+             * prefix of another include-prefix. * Each exclude-prefix must exclude a distinct portion of the object namespace. No exclude-prefix may be a prefix of another exclude-prefix. * If
+             * `include_prefixes` is specified, then each exclude-prefix must start with the value of a path explicitly included by `include_prefixes`. The max size of `include_prefixes` is 1000.
              */
             includePrefixes?: string[];
-            /**
-             * If specified, only objects with a "last modification time" before this timestamp and objects that don't have a "last modification time" will be
-             * transferred.
-             */
+            /** If specified, only objects with a "last modification time" before this timestamp and objects that don't have a "last modification time" will be transferred. */
             lastModifiedBefore?: string;
             /**
-             * If specified, only objects with a "last modification time" on or after this timestamp and objects that don't have a "last modification time" are
-             * transferred. The `last_modified_since` and `last_modified_before` fields can be used together for chunked data processing. For example, consider a
-             * script that processes each day's worth of data at a time. For that you'd set each of the fields as follows: ∗ `last_modified_since` to the start of the
-             * day ∗ `last_modified_before` to the end of the day
+             * If specified, only objects with a "last modification time" on or after this timestamp and objects that don't have a "last modification time" are transferred. The
+             * `last_modified_since` and `last_modified_before` fields can be used together for chunked data processing. For example, consider a script that processes each day's worth of data at a
+             * time. For that you'd set each of the fields as follows: * `last_modified_since` to the start of the day * `last_modified_before` to the end of the day
              */
             lastModifiedSince?: string;
             /**
-             * If specified, only objects with a "last modification time" on or after `NOW` - `max_time_elapsed_since_last_modification` and objects that don't have a
-             * "last modification time" are transferred. For each TransferOperation started by this TransferJob, `NOW` refers to the start_time of the
-             * `TransferOperation`.
+             * If specified, only objects with a "last modification time" on or after `NOW` - `max_time_elapsed_since_last_modification` and objects that don't have a "last modification time" are
+             * transferred. For each TransferOperation started by this TransferJob, `NOW` refers to the start_time of the `TransferOperation`.
              */
             maxTimeElapsedSinceLastModification?: string;
             /**
-             * If specified, only objects with a "last modification time" before `NOW` - `min_time_elapsed_since_last_modification` and objects that don't have a
-             * "last modification time" are transferred. For each TransferOperation started by this TransferJob, `NOW` refers to the start_time of the
-             * `TransferOperation`.
+             * If specified, only objects with a "last modification time" before `NOW` - `min_time_elapsed_since_last_modification` and objects that don't have a "last modification time" are
+             * transferred. For each TransferOperation started by this TransferJob, `NOW` refers to the start_time of the `TransferOperation`.
              */
             minTimeElapsedSinceLastModification?: string;
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /** Represents the transfer operation object. To request a TransferOperation object, use transferOperations.get. */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should have the format of `transferOperations/some/unique/name`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should have the format of
+             * `transferOperations/some/unique/name`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -186,24 +168,23 @@ declare namespace gapi.client {
         }
         interface Schedule {
             /**
-             * The last day a transfer runs. Date boundaries are determined relative to UTC time. A job will run once per 24 hours within the following guidelines: ∗
-             * If `schedule_end_date` and schedule_start_date are the same and in the future relative to UTC, the transfer is executed only one time. ∗ If
-             * `schedule_end_date` is later than `schedule_start_date` and `schedule_end_date` is in the future relative to UTC, the job will run each day at
-             * start_time_of_day through `schedule_end_date`.
+             * The last day a transfer runs. Date boundaries are determined relative to UTC time. A job will run once per 24 hours within the following guidelines: * If `schedule_end_date` and
+             * schedule_start_date are the same and in the future relative to UTC, the transfer is executed only one time. * If `schedule_end_date` is later than `schedule_start_date` and
+             * `schedule_end_date` is in the future relative to UTC, the job will run each day at start_time_of_day through `schedule_end_date`.
              */
             scheduleEndDate?: Date;
             /**
-             * Required. The start date of a transfer. Date boundaries are determined relative to UTC time. If `schedule_start_date` and start_time_of_day are in the
-             * past relative to the job's creation time, the transfer starts the day after you schedule the transfer request. ∗∗Note:∗∗ When starting jobs at or near
-             * midnight UTC it is possible that a job will start later than expected. For example, if you send an outbound request on June 1 one millisecond prior to
-             * midnight UTC and the Storage Transfer Service server receives the request on June 2, then it will create a TransferJob with `schedule_start_date` set
-             * to June 2 and a `start_time_of_day` set to midnight UTC. The first scheduled TransferOperation will take place on June 3 at midnight UTC.
+             * Required. The start date of a transfer. Date boundaries are determined relative to UTC time. If `schedule_start_date` and start_time_of_day are in the past relative to the job's
+             * creation time, the transfer starts the day after you schedule the transfer request. **Note:** When starting jobs at or near midnight UTC it is possible that a job will start later
+             * than expected. For example, if you send an outbound request on June 1 one millisecond prior to midnight UTC and the Storage Transfer Service server receives the request on June 2,
+             * then it will create a TransferJob with `schedule_start_date` set to June 2 and a `start_time_of_day` set to midnight UTC. The first scheduled TransferOperation will take place on
+             * June 3 at midnight UTC.
              */
             scheduleStartDate?: Date;
             /**
-             * The time in UTC that a transfer job is scheduled to run. Transfers may start later than this time. If `start_time_of_day` is not specified: ∗ One-time
-             * transfers run immediately. ∗ Recurring transfers run immediately, and each day at midnight UTC, through schedule_end_date. If `start_time_of_day` is
-             * specified: ∗ One-time transfers run at the specified time. ∗ Recurring transfers run at the specified time each day, through `schedule_end_date`.
+             * The time in UTC that a transfer job is scheduled to run. Transfers may start later than this time. If `start_time_of_day` is not specified: * One-time transfers run immediately. *
+             * Recurring transfers run immediately, and each day at midnight UTC, through schedule_end_date. If `start_time_of_day` is specified: * One-time transfers run at the specified time. *
+             * Recurring transfers run at the specified time each day, through `schedule_end_date`.
              */
             startTimeOfDay?: TimeOfDay;
         }
@@ -213,8 +194,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -253,10 +234,7 @@ declare namespace gapi.client {
             objectsDeletedFromSource?: string;
             /** Objects that failed to be deleted from the data sink. */
             objectsFailedToDeleteFromSink?: string;
-            /**
-             * Objects found in the data source that are scheduled to be transferred, excluding any that are filtered based on object conditions or skipped due to
-             * sync.
-             */
+            /** Objects found in the data source that are scheduled to be transferred, excluding any that are filtered based on object conditions or skipped due to sync. */
             objectsFoundFromSource?: string;
             /** Objects found only in the data sink that are scheduled to be deleted. */
             objectsFoundOnlyFromSink?: string;
@@ -275,10 +253,10 @@ declare namespace gapi.client {
             /** Output only. The time that the transfer job was last modified. */
             lastModificationTime?: string;
             /**
-             * A unique name (within the transfer project) assigned when the job is created. If this field is empty in a CreateTransferJobRequest, Storage Transfer
-             * Service will assign a unique name. Otherwise, the specified name is used as the unique name for this job. If the specified name is in use by a job, the
-             * creation request fails with an ALREADY_EXISTS error. This name must start with `"transferJobs/"` prefix and end with a letter or a number, and should
-             * be no more than 128 characters. Example: `"transferJobs/[A-Za-z0-9-._~]∗[A-Za-z0-9]$"` Invalid job names will fail with an INVALID_ARGUMENT error.
+             * A unique name (within the transfer project) assigned when the job is created. If this field is empty in a CreateTransferJobRequest, Storage Transfer Service will assign a unique
+             * name. Otherwise, the specified name is used as the unique name for this job. If the specified name is in use by a job, the creation request fails with an ALREADY_EXISTS error. This
+             * name must start with `"transferJobs/"` prefix and end with a letter or a number, and should be no more than 128 characters. Example: `"transferJobs/[A-Za-z0-9-._~]*[A-Za-z0-9]$"`
+             * Invalid job names will fail with an INVALID_ARGUMENT error.
              */
             name?: string;
             /** Notification configuration. */
@@ -288,9 +266,8 @@ declare namespace gapi.client {
             /** Schedule specification. */
             schedule?: Schedule;
             /**
-             * Status of the job. This value MUST be specified for `CreateTransferJobRequests`. ∗∗Note:∗∗ The effect of the new job status takes place during a
-             * subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status
-             * change would not affect the current operation.
+             * Status of the job. This value MUST be specified for `CreateTransferJobRequests`. **Note:** The effect of the new job status takes place during a subsequent job run. For example, if
+             * you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation.
              */
             status?: string;
             /** Transfer specification. */
@@ -319,15 +296,9 @@ declare namespace gapi.client {
             transferSpec?: TransferSpec;
         }
         interface TransferOptions {
-            /**
-             * Whether objects should be deleted from the source after they are transferred to the sink. ∗∗Note:∗∗ This option and delete_objects_unique_in_sink are
-             * mutually exclusive.
-             */
+            /** Whether objects should be deleted from the source after they are transferred to the sink. **Note:** This option and delete_objects_unique_in_sink are mutually exclusive. */
             deleteObjectsFromSourceAfterTransfer?: boolean;
-            /**
-             * Whether objects that exist only in the sink should be deleted. ∗∗Note:∗∗ This option and delete_objects_from_source_after_transfer are mutually
-             * exclusive.
-             */
+            /** Whether objects that exist only in the sink should be deleted. **Note:** This option and delete_objects_from_source_after_transfer are mutually exclusive. */
             deleteObjectsUniqueInSink?: boolean;
             /** Whether overwriting objects that already exist in the sink is allowed. */
             overwriteObjectsAlreadyExistingInSink?: boolean;
@@ -344,13 +315,13 @@ declare namespace gapi.client {
             /** An HTTP URL data source. */
             httpDataSource?: HttpData;
             /**
-             * Only objects that satisfy these object conditions are included in the set of data source and data sink objects. Object conditions based on objects'
-             * "last modification time" do not exclude objects in a data sink.
+             * Only objects that satisfy these object conditions are included in the set of data source and data sink objects. Object conditions based on objects' "last modification time" do not
+             * exclude objects in a data sink.
              */
             objectConditions?: ObjectConditions;
             /**
-             * If the option delete_objects_unique_in_sink is `true`, object conditions based on objects' "last modification time" are ignored and do not exclude
-             * objects in a data source or a data sink.
+             * If the option delete_objects_unique_in_sink is `true`, object conditions based on objects' "last modification time" are ignored and do not exclude objects in a data source or a data
+             * sink.
              */
             transferOptions?: TransferOptions;
         }
@@ -358,23 +329,22 @@ declare namespace gapi.client {
             /** Required. The ID of the Google Cloud Platform Console project that owns the job. */
             projectId?: string;
             /**
-             * Required. The job to update. `transferJob` is expected to specify only four fields: description, transfer_spec, notification_config, and status. An
-             * `UpdateTransferJobRequest` that specifies other fields will be rejected with the error INVALID_ARGUMENT.
+             * Required. The job to update. `transferJob` is expected to specify only four fields: description, transfer_spec, notification_config, and status. An `UpdateTransferJobRequest` that
+             * specifies other fields will be rejected with the error INVALID_ARGUMENT.
              */
             transferJob?: TransferJob;
             /**
-             * The field mask of the fields in `transferJob` that are to be updated in this request. Fields in `transferJob` that can be updated are: description,
-             * transfer_spec, notification_config, and status. To update the `transfer_spec` of the job, a complete transfer specification must be provided. An
-             * incomplete specification missing any required fields will be rejected with the error INVALID_ARGUMENT.
+             * The field mask of the fields in `transferJob` that are to be updated in this request. Fields in `transferJob` that can be updated are: description, transfer_spec,
+             * notification_config, and status. To update the `transfer_spec` of the job, a complete transfer specification must be provided. An incomplete specification missing any required
+             * fields will be rejected with the error INVALID_ARGUMENT.
              */
             updateTransferJobFieldMask?: string;
         }
         interface GoogleServiceAccountsResource {
             /**
-             * Returns the Google service account that is used by Storage Transfer Service to access buckets in the project where transfers run or in other projects.
-             * Each Google service account is associated with one Google Cloud Platform Console project. Users should add this service account to the Google Cloud
-             * Storage bucket ACLs to grant access to Storage Transfer Service. This service account is created and owned by Storage Transfer Service and can only be
-             * used by Storage Transfer Service.
+             * Returns the Google service account that is used by Storage Transfer Service to access buckets in the project where transfers run or in other projects. Each Google service account is
+             * associated with one Google Cloud Platform Console project. Users should add this service account to the Google Cloud Storage bucket ACLs to grant access to Storage Transfer Service.
+             * This service account is created and owned by Storage Transfer Service and can only be used by Storage Transfer Service.
              */
             get(request?: {
                 /** V1 error format. */
@@ -499,9 +469,8 @@ declare namespace gapi.client {
                 fields?: string;
                 /**
                  * Required. A list of query parameters specified as JSON text in the form of: {"project_id":"my_project_id", "job_names":["jobid1","jobid2",...],
-                 * "job_statuses":["status1","status2",...]}. Since `job_names` and `job_statuses` support multiple values, their values must be specified with array
-                 * notation. `project``_``id` is required. `job_names` and `job_statuses` are optional. The valid values for `job_statuses` are case-insensitive: ENABLED,
-                 * DISABLED, and DELETED.
+                 * "job_statuses":["status1","status2",...]}. Since `job_names` and `job_statuses` support multiple values, their values must be specified with array notation. `project``_``id` is
+                 * required. `job_names` and `job_statuses` are optional. The valid values for `job_statuses` are case-insensitive: ENABLED, DISABLED, and DELETED.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -522,8 +491,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListTransferJobsResponse>;
             /**
-             * Updates a transfer job. Updating a job's transfer spec does not affect transfer operations that are running already. Updating a job's schedule is not
-             * allowed. ∗∗Note:∗∗ The job's status field can be modified using this RPC (for example, to set a job's status to DELETED, DISABLED, or ENABLED).
+             * Updates a transfer job. Updating a job's transfer spec does not affect transfer operations that are running already. Updating a job's schedule is not allowed. **Note:** The job's
+             * status field can be modified using this RPC (for example, to set a job's status to DELETED, DISABLED, or ENABLED).
              */
             patch(request: {
                 /** V1 error format. */
@@ -583,15 +552,13 @@ declare namespace gapi.client {
         }
         interface TransferOperationsResource {
             /**
-             * Cancels a transfer. Use the transferOperations.get method to check if the cancellation succeeded or if the operation completed despite the `cancel`
-             * request. When you cancel an operation, the currently running transfer is interrupted. For recurring transfer jobs, the next instance of the transfer
-             * job will still run. For example, if your job is configured to run every day at 1pm and you cancel Monday's operation at 1:05pm, Monday's transfer will
-             * stop. However, a transfer job will still be attempted on Tuesday. This applies only to currently running operations. If an operation is not currently
-             * running, `cancel` does nothing. ∗Caution:∗ Canceling a transfer job can leave your data in an unknown state. We recommend that you restore the state at
-             * both the destination and the source after the `cancel` request completes so that your data is in a consistent state. When you cancel a job, the next
-             * job computes a delta of files and may repair any inconsistent state. For instance, if you run a job every day, and today's job found 10 new files and
-             * transferred five files before you canceled the job, tomorrow's transfer operation will compute a new delta with the five files that were not copied
-             * today plus any new files discovered tomorrow.
+             * Cancels a transfer. Use the transferOperations.get method to check if the cancellation succeeded or if the operation completed despite the `cancel` request. When you cancel an
+             * operation, the currently running transfer is interrupted. For recurring transfer jobs, the next instance of the transfer job will still run. For example, if your job is configured
+             * to run every day at 1pm and you cancel Monday's operation at 1:05pm, Monday's transfer will stop. However, a transfer job will still be attempted on Tuesday. This applies only to
+             * currently running operations. If an operation is not currently running, `cancel` does nothing. *Caution:* Canceling a transfer job can leave your data in an unknown state. We
+             * recommend that you restore the state at both the destination and the source after the `cancel` request completes so that your data is in a consistent state. When you cancel a job,
+             * the next job computes a delta of files and may repair any inconsistent state. For instance, if you run a job every day, and today's job found 10 new files and transferred five files
+             * before you canceled the job, tomorrow's transfer operation will compute a new delta with the five files that were not copied today plus any new files discovered tomorrow.
              */
             cancel(request?: {
                 /** V1 error format. */
@@ -619,10 +586,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -663,9 +627,9 @@ declare namespace gapi.client {
                 fields?: string;
                 /**
                  * Required. A list of query parameters specified as JSON text in the form of: {"project_id":"my_project_id", "job_names":["jobid1","jobid2",...],
-                 * "operation_names":["opid1","opid2",...], "transfer_statuses":["status1","status2",...]}. Since `job_names`, `operation_names`, and `transfer_statuses`
-                 * support multiple values, they must be specified with array notation. `project``_``id` is required. `job_names`, `operation_names`, and
-                 * `transfer_statuses` are optional. The valid values for `transfer_statuses` are case-insensitive: IN_PROGRESS, PAUSED, SUCCESS, FAILED, and ABORTED.
+                 * "operation_names":["opid1","opid2",...], "transfer_statuses":["status1","status2",...]}. Since `job_names`, `operation_names`, and `transfer_statuses` support multiple values,
+                 * they must be specified with array notation. `project``_``id` is required. `job_names`, `operation_names`, and `transfer_statuses` are optional. The valid values for
+                 * `transfer_statuses` are case-insensitive: IN_PROGRESS, PAUSED, SUCCESS, FAILED, and ABORTED.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */

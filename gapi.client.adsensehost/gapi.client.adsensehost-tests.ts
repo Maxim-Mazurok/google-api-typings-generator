@@ -193,10 +193,7 @@ gapi.load('client', () => {
             name: "Test string",
             status: "Test string",
         });
-        /**
-         * Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format
-         * specify "alt=csv" as a query parameter.
-         */
+        /** Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter. */
         await gapi.client.adsensehost.accounts.reports.generate({
             accountId: "Test string",
             dimension: "Test string",
@@ -375,10 +372,7 @@ gapi.load('client', () => {
             name: "Test string",
             status: "Test string",
         });
-        /**
-         * Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format
-         * specify "alt=csv" as a query parameter.
-         */
+        /** Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter. */
         await gapi.client.adsensehost.accounts.reports.generate({
             accountId: "Test string",
             dimension: "Test string",
@@ -456,10 +450,7 @@ gapi.load('client', () => {
             kind: "Test string",
             name: "Test string",
         });
-        /**
-         * Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format
-         * specify "alt=csv" as a query parameter.
-         */
+        /** Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter. */
         await gapi.client.adsensehost.reports.generate({
             dimension: "Test string",
             endDate: "Test string",

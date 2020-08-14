@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Content API for Shopping v2.1 2.1
 // Project: https://developers.google.com/shopping-content
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -20,9 +23,8 @@ declare namespace gapi.client {
     namespace content {
         interface Account {
             /**
-             * List of linked Ads accounts that are active or pending approval. To create a new link request, add a new link with status `active` to the list. It will
-             * remain in a `pending` state until approved or rejected either in the Ads interface or through the AdWords API. To delete an active link, or to cancel a
-             * link request, remove it from the list.
+             * List of linked Ads accounts that are active or pending approval. To create a new link request, add a new link with status `active` to the list. It will remain in a `pending` state
+             * until approved or rejected either in the Ads interface or through the AdWords API. To delete an active link, or to cancel a link request, remove it from the list.
              */
             adsLinks?: AccountAdsLink[];
             /** Indicates whether the merchant sells adult content. */
@@ -48,9 +50,8 @@ declare namespace gapi.client {
             /** The merchant's website. */
             websiteUrl?: string;
             /**
-             * List of linked YouTube channels that are active or pending approval. To create a new link request, add a new link with status `active` to the list. It
-             * will remain in a `pending` state until approved or rejected in the YT Creator Studio interface. To delete an active link, or to cancel a link request,
-             * remove it from the list.
+             * List of linked YouTube channels that are active or pending approval. To create a new link request, add a new link with status `active` to the list. It will remain in a `pending`
+             * state until approved or rejected in the YT Creator Studio interface. To delete an active link, or to cancel a link request, remove it from the list.
              */
             youtubeChannelLinks?: AccountYouTubeChannelLink[];
         }
@@ -70,11 +71,10 @@ declare namespace gapi.client {
             /** Customer ID of the Ads account. */
             adsId?: string;
             /**
-             * Status of the link between this Merchant Center account and the Ads account. Upon retrieval, it represents the actual status of the link and can be
-             * either `active` if it was approved in Google Ads or `pending` if it's pending approval. Upon insertion, it represents the intended status of the link.
-             * Re-uploading a link with status `active` when it's still pending or with status `pending` when it's already active will have no effect: the status will
-             * remain unchanged. Re-uploading a link with deprecated status `inactive` is equivalent to not submitting the link at all and will delete the link if it
-             * was active or cancel the link request if it was pending.
+             * Status of the link between this Merchant Center account and the Ads account. Upon retrieval, it represents the actual status of the link and can be either `active` if it was
+             * approved in Google Ads or `pending` if it's pending approval. Upon insertion, it represents the intended status of the link. Re-uploading a link with status `active` when it's still
+             * pending or with status `pending` when it's already active will have no effect: the status will remain unchanged. Re-uploading a link with deprecated status `inactive` is equivalent
+             * to not submitting the link at all and will delete the link if it was active or cancel the link request if it was pending.
              *
              * Acceptable values are:
              * - "`active`"
@@ -102,8 +102,8 @@ declare namespace gapi.client {
             /** The ID of the GMB account. If this is provided, then `gmbEmail` is ignored. The value of this field should match the `accountId` used by the GMB API. */
             gmbAccountId?: string;
             /**
-             * The GMB email address of which a specific account within a GMB account. A sample account within a GMB account could be a business account with set of
-             * locations, managed under the GMB account.
+             * The GMB email address of which a specific account within a GMB account. A sample account within a GMB account could be a business account with set of locations, managed under the
+             * GMB account.
              */
             gmbEmail?: string;
             /**
@@ -465,11 +465,10 @@ declare namespace gapi.client {
             /** Channel ID. */
             channelId?: string;
             /**
-             * Status of the link between this Merchant Center account and the YouTube channel. Upon retrieval, it represents the actual status of the link and can be
-             * either `active` if it was approved in YT Creator Studio or `pending` if it's pending approval. Upon insertion, it represents the intended status of the
-             * link. Re-uploading a link with status `active` when it's still pending or with status `pending` when it's already active will have no effect: the
-             * status will remain unchanged. Re-uploading a link with deprecated status `inactive` is equivalent to not submitting the link at all and will delete the
-             * link if it was active or cancel the link request if it was pending.
+             * Status of the link between this Merchant Center account and the YouTube channel. Upon retrieval, it represents the actual status of the link and can be either `active` if it was
+             * approved in YT Creator Studio or `pending` if it's pending approval. Upon insertion, it represents the intended status of the link. Re-uploading a link with status `active` when
+             * it's still pending or with status `pending` when it's already active will have no effect: the status will remain unchanged. Re-uploading a link with deprecated status `inactive` is
+             * equivalent to not submitting the link at all and will delete the link if it was active or cancel the link request if it was pending.
              */
             status?: string;
         }
@@ -486,24 +485,18 @@ declare namespace gapi.client {
         interface CarrierRate {
             /** Carrier service, such as `"UPS"` or `"Fedex"`. The list of supported carriers can be retrieved via the `getSupportedCarriers` method. Required. */
             carrierName?: string;
-            /**
-             * Carrier service, such as `"ground"` or `"2 days"`. The list of supported services for a carrier can be retrieved via the `getSupportedCarriers` method.
-             * Required.
-             */
+            /** Carrier service, such as `"ground"` or `"2 days"`. The list of supported services for a carrier can be retrieved via the `getSupportedCarriers` method. Required. */
             carrierService?: string;
             /**
-             * Additive shipping rate modifier. Can be negative. For example `{ "value": "1", "currency" : "USD" }` adds $1 to the rate, `{ "value": "-3", "currency"
-             * : "USD" }` removes $3 from the rate. Optional.
+             * Additive shipping rate modifier. Can be negative. For example `{ "value": "1", "currency" : "USD" }` adds $1 to the rate, `{ "value": "-3", "currency" : "USD" }` removes $3 from the
+             * rate. Optional.
              */
             flatAdjustment?: Price;
             /** Name of the carrier rate. Must be unique per rate group. Required. */
             name?: string;
             /** Shipping origin for this carrier rate. Required. */
             originPostalCode?: string;
-            /**
-             * Multiplicative shipping rate modifier as a number in decimal notation. Can be negative. For example `"5.4"` increases the rate by 5.4%, `"-3"`
-             * decreases the rate by 3%. Optional.
-             */
+            /** Multiplicative shipping rate modifier as a number in decimal notation. Can be negative. For example `"5.4"` increases the rate by 5.4%, `"-3"` decreases the rate by 3%. Optional. */
             percentageAdjustment?: string;
         }
         interface CarriersCarrier {
@@ -585,8 +578,8 @@ declare namespace gapi.client {
             /** The day of the month the feed file should be fetched (1-31). */
             dayOfMonth?: number;
             /**
-             * The URL where the feed file can be fetched. Google Merchant Center will support automatic scheduled uploads using the HTTP, HTTPS, FTP, or SFTP
-             * protocols, so the value will need to be a valid link using one of those four protocols.
+             * The URL where the feed file can be fetched. Google Merchant Center will support automatic scheduled uploads using the HTTP, HTTPS, FTP, or SFTP protocols, so the value will need to
+             * be a valid link using one of those four protocols.
              */
             fetchUrl?: string;
             /** The hour of the day the feed file should be fetched (0-23). */
@@ -617,8 +610,7 @@ declare namespace gapi.client {
         }
         interface DatafeedFormat {
             /**
-             * Delimiter for the separation of values in a delimiter-separated values feed. If not specified, the delimiter will be auto-detected. Ignored for non-DSV
-             * data feeds.
+             * Delimiter for the separation of values in a delimiter-separated values feed. If not specified, the delimiter will be auto-detected. Ignored for non-DSV data feeds.
              *
              * Acceptable values are:
              * - "`pipe`"
@@ -743,17 +735,11 @@ declare namespace gapi.client {
         interface DatafeedstatusesCustomBatchRequestEntry {
             /** An entry ID, unique within the batch request. */
             batchId?: number;
-            /**
-             * The country for which to get the datafeed status. If this parameter is provided then language must also be provided. Note that for multi-target
-             * datafeeds this parameter is required.
-             */
+            /** The country for which to get the datafeed status. If this parameter is provided then language must also be provided. Note that for multi-target datafeeds this parameter is required. */
             country?: string;
             /** The ID of the data feed to get. */
             datafeedId?: string;
-            /**
-             * The language for which to get the datafeed status. If this parameter is provided then country must also be provided. Note that for multi-target
-             * datafeeds this parameter is required.
-             */
+            /** The language for which to get the datafeed status. If this parameter is provided then country must also be provided. Note that for multi-target datafeeds this parameter is required. */
             language?: string;
             /** The ID of the managing account. */
             merchantId?: string;
@@ -800,8 +786,8 @@ declare namespace gapi.client {
             /** The list of destinations to exclude for this target (corresponds to unchecked check boxes in Merchant Center). */
             excludedDestinations?: string[];
             /**
-             * The list of destinations to include for this target (corresponds to checked check boxes in Merchant Center). Default destinations are always included
-             * unless provided in `excludedDestinations`.
+             * The list of destinations to include for this target (corresponds to checked check boxes in Merchant Center). Default destinations are always included unless provided in
+             * `excludedDestinations`.
              *
              * List of supported destinations (if available to the account):
              * - DisplayAds
@@ -820,29 +806,20 @@ declare namespace gapi.client {
             handlingBusinessDayConfig?: BusinessDayConfig;
             /** Holiday cutoff definitions. If configured, they specify order cutoff times for holiday-specific shipping. */
             holidayCutoffs?: HolidayCutoff[];
-            /**
-             * Maximum number of business days spent before an order is shipped. 0 means same day shipped, 1 means next day shipped. Must be greater than or equal to
-             * `minHandlingTimeInDays`.
-             */
+            /** Maximum number of business days spent before an order is shipped. 0 means same day shipped, 1 means next day shipped. Must be greater than or equal to `minHandlingTimeInDays`. */
             maxHandlingTimeInDays?: number;
-            /**
-             * Maximum number of business days that is spent in transit. 0 means same day delivery, 1 means next day delivery. Must be greater than or equal to
-             * `minTransitTimeInDays`.
-             */
+            /** Maximum number of business days that is spent in transit. 0 means same day delivery, 1 means next day delivery. Must be greater than or equal to `minTransitTimeInDays`. */
             maxTransitTimeInDays?: number;
             /** Minimum number of business days spent before an order is shipped. 0 means same day shipped, 1 means next day shipped. */
             minHandlingTimeInDays?: number;
             /**
-             * Minimum number of business days that is spent in transit. 0 means same day delivery, 1 means next day delivery. Either `{min,max}TransitTimeInDays` or
-             * `transitTimeTable` must be set, but not both.
+             * Minimum number of business days that is spent in transit. 0 means same day delivery, 1 means next day delivery. Either `{min,max}TransitTimeInDays` or `transitTimeTable` must be
+             * set, but not both.
              */
             minTransitTimeInDays?: number;
             /** The business days during which orders can be in-transit. If not provided, Monday to Friday business days will be assumed. */
             transitBusinessDayConfig?: BusinessDayConfig;
-            /**
-             * Transit time table, number of business days spent in transit based on row and column dimensions. Either `{min,max}TransitTimeInDays` or
-             * `transitTimeTable` can be set, but not both.
-             */
+            /** Transit time table, number of business days spent in transit based on row and column dimensions. Either `{min,max}TransitTimeInDays` or `transitTimeTable` can be set, but not both. */
             transitTimeTable?: TransitTable;
         }
         interface Error {
@@ -881,25 +858,25 @@ declare namespace gapi.client {
             /** A list of location ID sets. Must be non-empty. Can only be set if all other fields are not set. */
             locations?: LocationIdSet[];
             /**
-             * A list of inclusive number of items upper bounds. The last value can be `"infinity"`. For example `["10", "50", "infinity"]` represents the headers "<=
-             * 10 items", " 50 items". Must be non-empty. Can only be set if all other fields are not set.
+             * A list of inclusive number of items upper bounds. The last value can be `"infinity"`. For example `["10", "50", "infinity"]` represents the headers "<= 10 items", " 50 items". Must
+             * be non-empty. Can only be set if all other fields are not set.
              */
             numberOfItems?: string[];
             /**
-             * A list of postal group names. The last value can be `"all other locations"`. Example: `["zone 1", "zone 2", "all other locations"]`. The referred
-             * postal code groups must match the delivery country of the service. Must be non-empty. Can only be set if all other fields are not set.
+             * A list of postal group names. The last value can be `"all other locations"`. Example: `["zone 1", "zone 2", "all other locations"]`. The referred postal code groups must match the
+             * delivery country of the service. Must be non-empty. Can only be set if all other fields are not set.
              */
             postalCodeGroupNames?: string[];
             /**
-             * A list of inclusive order price upper bounds. The last price's value can be `"infinity"`. For example `[{"value": "10", "currency": "USD"}, {"value":
-             * "500", "currency": "USD"}, {"value": "infinity", "currency": "USD"}]` represents the headers "<= $10", " $500". All prices within a service must have
-             * the same currency. Must be non-empty. Can only be set if all other fields are not set.
+             * A list of inclusive order price upper bounds. The last price's value can be `"infinity"`. For example `[{"value": "10", "currency": "USD"}, {"value": "500", "currency": "USD"},
+             * {"value": "infinity", "currency": "USD"}]` represents the headers "<= $10", " $500". All prices within a service must have the same currency. Must be non-empty. Can only be set if
+             * all other fields are not set.
              */
             prices?: Price[];
             /**
-             * A list of inclusive order weight upper bounds. The last weight's value can be `"infinity"`. For example `[{"value": "10", "unit": "kg"}, {"value":
-             * "50", "unit": "kg"}, {"value": "infinity", "unit": "kg"}]` represents the headers "<= 10kg", " 50kg". All weights within a service must have the same
-             * unit. Must be non-empty. Can only be set if all other fields are not set.
+             * A list of inclusive order weight upper bounds. The last weight's value can be `"infinity"`. For example `[{"value": "10", "unit": "kg"}, {"value": "50", "unit": "kg"}, {"value":
+             * "infinity", "unit": "kg"}]` represents the headers "<= 10kg", " 50kg". All weights within a service must have the same unit. Must be non-empty. Can only be set if all other fields
+             * are not set.
              */
             weights?: Weight[];
         }
@@ -907,8 +884,8 @@ declare namespace gapi.client {
             /** Date of the order deadline, in ISO 8601 format. E.g. "2016-11-29" for 29th November 2016. Required. */
             deadlineDate?: string;
             /**
-             * Hour of the day on the deadline date until which the order has to be placed to qualify for the delivery guarantee. Possible values are: 0 (midnight),
-             * 1, ..., 12 (noon), 13, ..., 23. Required.
+             * Hour of the day on the deadline date until which the order has to be placed to qualify for the delivery guarantee. Possible values are: 0 (midnight), 1, ..., 12 (noon), 13, ..., 23.
+             * Required.
              */
             deadlineHour?: number;
             /** Timezone identifier for the deadline hour. A list of identifiers can be found in  the AdWords API documentation. E.g. "Europe/Zurich". Required. */
@@ -920,8 +897,8 @@ declare namespace gapi.client {
         }
         interface HolidaysHoliday {
             /**
-             * The CLDR territory code of the country in which the holiday is available. E.g. "US", "DE", "GB". A holiday cutoff can only be configured in a shipping
-             * settings service with matching delivery country. Always present.
+             * The CLDR territory code of the country in which the holiday is available. E.g. "US", "DE", "GB". A holiday cutoff can only be configured in a shipping settings service with matching
+             * delivery country. Always present.
              */
             countryCode?: string;
             /** Date of the holiday, in ISO 8601 format. E.g. "2016-12-25" for Christmas 2016. Always present. */
@@ -929,8 +906,8 @@ declare namespace gapi.client {
             /** Date on which the order has to arrive at the customer's, in ISO 8601 format. E.g. "2016-12-24" for 24th December 2016. Always present. */
             deliveryGuaranteeDate?: string;
             /**
-             * Hour of the day in the delivery location's timezone on the guaranteed delivery date by which the order has to arrive at the customer's. Possible values
-             * are: 0 (midnight), 1, ..., 12 (noon), 13, ..., 23. Always present.
+             * Hour of the day in the delivery location's timezone on the guaranteed delivery date by which the order has to arrive at the customer's. Possible values are: 0 (midnight), 1, ..., 12
+             * (noon), 13, ..., 23. Always present.
              */
             deliveryGuaranteeHour?: string;
             /** Unique identifier for the holiday to be used when configuring holiday cutoffs. Always present. */
@@ -1312,8 +1289,8 @@ declare namespace gapi.client {
         }
         interface MonetaryAmount {
             /**
-             * The pre-tax or post-tax price depends on the location of the order. - For countries (e.g. US) where price attribute excludes tax, this field
-             * corresponds to the pre-tax value. - For coutries (e.g. France) where price attribute includes tax, this field corresponds to the post-tax value .
+             * The pre-tax or post-tax price depends on the location of the order. - For countries (e.g. US) where price attribute excludes tax, this field corresponds to the pre-tax value. - For
+             * coutries (e.g. France) where price attribute includes tax, this field corresponds to the post-tax value .
              */
             priceAmount?: Price;
             /** Tax value, present only for countries where price attribute excludes tax (e.g. US). No tax is referenced as 0 value with the corresponding `currency`. */
@@ -1339,14 +1316,11 @@ declare namespace gapi.client {
             merchantId?: string;
             /** Merchant-provided ID of the order. */
             merchantOrderId?: string;
-            /**
-             * The net amount for the order (price part). For example, if an order was originally for $100 and a refund was issued for $20, the net amount will be
-             * $80.
-             */
+            /** The net amount for the order (price part). For example, if an order was originally for $100 and a refund was issued for $20, the net amount will be $80. */
             netPriceAmount?: Price;
             /**
-             * The net amount for the order (tax part). Note that in certain cases due to taxable base adjustment `netTaxAmount` might not match to a sum of tax field
-             * across all lineItems and refunds.
+             * The net amount for the order (tax part). Note that in certain cases due to taxable base adjustment `netTaxAmount` might not match to a sum of tax field across all lineItems and
+             * refunds.
              */
             netTaxAmount?: Price;
             /**
@@ -1366,19 +1340,17 @@ declare namespace gapi.client {
             /**
              * Promotions associated with the order.
              *
-             * To determine which promotions apply to which products, check the `Promotions[].appliedItems[].lineItemId` field against the `LineItems[].id` field for
-             * each promotion. If a promotion is applied to more than 1 offerId, divide the discount value by the number of affected offers to determine how much
-             * discount to apply to each offerId.
+             * To determine which promotions apply to which products, check the `Promotions[].appliedItems[].lineItemId` field against the `LineItems[].id` field for each promotion. If a promotion
+             * is applied to more than 1 offerId, divide the discount value by the number of affected offers to determine how much discount to apply to each offerId.
              *
              * Examples:
-             * - To calculate price paid by the customer for a single line item including the discount: For each promotion, subtract the
-             * `LineItems[].adjustments[].priceAdjustment.value` amount from the `LineItems[].Price.value`.
+             * - To calculate price paid by the customer for a single line item including the discount: For each promotion, subtract the `LineItems[].adjustments[].priceAdjustment.value` amount
+             * from the `LineItems[].Price.value`.
              * - To calculate price paid by the customer for a single line item including the discount in case of multiple quantity: For each promotion, divide the
-             * `LineItems[].adjustments[].priceAdjustment.value` by the quantity of products then subtract the resulting value from the
-             * `LineItems[].Product.Price.value` for each quantity item.
+             * `LineItems[].adjustments[].priceAdjustment.value` by the quantity of products then subtract the resulting value from the `LineItems[].Product.Price.value` for each quantity item.
              *
-             * Only 1 promotion can be applied to an offerId in a given order. To refund an item which had a promotion applied to it, make sure to refund the amount
-             * after first subtracting the promotion discount from the item price.
+             * Only 1 promotion can be applied to an offerId in a given order. To refund an item which had a promotion applied to it, make sure to refund the amount after first subtracting the
+             * promotion discount from the item price.
              *
              * More details about the program are here.
              */
@@ -1457,8 +1429,8 @@ declare namespace gapi.client {
             /** The quantity that was canceled. */
             quantity?: number;
             /**
-             * The reason for the cancellation. Orders that are canceled with a noInventory reason will lead to the removal of the product from Shopping Actions until
-             * you make an update to that product. This will not affect your Shopping ads.
+             * The reason for the cancellation. Orders that are canceled with a noInventory reason will lead to the removal of the product from Shopping Actions until you make an update to that
+             * product. This will not affect your Shopping ads.
              *
              * Acceptable values are:
              * - "`autoPostInternal`"
@@ -1498,15 +1470,15 @@ declare namespace gapi.client {
             /** Full name of the customer. */
             fullName?: string;
             /**
-             * Email address for the merchant to send value-added tax or invoice documentation of the order. Only the last document sent is made available to the
-             * customer. For more information, see  About automated VAT invoicing for Shopping Actions.
+             * Email address for the merchant to send value-added tax or invoice documentation of the order. Only the last document sent is made available to the customer. For more information,
+             * see  About automated VAT invoicing for Shopping Actions.
              */
             invoiceReceivingEmail?: string;
             /** Loyalty program information. */
             loyaltyInfo?: OrderCustomerLoyaltyInfo;
             /**
-             * Customer's marketing preferences. Contains the marketing opt-in information that is current at the time that the merchant call. User preference
-             * selections can change from one order to the next so preferences must be checked with every order.
+             * Customer's marketing preferences. Contains the marketing opt-in information that is current at the time that the merchant call. User preference selections can change from one order
+             * to the next so preferences must be checked with every order.
              */
             marketingRightsInfo?: OrderCustomerMarketingRightsInfo;
         }
@@ -1518,9 +1490,8 @@ declare namespace gapi.client {
         }
         interface OrderCustomerMarketingRightsInfo {
             /**
-             * Last known customer selection regarding marketing preferences. In certain cases this selection might not be known, so this field would be empty. If a
-             * customer selected `granted` in their most recent order, they can be subscribed to marketing emails. Customers who have chosen `denied` must not be
-             * subscribed, or must be unsubscribed if already opted-in.
+             * Last known customer selection regarding marketing preferences. In certain cases this selection might not be known, so this field would be empty. If a customer selected `granted` in
+             * their most recent order, they can be subscribed to marketing emails. Customers who have chosen `denied` must not be subscribed, or must be unsubscribed if already opted-in.
              *
              * Acceptable values are:
              * - "`denied`"
@@ -1530,8 +1501,8 @@ declare namespace gapi.client {
             /** Timestamp when last time marketing preference was updated. Could be empty, if user wasn't offered a selection yet. */
             lastUpdatedTimestamp?: string;
             /**
-             * Email address that can be used for marketing purposes. The field may be empty even if `explicitMarketingPreference` is 'granted'. This happens when
-             * retrieving an old order from the customer who deleted their account.
+             * Email address that can be used for marketing purposes. The field may be empty even if `explicitMarketingPreference` is 'granted'. This happens when retrieving an old order from the
+             * customer who deleted their account.
              */
             marketingEmailAddress?: string;
         }
@@ -1551,8 +1522,8 @@ declare namespace gapi.client {
             /** [required] The ID of the operation, unique across all operations for a given order. */
             operationId?: string;
             /**
-             * [required] ID of the shipment group. It is assigned by the merchant in the `shipLineItems` method and is used to group multiple line items that have
-             * the same kind of shipping charges.
+             * [required] ID of the shipment group. It is assigned by the merchant in the `shipLineItems` method and is used to group multiple line items that have the same kind of shipping
+             * charges.
              */
             shipmentGroupId?: string;
         }
@@ -1575,10 +1546,7 @@ declare namespace gapi.client {
             operationId?: string;
             /** Option to create a refund-only invoice. Exactly one of `refundOnlyOption` or `returnOption` must be provided. */
             refundOnlyOption?: OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceRefundOption;
-            /**
-             * Option to create an invoice for a refund and mark all items within the invoice as returned. Exactly one of `refundOnlyOption` or `returnOption` must be
-             * provided.
-             */
+            /** Option to create an invoice for a refund and mark all items within the invoice as returned. Exactly one of `refundOnlyOption` or `returnOption` must be provided. */
             returnOption?: OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceReturnOption;
             /** Invoice details for different shipment groups. */
             shipmentInvoices?: ShipmentInvoice[];
@@ -1684,8 +1652,8 @@ declare namespace gapi.client {
             /** Total price for the line item. For example, if two items for $10 are purchased, the total price will be $20. */
             price?: Price;
             /**
-             * Product data as seen by customer from the time of the order placement. Note that certain attributes values (e.g. title or gtin) might be reformatted
-             * and no longer match values submitted via product feed.
+             * Product data as seen by customer from the time of the order placement. Note that certain attributes values (e.g. title or gtin) might be reformatted and no longer match values
+             * submitted via product feed.
              */
             product?: OrderLineItemProduct;
             /** Number of items canceled. */
@@ -1763,8 +1731,8 @@ declare namespace gapi.client {
             /** The title of the product. */
             title?: string;
             /**
-             * Variant attributes for the item. These are dimensions of the product, such as color, gender, material, pattern, and size. You can find a comprehensive
-             * list of variant attributes here.
+             * Variant attributes for the item. These are dimensions of the product, such as color, gender, material, pattern, and size. You can find a comprehensive list of variant attributes
+             * here.
              */
             variantAttributes?: OrderLineItemProductVariantAttribute[];
         }
@@ -1829,10 +1797,7 @@ declare namespace gapi.client {
             value?: string;
         }
         interface OrderPickupDetails {
-            /**
-             * Address of the pickup location where the shipment should be sent. Note that `recipientName` in the address is the name of the business at the pickup
-             * location.
-             */
+            /** Address of the pickup location where the shipment should be sent. Note that `recipientName` in the address is the name of the business at the pickup location. */
             address?: OrderAddress;
             /** Collectors authorized to pick up shipment from the pickup location. */
             collectors?: OrderPickupDetailsCollector[];
@@ -1858,13 +1823,13 @@ declare namespace gapi.client {
         }
         interface OrderPromotion {
             /**
-             * Items that this promotion may be applied to. If empty, there are no restrictions on applicable items and quantity. This field will also be empty for
-             * shipping promotions because shipping is not tied to any specific item.
+             * Items that this promotion may be applied to. If empty, there are no restrictions on applicable items and quantity. This field will also be empty for shipping promotions because
+             * shipping is not tied to any specific item.
              */
             applicableItems?: OrderPromotionItem[];
             /**
-             * Items that this promotion have been applied to. Do not provide for `orders.createtestorder`. This field will be empty for shipping promotions because
-             * shipping is not tied to any specific item.
+             * Items that this promotion have been applied to. Do not provide for `orders.createtestorder`. This field will be empty for shipping promotions because shipping is not tied to any
+             * specific item.
              */
             appliedItems?: OrderPromotionItem[];
             /** Promotion end time in ISO 8601 format. Date, time, and offset required, e.g., "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z". */
@@ -2271,8 +2236,8 @@ declare namespace gapi.client {
         }
         interface OrdersCreateTestOrderRequest {
             /**
-             * The  CLDR territory code of the country of the test order to create. Affects the currency and addresses of orders created via `template_name`, or the
-             * addresses of orders created via `test_order`.
+             * The  CLDR territory code of the country of the test order to create. Affects the currency and addresses of orders created via `template_name`, or the addresses of orders created via
+             * `test_order`.
              *
              * Acceptable values are:
              * - "`US`"
@@ -2280,8 +2245,7 @@ declare namespace gapi.client {
              */
             country?: string;
             /**
-             * The test order template to use. Specify as an alternative to `testOrder` as a shortcut for retrieving a template and then creating an order using that
-             * template.
+             * The test order template to use. Specify as an alternative to `testOrder` as a shortcut for retrieving a template and then creating an order using that template.
              *
              * Acceptable values are:
              * - "`template1`"
@@ -2318,8 +2282,8 @@ declare namespace gapi.client {
         }
         interface OrdersCustomBatchRequestEntryRefundItemItem {
             /**
-             * The total amount that is refunded. (e.g. refunding $5 each for 2 products should be done by setting quantity to 2 and amount to 10$) In case of
-             * multiple refunds, this should be the amount you currently want to refund to the customer.
+             * The total amount that is refunded. (e.g. refunding $5 each for 2 products should be done by setting quantity to 2 and amount to 10$) In case of multiple refunds, this should be the
+             * amount you currently want to refund to the customer.
              */
             amount?: MonetaryAmount;
             /** If true, the full item will be refunded. If this is true, amount should not be provided and will be ignored. */
@@ -2361,9 +2325,9 @@ declare namespace gapi.client {
             /**
              * The carrier handling the shipment.
              *
-             * For supported carriers, Google includes the carrier name and tracking URL in emails to customers. For select supported carriers, Google also
-             * automatically updates the shipment status based on the provided shipment ID. Note: You can also use unsupported carriers, but emails to customers will
-             * not include the carrier name or tracking URL, and there will be no automatic order status updates.
+             * For supported carriers, Google includes the carrier name and tracking URL in emails to customers. For select supported carriers, Google also automatically updates the shipment
+             * status based on the provided shipment ID. Note: You can also use unsupported carriers, but emails to customers will not include the carrier name or tracking URL, and there will be
+             * no automatic order status updates.
              * Supported carriers for US are:
              * - "`ups`" (United Parcel Service) automatic status updates
              * - "`usps`" (United States Postal Service) automatic status updates
@@ -2446,10 +2410,7 @@ declare namespace gapi.client {
             quantity?: number;
         }
         interface OrderShipmentScheduledDeliveryDetails {
-            /**
-             * The phone number of the carrier fulfilling the delivery. The phone number is formatted as the international notation in ITU-T Recommendation E.123
-             * (e.g., "+41 44 668 1800").
-             */
+            /** The phone number of the carrier fulfilling the delivery. The phone number is formatted as the international notation in ITU-T Recommendation E.123 (e.g., "+41 44 668 1800"). */
             carrierPhoneNumber?: string;
             /** The date a shipment is scheduled for delivery, in ISO 8601 format. */
             scheduledDate?: string;
@@ -2756,17 +2717,11 @@ declare namespace gapi.client {
             kind?: string;
         }
         interface OrdersUpdateShipmentRequest {
-            /**
-             * The carrier handling the shipment. Not updated if missing. See `shipments[].carrier` in the  Orders resource representation for a list of acceptable
-             * values.
-             */
+            /** The carrier handling the shipment. Not updated if missing. See `shipments[].carrier` in the  Orders resource representation for a list of acceptable values. */
             carrier?: string;
             /** Date on which the shipment has been delivered, in ISO 8601 format. Optional and can be provided only if `status` is `delivered`. */
             deliveryDate?: string;
-            /**
-             * Date after which the pickup will expire, in ISO 8601 format. Required only when order is buy-online-pickup-in-store(BOPIS) and `status` is `ready for
-             * pickup`.
-             */
+            /** Date after which the pickup will expire, in ISO 8601 format. Required only when order is buy-online-pickup-in-store(BOPIS) and `status` is `ready for pickup`. */
             lastPickupDate?: string;
             /** The ID of the operation. Unique across all operations for a given order. */
             operationId?: string;
@@ -3023,16 +2978,12 @@ declare namespace gapi.client {
             postalCodeRanges?: PostalCodeRange[];
         }
         interface PostalCodeRange {
-            /**
-             * A postal code or a pattern of the form `prefix∗` denoting the inclusive lower bound of the range defining the area. Examples values: `"94108"`,
-             * `"9410∗"`, `"9∗"`. Required.
-             */
+            /** A postal code or a pattern of the form `prefix*` denoting the inclusive lower bound of the range defining the area. Examples values: `"94108"`, `"9410*"`, `"9*"`. Required. */
             postalCodeRangeBegin?: string;
             /**
-             * A postal code or a pattern of the form `prefix∗` denoting the inclusive upper bound of the range defining the area. It must have the same length as
-             * `postalCodeRangeBegin`: if `postalCodeRangeBegin` is a postal code then `postalCodeRangeEnd` must be a postal code too; if `postalCodeRangeBegin` is a
-             * pattern then `postalCodeRangeEnd` must be a pattern with the same prefix length. Optional: if not set, then the area is defined as being all the postal
-             * codes matching `postalCodeRangeBegin`.
+             * A postal code or a pattern of the form `prefix*` denoting the inclusive upper bound of the range defining the area. It must have the same length as `postalCodeRangeBegin`: if
+             * `postalCodeRangeBegin` is a postal code then `postalCodeRangeEnd` must be a postal code too; if `postalCodeRangeBegin` is a pattern then `postalCodeRangeEnd` must be a pattern with
+             * the same prefix length. Optional: if not set, then the area is defined as being all the postal codes matching `postalCodeRangeBegin`.
              */
             postalCodeRangeEnd?: string;
         }
@@ -3080,9 +3031,8 @@ declare namespace gapi.client {
             /** Cost of goods sold. Used for gross profit reporting. */
             costOfGoodsSold?: Price;
             /**
-             * A list of custom (merchant-provided) attributes. It can also be used for submitting any attribute of the feed specification in its generic form (e.g.,
-             * `{ "name": "size type", "value": "regular" }`). This is useful for submitting attributes not explicitly exposed by the API, such as additional
-             * attributes used for Shopping Actions.
+             * A list of custom (merchant-provided) attributes. It can also be used for submitting any attribute of the feed specification in its generic form (e.g., `{ "name": "size type",
+             * "value": "regular" }`). This is useful for submitting attributes not explicitly exposed by the API, such as additional attributes used for Shopping Actions.
              */
             customAttributes?: CustomAttribute[];
             /** Custom label 0 for custom grouping of items in a Shopping campaign. */
@@ -3112,8 +3062,8 @@ declare namespace gapi.client {
             /** The list of destinations to exclude for this target (corresponds to unchecked check boxes in Merchant Center). */
             excludedDestinations?: string[];
             /**
-             * Date on which the item should expire, as specified upon insertion, in ISO 8601 format. The actual expiration date in Google Shopping is exposed in
-             * `productstatuses` as `googleExpirationDate` and might be earlier if `expirationDate` is too far in the future.
+             * Date on which the item should expire, as specified upon insertion, in ISO 8601 format. The actual expiration date in Google Shopping is exposed in `productstatuses` as
+             * `googleExpirationDate` and might be earlier if `expirationDate` is too far in the future.
              */
             expirationDate?: string;
             /** Target gender of the item. */
@@ -3128,15 +3078,15 @@ declare namespace gapi.client {
              */
             id?: string;
             /**
-             * False when the item does not have unique product identifiers appropriate to its category, such as GTIN, MPN, and brand. Required according to the
-             * Unique Product Identifier Rules for all target countries except for Canada.
+             * False when the item does not have unique product identifiers appropriate to its category, such as GTIN, MPN, and brand. Required according to the Unique Product Identifier Rules for
+             * all target countries except for Canada.
              */
             identifierExists?: boolean;
             /** URL of an image of the item. */
             imageLink?: string;
             /**
-             * The list of destinations to include for this target (corresponds to checked check boxes in Merchant Center). Default destinations are always included
-             * unless provided in `excludedDestinations`.
+             * The list of destinations to include for this target (corresponds to checked check boxes in Merchant Center). Default destinations are always included unless provided in
+             * `excludedDestinations`.
              */
             includedDestinations?: string[];
             /** Number and amount of installments to pay for an item. */
@@ -3168,8 +3118,8 @@ declare namespace gapi.client {
             /** The number of identical products in a merchant-defined multipack. */
             multipack?: string;
             /**
-             * Required. A unique identifier for the item. Leading and trailing whitespaces are stripped and multiple whitespaces are replaced by a single whitespace
-             * upon submission. Only valid unicode characters are accepted. See the products feed specification for details.
+             * Required. A unique identifier for the item. Leading and trailing whitespaces are stripped and multiple whitespaces are replaced by a single whitespace upon submission. Only valid
+             * unicode characters are accepted. See the products feed specification for details.
              * Note: Content API methods that operate on products take the REST ID of the product, not this identifier.
              */
             offerId?: string;
@@ -3203,10 +3153,7 @@ declare namespace gapi.client {
             shippingWeight?: ProductShippingWeight;
             /** Width of the item for shipping. */
             shippingWidth?: ProductShippingDimension;
-            /**
-             * Size of the item. Only one value is allowed. For variants with different sizes, insert a separate product for each size with the same `itemGroupId`
-             * value (see size definition).
-             */
+            /** Size of the item. Only one value is allowed. For variants with different sizes, insert a separate product for each size with the same `itemGroupId` value (see size definition). */
             sizes?: string[];
             /** System in which the size is specified. Recommended for apparel items. */
             sizeSystem?: string;
@@ -3303,8 +3250,8 @@ declare namespace gapi.client {
             /** The numeric ID of a location that the shipping rate applies to as defined in the AdWords API. */
             locationId?: string;
             /**
-             * The postal code range that the shipping rate applies to, represented by a postal code, a postal code prefix followed by a ∗ wildcard, a range between
-             * two postal codes or two postal code prefixes of equal length.
+             * The postal code range that the shipping rate applies to, represented by a postal code, a postal code prefix followed by a * wildcard, a range between two postal codes or two postal
+             * code prefixes of equal length.
              */
             postalCode?: string;
             /** Fixed shipping price, represented as a number. */
@@ -3444,8 +3391,8 @@ declare namespace gapi.client {
             /** The numeric ID of a location that the tax rate applies to as defined in the AdWords API. */
             locationId?: string;
             /**
-             * The postal code range that the tax rate applies to, represented by a ZIP code, a ZIP code prefix using ∗ wildcard, a range between two ZIP codes or two
-             * ZIP code prefixes of equal length. Examples: 94114, 94∗, 94002-95460, 94∗-95∗.
+             * The postal code range that the tax rate applies to, represented by a ZIP code, a ZIP code prefix using * wildcard, a range between two ZIP codes or two ZIP code prefixes of equal
+             * length. Examples: 94114, 94*, 94002-95460, 94*-95*.
              */
             postalCode?: string;
             /** The percentage of tax rate that applies to the item price. */
@@ -3482,8 +3429,8 @@ declare namespace gapi.client {
         }
         interface RateGroup {
             /**
-             * A list of shipping labels defining the products to which this rate group applies to. This is a disjunction: only one of the labels has to match for the
-             * rate group to apply. May only be empty for the last rate group of a service. Required.
+             * A list of shipping labels defining the products to which this rate group applies to. This is a disjunction: only one of the labels has to match for the rate group to apply. May only
+             * be empty for the last rate group of a service. Required.
              */
             applicableShippingLabels?: string[];
             /** A list of carrier rates that can be referred to by `mainTable` or `singleValue`. */
@@ -3742,21 +3689,20 @@ declare namespace gapi.client {
         }
         interface ReturnPolicyPolicy {
             /**
-             * Required. Last day for returning the items. In ISO 8601 format. When specifying the return window like this, set the policy type to "lastReturnDate".
-             * Use this for seasonal overrides only.
+             * Required. Last day for returning the items. In ISO 8601 format. When specifying the return window like this, set the policy type to "lastReturnDate". Use this for seasonal overrides
+             * only.
              */
             lastReturnDate?: string;
             /**
-             * The number of days items can be returned after delivery, where one day is defined to be 24 hours after the delivery timestamp. When specifying the
-             * return window like this, set the policy type to "numberOfDaysAfterDelivery". Acceptable values are 30, 45, 60, 90, 100, 180, 270 and 365 for the
-             * default policy. Additional policies further allow 14, 15, 21 and 28 days, but note that for most items a minimum of 30 days is required for returns.
-             * Exceptions may be made for electronics. A policy of less than 30 days can only be applied to those items.
+             * The number of days items can be returned after delivery, where one day is defined to be 24 hours after the delivery timestamp. When specifying the return window like this, set the
+             * policy type to "numberOfDaysAfterDelivery". Acceptable values are 30, 45, 60, 90, 100, 180, 270 and 365 for the default policy. Additional policies further allow 14, 15, 21 and 28
+             * days, but note that for most items a minimum of 30 days is required for returns. Exceptions may be made for electronics. A policy of less than 30 days can only be applied to those
+             * items.
              */
             numberOfDays?: string;
             /**
-             * Policy type. Use "lastReturnDate" for seasonal overrides only. Note that for most items a minimum of 30 days is required for returns. Exceptions may be
-             * made for electronics or non-returnable items such as food, perishables, and living things. A policy of less than 30 days can only be applied to those
-             * items.
+             * Policy type. Use "lastReturnDate" for seasonal overrides only. Note that for most items a minimum of 30 days is required for returns. Exceptions may be made for electronics or
+             * non-returnable items such as food, perishables, and living things. A policy of less than 30 days can only be applied to those items.
              *
              * Acceptable values are:
              * - "`lastReturnDate`"
@@ -3778,19 +3724,16 @@ declare namespace gapi.client {
         }
         interface ReturnPricingInfo {
             /**
-             * Default option for whether merchant should charge the customer for return shipping costs, based on customer selected return reason and merchant's
-             * return policy for the items being returned.
+             * Default option for whether merchant should charge the customer for return shipping costs, based on customer selected return reason and merchant's return policy for the items being
+             * returned.
              */
             chargeReturnShippingFee?: boolean;
             /**
-             * Maximum return shipping costs that may be charged to the customer depending on merchant's assessment of the return reason and the merchant's return
-             * policy for the items being returned.
+             * Maximum return shipping costs that may be charged to the customer depending on merchant's assessment of the return reason and the merchant's return policy for the items being
+             * returned.
              */
             maxReturnShippingFee?: MonetaryAmount;
-            /**
-             * Total amount that can be refunded for the items in this return. It represents the total amount received by the merchant for the items, after applying
-             * merchant coupons.
-             */
+            /** Total amount that can be refunded for the items in this return. It represents the total amount received by the merchant for the items, after applying merchant coupons. */
             refundableItemsTotalAmount?: MonetaryAmount;
             /** Maximum amount that can be refunded for the original shipping fee. */
             refundableShippingAmount?: MonetaryAmount;
@@ -3830,10 +3773,7 @@ declare namespace gapi.client {
             state?: string;
         }
         interface Row {
-            /**
-             * The list of cells that constitute the row. Must have the same length as `columnHeaders` for two-dimensional tables, a length of 1 for one-dimensional
-             * tables. Required.
-             */
+            /** The list of cells that constitute the row. Must have the same length as `columnHeaders` for two-dimensional tables, a length of 1 for one-dimensional tables. Required. */
             cells?: Value[];
         }
         interface Service {
@@ -3855,8 +3795,8 @@ declare namespace gapi.client {
              */
             eligibility?: string;
             /**
-             * Minimum order value for this service. If set, indicates that customers will have to spend at least this amount. All prices within a service must have
-             * the same currency. Cannot be set together with minimum_order_value_table.
+             * Minimum order value for this service. If set, indicates that customers will have to spend at least this amount. All prices within a service must have the same currency. Cannot be
+             * set together with minimum_order_value_table.
              */
             minimumOrderValue?: Price;
             /** Table of per store minimum order values for the pickup fulfillment type. Cannot be set together with minimum_order_value. */
@@ -3864,13 +3804,13 @@ declare namespace gapi.client {
             /** Free-form name of the service. Must be unique within target account. Required. */
             name?: string;
             /**
-             * The carrier-service pair delivering items to collection points. The list of supported pickup services can be retrieved via the
-             * `getSupportedPickupServices` method. Required if and only if the service delivery type is `pickup`.
+             * The carrier-service pair delivering items to collection points. The list of supported pickup services can be retrieved via the `getSupportedPickupServices` method. Required if and
+             * only if the service delivery type is `pickup`.
              */
             pickupService?: PickupCarrierService;
             /**
-             * Shipping rate group definitions. Only the last one is allowed to have an empty `applicableShippingLabels`, which means "everything else". The other
-             * `applicableShippingLabels` must not overlap.
+             * Shipping rate group definitions. Only the last one is allowed to have an empty `applicableShippingLabels`, which means "everything else". The other `applicableShippingLabels` must
+             * not overlap.
              */
             rateGroups?: RateGroup[];
             /**
@@ -4081,8 +4021,8 @@ declare namespace gapi.client {
             /** [required] Invoice details per line item. */
             lineItemInvoices?: ShipmentInvoiceLineItemInvoice[];
             /**
-             * [required] ID of the shipment group. It is assigned by the merchant in the `shipLineItems` method and is used to group multiple line items that have
-             * the same kind of shipping charges.
+             * [required] ID of the shipment group. It is assigned by the merchant in the `shipLineItems` method and is used to group multiple line items that have the same kind of shipping
+             * charges.
              */
             shipmentGroupId?: string;
         }
@@ -4092,8 +4032,8 @@ declare namespace gapi.client {
             /** ID of the product. This is the REST ID used in the products service. Either lineItemId or productId must be set. */
             productId?: string;
             /**
-             * [required] The shipment unit ID is assigned by the merchant and defines individual quantities within a line item. The same ID can be assigned to units
-             * that are the same while units that differ must be assigned a different ID (for example: free or promotional units).
+             * [required] The shipment unit ID is assigned by the merchant and defines individual quantities within a line item. The same ID can be assigned to units that are the same while units
+             * that differ must be assigned a different ID (for example: free or promotional units).
              */
             shipmentUnitIds?: string[];
             /** [required] Invoice details for a single unit. */
@@ -4272,8 +4212,8 @@ declare namespace gapi.client {
             /** Promotions associated with the order. */
             promotions?: OrderPromotion[];
             /**
-             * Required. The price of shipping for all items. Shipping tax is automatically calculated for orders where marketplace facilitator tax laws are
-             * applicable. Otherwise, tax settings from Merchant Center are applied. Note that shipping is not taxed in certain states.
+             * Required. The price of shipping for all items. Shipping tax is automatically calculated for orders where marketplace facilitator tax laws are applicable. Otherwise, tax settings
+             * from Merchant Center are applied. Note that shipping is not taxed in certain states.
              */
             shippingCost?: Price;
             /**
@@ -4360,8 +4300,8 @@ declare namespace gapi.client {
             /** Required. An identifier of the item. */
             offerId?: string;
             /**
-             * Required. The price for the product. Tax is automatically calculated for orders where marketplace facilitator tax laws are applicable. Otherwise, tax
-             * settings from Merchant Center are applied.
+             * Required. The price for the product. Tax is automatically calculated for orders where marketplace facilitator tax laws are applicable. Otherwise, tax settings from Merchant Center
+             * are applied.
              */
             price?: Price;
             /** Required. The CLDR territory code of the target country of the product. */
@@ -4396,8 +4336,8 @@ declare namespace gapi.client {
         }
         interface TransitTable {
             /**
-             * A list of postal group names. The last value can be `"all other locations"`. Example: `["zone 1", "zone 2", "all other locations"]`. The referred
-             * postal code groups must match the delivery country of the service.
+             * A list of postal group names. The last value can be `"all other locations"`. Example: `["zone 1", "zone 2", "all other locations"]`. The referred postal code groups must match the
+             * delivery country of the service.
              */
             postalCodeGroupNames?: string[];
             rows?: TransitTableTransitTimeRow[];
@@ -4500,15 +4440,15 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Only available to selected merchants. When set to `True`, this flag removes any existing claim on the requested website by another account and replaces
-                 * it with a claim from this account.
+                 * Only available to selected merchants. When set to `True`, this flag removes any existing claim on the requested website by another account and replaces it with a claim from this
+                 * account.
                  */
                 overwrite?: boolean;
                 /** Returns response with indentations and line breaks. */
@@ -4588,8 +4528,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4654,8 +4594,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4679,8 +4619,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4733,8 +4673,8 @@ declare namespace gapi.client {
                 /** The maximum number of links to return in the response, used for pagination. */
                 maxResults?: number;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4759,8 +4699,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4784,8 +4724,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4893,8 +4833,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4980,8 +4920,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5027,8 +4967,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5052,8 +4992,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5317,8 +5257,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * The country for which to get the datafeed status. If this parameter is provided then language must also be provided. Note that this parameter is
-                 * required for feeds targeting multiple countries and languages, since a feed may have a different status for each target.
+                 * The country for which to get the datafeed status. If this parameter is provided then language must also be provided. Note that this parameter is required for feeds targeting
+                 * multiple countries and languages, since a feed may have a different status for each target.
                  */
                 country?: string;
                 /** The ID of the datafeed. */
@@ -5328,8 +5268,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The language for which to get the datafeed status. If this parameter is provided then country must also be provided. Note that this parameter is
-                 * required for feeds targeting multiple countries and languages, since a feed may have a different status for each target.
+                 * The language for which to get the datafeed status. If this parameter is provided then country must also be provided. Note that this parameter is required for feeds targeting
+                 * multiple countries and languages, since a feed may have a different status for each target.
                  */
                 language?: string;
                 /** The ID of the account that manages the datafeed. This account cannot be a multi-client account. */
@@ -5415,8 +5355,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5439,8 +5379,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5505,8 +5445,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5531,8 +5471,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5563,8 +5503,8 @@ declare namespace gapi.client {
                 /** The language for which inventory verification is requested. */
                 language: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5589,8 +5529,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5617,8 +5557,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5642,8 +5582,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -5785,9 +5725,8 @@ declare namespace gapi.client {
             },
             body: OrderinvoicesCreateChargeInvoiceRequest): Request<OrderinvoicesCreateChargeInvoiceResponse>;
             /**
-             * Creates a refund invoice for one or more shipment groups, and triggers a refund for orderinvoice enabled orders. This can only be used for line items
-             * that have previously been charged using `createChargeInvoice`. All amounts (except for the summary) are incremental with respect to the previous
-             * invoice.
+             * Creates a refund invoice for one or more shipment groups, and triggers a refund for orderinvoice enabled orders. This can only be used for line items that have previously been
+             * charged using `createChargeInvoice`. All amounts (except for the summary) are incremental with respect to the previous invoice.
              */
             createrefundinvoice(request: {
                 /** Data format for the response. */
@@ -5960,8 +5899,8 @@ declare namespace gapi.client {
             /** Lists order returns in your Merchant Center account. */
             list(request?: {
                 /**
-                 * Obtains order returns that match the acknowledgement status. When set to true, obtains order returns that have been acknowledged. When false, obtains
-                 * order returns that have not been acknowledged. When not provided, obtains order returns regardless of their acknowledgement status.
+                 * Obtains order returns that match the acknowledgement status. When set to true, obtains order returns that have been acknowledged. When false, obtains order returns that have not
+                 * been acknowledged. When not provided, obtains order returns regardless of their acknowledgement status.
                  * We recommend using this filter set to `false`, in conjunction with the `acknowledge` call, such that only un-acknowledged order returns are returned.
                  */
                 acknowledged?: boolean;
@@ -5974,18 +5913,15 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Obtains order returns with the specified order ids. If this parameter is provided, createdStartDate, createdEndDate, shipmentType, shipmentStatus,
-                 * shipmentState and acknowledged parameters must be not set.
-                 * Note: if googleOrderId and shipmentTrackingNumber parameters are provided, the obtained results will include all order returns that either match the
-                 * specified order id or the specified tracking number.
+                 * Obtains order returns with the specified order ids. If this parameter is provided, createdStartDate, createdEndDate, shipmentType, shipmentStatus, shipmentState and acknowledged
+                 * parameters must be not set.
+                 * Note: if googleOrderId and shipmentTrackingNumber parameters are provided, the obtained results will include all order returns that either match the specified order id or the
+                 * specified tracking number.
                  */
                 googleOrderIds?: string | string[];
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * The maximum number of order returns to return in the response, used for paging. The default value is 25 returns per page, and the maximum allowed value
-                 * is 250 returns per page.
-                 */
+                /** The maximum number of order returns to return in the response, used for paging. The default value is 25 returns per page, and the maximum allowed value is 250 returns per page. */
                 maxResults?: number;
                 /** The ID of the account that manages the order. This cannot be a multi-client account. */
                 merchantId: string;
@@ -6000,25 +5936,25 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Obtains order returns that match any shipment state provided in this parameter. When this parameter is not provided, order returns are obtained
-                 * regardless of their shipment states.
+                 * Obtains order returns that match any shipment state provided in this parameter. When this parameter is not provided, order returns are obtained regardless of their shipment
+                 * states.
                  */
                 shipmentStates?: string | string[];
                 /**
-                 * Obtains order returns that match any shipment status provided in this parameter. When this parameter is not provided, order returns are obtained
-                 * regardless of their shipment statuses.
+                 * Obtains order returns that match any shipment status provided in this parameter. When this parameter is not provided, order returns are obtained regardless of their shipment
+                 * statuses.
                  */
                 shipmentStatus?: string | string[];
                 /**
-                 * Obtains order returns with the specified tracking numbers. If this parameter is provided, createdStartDate, createdEndDate, shipmentType,
-                 * shipmentStatus, shipmentState and acknowledged parameters must be not set.
-                 * Note: if googleOrderId and shipmentTrackingNumber parameters are provided, the obtained results will include all order returns that either match the
-                 * specified order id or the specified tracking number.
+                 * Obtains order returns with the specified tracking numbers. If this parameter is provided, createdStartDate, createdEndDate, shipmentType, shipmentStatus, shipmentState and
+                 * acknowledged parameters must be not set.
+                 * Note: if googleOrderId and shipmentTrackingNumber parameters are provided, the obtained results will include all order returns that either match the specified order id or the
+                 * specified tracking number.
                  */
                 shipmentTrackingNumbers?: string | string[];
                 /**
-                 * Obtains order returns that match any shipment type provided in this parameter. When this parameter is not provided, order returns are obtained
-                 * regardless of their shipment types.
+                 * Obtains order returns that match any shipment type provided in this parameter. When this parameter is not provided, order returns are obtained regardless of their shipment
+                 * types.
                  */
                 shipmentTypes?: string | string[];
                 /** Deprecated. Please use quotaUser instead. */
@@ -6417,11 +6353,10 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<OrdersGetTestOrderTemplateResponse>;
             /**
-             * Deprecated. Notifies that item return and refund was handled directly by merchant outside of Google payments processing (e.g. cash refund done in
-             * store).
-             * Note: We recommend calling the returnrefundlineitem method to refund in-store returns. We will issue the refund directly to the customer. This helps to
-             * prevent possible differences arising between merchant and Google transaction records. We also recommend having the point of sale system communicate
-             * with Google to ensure that customers do not receive a double refund by first refunding via Google then via an in-store return.
+             * Deprecated. Notifies that item return and refund was handled directly by merchant outside of Google payments processing (e.g. cash refund done in store).
+             * Note: We recommend calling the returnrefundlineitem method to refund in-store returns. We will issue the refund directly to the customer. This helps to prevent possible differences
+             * arising between merchant and Google transaction records. We also recommend having the point of sale system communicate with Google to ensure that customers do not receive a double
+             * refund by first refunding via Google then via an in-store return.
              */
             instorerefundlineitem(request: {
                 /** Data format for the response. */
@@ -6469,8 +6404,7 @@ declare namespace gapi.client {
             /** Lists the orders in your Merchant Center account. */
             list(request?: {
                 /**
-                 * Obtains orders that match the acknowledgement status. When set to true, obtains orders that have been acknowledged. When false, obtains orders that
-                 * have not been acknowledged.
+                 * Obtains orders that match the acknowledgement status. When set to true, obtains orders that have been acknowledged. When false, obtains orders that have not been acknowledged.
                  * We recommend using this filter set to `false`, in conjunction with the `acknowledge` call, such that only un-acknowledged orders are returned.
                  */
                 acknowledged?: boolean;
@@ -6480,10 +6414,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * The maximum number of orders to return in the response, used for paging. The default value is 25 orders per page, and the maximum allowed value is 250
-                 * orders per page.
-                 */
+                /** The maximum number of orders to return in the response, used for paging. The default value is 25 orders per page, and the maximum allowed value is 250 orders per page. */
                 maxResults?: number;
                 /** The ID of the account that manages the order. This cannot be a multi-client account. */
                 merchantId: string;
@@ -6508,8 +6439,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Obtains orders that match any of the specified statuses. Please note that `active` is a shortcut for `pendingShipment` and `partiallyShipped`, and
-                 * `completed` is a shortcut for `shipped`, `partiallyDelivered`, `delivered`, `partiallyReturned`, `returned`, and `canceled`.
+                 * Obtains orders that match any of the specified statuses. Please note that `active` is a shortcut for `pendingShipment` and `partiallyShipped`, and `completed` is a shortcut for
+                 * `shipped`, `partiallyDelivered`, `delivered`, `partiallyReturned`, `returned`, and `canceled`.
                  */
                 statuses?: string | string[];
                 /** Deprecated. Please use quotaUser instead. */
@@ -6648,9 +6579,9 @@ declare namespace gapi.client {
             },
             body: OrdersRejectReturnLineItemRequest): Request<OrdersRejectReturnLineItemResponse>;
             /**
-             * Returns and refunds a line item. Note that this method can only be called on fully shipped orders. Please also note that the Orderreturns API is the
-             * preferred way to handle returns after you receive a return from a customer. You can use Orderreturns.list or Orderreturns.get to search for the return,
-             * and then use Orderreturns.processreturn to issue the refund. If the return cannot be found, then we recommend using this API to issue a refund.
+             * Returns and refunds a line item. Note that this method can only be called on fully shipped orders. Please also note that the Orderreturns API is the preferred way to handle returns
+             * after you receive a return from a customer. You can use Orderreturns.list or Orderreturns.get to search for the return, and then use Orderreturns.processreturn to issue the refund.
+             * If the return cannot be found, then we recommend using this API to issue a refund.
              */
             returnrefundlineitem(request: {
                 /** Data format for the response. */
@@ -6696,9 +6627,8 @@ declare namespace gapi.client {
             },
             body: OrdersReturnRefundLineItemRequest): Request<OrdersReturnRefundLineItemResponse>;
             /**
-             * Sets (or overrides if it already exists) merchant provided annotations in the form of key-value pairs. A common use case would be to supply us with
-             * additional structured information about a line item that cannot be provided via other methods. Submitted key-value pairs can be retrieved as part of
-             * the orders resource.
+             * Sets (or overrides if it already exists) merchant provided annotations in the form of key-value pairs. A common use case would be to supply us with additional structured information
+             * about a line item that cannot be provided via other methods. Submitted key-value pairs can be retrieved as part of the orders resource.
              */
             setlineitemmetadata(request: {
                 /** Data format for the response. */
@@ -7238,10 +7168,7 @@ declare namespace gapi.client {
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<Product>;
-            /**
-             * Uploads a product to your Merchant Center account. If an item with the same channel, contentLanguage, offerId, and targetCountry already exists, this
-             * method updates that entry.
-             */
+            /** Uploads a product to your Merchant Center account. If an item with the same channel, contentLanguage, offerId, and targetCountry already exists, this method updates that entry. */
             insert(request: {
                 /** Data format for the response. */
                 alt?: string;
@@ -7286,8 +7213,8 @@ declare namespace gapi.client {
             },
             body: Product): Request<Product>;
             /**
-             * Lists the products in your Merchant Center account. The response might contain fewer items than specified by maxResults. Rely on nextPageToken to
-             * determine if there are more items to be requested.
+             * Lists the products in your Merchant Center account. The response might contain fewer items than specified by maxResults. Rely on nextPageToken to determine if there are more items
+             * to be requested.
              */
             list(request?: {
                 /** Data format for the response. */
@@ -7496,10 +7423,7 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: RegionalinventoryCustomBatchRequest): Request<RegionalinventoryCustomBatchResponse>;
-            /**
-             * Update the regional inventory of a product in your Merchant Center account. If a regional inventory with the same region ID already exists, this method
-             * updates that entry.
-             */
+            /** Update the regional inventory of a product in your Merchant Center account. If a regional inventory with the same region ID already exists, this method updates that entry. */
             insert(request: {
                 /** Data format for the response. */
                 alt?: string;
@@ -7858,10 +7782,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * The maximum number of settlements to return in the response, used for paging. The default value is 200 returns per page, and the maximum allowed value
-                 * is 5000 returns per page.
-                 */
+                /** The maximum number of settlements to return in the response, used for paging. The default value is 200 returns per page, and the maximum allowed value is 5000 returns per page. */
                 maxResults?: number;
                 /** The Merchant Center account to list settlements for. */
                 merchantId: string;
@@ -7891,8 +7812,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The maximum number of transactions to return in the response, used for paging. The default value is 200 transactions per page, and the maximum allowed
-                 * value is 5000 transactions per page.
+                 * The maximum number of transactions to return in the response, used for paging. The default value is 200 transactions per page, and the maximum allowed value is 5000 transactions
+                 * per page.
                  */
                 maxResults?: number;
                 /** The Merchant Center account to list transactions for. */
@@ -7961,8 +7882,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -8065,8 +7986,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */
@@ -8090,8 +8011,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must
-                 * be the ID of a sub-account of this account.
+                 * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account
+                 * of this account.
                  */
                 merchantId: string;
                 /** OAuth 2.0 token for the current user. */

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Spanner API v1 1.0
 // Project: https://cloud.google.com/spanner/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -20,32 +23,30 @@ declare namespace gapi.client {
     namespace spanner {
         interface Backup {
             /**
-             * Output only. The backup will contain an externally consistent copy of the database at the timestamp specified by `create_time`. `create_time` is
-             * approximately the time the CreateBackup request is received.
+             * Output only. The backup will contain an externally consistent copy of the database at the timestamp specified by `create_time`. `create_time` is approximately the time the
+             * CreateBackup request is received.
              */
             createTime?: string;
             /**
-             * Required for the CreateBackup operation. Name of the database from which this backup was created. This needs to be in the same instance as the backup.
-             * Values are of the form `projects//instances//databases/`.
+             * Required for the CreateBackup operation. Name of the database from which this backup was created. This needs to be in the same instance as the backup. Values are of the form
+             * `projects//instances//databases/`.
              */
             database?: string;
             /**
-             * Required for the CreateBackup operation. The expiration time of the backup, with microseconds granularity that must be at least 6 hours and at most 366
-             * days from the time the CreateBackup request is processed. Once the `expire_time` has passed, the backup is eligible to be automatically deleted by
-             * Cloud Spanner to free the resources used by the backup.
+             * Required for the CreateBackup operation. The expiration time of the backup, with microseconds granularity that must be at least 6 hours and at most 366 days from the time the
+             * CreateBackup request is processed. Once the `expire_time` has passed, the backup is eligible to be automatically deleted by Cloud Spanner to free the resources used by the backup.
              */
             expireTime?: string;
             /**
-             * Output only for the CreateBackup operation. Required for the UpdateBackup operation. A globally unique identifier for the backup which cannot be
-             * changed. Values are of the form `projects//instances//backups/a-z∗[a-z0-9]` The final segment of the name must be between 2 and 60 characters in
-             * length. The backup is stored in the location(s) specified in the instance configuration of the instance containing the backup, identified by the prefix
-             * of the backup name of the form `projects//instances/`.
+             * Output only for the CreateBackup operation. Required for the UpdateBackup operation. A globally unique identifier for the backup which cannot be changed. Values are of the form
+             * `projects//instances//backups/a-z*[a-z0-9]` The final segment of the name must be between 2 and 60 characters in length. The backup is stored in the location(s) specified in the
+             * instance configuration of the instance containing the backup, identified by the prefix of the backup name of the form `projects//instances/`.
              */
             name?: string;
             /**
-             * Output only. The names of the restored databases that reference the backup. The database names are of the form `projects//instances//databases/`.
-             * Referencing databases may exist in different instances. The existence of any referencing database prevents the backup from being deleted. When a
-             * restored database from the backup enters the `READY` state, the reference to the backup is removed.
+             * Output only. The names of the restored databases that reference the backup. The database names are of the form `projects//instances//databases/`. Referencing databases may exist in
+             * different instances. The existence of any referencing database prevents the backup from being deleted. When a restored database from the backup enters the `READY` state, the
+             * reference to the backup is removed.
              */
             referencingDatabases?: string[];
             /** Output only. Size of the backup in bytes. */
@@ -63,8 +64,8 @@ declare namespace gapi.client {
         }
         interface BatchCreateSessionsRequest {
             /**
-             * Required. The number of sessions to be created in this batch call. The API may return fewer than the requested number of sessions. If a specific number
-             * of sessions are desired, the client can make additional calls to BatchCreateSessions (adjusting session_count as necessary).
+             * Required. The number of sessions to be created in this batch call. The API may return fewer than the requested number of sessions. If a specific number of sessions are desired, the
+             * client can make additional calls to BatchCreateSessions (adjusting session_count as necessary).
              */
             sessionCount?: number;
             /** Parameters to be applied to each created session. */
@@ -80,27 +81,23 @@ declare namespace gapi.client {
         }
         interface Binding {
             /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the
-             * condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to
-             * one or more of the members in this binding. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
+             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the members in this binding. To learn which
+             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
-             * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
-             * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
-             * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
-             * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
-             * `google.com` or `example.com`.
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is
+             * on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
+             * account. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that
+             * represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `group:{emailid}`: An email address that represents a Google group. For example,
+             * `admins@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. *
+             * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service
+             * account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently
+             * deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in
+             * the binding. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -110,14 +107,14 @@ declare namespace gapi.client {
             /** The node to which the link points. */
             childIndex?: number;
             /**
-             * The type of the link. For example, in Hash Joins this could be used to distinguish between the build child and the probe child, or in the case of the
-             * child being an output variable, to represent the tag associated with the output variable.
+             * The type of the link. For example, in Hash Joins this could be used to distinguish between the build child and the probe child, or in the case of the child being an output variable,
+             * to represent the tag associated with the output variable.
              */
             type?: string;
             /**
-             * Only present if the child node is SCALAR and corresponds to an output variable of the parent node. The field carries the name of the output variable.
-             * For example, a `TableScan` operator that reads rows from a table will have child links to the `SCALAR` nodes representing the output variables created
-             * for each column that is read by the operator. The corresponding `variable` fields will be set to the variable names assigned to the columns.
+             * Only present if the child node is SCALAR and corresponds to an output variable of the parent node. The field carries the name of the output variable. For example, a `TableScan`
+             * operator that reads rows from a table will have child links to the `SCALAR` nodes representing the output variables created for each column that is read by the operator. The
+             * corresponding `variable` fields will be set to the variable names assigned to the columns.
              */
             variable?: string;
         }
@@ -125,9 +122,9 @@ declare namespace gapi.client {
             /** The mutations to be executed when this transaction commits. All mutations are applied atomically, in the order they appear in this list. */
             mutations?: Mutation[];
             /**
-             * Execute mutations in a temporary transaction. Note that unlike commit of a previously-started transaction, commit with a temporary transaction is
-             * non-idempotent. That is, if the `CommitRequest` is sent to Cloud Spanner more than once (for instance, due to retries in the application, or in the
-             * transport library), it is possible that the mutations are executed more than once. If this is undesirable, use BeginTransaction and Commit instead.
+             * Execute mutations in a temporary transaction. Note that unlike commit of a previously-started transaction, commit with a temporary transaction is non-idempotent. That is, if the
+             * `CommitRequest` is sent to Cloud Spanner more than once (for instance, due to retries in the application, or in the transport library), it is possible that the mutations are
+             * executed more than once. If this is undesirable, use BeginTransaction and Commit instead.
              */
             singleUseTransaction?: TransactionOptions;
             /** Commit a previously-started transaction. */
@@ -139,10 +136,10 @@ declare namespace gapi.client {
         }
         interface CreateBackupMetadata {
             /**
-             * The time at which cancellation of this operation was received. Operations.CancelOperation starts asynchronous cancellation on a long-running operation.
-             * The server makes a best effort to cancel the operation, but success is not guaranteed. Clients can use Operations.GetOperation or other methods to
-             * check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not
-             * deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * The time at which cancellation of this operation was received. Operations.CancelOperation starts asynchronous cancellation on a long-running operation. The server makes a best
+             * effort to cancel the operation, but success is not guaranteed. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancelTime?: string;
             /** The name of the database the backup is created from. */
@@ -158,22 +155,18 @@ declare namespace gapi.client {
         }
         interface CreateDatabaseRequest {
             /**
-             * Required. A `CREATE DATABASE` statement, which specifies the ID of the new database. The database ID must conform to the regular expression
-             * `a-z∗[a-z0-9]` and be between 2 and 30 characters in length. If the database ID is a reserved word or if it contains a hyphen, the database ID must be
-             * enclosed in backticks (`` ` ``).
+             * Required. A `CREATE DATABASE` statement, which specifies the ID of the new database. The database ID must conform to the regular expression `a-z*[a-z0-9]` and be between 2 and 30
+             * characters in length. If the database ID is a reserved word or if it contains a hyphen, the database ID must be enclosed in backticks (`` ` ``).
              */
             createStatement?: string;
             /**
-             * Optional. A list of DDL statements to run inside the newly created database. Statements can create tables, indexes, etc. These statements execute
-             * atomically with the creation of the database: if there is an error in any statement, the database is not created.
+             * Optional. A list of DDL statements to run inside the newly created database. Statements can create tables, indexes, etc. These statements execute atomically with the creation of the
+             * database: if there is an error in any statement, the database is not created.
              */
             extraStatements?: string[];
         }
         interface CreateInstanceMetadata {
-            /**
-             * The time at which this operation was cancelled. If set, this operation is in the process of undoing itself (which is guaranteed to succeed) and cannot
-             * be cancelled again.
-             */
+            /** The time at which this operation was cancelled. If set, this operation is in the process of undoing itself (which is guaranteed to succeed) and cannot be cancelled again. */
             cancelTime?: string;
             /** The time at which this operation failed or was completed successfully. */
             endTime?: string;
@@ -185,7 +178,7 @@ declare namespace gapi.client {
         interface CreateInstanceRequest {
             /** Required. The instance to create. The name may be omitted, but if specified must be `/instances/`. */
             instance?: Instance;
-            /** Required. The ID of the instance to create. Valid identifiers are of the form `a-z∗[a-z0-9]` and must be between 2 and 64 characters in length. */
+            /** Required. The ID of the instance to create. Valid identifiers are of the form `a-z*[a-z0-9]` and must be between 2 and 64 characters in length. */
             instanceId?: string;
         }
         interface CreateSessionRequest {
@@ -196,8 +189,8 @@ declare namespace gapi.client {
             /** Output only. If exists, the time at which the database creation started. */
             createTime?: string;
             /**
-             * Required. The name of the database. Values are of the form `projects//instances//databases/`, where `` is as specified in the `CREATE DATABASE`
-             * statement. This name can be passed to other API methods to identify the database.
+             * Required. The name of the database. Values are of the form `projects//instances//databases/`, where `` is as specified in the `CREATE DATABASE` statement. This name can be passed to
+             * other API methods to identify the database.
              */
             name?: string;
             /** Output only. Applicable only for restored databases. Contains information about the restore source. */
@@ -207,9 +200,8 @@ declare namespace gapi.client {
         }
         interface Delete {
             /**
-             * Required. The primary keys of the rows within table to delete. The primary keys must be specified in the order in which they appear in the `PRIMARY
-             * KEY()` clause of the table's equivalent DDL statement (the DDL statement used to create the table). Delete is idempotent. The transaction will succeed
-             * even if some or all rows do not exist.
+             * Required. The primary keys of the rows within table to delete. The primary keys must be specified in the order in which they appear in the `PRIMARY KEY()` clause of the table's
+             * equivalent DDL statement (the DDL statement used to create the table). Delete is idempotent. The transaction will succeed even if some or all rows do not exist.
              */
             keySet?: KeySet;
             /** Required. The table whose rows will be deleted. */
@@ -220,29 +212,26 @@ declare namespace gapi.client {
         }
         interface ExecuteBatchDmlRequest {
             /**
-             * Required. A per-transaction sequence number used to identify this request. This field makes each request idempotent such that if the request is
-             * received multiple times, at most one will succeed. The sequence number must be monotonically increasing within the transaction. If a request arrives
-             * for the first time with an out-of-order sequence number, the transaction may be aborted. Replays of previously handled requests will yield the same
-             * response as the first execution.
+             * Required. A per-transaction sequence number used to identify this request. This field makes each request idempotent such that if the request is received multiple times, at most one
+             * will succeed. The sequence number must be monotonically increasing within the transaction. If a request arrives for the first time with an out-of-order sequence number, the
+             * transaction may be aborted. Replays of previously handled requests will yield the same response as the first execution.
              */
             seqno?: string;
             /**
-             * Required. The list of statements to execute in this batch. Statements are executed serially, such that the effects of statement `i` are visible to
-             * statement `i+1`. Each statement must be a DML statement. Execution stops at the first failed statement; the remaining statements are not executed.
-             * Callers must provide at least one statement.
+             * Required. The list of statements to execute in this batch. Statements are executed serially, such that the effects of statement `i` are visible to statement `i+1`. Each statement
+             * must be a DML statement. Execution stops at the first failed statement; the remaining statements are not executed. Callers must provide at least one statement.
              */
             statements?: Statement[];
             /**
-             * Required. The transaction to use. Must be a read-write transaction. To protect against replays, single-use transactions are not supported. The caller
-             * must either supply an existing transaction ID or begin a new transaction.
+             * Required. The transaction to use. Must be a read-write transaction. To protect against replays, single-use transactions are not supported. The caller must either supply an existing
+             * transaction ID or begin a new transaction.
              */
             transaction?: TransactionSelector;
         }
         interface ExecuteBatchDmlResponse {
             /**
-             * One ResultSet for each statement in the request that ran successfully, in the same order as the statements in the request. Each ResultSet does not
-             * contain any rows. The ResultSetStats in each ResultSet contain the number of rows modified by the statement. Only the first ResultSet in the response
-             * contains valid ResultSetMetadata.
+             * One ResultSet for each statement in the request that ran successfully, in the same order as the statements in the request. Each ResultSet does not contain any rows. The
+             * ResultSetStats in each ResultSet contain the number of rows modified by the statement. Only the first ResultSet in the response contains valid ResultSetMetadata.
              */
             resultSets?: ResultSet[];
             /** If all DML statements are executed successfully, the status is `OK`. Otherwise, the error status of the first failed statement. */
@@ -250,49 +239,44 @@ declare namespace gapi.client {
         }
         interface ExecuteSqlRequest {
             /**
-             * Parameter names and values that bind to placeholders in the SQL string. A parameter placeholder consists of the `@` character followed by the parameter
-             * name (for example, `@firstName`). Parameter names must conform to the naming requirements of identifiers as specified at
-             * https://cloud.google.com/spanner/docs/lexical#identifiers. Parameters can appear anywhere that a literal value is expected. The same parameter name can
-             * be used more than once, for example: `"WHERE id > @msg_id AND id < @msg_id + 100"` It is an error to execute a SQL statement with unbound parameters.
+             * Parameter names and values that bind to placeholders in the SQL string. A parameter placeholder consists of the `@` character followed by the parameter name (for example,
+             * `@firstName`). Parameter names must conform to the naming requirements of identifiers as specified at https://cloud.google.com/spanner/docs/lexical#identifiers. Parameters can
+             * appear anywhere that a literal value is expected. The same parameter name can be used more than once, for example: `"WHERE id > @msg_id AND id < @msg_id + 100"` It is an error to
+             * execute a SQL statement with unbound parameters.
              */
             params?: { [P in string]: any };
             /**
-             * It is not always possible for Cloud Spanner to infer the right SQL type from a JSON value. For example, values of type `BYTES` and values of type
-             * `STRING` both appear in params as JSON strings. In these cases, `param_types` can be used to specify the exact SQL type for some or all of the SQL
-             * statement parameters. See the definition of Type for more information about SQL types.
+             * It is not always possible for Cloud Spanner to infer the right SQL type from a JSON value. For example, values of type `BYTES` and values of type `STRING` both appear in params as
+             * JSON strings. In these cases, `param_types` can be used to specify the exact SQL type for some or all of the SQL statement parameters. See the definition of Type for more
+             * information about SQL types.
              */
             paramTypes?: { [P in string]: Type };
             /**
-             * If present, results will be restricted to the specified partition previously created using PartitionQuery(). There must be an exact match for the
-             * values of fields common to this message and the PartitionQueryRequest message used to create this partition_token.
+             * If present, results will be restricted to the specified partition previously created using PartitionQuery(). There must be an exact match for the values of fields common to this
+             * message and the PartitionQueryRequest message used to create this partition_token.
              */
             partitionToken?: string;
-            /**
-             * Used to control the amount of debugging information returned in ResultSetStats. If partition_token is set, query_mode can only be set to
-             * QueryMode.NORMAL.
-             */
+            /** Used to control the amount of debugging information returned in ResultSetStats. If partition_token is set, query_mode can only be set to QueryMode.NORMAL. */
             queryMode?: string;
             /** Query optimizer configuration to use for the given query. */
             queryOptions?: QueryOptions;
             /**
-             * If this request is resuming a previously interrupted SQL statement execution, `resume_token` should be copied from the last PartialResultSet yielded
-             * before the interruption. Doing this enables the new SQL statement execution to resume where the last one left off. The rest of the request parameters
-             * must exactly match the request that yielded this token.
+             * If this request is resuming a previously interrupted SQL statement execution, `resume_token` should be copied from the last PartialResultSet yielded before the interruption. Doing
+             * this enables the new SQL statement execution to resume where the last one left off. The rest of the request parameters must exactly match the request that yielded this token.
              */
             resumeToken?: string;
             /**
-             * A per-transaction sequence number used to identify this request. This field makes each request idempotent such that if the request is received multiple
-             * times, at most one will succeed. The sequence number must be monotonically increasing within the transaction. If a request arrives for the first time
-             * with an out-of-order sequence number, the transaction may be aborted. Replays of previously handled requests will yield the same response as the first
-             * execution. Required for DML statements. Ignored for queries.
+             * A per-transaction sequence number used to identify this request. This field makes each request idempotent such that if the request is received multiple times, at most one will
+             * succeed. The sequence number must be monotonically increasing within the transaction. If a request arrives for the first time with an out-of-order sequence number, the transaction
+             * may be aborted. Replays of previously handled requests will yield the same response as the first execution. Required for DML statements. Ignored for queries.
              */
             seqno?: string;
             /** Required. The SQL string. */
             sql?: string;
             /**
-             * The transaction to use. For queries, if none is provided, the default is a temporary read-only transaction with strong concurrency. Standard DML
-             * statements require a read-write transaction. To protect against replays, single-use transactions are not supported. The caller must either supply an
-             * existing transaction ID or begin a new transaction. Partitioned DML requires an existing Partitioned DML transaction ID.
+             * The transaction to use. For queries, if none is provided, the default is a temporary read-only transaction with strong concurrency. Standard DML statements require a read-write
+             * transaction. To protect against replays, single-use transactions are not supported. The caller must either supply an existing transaction ID or begin a new transaction. Partitioned
+             * DML requires an existing Partitioned DML transaction ID.
              */
             transaction?: TransactionSelector;
         }
@@ -308,9 +292,9 @@ declare namespace gapi.client {
         }
         interface Field {
             /**
-             * The name of the field. For reads, this is the column name. For SQL queries, it is the column alias (e.g., `"Word"` in the query `"SELECT 'hello' AS
-             * Word"`), or the column name (e.g., `"ColName"` in the query `"SELECT ColName FROM Table"`). Some columns might have an empty name (e.g., !"SELECT
-             * UPPER(ColName)"`). Note that a query result can contain multiple fields with the same name.
+             * The name of the field. For reads, this is the column name. For SQL queries, it is the column alias (e.g., `"Word"` in the query `"SELECT 'hello' AS Word"`), or the column name
+             * (e.g., `"ColName"` in the query `"SELECT ColName FROM Table"`). Some columns might have an empty name (e.g., !"SELECT UPPER(ColName)"`). Note that a query result can contain
+             * multiple fields with the same name.
              */
             name?: string;
             /** The type of the field. */
@@ -326,39 +310,33 @@ declare namespace gapi.client {
         }
         interface GetPolicyOptions {
             /**
-             * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-             * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-             * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional
+             * bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support conditions in their
+             * IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             requestedPolicyVersion?: number;
         }
         // tslint:disable-next-line:interface-name
         interface Instance {
-            /**
-             * Required. The name of the instance's configuration. Values are of the form `projects//instanceConfigs/`. See also InstanceConfig and
-             * ListInstanceConfigs.
-             */
+            /** Required. The name of the instance's configuration. Values are of the form `projects//instanceConfigs/`. See also InstanceConfig and ListInstanceConfigs. */
             config?: string;
             /** Required. The descriptive name for this instance as it appears in UIs. Must be unique per project and between 4 and 30 characters in length. */
             displayName?: string;
             /** Deprecated. This field is not populated. */
             endpointUris?: string[];
             /**
-             * Cloud Labels are a flexible and lightweight mechanism for organizing cloud resources into groups that reflect a customer's organizational needs and
-             * deployment strategies. Cloud Labels can be used to filter collections of resources. They can be used to control how resource metrics are aggregated.
-             * And they can be used as arguments to policy management rules (e.g. route, firewall, load balancing, etc.). ∗ Label keys must be between 1 and 63
-             * characters long and must conform to the following regular expression: `[a-z]([-a-z0-9]∗[a-z0-9])?`. ∗ Label values must be between 0 and 63 characters
-             * long and must conform to the regular expression `([a-z]([-a-z0-9]∗[a-z0-9])?)?`. ∗ No more than 64 labels can be associated with a given resource. See
-             * https://goo.gl/xmQnxf for more information on and examples of labels. If you plan to use labels in your own code, please note that additional
-             * characters may be allowed in the future. And so you are advised to use an internal label representation, such as JSON, which doesn't rely upon specific
-             * characters being disallowed. For example, representing labels as the string: name + "_" + value would prove problematic if we were to allow "_" in a
-             * future release.
+             * Cloud Labels are a flexible and lightweight mechanism for organizing cloud resources into groups that reflect a customer's organizational needs and deployment strategies. Cloud
+             * Labels can be used to filter collections of resources. They can be used to control how resource metrics are aggregated. And they can be used as arguments to policy management rules
+             * (e.g. route, firewall, load balancing, etc.). * Label keys must be between 1 and 63 characters long and must conform to the following regular expression:
+             * `[a-z]([-a-z0-9]*[a-z0-9])?`. * Label values must be between 0 and 63 characters long and must conform to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`. * No more than 64
+             * labels can be associated with a given resource. See https://goo.gl/xmQnxf for more information on and examples of labels. If you plan to use labels in your own code, please note
+             * that additional characters may be allowed in the future. And so you are advised to use an internal label representation, such as JSON, which doesn't rely upon specific characters
+             * being disallowed. For example, representing labels as the string: name + "_" + value would prove problematic if we were to allow "_" in a future release.
              */
             labels?: { [P in string]: string };
             /**
-             * Required. A unique identifier for the instance, which cannot be changed after the instance is created. Values are of the form
-             * `projects//instances/a-z∗[a-z0-9]`. The final segment of the name must be between 2 and 64 characters in length.
+             * Required. A unique identifier for the instance, which cannot be changed after the instance is created. Values are of the form `projects//instances/a-z*[a-z0-9]`. The final segment
+             * of the name must be between 2 and 64 characters in length.
              */
             name?: string;
             /**
@@ -367,8 +345,8 @@ declare namespace gapi.client {
              */
             nodeCount?: number;
             /**
-             * Output only. The current instance state. For CreateInstance, the state must be either omitted or set to `CREATING`. For UpdateInstance, the state must
-             * be either omitted or set to `READY`.
+             * Output only. The current instance state. For CreateInstance, the state must be either omitted or set to `CREATING`. For UpdateInstance, the state must be either omitted or set to
+             * `READY`.
              */
             state?: string;
         }
@@ -376,7 +354,7 @@ declare namespace gapi.client {
         interface InstanceConfig {
             /** The name of this instance configuration as it appears in UIs. */
             displayName?: string;
-            /** A unique identifier for the instance configuration. Values are of the form `projects//instanceConfigs/a-z∗` */
+            /** A unique identifier for the instance configuration. Values are of the form `projects//instanceConfigs/a-z*` */
             name?: string;
             /** The geographic placement of nodes in this instance configuration and their replication properties. */
             replicas?: ReplicaInfo[];
@@ -393,13 +371,13 @@ declare namespace gapi.client {
         }
         interface KeySet {
             /**
-             * For convenience `all` can be set to `true` to indicate that this `KeySet` matches all keys in the table or index. Note that any keys specified in
-             * `keys` or `ranges` are only yielded once.
+             * For convenience `all` can be set to `true` to indicate that this `KeySet` matches all keys in the table or index. Note that any keys specified in `keys` or `ranges` are only yielded
+             * once.
              */
             all?: boolean;
             /**
-             * A list of specific keys. Entries in `keys` should have exactly as many elements as there are columns in the primary or index key with which this
-             * `KeySet` is used. Individual key values are encoded as described here.
+             * A list of specific keys. Entries in `keys` should have exactly as many elements as there are columns in the primary or index key with which this `KeySet` is used. Individual key
+             * values are encoded as described here.
              */
             keys?: any[][];
             /** A list of key ranges. See KeyRange for more information about key range specifications. */
@@ -409,9 +387,9 @@ declare namespace gapi.client {
             /** `next_page_token` can be sent in a subsequent ListBackupOperations call to fetch more of the matching metadata. */
             nextPageToken?: string;
             /**
-             * The list of matching backup long-running operations. Each operation's name will be prefixed by the backup's name and the operation's metadata will be
-             * of type CreateBackupMetadata. Operations returned include those that are pending or have completed/failed/canceled within the last 7 days. Operations
-             * returned are ordered by `operation.metadata.value.progress.start_time` in descending order starting from the most recently started operation.
+             * The list of matching backup long-running operations. Each operation's name will be prefixed by the backup's name and the operation's metadata will be of type CreateBackupMetadata.
+             * Operations returned include those that are pending or have completed/failed/canceled within the last 7 days. Operations returned are ordered by
+             * `operation.metadata.value.progress.start_time` in descending order starting from the most recently started operation.
              */
             operations?: Operation[];
         }
@@ -425,8 +403,8 @@ declare namespace gapi.client {
             /** `next_page_token` can be sent in a subsequent ListDatabaseOperations call to fetch more of the matching metadata. */
             nextPageToken?: string;
             /**
-             * The list of matching database long-running operations. Each operation's name will be prefixed by the database's name. The operation's metadata field
-             * type `metadata.type_url` describes the type of the metadata.
+             * The list of matching database long-running operations. Each operation's name will be prefixed by the database's name. The operation's metadata field type `metadata.type_url`
+             * describes the type of the metadata.
              */
             operations?: Operation[];
         }
@@ -466,43 +444,39 @@ declare namespace gapi.client {
             /** Insert new rows in a table. If any of the rows already exist, the write or transaction fails with error `ALREADY_EXISTS`. */
             insert?: Write;
             /**
-             * Like insert, except that if the row already exists, then its column values are overwritten with the ones provided. Any column values not explicitly
-             * written are preserved. When using insert_or_update, just as when using insert, all `NOT NULL` columns in the table must be given a value. This holds
-             * true even when the row already exists and will therefore actually be updated.
+             * Like insert, except that if the row already exists, then its column values are overwritten with the ones provided. Any column values not explicitly written are preserved. When using
+             * insert_or_update, just as when using insert, all `NOT NULL` columns in the table must be given a value. This holds true even when the row already exists and will therefore actually
+             * be updated.
              */
             insertOrUpdate?: Write;
             /**
-             * Like insert, except that if the row already exists, it is deleted, and the column values provided are inserted instead. Unlike insert_or_update, this
-             * means any values not explicitly written become `NULL`. In an interleaved table, if you create the child table with the `ON DELETE CASCADE` annotation,
-             * then replacing a parent row also deletes the child rows. Otherwise, you must delete the child rows before you replace the parent row.
+             * Like insert, except that if the row already exists, it is deleted, and the column values provided are inserted instead. Unlike insert_or_update, this means any values not explicitly
+             * written become `NULL`. In an interleaved table, if you create the child table with the `ON DELETE CASCADE` annotation, then replacing a parent row also deletes the child rows.
+             * Otherwise, you must delete the child rows before you replace the parent row.
              */
             replace?: Write;
             /** Update existing rows in a table. If any of the rows does not already exist, the transaction fails with error `NOT_FOUND`. */
             update?: Write;
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -521,49 +495,40 @@ declare namespace gapi.client {
             progress?: OperationProgress;
         }
         interface PartialResultSet {
-            /**
-             * If true, then the final value in values is chunked, and must be combined with more values from subsequent `PartialResultSet`s to obtain a complete
-             * field value.
-             */
+            /** If true, then the final value in values is chunked, and must be combined with more values from subsequent `PartialResultSet`s to obtain a complete field value. */
             chunkedValue?: boolean;
             /** Metadata about the result set, such as row type information. Only present in the first response. */
             metadata?: ResultSetMetadata;
             /**
-             * Streaming calls might be interrupted for a variety of reasons, such as TCP connection loss. If this occurs, the stream of results can be resumed by
-             * re-sending the original request and including `resume_token`. Note that executing any other transaction in the same session invalidates the token.
+             * Streaming calls might be interrupted for a variety of reasons, such as TCP connection loss. If this occurs, the stream of results can be resumed by re-sending the original request
+             * and including `resume_token`. Note that executing any other transaction in the same session invalidates the token.
              */
             resumeToken?: string;
             /**
-             * Query plan and execution statistics for the statement that produced this streaming result set. These can be requested by setting
-             * ExecuteSqlRequest.query_mode and are sent only once with the last response in the stream. This field will also be present in the last response for DML
-             * statements.
+             * Query plan and execution statistics for the statement that produced this streaming result set. These can be requested by setting ExecuteSqlRequest.query_mode and are sent only once
+             * with the last response in the stream. This field will also be present in the last response for DML statements.
              */
             stats?: ResultSetStats;
             /**
-             * A streamed result set consists of a stream of values, which might be split into many `PartialResultSet` messages to accommodate large rows and/or large
-             * values. Every N complete values defines a row, where N is equal to the number of entries in metadata.row_type.fields. Most values are encoded based on
-             * type as described here. It is possible that the last value in values is "chunked", meaning that the rest of the value is sent in subsequent
-             * `PartialResultSet`(s). This is denoted by the chunked_value field. Two or more chunked values can be merged to form a complete value as follows: ∗
-             * `bool/number/null`: cannot be chunked ∗ `string`: concatenate the strings ∗ `list`: concatenate the lists. If the last element in a list is a `string`,
-             * `list`, or `object`, merge it with the first element in the next list by applying these rules recursively. ∗ `object`: concatenate the (field name,
-             * field value) pairs. If a field name is duplicated, then apply these rules recursively to merge the field values. Some examples of merging: # Strings
-             * are concatenated. "foo", "bar" => "foobar" # Lists of non-strings are concatenated. [2, 3], [4] => [2, 3, 4] # Lists are concatenated, but the last and
-             * first elements are merged # because they are strings. ["a", "b"], ["c", "d"] => ["a", "bc", "d"] # Lists are concatenated, but the last and first
-             * elements are merged # because they are lists. Recursively, the last and first elements # of the inner lists are merged because they are strings. ["a",
-             * ["b", "c"]], [["d"], "e"] => ["a", ["b", "cd"], "e"] # Non-overlapping object fields are combined. {"a": "1"}, {"b": "2"} => {"a": "1", "b": 2"} #
-             * Overlapping object fields are merged. {"a": "1"}, {"a": "2"} => {"a": "12"} # Examples of merging objects containing lists of strings. {"a": ["1"]},
-             * {"a": ["2"]} => {"a": ["12"]} For a more complete example, suppose a streaming SQL query is yielding a result set whose rows contain a single string
-             * field. The following `PartialResultSet`s might be yielded: { "metadata": { ... } "values": ["Hello", "W"] "chunked_value": true "resume_token":
-             * "Af65..." } { "values": ["orl"] "chunked_value": true "resume_token": "Bqp2..." } { "values": ["d"] "resume_token": "Zx1B..." } This sequence of
-             * `PartialResultSet`s encodes two rows, one containing the field value `"Hello"`, and a second containing the field value `"World" = "W" + "orl" + "d"`.
+             * A streamed result set consists of a stream of values, which might be split into many `PartialResultSet` messages to accommodate large rows and/or large values. Every N complete
+             * values defines a row, where N is equal to the number of entries in metadata.row_type.fields. Most values are encoded based on type as described here. It is possible that the last
+             * value in values is "chunked", meaning that the rest of the value is sent in subsequent `PartialResultSet`(s). This is denoted by the chunked_value field. Two or more chunked values
+             * can be merged to form a complete value as follows: * `bool/number/null`: cannot be chunked * `string`: concatenate the strings * `list`: concatenate the lists. If the last element
+             * in a list is a `string`, `list`, or `object`, merge it with the first element in the next list by applying these rules recursively. * `object`: concatenate the (field name, field
+             * value) pairs. If a field name is duplicated, then apply these rules recursively to merge the field values. Some examples of merging: # Strings are concatenated. "foo", "bar" =>
+             * "foobar" # Lists of non-strings are concatenated. [2, 3], [4] => [2, 3, 4] # Lists are concatenated, but the last and first elements are merged # because they are strings. ["a",
+             * "b"], ["c", "d"] => ["a", "bc", "d"] # Lists are concatenated, but the last and first elements are merged # because they are lists. Recursively, the last and first elements # of the
+             * inner lists are merged because they are strings. ["a", ["b", "c"]], [["d"], "e"] => ["a", ["b", "cd"], "e"] # Non-overlapping object fields are combined. {"a": "1"}, {"b": "2"} =>
+             * {"a": "1", "b": 2"} # Overlapping object fields are merged. {"a": "1"}, {"a": "2"} => {"a": "12"} # Examples of merging objects containing lists of strings. {"a": ["1"]}, {"a":
+             * ["2"]} => {"a": ["12"]} For a more complete example, suppose a streaming SQL query is yielding a result set whose rows contain a single string field. The following
+             * `PartialResultSet`s might be yielded: { "metadata": { ... } "values": ["Hello", "W"] "chunked_value": true "resume_token": "Af65..." } { "values": ["orl"] "chunked_value": true
+             * "resume_token": "Bqp2..." } { "values": ["d"] "resume_token": "Zx1B..." } This sequence of `PartialResultSet`s encodes two rows, one containing the field value `"Hello"`, and a
+             * second containing the field value `"World" = "W" + "orl" + "d"`.
              */
             values?: any[];
         }
         interface Partition {
-            /**
-             * This token can be passed to Read, StreamingRead, ExecuteSql, or ExecuteStreamingSql requests to restrict the results to those identified by this
-             * partition token.
-             */
+            /** This token can be passed to Read, StreamingRead, ExecuteSql, or ExecuteStreamingSql requests to restrict the results to those identified by this partition token. */
             partitionToken?: string;
         }
         // tslint:disable-next-line:no-empty-interface
@@ -571,38 +536,37 @@ declare namespace gapi.client {
         }
         interface PartitionOptions {
             /**
-             * ∗∗Note:∗∗ This hint is currently ignored by PartitionQuery and PartitionRead requests. The desired maximum number of partitions to return. For example,
-             * this may be set to the number of workers available. The default for this option is currently 10,000. The maximum value is currently 200,000. This is
-             * only a hint. The actual number of partitions returned may be smaller or larger than this maximum count request.
+             * **Note:** This hint is currently ignored by PartitionQuery and PartitionRead requests. The desired maximum number of partitions to return. For example, this may be set to the number
+             * of workers available. The default for this option is currently 10,000. The maximum value is currently 200,000. This is only a hint. The actual number of partitions returned may be
+             * smaller or larger than this maximum count request.
              */
             maxPartitions?: string;
             /**
-             * ∗∗Note:∗∗ This hint is currently ignored by PartitionQuery and PartitionRead requests. The desired data size for each partition generated. The default
-             * for this option is currently 1 GiB. This is only a hint. The actual size of each partition may be smaller or larger than this size request.
+             * **Note:** This hint is currently ignored by PartitionQuery and PartitionRead requests. The desired data size for each partition generated. The default for this option is currently 1
+             * GiB. This is only a hint. The actual size of each partition may be smaller or larger than this size request.
              */
             partitionSizeBytes?: string;
         }
         interface PartitionQueryRequest {
             /**
-             * Parameter names and values that bind to placeholders in the SQL string. A parameter placeholder consists of the `@` character followed by the parameter
-             * name (for example, `@firstName`). Parameter names can contain letters, numbers, and underscores. Parameters can appear anywhere that a literal value is
-             * expected. The same parameter name can be used more than once, for example: `"WHERE id > @msg_id AND id < @msg_id + 100"` It is an error to execute a
-             * SQL statement with unbound parameters.
+             * Parameter names and values that bind to placeholders in the SQL string. A parameter placeholder consists of the `@` character followed by the parameter name (for example,
+             * `@firstName`). Parameter names can contain letters, numbers, and underscores. Parameters can appear anywhere that a literal value is expected. The same parameter name can be used
+             * more than once, for example: `"WHERE id > @msg_id AND id < @msg_id + 100"` It is an error to execute a SQL statement with unbound parameters.
              */
             params?: { [P in string]: any };
             /**
-             * It is not always possible for Cloud Spanner to infer the right SQL type from a JSON value. For example, values of type `BYTES` and values of type
-             * `STRING` both appear in params as JSON strings. In these cases, `param_types` can be used to specify the exact SQL type for some or all of the SQL
-             * query parameters. See the definition of Type for more information about SQL types.
+             * It is not always possible for Cloud Spanner to infer the right SQL type from a JSON value. For example, values of type `BYTES` and values of type `STRING` both appear in params as
+             * JSON strings. In these cases, `param_types` can be used to specify the exact SQL type for some or all of the SQL query parameters. See the definition of Type for more information
+             * about SQL types.
              */
             paramTypes?: { [P in string]: Type };
             /** Additional options that affect how many partitions are created. */
             partitionOptions?: PartitionOptions;
             /**
-             * Required. The query request to generate partitions for. The request will fail if the query is not root partitionable. The query plan of a root
-             * partitionable query has a single distributed union operator. A distributed union operator conceptually divides one or more tables into multiple splits,
-             * remotely evaluates a subquery independently on each split, and then unions all results. This must not contain DML commands, such as INSERT, UPDATE, or
-             * DELETE. Use ExecuteStreamingSql with a PartitionedDml transaction for large, partition-friendly DML operations.
+             * Required. The query request to generate partitions for. The request will fail if the query is not root partitionable. The query plan of a root partitionable query has a single
+             * distributed union operator. A distributed union operator conceptually divides one or more tables into multiple splits, remotely evaluates a subquery independently on each split, and
+             * then unions all results. This must not contain DML commands, such as INSERT, UPDATE, or DELETE. Use ExecuteStreamingSql with a PartitionedDml transaction for large,
+             * partition-friendly DML operations.
              */
             sql?: string;
             /** Read only snapshot transactions are supported, read/write and single use transactions are not. */
@@ -612,14 +576,13 @@ declare namespace gapi.client {
             /** The columns of table to be returned for each row matching this request. */
             columns?: string[];
             /**
-             * If non-empty, the name of an index on table. This index is used instead of the table primary key when interpreting key_set and sorting result rows. See
-             * key_set for further information.
+             * If non-empty, the name of an index on table. This index is used instead of the table primary key when interpreting key_set and sorting result rows. See key_set for further
+             * information.
              */
             index?: string;
             /**
-             * Required. `key_set` identifies the rows to be yielded. `key_set` names the primary keys of the rows in table to be yielded, unless index is present. If
-             * index is present, then key_set instead names index keys in index. It is not an error for the `key_set` to name rows that do not exist in the database.
-             * Read yields nothing for nonexistent rows.
+             * Required. `key_set` identifies the rows to be yielded. `key_set` names the primary keys of the rows in table to be yielded, unless index is present. If index is present, then
+             * key_set instead names index keys in index. It is not an error for the `key_set` to name rows that do not exist in the database. Read yields nothing for nonexistent rows.
              */
             keySet?: KeySet;
             /** Additional options that affect how many partitions are created. */
@@ -641,20 +604,20 @@ declare namespace gapi.client {
             /** The display name for the node. */
             displayName?: string;
             /**
-             * The execution statistics associated with the node, contained in a group of key-value pairs. Only present if the plan was returned as a result of a
-             * profile query. For example, number of executions, number of rows/time per execution etc.
+             * The execution statistics associated with the node, contained in a group of key-value pairs. Only present if the plan was returned as a result of a profile query. For example, number
+             * of executions, number of rows/time per execution etc.
              */
             executionStats?: { [P in string]: any };
             /** The `PlanNode`'s index in node list. */
             index?: number;
             /**
-             * Used to determine the type of node. May be needed for visualizing different kinds of nodes differently. For example, If the node is a SCALAR node, it
-             * will have a condensed representation which can be used to directly embed a description of the node in its parent.
+             * Used to determine the type of node. May be needed for visualizing different kinds of nodes differently. For example, If the node is a SCALAR node, it will have a condensed
+             * representation which can be used to directly embed a description of the node in its parent.
              */
             kind?: string;
             /**
-             * Attributes relevant to the node contained in a group of key-value pairs. For example, a Parameter Reference node could have the following information
-             * in its metadata: { "parameter_reference": "param1", "parameter_type": "array" }
+             * Attributes relevant to the node contained in a group of key-value pairs. For example, a Parameter Reference node could have the following information in its metadata: {
+             * "parameter_reference": "param1", "parameter_type": "array" }
              */
             metadata?: { [P in string]: any };
             /** Condensed representation for SCALAR nodes. */
@@ -662,76 +625,66 @@ declare namespace gapi.client {
         }
         interface Policy {
             /**
-             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the
-             * `bindings` must contain at least one member.
+             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
+             * least one member.
              */
             bindings?: Binding[];
             /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
-             * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
-             * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
-             * the version `3` policy are lost.
+             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
+             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
+             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
+             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
             /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
-             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
-             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
-             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
-             * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
-             * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
+             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
+             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
+             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
+             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
         interface QueryOptions {
             /**
-             * An option to control the selection of optimizer version. This parameter allows individual queries to pick different query optimizer versions.
-             * Specifying "latest" as a value instructs Cloud Spanner to use the latest supported query optimizer version. If not specified, Cloud Spanner uses
-             * optimizer version set at the database level options. Any other positive integer (from the list of supported optimizer versions) overrides the default
-             * optimizer version for query execution. The list of supported optimizer versions can be queried from SPANNER_SYS.SUPPORTED_OPTIMIZER_VERSIONS. Executing
-             * a SQL statement with an invalid optimizer version will fail with a syntax error (`INVALID_ARGUMENT`) status. See
-             * https://cloud.google.com/spanner/docs/query-optimizer/manage-query-optimizer for more information on managing the query optimizer. The
-             * `optimizer_version` statement hint has precedence over this setting.
+             * An option to control the selection of optimizer version. This parameter allows individual queries to pick different query optimizer versions. Specifying "latest" as a value
+             * instructs Cloud Spanner to use the latest supported query optimizer version. If not specified, Cloud Spanner uses optimizer version set at the database level options. Any other
+             * positive integer (from the list of supported optimizer versions) overrides the default optimizer version for query execution. The list of supported optimizer versions can be queried
+             * from SPANNER_SYS.SUPPORTED_OPTIMIZER_VERSIONS. Executing a SQL statement with an invalid optimizer version will fail with a syntax error (`INVALID_ARGUMENT`) status. See
+             * https://cloud.google.com/spanner/docs/query-optimizer/manage-query-optimizer for more information on managing the query optimizer. The `optimizer_version` statement hint has
+             * precedence over this setting.
              */
             optimizerVersion?: string;
         }
         interface QueryPlan {
-            /**
-             * The nodes in the query plan. Plan nodes are returned in pre-order starting with the plan root. Each PlanNode's `id` corresponds to its index in
-             * `plan_nodes`.
-             */
+            /** The nodes in the query plan. Plan nodes are returned in pre-order starting with the plan root. Each PlanNode's `id` corresponds to its index in `plan_nodes`. */
             planNodes?: PlanNode[];
         }
         interface ReadOnly {
             /**
-             * Executes all reads at a timestamp that is `exact_staleness` old. The timestamp is chosen soon after the read is started. Guarantees that all writes
-             * that have committed more than the specified number of seconds ago are visible. Because Cloud Spanner chooses the exact timestamp, this mode works even
-             * if the client's local clock is substantially skewed from Cloud Spanner commit timestamps. Useful for reading at nearby replicas without the distributed
-             * timestamp negotiation overhead of `max_staleness`.
+             * Executes all reads at a timestamp that is `exact_staleness` old. The timestamp is chosen soon after the read is started. Guarantees that all writes that have committed more than the
+             * specified number of seconds ago are visible. Because Cloud Spanner chooses the exact timestamp, this mode works even if the client's local clock is substantially skewed from Cloud
+             * Spanner commit timestamps. Useful for reading at nearby replicas without the distributed timestamp negotiation overhead of `max_staleness`.
              */
             exactStaleness?: string;
             /**
-             * Read data at a timestamp >= `NOW - max_staleness` seconds. Guarantees that all writes that have committed more than the specified number of seconds ago
-             * are visible. Because Cloud Spanner chooses the exact timestamp, this mode works even if the client's local clock is substantially skewed from Cloud
-             * Spanner commit timestamps. Useful for reading the freshest data available at a nearby replica, while bounding the possible staleness if the local
-             * replica has fallen behind. Note that this option can only be used in single-use transactions.
+             * Read data at a timestamp >= `NOW - max_staleness` seconds. Guarantees that all writes that have committed more than the specified number of seconds ago are visible. Because Cloud
+             * Spanner chooses the exact timestamp, this mode works even if the client's local clock is substantially skewed from Cloud Spanner commit timestamps. Useful for reading the freshest
+             * data available at a nearby replica, while bounding the possible staleness if the local replica has fallen behind. Note that this option can only be used in single-use transactions.
              */
             maxStaleness?: string;
             /**
-             * Executes all reads at a timestamp >= `min_read_timestamp`. This is useful for requesting fresher data than some previous read, or data that is fresh
-             * enough to observe the effects of some previously committed transaction whose timestamp is known. Note that this option can only be used in single-use
-             * transactions. A timestamp in RFC3339 UTC \"Zulu\" format, accurate to nanoseconds. Example: `"2014-10-02T15:01:23.045123456Z"`.
+             * Executes all reads at a timestamp >= `min_read_timestamp`. This is useful for requesting fresher data than some previous read, or data that is fresh enough to observe the effects of
+             * some previously committed transaction whose timestamp is known. Note that this option can only be used in single-use transactions. A timestamp in RFC3339 UTC \"Zulu\" format,
+             * accurate to nanoseconds. Example: `"2014-10-02T15:01:23.045123456Z"`.
              */
             minReadTimestamp?: string;
             /**
-             * Executes all reads at the given timestamp. Unlike other modes, reads at a specific timestamp are repeatable; the same read at the same timestamp always
-             * returns the same data. If the timestamp is in the future, the read will block until the specified timestamp, modulo the read's deadline. Useful for
-             * large scale consistent reads such as mapreduces, or for coordinating many reads against a consistent snapshot of the data. A timestamp in RFC3339 UTC
-             * \"Zulu\" format, accurate to nanoseconds. Example: `"2014-10-02T15:01:23.045123456Z"`.
+             * Executes all reads at the given timestamp. Unlike other modes, reads at a specific timestamp are repeatable; the same read at the same timestamp always returns the same data. If the
+             * timestamp is in the future, the read will block until the specified timestamp, modulo the read's deadline. Useful for large scale consistent reads such as mapreduces, or for
+             * coordinating many reads against a consistent snapshot of the data. A timestamp in RFC3339 UTC \"Zulu\" format, accurate to nanoseconds. Example: `"2014-10-02T15:01:23.045123456Z"`.
              */
             readTimestamp?: string;
             /** If true, the Cloud Spanner-selected read timestamp is included in the Transaction message that describes the transaction. */
@@ -743,31 +696,27 @@ declare namespace gapi.client {
             /** Required. The columns of table to be returned for each row matching this request. */
             columns?: string[];
             /**
-             * If non-empty, the name of an index on table. This index is used instead of the table primary key when interpreting key_set and sorting result rows. See
-             * key_set for further information.
+             * If non-empty, the name of an index on table. This index is used instead of the table primary key when interpreting key_set and sorting result rows. See key_set for further
+             * information.
              */
             index?: string;
             /**
-             * Required. `key_set` identifies the rows to be yielded. `key_set` names the primary keys of the rows in table to be yielded, unless index is present. If
-             * index is present, then key_set instead names index keys in index. If the partition_token field is empty, rows are yielded in table primary key order
-             * (if index is empty) or index key order (if index is non-empty). If the partition_token field is not empty, rows will be yielded in an unspecified
-             * order. It is not an error for the `key_set` to name rows that do not exist in the database. Read yields nothing for nonexistent rows.
+             * Required. `key_set` identifies the rows to be yielded. `key_set` names the primary keys of the rows in table to be yielded, unless index is present. If index is present, then
+             * key_set instead names index keys in index. If the partition_token field is empty, rows are yielded in table primary key order (if index is empty) or index key order (if index is
+             * non-empty). If the partition_token field is not empty, rows will be yielded in an unspecified order. It is not an error for the `key_set` to name rows that do not exist in the
+             * database. Read yields nothing for nonexistent rows.
              */
             keySet?: KeySet;
-            /**
-             * If greater than zero, only the first `limit` rows are yielded. If `limit` is zero, the default is no limit. A limit cannot be specified if
-             * `partition_token` is set.
-             */
+            /** If greater than zero, only the first `limit` rows are yielded. If `limit` is zero, the default is no limit. A limit cannot be specified if `partition_token` is set. */
             limit?: string;
             /**
-             * If present, results will be restricted to the specified partition previously created using PartitionRead(). There must be an exact match for the values
-             * of fields common to this message and the PartitionReadRequest message used to create this partition_token.
+             * If present, results will be restricted to the specified partition previously created using PartitionRead(). There must be an exact match for the values of fields common to this
+             * message and the PartitionReadRequest message used to create this partition_token.
              */
             partitionToken?: string;
             /**
-             * If this request is resuming a previously interrupted read, `resume_token` should be copied from the last PartialResultSet yielded before the
-             * interruption. Doing this enables the new read to resume where the last read left off. The rest of the request parameters must exactly match the request
-             * that yielded this token.
+             * If this request is resuming a previously interrupted read, `resume_token` should be copied from the last PartialResultSet yielded before the interruption. Doing this enables the new
+             * read to resume where the last read left off. The rest of the request parameters must exactly match the request that yielded this token.
              */
             resumeToken?: string;
             /** Required. The name of the table in the database to be read. */
@@ -793,20 +742,19 @@ declare namespace gapi.client {
             /** Information about the backup used to restore the database. */
             backupInfo?: BackupInfo;
             /**
-             * The time at which cancellation of this operation was received. Operations.CancelOperation starts asynchronous cancellation on a long-running operation.
-             * The server makes a best effort to cancel the operation, but success is not guaranteed. Clients can use Operations.GetOperation or other methods to
-             * check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not
-             * deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * The time at which cancellation of this operation was received. Operations.CancelOperation starts asynchronous cancellation on a long-running operation. The server makes a best
+             * effort to cancel the operation, but success is not guaranteed. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancelTime?: string;
             /** Name of the database being created and restored to. */
             name?: string;
             /**
-             * If exists, the name of the long-running operation that will be used to track the post-restore optimization process to optimize the performance of the
-             * restored database, and remove the dependency on the restore source. The name is of the form `projects//instances//databases//operations/` where the is
-             * the name of database being created and restored to. The metadata type of the long-running operation is OptimizeRestoredDatabaseMetadata. This
-             * long-running operation will be automatically created by the system after the RestoreDatabase long-running operation completes successfully. This
-             * operation will not be created if the restore was not successful.
+             * If exists, the name of the long-running operation that will be used to track the post-restore optimization process to optimize the performance of the restored database, and remove
+             * the dependency on the restore source. The name is of the form `projects//instances//databases//operations/` where the is the name of database being created and restored to. The
+             * metadata type of the long-running operation is OptimizeRestoredDatabaseMetadata. This long-running operation will be automatically created by the system after the RestoreDatabase
+             * long-running operation completes successfully. This operation will not be created if the restore was not successful.
              */
             optimizeDatabaseOperationName?: string;
             /** The progress of the RestoreDatabase operation. */
@@ -818,8 +766,8 @@ declare namespace gapi.client {
             /** Name of the backup from which to restore. Values are of the form `projects//instances//backups/`. */
             backup?: string;
             /**
-             * Required. The id of the database to create and restore to. This database must not already exist. The `database_id` appended to `parent` forms the full
-             * database name of the form `projects//instances//databases/`.
+             * Required. The id of the database to create and restore to. This database must not already exist. The `database_id` appended to `parent` forms the full database name of the form
+             * `projects//instances//databases/`.
              */
             databaseId?: string;
         }
@@ -833,21 +781,21 @@ declare namespace gapi.client {
             /** Metadata about the result set, such as row type information. */
             metadata?: ResultSetMetadata;
             /**
-             * Each element in `rows` is a row whose format is defined by metadata.row_type. The ith element in each row matches the ith field in metadata.row_type.
-             * Elements are encoded based on type as described here.
+             * Each element in `rows` is a row whose format is defined by metadata.row_type. The ith element in each row matches the ith field in metadata.row_type. Elements are encoded based on
+             * type as described here.
              */
             rows?: any[][];
             /**
-             * Query plan and execution statistics for the SQL statement that produced this result set. These can be requested by setting
-             * ExecuteSqlRequest.query_mode. DML statements always produce stats containing the number of rows modified, unless executed using the
-             * ExecuteSqlRequest.QueryMode.PLAN ExecuteSqlRequest.query_mode. Other fields may or may not be populated, based on the ExecuteSqlRequest.query_mode.
+             * Query plan and execution statistics for the SQL statement that produced this result set. These can be requested by setting ExecuteSqlRequest.query_mode. DML statements always
+             * produce stats containing the number of rows modified, unless executed using the ExecuteSqlRequest.QueryMode.PLAN ExecuteSqlRequest.query_mode. Other fields may or may not be
+             * populated, based on the ExecuteSqlRequest.query_mode.
              */
             stats?: ResultSetStats;
         }
         interface ResultSetMetadata {
             /**
-             * Indicates the field names and types for the rows in the result set. For example, a SQL query like `"SELECT UserId, UserName FROM Users"` could return a
-             * `row_type` value like: "fields": [ { "name": "UserId", "type": { "code": "INT64" } }, { "name": "UserName", "type": { "code": "STRING" } }, ]
+             * Indicates the field names and types for the rows in the result set. For example, a SQL query like `"SELECT UserId, UserName FROM Users"` could return a `row_type` value like:
+             * "fields": [ { "name": "UserId", "type": { "code": "INT64" } }, { "name": "UserName", "type": { "code": "STRING" } }, ]
              */
             rowType?: StructType;
             /** If the read or SQL query began a transaction as a side-effect, the information about the new transaction is yielded here. */
@@ -857,8 +805,8 @@ declare namespace gapi.client {
             /** QueryPlan for the query associated with this result. */
             queryPlan?: QueryPlan;
             /**
-             * Aggregated statistics from the execution of the query. Only present when the query is profiled. For example, a query could return the statistics as
-             * follows: { "rows_returned": "3", "elapsed_time": "1.22 secs", "cpu_time": "1.19 secs" }
+             * Aggregated statistics from the execution of the query. Only present when the query is profiled. For example, a query could return the statistics as follows: { "rows_returned": "3",
+             * "elapsed_time": "1.22 secs", "cpu_time": "1.19 secs" }
              */
             queryStats?: { [P in string]: any };
             /** Standard DML returns an exact count of rows that were modified. */
@@ -876,10 +824,9 @@ declare namespace gapi.client {
             /** Output only. The timestamp when the session is created. */
             createTime?: string;
             /**
-             * The labels for the session. ∗ Label keys must be between 1 and 63 characters long and must conform to the following regular expression:
-             * `[a-z]([-a-z0-9]∗[a-z0-9])?`. ∗ Label values must be between 0 and 63 characters long and must conform to the regular expression
-             * `([a-z]([-a-z0-9]∗[a-z0-9])?)?`. ∗ No more than 64 labels can be associated with a given session. See https://goo.gl/xmQnxf for more information on and
-             * examples of labels.
+             * The labels for the session. * Label keys must be between 1 and 63 characters long and must conform to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`. * Label values
+             * must be between 0 and 63 characters long and must conform to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`. * No more than 64 labels can be associated with a given session.
+             * See https://goo.gl/xmQnxf for more information on and examples of labels.
              */
             labels?: { [P in string]: string };
             /** Output only. The name of the session. This is always system-assigned. */
@@ -887,8 +834,8 @@ declare namespace gapi.client {
         }
         interface SetIamPolicyRequest {
             /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy
-             * but certain Cloud Platform services (such as Projects) might reject them.
+             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Cloud Platform
+             * services (such as Projects) might reject them.
              */
             policy?: Policy;
         }
@@ -896,23 +843,22 @@ declare namespace gapi.client {
             /** A string representation of the expression subtree rooted at this node. */
             description?: string;
             /**
-             * A mapping of (subquery variable name) -> (subquery node id) for cases where the `description` string of this node references a `SCALAR` subquery
-             * contained in the expression subtree rooted at this node. The referenced `SCALAR` subquery may not necessarily be a direct child of this node.
+             * A mapping of (subquery variable name) -> (subquery node id) for cases where the `description` string of this node references a `SCALAR` subquery contained in the expression subtree
+             * rooted at this node. The referenced `SCALAR` subquery may not necessarily be a direct child of this node.
              */
             subqueries?: { [P in string]: number };
         }
         interface Statement {
             /**
-             * Parameter names and values that bind to placeholders in the DML string. A parameter placeholder consists of the `@` character followed by the parameter
-             * name (for example, `@firstName`). Parameter names can contain letters, numbers, and underscores. Parameters can appear anywhere that a literal value is
-             * expected. The same parameter name can be used more than once, for example: `"WHERE id > @msg_id AND id < @msg_id + 100"` It is an error to execute a
-             * SQL statement with unbound parameters.
+             * Parameter names and values that bind to placeholders in the DML string. A parameter placeholder consists of the `@` character followed by the parameter name (for example,
+             * `@firstName`). Parameter names can contain letters, numbers, and underscores. Parameters can appear anywhere that a literal value is expected. The same parameter name can be used
+             * more than once, for example: `"WHERE id > @msg_id AND id < @msg_id + 100"` It is an error to execute a SQL statement with unbound parameters.
              */
             params?: { [P in string]: any };
             /**
-             * It is not always possible for Cloud Spanner to infer the right SQL type from a JSON value. For example, values of type `BYTES` and values of type
-             * `STRING` both appear in params as JSON strings. In these cases, `param_types` can be used to specify the exact SQL type for some or all of the SQL
-             * statement parameters. See the definition of Type for more information about SQL types.
+             * It is not always possible for Cloud Spanner to infer the right SQL type from a JSON value. For example, values of type `BYTES` and values of type `STRING` both appear in params as
+             * JSON strings. In these cases, `param_types` can be used to specify the exact SQL type for some or all of the SQL statement parameters. See the definition of Type for more
+             * information about SQL types.
              */
             paramTypes?: { [P in string]: Type };
             /** Required. The DML string. */
@@ -924,21 +870,20 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
         interface StructType {
             /**
-             * The list of fields that make up this struct. Order is significant, because values of this struct type are represented as lists, where the order of
-             * field values matches the order of fields in the StructType. In turn, the order of fields matches the order of columns in a read request, or the order
-             * of fields in the `SELECT` clause of a query.
+             * The list of fields that make up this struct. Order is significant, because values of this struct type are represented as lists, where the order of field values matches the order of
+             * fields in the StructType. In turn, the order of fields matches the order of columns in a read request, or the order of fields in the `SELECT` clause of a query.
              */
             fields?: Field[];
         }
         interface TestIamPermissionsRequest {
-            /** REQUIRED: The set of permissions to check for 'resource'. Permissions with wildcards (such as '∗', 'spanner.∗', 'spanner.instances.∗') are not allowed. */
+            /** REQUIRED: The set of permissions to check for 'resource'. Permissions with wildcards (such as '*', 'spanner.*', 'spanner.instances.*') are not allowed. */
             permissions?: string[];
         }
         interface TestIamPermissionsResponse {
@@ -947,39 +892,26 @@ declare namespace gapi.client {
         }
         interface Transaction {
             /**
-             * `id` may be used to identify the transaction in subsequent Read, ExecuteSql, Commit, or Rollback calls. Single-use read-only transactions do not have
-             * IDs, because single-use transactions do not support multiple requests.
+             * `id` may be used to identify the transaction in subsequent Read, ExecuteSql, Commit, or Rollback calls. Single-use read-only transactions do not have IDs, because single-use
+             * transactions do not support multiple requests.
              */
             id?: string;
             /**
-             * For snapshot read-only transactions, the read timestamp chosen for the transaction. Not returned by default: see
-             * TransactionOptions.ReadOnly.return_read_timestamp. A timestamp in RFC3339 UTC \"Zulu\" format, accurate to nanoseconds. Example:
-             * `"2014-10-02T15:01:23.045123456Z"`.
+             * For snapshot read-only transactions, the read timestamp chosen for the transaction. Not returned by default: see TransactionOptions.ReadOnly.return_read_timestamp. A timestamp in
+             * RFC3339 UTC \"Zulu\" format, accurate to nanoseconds. Example: `"2014-10-02T15:01:23.045123456Z"`.
              */
             readTimestamp?: string;
         }
         interface TransactionOptions {
-            /**
-             * Partitioned DML transaction. Authorization to begin a Partitioned DML transaction requires `spanner.databases.beginPartitionedDmlTransaction`
-             * permission on the `session` resource.
-             */
+            /** Partitioned DML transaction. Authorization to begin a Partitioned DML transaction requires `spanner.databases.beginPartitionedDmlTransaction` permission on the `session` resource. */
             partitionedDml?: any;
-            /**
-             * Transaction will not write. Authorization to begin a read-only transaction requires `spanner.databases.beginReadOnlyTransaction` permission on the
-             * `session` resource.
-             */
+            /** Transaction will not write. Authorization to begin a read-only transaction requires `spanner.databases.beginReadOnlyTransaction` permission on the `session` resource. */
             readOnly?: ReadOnly;
-            /**
-             * Transaction may write. Authorization to begin a read-write transaction requires `spanner.databases.beginOrRollbackReadWriteTransaction` permission on
-             * the `session` resource.
-             */
+            /** Transaction may write. Authorization to begin a read-write transaction requires `spanner.databases.beginOrRollbackReadWriteTransaction` permission on the `session` resource. */
             readWrite?: any;
         }
         interface TransactionSelector {
-            /**
-             * Begin a new transaction and execute this read or SQL query in it. The transaction ID of the new transaction is returned in
-             * ResultSetMetadata.transaction, which is a Transaction.
-             */
+            /** Begin a new transaction and execute this read or SQL query in it. The transaction ID of the new transaction is returned in ResultSetMetadata.transaction, which is a Transaction. */
             begin?: TransactionOptions;
             /** Execute the read or SQL query in a previously-started transaction. */
             id?: string;
@@ -995,10 +927,7 @@ declare namespace gapi.client {
             structType?: StructType;
         }
         interface UpdateDatabaseDdlMetadata {
-            /**
-             * Reports the commit timestamps of all statements that have succeeded so far, where `commit_timestamps[i]` is the commit timestamp for the statement
-             * `statements[i]`.
-             */
+            /** Reports the commit timestamps of all statements that have succeeded so far, where `commit_timestamps[i]` is the commit timestamp for the statement `statements[i]`. */
             commitTimestamps?: string[];
             /** The database being modified. */
             database?: string;
@@ -1007,22 +936,18 @@ declare namespace gapi.client {
         }
         interface UpdateDatabaseDdlRequest {
             /**
-             * If empty, the new update request is assigned an automatically-generated operation ID. Otherwise, `operation_id` is used to construct the name of the
-             * resulting Operation. Specifying an explicit operation ID simplifies determining whether the statements were executed in the event that the
-             * UpdateDatabaseDdl call is replayed, or the return value is otherwise lost: the database and `operation_id` fields can be combined to form the name of
-             * the resulting longrunning.Operation: `/operations/`. `operation_id` should be unique within the database, and must be a valid identifier: `a-z∗`. Note
-             * that automatically-generated operation IDs always begin with an underscore. If the named operation already exists, UpdateDatabaseDdl returns
-             * `ALREADY_EXISTS`.
+             * If empty, the new update request is assigned an automatically-generated operation ID. Otherwise, `operation_id` is used to construct the name of the resulting Operation. Specifying
+             * an explicit operation ID simplifies determining whether the statements were executed in the event that the UpdateDatabaseDdl call is replayed, or the return value is otherwise lost:
+             * the database and `operation_id` fields can be combined to form the name of the resulting longrunning.Operation: `/operations/`. `operation_id` should be unique within the database,
+             * and must be a valid identifier: `a-z*`. Note that automatically-generated operation IDs always begin with an underscore. If the named operation already exists, UpdateDatabaseDdl
+             * returns `ALREADY_EXISTS`.
              */
             operationId?: string;
             /** Required. DDL statements to be applied to the database. */
             statements?: string[];
         }
         interface UpdateInstanceMetadata {
-            /**
-             * The time at which this operation was cancelled. If set, this operation is in the process of undoing itself (which is guaranteed to succeed) and cannot
-             * be cancelled again.
-             */
+            /** The time at which this operation was cancelled. If set, this operation is in the process of undoing itself (which is guaranteed to succeed) and cannot be cancelled again. */
             cancelTime?: string;
             /** The time at which this operation failed or was completed successfully. */
             endTime?: string;
@@ -1033,8 +958,8 @@ declare namespace gapi.client {
         }
         interface UpdateInstanceRequest {
             /**
-             * Required. A mask specifying which fields in Instance should be updated. The field mask must always be specified; this prevents any future fields in
-             * Instance from being erased accidentally by clients that do not know about them.
+             * Required. A mask specifying which fields in Instance should be updated. The field mask must always be specified; this prevents any future fields in Instance from being erased
+             * accidentally by clients that do not know about them.
              */
             fieldMask?: string;
             /** Required. The instance to update, which must always include the instance name. Otherwise, only fields mentioned in field_mask need be included. */
@@ -1042,17 +967,16 @@ declare namespace gapi.client {
         }
         interface Write {
             /**
-             * The names of the columns in table to be written. The list of columns must contain enough columns to allow Cloud Spanner to derive values for all
-             * primary key columns in the row(s) to be modified.
+             * The names of the columns in table to be written. The list of columns must contain enough columns to allow Cloud Spanner to derive values for all primary key columns in the row(s) to
+             * be modified.
              */
             columns?: string[];
             /** Required. The table whose rows will be written. */
             table?: string;
             /**
-             * The values to be written. `values` can contain more than one list of values. If it does, then multiple rows are written, one for each entry in
-             * `values`. Each list in `values` must have exactly as many entries as there are entries in columns above. Sending multiple lists is equivalent to
-             * sending multiple `Mutation`s, each containing one `values` entry and repeating table and columns. Individual values in each list are encoded as
-             * described here.
+             * The values to be written. `values` can contain more than one list of values. If it does, then multiple rows are written, one for each entry in `values`. Each list in `values` must
+             * have exactly as many entries as there are entries in columns above. Sending multiple lists is equivalent to sending multiple `Mutation`s, each containing one `values` entry and
+             * repeating table and columns. Individual values in each list are encoded as described here.
              */
             values?: any[][];
         }
@@ -1119,10 +1043,9 @@ declare namespace gapi.client {
         }
         interface BackupOperationsResource {
             /**
-             * Lists the backup long-running operations in the given instance. A backup operation has a name of the form `projects//instances//backups//operations/`.
-             * The long-running operation metadata field type `metadata.type_url` describes the type of the metadata. Operations returned include those that have
-             * completed/failed/canceled within the last 7 days, and pending operations. Operations returned are ordered by
-             * `operation.metadata.value.progress.start_time` in descending order starting from the most recently started operation.
+             * Lists the backup long-running operations in the given instance. A backup operation has a name of the form `projects//instances//backups//operations/`. The long-running operation
+             * metadata field type `metadata.type_url` describes the type of the metadata. Operations returned include those that have completed/failed/canceled within the last 7 days, and pending
+             * operations. Operations returned are ordered by `operation.metadata.value.progress.start_time` in descending order starting from the most recently started operation.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1136,19 +1059,17 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * An expression that filters the list of returned backup operations. A filter expression consists of a field name, a comparison operator, and a value for
-                 * filtering. The value must be a string, a number, or a boolean. The comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon
-                 * `:` is the contains operator. Filter rules are not case sensitive. The following fields in the operation are eligible for filtering: ∗ `name` - The
-                 * name of the long-running operation ∗ `done` - False if the operation is in progress, else true. ∗ `metadata.@type` - the type of metadata. For example,
-                 * the type string for CreateBackupMetadata is `type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata`. ∗ `metadata.` - any field in
-                 * metadata.value. ∗ `error` - Error associated with the long-running operation. ∗ `response.@type` - the type of response. ∗ `response.` - any field in
-                 * response.value. You can combine multiple expressions by enclosing each expression in parentheses. By default, expressions are combined with AND logic,
-                 * but you can specify AND, OR, and NOT logic explicitly. Here are a few examples: ∗ `done:true` - The operation is complete. ∗ `metadata.database:prod` -
-                 * The database the backup was taken from has a name containing the string "prod". ∗
-                 * `(metadata.@type=type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata) AND` \ `(metadata.name:howl) AND` \
-                 * `(metadata.progress.start_time < \"2018-03-28T14:50:00Z\") AND` \ `(error:∗)` - Returns operations where: ∗ The operation's metadata type is
-                 * CreateBackupMetadata. ∗ The backup name contains the string "howl". ∗ The operation started before 2018-03-28T14:50:00Z. ∗ The operation resulted in an
-                 * error.
+                 * An expression that filters the list of returned backup operations. A filter expression consists of a field name, a comparison operator, and a value for filtering. The value must
+                 * be a string, a number, or a boolean. The comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon `:` is the contains operator. Filter rules are not
+                 * case sensitive. The following fields in the operation are eligible for filtering: * `name` - The name of the long-running operation * `done` - False if the operation is in
+                 * progress, else true. * `metadata.@type` - the type of metadata. For example, the type string for CreateBackupMetadata is
+                 * `type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata`. * `metadata.` - any field in metadata.value. * `error` - Error associated with the long-running
+                 * operation. * `response.@type` - the type of response. * `response.` - any field in response.value. You can combine multiple expressions by enclosing each expression in
+                 * parentheses. By default, expressions are combined with AND logic, but you can specify AND, OR, and NOT logic explicitly. Here are a few examples: * `done:true` - The operation
+                 * is complete. * `metadata.database:prod` - The database the backup was taken from has a name containing the string "prod". *
+                 * `(metadata.@type=type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata) AND` \ `(metadata.name:howl) AND` \ `(metadata.progress.start_time <
+                 * \"2018-03-28T14:50:00Z\") AND` \ `(error:*)` - Returns operations where: * The operation's metadata type is CreateBackupMetadata. * The backup name contains the string "howl". *
+                 * The operation started before 2018-03-28T14:50:00Z. * The operation resulted in an error.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1157,10 +1078,7 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Number of operations to be returned in the response. If 0 or less, defaults to the server's maximum allowed page size. */
                 pageSize?: number;
-                /**
-                 * If non-empty, `page_token` should contain a next_page_token from a previous ListBackupOperationsResponse to the same `parent` and with the same
-                 * `filter`.
-                 */
+                /** If non-empty, `page_token` should contain a next_page_token from a previous ListBackupOperationsResponse to the same `parent` and with the same `filter`. */
                 pageToken?: string;
                 /** Required. The instance of the backup operations. Values are of the form `projects//instances/`. */
                 parent: string;
@@ -1176,10 +1094,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request?: {
                 /** V1 error format. */
@@ -1208,8 +1126,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1237,10 +1155,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1268,11 +1183,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1309,10 +1223,9 @@ declare namespace gapi.client {
         }
         interface BackupsResource {
             /**
-             * Starts creating a new Cloud Spanner Backup. The returned backup long-running operation will have a name of the format
-             * `projects//instances//backups//operations/` and can be used to track creation of the backup. The metadata field type is CreateBackupMetadata. The
-             * response field type is Backup, if successful. Cancelling the returned operation will stop the creation and delete the backup. There can be only one
-             * pending backup creation per database. Backup creation of different databases can run concurrently.
+             * Starts creating a new Cloud Spanner Backup. The returned backup long-running operation will have a name of the format `projects//instances//backups//operations/` and can be used to
+             * track creation of the backup. The metadata field type is CreateBackupMetadata. The response field type is Backup, if successful. Cancelling the returned operation will stop the
+             * creation and delete the backup. There can be only one pending backup creation per database. Backup creation of different databases can run concurrently.
              */
             create(request: {
                 /** V1 error format. */
@@ -1321,10 +1234,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Required. The id of the backup to be created. The `backup_id` appended to `parent` forms the full backup name of the form
-                 * `projects//instances//backups/`.
-                 */
+                /** Required. The id of the backup to be created. The `backup_id` appended to `parent` forms the full backup name of the form `projects//instances//backups/`. */
                 backupId?: string;
                 /** JSONP */
                 callback?: string;
@@ -1335,9 +1245,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the instance in which the backup will be created. This must be the same instance that contains the database the backup will be
-                 * created from. The backup will be stored in the location(s) specified in the instance configuration of this instance. Values are of the form
-                 * `projects//instances/`.
+                 * Required. The name of the instance in which the backup will be created. This must be the same instance that contains the database the backup will be created from. The backup
+                 * will be stored in the location(s) specified in the instance configuration of this instance. Values are of the form `projects//instances/`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1358,10 +1267,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Required. The id of the backup to be created. The `backup_id` appended to `parent` forms the full backup name of the form
-                 * `projects//instances//backups/`.
-                 */
+                /** Required. The id of the backup to be created. The `backup_id` appended to `parent` forms the full backup name of the form `projects//instances//backups/`. */
                 backupId?: string;
                 /** JSONP */
                 callback?: string;
@@ -1372,9 +1278,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the instance in which the backup will be created. This must be the same instance that contains the database the backup will be
-                 * created from. The backup will be stored in the location(s) specified in the instance configuration of this instance. Values are of the form
-                 * `projects//instances/`.
+                 * Required. The name of the instance in which the backup will be created. This must be the same instance that contains the database the backup will be created from. The backup
+                 * will be stored in the location(s) specified in the instance configuration of this instance. Values are of the form `projects//instances/`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1442,9 +1347,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Backup>;
             /**
-             * Gets the access control policy for a database or backup resource. Returns an empty policy if a database or backup exists but does not have a policy
-             * set. Authorization requires `spanner.databases.getIamPolicy` permission on resource. For backups, authorization requires `spanner.backups.getIamPolicy`
-             * permission on resource.
+             * Gets the access control policy for a database or backup resource. Returns an empty policy if a database or backup exists but does not have a policy set. Authorization requires
+             * `spanner.databases.getIamPolicy` permission on resource. For backups, authorization requires `spanner.backups.getIamPolicy` permission on resource.
              */
             getIamPolicy(request: {
                 /** V1 error format. */
@@ -1466,8 +1370,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * REQUIRED: The Cloud Spanner resource for which the policy is being retrieved. The format is `projects//instances/` for instance resources and
-                 * `projects//instances//databases/` for database resources.
+                 * REQUIRED: The Cloud Spanner resource for which the policy is being retrieved. The format is `projects//instances/` for instance resources and `projects//instances//databases/`
+                 * for database resources.
                  */
                 resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1489,16 +1393,15 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * An expression that filters the list of returned backups. A filter expression consists of a field name, a comparison operator, and a value for
-                 * filtering. The value must be a string, a number, or a boolean. The comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon
-                 * `:` is the contains operator. Filter rules are not case sensitive. The following fields in the Backup are eligible for filtering: ∗ `name` ∗ `database`
-                 * ∗ `state` ∗ `create_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) ∗ `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) ∗
-                 * `size_bytes` You can combine multiple expressions by enclosing each expression in parentheses. By default, expressions are combined with AND logic, but
-                 * you can specify AND, OR, and NOT logic explicitly. Here are a few examples: ∗ `name:Howl` - The backup's name contains the string "howl". ∗
-                 * `database:prod` - The database's name contains the string "prod". ∗ `state:CREATING` - The backup is pending creation. ∗ `state:READY` - The backup is
-                 * fully created and ready for use. ∗ `(name:howl) AND (create_time < \"2018-03-28T14:50:00Z\")` - The backup name contains the string "howl" and
-                 * `create_time` of the backup is before 2018-03-28T14:50:00Z. ∗ `expire_time < \"2018-03-28T14:50:00Z\"` - The backup `expire_time` is before
-                 * 2018-03-28T14:50:00Z. ∗ `size_bytes > 10000000000` - The backup's size is greater than 10GB
+                 * An expression that filters the list of returned backups. A filter expression consists of a field name, a comparison operator, and a value for filtering. The value must be a
+                 * string, a number, or a boolean. The comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon `:` is the contains operator. Filter rules are not case
+                 * sensitive. The following fields in the Backup are eligible for filtering: * `name` * `database` * `state` * `create_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
+                 * `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) * `size_bytes` You can combine multiple expressions by enclosing each expression in parentheses. By default,
+                 * expressions are combined with AND logic, but you can specify AND, OR, and NOT logic explicitly. Here are a few examples: * `name:Howl` - The backup's name contains the string
+                 * "howl". * `database:prod` - The database's name contains the string "prod". * `state:CREATING` - The backup is pending creation. * `state:READY` - The backup is fully created
+                 * and ready for use. * `(name:howl) AND (create_time < \"2018-03-28T14:50:00Z\")` - The backup name contains the string "howl" and `create_time` of the backup is before
+                 * 2018-03-28T14:50:00Z. * `expire_time < \"2018-03-28T14:50:00Z\"` - The backup `expire_time` is before 2018-03-28T14:50:00Z. * `size_bytes > 10000000000` - The backup's size is
+                 * greater than 10GB
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1535,10 +1438,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only for the CreateBackup operation. Required for the UpdateBackup operation. A globally unique identifier for the backup which cannot be
-                 * changed. Values are of the form `projects//instances//backups/a-z∗[a-z0-9]` The final segment of the name must be between 2 and 60 characters in
-                 * length. The backup is stored in the location(s) specified in the instance configuration of the instance containing the backup, identified by the prefix
-                 * of the backup name of the form `projects//instances/`.
+                 * Output only for the CreateBackup operation. Required for the UpdateBackup operation. A globally unique identifier for the backup which cannot be changed. Values are of the form
+                 * `projects//instances//backups/a-z*[a-z0-9]` The final segment of the name must be between 2 and 60 characters in length. The backup is stored in the location(s) specified in the
+                 * instance configuration of the instance containing the backup, identified by the prefix of the backup name of the form `projects//instances/`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1548,9 +1450,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A mask specifying which fields (e.g. `expire_time`) in the Backup resource should be updated. This mask is relative to the Backup resource,
-                 * not to the request message. The field mask must always be specified; this prevents any future fields from being erased accidentally by clients that do
-                 * not know about them.
+                 * Required. A mask specifying which fields (e.g. `expire_time`) in the Backup resource should be updated. This mask is relative to the Backup resource, not to the request message.
+                 * The field mask must always be specified; this prevents any future fields from being erased accidentally by clients that do not know about them.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1574,10 +1475,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only for the CreateBackup operation. Required for the UpdateBackup operation. A globally unique identifier for the backup which cannot be
-                 * changed. Values are of the form `projects//instances//backups/a-z∗[a-z0-9]` The final segment of the name must be between 2 and 60 characters in
-                 * length. The backup is stored in the location(s) specified in the instance configuration of the instance containing the backup, identified by the prefix
-                 * of the backup name of the form `projects//instances/`.
+                 * Output only for the CreateBackup operation. Required for the UpdateBackup operation. A globally unique identifier for the backup which cannot be changed. Values are of the form
+                 * `projects//instances//backups/a-z*[a-z0-9]` The final segment of the name must be between 2 and 60 characters in length. The backup is stored in the location(s) specified in the
+                 * instance configuration of the instance containing the backup, identified by the prefix of the backup name of the form `projects//instances/`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1587,9 +1487,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A mask specifying which fields (e.g. `expire_time`) in the Backup resource should be updated. This mask is relative to the Backup resource,
-                 * not to the request message. The field mask must always be specified; this prevents any future fields from being erased accidentally by clients that do
-                 * not know about them.
+                 * Required. A mask specifying which fields (e.g. `expire_time`) in the Backup resource should be updated. This mask is relative to the Backup resource, not to the request message.
+                 * The field mask must always be specified; this prevents any future fields from being erased accidentally by clients that do not know about them.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1599,8 +1498,8 @@ declare namespace gapi.client {
             },
             body: Backup): Request<Backup>;
             /**
-             * Sets the access control policy on a database or backup resource. Replaces any existing policy. Authorization requires `spanner.databases.setIamPolicy`
-             * permission on resource. For backups, authorization requires `spanner.backups.setIamPolicy` permission on resource.
+             * Sets the access control policy on a database or backup resource. Replaces any existing policy. Authorization requires `spanner.databases.setIamPolicy` permission on resource. For
+             * backups, authorization requires `spanner.backups.setIamPolicy` permission on resource.
              */
             setIamPolicy(request: {
                 /** V1 error format. */
@@ -1622,8 +1521,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * REQUIRED: The Cloud Spanner resource for which the policy is being set. The format is `projects//instances/` for instance resources and
-                 * `projects//instances//databases/` for databases resources.
+                 * REQUIRED: The Cloud Spanner resource for which the policy is being set. The format is `projects//instances/` for instance resources and `projects//instances//databases/` for
+                 * databases resources.
                  */
                 resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1633,10 +1532,9 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that the caller has on the specified database or backup resource. Attempting this RPC on a non-existent Cloud Spanner database will
-             * result in a NOT_FOUND error if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise returns an empty
-             * set of permissions. Calling this method on a backup that does not exist will result in a NOT_FOUND error if the user has `spanner.backups.list`
-             * permission on the containing instance.
+             * Returns permissions that the caller has on the specified database or backup resource. Attempting this RPC on a non-existent Cloud Spanner database will result in a NOT_FOUND error
+             * if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise returns an empty set of permissions. Calling this method on a backup that
+             * does not exist will result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the containing instance.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -1658,8 +1556,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * REQUIRED: The Cloud Spanner resource for which permissions are being tested. The format is `projects//instances/` for instance resources and
-                 * `projects//instances//databases/` for database resources.
+                 * REQUIRED: The Cloud Spanner resource for which permissions are being tested. The format is `projects//instances/` for instance resources and `projects//instances//databases/`
+                 * for database resources.
                  */
                 resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1672,9 +1570,8 @@ declare namespace gapi.client {
         }
         interface DatabaseOperationsResource {
             /**
-             * Lists database longrunning-operations. A database operation has a name of the form `projects//instances//databases//operations/`. The long-running
-             * operation metadata field type `metadata.type_url` describes the type of the metadata. Operations returned include those that have
-             * completed/failed/canceled within the last 7 days, and pending operations.
+             * Lists database longrunning-operations. A database operation has a name of the form `projects//instances//databases//operations/`. The long-running operation metadata field type
+             * `metadata.type_url` describes the type of the metadata. Operations returned include those that have completed/failed/canceled within the last 7 days, and pending operations.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1688,19 +1585,17 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * An expression that filters the list of returned operations. A filter expression consists of a field name, a comparison operator, and a value for
-                 * filtering. The value must be a string, a number, or a boolean. The comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon
-                 * `:` is the contains operator. Filter rules are not case sensitive. The following fields in the Operation are eligible for filtering: ∗ `name` - The
-                 * name of the long-running operation ∗ `done` - False if the operation is in progress, else true. ∗ `metadata.@type` - the type of metadata. For example,
-                 * the type string for RestoreDatabaseMetadata is `type.googleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata`. ∗ `metadata.` - any
-                 * field in metadata.value. ∗ `error` - Error associated with the long-running operation. ∗ `response.@type` - the type of response. ∗ `response.` - any
-                 * field in response.value. You can combine multiple expressions by enclosing each expression in parentheses. By default, expressions are combined with
-                 * AND logic. However, you can specify AND, OR, and NOT logic explicitly. Here are a few examples: ∗ `done:true` - The operation is complete. ∗
-                 * `(metadata.@type=type.googleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata) AND` \ `(metadata.source_type:BACKUP) AND` \
-                 * `(metadata.backup_info.backup:backup_howl) AND` \ `(metadata.name:restored_howl) AND` \ `(metadata.progress.start_time < \"2018-03-28T14:50:00Z\") AND`
-                 * \ `(error:∗)` - Return operations where: ∗ The operation's metadata type is RestoreDatabaseMetadata. ∗ The database is restored from a backup. ∗ The
-                 * backup name contains "backup_howl". ∗ The restored database's name contains "restored_howl". ∗ The operation started before 2018-03-28T14:50:00Z. ∗ The
-                 * operation resulted in an error.
+                 * An expression that filters the list of returned operations. A filter expression consists of a field name, a comparison operator, and a value for filtering. The value must be a
+                 * string, a number, or a boolean. The comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon `:` is the contains operator. Filter rules are not case
+                 * sensitive. The following fields in the Operation are eligible for filtering: * `name` - The name of the long-running operation * `done` - False if the operation is in progress,
+                 * else true. * `metadata.@type` - the type of metadata. For example, the type string for RestoreDatabaseMetadata is
+                 * `type.googleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata`. * `metadata.` - any field in metadata.value. * `error` - Error associated with the long-running
+                 * operation. * `response.@type` - the type of response. * `response.` - any field in response.value. You can combine multiple expressions by enclosing each expression in
+                 * parentheses. By default, expressions are combined with AND logic. However, you can specify AND, OR, and NOT logic explicitly. Here are a few examples: * `done:true` - The
+                 * operation is complete. * `(metadata.@type=type.googleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata) AND` \ `(metadata.source_type:BACKUP) AND` \
+                 * `(metadata.backup_info.backup:backup_howl) AND` \ `(metadata.name:restored_howl) AND` \ `(metadata.progress.start_time < \"2018-03-28T14:50:00Z\") AND` \ `(error:*)` - Return
+                 * operations where: * The operation's metadata type is RestoreDatabaseMetadata. * The database is restored from a backup. * The backup name contains "backup_howl". * The restored
+                 * database's name contains "restored_howl". * The operation started before 2018-03-28T14:50:00Z. * The operation resulted in an error.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1709,10 +1604,7 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Number of operations to be returned in the response. If 0 or less, defaults to the server's maximum allowed page size. */
                 pageSize?: number;
-                /**
-                 * If non-empty, `page_token` should contain a next_page_token from a previous ListDatabaseOperationsResponse to the same `parent` and with the same
-                 * `filter`.
-                 */
+                /** If non-empty, `page_token` should contain a next_page_token from a previous ListDatabaseOperationsResponse to the same `parent` and with the same `filter`. */
                 pageToken?: string;
                 /** Required. The instance of the database operations. Values are of the form `projects//instances/`. */
                 parent: string;
@@ -1728,10 +1620,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request?: {
                 /** V1 error format. */
@@ -1760,8 +1652,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1789,10 +1681,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1820,11 +1709,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1860,10 +1748,7 @@ declare namespace gapi.client {
             }): Request<ListOperationsResponse>;
         }
         interface SessionsResource {
-            /**
-             * Creates multiple new sessions. This API can be used to initialize a session cache on the clients. See https://goo.gl/TgSFN2 for best practices on
-             * session cache management.
-             */
+            /** Creates multiple new sessions. This API can be used to initialize a session cache on the clients. See https://goo.gl/TgSFN2 for best practices on session cache management. */
             batchCreate(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1976,11 +1861,11 @@ declare namespace gapi.client {
             },
             body: BeginTransactionRequest): Request<Transaction>;
             /**
-             * Commits a transaction. The request includes the mutations to be applied to rows in the database. `Commit` might return an `ABORTED` error. This can
-             * occur at any time; commonly, the cause is conflicts with concurrent transactions. However, it can also happen for a variety of other reasons. If
-             * `Commit` returns `ABORTED`, the caller should re-attempt the transaction from the beginning, re-using the same session. On very rare occasions,
-             * `Commit` might return `UNKNOWN`. This can happen, for example, if the client job experiences a 1+ hour networking failure. At that point, Cloud Spanner
-             * has lost track of the transaction outcome and we recommend that you perform another read from the database to see the state of things as they are now.
+             * Commits a transaction. The request includes the mutations to be applied to rows in the database. `Commit` might return an `ABORTED` error. This can occur at any time; commonly, the
+             * cause is conflicts with concurrent transactions. However, it can also happen for a variety of other reasons. If `Commit` returns `ABORTED`, the caller should re-attempt the
+             * transaction from the beginning, re-using the same session. On very rare occasions, `Commit` might return `UNKNOWN`. This can happen, for example, if the client job experiences a 1+
+             * hour networking failure. At that point, Cloud Spanner has lost track of the transaction outcome and we recommend that you perform another read from the database to see the state of
+             * things as they are now.
              */
             commit(request: {
                 /** V1 error format. */
@@ -2038,12 +1923,11 @@ declare namespace gapi.client {
             },
             body: CommitRequest): Request<CommitResponse>;
             /**
-             * Creates a new session. A session can be used to perform transactions that read and/or modify data in a Cloud Spanner database. Sessions are meant to be
-             * reused for many consecutive transactions. Sessions can only execute one transaction at a time. To execute multiple concurrent read-write/write-only
-             * transactions, create multiple sessions. Note that standalone reads and queries use a transaction internally, and count toward the one transaction
-             * limit. Active sessions use additional server resources, so it is a good idea to delete idle and unneeded sessions. Aside from explicit deletes, Cloud
-             * Spanner may delete sessions for which no operations are sent for more than an hour. If a session is deleted, requests to it return `NOT_FOUND`. Idle
-             * sessions can be kept alive by sending a trivial SQL query periodically, e.g., `"SELECT 1"`.
+             * Creates a new session. A session can be used to perform transactions that read and/or modify data in a Cloud Spanner database. Sessions are meant to be reused for many consecutive
+             * transactions. Sessions can only execute one transaction at a time. To execute multiple concurrent read-write/write-only transactions, create multiple sessions. Note that standalone
+             * reads and queries use a transaction internally, and count toward the one transaction limit. Active sessions use additional server resources, so it is a good idea to delete idle and
+             * unneeded sessions. Aside from explicit deletes, Cloud Spanner may delete sessions for which no operations are sent for more than an hour. If a session is deleted, requests to it
+             * return `NOT_FOUND`. Idle sessions can be kept alive by sending a trivial SQL query periodically, e.g., `"SELECT 1"`.
              */
             create(request: {
                 /** V1 error format. */
@@ -2100,10 +1984,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: CreateSessionRequest): Request<Session>;
-            /**
-             * Ends a session, releasing server resources associated with it. This will asynchronously trigger cancellation of any operations that are running with
-             * this session.
-             */
+            /** Ends a session, releasing server resources associated with it. This will asynchronously trigger cancellation of any operations that are running with this session. */
             delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2131,10 +2012,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Executes a batch of SQL DML statements. This method allows many statements to be run with lower latency than submitting them sequentially with
-             * ExecuteSql. Statements are executed in sequential order. A request can succeed even if a statement fails. The ExecuteBatchDmlResponse.status field in
-             * the response provides information about the statement that failed. Clients must inspect this field to determine whether an error occurred. Execution
-             * stops after the first failed statement; the remaining statements are not executed.
+             * Executes a batch of SQL DML statements. This method allows many statements to be run with lower latency than submitting them sequentially with ExecuteSql. Statements are executed in
+             * sequential order. A request can succeed even if a statement fails. The ExecuteBatchDmlResponse.status field in the response provides information about the statement that failed.
+             * Clients must inspect this field to determine whether an error occurred. Execution stops after the first failed statement; the remaining statements are not executed.
              */
             executeBatchDml(request: {
                 /** V1 error format. */
@@ -2192,10 +2072,9 @@ declare namespace gapi.client {
             },
             body: ExecuteBatchDmlRequest): Request<ExecuteBatchDmlResponse>;
             /**
-             * Executes an SQL statement, returning all results in a single reply. This method cannot be used to return a result set larger than 10 MiB; if the query
-             * yields more data than that, the query fails with a `FAILED_PRECONDITION` error. Operations inside read-write transactions might return `ABORTED`. If
-             * this occurs, the application should restart the transaction from the beginning. See Transaction for more details. Larger result sets can be fetched in
-             * streaming fashion by calling ExecuteStreamingSql instead.
+             * Executes an SQL statement, returning all results in a single reply. This method cannot be used to return a result set larger than 10 MiB; if the query yields more data than that,
+             * the query fails with a `FAILED_PRECONDITION` error. Operations inside read-write transactions might return `ABORTED`. If this occurs, the application should restart the transaction
+             * from the beginning. See Transaction for more details. Larger result sets can be fetched in streaming fashion by calling ExecuteStreamingSql instead.
              */
             executeSql(request: {
                 /** V1 error format. */
@@ -2253,8 +2132,8 @@ declare namespace gapi.client {
             },
             body: ExecuteSqlRequest): Request<ResultSet>;
             /**
-             * Like ExecuteSql, except returns the result set as a stream. Unlike ExecuteSql, there is no limit on the size of the returned result set. However, no
-             * individual row in the result set can exceed 100 MiB, and no column value can exceed 10 MiB.
+             * Like ExecuteSql, except returns the result set as a stream. Unlike ExecuteSql, there is no limit on the size of the returned result set. However, no individual row in the result set
+             * can exceed 100 MiB, and no column value can exceed 10 MiB.
              */
             executeStreamingSql(request: {
                 /** V1 error format. */
@@ -2353,9 +2232,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * An expression for filtering the results of the request. Filter rules are case insensitive. The fields eligible for filtering are: ∗ `labels.key` where
-                 * key is the name of a label Some examples of using filters are: ∗ `labels.env:∗` --> The session has the label "env". ∗ `labels.env:dev` --> The session
-                 * has the label "env" and the value of the label contains the string "dev".
+                 * An expression for filtering the results of the request. Filter rules are case insensitive. The fields eligible for filtering are: * `labels.key` where key is the name of a label
+                 * Some examples of using filters are: * `labels.env:*` --> The session has the label "env". * `labels.env:dev` --> The session has the label "env" and the value of the label
+                 * contains the string "dev".
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2376,11 +2255,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListSessionsResponse>;
             /**
-             * Creates a set of partition tokens that can be used to execute a query operation in parallel. Each of the returned partition tokens can be used by
-             * ExecuteStreamingSql to specify a subset of the query result to read. The same session and read-only transaction must be used by the
-             * PartitionQueryRequest used to create the partition tokens and the ExecuteSqlRequests that use the partition tokens. Partition tokens become invalid
-             * when the session used to create them is deleted, is idle for too long, begins a new transaction, or becomes too old. When any of these happen, it is
-             * not possible to resume the query, and the whole operation must be restarted from the beginning.
+             * Creates a set of partition tokens that can be used to execute a query operation in parallel. Each of the returned partition tokens can be used by ExecuteStreamingSql to specify a
+             * subset of the query result to read. The same session and read-only transaction must be used by the PartitionQueryRequest used to create the partition tokens and the
+             * ExecuteSqlRequests that use the partition tokens. Partition tokens become invalid when the session used to create them is deleted, is idle for too long, begins a new transaction, or
+             * becomes too old. When any of these happen, it is not possible to resume the query, and the whole operation must be restarted from the beginning.
              */
             partitionQuery(request: {
                 /** V1 error format. */
@@ -2438,12 +2316,11 @@ declare namespace gapi.client {
             },
             body: PartitionQueryRequest): Request<PartitionResponse>;
             /**
-             * Creates a set of partition tokens that can be used to execute a read operation in parallel. Each of the returned partition tokens can be used by
-             * StreamingRead to specify a subset of the read result to read. The same session and read-only transaction must be used by the PartitionReadRequest used
-             * to create the partition tokens and the ReadRequests that use the partition tokens. There are no ordering guarantees on rows returned among the returned
-             * partition tokens, or even within each individual StreamingRead call issued with a partition_token. Partition tokens become invalid when the session
-             * used to create them is deleted, is idle for too long, begins a new transaction, or becomes too old. When any of these happen, it is not possible to
-             * resume the read, and the whole operation must be restarted from the beginning.
+             * Creates a set of partition tokens that can be used to execute a read operation in parallel. Each of the returned partition tokens can be used by StreamingRead to specify a subset of
+             * the read result to read. The same session and read-only transaction must be used by the PartitionReadRequest used to create the partition tokens and the ReadRequests that use the
+             * partition tokens. There are no ordering guarantees on rows returned among the returned partition tokens, or even within each individual StreamingRead call issued with a
+             * partition_token. Partition tokens become invalid when the session used to create them is deleted, is idle for too long, begins a new transaction, or becomes too old. When any of
+             * these happen, it is not possible to resume the read, and the whole operation must be restarted from the beginning.
              */
             partitionRead(request: {
                 /** V1 error format. */
@@ -2501,10 +2378,10 @@ declare namespace gapi.client {
             },
             body: PartitionReadRequest): Request<PartitionResponse>;
             /**
-             * Reads rows from the database using key lookups and scans, as a simple key/value style alternative to ExecuteSql. This method cannot be used to return a
-             * result set larger than 10 MiB; if the read matches more data than that, the read fails with a `FAILED_PRECONDITION` error. Reads inside read-write
-             * transactions might return `ABORTED`. If this occurs, the application should restart the transaction from the beginning. See Transaction for more
-             * details. Larger result sets can be yielded in streaming fashion by calling StreamingRead instead.
+             * Reads rows from the database using key lookups and scans, as a simple key/value style alternative to ExecuteSql. This method cannot be used to return a result set larger than 10
+             * MiB; if the read matches more data than that, the read fails with a `FAILED_PRECONDITION` error. Reads inside read-write transactions might return `ABORTED`. If this occurs, the
+             * application should restart the transaction from the beginning. See Transaction for more details. Larger result sets can be yielded in streaming fashion by calling StreamingRead
+             * instead.
              */
             read(request: {
                 /** V1 error format. */
@@ -2562,9 +2439,9 @@ declare namespace gapi.client {
             },
             body: ReadRequest): Request<ResultSet>;
             /**
-             * Rolls back a transaction, releasing any locks it holds. It is a good idea to call this for any transaction that includes one or more Read or ExecuteSql
-             * requests and ultimately decides not to commit. `Rollback` returns `OK` if it successfully aborts the transaction, the transaction was already aborted,
-             * or the transaction is not found. `Rollback` never returns `ABORTED`.
+             * Rolls back a transaction, releasing any locks it holds. It is a good idea to call this for any transaction that includes one or more Read or ExecuteSql requests and ultimately
+             * decides not to commit. `Rollback` returns `OK` if it successfully aborts the transaction, the transaction was already aborted, or the transaction is not found. `Rollback` never
+             * returns `ABORTED`.
              */
             rollback(request: {
                 /** V1 error format. */
@@ -2622,8 +2499,8 @@ declare namespace gapi.client {
             },
             body: RollbackRequest): Request<{}>;
             /**
-             * Like Read, except returns the result set as a stream. Unlike Read, there is no limit on the size of the returned result set. However, no individual row
-             * in the result set can exceed 100 MiB, and no column value can exceed 10 MiB.
+             * Like Read, except returns the result set as a stream. Unlike Read, there is no limit on the size of the returned result set. However, no individual row in the result set can exceed
+             * 100 MiB, and no column value can exceed 10 MiB.
              */
             streamingRead(request: {
                 /** V1 error format. */
@@ -2683,9 +2560,8 @@ declare namespace gapi.client {
         }
         interface DatabasesResource {
             /**
-             * Creates a new Cloud Spanner database and starts to prepare it for serving. The returned long-running operation will have a name of the format
-             * `/operations/` and can be used to track preparation of the database. The metadata field type is CreateDatabaseMetadata. The response field type is
-             * Database, if successful.
+             * Creates a new Cloud Spanner database and starts to prepare it for serving. The returned long-running operation will have a name of the format `/operations/` and can be used to track
+             * preparation of the database. The metadata field type is CreateDatabaseMetadata. The response field type is Database, if successful.
              */
             create(request: {
                 /** V1 error format. */
@@ -2797,8 +2673,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Database>;
             /**
-             * Returns the schema of a Cloud Spanner database as a list of formatted DDL statements. This method does not show pending schema updates, those may be
-             * queried using the Operations API.
+             * Returns the schema of a Cloud Spanner database as a list of formatted DDL statements. This method does not show pending schema updates, those may be queried using the Operations
+             * API.
              */
             getDdl(request?: {
                 /** V1 error format. */
@@ -2827,9 +2703,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GetDatabaseDdlResponse>;
             /**
-             * Gets the access control policy for a database or backup resource. Returns an empty policy if a database or backup exists but does not have a policy
-             * set. Authorization requires `spanner.databases.getIamPolicy` permission on resource. For backups, authorization requires `spanner.backups.getIamPolicy`
-             * permission on resource.
+             * Gets the access control policy for a database or backup resource. Returns an empty policy if a database or backup exists but does not have a policy set. Authorization requires
+             * `spanner.databases.getIamPolicy` permission on resource. For backups, authorization requires `spanner.backups.getIamPolicy` permission on resource.
              */
             getIamPolicy(request: {
                 /** V1 error format. */
@@ -2851,8 +2726,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * REQUIRED: The Cloud Spanner resource for which the policy is being retrieved. The format is `projects//instances/` for instance resources and
-                 * `projects//instances//databases/` for database resources.
+                 * REQUIRED: The Cloud Spanner resource for which the policy is being retrieved. The format is `projects//instances/` for instance resources and `projects//instances//databases/`
+                 * for database resources.
                  */
                 resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2893,11 +2768,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListDatabasesResponse>;
             /**
-             * Create a new database by restoring from a completed backup. The new database must be in the same project and in an instance with the same instance
-             * configuration as the instance containing the backup. The returned database long-running operation has a name of the format
-             * `projects//instances//databases//operations/`, and can be used to track the progress of the operation, and to cancel it. The metadata field type is
-             * RestoreDatabaseMetadata. The response type is Database, if successful. Cancelling the returned operation will stop the restore and delete the database.
-             * There can be only one database being restored into an instance at a time. Once the restore operation completes, a new restore operation can be
+             * Create a new database by restoring from a completed backup. The new database must be in the same project and in an instance with the same instance configuration as the instance
+             * containing the backup. The returned database long-running operation has a name of the format `projects//instances//databases//operations/`, and can be used to track the progress of
+             * the operation, and to cancel it. The metadata field type is RestoreDatabaseMetadata. The response type is Database, if successful. Cancelling the returned operation will stop the
+             * restore and delete the database. There can be only one database being restored into an instance at a time. Once the restore operation completes, a new restore operation can be
              * initiated, without waiting for the optimize operation associated with the first restore to complete.
              */
             restore(request: {
@@ -2916,8 +2790,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the instance in which to create the restored database. This instance must be in the same project and have the same instance
-                 * configuration as the instance containing the source backup. Values are of the form `projects//instances/`.
+                 * Required. The name of the instance in which to create the restored database. This instance must be in the same project and have the same instance configuration as the instance
+                 * containing the source backup. Values are of the form `projects//instances/`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2947,8 +2821,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the instance in which to create the restored database. This instance must be in the same project and have the same instance
-                 * configuration as the instance containing the source backup. Values are of the form `projects//instances/`.
+                 * Required. The name of the instance in which to create the restored database. This instance must be in the same project and have the same instance configuration as the instance
+                 * containing the source backup. Values are of the form `projects//instances/`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2962,8 +2836,8 @@ declare namespace gapi.client {
             },
             body: RestoreDatabaseRequest): Request<Operation>;
             /**
-             * Sets the access control policy on a database or backup resource. Replaces any existing policy. Authorization requires `spanner.databases.setIamPolicy`
-             * permission on resource. For backups, authorization requires `spanner.backups.setIamPolicy` permission on resource.
+             * Sets the access control policy on a database or backup resource. Replaces any existing policy. Authorization requires `spanner.databases.setIamPolicy` permission on resource. For
+             * backups, authorization requires `spanner.backups.setIamPolicy` permission on resource.
              */
             setIamPolicy(request: {
                 /** V1 error format. */
@@ -2985,8 +2859,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * REQUIRED: The Cloud Spanner resource for which the policy is being set. The format is `projects//instances/` for instance resources and
-                 * `projects//instances//databases/` for databases resources.
+                 * REQUIRED: The Cloud Spanner resource for which the policy is being set. The format is `projects//instances/` for instance resources and `projects//instances//databases/` for
+                 * databases resources.
                  */
                 resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2996,10 +2870,9 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that the caller has on the specified database or backup resource. Attempting this RPC on a non-existent Cloud Spanner database will
-             * result in a NOT_FOUND error if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise returns an empty
-             * set of permissions. Calling this method on a backup that does not exist will result in a NOT_FOUND error if the user has `spanner.backups.list`
-             * permission on the containing instance.
+             * Returns permissions that the caller has on the specified database or backup resource. Attempting this RPC on a non-existent Cloud Spanner database will result in a NOT_FOUND error
+             * if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise returns an empty set of permissions. Calling this method on a backup that
+             * does not exist will result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the containing instance.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -3021,8 +2894,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * REQUIRED: The Cloud Spanner resource for which permissions are being tested. The format is `projects//instances/` for instance resources and
-                 * `projects//instances//databases/` for database resources.
+                 * REQUIRED: The Cloud Spanner resource for which permissions are being tested. The format is `projects//instances/` for instance resources and `projects//instances//databases/`
+                 * for database resources.
                  */
                 resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3032,9 +2905,8 @@ declare namespace gapi.client {
             },
             body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
             /**
-             * Updates the schema of a Cloud Spanner database by creating/altering/dropping tables, columns, indexes, etc. The returned long-running operation will
-             * have a name of the format `/operations/` and can be used to track execution of the schema change(s). The metadata field type is
-             * UpdateDatabaseDdlMetadata. The operation has no response.
+             * Updates the schema of a Cloud Spanner database by creating/altering/dropping tables, columns, indexes, etc. The returned long-running operation will have a name of the format
+             * `/operations/` and can be used to track execution of the schema change(s). The metadata field type is UpdateDatabaseDdlMetadata. The operation has no response.
              */
             updateDdl(request: {
                 /** V1 error format. */
@@ -3096,10 +2968,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request?: {
                 /** V1 error format. */
@@ -3128,8 +3000,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -3157,10 +3029,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3188,11 +3057,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -3230,15 +3098,13 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /**
-             * Creates an instance and begins preparing it to begin serving. The returned long-running operation can be used to track the progress of preparing the
-             * new instance. The instance name is assigned by the caller. If the named instance already exists, `CreateInstance` returns `ALREADY_EXISTS`. Immediately
-             * upon completion of this request: ∗ The instance is readable via the API, with all requested attributes but no allocated resources. Its state is
-             * `CREATING`. Until completion of the returned operation: ∗ Cancelling the operation renders the instance immediately unreadable via the API. ∗ The
-             * instance can be deleted. ∗ All other attempts to modify the instance are rejected. Upon completion of the returned operation: ∗ Billing for all
-             * successfully-allocated resources begins (some types may have lower than the requested levels). ∗ Databases can be created in the instance. ∗ The
-             * instance's allocated resource levels are readable via the API. ∗ The instance's state becomes `READY`. The returned long-running operation will have a
-             * name of the format `/operations/` and can be used to track creation of the instance. The metadata field type is CreateInstanceMetadata. The response
-             * field type is Instance, if successful.
+             * Creates an instance and begins preparing it to begin serving. The returned long-running operation can be used to track the progress of preparing the new instance. The instance name
+             * is assigned by the caller. If the named instance already exists, `CreateInstance` returns `ALREADY_EXISTS`. Immediately upon completion of this request: * The instance is readable
+             * via the API, with all requested attributes but no allocated resources. Its state is `CREATING`. Until completion of the returned operation: * Cancelling the operation renders the
+             * instance immediately unreadable via the API. * The instance can be deleted. * All other attempts to modify the instance are rejected. Upon completion of the returned operation: *
+             * Billing for all successfully-allocated resources begins (some types may have lower than the requested levels). * Databases can be created in the instance. * The instance's allocated
+             * resource levels are readable via the API. * The instance's state becomes `READY`. The returned long-running operation will have a name of the format `/operations/` and can be used
+             * to track creation of the instance. The metadata field type is CreateInstanceMetadata. The response field type is Instance, if successful.
              */
             create(request: {
                 /** V1 error format. */
@@ -3296,8 +3162,8 @@ declare namespace gapi.client {
             },
             body: CreateInstanceRequest): Request<Operation>;
             /**
-             * Deletes an instance. Immediately upon completion of the request: ∗ Billing ceases for all of the instance's reserved resources. Soon afterward: ∗ The
-             * instance and ∗all of its databases∗ immediately and irrevocably disappear from the API. All data in the databases is permanently deleted.
+             * Deletes an instance. Immediately upon completion of the request: * Billing ceases for all of the instance's reserved resources. Soon afterward: * The instance and *all of its
+             * databases* immediately and irrevocably disappear from the API. All data in the databases is permanently deleted.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -3355,8 +3221,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Instance>;
             /**
-             * Gets the access control policy for an instance resource. Returns an empty policy if an instance exists but does not have a policy set. Authorization
-             * requires `spanner.instances.getIamPolicy` on resource.
+             * Gets the access control policy for an instance resource. Returns an empty policy if an instance exists but does not have a policy set. Authorization requires
+             * `spanner.instances.getIamPolicy` on resource.
              */
             getIamPolicy(request: {
                 /** V1 error format. */
@@ -3378,8 +3244,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * REQUIRED: The Cloud Spanner resource for which the policy is being retrieved. The format is `projects//instances/` for instance resources and
-                 * `projects//instances//databases/` for database resources.
+                 * REQUIRED: The Cloud Spanner resource for which the policy is being retrieved. The format is `projects//instances/` for instance resources and `projects//instances//databases/`
+                 * for database resources.
                  */
                 resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3401,11 +3267,11 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * An expression for filtering the results of the request. Filter rules are case insensitive. The fields eligible for filtering are: ∗ `name` ∗
-                 * `display_name` ∗ `labels.key` where key is the name of a label Some examples of using filters are: ∗ `name:∗` --> The instance has a name. ∗
-                 * `name:Howl` --> The instance's name contains the string "howl". ∗ `name:HOWL` --> Equivalent to above. ∗ `NAME:howl` --> Equivalent to above. ∗
-                 * `labels.env:∗` --> The instance has the label "env". ∗ `labels.env:dev` --> The instance has the label "env" and the value of the label contains the
-                 * string "dev". ∗ `name:howl labels.env:dev` --> The instance's name contains "howl" and it has the label "env" with its value containing "dev".
+                 * An expression for filtering the results of the request. Filter rules are case insensitive. The fields eligible for filtering are: * `name` * `display_name` * `labels.key` where
+                 * key is the name of a label Some examples of using filters are: * `name:*` --> The instance has a name. * `name:Howl` --> The instance's name contains the string "howl". *
+                 * `name:HOWL` --> Equivalent to above. * `NAME:howl` --> Equivalent to above. * `labels.env:*` --> The instance has the label "env". * `labels.env:dev` --> The instance has the
+                 * label "env" and the value of the label contains the string "dev". * `name:howl labels.env:dev` --> The instance's name contains "howl" and it has the label "env" with its value
+                 * containing "dev".
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3428,16 +3294,15 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListInstancesResponse>;
             /**
-             * Updates an instance, and begins allocating or releasing resources as requested. The returned long-running operation can be used to track the progress
-             * of updating the instance. If the named instance does not exist, returns `NOT_FOUND`. Immediately upon completion of this request: ∗ For resource types
-             * for which a decrease in the instance's allocation has been requested, billing is based on the newly-requested level. Until completion of the returned
-             * operation: ∗ Cancelling the operation sets its metadata's cancel_time, and begins restoring resources to their pre-request values. The operation is
-             * guaranteed to succeed at undoing all resource changes, after which point it terminates with a `CANCELLED` status. ∗ All other attempts to modify the
-             * instance are rejected. ∗ Reading the instance via the API continues to give the pre-request resource levels. Upon completion of the returned operation:
-             * ∗ Billing begins for all successfully-allocated resources (some types may have lower than the requested levels). ∗ All newly-reserved resources are
-             * available for serving the instance's tables. ∗ The instance's new resource levels are readable via the API. The returned long-running operation will
-             * have a name of the format `/operations/` and can be used to track the instance modification. The metadata field type is UpdateInstanceMetadata. The
-             * response field type is Instance, if successful. Authorization requires `spanner.instances.update` permission on resource name.
+             * Updates an instance, and begins allocating or releasing resources as requested. The returned long-running operation can be used to track the progress of updating the instance. If
+             * the named instance does not exist, returns `NOT_FOUND`. Immediately upon completion of this request: * For resource types for which a decrease in the instance's allocation has been
+             * requested, billing is based on the newly-requested level. Until completion of the returned operation: * Cancelling the operation sets its metadata's cancel_time, and begins
+             * restoring resources to their pre-request values. The operation is guaranteed to succeed at undoing all resource changes, after which point it terminates with a `CANCELLED` status. *
+             * All other attempts to modify the instance are rejected. * Reading the instance via the API continues to give the pre-request resource levels. Upon completion of the returned
+             * operation: * Billing begins for all successfully-allocated resources (some types may have lower than the requested levels). * All newly-reserved resources are available for serving
+             * the instance's tables. * The instance's new resource levels are readable via the API. The returned long-running operation will have a name of the format `/operations/` and can be
+             * used to track the instance modification. The metadata field type is UpdateInstanceMetadata. The response field type is Instance, if successful. Authorization requires
+             * `spanner.instances.update` permission on resource name.
              */
             patch(request: {
                 /** V1 error format. */
@@ -3453,8 +3318,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. A unique identifier for the instance, which cannot be changed after the instance is created. Values are of the form
-                 * `projects//instances/a-z∗[a-z0-9]`. The final segment of the name must be between 2 and 64 characters in length.
+                 * Required. A unique identifier for the instance, which cannot be changed after the instance is created. Values are of the form `projects//instances/a-z*[a-z0-9]`. The final
+                 * segment of the name must be between 2 and 64 characters in length.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3484,8 +3349,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. A unique identifier for the instance, which cannot be changed after the instance is created. Values are of the form
-                 * `projects//instances/a-z∗[a-z0-9]`. The final segment of the name must be between 2 and 64 characters in length.
+                 * Required. A unique identifier for the instance, which cannot be changed after the instance is created. Values are of the form `projects//instances/a-z*[a-z0-9]`. The final
+                 * segment of the name must be between 2 and 64 characters in length.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3500,10 +3365,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: UpdateInstanceRequest): Request<Operation>;
-            /**
-             * Sets the access control policy on an instance resource. Replaces any existing policy. Authorization requires `spanner.instances.setIamPolicy` on
-             * resource.
-             */
+            /** Sets the access control policy on an instance resource. Replaces any existing policy. Authorization requires `spanner.instances.setIamPolicy` on resource. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3524,8 +3386,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * REQUIRED: The Cloud Spanner resource for which the policy is being set. The format is `projects//instances/` for instance resources and
-                 * `projects//instances//databases/` for databases resources.
+                 * REQUIRED: The Cloud Spanner resource for which the policy is being set. The format is `projects//instances/` for instance resources and `projects//instances//databases/` for
+                 * databases resources.
                  */
                 resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3535,9 +3397,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that the caller has on the specified instance resource. Attempting this RPC on a non-existent Cloud Spanner instance resource will
-             * result in a NOT_FOUND error if the user has `spanner.instances.list` permission on the containing Google Cloud Project. Otherwise returns an empty set
-             * of permissions.
+             * Returns permissions that the caller has on the specified instance resource. Attempting this RPC on a non-existent Cloud Spanner instance resource will result in a NOT_FOUND error if
+             * the user has `spanner.instances.list` permission on the containing Google Cloud Project. Otherwise returns an empty set of permissions.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -3559,8 +3420,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * REQUIRED: The Cloud Spanner resource for which permissions are being tested. The format is `projects//instances/` for instance resources and
-                 * `projects//instances//databases/` for database resources.
+                 * REQUIRED: The Cloud Spanner resource for which permissions are being tested. The format is `projects//instances/` for instance resources and `projects//instances//databases/`
+                 * for database resources.
                  */
                 resource: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */

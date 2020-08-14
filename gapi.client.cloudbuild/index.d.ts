@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Build API v1 1.0
 // Project: https://cloud.google.com/cloud-build/docs/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -21,8 +24,8 @@ declare namespace gapi.client {
         interface ArtifactObjects {
             /**
              * Cloud Storage bucket and optional object path, in the form "gs://bucket/path/to/somewhere/". (see [Bucket Name
-             * Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)). Files in the workspace matching any path pattern will be uploaded to
-             * Cloud Storage with this location as a prefix.
+             * Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)). Files in the workspace matching any path pattern will be uploaded to Cloud Storage with this
+             * location as a prefix.
              */
             location?: string;
             /** Path globs used to match files in the build's workspace. */
@@ -38,15 +41,14 @@ declare namespace gapi.client {
         }
         interface Artifacts {
             /**
-             * A list of images to be pushed upon the successful completion of all build steps. The images will be pushed using the builder service account's
-             * credentials. The digests of the pushed images will be stored in the Build resource's results field. If any of the images fail to be pushed, the build
-             * is marked FAILURE.
+             * A list of images to be pushed upon the successful completion of all build steps. The images will be pushed using the builder service account's credentials. The digests of the pushed
+             * images will be stored in the Build resource's results field. If any of the images fail to be pushed, the build is marked FAILURE.
              */
             images?: string[];
             /**
-             * A list of objects to be uploaded to Cloud Storage upon successful completion of all build steps. Files in the workspace matching specified paths globs
-             * will be uploaded to the specified Cloud Storage location using the builder service account's credentials. The location and generation of the uploaded
-             * objects will be stored in the Build resource's results field. If any objects fail to be pushed, the build is marked FAILURE.
+             * A list of objects to be uploaded to Cloud Storage upon successful completion of all build steps. Files in the workspace matching specified paths globs will be uploaded to the
+             * specified Cloud Storage location using the builder service account's credentials. The location and generation of the uploaded objects will be stored in the Build resource's results
+             * field. If any objects fail to be pushed, the build is marked FAILURE.
              */
             objects?: ArtifactObjects;
         }
@@ -57,23 +59,18 @@ declare namespace gapi.client {
             buildTriggerId?: string;
             /** Output only. Time at which the request to create the build was received. */
             createTime?: string;
-            /**
-             * Output only. Time at which execution of the build was finished. The difference between finish_time and start_time is the duration of the build's
-             * execution.
-             */
+            /** Output only. Time at which execution of the build was finished. The difference between finish_time and start_time is the duration of the build's execution. */
             finishTime?: string;
             /** Output only. Unique identifier of the build. */
             id?: string;
             /**
-             * A list of images to be pushed upon the successful completion of all build steps. The images are pushed using the builder service account's credentials.
-             * The digests of the pushed images will be stored in the `Build` resource's results field. If any of the images fail to be pushed, the build status is
-             * marked `FAILURE`.
+             * A list of images to be pushed upon the successful completion of all build steps. The images are pushed using the builder service account's credentials. The digests of the pushed
+             * images will be stored in the `Build` resource's results field. If any of the images fail to be pushed, the build status is marked `FAILURE`.
              */
             images?: string[];
             /**
-             * Google Cloud Storage bucket where logs should be written (see [Bucket Name
-             * Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)). Logs file names will be of the format
-             * `${logs_bucket}/log-${build_id}.txt`.
+             * Google Cloud Storage bucket where logs should be written (see [Bucket Name Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)). Logs file names will be
+             * of the format `${logs_bucket}/log-${build_id}.txt`.
              */
             logsBucket?: string;
             /** Output only. URL to logs for this build in Google Cloud Console. */
@@ -83,8 +80,8 @@ declare namespace gapi.client {
             /** Output only. ID of the project. */
             projectId?: string;
             /**
-             * TTL in queue for this build. If provided and the build is enqueued longer than this value, the build will expire and the build status will be
-             * `EXPIRED`. The TTL starts ticking from create_time.
+             * TTL in queue for this build. If provided and the build is enqueued longer than this value, the build will expire and the build status will be `EXPIRED`. The TTL starts ticking from
+             * create_time.
              */
             queueTtl?: string;
             /** Output only. Results of the build. */
@@ -108,13 +105,13 @@ declare namespace gapi.client {
             /** Tags for annotation of a `Build`. These are not docker tags. */
             tags?: string[];
             /**
-             * Amount of time that this build should be allowed to run, to second granularity. If this amount of time elapses, work on the build will cease and the
-             * build status will be `TIMEOUT`. `timeout` starts ticking from `startTime`. Default time is ten minutes.
+             * Amount of time that this build should be allowed to run, to second granularity. If this amount of time elapses, work on the build will cease and the build status will be `TIMEOUT`.
+             * `timeout` starts ticking from `startTime`. Default time is ten minutes.
              */
             timeout?: string;
             /**
-             * Output only. Stores timing information for phases of the build. Valid keys are: ∗ BUILD: time to execute all build steps ∗ PUSH: time to push all
-             * specified images. ∗ FETCHSOURCE: time to fetch source. If the build does not specify source or images, these keys will not be included.
+             * Output only. Stores timing information for phases of the build. Valid keys are: * BUILD: time to execute all build steps * PUSH: time to push all specified images. * FETCHSOURCE:
+             * time to fetch source. If the build does not specify source or images, these keys will not be included.
              */
             timing?: { [P in string]: TimeSpan };
         }
@@ -124,20 +121,19 @@ declare namespace gapi.client {
         }
         interface BuildOptions {
             /**
-             * Requested disk size for the VM that runs the build. Note that this is ∗NOT∗ "disk free"; some of the space will be used by the operating system and
-             * build utilities. Also note that this is the minimum disk size that will be allocated for the build -- the build may run with a larger disk than
-             * requested. At present, the maximum disk size is 1000GB; builds that request more than the maximum are rejected with an error.
+             * Requested disk size for the VM that runs the build. Note that this is *NOT* "disk free"; some of the space will be used by the operating system and build utilities. Also note that
+             * this is the minimum disk size that will be allocated for the build -- the build may run with a larger disk than requested. At present, the maximum disk size is 1000GB; builds that
+             * request more than the maximum are rejected with an error.
              */
             diskSizeGb?: string;
             /**
-             * Option to specify whether or not to apply bash style string operations to the substitutions. NOTE: this is always enabled for triggered builds and
-             * cannot be overridden in the build configuration file.
+             * Option to specify whether or not to apply bash style string operations to the substitutions. NOTE: this is always enabled for triggered builds and cannot be overridden in the build
+             * configuration file.
              */
             dynamicSubstitutions?: boolean;
             /**
-             * A list of global environment variable definitions that will exist for all build steps in this build. If a variable is defined in both globally and in a
-             * build step, the variable will use the build step value. The elements are of the form "KEY=VALUE" for the environment variable "KEY" being given the
-             * value "VALUE".
+             * A list of global environment variable definitions that will exist for all build steps in this build. If a variable is defined in both globally and in a build step, the variable will
+             * use the build step value. The elements are of the form "KEY=VALUE" for the environment variable "KEY" being given the value "VALUE".
              */
             env?: string[];
             /** Option to specify the logging mode, which determines if and where build logs are stored. */
@@ -149,21 +145,21 @@ declare namespace gapi.client {
             /** Requested verifiability options. */
             requestedVerifyOption?: string;
             /**
-             * A list of global environment variables, which are encrypted using a Cloud Key Management Service crypto key. These values must be specified in the
-             * build's `Secret`. These variables will be available to all build steps in this build.
+             * A list of global environment variables, which are encrypted using a Cloud Key Management Service crypto key. These values must be specified in the build's `Secret`. These variables
+             * will be available to all build steps in this build.
              */
             secretEnv?: string[];
             /** Requested hash for SourceProvenance. */
             sourceProvenanceHash?: string[];
             /**
-             * Option to specify behavior when there is an error in the substitution checks. NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot
-             * be overridden in the build configuration file.
+             * Option to specify behavior when there is an error in the substitution checks. NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot be overridden in the build
+             * configuration file.
              */
             substitutionOption?: string;
             /**
-             * Global list of volumes to mount for ALL build steps Each volume is created as an empty volume prior to starting the build process. Upon completion of
-             * the build, volumes and their contents are discarded. Global volume names and paths cannot conflict with the volumes defined a build step. Using a
-             * global volume in a build with only one step is not valid as it is indicative of a build request with an incorrect configuration.
+             * Global list of volumes to mount for ALL build steps Each volume is created as an empty volume prior to starting the build process. Upon completion of the build, volumes and their
+             * contents are discarded. Global volume names and paths cannot conflict with the volumes defined a build step. Using a global volume in a build with only one step is not valid as it
+             * is indicative of a build request with an incorrect configuration.
              */
             volumes?: Volume[];
             /** Option to specify a `WorkerPool` for the build. Format: projects/{project}/locations/{location}/workerPools/{workerPool} This field is experimental. */
@@ -171,65 +167,48 @@ declare namespace gapi.client {
         }
         interface BuildStep {
             /**
-             * A list of arguments that will be presented to the step when it is started. If the image used to run the step's container has an entrypoint, the `args`
-             * are used as arguments to that entrypoint. If the image does not define an entrypoint, the first element in args is used as the entrypoint, and the
-             * remainder will be used as arguments.
+             * A list of arguments that will be presented to the step when it is started. If the image used to run the step's container has an entrypoint, the `args` are used as arguments to that
+             * entrypoint. If the image does not define an entrypoint, the first element in args is used as the entrypoint, and the remainder will be used as arguments.
              */
             args?: string[];
             /**
-             * Working directory to use when running this step's container. If this value is a relative path, it is relative to the build's working directory. If this
-             * value is absolute, it may be outside the build's working directory, in which case the contents of the path may not be persisted across build step
-             * executions, unless a `volume` for that path is specified. If the build specifies a `RepoSource` with `dir` and a step with a `dir`, which specifies an
-             * absolute path, the `RepoSource` `dir` is ignored for the step's execution.
+             * Working directory to use when running this step's container. If this value is a relative path, it is relative to the build's working directory. If this value is absolute, it may be
+             * outside the build's working directory, in which case the contents of the path may not be persisted across build step executions, unless a `volume` for that path is specified. If the
+             * build specifies a `RepoSource` with `dir` and a step with a `dir`, which specifies an absolute path, the `RepoSource` `dir` is ignored for the step's execution.
              */
             dir?: string;
             /** Entrypoint to be used instead of the build step image's default entrypoint. If unset, the image's default entrypoint is used. */
             entrypoint?: string;
-            /**
-             * A list of environment variable definitions to be used when running a step. The elements are of the form "KEY=VALUE" for the environment variable "KEY"
-             * being given the value "VALUE".
-             */
+            /** A list of environment variable definitions to be used when running a step. The elements are of the form "KEY=VALUE" for the environment variable "KEY" being given the value "VALUE". */
             env?: string[];
             /** Unique identifier for this build step, used in `wait_for` to reference this build step as a dependency. */
             id?: string;
             /**
-             * Required. The name of the container image that will run this particular build step. If the image is available in the host's Docker daemon's cache, it
-             * will be run directly. If not, the host will attempt to pull the image first, using the builder service account's credentials if necessary. The Docker
-             * daemon's cache will already have the latest versions of all of the officially supported build steps
-             * ([https://github.com/GoogleCloudPlatform/cloud-builders](https://github.com/GoogleCloudPlatform/cloud-builders)). The Docker daemon will also have
-             * cached many of the layers for some popular images, like "ubuntu", "debian", but they will be refreshed at the time you attempt to use them. If you
-             * built an image in a previous build step, it will be stored in the host's Docker daemon's cache and is available to use as the name for a later build
-             * step.
+             * Required. The name of the container image that will run this particular build step. If the image is available in the host's Docker daemon's cache, it will be run directly. If not,
+             * the host will attempt to pull the image first, using the builder service account's credentials if necessary. The Docker daemon's cache will already have the latest versions of all
+             * of the officially supported build steps ([https://github.com/GoogleCloudPlatform/cloud-builders](https://github.com/GoogleCloudPlatform/cloud-builders)). The Docker daemon will also
+             * have cached many of the layers for some popular images, like "ubuntu", "debian", but they will be refreshed at the time you attempt to use them. If you built an image in a previous
+             * build step, it will be stored in the host's Docker daemon's cache and is available to use as the name for a later build step.
              */
             name?: string;
             /** Output only. Stores timing information for pulling this build step's builder image only. */
             pullTiming?: TimeSpan;
-            /**
-             * A list of environment variables which are encrypted using a Cloud Key Management Service crypto key. These values must be specified in the build's
-             * `Secret`.
-             */
+            /** A list of environment variables which are encrypted using a Cloud Key Management Service crypto key. These values must be specified in the build's `Secret`. */
             secretEnv?: string[];
-            /**
-             * Output only. Status of the build step. At this time, build step status is only updated on build completion; step status is not updated in real-time as
-             * the build progresses.
-             */
+            /** Output only. Status of the build step. At this time, build step status is only updated on build completion; step status is not updated in real-time as the build progresses. */
             status?: string;
-            /**
-             * Time limit for executing this build step. If not defined, the step has no time limit and will be allowed to continue to run until either it completes
-             * or the build itself times out.
-             */
+            /** Time limit for executing this build step. If not defined, the step has no time limit and will be allowed to continue to run until either it completes or the build itself times out. */
             timeout?: string;
             /** Output only. Stores timing information for executing this build step. */
             timing?: TimeSpan;
             /**
-             * List of volumes to mount into the build step. Each volume is created as an empty volume prior to execution of the build step. Upon completion of the
-             * build, volumes and their contents are discarded. Using a named volume in only one step is not valid as it is indicative of a build request with an
-             * incorrect configuration.
+             * List of volumes to mount into the build step. Each volume is created as an empty volume prior to execution of the build step. Upon completion of the build, volumes and their
+             * contents are discarded. Using a named volume in only one step is not valid as it is indicative of a build request with an incorrect configuration.
              */
             volumes?: Volume[];
             /**
-             * The ID(s) of the step(s) that this build step depends on. This build step will not start until all the build steps in `wait_for` have completed
-             * successfully. If `wait_for` is empty, this build step will start when all previous build steps in the `Build.Steps` list have completed successfully.
+             * The ID(s) of the step(s) that this build step depends on. This build step will not start until all the build steps in `wait_for` have completed successfully. If `wait_for` is empty,
+             * this build step will start when all previous build steps in the `Build.Steps` list have completed successfully.
              */
             waitFor?: string[];
         }
@@ -244,41 +223,34 @@ declare namespace gapi.client {
             disabled?: boolean;
             /** Path, from the source root, to a file whose contents is used for the template. */
             filename?: string;
-            /**
-             * GitHubEventsConfig describes the configuration of a trigger that creates a build whenever a GitHub event is received. Mutually exclusive with
-             * `trigger_template`.
-             */
+            /** GitHubEventsConfig describes the configuration of a trigger that creates a build whenever a GitHub event is received. Mutually exclusive with `trigger_template`. */
             github?: GitHubEventsConfig;
             /** Output only. Unique identifier of the trigger. */
             id?: string;
             /**
-             * ignored_files and included_files are file glob matches using https://golang.org/pkg/path/filepath/#Match extended with support for "∗∗". If
-             * ignored_files and changed files are both empty, then they are not used to determine whether or not to trigger a build. If ignored_files is not empty,
-             * then we ignore any files that match any of the ignored_file globs. If the change has no files that are outside of the ignored_files globs, then we do
-             * not trigger a build.
+             * ignored_files and included_files are file glob matches using https://golang.org/pkg/path/filepath/#Match extended with support for "**". If ignored_files and changed files are both
+             * empty, then they are not used to determine whether or not to trigger a build. If ignored_files is not empty, then we ignore any files that match any of the ignored_file globs. If
+             * the change has no files that are outside of the ignored_files globs, then we do not trigger a build.
              */
             ignoredFiles?: string[];
             /**
-             * If any of the files altered in the commit pass the ignored_files filter and included_files is empty, then as far as this filter is concerned, we should
-             * trigger the build. If any of the files altered in the commit pass the ignored_files filter and included_files is not empty, then we make sure that at
-             * least one of those files matches a included_files glob. If not, then we do not trigger a build.
+             * If any of the files altered in the commit pass the ignored_files filter and included_files is empty, then as far as this filter is concerned, we should trigger the build. If any of
+             * the files altered in the commit pass the ignored_files filter and included_files is not empty, then we make sure that at least one of those files matches a included_files glob. If
+             * not, then we do not trigger a build.
              */
             includedFiles?: string[];
             /**
-             * User-assigned name of the trigger. Must be unique within the project. Trigger names must meet the following requirements: + They must contain only
-             * alphanumeric characters and dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric character.
+             * User-assigned name of the trigger. Must be unique within the project. Trigger names must meet the following requirements: + They must contain only alphanumeric characters and
+             * dashes. + They can be 1-64 characters long. + They must begin and end with an alphanumeric character.
              */
             name?: string;
-            /**
-             * Substitutions for Build resource. The keys must match the following regular expression: `^_[A-Z0-9_]+$`.The keys cannot conflict with the keys in
-             * bindings.
-             */
+            /** Substitutions for Build resource. The keys must match the following regular expression: `^_[A-Z0-9_]+$`.The keys cannot conflict with the keys in bindings. */
             substitutions?: { [P in string]: string };
             /** Tags for annotation of a `BuildTrigger` */
             tags?: string[];
             /**
-             * Template describing the types of source changes to trigger a build. Branch and tag names in trigger templates are interpreted as regular expressions.
-             * Any branch or tag change that matches that regular expression will trigger a build. Mutually exclusive with `github`.
+             * Template describing the types of source changes to trigger a build. Branch and tag names in trigger templates are interpreted as regular expressions. Any branch or tag change that
+             * matches that regular expression will trigger a build. Mutually exclusive with `github`.
              */
             triggerTemplate?: RepoSource;
         }
@@ -338,10 +310,7 @@ declare namespace gapi.client {
             triggers?: BuildTrigger[];
         }
         interface Notification {
-            /**
-             * The filter string to use for notification filtering. Currently, this is assumed to be a CEL program. See https://opensource.google/projects/cel for
-             * more.
-             */
+            /** The filter string to use for notification filtering. Currently, this is assumed to be a CEL program. See https://opensource.google/projects/cel for more. */
             filter?: string;
             /** Configuration for HTTP delivery. */
             httpDelivery?: HTTPDelivery;
@@ -365,18 +334,15 @@ declare namespace gapi.client {
         interface NotifierMetadata {
             /** The human-readable and user-given name for the notifier. For example: "repo-merge-email-notifier". */
             name?: string;
-            /**
-             * The string representing the name and version of notifier to deploy. Expected to be of the form of "/:". For example:
-             * "gcr.io/my-project/notifiers/smtp:1.2.34".
-             */
+            /** The string representing the name and version of notifier to deploy. Expected to be of the form of "/:". For example: "gcr.io/my-project/notifiers/smtp:1.2.34". */
             notifier?: string;
         }
         interface NotifierSecret {
             /** Name is the local name of the secret, such as the verbatim string "my-smtp-password". */
             name?: string;
             /**
-             * Value is interpreted to be a resource path for fetching the actual (versioned) secret data for this secret. For example, this would be a Google Cloud
-             * Secret Manager secret version resource path like: "projects/my-project/secrets/my-secret/versions/latest".
+             * Value is interpreted to be a resource path for fetching the actual (versioned) secret data for this secret. For example, this would be a Google Cloud Secret Manager secret version
+             * resource path like: "projects/my-project/secrets/my-secret/versions/latest".
              */
             value?: string;
         }
@@ -391,36 +357,29 @@ declare namespace gapi.client {
             secrets?: NotifierSecret[];
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
         interface PullRequestFilter {
-            /**
-             * Regex of branches to match. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at
-             * https://github.com/google/re2/wiki/Syntax
-             */
+            /** Regex of branches to match. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at https://github.com/google/re2/wiki/Syntax */
             branch?: string;
             /** Configure builds to run whether a repository owner or collaborator need to comment `/gcbrun`. */
             commentControl?: string;
@@ -428,30 +387,21 @@ declare namespace gapi.client {
             invertRegex?: boolean;
         }
         interface PushFilter {
-            /**
-             * Regexes matching branches to build. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at
-             * https://github.com/google/re2/wiki/Syntax
-             */
+            /** Regexes matching branches to build. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at https://github.com/google/re2/wiki/Syntax */
             branch?: string;
             /** When true, only trigger a build if the revision regex does NOT match the git_ref regex. */
             invertRegex?: boolean;
-            /**
-             * Regexes matching tags to build. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at
-             * https://github.com/google/re2/wiki/Syntax
-             */
+            /** Regexes matching tags to build. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at https://github.com/google/re2/wiki/Syntax */
             tag?: string;
         }
         interface RepoSource {
-            /**
-             * Regex matching branches to build. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at
-             * https://github.com/google/re2/wiki/Syntax
-             */
+            /** Regex matching branches to build. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at https://github.com/google/re2/wiki/Syntax */
             branchName?: string;
             /** Explicit commit SHA to build. */
             commitSha?: string;
             /**
-             * Directory, relative to the source root, in which to run the build. This must be a relative path. If a step's `dir` is specified and is an absolute
-             * path, this value is ignored for that step's execution.
+             * Directory, relative to the source root, in which to run the build. This must be a relative path. If a step's `dir` is specified and is an absolute path, this value is ignored for
+             * that step's execution.
              */
             dir?: string;
             /** Only trigger a build if the revision regex does NOT match the revision regex. */
@@ -462,10 +412,7 @@ declare namespace gapi.client {
             repoName?: string;
             /** Substitutions to use in a triggered build. Should only be used with RunBuildTrigger */
             substitutions?: { [P in string]: string };
-            /**
-             * Regex matching tags to build. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at
-             * https://github.com/google/re2/wiki/Syntax
-             */
+            /** Regex matching tags to build. The syntax of the regular expressions accepted is the syntax accepted by RE2 and described at https://github.com/google/re2/wiki/Syntax */
             tagName?: string;
         }
         interface Results {
@@ -476,9 +423,8 @@ declare namespace gapi.client {
             /** List of build step digests, in the order corresponding to build step indices. */
             buildStepImages?: string[];
             /**
-             * List of build step outputs, produced by builder images, in the order corresponding to build step indices. [Cloud
-             * Builders](https://cloud.google.com/cloud-build/docs/cloud-builders) can produce this output by writing to `$BUILDER_OUTPUT/output`. Only the first 4KB
-             * of data is stored.
+             * List of build step outputs, produced by builder images, in the order corresponding to build step indices. [Cloud Builders](https://cloud.google.com/cloud-build/docs/cloud-builders)
+             * can produce this output by writing to `$BUILDER_OUTPUT/output`. Only the first 4KB of data is stored.
              */
             buildStepOutputs?: string[];
             /** Container images that were built as a part of the build. */
@@ -493,8 +439,8 @@ declare namespace gapi.client {
             /** Cloud KMS key name to use to decrypt these envs. */
             kmsKeyName?: string;
             /**
-             * Map of environment variable name to its encrypted value. Secret environment variables must be unique across all of a build's secrets, and must be used
-             * by at least one build step. Values can be at most 64 KB in size. There can be at most 100 secret values across all of a build's secrets.
+             * Map of environment variable name to its encrypted value. Secret environment variables must be unique across all of a build's secrets, and must be used by at least one build step.
+             * Values can be at most 64 KB in size. There can be at most 100 secret values across all of a build's secrets.
              */
             secretEnv?: { [P in string]: string };
         }
@@ -524,10 +470,9 @@ declare namespace gapi.client {
         }
         interface SourceProvenance {
             /**
-             * Output only. Hash(es) of the build source, which can be used to verify that the original source integrity was maintained in the build. Note that
-             * `FileHashes` will only be populated if `BuildOptions` has requested a `SourceProvenanceHash`. The keys to this map are file paths used as build source
-             * and the values contain the hash values for those files. If the build source came in a single package such as a gzipped tarfile (`.tar.gz`), the
-             * `FileHash` will be for the single path to that file.
+             * Output only. Hash(es) of the build source, which can be used to verify that the original source integrity was maintained in the build. Note that `FileHashes` will only be populated
+             * if `BuildOptions` has requested a `SourceProvenanceHash`. The keys to this map are file paths used as build source and the values contain the hash values for those files. If the
+             * build source came in a single package such as a gzipped tarfile (`.tar.gz`), the `FileHash` will be for the single path to that file.
              */
             fileHashes?: { [P in string]: FileHashes };
             /** A copy of the build's `source.repo_source`, if exists, with any revisions resolved. */
@@ -541,8 +486,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -561,23 +506,17 @@ declare namespace gapi.client {
             startTime?: string;
         }
         interface Volume {
-            /**
-             * Name of the volume to mount. Volume names must be unique per build step and must be valid names for Docker volumes. Each named volume must be used by
-             * at least two build steps.
-             */
+            /** Name of the volume to mount. Volume names must be unique per build step and must be valid names for Docker volumes. Each named volume must be used by at least two build steps. */
             name?: string;
-            /**
-             * Path at which to mount the volume. Paths must be absolute and cannot conflict with other volume paths on the same build step or with certain reserved
-             * volume paths.
-             */
+            /** Path at which to mount the volume. Paths must be absolute and cannot conflict with other volume paths on the same build step or with certain reserved volume paths. */
             path?: string;
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request: {
                 /** V1 error format. */
@@ -634,10 +573,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: CancelOperationRequest): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -727,8 +663,8 @@ declare namespace gapi.client {
             },
             body: CancelBuildRequest): Request<Build>;
             /**
-             * Starts a build with the specified configuration. This method returns a long-running `Operation`, which includes the build ID. Pass the build ID to
-             * `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`).
+             * Starts a build with the specified configuration. This method returns a long-running `Operation`, which includes the build ID. Pass the build ID to `GetBuild` to determine the build
+             * status (such as `SUCCESS` or `FAILURE`).
              */
             create(request: {
                 /** V1 error format. */
@@ -785,10 +721,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: Build): Request<Operation>;
-            /**
-             * Returns information about a previously requested build. The `Build` that is returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`),
-             * and timing information.
-             */
+            /** Returns information about a previously requested build. The `Build` that is returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`), and timing information. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -851,14 +784,13 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListBuildsResponse>;
             /**
-             * Creates a new build based on the specified build. This method creates a new build using the original build request, which may or may not result in an
-             * identical build. For triggered builds: ∗ Triggered builds resolve to a precise revision; therefore a retry of a triggered build will result in a build
-             * that uses the same revision. For non-triggered builds that specify `RepoSource`: ∗ If the original build built from the tip of a branch, the retried
-             * build will build from the tip of that branch, which may not be the same revision as the original build. ∗ If the original build specified a commit sha
-             * or revision ID, the retried build will use the identical source. For builds that specify `StorageSource`: ∗ If the original build pulled source from
-             * Google Cloud Storage without specifying the generation of the object, the new build will use the current object, which may be different from the
-             * original build source. ∗ If the original build pulled source from Cloud Storage and specified the generation of the object, the new build will attempt
-             * to use the same object, which may or may not be available depending on the bucket's lifecycle management settings.
+             * Creates a new build based on the specified build. This method creates a new build using the original build request, which may or may not result in an identical build. For triggered
+             * builds: * Triggered builds resolve to a precise revision; therefore a retry of a triggered build will result in a build that uses the same revision. For non-triggered builds that
+             * specify `RepoSource`: * If the original build built from the tip of a branch, the retried build will build from the tip of that branch, which may not be the same revision as the
+             * original build. * If the original build specified a commit sha or revision ID, the retried build will use the identical source. For builds that specify `StorageSource`: * If the
+             * original build pulled source from Google Cloud Storage without specifying the generation of the object, the new build will use the current object, which may be different from the
+             * original build source. * If the original build pulled source from Cloud Storage and specified the generation of the object, the new build will attempt to use the same object, which
+             * may or may not be available depending on the bucket's lifecycle management settings.
              */
             retry(request: {
                 /** V1 error format. */
@@ -922,10 +854,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request: {
                 /** V1 error format. */
@@ -982,10 +914,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: CancelOperationRequest): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;

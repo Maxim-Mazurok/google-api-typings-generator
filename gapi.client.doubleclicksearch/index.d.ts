@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Search Ads 360 API v2 2.0
 // Project: https://developers.google.com/search-ads
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -50,9 +53,9 @@ declare namespace gapi.client {
             /** DS click ID for the conversion. */
             clickId?: string;
             /**
-             * For offline conversions, advertisers provide this ID. Advertisers can specify any ID that is meaningful to them. Each conversion in a request must
-             * specify a unique ID, and the combination of ID and timestamp must be unique amongst all conversions within the advertiser. For online conversions, DS
-             * copies the `dsConversionId` or `floodlightOrderId` into this property depending on the advertiser's Floodlight instructions.
+             * For offline conversions, advertisers provide this ID. Advertisers can specify any ID that is meaningful to them. Each conversion in a request must specify a unique ID, and the
+             * combination of ID and timestamp must be unique amongst all conversions within the advertiser. For online conversions, DS copies the `dsConversionId` or `floodlightOrderId` into this
+             * property depending on the advertiser's Floodlight instructions.
              */
             conversionId?: string;
             /** The time at which the conversion was last modified, in epoch millis UTC. */
@@ -90,8 +93,8 @@ declare namespace gapi.client {
             /** The quantity of this conversion, in millis. */
             quantityMillis?: string;
             /**
-             * The revenue amount of this `TRANSACTION` conversion, in micros (value multiplied by 1000000, no decimal). For example, to specify a revenue value of
-             * "10" enter "10000000" (10 million) in your request.
+             * The revenue amount of this `TRANSACTION` conversion, in micros (value multiplied by 1000000, no decimal). For example, to specify a revenue value of "10" enter "10000000" (10
+             * million) in your request.
              */
             revenueMicros?: string;
             /** The numeric segmentation identifier (for example, DoubleClick Search Floodlight activity ID). */
@@ -105,9 +108,8 @@ declare namespace gapi.client {
             /** The ID of the local store for which the product was advertised. Applicable only when the channel is "`local`". */
             storeId?: string;
             /**
-             * The type of the conversion, that is, either `ACTION` or `TRANSACTION`. An `ACTION` conversion is an action by the user that has no monetarily
-             * quantifiable value, while a `TRANSACTION` conversion is an action that does have a monetarily quantifiable value. Examples are email list signups
-             * (`ACTION`) versus ecommerce purchases (`TRANSACTION`).
+             * The type of the conversion, that is, either `ACTION` or `TRANSACTION`. An `ACTION` conversion is an action by the user that has no monetarily quantifiable value, while a
+             * `TRANSACTION` conversion is an action that does have a monetarily quantifiable value. Examples are email list signups (`ACTION`) versus ecommerce purchases (`TRANSACTION`).
              */
             type?: string;
         }
@@ -150,8 +152,8 @@ declare namespace gapi.client {
             /** Synchronous report only. Generated report rows. */
             rows?: ReportRow[];
             /**
-             * The currency code of all monetary values produced in the report, including values that are set by users (e.g., keyword bid settings) and metrics (e.g.,
-             * cost and revenue). The currency code of a report is determined by the `statisticsCurrency` field of the report request.
+             * The currency code of all monetary values produced in the report, including values that are set by users (e.g., keyword bid settings) and metrics (e.g., cost and revenue). The
+             * currency code of a report is determined by the `statisticsCurrency` field of the report request.
              */
             statisticsCurrencyCode?: string;
             /** If all statistics of the report are sourced from the same time zone, this would be it. Otherwise the field is unset. */
@@ -161,51 +163,42 @@ declare namespace gapi.client {
             /** Name of a DoubleClick Search column to include in the report. */
             columnName?: string;
             /**
-             * Segments a report by a custom dimension. The report must be scoped to an advertiser or lower, and the custom dimension must already be set up in
-             * DoubleClick Search. The custom dimension name, which appears in DoubleClick Search, is case sensitive.\ If used in a conversion report, returns the
-             * value of the specified custom dimension for the given conversion, if set. This column does not segment the conversion report.
+             * Segments a report by a custom dimension. The report must be scoped to an advertiser or lower, and the custom dimension must already be set up in DoubleClick Search. The custom
+             * dimension name, which appears in DoubleClick Search, is case sensitive.\ If used in a conversion report, returns the value of the specified custom dimension for the given
+             * conversion, if set. This column does not segment the conversion report.
              */
             customDimensionName?: string;
             /**
-             * Name of a custom metric to include in the report. The report must be scoped to an advertiser or lower, and the custom metric must already be set up in
-             * DoubleClick Search. The custom metric name, which appears in DoubleClick Search, is case sensitive.
+             * Name of a custom metric to include in the report. The report must be scoped to an advertiser or lower, and the custom metric must already be set up in DoubleClick Search. The custom
+             * metric name, which appears in DoubleClick Search, is case sensitive.
              */
             customMetricName?: string;
-            /**
-             * Inclusive day in YYYY-MM-DD format. When provided, this overrides the overall time range of the report for this column only. Must be provided together
-             * with `startDate`.
-             */
+            /** Inclusive day in YYYY-MM-DD format. When provided, this overrides the overall time range of the report for this column only. Must be provided together with `startDate`. */
             endDate?: string;
             /** Synchronous report only. Set to `true` to group by this column. Defaults to `false`. */
             groupByColumn?: boolean;
             /**
-             * Text used to identify this column in the report output; defaults to `columnName` or `savedColumnName` when not specified. This can be used to prevent
-             * collisions between DoubleClick Search columns and saved columns with the same name.
+             * Text used to identify this column in the report output; defaults to `columnName` or `savedColumnName` when not specified. This can be used to prevent collisions between DoubleClick
+             * Search columns and saved columns with the same name.
              */
             headerText?: string;
             /** The platform that is used to provide data for the custom dimension. Acceptable values are "floodlight". */
             platformSource?: string;
             /**
-             * Returns metrics only for a specific type of product activity. Accepted values are: - "`sold`": returns metrics only for products that were sold -
-             * "`advertised`": returns metrics only for products that were advertised in a Shopping campaign, and that might or might not have been sold
+             * Returns metrics only for a specific type of product activity. Accepted values are: - "`sold`": returns metrics only for products that were sold - "`advertised`": returns metrics
+             * only for products that were advertised in a Shopping campaign, and that might or might not have been sold
              */
             productReportPerspective?: string;
-            /**
-             * Name of a saved column to include in the report. The report must be scoped at advertiser or lower, and this saved column must already be created in the
-             * DoubleClick Search UI.
-             */
+            /** Name of a saved column to include in the report. The report must be scoped at advertiser or lower, and this saved column must already be created in the DoubleClick Search UI. */
             savedColumnName?: string;
-            /**
-             * Inclusive date in YYYY-MM-DD format. When provided, this overrides the overall time range of the report for this column only. Must be provided together
-             * with `endDate`.
-             */
+            /** Inclusive date in YYYY-MM-DD format. When provided, this overrides the overall time range of the report for this column only. Must be provided together with `endDate`. */
             startDate?: string;
         }
         interface ReportRequest {
             /**
-             * The columns to include in the report. This includes both DoubleClick Search columns and saved columns. For DoubleClick Search columns, only the
-             * `columnName` parameter is required. For saved columns only the `savedColumnName` parameter is required. Both `columnName` and `savedColumnName` cannot
-             * be set in the same stanza.\ The maximum number of columns per request is 300.
+             * The columns to include in the report. This includes both DoubleClick Search columns and saved columns. For DoubleClick Search columns, only the `columnName` parameter is required.
+             * For saved columns only the `savedColumnName` parameter is required. Both `columnName` and `savedColumnName` cannot be set in the same stanza.\ The maximum number of columns per
+             * request is 300.
              */
             columns?: ReportApiColumnSpec[];
             /** Format that the report should be returned in. Currently `csv` or `tsv` is supported. */
@@ -224,14 +217,11 @@ declare namespace gapi.client {
             /** Determines if removed entities should be included in the report. Defaults to `false`. */
             includeRemovedEntities?: boolean;
             /**
-             * Asynchronous report only. The maximum number of rows per report file. A large report is split into many files based on this field. Acceptable values
-             * are `1000000` to `100000000`, inclusive.
+             * Asynchronous report only. The maximum number of rows per report file. A large report is split into many files based on this field. Acceptable values are `1000000` to `100000000`,
+             * inclusive.
              */
             maxRowsPerFile?: number;
-            /**
-             * Synchronous report only. A list of columns and directions defining sorting to be performed on the report rows.\ The maximum number of orderings per
-             * request is 300.
-             */
+            /** Synchronous report only. A list of columns and directions defining sorting to be performed on the report rows.\ The maximum number of orderings per request is 300. */
             orderBy?: Array<{
                 /** Column to perform the sort on. This can be a DoubleClick Search-defined column or a saved column. */
                 column?: ReportApiColumnSpec;
@@ -239,8 +229,8 @@ declare namespace gapi.client {
                 sortOrder?: string;
             }>;
             /**
-             * The reportScope is a set of IDs that are used to determine which subset of entities will be returned in the report. The full lineage of IDs from the
-             * lowest scoped level desired up through agency is required.
+             * The reportScope is a set of IDs that are used to determine which subset of entities will be returned in the report. The full lineage of IDs from the lowest scoped level desired up
+             * through agency is required.
              */
             reportScope?: {
                 /** DS ad group ID. */
@@ -259,20 +249,17 @@ declare namespace gapi.client {
                 keywordId?: string;
             };
             /**
-             * Determines the type of rows that are returned in the report. For example, if you specify `reportType: keyword`, each row in the report will contain
-             * data about a keyword. See the [Types of Reports](/search-ads/v2/report-types/) reference for the columns that are available for each type.
+             * Determines the type of rows that are returned in the report. For example, if you specify `reportType: keyword`, each row in the report will contain data about a keyword. See the
+             * [Types of Reports](/search-ads/v2/report-types/) reference for the columns that are available for each type.
              */
             reportType?: string;
-            /**
-             * Synchronous report only. The maximum number of rows to return; additional rows are dropped. Acceptable values are `0` to `10000`, inclusive. Defaults
-             * to `10000`.
-             */
+            /** Synchronous report only. The maximum number of rows to return; additional rows are dropped. Acceptable values are `0` to `10000`, inclusive. Defaults to `10000`. */
             rowCount?: number;
             /** Synchronous report only. Zero-based index of the first row to return. Acceptable values are `0` to `50000`, inclusive. Defaults to `0`. */
             startRow?: number;
             /**
-             * Specifies the currency in which monetary will be returned. Possible values are: `usd`, `agency` (valid if the report is scoped to agency or lower),
-             * `advertiser` (valid if the report is scoped to ∗ advertiser or lower), or `account` (valid if the report is scoped to engine account or lower).
+             * Specifies the currency in which monetary will be returned. Possible values are: `usd`, `agency` (valid if the report is scoped to agency or lower), `advertiser` (valid if the report
+             * is scoped to * advertiser or lower), or `account` (valid if the report is scoped to engine account or lower).
              */
             statisticsCurrency?: string;
             /** If metrics are requested in a report, this argument will be used to restrict the metrics to a specific time range. */

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Scheduler API v1 1.0
 // Project: https://cloud.google.com/scheduler/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -37,28 +40,28 @@ declare namespace gapi.client {
              *
              * Cloud Scheduler sets some headers to default values:
              *
-             * ∗ `User-Agent`: By default, this header is
+             * * `User-Agent`: By default, this header is
              * `"AppEngine-Google; (+http://code.google.com/appengine)"`.
              * This header can be modified, but Cloud Scheduler will append
              * `"AppEngine-Google; (+http://code.google.com/appengine)"` to the
              * modified `User-Agent`.
-             * ∗ `X-CloudScheduler`: This header will be set to true.
+             * * `X-CloudScheduler`: This header will be set to true.
              *
              * If the job has an body, Cloud Scheduler sets
              * the following headers:
              *
-             * ∗ `Content-Type`: By default, the `Content-Type` header is set to
+             * * `Content-Type`: By default, the `Content-Type` header is set to
              * `"application/octet-stream"`. The default can be overridden by explictly
              * setting `Content-Type` to a particular media type when the job is
              * created.
              * For example, `Content-Type` can be set to `"application/json"`.
-             * ∗ `Content-Length`: This is computed by Cloud Scheduler. This value is
+             * * `Content-Length`: This is computed by Cloud Scheduler. This value is
              * output only. It cannot be changed.
              *
              * The headers below are output only. They cannot be set or overridden:
              *
-             * ∗ `X-Google-∗`: For Google internal use only.
-             * ∗ `X-AppEngine-∗`: For Google internal use only.
+             * * `X-Google-*`: For Google internal use only.
+             * * `X-AppEngine-*`: For Google internal use only.
              *
              * In addition, some App Engine headers, which contain
              * job-specific information, are also be sent to the job handler.
@@ -89,7 +92,7 @@ declare namespace gapi.client {
              * The host is constructed as:
              *
              *
-             * ∗ `host = [application_domain_name]`</br>
+             * * `host = [application_domain_name]`</br>
              * `| [service] + '.' + [application_domain_name]`</br>
              * `| [version] + '.' + [application_domain_name]`</br>
              * `| [version_dot_service]+ '.' + [application_domain_name]`</br>
@@ -98,29 +101,29 @@ declare namespace gapi.client {
              * `| [instance_dot_version] + '.' + [application_domain_name]`</br>
              * `| [instance_dot_version_dot_service] + '.' + [application_domain_name]`
              *
-             * ∗ `application_domain_name` = The domain name of the app, for
+             * * `application_domain_name` = The domain name of the app, for
              * example <app-id>.appspot.com, which is associated with the
              * job's project ID.
              *
-             * ∗ `service =` service
+             * * `service =` service
              *
-             * ∗ `version =` version
+             * * `version =` version
              *
-             * ∗ `version_dot_service =`
+             * * `version_dot_service =`
              * version `+ '.' +`
              * service
              *
-             * ∗ `instance =` instance
+             * * `instance =` instance
              *
-             * ∗ `instance_dot_service =`
+             * * `instance_dot_service =`
              * instance `+ '.' +`
              * service
              *
-             * ∗ `instance_dot_version =`
+             * * `instance_dot_version =`
              * instance `+ '.' +`
              * version
              *
-             * ∗ `instance_dot_version_dot_service =`
+             * * `instance_dot_version_dot_service =`
              * instance `+ '.' +`
              * version `+ '.' +`
              * service
@@ -192,10 +195,10 @@ declare namespace gapi.client {
              * will be ignored or replaced is below:
              * - Host: This will be computed by Cloud Scheduler and derived from
              * uri.
-             * ∗ `Content-Length`: This will be computed by Cloud Scheduler.
-             * ∗ `User-Agent`: This will be set to `"Google-Cloud-Scheduler"`.
-             * ∗ `X-Google-∗`: Google internal use only.
-             * ∗ `X-AppEngine-∗`: Google internal use only.
+             * * `Content-Length`: This will be computed by Cloud Scheduler.
+             * * `User-Agent`: This will be set to `"Google-Cloud-Scheduler"`.
+             * * `X-Google-*`: Google internal use only.
+             * * `X-AppEngine-*`: Google internal use only.
              *
              * The total size of headers must be less than 80KB.
              */
@@ -209,7 +212,7 @@ declare namespace gapi.client {
              * request.
              *
              * This type of authorization should generally only be used when calling
-             * Google APIs hosted on ∗.googleapis.com.
+             * Google APIs hosted on *.googleapis.com.
              */
             oauthToken?: OAuthToken;
             /**
@@ -244,8 +247,8 @@ declare namespace gapi.client {
              * to the RetryConfig.
              *
              * The allowed duration for this deadline is:
-             * ∗ For HTTP targets, between 15 seconds and 30 minutes.
-             * ∗ For App Engine HTTP targets, between 15
+             * * For HTTP targets, between 15 seconds and 30 minutes.
+             * * For App Engine HTTP targets, between 15
              * seconds and 24 hours.
              */
             attemptDeadline?: string;
@@ -268,16 +271,16 @@ declare namespace gapi.client {
              * The job name. For example:
              * `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
              *
-             * ∗ `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
+             * * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
              * hyphens (-), colons (:), or periods (.).
              * For more information, see
              * [Identifying
              * projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
-             * ∗ `LOCATION_ID` is the canonical ID for the job's location.
+             * * `LOCATION_ID` is the canonical ID for the job's location.
              * The list of available locations can be obtained by calling
              * ListLocations.
              * For more information, see https://cloud.google.com/about/locations/.
-             * ∗ `JOB_ID` can contain only letters ([A-Za-z]), numbers ([0-9]),
+             * * `JOB_ID` can contain only letters ([A-Za-z]), numbers ([0-9]),
              * hyphens (-), or underscores (_). The maximum length is 500 characters.
              */
             name?: string;
@@ -292,8 +295,8 @@ declare namespace gapi.client {
              *
              * The schedule can be either of the following types:
              *
-             * ∗ [Crontab](http://en.wikipedia.org/wiki/Cron#Overview)
-             * ∗ English-like
+             * * [Crontab](http://en.wikipedia.org/wiki/Cron#Overview)
+             * * English-like
              * [schedule](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules)
              *
              * As a general rule, execution `n + 1` of a job will not begin
@@ -499,7 +502,7 @@ declare namespace gapi.client {
              * 10s, max_backoff_duration is 300s, and
              * `max_doublings` is 3, then the a job will first be retried in 10s. The
              * retry interval will double three times, and then increase linearly by
-             * 2^3 ∗ 10s.  Finally, the job will retry at intervals of
+             * 2^3 * 10s.  Finally, the job will retry at intervals of
              * max_backoff_duration until the job has
              * been attempted retry_count times. Thus, the
              * requests will retry at 10s, 20s, 40s, 80s, 160s, 240s, 300s, 300s, ....
@@ -531,7 +534,7 @@ declare namespace gapi.client {
              *
              * The default value of retry_count is zero.
              *
-             * If retry_count is zero, a job attempt will ∗not∗ be retried if
+             * If retry_count is zero, a job attempt will *not* be retried if
              * it fails. Instead the Cloud Scheduler system will wait for the
              * next scheduled execution time.
              *
@@ -765,16 +768,16 @@ declare namespace gapi.client {
                  * The job name. For example:
                  * `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
                  *
-                 * ∗ `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
+                 * * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
                  * hyphens (-), colons (:), or periods (.).
                  * For more information, see
                  * [Identifying
                  * projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
-                 * ∗ `LOCATION_ID` is the canonical ID for the job's location.
+                 * * `LOCATION_ID` is the canonical ID for the job's location.
                  * The list of available locations can be obtained by calling
                  * ListLocations.
                  * For more information, see https://cloud.google.com/about/locations/.
-                 * ∗ `JOB_ID` can contain only letters ([A-Za-z]), numbers ([0-9]),
+                 * * `JOB_ID` can contain only letters ([A-Za-z]), numbers ([0-9]),
                  * hyphens (-), or underscores (_). The maximum length is 500 characters.
                  */
                 name: string;
@@ -813,16 +816,16 @@ declare namespace gapi.client {
                  * The job name. For example:
                  * `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
                  *
-                 * ∗ `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
+                 * * `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]),
                  * hyphens (-), colons (:), or periods (.).
                  * For more information, see
                  * [Identifying
                  * projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
-                 * ∗ `LOCATION_ID` is the canonical ID for the job's location.
+                 * * `LOCATION_ID` is the canonical ID for the job's location.
                  * The list of available locations can be obtained by calling
                  * ListLocations.
                  * For more information, see https://cloud.google.com/about/locations/.
-                 * ∗ `JOB_ID` can contain only letters ([A-Za-z]), numbers ([0-9]),
+                 * * `JOB_ID` can contain only letters ([A-Za-z]), numbers ([0-9]),
                  * hyphens (-), or underscores (_). The maximum length is 500 characters.
                  */
                 name: string;

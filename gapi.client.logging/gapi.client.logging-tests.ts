@@ -36,8 +36,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Lists log entries. Use this method to retrieve log entries that originated from a project/folder/organization/billing account. For ways to export log
-         * entries, see Exporting Logs (https://cloud.google.com/logging/docs/export).
+         * Lists log entries. Use this method to retrieve log entries that originated from a project/folder/organization/billing account. For ways to export log entries, see Exporting Logs
+         * (https://cloud.google.com/logging/docs/export).
          */
         await gapi.client.logging.entries.list({
         }, {
@@ -51,9 +51,8 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Writes log entries to Logging. This API method is the only way to send log entries to Logging. This method is used, directly or indirectly, by the
-         * Logging agent (fluentd) and all logging libraries configured to use Logging. A single request may contain log entries for a maximum of 1000 different
-         * resources (projects, organizations, billing accounts or folders)
+         * Writes log entries to Logging. This API method is the only way to send log entries to Logging. This method is used, directly or indirectly, by the Logging agent (fluentd) and all
+         * logging libraries configured to use Logging. A single request may contain log entries for a maximum of 1000 different resources (projects, organizations, billing accounts or folders)
          */
         await gapi.client.logging.entries.write({
         }, {
@@ -125,10 +124,7 @@ gapi.load('client', () => {
                 type: "Test string",
             },
         });
-        /**
-         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-         * in a resource.
-         */
+        /** Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. */
         await gapi.client.logging.exclusions.create({
             parent: "Test string",
         }, {
@@ -166,8 +162,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
-         * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
+         * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after
+         * the delete operation with a timestamp before the operation will be deleted.
          */
         await gapi.client.logging.logs.delete({
             logName: "Test string",
@@ -184,17 +180,13 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once
-         * configured, it applies to all projects and folders in the GCP organization.See Enabling CMEK for Logs Router
-         * (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+         * Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all
+         * projects and folders in the GCP organization.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
          */
         await gapi.client.logging.organizations.getCmekSettings({
             name: "Test string",
         });
-        /**
-         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-         * in a resource.
-         */
+        /** Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. */
         await gapi.client.logging.organizations.exclusions.create({
             parent: "Test string",
         }, {
@@ -232,8 +224,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
-         * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
+         * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after
+         * the delete operation with a timestamp before the operation will be deleted.
          */
         await gapi.client.logging.organizations.logs.delete({
             logName: "Test string",
@@ -245,8 +237,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
-         * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
+         * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted to
+         * write to the destination. A sink can export log entries only from the resource owning the sink.
          */
         await gapi.client.logging.organizations.sinks.create({
             parent: "Test string",
@@ -291,8 +283,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-         * might also have a new writer_identity; see the unique_writer_identity field.
+         * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+         * writer_identity; see the unique_writer_identity field.
          */
         await gapi.client.logging.organizations.sinks.patch({
             sinkName: "Test string",
@@ -324,8 +316,8 @@ gapi.load('client', () => {
             writerIdentity: "Test string",
         });
         /**
-         * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-         * might also have a new writer_identity; see the unique_writer_identity field.
+         * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+         * writer_identity; see the unique_writer_identity field.
          */
         await gapi.client.logging.organizations.sinks.update({
             sinkName: "Test string",
@@ -357,10 +349,10 @@ gapi.load('client', () => {
             writerIdentity: "Test string",
         });
         /**
-         * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations.
-         * Once configured, it applies to all projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the
-         * associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is
-         * disabled.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+         * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all
+         * projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required
+         * roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled.See Enabling CMEK for Logs Router
+         * (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
          */
         await gapi.client.logging.organizations.updateCmekSettings({
             name: "Test string",
@@ -370,10 +362,7 @@ gapi.load('client', () => {
             name: "Test string",
             serviceAccountId: "Test string",
         });
-        /**
-         * Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions
-         * in a resource.
-         */
+        /** Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource. */
         await gapi.client.logging.organizations.exclusions.create({
             parent: "Test string",
         }, {
@@ -411,8 +400,8 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
-         * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not
-         * be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
+         * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after
+         * the delete operation with a timestamp before the operation will be deleted.
          */
         await gapi.client.logging.organizations.logs.delete({
             logName: "Test string",
@@ -424,8 +413,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
-         * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
+         * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted to
+         * write to the destination. A sink can export log entries only from the resource owning the sink.
          */
         await gapi.client.logging.organizations.sinks.create({
             parent: "Test string",
@@ -470,8 +459,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-         * might also have a new writer_identity; see the unique_writer_identity field.
+         * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+         * writer_identity; see the unique_writer_identity field.
          */
         await gapi.client.logging.organizations.sinks.patch({
             sinkName: "Test string",
@@ -503,8 +492,8 @@ gapi.load('client', () => {
             writerIdentity: "Test string",
         });
         /**
-         * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-         * might also have a new writer_identity; see the unique_writer_identity field.
+         * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+         * writer_identity; see the unique_writer_identity field.
          */
         await gapi.client.logging.organizations.sinks.update({
             sinkName: "Test string",
@@ -536,8 +525,8 @@ gapi.load('client', () => {
             writerIdentity: "Test string",
         });
         /**
-         * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's
-         * writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
+         * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted to
+         * write to the destination. A sink can export log entries only from the resource owning the sink.
          */
         await gapi.client.logging.sinks.create({
             parent: "Test string",
@@ -582,8 +571,8 @@ gapi.load('client', () => {
             parent: "Test string",
         });
         /**
-         * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink
-         * might also have a new writer_identity; see the unique_writer_identity field.
+         * Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new
+         * writer_identity; see the unique_writer_identity field.
          */
         await gapi.client.logging.sinks.update({
             sinkName: "Test string",
@@ -615,18 +604,17 @@ gapi.load('client', () => {
             writerIdentity: "Test string",
         });
         /**
-         * Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once
-         * configured, it applies to all projects and folders in the GCP organization.See Enabling CMEK for Logs Router
-         * (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+         * Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all
+         * projects and folders in the GCP organization.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
          */
         await gapi.client.logging.v2.getCmekSettings({
             name: "Test string",
         });
         /**
-         * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations.
-         * Once configured, it applies to all projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the
-         * associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is
-         * disabled.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+         * Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all
+         * projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required
+         * roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled.See Enabling CMEK for Logs Router
+         * (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
          */
         await gapi.client.logging.v2.updateCmekSettings({
             name: "Test string",

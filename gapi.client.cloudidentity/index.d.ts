@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Identity API v1 1.0
 // Project: https://cloud.google.com/identity/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -21,17 +24,11 @@ declare namespace gapi.client {
         interface AndroidAttributes {
             /** Whether applications from unknown sources can be installed on device. */
             enabledUnknownSources?: boolean;
-            /**
-             * Whether this account is on an owner/primary profile. For phones, only true for owner profiles. Android 4+ devices can have secondary or restricted user
-             * profiles.
-             */
+            /** Whether this account is on an owner/primary profile. For phones, only true for owner profiles. Android 4+ devices can have secondary or restricted user profiles. */
             ownerProfileAccount?: boolean;
             /** Ownership privileges on device. */
             ownershipPrivilege?: string;
-            /**
-             * Whether device supports Android work profiles. If false, this service will not block access to corp data even if an administrator turns on the "Enforce
-             * Work Profile" policy.
-             */
+            /** Whether device supports Android work profiles. If false, this service will not block access to corp data even if an administrator turns on the "Enforce Work Profile" policy. */
             supportsWorkProfile?: boolean;
         }
         interface ApproveDeviceUserResponse {
@@ -64,8 +61,8 @@ declare namespace gapi.client {
             /** The Health score of the resource */
             healthScore?: string;
             /**
-             * The map of key-value attributes stored by callers specific to a device. The total serialized length of this map may not exceed 10KB. No limit is placed
-             * on the number of attributes in a map.
+             * The map of key-value attributes stored by callers specific to a device. The total serialized length of this map may not exceed 10KB. No limit is placed on the number of attributes
+             * in a map.
              */
             keyValuePairs?: { [P in string]: CustomAttributeValue };
             /** Output only. The time the client state data was last updated. */
@@ -130,8 +127,8 @@ declare namespace gapi.client {
             /** Output only. Model name of device. Example: Pixel 3. */
             model?: string;
             /**
-             * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Device in format: `devices/{device_id}`, where device_id is
-             * the unique id assigned to the Device.
+             * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Device in format: `devices/{device_id}`, where device_id is the unique id assigned to the
+             * Device.
              */
             name?: string;
             /** Output only. Mobile or network operator of device, if available. */
@@ -139,9 +136,8 @@ declare namespace gapi.client {
             /** Output only. OS version of the device. Example: Android 8.1.0. */
             osVersion?: string;
             /**
-             * Output only. Domain name for Google accounts on device. Type for other accounts on device. On Android, will only be populated if |ownership_privilege|
-             * is |PROFILE_OWNER| or |DEVICE_OWNER|. Does not include the account signed in to the device policy app if that account's domain has only one account.
-             * Examples: "com.example", "xyz.com".
+             * Output only. Domain name for Google accounts on device. Type for other accounts on device. On Android, will only be populated if |ownership_privilege| is |PROFILE_OWNER| or
+             * |DEVICE_OWNER|. Does not include the account signed in to the device policy app if that account's domain has only one account. Examples: "com.example", "xyz.com".
              */
             otherAccounts?: string[];
             /** Output only. Whether the device is owned by the company or an individual */
@@ -169,8 +165,8 @@ declare namespace gapi.client {
             /** Output only. Management state of the user on the device. */
             managementState?: string;
             /**
-             * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the DeviceUser in format:
-             * `devices/{device_id}/deviceUsers/{user_id}`, where user_id is the ID of the user associated with the user session.
+             * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the DeviceUser in format: `devices/{device_id}/deviceUsers/{user_id}`, where user_id is the ID
+             * of the user associated with the user session.
              */
             name?: string;
             /** Password state of the DeviceUser object */
@@ -184,9 +180,8 @@ declare namespace gapi.client {
             /** The ID of the entity within the given namespace. The ID must be unique within its namespace. */
             id?: string;
             /**
-             * Namespaces provide isolation for IDs, so an ID only needs to be unique within its namespace. Namespaces are currently only created as part of
-             * IdentitySource creation from Admin Console. A namespace `"identitysources/{identity_source_id}"` is created corresponding to every Identity Source
-             * `identity_source_id`.
+             * Namespaces provide isolation for IDs, so an ID only needs to be unique within its namespace. Namespaces are currently only created as part of IdentitySource creation from Admin
+             * Console. A namespace `"identitysources/{identity_source_id}"` is created corresponding to every Identity Source `identity_source_id`.
              */
             namespace?: string;
         }
@@ -194,27 +189,24 @@ declare namespace gapi.client {
             /** Output only. The time when the Group was created. Output only. */
             createTime?: string;
             /**
-             * An extended description to help users determine the purpose of a Group. For example, you can include information about who should join the Group, the
-             * types of messages to send to the Group, links to FAQs about the Group, or related Groups. Maximum length is 4,096 characters.
+             * An extended description to help users determine the purpose of a Group. For example, you can include information about who should join the Group, the types of messages to send to
+             * the Group, links to FAQs about the Group, or related Groups. Maximum length is 4,096 characters.
              */
             description?: string;
             /** The Group's display name. */
             displayName?: string;
             /** Required. Immutable. EntityKey of the Group. Must be set when creating a Group, read-only afterwards. */
             groupKey?: EntityKey;
-            /**
-             * Required. `Required`. Labels for Group resource. For creating Groups under a namespace, set label key to 'labels/system/groups/external' and label
-             * value as empty.
-             */
+            /** Required. `Required`. Labels for Group resource. For creating Groups under a namespace, set label key to 'labels/system/groups/external' and label value as empty. */
             labels?: { [P in string]: string };
             /**
-             * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group in the format: `groups/{group_id}`, where group_id is
-             * the unique ID assigned to the Group. Must be left blank while creating a Group.
+             * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group in the format: `groups/{group_id}`, where group_id is the unique ID assigned to the
+             * Group. Must be left blank while creating a Group.
              */
             name?: string;
             /**
-             * Required. Immutable. The entity under which this Group resides in Cloud Identity resource hierarchy. Must be set when creating a Group, read-only
-             * afterwards. Currently allowed types: `identitysources`.
+             * Required. Immutable. The entity under which this Group resides in Cloud Identity resource hierarchy. Must be set when creating a Group, read-only afterwards. Currently allowed
+             * types: `identitysources`.
              */
             parent?: string;
             /** Output only. The time when the Group was last updated. Output only. */
@@ -233,17 +225,13 @@ declare namespace gapi.client {
             nextPageToken?: string;
         }
         interface LookupGroupNameResponse {
-            /**
-             * [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group in the format: `groups/{group_id}`, where `group_id` is the unique ID
-             * assigned to the Group.
-             */
+            /** [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group in the format: `groups/{group_id}`, where `group_id` is the unique ID assigned to the Group. */
             name?: string;
         }
         interface LookupMembershipNameResponse {
             /**
-             * [Resource name](https://cloud.google.com/apis/design/resource_names) of the Membership being looked up. Format:
-             * `groups/{group_id}/memberships/{member_id}`, where `group_id` is the unique ID assigned to the Group to which Membership belongs to, and `member_id` is
-             * the unique ID assigned to the member.
+             * [Resource name](https://cloud.google.com/apis/design/resource_names) of the Membership being looked up. Format: `groups/{group_id}/memberships/{member_id}`, where `group_id` is the
+             * unique ID assigned to the Group to which Membership belongs to, and `member_id` is the unique ID assigned to the member.
              */
             name?: string;
         }
@@ -251,14 +239,13 @@ declare namespace gapi.client {
             /** Output only. Creation timestamp of the Membership. Output only. */
             createTime?: string;
             /**
-             * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Membership in the format:
-             * `groups/{group_id}/memberships/{member_id}`, where group_id is the unique ID assigned to the Group to which Membership belongs to, and member_id is the
-             * unique ID assigned to the member Must be left blank while creating a Membership.
+             * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Membership in the format: `groups/{group_id}/memberships/{member_id}`, where group_id is the
+             * unique ID assigned to the Group to which Membership belongs to, and member_id is the unique ID assigned to the member Must be left blank while creating a Membership.
              */
             name?: string;
             /**
-             * Required. Immutable. EntityKey of the entity to be added as the member. Must be set while creating a Membership, read-only afterwards. Currently
-             * allowed entity types: `Users`, `Groups`.
+             * Required. Immutable. EntityKey of the entity to be added as the member. Must be set while creating a Membership, read-only afterwards. Currently allowed entity types: `Users`,
+             * `Groups`.
              */
             preferredMemberKey?: EntityKey;
             /** Roles for a member within the Group. Currently supported MembershipRoles: `"MEMBER"`. */
@@ -271,28 +258,24 @@ declare namespace gapi.client {
             name?: string;
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -308,8 +291,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -339,8 +322,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group to create Membership within. Format: `groups/{group_id}`,
-                 * where `group_id` is the unique ID assigned to the Group.
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group to create Membership within. Format: `groups/{group_id}`, where `group_id` is the
+                 * unique ID assigned to the Group.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -370,8 +353,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group to create Membership within. Format: `groups/{group_id}`,
-                 * where `group_id` is the unique ID assigned to the Group.
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group to create Membership within. Format: `groups/{group_id}`, where `group_id` is the
+                 * unique ID assigned to the Group.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -399,9 +382,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Membership to be deleted. Format:
-                 * `groups/{group_id}/memberships/{member_id}`, where `group_id` is the unique ID assigned to the Group to which Membership belongs to, and member_id is
-                 * the unique ID assigned to the member.
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Membership to be deleted. Format: `groups/{group_id}/memberships/{member_id}`, where
+                 * `group_id` is the unique ID assigned to the Group to which Membership belongs to, and member_id is the unique ID assigned to the member.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -430,9 +412,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Membership to be retrieved. Format:
-                 * `groups/{group_id}/memberships/{member_id}`, where `group_id` is the unique id assigned to the Group to which Membership belongs to, and `member_id` is
-                 * the unique ID assigned to the member.
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Membership to be retrieved. Format: `groups/{group_id}/memberships/{member_id}`, where
+                 * `group_id` is the unique id assigned to the Group to which Membership belongs to, and `member_id` is the unique ID assigned to the member.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -467,8 +448,8 @@ declare namespace gapi.client {
                 /** The next_page_token value returned from a previous list request, if any. */
                 pageToken?: string;
                 /**
-                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group to list Memberships within. Format: `groups/{group_id}`,
-                 * where `group_id` is the unique ID assigned to the Group.
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group to list Memberships within. Format: `groups/{group_id}`, where `group_id` is the
+                 * unique ID assigned to the Group.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -499,16 +480,15 @@ declare namespace gapi.client {
                 /** The ID of the entity within the given namespace. The ID must be unique within its namespace. */
                 "memberKey.id"?: string;
                 /**
-                 * Namespaces provide isolation for IDs, so an ID only needs to be unique within its namespace. Namespaces are currently only created as part of
-                 * IdentitySource creation from Admin Console. A namespace `"identitysources/{identity_source_id}"` is created corresponding to every Identity Source
-                 * `identity_source_id`.
+                 * Namespaces provide isolation for IDs, so an ID only needs to be unique within its namespace. Namespaces are currently only created as part of IdentitySource creation from Admin
+                 * Console. A namespace `"identitysources/{identity_source_id}"` is created corresponding to every Identity Source `identity_source_id`.
                  */
                 "memberKey.namespace"?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group to lookup Membership within. Format: `groups/{group_id}`,
-                 * where `group_id` is the unique ID assigned to the Group.
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group to lookup Membership within. Format: `groups/{group_id}`, where `group_id` is the
+                 * unique ID assigned to the Group.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -589,8 +569,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group in the format: `groups/{group_id}`, where `group_id` is the
-                 * unique ID assigned to the Group.
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group in the format: `groups/{group_id}`, where `group_id` is the unique ID assigned to the
+                 * Group.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -619,8 +599,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group in the format: `groups/{group_id}`, where `group_id` is the
-                 * unique ID assigned to the Group.
+                 * Required. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group in the format: `groups/{group_id}`, where `group_id` is the unique ID assigned to the
+                 * Group.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -682,9 +662,8 @@ declare namespace gapi.client {
                 /** The ID of the entity within the given namespace. The ID must be unique within its namespace. */
                 "groupKey.id"?: string;
                 /**
-                 * Namespaces provide isolation for IDs, so an ID only needs to be unique within its namespace. Namespaces are currently only created as part of
-                 * IdentitySource creation from Admin Console. A namespace `"identitysources/{identity_source_id}"` is created corresponding to every Identity Source
-                 * `identity_source_id`.
+                 * Namespaces provide isolation for IDs, so an ID only needs to be unique within its namespace. Namespaces are currently only created as part of IdentitySource creation from Admin
+                 * Console. A namespace `"identitysources/{identity_source_id}"` is created corresponding to every Identity Source `identity_source_id`.
                  */
                 "groupKey.namespace"?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -715,8 +694,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group in the format: `groups/{group_id}`, where group_id is
-                 * the unique ID assigned to the Group. Must be left blank while creating a Group.
+                 * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group in the format: `groups/{group_id}`, where group_id is the unique ID assigned to
+                 * the Group. Must be left blank while creating a Group.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -748,8 +727,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group in the format: `groups/{group_id}`, where group_id is
-                 * the unique ID assigned to the Group. Must be left blank while creating a Group.
+                 * Output only. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Group in the format: `groups/{group_id}`, where group_id is the unique ID assigned to
+                 * the Group. Must be left blank while creating a Group.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -789,8 +768,8 @@ declare namespace gapi.client {
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * Required. `Required`. Query string for performing search on groups. Users can search on parent and label attributes of groups. EXACT match ('==') is
-                 * supported on parent, and CONTAINS match ('in') is supported on labels.
+                 * Required. `Required`. Query string for performing search on groups. Users can search on parent and label attributes of groups. EXACT match ('==') is supported on parent, and
+                 * CONTAINS match ('in') is supported on labels.
                  */
                 query?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */

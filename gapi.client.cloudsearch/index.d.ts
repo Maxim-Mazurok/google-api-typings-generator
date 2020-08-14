@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Search API v1 1.0
 // Project: https://developers.google.com/cloud-search/docs/guides/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -20,10 +23,10 @@ declare namespace gapi.client {
     namespace cloudsearch {
         interface BooleanOperatorOptions {
             /**
-             * Indicates the operator name required in the query in order to isolate the boolean property. For example, if operatorName is ∗closed∗ and the property's
-             * name is ∗isClosed∗, then queries like ∗closed:<value>∗ show results only where the value of the property named ∗isClosed∗ matches ∗<value>∗. By
-             * contrast, a search that uses the same ∗<value>∗ without an operator returns all items where ∗<value>∗ matches the value of any String properties or
-             * text within the content field for the item. The operator name can only contain lowercase letters (a-z). The maximum length is 32 characters.
+             * Indicates the operator name required in the query in order to isolate the boolean property. For example, if operatorName is *closed* and the property's name is *isClosed*, then
+             * queries like *closed:<value>* show results only where the value of the property named *isClosed* matches *<value>*. By contrast, a search that uses the same *<value>* without an
+             * operator returns all items where *<value>* matches the value of any String properties or text within the content field for the item. The operator name can only contain lowercase
+             * letters (a-z). The maximum length is 32 characters.
              */
             operatorName?: string;
         }
@@ -70,8 +73,8 @@ declare namespace gapi.client {
         }
         interface DataSource {
             /**
-             * If true, Indexing API rejects any modification calls to this datasource such as create, update, and delete. Disabling this does not imply halting
-             * process of previously accepted data.
+             * If true, Indexing API rejects any modification calls to this datasource such as create, update, and delete. Disabling this does not imply halting process of previously accepted
+             * data.
              */
             disableModifications?: boolean;
             /** Disable serving any search or assist results. */
@@ -81,9 +84,9 @@ declare namespace gapi.client {
             /** List of service accounts that have indexing access. */
             indexingServiceAccounts?: string[];
             /**
-             * This field restricts visibility to items at the datasource level. Items within the datasource are restricted to the union of users and groups included
-             * in this field. Note that, this does not ensure access to a specific item, as users need to have ACL permissions on the contained items. This ensures a
-             * high level access on the entire datasource, and that the individual items are not shared outside this visibility.
+             * This field restricts visibility to items at the datasource level. Items within the datasource are restricted to the union of users and groups included in this field. Note that, this
+             * does not ensure access to a specific item, as users need to have ACL permissions on the contained items. This ensures a high level access on the entire datasource, and that the
+             * individual items are not shared outside this visibility.
              */
             itemsVisibility?: GSuitePrincipal[];
             /** Name of the datasource resource. Format: datasources/{source_id}. The name is ignored when creating a datasource. */
@@ -91,17 +94,16 @@ declare namespace gapi.client {
             /** IDs of the Long Running Operations (LROs) currently running for this schema. */
             operationIds?: string[];
             /**
-             * A short name or alias for the source. This value will be used to match the 'source' operator. For example, if the short name is ∗<value>∗ then queries
-             * like ∗source:<value>∗ will only return results for this source. The value must be unique across all datasources. The value must only contain
-             * alphanumeric characters (a-zA-Z0-9). The value cannot start with 'google' and cannot be one of the following: mail, gmail, docs, drive, groups, sites,
-             * calendar, hangouts, gplus, keep, people, teams. Its maximum length is 32 characters.
+             * A short name or alias for the source. This value will be used to match the 'source' operator. For example, if the short name is *<value>* then queries like *source:<value>* will
+             * only return results for this source. The value must be unique across all datasources. The value must only contain alphanumeric characters (a-zA-Z0-9). The value cannot start with
+             * 'google' and cannot be one of the following: mail, gmail, docs, drive, groups, sites, calendar, hangouts, gplus, keep, people, teams. Its maximum length is 32 characters.
              */
             shortName?: string;
         }
         interface DataSourceIndexStats {
             /**
-             * Date for which index stats were calculated. If the date of request is not the current date then stats calculated on the next day are returned. Stats
-             * are calculated close to mid night in this case. If date of request is current date, then real time stats are returned.
+             * Date for which index stats were calculated. If the date of request is not the current date then stats calculated on the next day are returned. Stats are calculated close to mid
+             * night in this case. If date of request is current date, then real time stats are returned.
              */
             date?: Date;
             /** Number of items aggregrated by status code. */
@@ -109,9 +111,9 @@ declare namespace gapi.client {
         }
         interface DataSourceRestriction {
             /**
-             * Filter options restricting the results. If multiple filters are present, they are grouped by object type before joining. Filters with the same object
-             * type are joined conjunctively, then the resulting expressions are joined disjunctively. The maximum number of elements is 20. NOTE: Suggest API
-             * supports only few filters at the moment: "objecttype", "type" and "mimetype". For now, schema specific filters cannot be used to filter suggestions.
+             * Filter options restricting the results. If multiple filters are present, they are grouped by object type before joining. Filters with the same object type are joined conjunctively,
+             * then the resulting expressions are joined disjunctively. The maximum number of elements is 20. NOTE: Suggest API supports only few filters at the moment: "objecttype", "type" and
+             * "mimetype". For now, schema specific filters cannot be used to filter suggestions.
              */
             filterOptions?: FilterOptions[];
             /** The source of restriction. */
@@ -127,25 +129,22 @@ declare namespace gapi.client {
         }
         interface DateOperatorOptions {
             /**
-             * Indicates the operator name required in the query in order to isolate the date property using the greater-than operator. For example, if
-             * greaterThanOperatorName is ∗closedafter∗ and the property's name is ∗closeDate∗, then queries like ∗closedafter:<value>∗ show results only where the
-             * value of the property named ∗closeDate∗ is later than ∗<value>∗. The operator name can only contain lowercase letters (a-z). The maximum length is 32
-             * characters.
+             * Indicates the operator name required in the query in order to isolate the date property using the greater-than operator. For example, if greaterThanOperatorName is *closedafter* and
+             * the property's name is *closeDate*, then queries like *closedafter:<value>* show results only where the value of the property named *closeDate* is later than *<value>*. The operator
+             * name can only contain lowercase letters (a-z). The maximum length is 32 characters.
              */
             greaterThanOperatorName?: string;
             /**
-             * Indicates the operator name required in the query in order to isolate the date property using the less-than operator. For example, if
-             * lessThanOperatorName is ∗closedbefore∗ and the property's name is ∗closeDate∗, then queries like ∗closedbefore:<value>∗ show results only where the
-             * value of the property named ∗closeDate∗ is earlier than ∗<value>∗. The operator name can only contain lowercase letters (a-z). The maximum length is 32
-             * characters.
+             * Indicates the operator name required in the query in order to isolate the date property using the less-than operator. For example, if lessThanOperatorName is *closedbefore* and the
+             * property's name is *closeDate*, then queries like *closedbefore:<value>* show results only where the value of the property named *closeDate* is earlier than *<value>*. The operator
+             * name can only contain lowercase letters (a-z). The maximum length is 32 characters.
              */
             lessThanOperatorName?: string;
             /**
-             * Indicates the actual string required in the query in order to isolate the date property. For example, suppose an issue tracking schema object has a
-             * property named ∗closeDate∗ that specifies an operator with an operatorName of ∗closedon∗. For searches on that data, queries like ∗closedon:<value>∗
-             * show results only where the value of the ∗closeDate∗ property matches ∗<value>∗. By contrast, a search that uses the same ∗<value>∗ without an operator
-             * returns all items where ∗<value>∗ matches the value of any String properties or text within the content field for the indexed datasource. The operator
-             * name can only contain lowercase letters (a-z). The maximum length is 32 characters.
+             * Indicates the actual string required in the query in order to isolate the date property. For example, suppose an issue tracking schema object has a property named *closeDate* that
+             * specifies an operator with an operatorName of *closedon*. For searches on that data, queries like *closedon:<value>* show results only where the value of the *closeDate* property
+             * matches *<value>*. By contrast, a search that uses the same *<value>* without an operator returns all items where *<value>* matches the value of any String properties or text within
+             * the content field for the indexed datasource. The operator name can only contain lowercase letters (a-z). The maximum length is 32 characters.
              */
             operatorName?: string;
         }
@@ -170,15 +169,15 @@ declare namespace gapi.client {
         }
         interface DisplayedProperty {
             /**
-             * The name of the top-level property as defined in a property definition for the object. If the name is not a defined property in the schema, an error is
-             * given when attempting to update the schema.
+             * The name of the top-level property as defined in a property definition for the object. If the name is not a defined property in the schema, an error is given when attempting to
+             * update the schema.
              */
             propertyName?: string;
         }
         interface DoubleOperatorOptions {
             /**
-             * Indicates the operator name required in the query in order to use the double property in sorting or as a facet. The operator name can only contain
-             * lowercase letters (a-z). The maximum length is 32 characters.
+             * Indicates the operator name required in the query in order to use the double property in sorting or as a facet. The operator name can only contain lowercase letters (a-z). The
+             * maximum length is 32 characters.
              */
             operatorName?: string;
         }
@@ -207,10 +206,10 @@ declare namespace gapi.client {
         }
         interface EnumOperatorOptions {
             /**
-             * Indicates the operator name required in the query in order to isolate the enum property. For example, if operatorName is ∗priority∗ and the property's
-             * name is ∗priorityVal∗, then queries like ∗priority:<value>∗ show results only where the value of the property named ∗priorityVal∗ matches ∗<value>∗. By
-             * contrast, a search that uses the same ∗<value>∗ without an operator returns all items where ∗<value>∗ matches the value of any String properties or
-             * text within the content field for the item. The operator name can only contain lowercase letters (a-z). The maximum length is 32 characters.
+             * Indicates the operator name required in the query in order to isolate the enum property. For example, if operatorName is *priority* and the property's name is *priorityVal*, then
+             * queries like *priority:<value>* show results only where the value of the property named *priorityVal* matches *<value>*. By contrast, a search that uses the same *<value>* without
+             * an operator returns all items where *<value>* matches the value of any String properties or text within the content field for the item. The operator name can only contain lowercase
+             * letters (a-z). The maximum length is 32 characters.
              */
             operatorName?: string;
         }
@@ -218,17 +217,15 @@ declare namespace gapi.client {
             /** If set, describes how the enum should be used as a search operator. */
             operatorOptions?: EnumOperatorOptions;
             /**
-             * Used to specify the ordered ranking for the enumeration that determines how the integer values provided in the possible EnumValuePairs are used to rank
-             * results. If specified, integer values must be provided for all possible EnumValuePair values given for this property. Can only be used if isRepeatable
-             * is false.
+             * Used to specify the ordered ranking for the enumeration that determines how the integer values provided in the possible EnumValuePairs are used to rank results. If specified,
+             * integer values must be provided for all possible EnumValuePair values given for this property. Can only be used if isRepeatable is false.
              */
             orderedRanking?: string;
             /**
-             * The list of possible values for the enumeration property. All EnumValuePairs must provide a string value. If you specify an integer value for one
-             * EnumValuePair, then all possible EnumValuePairs must provide an integer value. Both the string value and integer value must be unique over all possible
-             * values. Once set, possible values cannot be removed or modified. If you supply an ordered ranking and think you might insert additional enum values in
-             * the future, leave gaps in the initial integer values to allow adding a value in between previously registered values. The maximum number of elements is
-             * 100.
+             * The list of possible values for the enumeration property. All EnumValuePairs must provide a string value. If you specify an integer value for one EnumValuePair, then all possible
+             * EnumValuePairs must provide an integer value. Both the string value and integer value must be unique over all possible values. Once set, possible values cannot be removed or
+             * modified. If you supply an ordered ranking and think you might insert additional enum values in the future, leave gaps in the initial integer values to allow adding a value in
+             * between previously registered values. The maximum number of elements is 100.
              */
             possibleValues?: EnumValuePair[];
         }
@@ -253,9 +250,9 @@ declare namespace gapi.client {
             /** Number of results that match the bucket value. Counts are only returned for searches when count accuracy is ensured. Can be empty. */
             count?: number;
             /**
-             * Percent of results that match the bucket value. The returned value is between (0-100], and is rounded down to an integer if fractional. If the value is
-             * not explicitly returned, it represents a percentage value that rounds to 0. Percentages are returned for all searches, but are an estimate. Because
-             * percentages are always returned, you should render percentages instead of counts.
+             * Percent of results that match the bucket value. The returned value is between (0-100], and is rounded down to an integer if fractional. If the value is not explicitly returned, it
+             * represents a percentage value that rounds to 0. Percentages are returned for all searches, but are an estimate. Because percentages are always returned, you should render
+             * percentages instead of counts.
              */
             percentage?: number;
             value?: Value;
@@ -294,8 +291,8 @@ declare namespace gapi.client {
             /** Generic filter to restrict the search, such as `lang:en`, `site:xyz`. */
             filter?: Filter;
             /**
-             * If object_type is set, only objects of that type are returned. This should correspond to the name of the object that was registered within the
-             * definition of schema. The maximum length is 256 characters.
+             * If object_type is set, only objects of that type are returned. This should correspond to the name of the object that was registered within the definition of schema. The maximum
+             * length is 256 characters.
              */
             objectType?: string;
         }
@@ -303,9 +300,9 @@ declare namespace gapi.client {
             /** The duration after which an object should be considered stale. The default value is 180 days (in seconds). */
             freshnessDuration?: string;
             /**
-             * This property indicates the freshness level of the object in the index. If set, this property must be a top-level property within the property
-             * definitions and it must be a timestamp type or date type. Otherwise, the Indexing API uses updateTime as the freshness indicator. The maximum length is
-             * 256 characters. When a property is used to calculate freshness, the value defaults to 2 years from the current time.
+             * This property indicates the freshness level of the object in the index. If set, this property must be a top-level property within the property definitions and it must be a timestamp
+             * type or date type. Otherwise, the Indexing API uses updateTime as the freshness indicator. The maximum length is 256 characters. When a property is used to calculate freshness, the
+             * value defaults to 2 years from the current time.
              */
             freshnessProperty?: string;
         }
@@ -345,10 +342,10 @@ declare namespace gapi.client {
         }
         interface HtmlOperatorOptions {
             /**
-             * Indicates the operator name required in the query in order to isolate the html property. For example, if operatorName is ∗subject∗ and the property's
-             * name is ∗subjectLine∗, then queries like ∗subject:<value>∗ show results only where the value of the property named ∗subjectLine∗ matches ∗<value>∗. By
-             * contrast, a search that uses the same ∗<value>∗ without an operator return all items where ∗<value>∗ matches the value of any html properties or text
-             * within the content field for the item. The operator name can only contain lowercase letters (a-z). The maximum length is 32 characters.
+             * Indicates the operator name required in the query in order to isolate the html property. For example, if operatorName is *subject* and the property's name is *subjectLine*, then
+             * queries like *subject:<value>* show results only where the value of the property named *subjectLine* matches *<value>*. By contrast, a search that uses the same *<value>* without an
+             * operator return all items where *<value>* matches the value of any html properties or text within the content field for the item. The operator name can only contain lowercase
+             * letters (a-z). The maximum length is 32 characters.
              */
             operatorName?: string;
         }
@@ -382,38 +379,35 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface IntegerOperatorOptions {
             /**
-             * Indicates the operator name required in the query in order to isolate the integer property using the greater-than operator. For example, if
-             * greaterThanOperatorName is ∗priorityabove∗ and the property's name is ∗priorityVal∗, then queries like ∗priorityabove:<value>∗ show results only where
-             * the value of the property named ∗priorityVal∗ is greater than ∗<value>∗. The operator name can only contain lowercase letters (a-z). The maximum length
-             * is 32 characters.
+             * Indicates the operator name required in the query in order to isolate the integer property using the greater-than operator. For example, if greaterThanOperatorName is
+             * *priorityabove* and the property's name is *priorityVal*, then queries like *priorityabove:<value>* show results only where the value of the property named *priorityVal* is greater
+             * than *<value>*. The operator name can only contain lowercase letters (a-z). The maximum length is 32 characters.
              */
             greaterThanOperatorName?: string;
             /**
-             * Indicates the operator name required in the query in order to isolate the integer property using the less-than operator. For example, if
-             * lessThanOperatorName is ∗prioritybelow∗ and the property's name is ∗priorityVal∗, then queries like ∗prioritybelow:<value>∗ show results only where the
-             * value of the property named ∗priorityVal∗ is less than ∗<value>∗. The operator name can only contain lowercase letters (a-z). The maximum length is 32
-             * characters.
+             * Indicates the operator name required in the query in order to isolate the integer property using the less-than operator. For example, if lessThanOperatorName is *prioritybelow* and
+             * the property's name is *priorityVal*, then queries like *prioritybelow:<value>* show results only where the value of the property named *priorityVal* is less than *<value>*. The
+             * operator name can only contain lowercase letters (a-z). The maximum length is 32 characters.
              */
             lessThanOperatorName?: string;
             /**
-             * Indicates the operator name required in the query in order to isolate the integer property. For example, if operatorName is ∗priority∗ and the
-             * property's name is ∗priorityVal∗, then queries like ∗priority:<value>∗ show results only where the value of the property named ∗priorityVal∗ matches
-             * ∗<value>∗. By contrast, a search that uses the same ∗<value>∗ without an operator returns all items where ∗<value>∗ matches the value of any String
-             * properties or text within the content field for the item. The operator name can only contain lowercase letters (a-z). The maximum length is 32
-             * characters.
+             * Indicates the operator name required in the query in order to isolate the integer property. For example, if operatorName is *priority* and the property's name is *priorityVal*, then
+             * queries like *priority:<value>* show results only where the value of the property named *priorityVal* matches *<value>*. By contrast, a search that uses the same *<value>* without
+             * an operator returns all items where *<value>* matches the value of any String properties or text within the content field for the item. The operator name can only contain lowercase
+             * letters (a-z). The maximum length is 32 characters.
              */
             operatorName?: string;
         }
         // tslint:disable-next-line:interface-name
         interface IntegerPropertyOptions {
             /**
-             * The maximum value of the property. The minimum and maximum values for the property are used to rank results according to the ordered ranking. Indexing
-             * requests with values greater than the maximum are accepted and ranked with the same weight as items indexed with the maximum value.
+             * The maximum value of the property. The minimum and maximum values for the property are used to rank results according to the ordered ranking. Indexing requests with values greater
+             * than the maximum are accepted and ranked with the same weight as items indexed with the maximum value.
              */
             maximumValue?: string;
             /**
-             * The minimum value of the property. The minimum and maximum values for the property are used to rank results according to the ordered ranking. Indexing
-             * requests with values less than the minimum are accepted and ranked with the same weight as items indexed with the minimum value.
+             * The minimum value of the property. The minimum and maximum values for the property are used to rank results according to the ordered ranking. Indexing requests with values less than
+             * the minimum are accepted and ranked with the same weight as items indexed with the minimum value.
              */
             minimumValue?: string;
             /** If set, describes how the integer should be used as a search operator. */
@@ -454,40 +448,39 @@ declare namespace gapi.client {
             /** The structured data for the item that should conform to a registered object definition in the schema for the data source. */
             structuredData?: ItemStructuredData;
             /**
-             * Required. The indexing system stores the version from the datasource as a byte string and compares the Item version in the index to the version of the
-             * queued Item using lexical ordering. Cloud Search Indexing won't index or delete any queued item with a version value that is less than or equal to the
-             * version of the currently indexed item. The maximum length for this field is 1024 bytes.
+             * Required. The indexing system stores the version from the datasource as a byte string and compares the Item version in the index to the version of the queued Item using lexical
+             * ordering. Cloud Search Indexing won't index or delete any queued item with a version value that is less than or equal to the version of the currently indexed item. The maximum
+             * length for this field is 1024 bytes.
              */
             version?: string;
         }
         // tslint:disable-next-line:interface-name
         interface ItemAcl {
             /**
-             * Sets the type of access rules to apply when an item inherits its ACL from a parent. This should always be set in tandem with the inheritAclFrom field.
-             * Also, when the inheritAclFrom field is set, this field should be set to a valid AclInheritanceType.
+             * Sets the type of access rules to apply when an item inherits its ACL from a parent. This should always be set in tandem with the inheritAclFrom field. Also, when the inheritAclFrom
+             * field is set, this field should be set to a valid AclInheritanceType.
              */
             aclInheritanceType?: string;
             /**
-             * List of principals who are explicitly denied access to the item in search results. While principals are denied access by default, use denied readers to
-             * handle exceptions and override the list allowed readers. The maximum number of elements is 100.
+             * List of principals who are explicitly denied access to the item in search results. While principals are denied access by default, use denied readers to handle exceptions and
+             * override the list allowed readers. The maximum number of elements is 100.
              */
             deniedReaders?: Principal[];
             /**
-             * Name of the item to inherit the Access Permission List (ACL) from. Note: ACL inheritance ∗only∗ provides access permissions to child items and does not
-             * define structural relationships, nor does it provide convenient ways to delete large groups of items. Deleting an ACL parent from the index only alters
-             * the access permissions of child items that reference the parent in the inheritAclFrom field. The item is still in the index, but may not visible in
-             * search results. By contrast, deletion of a container item also deletes all items that reference the container via the containerName field. The maximum
-             * length for this field is 1536 characters.
+             * Name of the item to inherit the Access Permission List (ACL) from. Note: ACL inheritance *only* provides access permissions to child items and does not define structural
+             * relationships, nor does it provide convenient ways to delete large groups of items. Deleting an ACL parent from the index only alters the access permissions of child items that
+             * reference the parent in the inheritAclFrom field. The item is still in the index, but may not visible in search results. By contrast, deletion of a container item also deletes all
+             * items that reference the container via the containerName field. The maximum length for this field is 1536 characters.
              */
             inheritAclFrom?: string;
             /**
-             * Optional. List of owners for the item. This field has no bearing on document access permissions. It does, however, offer a slight ranking boosts items
-             * where the querying user is an owner. The maximum number of elements is 5.
+             * Optional. List of owners for the item. This field has no bearing on document access permissions. It does, however, offer a slight ranking boosts items where the querying user is an
+             * owner. The maximum number of elements is 5.
              */
             owners?: Principal[];
             /**
-             * List of principals who are allowed to see the item in search results. Optional if inheriting permissions from another item or if the item is not
-             * intended to be visible, such as virtual containers. The maximum number of elements is 1000.
+             * List of principals who are allowed to see the item in search results. Optional if inheriting permissions from another item or if the item is not intended to be visible, such as
+             * virtual containers. The maximum number of elements is 1000.
              */
             readers?: Principal[];
         }
@@ -496,10 +489,7 @@ declare namespace gapi.client {
             /** Upload reference ID of a previously uploaded content via write method. */
             contentDataRef?: UploadItemRef;
             contentFormat?: string;
-            /**
-             * Hashing info calculated and provided by the API client for content. Can be used with the items.push method to calculate modified state. The maximum
-             * length is 2048 characters.
-             */
+            /** Hashing info calculated and provided by the API client for content. Can be used with the items.push method to calculate modified state. The maximum length is 2048 characters. */
             hash?: string;
             /** Content that is supplied inlined within the update method. The maximum length is 102400 bytes (100 KiB). */
             inlineContent?: string;
@@ -514,45 +504,35 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface ItemMetadata {
             /**
-             * The name of the container for this item. Deletion of the container item leads to automatic deletion of this item. Note: ACLs are not inherited from a
-             * container item. To provide ACL inheritance for an item, use the inheritAclFrom field. The maximum length is 1536 characters.
+             * The name of the container for this item. Deletion of the container item leads to automatic deletion of this item. Note: ACLs are not inherited from a container item. To provide ACL
+             * inheritance for an item, use the inheritAclFrom field. The maximum length is 1536 characters.
              */
             containerName?: string;
             /**
-             * The BCP-47 language code for the item, such as "en-US" or "sr-Latn". For more information, see
-             * http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. The maximum length is 32 characters.
+             * The BCP-47 language code for the item, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. The maximum length is
+             * 32 characters.
              */
             contentLanguage?: string;
             /** The time when the item was created in the source repository. */
             createTime?: string;
-            /**
-             * Hashing value provided by the API caller. This can be used with the items.push method to calculate modified state. The maximum length is 2048
-             * characters.
-             */
+            /** Hashing value provided by the API caller. This can be used with the items.push method to calculate modified state. The maximum length is 2048 characters. */
             hash?: string;
-            /**
-             * A list of interactions for the item. Interactions are used to improve Search quality, but are not exposed to end users. The maximum number of elements
-             * is 1000.
-             */
+            /** A list of interactions for the item. Interactions are used to improve Search quality, but are not exposed to end users. The maximum number of elements is 1000. */
             interactions?: Interaction[];
-            /**
-             * Additional keywords or phrases that should match the item. Used internally for user generated content. The maximum number of elements is 100. The
-             * maximum length is 8192 characters.
-             */
+            /** Additional keywords or phrases that should match the item. Used internally for user generated content. The maximum number of elements is 100. The maximum length is 8192 characters. */
             keywords?: string[];
             /** The original mime-type of ItemContent.content in the source repository. The maximum length is 256 characters. */
             mimeType?: string;
             /**
-             * The type of the item. This should correspond to the name of an object definition in the schema registered for the data source. For example, if the
-             * schema for the data source contains an object definition with name 'document', then item indexing requests for objects of that type should set
-             * objectType to 'document'. The maximum length is 256 characters.
+             * The type of the item. This should correspond to the name of an object definition in the schema registered for the data source. For example, if the schema for the data source
+             * contains an object definition with name 'document', then item indexing requests for objects of that type should set objectType to 'document'. The maximum length is 256 characters.
              */
             objectType?: string;
             /** Additional search quality metadata of the item */
             searchQualityMetadata?: SearchQualityMetadata;
             /**
-             * Link to the source repository serving the data. Search results apply this link to the title. Whitespace or special characters may cause Cloud Search
-             * result links to trigger a redirect notice; to avoid this, encode the URL. The maximum length is 2048 characters.
+             * Link to the source repository serving the data. Search results apply this link to the title. Whitespace or special characters may cause Cloud Search result links to trigger a
+             * redirect notice; to avoid this, encode the URL. The maximum length is 2048 characters.
              */
             sourceRepositoryUrl?: string;
             /** The title of the item. If given, this will be the displayed title of the Search result. The maximum length is 2048 characters. */
@@ -571,10 +551,7 @@ declare namespace gapi.client {
         }
         // tslint:disable-next-line:interface-name
         interface ItemStructuredData {
-            /**
-             * Hashing value provided by the API caller. This can be used with the items.push method to calculate modified state. The maximum length is 2048
-             * characters.
-             */
+            /** Hashing value provided by the API caller. This can be used with the items.push method to calculate modified state. The maximum length is 2048 characters. */
             hash?: string;
             /** The structured data object that should conform to a registered object definition in the schema for the data source. */
             object?: StructuredDataObject;
@@ -634,8 +611,8 @@ declare namespace gapi.client {
             /** The named source for the result, such as Gmail. */
             source?: Source;
             /**
-             * The last modified date for the object in the search result. If not set in the item, the value returned here is empty. When `updateTime` is used for
-             * calculating freshness and is not set, this value defaults to 2 years from the current time.
+             * The last modified date for the object in the search result. If not set in the item, the value returned here is empty. When `updateTime` is used for calculating freshness and is not
+             * set, this value defaults to 2 years from the current time.
              */
             updateTime?: string;
         }
@@ -655,8 +632,8 @@ declare namespace gapi.client {
             htmlValues?: HtmlValues;
             integerValues?: IntegerValues;
             /**
-             * The name of the property. This name should correspond to the name of the property that was registered for object definition in the schema. The maximum
-             * allowable length for this property is 256 characters.
+             * The name of the property. This name should correspond to the name of the property that was registered for object definition in the schema. The maximum allowable length for this
+             * property is 256 characters.
              */
             name?: string;
             objectValues?: ObjectValues;
@@ -665,9 +642,9 @@ declare namespace gapi.client {
         }
         interface ObjectDefinition {
             /**
-             * Name for the object, which then defines its type. Item indexing requests should set the objectType field equal to this value. For example, if ∗name∗ is
-             * ∗Document∗, then indexing requests for items of type Document should set objectType equal to ∗Document∗. Each object definition must be uniquely named
-             * within a schema. The name must start with a letter and can only contain letters (A-Z, a-z) or numbers (0-9). The maximum length is 256 characters.
+             * Name for the object, which then defines its type. Item indexing requests should set the objectType field equal to this value. For example, if *name* is *Document*, then indexing
+             * requests for items of type Document should set objectType equal to *Document*. Each object definition must be uniquely named within a schema. The name must start with a letter and
+             * can only contain letters (A-Z, a-z) or numbers (0-9). The maximum length is 256 characters.
              */
             name?: string;
             /** The optional object-specific options. */
@@ -677,14 +654,14 @@ declare namespace gapi.client {
         }
         interface ObjectDisplayOptions {
             /**
-             * Defines the properties that are displayed in the metalines of the search results. The property values are displayed in the order given here. If a
-             * property holds multiple values, all of the values are displayed before the next properties. For this reason, it is a good practice to specify singular
-             * properties before repeated properties in this list. All of the properties must set is_returnable to true. The maximum number of metalines is 3.
+             * Defines the properties that are displayed in the metalines of the search results. The property values are displayed in the order given here. If a property holds multiple values, all
+             * of the values are displayed before the next properties. For this reason, it is a good practice to specify singular properties before repeated properties in this list. All of the
+             * properties must set is_returnable to true. The maximum number of metalines is 3.
              */
             metalines?: Metaline[];
             /**
-             * The user friendly label to display in the search result to indicate the type of the item. This is OPTIONAL; if not provided, an object label isn't
-             * displayed on the context line of the search results. The maximum length is 64 characters.
+             * The user friendly label to display in the search result to indicate the type of the item. This is OPTIONAL; if not provided, an object label isn't displayed on the context line of
+             * the search results. The maximum length is 64 characters.
              */
             objectDisplayLabel?: string;
         }
@@ -696,8 +673,8 @@ declare namespace gapi.client {
         }
         interface ObjectPropertyOptions {
             /**
-             * The properties of the sub-object. These properties represent a nested object. For example, if this property represents a postal address, the
-             * subobjectProperties might be named ∗street∗, ∗city∗, and ∗state∗. The maximum number of elements is 1000.
+             * The properties of the sub-object. These properties represent a nested object. For example, if this property represents a postal address, the subobjectProperties might be named
+             * *street*, *city*, and *state*. The maximum number of elements is 1000.
              */
             subobjectProperties?: PropertyDefinition[];
         }
@@ -705,28 +682,24 @@ declare namespace gapi.client {
             values?: StructuredDataObject[];
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -764,23 +737,17 @@ declare namespace gapi.client {
         }
         interface PollItemsResponse {
             /**
-             * Set of items from the queue available for connector to process. These items have the following subset of fields populated: version metadata.hash
-             * structured_data.hash content.hash payload status queue
+             * Set of items from the queue available for connector to process. These items have the following subset of fields populated: version metadata.hash structured_data.hash content.hash
+             * payload status queue
              */
             items?: Item[];
         }
         interface Principal {
-            /**
-             * This principal is a group identified using an external identity. The name field must specify the group resource name with this format:
-             * identitysources/{source_id}/groups/{ID}
-             */
+            /** This principal is a group identified using an external identity. The name field must specify the group resource name with this format: identitysources/{source_id}/groups/{ID} */
             groupResourceName?: string;
             /** This principal is a GSuite user, group or domain. */
             gsuitePrincipal?: GSuitePrincipal;
-            /**
-             * This principal is a user identified using an external identity. The name field must specify the user resource name with this format:
-             * identitysources/{source_id}/users/{ID}
-             */
+            /** This principal is a user identified using an external identity. The name field must specify the user resource name with this format: identitysources/{source_id}/users/{ID} */
             userResourceName?: string;
         }
         interface ProcessingError {
@@ -794,50 +761,45 @@ declare namespace gapi.client {
         interface PropertyDefinition {
             booleanPropertyOptions?: BooleanPropertyOptions;
             datePropertyOptions?: DatePropertyOptions;
-            /**
-             * Options that determine how the property is displayed in the Cloud Search results page if it is specified to be displayed in the object's display
-             * options .
-             */
+            /** Options that determine how the property is displayed in the Cloud Search results page if it is specified to be displayed in the object's display options . */
             displayOptions?: PropertyDisplayOptions;
             doublePropertyOptions?: DoublePropertyOptions;
             enumPropertyOptions?: EnumPropertyOptions;
             htmlPropertyOptions?: HtmlPropertyOptions;
             integerPropertyOptions?: IntegerPropertyOptions;
             /**
-             * Indicates that the property can be used for generating facets. Cannot be true for properties whose type is object. IsReturnable must be true to set
-             * this option. Only supported for Boolean, Enum, and Text properties.
+             * Indicates that the property can be used for generating facets. Cannot be true for properties whose type is object. IsReturnable must be true to set this option. Only supported for
+             * Boolean, Enum, and Text properties.
              */
             isFacetable?: boolean;
             /**
-             * Indicates that multiple values are allowed for the property. For example, a document only has one description but can have multiple comments. Cannot be
-             * true for properties whose type is a boolean. If set to false, properties that contain more than one value cause the indexing request for that item to
-             * be rejected.
+             * Indicates that multiple values are allowed for the property. For example, a document only has one description but can have multiple comments. Cannot be true for properties whose
+             * type is a boolean. If set to false, properties that contain more than one value cause the indexing request for that item to be rejected.
              */
             isRepeatable?: boolean;
             /**
-             * Indicates that the property identifies data that should be returned in search results via the Query API. If set to ∗true∗, indicates that Query API
-             * users can use matching property fields in results. However, storing fields requires more space allocation and uses more bandwidth for search queries,
-             * which impacts performance over large datasets. Set to ∗true∗ here only if the field is needed for search results. Cannot be true for properties whose
-             * type is an object.
+             * Indicates that the property identifies data that should be returned in search results via the Query API. If set to *true*, indicates that Query API users can use matching property
+             * fields in results. However, storing fields requires more space allocation and uses more bandwidth for search queries, which impacts performance over large datasets. Set to *true*
+             * here only if the field is needed for search results. Cannot be true for properties whose type is an object.
              */
             isReturnable?: boolean;
             /**
-             * Indicates that the property can be used for sorting. Cannot be true for properties that are repeatable. Cannot be true for properties whose type is
-             * object or user identifier. IsReturnable must be true to set this option. Only supported for Boolean, Date, Double, Integer, and Timestamp properties.
+             * Indicates that the property can be used for sorting. Cannot be true for properties that are repeatable. Cannot be true for properties whose type is object or user identifier.
+             * IsReturnable must be true to set this option. Only supported for Boolean, Date, Double, Integer, and Timestamp properties.
              */
             isSortable?: boolean;
             /** Indicates that the property can be used for generating query suggestions. */
             isSuggestable?: boolean;
             /**
-             * Indicates that users can perform wildcard search for this property. Only supported for Text properties. IsReturnable must be true to set this option.
-             * In a given datasource maximum of 5 properties can be marked as is_wildcard_searchable.
+             * Indicates that users can perform wildcard search for this property. Only supported for Text properties. IsReturnable must be true to set this option. In a given datasource maximum
+             * of 5 properties can be marked as is_wildcard_searchable.
              */
             isWildcardSearchable?: boolean;
             /**
-             * The name of the property. Item indexing requests sent to the Indexing API should set the property name equal to this value. For example, if name is
-             * ∗subject_line∗, then indexing requests for document items with subject fields should set the name for that field equal to ∗subject_line∗. Use the name
-             * as the identifier for the object property. Once registered as a property for an object, you cannot re-use this name for another property within that
-             * object. The name must start with a letter and can only contain letters (A-Z, a-z) or numbers (0-9). The maximum length is 256 characters.
+             * The name of the property. Item indexing requests sent to the Indexing API should set the property name equal to this value. For example, if name is *subject_line*, then indexing
+             * requests for document items with subject fields should set the name for that field equal to *subject_line*. Use the name as the identifier for the object property. Once registered
+             * as a property for an object, you cannot re-use this name for another property within that object. The name must start with a letter and can only contain letters (A-Z, a-z) or
+             * numbers (0-9). The maximum length is 256 characters.
              */
             name?: string;
             objectPropertyOptions?: ObjectPropertyOptions;
@@ -846,40 +808,36 @@ declare namespace gapi.client {
         }
         interface PropertyDisplayOptions {
             /**
-             * The user friendly label for the property that is used if the property is specified to be displayed in ObjectDisplayOptions. If provided, the display
-             * label is shown in front of the property values when the property is part of the object display options. For example, if the property value is '1', the
-             * value by itself may not be useful context for the user. If the display name given was 'priority', then the user sees 'priority : 1' in the search
-             * results which provides clear context to search users. This is OPTIONAL; if not given, only the property values are displayed. The maximum length is 64
-             * characters.
+             * The user friendly label for the property that is used if the property is specified to be displayed in ObjectDisplayOptions. If provided, the display label is shown in front of the
+             * property values when the property is part of the object display options. For example, if the property value is '1', the value by itself may not be useful context for the user. If
+             * the display name given was 'priority', then the user sees 'priority : 1' in the search results which provides clear context to search users. This is OPTIONAL; if not given, only the
+             * property values are displayed. The maximum length is 64 characters.
              */
             displayLabel?: string;
         }
         interface PushItem {
             /**
-             * Content hash of the item according to the repository. If specified, this is used to determine how to modify this item's status. Setting this field and
-             * the type field results in argument error. The maximum length is 2048 characters.
+             * Content hash of the item according to the repository. If specified, this is used to determine how to modify this item's status. Setting this field and the type field results in
+             * argument error. The maximum length is 2048 characters.
              */
             contentHash?: string;
             /**
-             * Metadata hash of the item according to the repository. If specified, this is used to determine how to modify this item's status. Setting this field and
-             * the type field results in argument error. The maximum length is 2048 characters.
+             * Metadata hash of the item according to the repository. If specified, this is used to determine how to modify this item's status. Setting this field and the type field results in
+             * argument error. The maximum length is 2048 characters.
              */
             metadataHash?: string;
-            /**
-             * Provides additional document state information for the connector, such as an alternate repository ID and other metadata. The maximum length is 8192
-             * bytes.
-             */
+            /** Provides additional document state information for the connector, such as an alternate repository ID and other metadata. The maximum length is 8192 bytes. */
             payload?: string;
             /** Queue to which this item belongs to. The default queue is chosen if this field is not specified. The maximum length is 512 characters. */
             queue?: string;
             /**
-             * Populate this field to store Connector or repository error details. This information is displayed in the Admin Console. This field may only be
-             * populated when the Type is REPOSITORY_ERROR.
+             * Populate this field to store Connector or repository error details. This information is displayed in the Admin Console. This field may only be populated when the Type is
+             * REPOSITORY_ERROR.
              */
             repositoryError?: RepositoryError;
             /**
-             * Structured data hash of the item according to the repository. If specified, this is used to determine how to modify this item's status. Setting this
-             * field and the type field results in argument error. The maximum length is 2048 characters.
+             * Structured data hash of the item according to the repository. If specified, this is used to determine how to modify this item's status. Setting this field and the type field results
+             * in argument error. The maximum length is 2048 characters.
              */
             structuredDataHash?: string;
             /** The type of the push operation that defines the push behavior. */
@@ -901,8 +859,8 @@ declare namespace gapi.client {
         interface QueryInterpretation {
             interpretationType?: string;
             /**
-             * The interpretation of the query used in search. For example, queries with natural language intent like "email from john" will be interpreted as
-             * "from:john source:mail". This field will not be filled when the reason is NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY.
+             * The interpretation of the query used in search. For example, queries with natural language intent like "email from john" will be interpreted as "from:john source:mail". This field
+             * will not be filled when the reason is NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY.
              */
             interpretedQuery?: string;
             /** The reason for interpretation of the query. This field will not be UNSPECIFIED if the interpretation type is not NONE. */
@@ -910,13 +868,13 @@ declare namespace gapi.client {
         }
         interface QueryInterpretationOptions {
             /**
-             * Flag to disable natural language (NL) interpretation of queries. Default is false, Set to true to disable natural language interpretation. NL
-             * interpretation only applies to predefined datasources.
+             * Flag to disable natural language (NL) interpretation of queries. Default is false, Set to true to disable natural language interpretation. NL interpretation only applies to
+             * predefined datasources.
              */
             disableNlInterpretation?: boolean;
             /**
-             * Enable this flag to turn off all internal optimizations like natural language (NL) interpretation of queries, supplemental result retrieval, and usage
-             * of synonyms including custom ones. Nl interpretation will be disabled if either one of the two flags is true.
+             * Enable this flag to turn off all internal optimizations like natural language (NL) interpretation of queries, supplemental result retrieval, and usage of synonyms including custom
+             * ones. Nl interpretation will be disabled if either one of the two flags is true.
              */
             enableVerbatimMode?: boolean;
         }
@@ -975,19 +933,18 @@ declare namespace gapi.client {
             /** Debug options of the request */
             debugOptions?: DebugOptions;
             /**
-             * The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. For
-             * translations. Set this field using the language set in browser or for the page. In the event that the user's language preference is known, set this
-             * field to the known user language. When specified, the documents in search results are biased towards the specified language. The suggest API does not
-             * use this parameter. Instead, suggest autocompletes only based on characters in the query.
+             * The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. For translations. Set this field
+             * using the language set in browser or for the page. In the event that the user's language preference is known, set this field to the known user language. When specified, the
+             * documents in search results are biased towards the specified language. The suggest API does not use this parameter. Instead, suggest autocompletes only based on characters in the
+             * query.
              */
             languageCode?: string;
             /** The ID generated when you create a search application using the [admin console](https://support.google.com/a/answer/9043922). */
             searchApplicationId?: string;
             /**
-             * Current user's time zone id, such as "America/Los_Angeles" or "Australia/Sydney". These IDs are defined by [Unicode Common Locale Data Repository
-             * (CLDR)](http://cldr.unicode.org/) project, and currently available in the file
-             * [timezone.xml](http://unicode.org/repos/cldr/trunk/common/bcp47/timezone.xml). This field is used to correctly interpret date and time queries. If this
-             * field is not specified, the default time zone (UTC) is used.
+             * Current user's time zone id, such as "America/Los_Angeles" or "Australia/Sydney". These IDs are defined by [Unicode Common Locale Data Repository (CLDR)](http://cldr.unicode.org/)
+             * project, and currently available in the file [timezone.xml](http://unicode.org/repos/cldr/trunk/common/bcp47/timezone.xml). This field is used to correctly interpret date and time
+             * queries. If this field is not specified, the default time zone (UTC) is used.
              */
             timeZone?: string;
         }
@@ -1041,17 +998,11 @@ declare namespace gapi.client {
         interface Schema {
             /** The list of top-level objects for the data source. The maximum number of elements is 10. */
             objectDefinitions?: ObjectDefinition[];
-            /**
-             * IDs of the Long Running Operations (LROs) currently running for this schema. After modifying the schema, wait for operations to complete before
-             * indexing additional content.
-             */
+            /** IDs of the Long Running Operations (LROs) currently running for this schema. After modifying the schema, wait for operations to complete before indexing additional content. */
             operationIds?: string[];
         }
         interface ScoringConfig {
-            /**
-             * Whether to use freshness as a ranking signal. By default, freshness is used as a ranking signal. Note that this setting is not available in the Admin
-             * UI.
-             */
+            /** Whether to use freshness as a ranking signal. By default, freshness is used as a ranking signal. Note that this setting is not available in the Admin UI. */
             disableFreshness?: boolean;
             /** Whether to personalize the results. By default, personal signals will be used to boost results. */
             disablePersonalization?: boolean;
@@ -1109,10 +1060,7 @@ declare namespace gapi.client {
             nextPageToken?: string;
         }
         interface SearchQualityMetadata {
-            /**
-             * An indication of the quality of the item, used to influence search quality. Value should be between 0.0 (lowest quality) and 1.0 (highest quality). The
-             * default value is 0.0.
-             */
+            /** An indication of the quality of the item, used to influence search quality. Value should be between 0.0 (lowest quality) and 1.0 (highest quality). The default value is 0.0. */
             quality?: number;
         }
         interface SearchRequest {
@@ -1158,8 +1106,8 @@ declare namespace gapi.client {
         }
         interface SearchResult {
             /**
-             * If source is clustered, provide list of clustered results. There will only be one level of clustered results. If current source is not enabled for
-             * clustering, this field will be empty.
+             * If source is clustered, provide list of clustered results. There will only be one level of clustered results. If current source is not enabled for clustering, this field will be
+             * empty.
              */
             clusteredResults?: SearchResult[];
             /** Debugging information about this search result. */
@@ -1235,8 +1183,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -1250,14 +1198,11 @@ declare namespace gapi.client {
         }
         interface SuggestRequest {
             /**
-             * The sources to use for suggestions. If not specified, the data sources are taken from the current search application. NOTE: Suggestions are supported
-             * only for third party data sources and people (i.e. PredefinedSource.PERSON).
+             * The sources to use for suggestions. If not specified, the data sources are taken from the current search application. NOTE: Suggestions are supported only for third party data
+             * sources and people (i.e. PredefinedSource.PERSON).
              */
             dataSourceRestrictions?: DataSourceRestriction[];
-            /**
-             * Partial query for which autocomplete suggestions will be shown. For example, if the query is "sea", then the server might return "season", "search",
-             * "seagull" and so on.
-             */
+            /** Partial query for which autocomplete suggestions will be shown. For example, if the query is "sea", then the server might return "season", "search", "seagull" and so on. */
             query?: string;
             /** Request options, such as the search application and user timezone. */
             requestOptions?: RequestOptions;
@@ -1278,17 +1223,16 @@ declare namespace gapi.client {
         }
         interface TextOperatorOptions {
             /**
-             * If true, the text value is tokenized as one atomic value in operator searches and facet matches. For example, if the operator name is "genre" and the
-             * value is "science-fiction" the query restrictions "genre:science" and "genre:fiction" doesn't match the item; "genre:science-fiction" does. Value
-             * matching is case-sensitive and does not remove special characters. If false, the text is tokenized. For example, if the value is "science-fiction" the
-             * queries "genre:science" and "genre:fiction" matches the item.
+             * If true, the text value is tokenized as one atomic value in operator searches and facet matches. For example, if the operator name is "genre" and the value is "science-fiction" the
+             * query restrictions "genre:science" and "genre:fiction" doesn't match the item; "genre:science-fiction" does. Value matching is case-sensitive and does not remove special characters.
+             * If false, the text is tokenized. For example, if the value is "science-fiction" the queries "genre:science" and "genre:fiction" matches the item.
              */
             exactMatchWithOperator?: boolean;
             /**
-             * Indicates the operator name required in the query in order to isolate the text property. For example, if operatorName is ∗subject∗ and the property's
-             * name is ∗subjectLine∗, then queries like ∗subject:<value>∗ show results only where the value of the property named ∗subjectLine∗ matches ∗<value>∗. By
-             * contrast, a search that uses the same ∗<value>∗ without an operator returns all items where ∗<value>∗ matches the value of any text properties or text
-             * within the content field for the item. The operator name can only contain lowercase letters (a-z). The maximum length is 32 characters.
+             * Indicates the operator name required in the query in order to isolate the text property. For example, if operatorName is *subject* and the property's name is *subjectLine*, then
+             * queries like *subject:<value>* show results only where the value of the property named *subjectLine* matches *<value>*. By contrast, a search that uses the same *<value>* without an
+             * operator returns all items where *<value>* matches the value of any text properties or text within the content field for the item. The operator name can only contain lowercase
+             * letters (a-z). The maximum length is 32 characters.
              */
             operatorName?: string;
         }
@@ -1304,25 +1248,22 @@ declare namespace gapi.client {
         }
         interface TimestampOperatorOptions {
             /**
-             * Indicates the operator name required in the query in order to isolate the timestamp property using the greater-than operator. For example, if
-             * greaterThanOperatorName is ∗closedafter∗ and the property's name is ∗closeDate∗, then queries like ∗closedafter:<value>∗ show results only where the
-             * value of the property named ∗closeDate∗ is later than ∗<value>∗. The operator name can only contain lowercase letters (a-z). The maximum length is 32
-             * characters.
+             * Indicates the operator name required in the query in order to isolate the timestamp property using the greater-than operator. For example, if greaterThanOperatorName is
+             * *closedafter* and the property's name is *closeDate*, then queries like *closedafter:<value>* show results only where the value of the property named *closeDate* is later than
+             * *<value>*. The operator name can only contain lowercase letters (a-z). The maximum length is 32 characters.
              */
             greaterThanOperatorName?: string;
             /**
-             * Indicates the operator name required in the query in order to isolate the timestamp property using the less-than operator. For example, if
-             * lessThanOperatorName is ∗closedbefore∗ and the property's name is ∗closeDate∗, then queries like ∗closedbefore:<value>∗ show results only where the
-             * value of the property named ∗closeDate∗ is earlier than ∗<value>∗. The operator name can only contain lowercase letters (a-z). The maximum length is 32
-             * characters.
+             * Indicates the operator name required in the query in order to isolate the timestamp property using the less-than operator. For example, if lessThanOperatorName is *closedbefore* and
+             * the property's name is *closeDate*, then queries like *closedbefore:<value>* show results only where the value of the property named *closeDate* is earlier than *<value>*. The
+             * operator name can only contain lowercase letters (a-z). The maximum length is 32 characters.
              */
             lessThanOperatorName?: string;
             /**
-             * Indicates the operator name required in the query in order to isolate the timestamp property. For example, if operatorName is ∗closedon∗ and the
-             * property's name is ∗closeDate∗, then queries like ∗closedon:<value>∗ show results only where the value of the property named ∗closeDate∗ matches
-             * ∗<value>∗. By contrast, a search that uses the same ∗<value>∗ without an operator returns all items where ∗<value>∗ matches the value of any String
-             * properties or text within the content field for the item. The operator name can only contain lowercase letters (a-z). The maximum length is 32
-             * characters.
+             * Indicates the operator name required in the query in order to isolate the timestamp property. For example, if operatorName is *closedon* and the property's name is *closeDate*, then
+             * queries like *closedon:<value>* show results only where the value of the property named *closeDate* matches *<value>*. By contrast, a search that uses the same *<value>* without an
+             * operator returns all items where *<value>* matches the value of any String properties or text within the content field for the item. The operator name can only contain lowercase
+             * letters (a-z). The maximum length is 32 characters.
              */
             operatorName?: string;
         }
@@ -1374,17 +1315,16 @@ declare namespace gapi.client {
         }
         interface ValueFilter {
             /**
-             * The `operator_name` applied to the query, such as ∗price_greater_than∗. The filter can work against both types of filters defined in the schema for
-             * your data source: 1. `operator_name`, where the query filters results by the property that matches the value. 2. `greater_than_operator_name` or
-             * `less_than_operator_name` in your schema. The query filters the results for the property values that are greater than or less than the supplied value
-             * in the query.
+             * The `operator_name` applied to the query, such as *price_greater_than*. The filter can work against both types of filters defined in the schema for your data source: 1.
+             * `operator_name`, where the query filters results by the property that matches the value. 2. `greater_than_operator_name` or `less_than_operator_name` in your schema. The query
+             * filters the results for the property values that are greater than or less than the supplied value in the query.
              */
             operatorName?: string;
             /** The value to be compared with. */
             value?: Value;
         }
         interface UnmappedidsResource {
-            /** List all unmapped identities for a specific item. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** List all unmapped identities for a specific item. **Note:** This API requires an admin account to execute. */
             list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1420,7 +1360,7 @@ declare namespace gapi.client {
         }
         // tslint:disable-next-line:interface-name
         interface ItemsResource {
-            /** Checks whether an item is accessible by specified principal. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Checks whether an item is accessible by specified principal. **Note:** This API requires an admin account to execute. */
             checkAccess(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1480,7 +1420,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: Principal): Request<CheckAccessResponse>;
-            /** Fetches the item whose viewUrl exactly matches that of the URL provided in the request. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Fetches the item whose viewUrl exactly matches that of the URL provided in the request. **Note:** This API requires an admin account to execute. */
             searchByViewUrl(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1543,7 +1483,7 @@ declare namespace gapi.client {
         }
         // tslint:disable-next-line:interface-name
         interface ItemsResource {
-            /** Lists names of items associated with an unmapped identity. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Lists names of items associated with an unmapped identity. **Note:** This API requires an admin account to execute. */
             listForunmappedidentity(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1580,7 +1520,7 @@ declare namespace gapi.client {
             }): Request<ListItemNamesForUnmappedIdentityResponse>;
         }
         interface UnmappedidsResource {
-            /** Lists unmapped user identities for an identity source. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Lists unmapped user identities for an identity source. **Note:** This API requires an admin account to execute. */
             list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1628,8 +1568,8 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface ItemsResource {
             /**
-             * Deletes Item resource for the specified resource name. This API requires an admin or service account to execute. The service account used is the one
-             * whitelisted in the corresponding data source.
+             * Deletes Item resource for the specified resource name. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding
+             * data source.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1663,15 +1603,15 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Required. The incremented version of the item to delete from the index. The indexing system stores the version from the datasource as a byte string and
-                 * compares the Item version in the index to the version of the queued Item using lexical ordering. Cloud Search Indexing won't delete any queued item
-                 * with a version value that is less than or equal to the version of the currently indexed item. The maximum length for this field is 1024 bytes.
+                 * Required. The incremented version of the item to delete from the index. The indexing system stores the version from the datasource as a byte string and compares the Item version
+                 * in the index to the version of the queued Item using lexical ordering. Cloud Search Indexing won't delete any queued item with a version value that is less than or equal to the
+                 * version of the currently indexed item. The maximum length for this field is 1024 bytes.
                  */
                 version?: string;
             }): Request<Operation>;
             /**
-             * Deletes all items in a queue. This method is useful for deleting stale items. This API requires an admin or service account to execute. The service
-             * account used is the one whitelisted in the corresponding data source.
+             * Deletes all items in a queue. This method is useful for deleting stale items. This API requires an admin or service account to execute. The service account used is the one
+             * whitelisted in the corresponding data source.
              */
             deleteQueueItems(request: {
                 /** V1 error format. */
@@ -1728,10 +1668,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: DeleteQueueItemsRequest): Request<Operation>;
-            /**
-             * Gets Item resource by item name. This API requires an admin or service account to execute. The service account used is the one whitelisted in the
-             * corresponding data source.
-             */
+            /** Gets Item resource by item name. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1763,9 +1700,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Item>;
             /**
-             * Updates Item ACL, metadata, and content. It will insert the Item if it does not exist. This method does not support partial updates. Fields with no
-             * provided values are cleared out in the Cloud Search index. This API requires an admin or service account to execute. The service account used is the
-             * one whitelisted in the corresponding data source.
+             * Updates Item ACL, metadata, and content. It will insert the Item if it does not exist. This method does not support partial updates. Fields with no provided values are cleared out
+             * in the Cloud Search index. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
              */
             index(request: {
                 /** V1 error format. */
@@ -1822,10 +1758,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: IndexItemRequest): Request<Operation>;
-            /**
-             * Lists all or a subset of Item resources. This API requires an admin or service account to execute. The service account used is the one whitelisted in
-             * the corresponding data source.
-             */
+            /** Lists all or a subset of Item resources. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
             list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1834,10 +1767,9 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * When set to true, the indexing system only populates the following fields: name, version, queue. metadata.hash, metadata.title,
-                 * metadata.sourceRepositoryURL, metadata.objectType, metadata.createTime, metadata.updateTime, metadata.contentLanguage, metadata.mimeType,
-                 * structured_data.hash, content.hash, itemType, itemStatus.code, itemStatus.processingError.code, itemStatus.repositoryError.type, If this value is
-                 * false, then all the fields are populated in Item.
+                 * When set to true, the indexing system only populates the following fields: name, version, queue. metadata.hash, metadata.title, metadata.sourceRepositoryURL,
+                 * metadata.objectType, metadata.createTime, metadata.updateTime, metadata.contentLanguage, metadata.mimeType, structured_data.hash, content.hash, itemType, itemStatus.code,
+                 * itemStatus.processingError.code, itemStatus.repositoryError.type, If this value is false, then all the fields are populated in Item.
                  */
                 brief?: boolean;
                 /** JSONP */
@@ -1868,11 +1800,11 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListItemsResponse>;
             /**
-             * Polls for unreserved items from the indexing queue and marks a set as reserved, starting with items that have the oldest timestamp from the highest
-             * priority ItemStatus. The priority order is as follows: ERROR MODIFIED NEW_ITEM ACCEPTED Reserving items ensures that polling from other threads cannot
-             * create overlapping sets. After handling the reserved items, the client should put items back into the unreserved state, either by calling index, or by
-             * calling push with the type REQUEUE. Items automatically become available (unreserved) after 4 hours even if no update or push method is called. This
-             * API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
+             * Polls for unreserved items from the indexing queue and marks a set as reserved, starting with items that have the oldest timestamp from the highest priority ItemStatus. The priority
+             * order is as follows: ERROR MODIFIED NEW_ITEM ACCEPTED Reserving items ensures that polling from other threads cannot create overlapping sets. After handling the reserved items, the
+             * client should put items back into the unreserved state, either by calling index, or by calling push with the type REQUEUE. Items automatically become available (unreserved) after 4
+             * hours even if no update or push method is called. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data
+             * source.
              */
             poll(request: {
                 /** V1 error format. */
@@ -1930,8 +1862,8 @@ declare namespace gapi.client {
             },
             body: PollItemsRequest): Request<PollItemsResponse>;
             /**
-             * Pushes an item onto a queue for later polling and updating. This API requires an admin or service account to execute. The service account used is the
-             * one whitelisted in the corresponding data source.
+             * Pushes an item onto a queue for later polling and updating. This API requires an admin or service account to execute. The service account used is the one whitelisted in the
+             * corresponding data source.
              */
             push(request: {
                 /** V1 error format. */
@@ -1946,10 +1878,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Name of the item to push into the indexing queue. Format: datasources/{source_id}/items/{ID} This is a required field. The maximum length is 1536
-                 * characters.
-                 */
+                /** Name of the item to push into the indexing queue. Format: datasources/{source_id}/items/{ID} This is a required field. The maximum length is 1536 characters. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1977,10 +1906,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Name of the item to push into the indexing queue. Format: datasources/{source_id}/items/{ID} This is a required field. The maximum length is 1536
-                 * characters.
-                 */
+                /** Name of the item to push into the indexing queue. Format: datasources/{source_id}/items/{ID} This is a required field. The maximum length is 1536 characters. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1995,9 +1921,8 @@ declare namespace gapi.client {
             },
             body: PushItemRequest): Request<Item>;
             /**
-             * Unreserves all items from a queue, making them all eligible to be polled. This method is useful for resetting the indexing queue after a connector has
-             * been restarted. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data
-             * source.
+             * Unreserves all items from a queue, making them all eligible to be polled. This method is useful for resetting the indexing queue after a connector has been restarted. This API
+             * requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
              */
             unreserve(request: {
                 /** V1 error format. */
@@ -2055,8 +1980,8 @@ declare namespace gapi.client {
             },
             body: UnreserveItemsRequest): Request<Operation>;
             /**
-             * Creates an upload session for uploading item content. For items smaller than 100 KB, it's easier to embed the content inline within an index request.
-             * This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
+             * Creates an upload session for uploading item content. For items smaller than 100 KB, it's easier to embed the content inline within an index request. This API requires an admin or
+             * service account to execute. The service account used is the one whitelisted in the corresponding data source.
              */
             upload(request: {
                 /** V1 error format. */
@@ -2115,7 +2040,7 @@ declare namespace gapi.client {
             body: StartUploadItemRequest): Request<UploadItemRef>;
         }
         interface DatasourcesResource {
-            /** Deletes the schema of a data source. ∗∗Note:∗∗ This API requires an admin or service account to execute. */
+            /** Deletes the schema of a data source. **Note:** This API requires an admin or service account to execute. */
             deleteSchema(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2144,7 +2069,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<Operation>;
-            /** Gets the schema of a data source. ∗∗Note:∗∗ This API requires an admin or service account to execute. */
+            /** Gets the schema of a data source. **Note:** This API requires an admin or service account to execute. */
             getSchema(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2174,8 +2099,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Schema>;
             /**
-             * Updates the schema of a data source. This method does not perform incremental updates to the schema. Instead, this method updates the schema by
-             * overwriting the entire schema. ∗∗Note:∗∗ This API requires an admin or service account to execute.
+             * Updates the schema of a data source. This method does not perform incremental updates to the schema. Instead, this method updates the schema by overwriting the entire schema.
+             * **Note:** This API requires an admin or service account to execute.
              */
             updateSchema(request: {
                 /** V1 error format. */
@@ -2240,13 +2165,12 @@ declare namespace gapi.client {
         }
         interface MediaResource {
             /**
-             * Uploads media for indexing. The upload endpoint supports direct and resumable upload protocols and is intended for large items that can not be [inlined
-             * during index requests](https://developers.google.com/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent). To index large
-             * content: 1. Call indexing.datasources.items.upload with the resource name to begin an upload session and retrieve the UploadItemRef. 1. Call
-             * media.upload to upload the content using the same resource name from step 1. 1. Call indexing.datasources.items.index to index the item. Populate the
-             * [ItemContent](/cloud-search/docs/reference/rest/v1/indexing.datasources.items#ItemContent) with the UploadItemRef from step 1. For additional
-             * information, see [Create a content connector using the REST API](https://developers.google.com/cloud-search/docs/guides/content-connector#rest).
-             * ∗∗Note:∗∗ This API requires a service account to execute.
+             * Uploads media for indexing. The upload endpoint supports direct and resumable upload protocols and is intended for large items that can not be [inlined during index
+             * requests](https://developers.google.com/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent). To index large content: 1. Call
+             * indexing.datasources.items.upload with the resource name to begin an upload session and retrieve the UploadItemRef. 1. Call media.upload to upload the content using the same
+             * resource name from step 1. 1. Call indexing.datasources.items.index to index the item. Populate the
+             * [ItemContent](/cloud-search/docs/reference/rest/v1/indexing.datasources.items#ItemContent) with the UploadItemRef from step 1. For additional information, see [Create a content
+             * connector using the REST API](https://developers.google.com/cloud-search/docs/guides/content-connector#rest). **Note:** This API requires a service account to execute.
              */
             upload(request: {
                 /** V1 error format. */
@@ -2305,10 +2229,7 @@ declare namespace gapi.client {
             body: Media): Request<Media>;
         }
         interface OperationsResource {
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2338,8 +2259,8 @@ declare namespace gapi.client {
         }
         interface SourcesResource {
             /**
-             * Returns list of sources that user can use for Search and Suggest APIs. ∗∗Note:∗∗ This API requires a standard end user account to execute. A service
-             * account can't perform Query API requests directly; to use a service account to perform queries, set up [G Suite domain-wide delegation of
+             * Returns list of sources that user can use for Search and Suggest APIs. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API
+             * requests directly; to use a service account to perform queries, set up [G Suite domain-wide delegation of
              * authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
              */
             list(request?: {
@@ -2366,19 +2287,18 @@ declare namespace gapi.client {
                 /** If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field. */
                 "requestOptions.debugOptions.enableDebugging"?: boolean;
                 /**
-                 * The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. For
-                 * translations. Set this field using the language set in browser or for the page. In the event that the user's language preference is known, set this
-                 * field to the known user language. When specified, the documents in search results are biased towards the specified language. The suggest API does not
-                 * use this parameter. Instead, suggest autocompletes only based on characters in the query.
+                 * The BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. For translations. Set this
+                 * field using the language set in browser or for the page. In the event that the user's language preference is known, set this field to the known user language. When specified,
+                 * the documents in search results are biased towards the specified language. The suggest API does not use this parameter. Instead, suggest autocompletes only based on characters
+                 * in the query.
                  */
                 "requestOptions.languageCode"?: string;
                 /** The ID generated when you create a search application using the [admin console](https://support.google.com/a/answer/9043922). */
                 "requestOptions.searchApplicationId"?: string;
                 /**
                  * Current user's time zone id, such as "America/Los_Angeles" or "Australia/Sydney". These IDs are defined by [Unicode Common Locale Data Repository
-                 * (CLDR)](http://cldr.unicode.org/) project, and currently available in the file
-                 * [timezone.xml](http://unicode.org/repos/cldr/trunk/common/bcp47/timezone.xml). This field is used to correctly interpret date and time queries. If this
-                 * field is not specified, the default time zone (UTC) is used.
+                 * (CLDR)](http://cldr.unicode.org/) project, and currently available in the file [timezone.xml](http://unicode.org/repos/cldr/trunk/common/bcp47/timezone.xml). This field is used
+                 * to correctly interpret date and time queries. If this field is not specified, the default time zone (UTC) is used.
                  */
                 "requestOptions.timeZone"?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2389,10 +2309,10 @@ declare namespace gapi.client {
         }
         interface QueryResource {
             /**
-             * The Cloud Search Query API provides the search method, which returns the most relevant results from a user query. The results can come from G Suite
-             * Apps, such as Gmail or Google Drive, or they can come from data that you have indexed from a third party. ∗∗Note:∗∗ This API requires a standard end
-             * user account to execute. A service account can't perform Query API requests directly; to use a service account to perform queries, set up [G Suite
-             * domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+             * The Cloud Search Query API provides the search method, which returns the most relevant results from a user query. The results can come from G Suite Apps, such as Gmail or Google
+             * Drive, or they can come from data that you have indexed from a third party. **Note:** This API requires a standard end user account to execute. A service account can't perform Query
+             * API requests directly; to use a service account to perform queries, set up [G Suite domain-wide delegation of
+             * authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
              */
             search(request: {
                 /** V1 error format. */
@@ -2446,9 +2366,8 @@ declare namespace gapi.client {
             },
             body: SearchRequest): Request<SearchResponse>;
             /**
-             * Provides suggestions for autocompleting the query. ∗∗Note:∗∗ This API requires a standard end user account to execute. A service account can't perform
-             * Query API requests directly; to use a service account to perform queries, set up [G Suite domain-wide delegation of
-             * authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+             * Provides suggestions for autocompleting the query. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API requests directly;
+             * to use a service account to perform queries, set up [G Suite domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
              */
             suggest(request: {
                 /** V1 error format. */
@@ -2504,7 +2423,7 @@ declare namespace gapi.client {
             sources: SourcesResource;
         }
         interface DatasourcesResource {
-            /** Creates a datasource. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Creates a datasource. **Note:** This API requires an admin account to execute. */
             create(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2556,7 +2475,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: DataSource): Request<Operation>;
-            /** Deletes a datasource. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Deletes a datasource. **Note:** This API requires an admin account to execute. */
             delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2585,7 +2504,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<Operation>;
-            /** Gets a datasource. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Gets a datasource. **Note:** This API requires an admin account to execute. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2614,7 +2533,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<DataSource>;
-            /** Lists datasources. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Lists datasources. **Note:** This API requires an admin account to execute. */
             list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2645,7 +2564,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListDataSourceResponse>;
-            /** Updates a datasource. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Updates a datasource. **Note:** This API requires an admin account to execute. */
             update(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2703,7 +2622,7 @@ declare namespace gapi.client {
             body: UpdateDataSourceRequest): Request<Operation>;
         }
         interface SearchapplicationsResource {
-            /** Creates a search application. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Creates a search application. **Note:** This API requires an admin account to execute. */
             create(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2755,7 +2674,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: SearchApplication): Request<Operation>;
-            /** Deletes a search application. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Deletes a search application. **Note:** This API requires an admin account to execute. */
             delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2784,7 +2703,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<Operation>;
-            /** Gets the specified search application. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Gets the specified search application. **Note:** This API requires an admin account to execute. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2813,7 +2732,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<SearchApplication>;
-            /** Lists all search applications. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Lists all search applications. **Note:** This API requires an admin account to execute. */
             list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2844,7 +2763,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListSearchApplicationsResponse>;
-            /** Resets a search application to default settings. This will return an empty response. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Resets a search application to default settings. This will return an empty response. **Note:** This API requires an admin account to execute. */
             reset(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2900,7 +2819,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: ResetSearchApplicationRequest): Request<Operation>;
-            /** Updates a search application. ∗∗Note:∗∗ This API requires an admin account to execute. */
+            /** Updates a search application. **Note:** This API requires an admin account to execute. */
             update(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2962,7 +2881,7 @@ declare namespace gapi.client {
             searchapplications: SearchapplicationsResource;
         }
         interface DatasourcesResource {
-            /** Gets indexed item statistics for a single data source. ∗∗Note:∗∗ This API requires a standard end user account to execute. */
+            /** Gets indexed item statistics for a single data source. **Note:** This API requires a standard end user account to execute. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3007,7 +2926,7 @@ declare namespace gapi.client {
             datasources: DatasourcesResource;
         }
         interface SearchapplicationsResource {
-            /** Get the query statistics for search application. ∗∗Note:∗∗ This API requires a standard end user account to execute. */
+            /** Get the query statistics for search application. **Note:** This API requires a standard end user account to execute. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3051,10 +2970,7 @@ declare namespace gapi.client {
             searchapplications: SearchapplicationsResource;
         }
         interface SearchapplicationsResource {
-            /**
-             * Get the # of search sessions, % of successful sessions with a click query statistics for search application. ∗∗Note:∗∗ This API requires a standard end
-             * user account to execute.
-             */
+            /** Get the # of search sessions, % of successful sessions with a click query statistics for search application. **Note:** This API requires a standard end user account to execute. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3098,7 +3014,7 @@ declare namespace gapi.client {
             searchapplications: SearchapplicationsResource;
         }
         interface SearchapplicationsResource {
-            /** Get the users statistics for search application. ∗∗Note:∗∗ This API requires a standard end user account to execute. */
+            /** Get the users statistics for search application. **Note:** This API requires a standard end user account to execute. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3143,8 +3059,8 @@ declare namespace gapi.client {
         }
         interface StatsResource {
             /**
-             * Gets indexed item statistics aggreggated across all data sources. This API only returns statistics for previous dates; it doesn't return statistics for
-             * the current day. ∗∗Note:∗∗ This API requires a standard end user account to execute.
+             * Gets indexed item statistics aggreggated across all data sources. This API only returns statistics for previous dates; it doesn't return statistics for the current day. **Note:**
+             * This API requires a standard end user account to execute.
              */
             getIndex(request?: {
                 /** V1 error format. */
@@ -3182,7 +3098,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<GetCustomerIndexStatsResponse>;
-            /** Get the query statistics for customer. ∗∗Note:∗∗ This API requires a standard end user account to execute. */
+            /** Get the query statistics for customer. **Note:** This API requires a standard end user account to execute. */
             getQuery(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3219,10 +3135,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<GetCustomerQueryStatsResponse>;
-            /**
-             * Get the # of search sessions, % of successful sessions with a click query statistics for customer. ∗∗Note:∗∗ This API requires a standard end user
-             * account to execute.
-             */
+            /** Get the # of search sessions, % of successful sessions with a click query statistics for customer. **Note:** This API requires a standard end user account to execute. */
             getSession(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3259,7 +3172,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<GetCustomerSessionStatsResponse>;
-            /** Get the users statistics for customer. ∗∗Note:∗∗ This API requires a standard end user account to execute. */
+            /** Get the users statistics for customer. **Note:** This API requires a standard end user account to execute. */
             getUser(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;

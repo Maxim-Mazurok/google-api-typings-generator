@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Ad Exchange Buyer API II v2beta1 2.0
 // Project: https://developers.google.com/authorized-buyers/apis/reference/rest/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -46,18 +49,17 @@ declare namespace gapi.client {
         }
         interface AdTechnologyProviders {
             /**
-             * The detected ad technology provider IDs for this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for mapping of
-             * provider ID to provided name, a privacy policy URL, and a list of domains which can be attributed to the provider. If the creative contains provider
-             * IDs that are outside of those listed in the `BidRequest.adslot.consented_providers_settings.consented_providers` field on the (Google bid
-             * protocol)[https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto] and the
-             * `BidRequest.user.ext.consented_providers_settings.consented_providers` field on the (OpenRTB
-             * protocol)[https://developers.google.com/authorized-buyers/rtb/downloads/openrtb-adx-proto], and a bid is submitted with that creative for an impression
-             * that will serve to an EEA user, the bid will be filtered before the auction.
+             * The detected ad technology provider IDs for this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for mapping of provider ID to provided name, a
+             * privacy policy URL, and a list of domains which can be attributed to the provider. If the creative contains provider IDs that are outside of those listed in the
+             * `BidRequest.adslot.consented_providers_settings.consented_providers` field on the (Google bid
+             * protocol)[https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto] and the `BidRequest.user.ext.consented_providers_settings.consented_providers` field
+             * on the (OpenRTB protocol)[https://developers.google.com/authorized-buyers/rtb/downloads/openrtb-adx-proto], and a bid is submitted with that creative for an impression that will
+             * serve to an EEA user, the bid will be filtered before the auction.
              */
             detectedProviderIds?: string[];
             /**
-             * Whether the creative contains an unidentified ad technology provider. If true for a given creative, any bid submitted with that creative for an
-             * impression that will serve to an EEA user will be filtered before the auction.
+             * Whether the creative contains an unidentified ad technology provider. If true for a given creative, any bid submitted with that creative for an impression that will serve to an EEA
+             * user will be filtered before the auction.
              */
             hasUnidentifiedProvider?: boolean;
         }
@@ -114,34 +116,31 @@ declare namespace gapi.client {
             /** The globally-unique numerical ID of the client. The value of this field is ignored in create and update operations. */
             clientAccountId?: string;
             /**
-             * Name used to represent this client to publishers. You may have multiple clients that map to the same entity, but for each client the combination of
-             * `clientName` and entity must be unique. You can specify this field as empty.
+             * Name used to represent this client to publishers. You may have multiple clients that map to the same entity, but for each client the combination of `clientName` and entity must be
+             * unique. You can specify this field as empty.
              */
             clientName?: string;
             /**
-             * Numerical identifier of the client entity. The entity can be an advertiser, a brand, or an agency. This identifier is unique among all the entities
-             * with the same type. The value of this field is ignored if the entity type is not provided. A list of all known advertisers with their identifiers is
-             * available in the [advertisers.txt](https://storage.googleapis.com/adx-rtb-dictionaries/advertisers.txt) file. A list of all known brands with their
-             * identifiers is available in the [brands.txt](https://storage.googleapis.com/adx-rtb-dictionaries/brands.txt) file. A list of all known agencies with
-             * their identifiers is available in the [agencies.txt](https://storage.googleapis.com/adx-rtb-dictionaries/agencies.txt) file.
+             * Numerical identifier of the client entity. The entity can be an advertiser, a brand, or an agency. This identifier is unique among all the entities with the same type. The value of
+             * this field is ignored if the entity type is not provided. A list of all known advertisers with their identifiers is available in the
+             * [advertisers.txt](https://storage.googleapis.com/adx-rtb-dictionaries/advertisers.txt) file. A list of all known brands with their identifiers is available in the
+             * [brands.txt](https://storage.googleapis.com/adx-rtb-dictionaries/brands.txt) file. A list of all known agencies with their identifiers is available in the
+             * [agencies.txt](https://storage.googleapis.com/adx-rtb-dictionaries/agencies.txt) file.
              */
             entityId?: string;
-            /**
-             * The name of the entity. This field is automatically fetched based on the type and ID. The value of this field is ignored in create and update
-             * operations.
-             */
+            /** The name of the entity. This field is automatically fetched based on the type and ID. The value of this field is ignored in create and update operations. */
             entityName?: string;
             /** An optional field for specifying the type of the client entity: `ADVERTISER`, `BRAND`, or `AGENCY`. */
             entityType?: string;
             /**
-             * Optional arbitrary unique identifier of this client buyer from the standpoint of its Ad Exchange sponsor buyer. This field can be used to associate a
-             * client buyer with the identifier in the namespace of its sponsor buyer, lookup client buyers by that identifier and verify whether an Ad Exchange
-             * counterpart of a given client buyer already exists. If present, must be unique among all the client buyers for its Ad Exchange sponsor buyer.
+             * Optional arbitrary unique identifier of this client buyer from the standpoint of its Ad Exchange sponsor buyer. This field can be used to associate a client buyer with the
+             * identifier in the namespace of its sponsor buyer, lookup client buyers by that identifier and verify whether an Ad Exchange counterpart of a given client buyer already exists. If
+             * present, must be unique among all the client buyers for its Ad Exchange sponsor buyer.
              */
             partnerClientId?: string;
             /**
-             * The role which is assigned to the client buyer. Each role implies a set of permissions granted to the client. Must be one of `CLIENT_DEAL_VIEWER`,
-             * `CLIENT_DEAL_NEGOTIATOR` or `CLIENT_DEAL_APPROVER`.
+             * The role which is assigned to the client buyer. Each role implies a set of permissions granted to the client. Must be one of `CLIENT_DEAL_VIEWER`, `CLIENT_DEAL_NEGOTIATOR` or
+             * `CLIENT_DEAL_APPROVER`.
              */
             role?: string;
             /** The status of the client buyer. */
@@ -151,8 +150,8 @@ declare namespace gapi.client {
         }
         interface ClientUser {
             /**
-             * Numerical account ID of the client buyer with which the user is associated; the buyer must be a client of the current sponsor buyer. The value of this
-             * field is ignored in an update operation.
+             * Numerical account ID of the client buyer with which the user is associated; the buyer must be a client of the current sponsor buyer. The value of this field is ignored in an update
+             * operation.
              */
             clientAccountId?: string;
             /** User's email address. The value of this field is ignored in an update operation. */
@@ -209,9 +208,9 @@ declare namespace gapi.client {
             /** The buyer-defined creative ID of this creative. Can be used to filter the response of the creatives.list method. */
             creativeId?: string;
             /**
-             * Output only. The top-level deals status of this creative. If disapproved, an entry for 'auctionType=DIRECT_DEALS' (or 'ALL') in serving_restrictions
-             * will also exist. Note that this may be nuanced with other contextual restrictions, in which case, it may be preferable to read from
-             * serving_restrictions directly. Can be used to filter the response of the creatives.list method.
+             * Output only. The top-level deals status of this creative. If disapproved, an entry for 'auctionType=DIRECT_DEALS' (or 'ALL') in serving_restrictions will also exist. Note that this
+             * may be nuanced with other contextual restrictions, in which case, it may be preferable to read from serving_restrictions directly. Can be used to filter the response of the
+             * creatives.list method.
              */
             dealsStatus?: string;
             /** The set of declared destination URLs for the creative. */
@@ -228,8 +227,8 @@ declare namespace gapi.client {
             /** Output only. Detected product categories, if any. See the ad-product-categories.txt file in the technical documentation for a list of IDs. */
             detectedProductCategories?: number[];
             /**
-             * Output only. Detected sensitive categories, if any. See the ad-sensitive-categories.txt file in the technical documentation for a list of IDs. You
-             * should use these IDs along with the excluded-sensitive-category field in the bid request to filter your bids.
+             * Output only. Detected sensitive categories, if any. See the ad-sensitive-categories.txt file in the technical documentation for a list of IDs. You should use these IDs along with
+             * the excluded-sensitive-category field in the bid request to filter your bids.
              */
             detectedSensitiveCategories?: number[];
             /** An HTML creative. */
@@ -239,22 +238,19 @@ declare namespace gapi.client {
             /** A native creative. */
             native?: NativeContent;
             /**
-             * Output only. The top-level open auction status of this creative. If disapproved, an entry for 'auctionType = OPEN_AUCTION' (or 'ALL') in
-             * serving_restrictions will also exist. Note that this may be nuanced with other contextual restrictions, in which case, it may be preferable to read
-             * from serving_restrictions directly. Can be used to filter the response of the creatives.list method.
+             * Output only. The top-level open auction status of this creative. If disapproved, an entry for 'auctionType = OPEN_AUCTION' (or 'ALL') in serving_restrictions will also exist. Note
+             * that this may be nuanced with other contextual restrictions, in which case, it may be preferable to read from serving_restrictions directly. Can be used to filter the response of
+             * the creatives.list method.
              */
             openAuctionStatus?: string;
             /** All restricted categories for the ads that may be shown from this creative. */
             restrictedCategories?: string[];
             /**
-             * Output only. The granular status of this ad in specific contexts. A context here relates to where something ultimately serves (for example, a physical
-             * location, a platform, an HTTPS vs HTTP request, or the type of auction).
+             * Output only. The granular status of this ad in specific contexts. A context here relates to where something ultimately serves (for example, a physical location, a platform, an HTTPS
+             * vs HTTP request, or the type of auction).
              */
             servingRestrictions?: ServingRestriction[];
-            /**
-             * All vendor IDs for the ads that may be shown from this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for possible
-             * values.
-             */
+            /** All vendor IDs for the ads that may be shown from this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for possible values. */
             vendorIds?: number[];
             /** Output only. The version of this creative. */
             version?: number;
@@ -278,8 +274,8 @@ declare namespace gapi.client {
         }
         interface CreativeSize {
             /**
-             * What formats are allowed by the publisher. If this repeated field is empty then all formats are allowed. For example, if this field contains
-             * AllowedFormatType.AUDIO then the publisher only allows an audio ad (without any video).
+             * What formats are allowed by the publisher. If this repeated field is empty then all formats are allowed. For example, if this field contains AllowedFormatType.AUDIO then the
+             * publisher only allows an audio ad (without any video).
              */
             allowedFormats?: string[];
             /** For video creatives specifies the sizes of companion ads (if present). Companion sizes may be filled in only when creative_size_type = VIDEO */
@@ -314,10 +310,7 @@ declare namespace gapi.client {
             targetedCriteriaIds?: string[];
         }
         interface Date {
-            /**
-             * Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not
-             * significant.
-             */
+            /** Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not significant. */
             day?: number;
             /** Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day. */
             month?: number;
@@ -327,15 +320,9 @@ declare namespace gapi.client {
         interface DayPart {
             /** The day of the week to target. If unspecified, applicable to all days. */
             dayOfWeek?: string;
-            /**
-             * The ending time of the day for the ad to show (minute level granularity). The end time is exclusive. This field is not available for filtering in PQL
-             * queries.
-             */
+            /** The ending time of the day for the ad to show (minute level granularity). The end time is exclusive. This field is not available for filtering in PQL queries. */
             endTime?: TimeOfDay;
-            /**
-             * The starting time of day for the ad to show (minute level granularity). The start time is inclusive. This field is not available for filtering in PQL
-             * queries.
-             */
+            /** The starting time of day for the ad to show (minute level granularity). The start time is inclusive. This field is not available for filtering in PQL queries. */
             startTime?: TimeOfDay;
         }
         interface DayPartTargeting {
@@ -345,37 +332,31 @@ declare namespace gapi.client {
             timeZoneType?: string;
         }
         interface Deal {
-            /**
-             * Proposed flight end time of the deal. This will generally be stored in a granularity of a second. A value is not required for Private Auction deals or
-             * Preferred Deals.
-             */
+            /** Proposed flight end time of the deal. This will generally be stored in a granularity of a second. A value is not required for Private Auction deals or Preferred Deals. */
             availableEndTime?: string;
             /**
-             * Optional proposed flight start time of the deal. This will generally be stored in the granularity of one second since deal serving starts at seconds
-             * boundary. Any time specified with more granularity (e.g., in milliseconds) will be truncated towards the start of time in seconds.
+             * Optional proposed flight start time of the deal. This will generally be stored in the granularity of one second since deal serving starts at seconds boundary. Any time specified
+             * with more granularity (e.g., in milliseconds) will be truncated towards the start of time in seconds.
              */
             availableStartTime?: string;
             /** Buyer private data (hidden from seller). */
             buyerPrivateData?: PrivateData;
             /**
-             * The product ID from which this deal was created. Note: This field may be set only when creating the resource. Modifying this field while updating the
-             * resource will result in an error.
+             * The product ID from which this deal was created. Note: This field may be set only when creating the resource. Modifying this field while updating the resource will result in an
+             * error.
              */
             createProductId?: string;
             /**
-             * Optional revision number of the product that the deal was created from. If present on create, and the server `product_revision` has advanced sinced the
-             * passed-in `create_product_revision`, an `ABORTED` error will be returned. Note: This field may be set only when creating the resource. Modifying this
-             * field while updating the resource will result in an error.
+             * Optional revision number of the product that the deal was created from. If present on create, and the server `product_revision` has advanced sinced the passed-in
+             * `create_product_revision`, an `ABORTED` error will be returned. Note: This field may be set only when creating the resource. Modifying this field while updating the resource will
+             * result in an error.
              */
             createProductRevision?: string;
             /** Output only. The time of the deal creation. */
             createTime?: string;
             /** Output only. Specifies the creative pre-approval policy. */
             creativePreApprovalPolicy?: string;
-            /**
-             * Output only. Restricitions about the creatives associated with the deal (i.e., size) This is available for Programmatic Guaranteed/Preferred Deals in
-             * Ad Manager.
-             */
+            /** Output only. Restricitions about the creatives associated with the deal (i.e., size) This is available for Programmatic Guaranteed/Preferred Deals in Ad Manager. */
             creativeRestrictions?: CreativeRestrictions;
             /** Output only. Specifies whether the creative is safeFrame compatible. */
             creativeSafeFrameCompatibility?: string;
@@ -395,18 +376,15 @@ declare namespace gapi.client {
             externalDealId?: string;
             /** Output only. True, if the buyside inventory setup is complete for this deal. */
             isSetupComplete?: boolean;
-            /**
-             * Output only. Specifies the creative source for programmatic deals. PUBLISHER means creative is provided by seller and ADVERTISER means creative is
-             * provided by buyer.
-             */
+            /** Output only. Specifies the creative source for programmatic deals. PUBLISHER means creative is provided by seller and ADVERTISER means creative is provided by buyer. */
             programmaticCreativeSource?: string;
             /** Output only. ID of the proposal that this deal is part of. */
             proposalId?: string;
             /** Output only. Seller contact information for the deal. */
             sellerContacts?: ContactInformation[];
             /**
-             * The syndication product associated with the deal. Note: This field may be set only when creating the resource. Modifying this field while updating the
-             * resource will result in an error.
+             * The syndication product associated with the deal. Note: This field may be set only when creating the resource. Modifying this field while updating the resource will result in an
+             * error.
              */
             syndicationProduct?: string;
             /** Output only. Specifies the subset of inventory targeted by the deal. */
@@ -450,8 +428,8 @@ declare namespace gapi.client {
             /** The terms for non-guaranteed fixed price deals. */
             nonGuaranteedFixedPriceTerms?: NonGuaranteedFixedPriceTerms;
             /**
-             * The time zone name. For deals with Cost Per Day billing, defines the time zone used to mark the boundaries of a day. It should be an IANA TZ name, such
-             * as "America/Los_Angeles". For more information, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
+             * The time zone name. For deals with Cost Per Day billing, defines the time zone used to mark the boundaries of a day. It should be an IANA TZ name, such as "America/Los_Angeles". For
+             * more information, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
              */
             sellerTimeZone?: string;
         }
@@ -492,18 +470,18 @@ declare namespace gapi.client {
             /** An absolute date range, defined by a start date and an end date. Interpreted relative to Pacific time zone. */
             absoluteDateRange?: AbsoluteDateRange;
             /**
-             * The set of dimensions along which to break down the response; may be empty. If multiple dimensions are requested, the breakdown is along the Cartesian
-             * product of the requested dimensions.
+             * The set of dimensions along which to break down the response; may be empty. If multiple dimensions are requested, the breakdown is along the Cartesian product of the requested
+             * dimensions.
              */
             breakdownDimensions?: string[];
             /**
-             * The ID of the creative on which to filter; optional. This field may be set only for a filter set that accesses account-level troubleshooting data,
-             * i.e., one whose name matches the `bidders/∗/accounts/∗/filterSets/∗` pattern.
+             * The ID of the creative on which to filter; optional. This field may be set only for a filter set that accesses account-level troubleshooting data, i.e., one whose name matches the
+             * `bidders/∗/accounts/∗/filterSets/*` pattern.
              */
             creativeId?: string;
             /**
-             * The ID of the deal on which to filter; optional. This field may be set only for a filter set that accesses account-level troubleshooting data, i.e.,
-             * one whose name matches the `bidders/∗/accounts/∗/filterSets/∗` pattern.
+             * The ID of the deal on which to filter; optional. This field may be set only for a filter set that accesses account-level troubleshooting data, i.e., one whose name matches the
+             * `bidders/∗/accounts/∗/filterSets/*` pattern.
              */
             dealId?: string;
             /** The environment on which to filter; optional. */
@@ -511,33 +489,29 @@ declare namespace gapi.client {
             /** Creative format bidded on or allowed to bid on, can be empty. */
             format?: string;
             /**
-             * Creative formats bidded on or allowed to bid on, can be empty. Although this field is a list, it can only be populated with a single item. A HTTP 400
-             * bad request error will be returned in the response if you specify multiple items.
+             * Creative formats bidded on or allowed to bid on, can be empty. Although this field is a list, it can only be populated with a single item. A HTTP 400 bad request error will be
+             * returned in the response if you specify multiple items.
              */
             formats?: string[];
             /**
-             * A user-defined name of the filter set. Filter set names must be unique globally and match one of the patterns: - `bidders/∗/filterSets/∗` (for
-             * accessing bidder-level troubleshooting data) - `bidders/∗/accounts/∗/filterSets/∗` (for accessing account-level troubleshooting data) This field is
-             * required in create operations.
+             * A user-defined name of the filter set. Filter set names must be unique globally and match one of the patterns: - `bidders/∗/filterSets/*` (for accessing bidder-level troubleshooting
+             * data) - `bidders/∗/accounts/∗/filterSets/*` (for accessing account-level troubleshooting data) This field is required in create operations.
              */
             name?: string;
             /**
-             * The list of platforms on which to filter; may be empty. The filters represented by multiple platforms are ORed together (i.e., if non-empty, results
-             * must match any one of the platforms).
+             * The list of platforms on which to filter; may be empty. The filters represented by multiple platforms are ORed together (i.e., if non-empty, results must match any one of the
+             * platforms).
              */
             platforms?: string[];
-            /**
-             * For Open Bidding partners only. The list of publisher identifiers on which to filter; may be empty. The filters represented by multiple publisher
-             * identifiers are ORed together.
-             */
+            /** For Open Bidding partners only. The list of publisher identifiers on which to filter; may be empty. The filters represented by multiple publisher identifiers are ORed together. */
             publisherIdentifiers?: string[];
             /** An open-ended realtime time range, defined by the aggregation start timestamp. */
             realtimeTimeRange?: RealtimeTimeRange;
             /** A relative date range, defined by an offset from today and a duration. Interpreted relative to Pacific time zone. */
             relativeDateRange?: RelativeDateRange;
             /**
-             * For Authorized Buyers only. The list of IDs of the seller (publisher) networks on which to filter; may be empty. The filters represented by multiple
-             * seller network IDs are ORed together (i.e., if non-empty, results must match any one of the publisher networks). See
+             * For Authorized Buyers only. The list of IDs of the seller (publisher) networks on which to filter; may be empty. The filters represented by multiple seller network IDs are ORed
+             * together (i.e., if non-empty, results must match any one of the publisher networks). See
              * [seller-network-ids](https://developers.google.com/authorized-buyers/rtb/downloads/seller-network-ids) file for the set of existing seller network IDs.
              */
             sellerNetworkIds?: number[];
@@ -611,8 +585,8 @@ declare namespace gapi.client {
             /** List of rows, each containing a set of bid metrics. */
             bidMetricsRows?: BidMetricsRow[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListBidMetricsRequest.pageToken field in the subsequent call to the
-             * bidMetrics.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListBidMetricsRequest.pageToken field in the subsequent call to the bidMetrics.list method to retrieve the next
+             * page of results.
              */
             nextPageToken?: string;
         }
@@ -620,8 +594,8 @@ declare namespace gapi.client {
             /** List of rows, with counts of bid responses aggregated by callout status. */
             calloutStatusRows?: CalloutStatusRow[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListBidResponseErrorsRequest.pageToken field in the subsequent call to the
-             * bidResponseErrors.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListBidResponseErrorsRequest.pageToken field in the subsequent call to the bidResponseErrors.list method to
+             * retrieve the next page of results.
              */
             nextPageToken?: string;
         }
@@ -629,8 +603,8 @@ declare namespace gapi.client {
             /** List of rows, with counts of bid responses without bids aggregated by status. */
             bidResponseWithoutBidsStatusRows?: BidResponseWithoutBidsStatusRow[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListBidResponsesWithoutBidsRequest.pageToken field in the subsequent call to the
-             * bidResponsesWithoutBids.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListBidResponsesWithoutBidsRequest.pageToken field in the subsequent call to the bidResponsesWithoutBids.list
+             * method to retrieve the next page of results.
              */
             nextPageToken?: string;
         }
@@ -638,8 +612,8 @@ declare namespace gapi.client {
             /** The returned list of clients. */
             clients?: Client[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListClientsRequest.pageToken field in the subsequent call to the
-             * accounts.clients.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListClientsRequest.pageToken field in the subsequent call to the accounts.clients.list method to retrieve the
+             * next page of results.
              */
             nextPageToken?: string;
         }
@@ -647,15 +621,15 @@ declare namespace gapi.client {
             /** The returned list of client users. */
             invitations?: ClientUserInvitation[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListClientUserInvitationsRequest.pageToken field in the subsequent call to the
-             * clients.invitations.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListClientUserInvitationsRequest.pageToken field in the subsequent call to the clients.invitations.list method
+             * to retrieve the next page of results.
              */
             nextPageToken?: string;
         }
         interface ListClientUsersResponse {
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListClientUsersRequest.pageToken field in the subsequent call to the
-             * clients.invitations.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListClientUsersRequest.pageToken field in the subsequent call to the clients.invitations.list method to retrieve
+             * the next page of results.
              */
             nextPageToken?: string;
             /** The returned list of client users. */
@@ -665,8 +639,8 @@ declare namespace gapi.client {
             /** The list of creatives. */
             creatives?: Creative[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListCreativesRequest.page_token field in the subsequent call to `ListCreatives`
-             * method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListCreativesRequest.page_token field in the subsequent call to `ListCreatives` method to retrieve the next page
+             * of results.
              */
             nextPageToken?: string;
         }
@@ -674,8 +648,8 @@ declare namespace gapi.client {
             /** List of rows, with counts of bids with a given creative status aggregated by creative. */
             filteredBidCreativeRows?: FilteredBidCreativeRow[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListCreativeStatusBreakdownByCreativeRequest.pageToken field in the subsequent
-             * call to the filteredBids.creatives.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListCreativeStatusBreakdownByCreativeRequest.pageToken field in the subsequent call to the
+             * filteredBids.creatives.list method to retrieve the next page of results.
              */
             nextPageToken?: string;
         }
@@ -685,8 +659,8 @@ declare namespace gapi.client {
             /** List of rows, with counts of bids with a given creative status aggregated by detail. */
             filteredBidDetailRows?: FilteredBidDetailRow[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListCreativeStatusBreakdownByDetailRequest.pageToken field in the subsequent call
-             * to the filteredBids.details.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListCreativeStatusBreakdownByDetailRequest.pageToken field in the subsequent call to the
+             * filteredBids.details.list method to retrieve the next page of results.
              */
             nextPageToken?: string;
         }
@@ -694,8 +668,8 @@ declare namespace gapi.client {
             /** The list of associations. */
             associations?: CreativeDealAssociation[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListDealAssociationsRequest.page_token field in the subsequent call to
-             * 'ListDealAssociation' method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListDealAssociationsRequest.page_token field in the subsequent call to 'ListDealAssociation' method to retrieve
+             * the next page of results.
              */
             nextPageToken?: string;
         }
@@ -703,8 +677,8 @@ declare namespace gapi.client {
             /** List of rows, with counts of filtered bid requests aggregated by callout status. */
             calloutStatusRows?: CalloutStatusRow[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListFilteredBidRequestsRequest.pageToken field in the subsequent call to the
-             * filteredBidRequests.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListFilteredBidRequestsRequest.pageToken field in the subsequent call to the filteredBidRequests.list method to
+             * retrieve the next page of results.
              */
             nextPageToken?: string;
         }
@@ -712,8 +686,8 @@ declare namespace gapi.client {
             /** List of rows, with counts of filtered bids aggregated by filtering reason (i.e. creative status). */
             creativeStatusRows?: CreativeStatusRow[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListFilteredBidsRequest.pageToken field in the subsequent call to the
-             * filteredBids.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListFilteredBidsRequest.pageToken field in the subsequent call to the filteredBids.list method to retrieve the
+             * next page of results.
              */
             nextPageToken?: string;
         }
@@ -721,8 +695,8 @@ declare namespace gapi.client {
             /** The filter sets belonging to the buyer. */
             filterSets?: FilterSet[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListFilterSetsRequest.pageToken field in the subsequent call to the
-             * accounts.filterSets.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListFilterSetsRequest.pageToken field in the subsequent call to the accounts.filterSets.list method to retrieve
+             * the next page of results.
              */
             nextPageToken?: string;
         }
@@ -730,8 +704,8 @@ declare namespace gapi.client {
             /** List of rows, each containing a set of impression metrics. */
             impressionMetricsRows?: ImpressionMetricsRow[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListImpressionMetricsRequest.pageToken field in the subsequent call to the
-             * impressionMetrics.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListImpressionMetricsRequest.pageToken field in the subsequent call to the impressionMetrics.list method to
+             * retrieve the next page of results.
              */
             nextPageToken?: string;
         }
@@ -739,15 +713,15 @@ declare namespace gapi.client {
             /** List of rows, with counts of losing bids aggregated by loss reason (i.e. creative status). */
             creativeStatusRows?: CreativeStatusRow[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListLosingBidsRequest.pageToken field in the subsequent call to the
-             * losingBids.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListLosingBidsRequest.pageToken field in the subsequent call to the losingBids.list method to retrieve the next
+             * page of results.
              */
             nextPageToken?: string;
         }
         interface ListNonBillableWinningBidsResponse {
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListNonBillableWinningBidsRequest.pageToken field in the subsequent call to the
-             * nonBillableWinningBids.list method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListNonBillableWinningBidsRequest.pageToken field in the subsequent call to the nonBillableWinningBids.list
+             * method to retrieve the next page of results.
              */
             nextPageToken?: string;
             /** List of rows, with counts of bids not billed aggregated by reason. */
@@ -773,8 +747,8 @@ declare namespace gapi.client {
         }
         interface LocationContext {
             /**
-             * IDs representing the geo location for this context. Please refer to the
-             * [geo-table.csv](https://storage.googleapis.com/adx-rtb-dictionaries/geo-table.csv) file for different geo criteria IDs.
+             * IDs representing the geo location for this context. Please refer to the [geo-table.csv](https://storage.googleapis.com/adx-rtb-dictionaries/geo-table.csv) file for different geo
+             * criteria IDs.
              */
             geoCriteriaIds?: number[];
         }
@@ -794,9 +768,9 @@ declare namespace gapi.client {
             /** The expected value of the metric. */
             value?: string;
             /**
-             * The variance (i.e. square of the standard deviation) of the metric value. If value is exact, variance is 0. Can be used to calculate margin of error as
-             * a percentage of value, using the following formula, where Z is the standard constant that depends on the desired size of the confidence interval (e.g.
-             * for 90% confidence interval, use Z = 1.645): marginOfError = 100 ∗ Z ∗ sqrt(variance) / value
+             * The variance (i.e. square of the standard deviation) of the metric value. If value is exact, variance is 0. Can be used to calculate margin of error as a percentage of value, using
+             * the following formula, where Z is the standard constant that depends on the desired size of the confidence interval (e.g. for 90% confidence interval, use Z = 1.645): marginOfError
+             * = 100 * Z * sqrt(variance) / value
              */
             variance?: string;
         }
@@ -808,9 +782,9 @@ declare namespace gapi.client {
             /** The 3-letter currency code defined in ISO 4217. */
             currencyCode?: string;
             /**
-             * Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be
-             * positive or zero. If `units` is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example
-             * $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+             * Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be positive or zero. If `units`
+             * is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example $-1.75 is represented as `units`=-1 and
+             * `nanos`=-750,000,000.
              */
             nanos?: number;
             /** The whole units of the amount. For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar. */
@@ -868,8 +842,8 @@ declare namespace gapi.client {
             /** Output only. The role of the person (buyer/seller) creating the note. */
             creatorRole?: string;
             /**
-             * The actual note to attach. (max-length: 1024 unicode code units) Note: This field may be set only when creating the resource. Modifying this field
-             * while updating the resource will result in an error.
+             * The actual note to attach. (max-length: 1024 unicode code units) Note: This field may be set only when creating the resource. Modifying this field while updating the resource will
+             * result in an error.
              */
             note?: string;
             /** Output only. The unique ID for the note. */
@@ -906,10 +880,7 @@ declare namespace gapi.client {
         interface PricePerBuyer {
             /** The list of advertisers for this price when associated with this buyer. If empty, all advertisers with this buyer pay this price. */
             advertiserIds?: string[];
-            /**
-             * The buyer who will pay this price. If unset, all buyers can pay this price (if the advertisers match, and there's no more specific rule matching the
-             * buyer).
-             */
+            /** The buyer who will pay this price. If unset, all buyers can pay this price (if the advertisers match, and there's no more specific rule matching the buyer). */
             buyer?: Buyer;
             /** The specified price. */
             price?: Price;
@@ -922,8 +893,8 @@ declare namespace gapi.client {
             /** The proposed end time for the deal. The field will be truncated to the order of seconds during serving. */
             availableEndTime?: string;
             /**
-             * Inventory availability dates. The start time will be truncated to seconds during serving. Thus, a field specified as 3:23:34.456 (HH:mm:ss.SSS) will be
-             * truncated to 3:23:34 when serving.
+             * Inventory availability dates. The start time will be truncated to seconds during serving. Thus, a field specified as 3:23:34.456 (HH:mm:ss.SSS) will be truncated to 3:23:34 when
+             * serving.
              */
             availableStartTime?: string;
             /** Creation time. */
@@ -933,8 +904,8 @@ declare namespace gapi.client {
             /** The display name for this product as set by the seller. */
             displayName?: string;
             /**
-             * If the creator has already signed off on the product, then the buyer can finalize the deal by accepting the product as is. When copying to a proposal,
-             * if any of the terms are changed, then auto_finalize is automatically set to false.
+             * If the creator has already signed off on the product, then the buyer can finalize the deal by accepting the product as is. When copying to a proposal, if any of the terms are
+             * changed, then auto_finalize is automatically set to false.
              */
             hasCreatorSignedOff?: boolean;
             /** The unique ID for the product. */
@@ -947,10 +918,7 @@ declare namespace gapi.client {
             seller?: Seller;
             /** The syndication product associated with the deal. */
             syndicationProduct?: string;
-            /**
-             * Targeting that is shared between the buyer and the seller. Each targeting criterion has a specified key and for each key there is a list of inclusion
-             * value or exclusion values.
-             */
+            /** Targeting that is shared between the buyer and the seller. Each targeting criterion has a specified key and for each key there is a list of inclusion value or exclusion values. */
             targetingCriterion?: TargetingCriteria[];
             /** The negotiable terms of the deal. */
             terms?: DealTerms;
@@ -962,10 +930,7 @@ declare namespace gapi.client {
         interface Proposal {
             /** Output only. Reference to the buyer that will get billed for this proposal. */
             billedBuyer?: Buyer;
-            /**
-             * Reference to the buyer on the proposal. Note: This field may be set only when creating the resource. Modifying this field while updating the resource
-             * will result in an error.
-             */
+            /** Reference to the buyer on the proposal. Note: This field may be set only when creating the resource. Modifying this field while updating the resource will result in an error. */
             buyer?: Buyer;
             /** Contact information for the buyer. */
             buyerContacts?: ContactInformation[];
@@ -990,17 +955,14 @@ declare namespace gapi.client {
             /** Output only. The unique ID of the proposal. */
             proposalId?: string;
             /**
-             * Output only. The revision number for the proposal. Each update to the proposal or the deal causes the proposal revision number to auto-increment. The
-             * buyer keeps track of the last revision number they know of and pass it in when making an update. If the head revision number on the server has since
-             * incremented, then an ABORTED error is returned during the update operation to let the buyer know that a subsequent update was made.
+             * Output only. The revision number for the proposal. Each update to the proposal or the deal causes the proposal revision number to auto-increment. The buyer keeps track of the last
+             * revision number they know of and pass it in when making an update. If the head revision number on the server has since incremented, then an ABORTED error is returned during the
+             * update operation to let the buyer know that a subsequent update was made.
              */
             proposalRevision?: string;
             /** Output only. The current state of the proposal. */
             proposalState?: string;
-            /**
-             * Reference to the seller on the proposal. Note: This field may be set only when creating the resource. Modifying this field while updating the resource
-             * will result in an error.
-             */
+            /** Reference to the seller on the proposal. Note: This field may be set only when creating the resource. Modifying this field while updating the resource will result in an error. */
             seller?: Seller;
             /** Output only. Contact information for the seller. */
             sellerContacts?: ContactInformation[];
@@ -1012,25 +974,21 @@ declare namespace gapi.client {
             audienceDescription?: string;
             /** Statement explaining what's unique about publisher's business, and why buyers should partner with the publisher. */
             buyerPitchStatement?: string;
-            /**
-             * Contact information for direct reservation deals. This is free text entered by the publisher and may include information like names, phone numbers and
-             * email addresses.
-             */
+            /** Contact information for direct reservation deals. This is free text entered by the publisher and may include information like names, phone numbers and email addresses. */
             directDealsContact?: string;
             /** Name of the publisher profile. */
             displayName?: string;
             /**
-             * The list of domains represented in this publisher profile. Empty if this is a parent profile. These are top private domains, meaning that these will
-             * not contain a string like "photos.google.co.uk/123", but will instead contain "google.co.uk".
+             * The list of domains represented in this publisher profile. Empty if this is a parent profile. These are top private domains, meaning that these will not contain a string like
+             * "photos.google.co.uk/123", but will instead contain "google.co.uk".
              */
             domains?: string[];
             /** URL to publisher's Google+ page. */
             googlePlusUrl?: string;
             /**
-             * Indicates if this profile is the parent profile of the seller. A parent profile represents all the inventory from the seller, as opposed to child
-             * profile that is created to brand a portion of inventory. One seller should have only one parent publisher profile, and can have multiple child
-             * profiles. Publisher profiles for the same seller will have same value of field google.ads.adexchange.buyer.v2beta1.PublisherProfile.seller. See
-             * https://support.google.com/admanager/answer/6035806?hl=en for details.
+             * Indicates if this profile is the parent profile of the seller. A parent profile represents all the inventory from the seller, as opposed to child profile that is created to brand a
+             * portion of inventory. One seller should have only one parent publisher profile, and can have multiple child profiles. Publisher profiles for the same seller will have same value of
+             * field google.ads.adexchange.buyer.v2beta1.PublisherProfile.seller. See https://support.google.com/admanager/answer/6035806?hl=en for details.
              */
             isParent?: boolean;
             /** A Google public URL to the logo for this publisher profile. The logo is stored as a PNG, JPG, or GIF image. */
@@ -1039,10 +997,7 @@ declare namespace gapi.client {
             mediaKitUrl?: string;
             /** Overview of the publisher. */
             overview?: string;
-            /**
-             * Contact information for programmatic deals. This is free text entered by the publisher and may include information like names, phone numbers and email
-             * addresses.
-             */
+            /** Contact information for programmatic deals. This is free text entered by the publisher and may include information like names, phone numbers and email addresses. */
             programmaticDealsContact?: string;
             /** Unique ID for publisher profile. */
             publisherProfileId?: string;
@@ -1075,8 +1030,8 @@ declare namespace gapi.client {
         interface RowDimensions {
             /**
              * The publisher identifier for this row, if a breakdown by
-             * [BreakdownDimension.PUBLISHER_IDENTIFIER](https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/bidders.accounts.filterSets#FilterSet.BreakdownDimension)
-             * was requested.
+             * [BreakdownDimension.PUBLISHER_IDENTIFIER](https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/bidders.accounts.filterSets#FilterSet.BreakdownDimension) was
+             * requested.
              */
             publisherIdentifier?: string;
             /** The time interval that this row represents. */
@@ -1099,7 +1054,7 @@ declare namespace gapi.client {
             appType?: AppContext;
             /** Matches impressions for a particular auction type. */
             auctionType?: AuctionContext;
-            /** Matches impressions coming from users ∗or∗ publishers in a specific location. */
+            /** Matches impressions coming from users *or* publishers in a specific location. */
             location?: LocationContext;
             /** Matches impressions coming from a particular platform. */
             platform?: PlatformContext;
@@ -1112,8 +1067,8 @@ declare namespace gapi.client {
             /** Disapproval bound to this restriction. Only present if status=DISAPPROVED. Can be used to filter the response of the creatives.list method. */
             disapproval?: Disapproval;
             /**
-             * Any disapprovals bound to this restriction. Only present if status=DISAPPROVED. Can be used to filter the response of the creatives.list method.
-             * Deprecated; please use disapproval field instead.
+             * Any disapprovals bound to this restriction. Only present if status=DISAPPROVED. Can be used to filter the response of the creatives.list method. Deprecated; please use disapproval
+             * field instead.
              */
             disapprovalReasons?: Disapproval[];
             /** The status of the creative in this context (for example, it has been explicitly disapproved or is pending review). */
@@ -1134,18 +1089,15 @@ declare namespace gapi.client {
             /** The list of value to include as part of the targeting. Each value is OR'd together. */
             inclusions?: TargetingValue[];
             /**
-             * The key representing the shared targeting criterion. Targeting criteria defined by Google ad servers will begin with GOOG_. Third parties may define
-             * their own keys. A list of permissible keys along with the acceptable values will be provided as part of the external documentation.
+             * The key representing the shared targeting criterion. Targeting criteria defined by Google ad servers will begin with GOOG_. Third parties may define their own keys. A list of
+             * permissible keys along with the acceptable values will be provided as part of the external documentation.
              */
             key?: string;
         }
         interface TargetingValue {
             /** The creative size value to include/exclude. Filled in when key = GOOG_CREATIVE_SIZE */
             creativeSizeValue?: CreativeSize;
-            /**
-             * The daypart targeting to include / exclude. Filled in when the key is GOOG_DAYPART_TARGETING. The definition of this targeting is derived from the
-             * structure used by Ad Manager.
-             */
+            /** The daypart targeting to include / exclude. Filled in when the key is GOOG_DAYPART_TARGETING. The definition of this targeting is derived from the structure used by Ad Manager. */
             dayPartTargetingValue?: DayPartTargeting;
             /** The long value to include/exclude. */
             longValue?: string;
@@ -1191,16 +1143,13 @@ declare namespace gapi.client {
         interface VideoTargeting {
             /** A list of video positions to be excluded. Position types can either be included or excluded (XOR). */
             excludedPositionTypes?: string[];
-            /**
-             * A list of video positions to be included. When the included list is present, the excluded list must be empty. When the excluded list is present, the
-             * included list must be empty.
-             */
+            /** A list of video positions to be included. When the included list is present, the excluded list must be empty. When the excluded list is present, the included list must be empty. */
             targetedPositionTypes?: string[];
         }
         interface WatchCreativeRequest {
             /**
-             * The Pub/Sub topic to publish notifications to. This topic must already exist and must give permission to ad-exchange-buyside-reports@google.com to
-             * write to the topic. This should be the full resource name in "projects/{project_id}/topics/{topic_id}" format.
+             * The Pub/Sub topic to publish notifications to. This topic must already exist and must give permission to ad-exchange-buyside-reports@google.com to write to the topic. This should be
+             * the full resource name in "projects/{project_id}/topics/{topic_id}" format.
              */
             topic?: string;
         }
@@ -1310,8 +1259,8 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * Numerical account ID of the client buyer to list invitations for. (required) You must either specify a string representation of a numerical account
-                 * identifier or the `-` character to list all the invitations for all the clients of a given sponsor buyer.
+                 * Numerical account ID of the client buyer to list invitations for. (required) You must either specify a string representation of a numerical account identifier or the `-`
+                 * character to list all the invitations for all the clients of a given sponsor buyer.
                  */
                 clientAccountId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1323,8 +1272,8 @@ declare namespace gapi.client {
                 /** Requested page size. Server may return fewer clients than requested. If unspecified, server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListClientUserInvitationsResponse.nextPageToken
-                 * returned from the previous call to the clients.invitations.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListClientUserInvitationsResponse.nextPageToken returned from the previous call
+                 * to the clients.invitations.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1382,8 +1331,8 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * The account ID of the client buyer to list users for. (required) You must specify either a string representation of a numerical account identifier or
-                 * the `-` character to list all the client users for all the clients of a given sponsor buyer.
+                 * The account ID of the client buyer to list users for. (required) You must specify either a string representation of a numerical account identifier or the `-` character to list
+                 * all the client users for all the clients of a given sponsor buyer.
                  */
                 clientAccountId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1395,8 +1344,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer clients than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListClientUsersResponse.nextPageToken returned from the
-                 * previous call to the accounts.clients.users.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListClientUsersResponse.nextPageToken returned from the previous call to the
+                 * accounts.clients.users.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1580,13 +1529,13 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer clients than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListClientsResponse.nextPageToken returned from the
-                 * previous call to the accounts.clients.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListClientsResponse.nextPageToken returned from the previous call to the
+                 * accounts.clients.list method.
                  */
                 pageToken?: string;
                 /**
-                 * Optional unique identifier (from the standpoint of an Ad Exchange sponsor buyer partner) of the client to return. If specified, at most one client will
-                 * be returned in the response.
+                 * Optional unique identifier (from the standpoint of an Ad Exchange sponsor buyer partner) of the client to return. If specified, at most one client will be returned in the
+                 * response.
                  */
                 partnerClientId?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1745,17 +1694,16 @@ declare namespace gapi.client {
                 /** Requested page size. Server may return fewer associations than requested. If unspecified, server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListDealAssociationsResponse.next_page_token returned
-                 * from the previous call to 'ListDealAssociations' method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListDealAssociationsResponse.next_page_token returned from the previous call to
+                 * 'ListDealAssociations' method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * An optional query string to filter deal associations. If no filter is specified, all associations will be returned. Supported queries are: -
-                 * accountId=∗account_id_string∗ - creativeId=∗creative_id_string∗ - dealsId=∗deals_id_string∗ - dealsStatus:{approved, conditionally_approved,
-                 * disapproved, not_checked} - openAuctionStatus:{approved, conditionally_approved, disapproved, not_checked} Example: 'dealsId=12345 AND
-                 * dealsStatus:disapproved'
+                 * An optional query string to filter deal associations. If no filter is specified, all associations will be returned. Supported queries are: - accountId=*account_id_string* -
+                 * creativeId=*creative_id_string* - dealsId=*deals_id_string* - dealsStatus:{approved, conditionally_approved, disapproved, not_checked} - openAuctionStatus:{approved,
+                 * conditionally_approved, disapproved, not_checked} Example: 'dealsId=12345 AND dealsStatus:disapproved'
                  */
                 query?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -1935,23 +1883,22 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Requested page size. The server may return fewer creatives than requested (due to timeout constraint) even if more are available via another call. If
-                 * unspecified, server will pick an appropriate default. Acceptable values are 1 to 1000, inclusive.
+                 * Requested page size. The server may return fewer creatives than requested (due to timeout constraint) even if more are available via another call. If unspecified, server will
+                 * pick an appropriate default. Acceptable values are 1 to 1000, inclusive.
                  */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListCreativesResponse.next_page_token returned from the
-                 * previous call to 'ListCreatives' method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListCreativesResponse.next_page_token returned from the previous call to
+                 * 'ListCreatives' method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * An optional query string to filter creatives. If no filter is specified, all active creatives will be returned. Supported queries are: -
-                 * accountId=∗account_id_string∗ - creativeId=∗creative_id_string∗ - dealsStatus: {approved, conditionally_approved, disapproved, not_checked} -
-                 * openAuctionStatus: {approved, conditionally_approved, disapproved, not_checked} - attribute: {a numeric attribute from the list of attributes} -
-                 * disapprovalReason: {a reason from DisapprovalReason} Example: 'accountId=12345 AND (dealsStatus:disapproved AND disapprovalReason:unacceptable_content)
-                 * OR attribute:47'
+                 * An optional query string to filter creatives. If no filter is specified, all active creatives will be returned. Supported queries are: - accountId=*account_id_string* -
+                 * creativeId=*creative_id_string* - dealsStatus: {approved, conditionally_approved, disapproved, not_checked} - openAuctionStatus: {approved, conditionally_approved, disapproved,
+                 * not_checked} - attribute: {a numeric attribute from the list of attributes} - disapprovalReason: {a reason from DisapprovalReason} Example: 'accountId=12345 AND
+                 * (dealsStatus:disapproved AND disapprovalReason:unacceptable_content) OR attribute:47'
                  */
                 query?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -2094,8 +2041,8 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * The creative ID to watch for status changes. Specify "-" to watch all creatives under the above account. If both creative-level and account-level
-                 * notifications are sent, only a single notification will be sent to the creative-level notification topic.
+                 * The creative ID to watch for status changes. Specify "-" to watch all creatives under the above account. If both creative-level and account-level notifications are sent, only a
+                 * single notification will be sent to the creative-level notification topic.
                  */
                 creativeId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2127,8 +2074,8 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * The creative ID to watch for status changes. Specify "-" to watch all creatives under the above account. If both creative-level and account-level
-                 * notifications are sent, only a single notification will be sent to the creative-level notification topic.
+                 * The creative ID to watch for status changes. Specify "-" to watch all creatives under the above account. If both creative-level and account-level notifications are sent, only a
+                 * single notification will be sent to the creative-level notification topic.
                  */
                 creativeId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2150,10 +2097,7 @@ declare namespace gapi.client {
             dealAssociations: DealAssociationsResource;
         }
         interface FinalizedProposalsResource {
-            /**
-             * List finalized proposals, regardless if a proposal is being renegotiated. A filter expression (PQL query) may be specified to filter the results. The
-             * notes will not be returned.
-             */
+            /** List finalized proposals, regardless if a proposal is being renegotiated. A filter expression (PQL query) may be specified to filter the results. The notes will not be returned. */
             list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2234,8 +2178,8 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * An optional PQL query used to query for products. See https://developers.google.com/ad-manager/docs/pqlreference for documentation about PQL and
-                 * examples. Nested repeated fields, such as product.targetingCriterion.inclusions, cannot be filtered.
+                 * An optional PQL query used to query for products. See https://developers.google.com/ad-manager/docs/pqlreference for documentation about PQL and examples. Nested repeated
+                 * fields, such as product.targetingCriterion.inclusions, cannot be filtered.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2258,8 +2202,8 @@ declare namespace gapi.client {
         }
         interface ProposalsResource {
             /**
-             * Mark the proposal as accepted at the given revision number. If the number does not match the server's revision number an `ABORTED` error message will
-             * be returned. This call updates the proposal_state from `PROPOSED` to `BUYER_ACCEPTED`, or from `SELLER_ACCEPTED` to `FINALIZED`.
+             * Mark the proposal as accepted at the given revision number. If the number does not match the server's revision number an `ABORTED` error message will be returned. This call updates
+             * the proposal_state from `PROPOSED` to `BUYER_ACCEPTED`, or from `SELLER_ACCEPTED` to `FINALIZED`.
              */
             accept(request: {
                 /** V1 error format. */
@@ -2320,10 +2264,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: AcceptProposalRequest): Request<Proposal>;
-            /**
-             * Create a new note and attach it to the proposal. The note is assigned a unique ID by the server. The proposal revision number will not increase when
-             * associated with a new note.
-             */
+            /** Create a new note and attach it to the proposal. The note is assigned a unique ID by the server. The proposal revision number will not increase when associated with a new note. */
             addNote(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2383,10 +2324,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: AddNoteRequest): Request<Note>;
-            /**
-             * Cancel an ongoing negotiation on a proposal. This does not cancel or end serving for the deals if the proposal has been finalized, but only cancels a
-             * negotiation unilaterally.
-             */
+            /** Cancel an ongoing negotiation on a proposal. This does not cancel or end serving for the deals if the proposal has been finalized, but only cancels a negotiation unilaterally. */
             cancelNegotiation(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2447,9 +2385,9 @@ declare namespace gapi.client {
             },
             body: CancelNegotiationRequest): Request<Proposal>;
             /**
-             * Update the given proposal to indicate that setup has been completed. This method is called by the buyer when the line items have been created on their
-             * end for a finalized proposal and all the required creatives have been uploaded using the creatives API. This call updates the `is_setup_completed` bit
-             * on the proposal and also notifies the seller. The server will advance the revision number of the most recent proposal.
+             * Update the given proposal to indicate that setup has been completed. This method is called by the buyer when the line items have been created on their end for a finalized proposal
+             * and all the required creatives have been uploaded using the creatives API. This call updates the `is_setup_completed` bit on the proposal and also notifies the seller. The server
+             * will advance the revision number of the most recent proposal.
              */
             completeSetup(request: {
                 /** V1 error format. */
@@ -2596,9 +2534,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Proposal>;
             /**
-             * List proposals. A filter expression (PQL query) may be specified to filter the results. To retrieve all finalized proposals, regardless if a proposal
-             * is being renegotiated, see the FinalizedProposals resource. Note that Bidder/ChildSeat relationships differ from the usual behavior. A Bidder account
-             * can only see its child seats' proposals by specifying the ChildSeat's accountId in the request path.
+             * List proposals. A filter expression (PQL query) may be specified to filter the results. To retrieve all finalized proposals, regardless if a proposal is being renegotiated, see the
+             * FinalizedProposals resource. Note that Bidder/ChildSeat relationships differ from the usual behavior. A Bidder account can only see its child seats' proposals by specifying the
+             * ChildSeat's accountId in the request path.
              */
             list(request?: {
                 /** V1 error format. */
@@ -2635,9 +2573,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListProposalsResponse>;
             /**
-             * Update the given proposal to pause serving. This method will set the `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to true for all deals
-             * in the proposal. It is a no-op to pause an already-paused proposal. It is an error to call PauseProposal for a proposal that is not finalized or
-             * renegotiating.
+             * Update the given proposal to pause serving. This method will set the `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to true for all deals in the proposal. It is a no-op
+             * to pause an already-paused proposal. It is an error to call PauseProposal for a proposal that is not finalized or renegotiating.
              */
             pause(request: {
                 /** V1 error format. */
@@ -2699,9 +2636,9 @@ declare namespace gapi.client {
             },
             body: PauseProposalRequest): Request<Proposal>;
             /**
-             * Update the given proposal to resume serving. This method will set the `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to false for all deals
-             * in the proposal. Note that if the `has_seller_paused` bit is also set, serving will not resume until the seller also resumes. It is a no-op to resume
-             * an already-running proposal. It is an error to call ResumeProposal for a proposal that is not finalized or renegotiating.
+             * Update the given proposal to resume serving. This method will set the `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to false for all deals in the proposal. Note that if
+             * the `has_seller_paused` bit is also set, serving will not resume until the seller also resumes. It is a no-op to resume an already-running proposal. It is an error to call
+             * ResumeProposal for a proposal that is not finalized or renegotiating.
              */
             resume(request: {
                 /** V1 error format. */
@@ -2763,11 +2700,10 @@ declare namespace gapi.client {
             },
             body: ResumeProposalRequest): Request<Proposal>;
             /**
-             * Update the given proposal at the client known revision number. If the server revision has advanced since the passed-in `proposal.proposal_revision`, an
-             * `ABORTED` error message will be returned. Only the buyer-modifiable fields of the proposal will be updated. Note that the deals in the proposal will be
-             * updated to match the passed-in copy. If a passed-in deal does not have a `deal_id`, the server will assign a new unique ID and create the deal. If
-             * passed-in deal has a `deal_id`, it will be updated to match the passed-in copy. Any existing deals not present in the passed-in proposal will be
-             * deleted. It is an error to pass in a deal with a `deal_id` not present at head.
+             * Update the given proposal at the client known revision number. If the server revision has advanced since the passed-in `proposal.proposal_revision`, an `ABORTED` error message will
+             * be returned. Only the buyer-modifiable fields of the proposal will be updated. Note that the deals in the proposal will be updated to match the passed-in copy. If a passed-in deal
+             * does not have a `deal_id`, the server will assign a new unique ID and create the deal. If passed-in deal has a `deal_id`, it will be updated to match the passed-in copy. Any
+             * existing deals not present in the passed-in proposal will be deleted. It is an error to pass in a deal with a `deal_id` not present at head.
              */
             update(request: {
                 /** V1 error format. */
@@ -2913,9 +2849,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2925,8 +2861,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListBidMetricsResponse.nextPageToken returned from the
-                 * previous call to the bidMetrics.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListBidMetricsResponse.nextPageToken returned from the previous call to the
+                 * bidMetrics.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -2953,9 +2889,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2965,8 +2901,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListBidResponseErrorsResponse.nextPageToken returned
-                 * from the previous call to the bidResponseErrors.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListBidResponseErrorsResponse.nextPageToken returned from the previous call to
+                 * the bidResponseErrors.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -2993,9 +2929,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3005,8 +2941,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListBidResponsesWithoutBidsResponse.nextPageToken
-                 * returned from the previous call to the bidResponsesWithoutBids.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListBidResponsesWithoutBidsResponse.nextPageToken returned from the previous call
+                 * to the bidResponsesWithoutBids.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3033,9 +2969,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3045,8 +2981,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListFilteredBidRequestsResponse.nextPageToken returned
-                 * from the previous call to the filteredBidRequests.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListFilteredBidRequestsResponse.nextPageToken returned from the previous call to
+                 * the filteredBidRequests.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3078,9 +3014,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3090,8 +3026,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of
-                 * ListCreativeStatusBreakdownByCreativeResponse.nextPageToken returned from the previous call to the filteredBids.creatives.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListCreativeStatusBreakdownByCreativeResponse.nextPageToken returned from the
+                 * previous call to the filteredBids.creatives.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3117,16 +3053,16 @@ declare namespace gapi.client {
                 callback?: string;
                 /**
                  * The ID of the creative status for which to retrieve a breakdown by detail. See
-                 * [creative-status-codes](https://developers.google.com/authorized-buyers/rtb/downloads/creative-status-codes). Details are only available for statuses
-                 * 10, 14, 15, 17, 18, 19, 86, and 87.
+                 * [creative-status-codes](https://developers.google.com/authorized-buyers/rtb/downloads/creative-status-codes). Details are only available for statuses 10, 14, 15, 17, 18, 19, 86,
+                 * and 87.
                  */
                 creativeStatusId: number;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3136,8 +3072,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of
-                 * ListCreativeStatusBreakdownByDetailResponse.nextPageToken returned from the previous call to the filteredBids.details.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListCreativeStatusBreakdownByDetailResponse.nextPageToken returned from the
+                 * previous call to the filteredBids.details.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3164,9 +3100,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3176,8 +3112,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListFilteredBidsResponse.nextPageToken returned from
-                 * the previous call to the filteredBids.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListFilteredBidsResponse.nextPageToken returned from the previous call to the
+                 * filteredBids.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3207,9 +3143,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3219,8 +3155,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListImpressionMetricsResponse.nextPageToken returned
-                 * from the previous call to the impressionMetrics.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListImpressionMetricsResponse.nextPageToken returned from the previous call to
+                 * the impressionMetrics.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3247,9 +3183,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3259,8 +3195,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListLosingBidsResponse.nextPageToken returned from the
-                 * previous call to the losingBids.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListLosingBidsResponse.nextPageToken returned from the previous call to the
+                 * losingBids.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3287,9 +3223,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3299,8 +3235,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListNonBillableWinningBidsResponse.nextPageToken
-                 * returned from the previous call to the nonBillableWinningBids.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListNonBillableWinningBidsResponse.nextPageToken returned from the previous call
+                 * to the nonBillableWinningBids.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3327,8 +3263,8 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Whether the filter set is transient, or should be persisted indefinitely. By default, filter sets are not transient. If transient, it will be available
-                 * for at least 1 hour after creation.
+                 * Whether the filter set is transient, or should be persisted indefinitely. By default, filter sets are not transient. If transient, it will be available for at least 1 hour after
+                 * creation.
                  */
                 isTransient?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3336,9 +3272,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Name of the owner (bidder or account) of the filter set to be created. For example: - For a bidder-level filter set for bidder 123: `bidders/123` - For
-                 * an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123` - For an account-level filter set for the child
-                 * seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456`
+                 * Name of the owner (bidder or account) of the filter set to be created. For example: - For a bidder-level filter set for bidder 123: `bidders/123` - For an account-level filter
+                 * set for the buyer account representing bidder 123: `bidders/123/accounts/123` - For an account-level filter set for the child seat buyer account 456 whose bidder is 123:
+                 * `bidders/123/accounts/456`
                  */
                 ownerName: string;
                 /** Returns response with indentations and line breaks. */
@@ -3364,8 +3300,8 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Whether the filter set is transient, or should be persisted indefinitely. By default, filter sets are not transient. If transient, it will be available
-                 * for at least 1 hour after creation.
+                 * Whether the filter set is transient, or should be persisted indefinitely. By default, filter sets are not transient. If transient, it will be available for at least 1 hour after
+                 * creation.
                  */
                 isTransient?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3373,9 +3309,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Name of the owner (bidder or account) of the filter set to be created. For example: - For a bidder-level filter set for bidder 123: `bidders/123` - For
-                 * an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123` - For an account-level filter set for the child
-                 * seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456`
+                 * Name of the owner (bidder or account) of the filter set to be created. For example: - For a bidder-level filter set for bidder 123: `bidders/123` - For an account-level filter
+                 * set for the buyer account representing bidder 123: `bidders/123/accounts/123` - For an account-level filter set for the child seat buyer account 456 whose bidder is 123:
+                 * `bidders/123/accounts/456`
                  */
                 ownerName: string;
                 /** Returns response with indentations and line breaks. */
@@ -3403,9 +3339,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Full name of the resource to delete. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an account-level
-                 * filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child
-                 * seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Full name of the resource to delete. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an account-level filter set for the buyer
+                 * account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer account 456 whose bidder is 123:
+                 * `bidders/123/accounts/456/filterSets/abc`
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3434,9 +3370,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Full name of the resource being requested. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
-                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for
-                 * the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Full name of the resource being requested. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an account-level filter set for the
+                 * buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer account 456 whose bidder is 123:
+                 * `bidders/123/accounts/456/filterSets/abc`
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3467,16 +3403,16 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Name of the owner (bidder or account) of the filter sets to be listed. For example: - For a bidder-level filter set for bidder 123: `bidders/123` - For
-                 * an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123` - For an account-level filter set for the child
-                 * seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456`
+                 * Name of the owner (bidder or account) of the filter sets to be listed. For example: - For a bidder-level filter set for bidder 123: `bidders/123` - For an account-level filter
+                 * set for the buyer account representing bidder 123: `bidders/123/accounts/123` - For an account-level filter set for the child seat buyer account 456 whose bidder is 123:
+                 * `bidders/123/accounts/456`
                  */
                 ownerName: string;
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListFilterSetsResponse.nextPageToken returned from the
-                 * previous call to the accounts.filterSets.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListFilterSetsResponse.nextPageToken returned from the previous call to the
+                 * accounts.filterSets.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3514,9 +3450,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3526,8 +3462,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListBidMetricsResponse.nextPageToken returned from the
-                 * previous call to the bidMetrics.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListBidMetricsResponse.nextPageToken returned from the previous call to the
+                 * bidMetrics.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3554,9 +3490,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3566,8 +3502,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListBidResponseErrorsResponse.nextPageToken returned
-                 * from the previous call to the bidResponseErrors.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListBidResponseErrorsResponse.nextPageToken returned from the previous call to
+                 * the bidResponseErrors.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3594,9 +3530,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3606,8 +3542,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListBidResponsesWithoutBidsResponse.nextPageToken
-                 * returned from the previous call to the bidResponsesWithoutBids.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListBidResponsesWithoutBidsResponse.nextPageToken returned from the previous call
+                 * to the bidResponsesWithoutBids.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3634,9 +3570,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3646,8 +3582,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListFilteredBidRequestsResponse.nextPageToken returned
-                 * from the previous call to the filteredBidRequests.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListFilteredBidRequestsResponse.nextPageToken returned from the previous call to
+                 * the filteredBidRequests.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3679,9 +3615,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3691,8 +3627,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of
-                 * ListCreativeStatusBreakdownByCreativeResponse.nextPageToken returned from the previous call to the filteredBids.creatives.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListCreativeStatusBreakdownByCreativeResponse.nextPageToken returned from the
+                 * previous call to the filteredBids.creatives.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3718,16 +3654,16 @@ declare namespace gapi.client {
                 callback?: string;
                 /**
                  * The ID of the creative status for which to retrieve a breakdown by detail. See
-                 * [creative-status-codes](https://developers.google.com/authorized-buyers/rtb/downloads/creative-status-codes). Details are only available for statuses
-                 * 10, 14, 15, 17, 18, 19, 86, and 87.
+                 * [creative-status-codes](https://developers.google.com/authorized-buyers/rtb/downloads/creative-status-codes). Details are only available for statuses 10, 14, 15, 17, 18, 19, 86,
+                 * and 87.
                  */
                 creativeStatusId: number;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3737,8 +3673,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of
-                 * ListCreativeStatusBreakdownByDetailResponse.nextPageToken returned from the previous call to the filteredBids.details.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListCreativeStatusBreakdownByDetailResponse.nextPageToken returned from the
+                 * previous call to the filteredBids.details.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3765,9 +3701,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3777,8 +3713,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListFilteredBidsResponse.nextPageToken returned from
-                 * the previous call to the filteredBids.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListFilteredBidsResponse.nextPageToken returned from the previous call to the
+                 * filteredBids.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3808,9 +3744,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3820,8 +3756,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListImpressionMetricsResponse.nextPageToken returned
-                 * from the previous call to the impressionMetrics.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListImpressionMetricsResponse.nextPageToken returned from the previous call to
+                 * the impressionMetrics.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3848,9 +3784,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3860,8 +3796,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListLosingBidsResponse.nextPageToken returned from the
-                 * previous call to the losingBids.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListLosingBidsResponse.nextPageToken returned from the previous call to the
+                 * losingBids.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3888,9 +3824,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123:
-                 * `bidders/123/filterSets/abc` - For an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc`
-                 * - For an account-level filter set for the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Name of the filter set that should be applied to the requested metrics. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
+                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer
+                 * account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
                  */
                 filterSetName: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3900,8 +3836,8 @@ declare namespace gapi.client {
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListNonBillableWinningBidsResponse.nextPageToken
-                 * returned from the previous call to the nonBillableWinningBids.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListNonBillableWinningBidsResponse.nextPageToken returned from the previous call
+                 * to the nonBillableWinningBids.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3928,8 +3864,8 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Whether the filter set is transient, or should be persisted indefinitely. By default, filter sets are not transient. If transient, it will be available
-                 * for at least 1 hour after creation.
+                 * Whether the filter set is transient, or should be persisted indefinitely. By default, filter sets are not transient. If transient, it will be available for at least 1 hour after
+                 * creation.
                  */
                 isTransient?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3937,9 +3873,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Name of the owner (bidder or account) of the filter set to be created. For example: - For a bidder-level filter set for bidder 123: `bidders/123` - For
-                 * an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123` - For an account-level filter set for the child
-                 * seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456`
+                 * Name of the owner (bidder or account) of the filter set to be created. For example: - For a bidder-level filter set for bidder 123: `bidders/123` - For an account-level filter
+                 * set for the buyer account representing bidder 123: `bidders/123/accounts/123` - For an account-level filter set for the child seat buyer account 456 whose bidder is 123:
+                 * `bidders/123/accounts/456`
                  */
                 ownerName: string;
                 /** Returns response with indentations and line breaks. */
@@ -3965,8 +3901,8 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Whether the filter set is transient, or should be persisted indefinitely. By default, filter sets are not transient. If transient, it will be available
-                 * for at least 1 hour after creation.
+                 * Whether the filter set is transient, or should be persisted indefinitely. By default, filter sets are not transient. If transient, it will be available for at least 1 hour after
+                 * creation.
                  */
                 isTransient?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3974,9 +3910,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Name of the owner (bidder or account) of the filter set to be created. For example: - For a bidder-level filter set for bidder 123: `bidders/123` - For
-                 * an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123` - For an account-level filter set for the child
-                 * seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456`
+                 * Name of the owner (bidder or account) of the filter set to be created. For example: - For a bidder-level filter set for bidder 123: `bidders/123` - For an account-level filter
+                 * set for the buyer account representing bidder 123: `bidders/123/accounts/123` - For an account-level filter set for the child seat buyer account 456 whose bidder is 123:
+                 * `bidders/123/accounts/456`
                  */
                 ownerName: string;
                 /** Returns response with indentations and line breaks. */
@@ -4004,9 +3940,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Full name of the resource to delete. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an account-level
-                 * filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child
-                 * seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Full name of the resource to delete. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an account-level filter set for the buyer
+                 * account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer account 456 whose bidder is 123:
+                 * `bidders/123/accounts/456/filterSets/abc`
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4035,9 +3971,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Full name of the resource being requested. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an
-                 * account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for
-                 * the child seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456/filterSets/abc`
+                 * Full name of the resource being requested. For example: - For a bidder-level filter set for bidder 123: `bidders/123/filterSets/abc` - For an account-level filter set for the
+                 * buyer account representing bidder 123: `bidders/123/accounts/123/filterSets/abc` - For an account-level filter set for the child seat buyer account 456 whose bidder is 123:
+                 * `bidders/123/accounts/456/filterSets/abc`
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -4068,16 +4004,16 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Name of the owner (bidder or account) of the filter sets to be listed. For example: - For a bidder-level filter set for bidder 123: `bidders/123` - For
-                 * an account-level filter set for the buyer account representing bidder 123: `bidders/123/accounts/123` - For an account-level filter set for the child
-                 * seat buyer account 456 whose bidder is 123: `bidders/123/accounts/456`
+                 * Name of the owner (bidder or account) of the filter sets to be listed. For example: - For a bidder-level filter set for bidder 123: `bidders/123` - For an account-level filter
+                 * set for the buyer account representing bidder 123: `bidders/123/accounts/123` - For an account-level filter set for the child seat buyer account 456 whose bidder is 123:
+                 * `bidders/123/accounts/456`
                  */
                 ownerName: string;
                 /** Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListFilterSetsResponse.nextPageToken returned from the
-                 * previous call to the accounts.filterSets.list method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListFilterSetsResponse.nextPageToken returned from the previous call to the
+                 * accounts.filterSets.list method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Real-time Bidding API v1 1.0
 // Project: https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/rest/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -20,32 +23,28 @@ declare namespace gapi.client {
     namespace realtimebidding {
         interface AdTechnologyProviders {
             /**
-             * The detected ad technology provider IDs for this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for mapping of
-             * provider ID to provided name, a privacy policy URL, and a list of domains which can be attributed to the provider. If the creative contains provider
-             * IDs that are outside of those listed in the `BidRequest.adslot.consented_providers_settings.consented_providers` field on the [Google bid
-             * protocol](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto) and the
-             * `BidRequest.user.ext.consented_providers_settings.consented_providers` field on the [OpenRTB
-             * protocol](https://developers.google.com/authorized-buyers/rtb/downloads/openrtb-adx-proto), and a bid is submitted with that creative for an impression
-             * that will serve to an EEA user, the bid will be filtered before the auction.
+             * The detected ad technology provider IDs for this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for mapping of provider ID to provided name, a
+             * privacy policy URL, and a list of domains which can be attributed to the provider. If the creative contains provider IDs that are outside of those listed in the
+             * `BidRequest.adslot.consented_providers_settings.consented_providers` field on the [Google bid
+             * protocol](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto) and the `BidRequest.user.ext.consented_providers_settings.consented_providers` field
+             * on the [OpenRTB protocol](https://developers.google.com/authorized-buyers/rtb/downloads/openrtb-adx-proto), and a bid is submitted with that creative for an impression that will
+             * serve to an EEA user, the bid will be filtered before the auction.
              */
             detectedProviderIds?: string[];
             /**
-             * Whether the creative contains an unidentified ad technology provider. If true for a given creative, any bid submitted with that creative for an
-             * impression that will serve to an EEA user will be filtered before the auction.
+             * Whether the creative contains an unidentified ad technology provider. If true for a given creative, any bid submitted with that creative for an impression that will serve to an EEA
+             * user will be filtered before the auction.
              */
             hasUnidentifiedProvider?: boolean;
         }
         interface AdvertiserAndBrand {
-            /**
-             * See https://storage.googleapis.com/adx-rtb-dictionaries/advertisers.txt for the list of possible values. Can be used to filter the response of the
-             * creatives.list method.
-             */
+            /** See https://storage.googleapis.com/adx-rtb-dictionaries/advertisers.txt for the list of possible values. Can be used to filter the response of the creatives.list method. */
             advertiserId?: string;
             /** Advertiser name. Can be used to filter the response of the creatives.list method. */
             advertiserName?: string;
             /**
-             * Detected brand ID or zero if no brand has been detected. See https://storage.googleapis.com/adx-rtb-dictionaries/brands.txt for the list of possible
-             * values. Can be used to filter the response of the creatives.list method.
+             * Detected brand ID or zero if no brand has been detected. See https://storage.googleapis.com/adx-rtb-dictionaries/brands.txt for the list of possible values. Can be used to filter
+             * the response of the creatives.list method.
              */
             brandId?: string;
             /** Brand name. Can be used to filter the response of the creatives.list method. */
@@ -55,10 +54,7 @@ declare namespace gapi.client {
         interface CloseUserListRequest {
         }
         interface Creative {
-            /**
-             * Output only. ID of the buyer account that this creative is owned by. Can be used to filter the response of the creatives.list method with equality and
-             * inequality check.
-             */
+            /** Output only. ID of the buyer account that this creative is owned by. Can be used to filter the response of the creatives.list method with equality and inequality check. */
             accountId?: string;
             /** The link to AdChoices destination page. This is only supported for native ads. */
             adChoicesDestinationUrl?: string;
@@ -71,25 +67,21 @@ declare namespace gapi.client {
             /** Output only. The format of this creative. Can be used to filter the response of the creatives.list method. */
             creativeFormat?: string;
             /**
-             * Buyer-specific creative ID that references this creative in bid responses. This field is Ignored in update operations. Can be used to filter the
-             * response of the creatives.list method. The maximum length of the creative ID is 128 bytes.
+             * Buyer-specific creative ID that references this creative in bid responses. This field is Ignored in update operations. Can be used to filter the response of the creatives.list
+             * method. The maximum length of the creative ID is 128 bytes.
              */
             creativeId?: string;
             /**
-             * Output only. Top level status and detected attributes of a creative (for example domain, language, advertiser, product category, etc.) that affect
-             * whether (status) and where (context) a creative will be allowed to serve.
+             * Output only. Top level status and detected attributes of a creative (for example domain, language, advertiser, product category, etc.) that affect whether (status) and where
+             * (context) a creative will be allowed to serve.
              */
             creativeServingDecision?: CreativeServingDecision;
-            /**
-             * Output only. IDs of all of the deals with which this creative has been used in bidding. Can be used to filter the response of the creatives.list
-             * method.
-             */
+            /** Output only. IDs of all of the deals with which this creative has been used in bidding. Can be used to filter the response of the creatives.list method. */
             dealIds?: string[];
             /**
-             * All declared attributes for the ads that may be shown from this creative. Can be used to filter the response of the creatives.list method. If the
-             * `excluded_attribute` field of a [bid request](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto") contains one of
-             * the attributes that were declared or detected for a given creative, and a bid is submitted with that creative, the bid will be filtered before the
-             * auction.
+             * All declared attributes for the ads that may be shown from this creative. Can be used to filter the response of the creatives.list method. If the `excluded_attribute` field of a
+             * [bid request](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto") contains one of the attributes that were declared or detected for a given
+             * creative, and a bid is submitted with that creative, the bid will be filtered before the auction.
              */
             declaredAttributes?: string[];
             /** The set of declared destination URLs for the creative. Can be used to filter the response of the creatives.list method. */
@@ -97,8 +89,8 @@ declare namespace gapi.client {
             /** All declared restricted categories for the ads that may be shown from this creative. Can be used to filter the response of the creatives.list method. */
             declaredRestrictedCategories?: string[];
             /**
-             * IDs for the declared ad technology vendors that may be used by this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for
-             * possible values. Can be used to filter the response of the creatives.list method.
+             * IDs for the declared ad technology vendors that may be used by this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for possible values. Can be used to
+             * filter the response of the creatives.list method.
              */
             declaredVendorIds?: number[];
             /** An HTML creative. */
@@ -106,8 +98,8 @@ declare namespace gapi.client {
             /** The set of URLs to be called to record an impression. */
             impressionTrackingUrls?: string[];
             /**
-             * Output only. Name of the creative. Follows the pattern `buyers/{buyer}/creatives/{creative}`, where `{buyer}` represents the account ID of the buyer
-             * who owns the creative, and `{creative}` is the buyer-specific creative ID that references this creative in the bid response.
+             * Output only. Name of the creative. Follows the pattern `buyers/{buyer}/creatives/{creative}`, where `{buyer}` represents the account ID of the buyer who owns the creative, and
+             * `{creative}` is the buyer-specific creative ID that references this creative in the bid response.
              */
             name?: string;
             /** A native creative. */
@@ -123,8 +115,8 @@ declare namespace gapi.client {
             /** The detected ad technology providers. */
             adTechnologyProviders?: AdTechnologyProviders;
             /**
-             * The serving status of this creative in China. When approved or disapproved, this status applies to both deals and open auction in China. When pending
-             * review, this creative is allowed to serve for deals but not for open auction.
+             * The serving status of this creative in China. When approved or disapproved, this status applies to both deals and open auction in China. When pending review, this creative is
+             * allowed to serve for deals but not for open auction.
              */
             chinaServingStatus?: ServingStatus;
             /** Status of this creative when bidding on PG and PD deals (outside of Russia and China). */
@@ -132,9 +124,9 @@ declare namespace gapi.client {
             /** Detected advertisers and brands. */
             detectedAdvertisers?: AdvertiserAndBrand[];
             /**
-             * Publisher-excludable attributes that were detected for this creative. Can be used to filter the response of the creatives.list method. If the
-             * `excluded_attribute` field of a [bid request](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto) contains one of the
-             * attributes that were declared or detected for a given creative, and a bid is submitted with that creative, the bid will be filtered before the auction.
+             * Publisher-excludable attributes that were detected for this creative. Can be used to filter the response of the creatives.list method. If the `excluded_attribute` field of a [bid
+             * request](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto) contains one of the attributes that were declared or detected for a given creative,
+             * and a bid is submitted with that creative, the bid will be filtered before the auction.
              */
             detectedAttributes?: string[];
             /** The set of detected destination URLs for the creative. Can be used to filter the response of the creatives.list method. */
@@ -147,21 +139,20 @@ declare namespace gapi.client {
              */
             detectedLanguages?: string[];
             /**
-             * Detected product categories, if any. See the ad-product-categories.txt file in the technical documentation for a list of IDs. Can be used to filter the
-             * response of the creatives.list method.
+             * Detected product categories, if any. See the ad-product-categories.txt file in the technical documentation for a list of IDs. Can be used to filter the response of the
+             * creatives.list method.
              */
             detectedProductCategories?: number[];
             /**
-             * Detected sensitive categories, if any. Can be used to filter the response of the creatives.list method. See the ad-sensitive-categories.txt file in the
-             * technical documentation for a list of IDs. You should use these IDs along with the excluded-sensitive-category field in the bid request to filter your
-             * bids.
+             * Detected sensitive categories, if any. Can be used to filter the response of the creatives.list method. See the ad-sensitive-categories.txt file in the technical documentation for a
+             * list of IDs. You should use these IDs along with the excluded-sensitive-category field in the bid request to filter your bids.
              */
             detectedSensitiveCategories?: number[];
             /**
-             * IDs of the ad technology vendors that were detected to be used by this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt
-             * for possible values. Can be used to filter the response of the creatives.list method. If the `allowed_vendor_type` field of a [bid
-             * request](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto) does not contain one of the vendor type IDs that were
-             * declared or detected for a given creative, and a bid is submitted with that creative, the bid will be filtered before the auction.
+             * IDs of the ad technology vendors that were detected to be used by this creative. See https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for possible values. Can be used
+             * to filter the response of the creatives.list method. If the `allowed_vendor_type` field of a [bid
+             * request](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto) does not contain one of the vendor type IDs that were declared or detected for a given
+             * creative, and a bid is submitted with that creative, the bid will be filtered before the auction.
              */
             detectedVendorIds?: number[];
             /** The last time the creative status was updated. Can be used to filter the response of the creatives.list method. */
@@ -169,16 +160,13 @@ declare namespace gapi.client {
             /** Status of this creative when bidding in open auction, private auction, or auction packages (outside of Russia and China). */
             openAuctionServingStatus?: ServingStatus;
             /**
-             * The serving status of this creative in Russia. When approved or disapproved, this status applies to both deals and open auction in Russia. When pending
-             * review, this creative is allowed to serve for deals but not for open auction.
+             * The serving status of this creative in Russia. When approved or disapproved, this status applies to both deals and open auction in Russia. When pending review, this creative is
+             * allowed to serve for deals but not for open auction.
              */
             russiaServingStatus?: ServingStatus;
         }
         interface Date {
-            /**
-             * Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not
-             * significant.
-             */
+            /** Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not significant. */
             day?: number;
             /** Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day. */
             month?: number;
@@ -235,8 +223,8 @@ declare namespace gapi.client {
         }
         interface GetRemarketingTagResponse {
             /**
-             * A HTML tag that can be placed on the advertiser's page to add users to a user list. For more information and code samples on using snippet on your
-             * website refer to [Tag your site for remarketing]( https://support.google.com/google-ads/answer/2476688).
+             * A HTML tag that can be placed on the advertiser's page to add users to a user list. For more information and code samples on using snippet on your website refer to [Tag your site
+             * for remarketing]( https://support.google.com/google-ads/answer/2476688).
              */
             snippet?: string;
         }
@@ -254,13 +242,13 @@ declare namespace gapi.client {
         }
         interface HttpCookieEvidence {
             /**
-             * Names of cookies that violate Google policies. For TOO_MANY_COOKIES policy, this will be the cookie names of top domains with the largest number of
-             * cookies. For other policies, this will be all the cookie names that violate the policy.
+             * Names of cookies that violate Google policies. For TOO_MANY_COOKIES policy, this will be the cookie names of top domains with the largest number of cookies. For other policies, this
+             * will be all the cookie names that violate the policy.
              */
             cookieNames?: string[];
             /**
-             * The largest number of cookies set by a creative. If this field is set, cookie_names above will be set to the cookie names of top domains with the
-             * largest number of cookies. This field will only be set for TOO_MANY_COOKIES policy.
+             * The largest number of cookies set by a creative. If this field is set, cookie_names above will be set to the cookie names of top domains with the largest number of cookies. This
+             * field will only be set for TOO_MANY_COOKIES policy.
              */
             maxCookieCount?: number;
         }
@@ -277,15 +265,15 @@ declare namespace gapi.client {
             /** The list of creatives. */
             creatives?: Creative[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the ListCreativesRequest.pageToken field in the subsequent call to the `ListCreatives`
-             * method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the ListCreativesRequest.pageToken field in the subsequent call to the `ListCreatives` method to retrieve the next
+             * page of results.
              */
             nextPageToken?: string;
         }
         interface ListUserListsResponse {
             /**
-             * The continuation page token to send back to the server in a subsequent request. Due to a currently known issue, it is recommended that the caller keep
-             * invoking the list method till the time a next page token is not returned (even if the result set is empty).
+             * The continuation page token to send back to the server in a subsequent request. Due to a currently known issue, it is recommended that the caller keep invoking the list method till
+             * the time a next page token is not returned (even if the result set is empty).
              */
             nextPageToken?: string;
             /** List of user lists from the search. */
@@ -332,8 +320,8 @@ declare namespace gapi.client {
             /** URL of the help center article describing this policy topic. */
             helpCenterUrl?: string;
             /**
-             * Policy topic this entry refers to. For example, "ALCOHOL", "TRADEMARKS_IN_AD_TEXT", or "DESTINATION_NOT_WORKING". The set of possible policy topics is
-             * not fixed for a particular API version and may change at any time. Can be used to filter the response of the creatives.list method
+             * Policy topic this entry refers to. For example, "ALCOHOL", "TRADEMARKS_IN_AD_TEXT", or "DESTINATION_NOT_WORKING". The set of possible policy topics is not fixed for a particular API
+             * version and may change at any time. Can be used to filter the response of the creatives.list method
              */
             policyTopic?: string;
         }
@@ -354,14 +342,11 @@ declare namespace gapi.client {
             httpCookie?: HttpCookieEvidence;
         }
         interface ServingStatus {
-            /**
-             * Serving status for the given transaction type (e.g., open auction, deals) or region (e.g., China, Russia). Can be used to filter the response of the
-             * creatives.list method.
-             */
+            /** Serving status for the given transaction type (e.g., open auction, deals) or region (e.g., China, Russia). Can be used to filter the response of the creatives.list method. */
             status?: string;
             /**
-             * Policy topics related to the serving decision for this transaction type (e.g., open auction, deals) or region (e.g., China, Russia). Topics may be
-             * present only if status is DISAPPROVED.
+             * Policy topics related to the serving decision for this transaction type (e.g., open auction, deals) or region (e.g., China, Russia). Topics may be present only if status is
+             * DISAPPROVED.
              */
             topics?: PolicyTopicEntry[];
         }
@@ -389,9 +374,9 @@ declare namespace gapi.client {
             /** Required. The number of days a user's cookie stays on the user list. The field must be between 0 and 540 inclusive. */
             membershipDurationDays?: string;
             /**
-             * Output only. Name of the user list that must follow the pattern `buyers/{buyer}/userLists/{user_list}`, where `{buyer}` represents the account ID of
-             * the buyer who owns the user list. For a bidder accessing user lists on behalf of a child seat buyer, `{buyer}` represents the account ID of the child
-             * seat buyer. `{user_list}` is an int64 identifier assigned by Google to uniquely identify a user list.
+             * Output only. Name of the user list that must follow the pattern `buyers/{buyer}/userLists/{user_list}`, where `{buyer}` represents the account ID of the buyer who owns the user
+             * list. For a bidder accessing user lists on behalf of a child seat buyer, `{buyer}` represents the account ID of the child seat buyer. `{user_list}` is an int64 identifier assigned
+             * by Google to uniquely identify a user list.
              */
             name?: string;
             /** Output only. The status of the user list. A new user list starts out as open. */
@@ -414,14 +399,11 @@ declare namespace gapi.client {
             isValidVast?: boolean;
             /** Is this a VPAID ad? Can be used to filter the response of the creatives.list method. */
             isVpaid?: boolean;
-            /**
-             * The list of all media files declared in the VAST. If there are multiple VASTs in a wrapper chain, this includes the media files from the deepest one in
-             * the chain.
-             */
+            /** The list of all media files declared in the VAST. If there are multiple VASTs in a wrapper chain, this includes the media files from the deepest one in the chain. */
             mediaFiles?: MediaFile[];
             /**
-             * The minimum duration that the user has to watch before being able to skip this ad. If the field is not set, the ad is not skippable. If the field is
-             * set, the ad is skippable. Can be used to filter the response of the creatives.list method.
+             * The minimum duration that the user has to watch before being able to skip this ad. If the field is not set, the ad is not skippable. If the field is set, the ad is skippable. Can be
+             * used to filter the response of the creatives.list method.
              */
             skipOffset?: string;
             /** The maximum VAST version across all wrapped VAST documents. Can be used to filter the response of the creatives.list method. */
@@ -432,16 +414,12 @@ declare namespace gapi.client {
         }
         interface WatchCreativesResponse {
             /**
-             * The Pub/Sub subscription that can be used to pull creative status notifications. This would be of the format
-             * `projects/{project_id}/subscriptions/{subscription_id}`. Subscription is created with pull delivery. All service accounts belonging to the bidder will
-             * have read access to this subscription. Subscriptions that are inactive for more than 90 days will be disabled. Please use watchCreatives to re-enable
-             * the subscription.
+             * The Pub/Sub subscription that can be used to pull creative status notifications. This would be of the format `projects/{project_id}/subscriptions/{subscription_id}`. Subscription is
+             * created with pull delivery. All service accounts belonging to the bidder will have read access to this subscription. Subscriptions that are inactive for more than 90 days will be
+             * disabled. Please use watchCreatives to re-enable the subscription.
              */
             subscription?: string;
-            /**
-             * The Pub/Sub topic that will be used to publish creative serving status notifications. This would be of the format
-             * `projects/{project_id}/topics/{topic_id}`.
-             */
+            /** The Pub/Sub topic that will be used to publish creative serving status notifications. This would be of the format `projects/{project_id}/topics/{topic_id}`. */
             topic?: string;
         }
         interface CreativesResource {
@@ -458,8 +436,8 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Query string to filter creatives. If no filter is specified, all active creatives will be returned. Example: 'accountId=12345 AND
-                 * (dealsStatus:DISAPPROVED AND disapprovalReason:UNACCEPTABLE_CONTENT) OR declaredAttributes:IS_COOKIE_TARGETED'
+                 * Query string to filter creatives. If no filter is specified, all active creatives will be returned. Example: 'accountId=12345 AND (dealsStatus:DISAPPROVED AND
+                 * disapprovalReason:UNACCEPTABLE_CONTENT) OR declaredAttributes:IS_COOKIE_TARGETED'
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -467,22 +445,21 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Requested page size. The server may return fewer creatives than requested (due to timeout constraint) even if more are available via another call. If
-                 * unspecified, server will pick an appropriate default. Acceptable values are 1 to 1000, inclusive.
+                 * Requested page size. The server may return fewer creatives than requested (due to timeout constraint) even if more are available via another call. If unspecified, server will
+                 * pick an appropriate default. Acceptable values are 1 to 1000, inclusive.
                  */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListCreativesResponse.nextPageToken returned from the
-                 * previous call to the 'ListCreatives' method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListCreativesResponse.nextPageToken returned from the previous call to the
+                 * 'ListCreatives' method.
                  */
                 pageToken?: string;
                 /**
-                 * Required. Name of the parent buyer that owns the creatives. The pattern for this resource is either `buyers/{buyerAccountId}` or
-                 * `bidders/{bidderAccountId}`. For `buyers/{buyerAccountId}`, the `buyerAccountId` can be one of the following: 1. The ID of the buyer that is accessing
-                 * their own creatives. 2. The ID of the child seat buyer under a bidder account. So for listing creatives pertaining to the child seat buyer (`456`)
-                 * under bidder account (`123`), you would use the pattern: `buyers/456`. 3. The ID of the bidder itself. So for listing creatives pertaining to bidder
-                 * (`123`), you would use `buyers/123`. If you want to access all creatives pertaining to both the bidder and all of its child seat accounts, you would
-                 * use `bidders/{bidderAccountId}`, e.g., for all creatives pertaining to bidder (`123`), use `bidders/123`.
+                 * Required. Name of the parent buyer that owns the creatives. The pattern for this resource is either `buyers/{buyerAccountId}` or `bidders/{bidderAccountId}`. For
+                 * `buyers/{buyerAccountId}`, the `buyerAccountId` can be one of the following: 1. The ID of the buyer that is accessing their own creatives. 2. The ID of the child seat buyer
+                 * under a bidder account. So for listing creatives pertaining to the child seat buyer (`456`) under bidder account (`123`), you would use the pattern: `buyers/456`. 3. The ID of
+                 * the bidder itself. So for listing creatives pertaining to bidder (`123`), you would use `buyers/123`. If you want to access all creatives pertaining to both the bidder and all
+                 * of its child seat accounts, you would use `bidders/{bidderAccountId}`, e.g., for all creatives pertaining to bidder (`123`), use `bidders/123`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -494,15 +471,15 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Controls the amount of information included in the response. By default only creativeServingDecision is included. To retrieve the entire creative
-                 * resource (including the declared fields and the creative content) specify the view as "FULL".
+                 * Controls the amount of information included in the response. By default only creativeServingDecision is included. To retrieve the entire creative resource (including the
+                 * declared fields and the creative content) specify the view as "FULL".
                  */
                 view?: string;
             }): Request<ListCreativesResponse>;
             /**
-             * Watches all creatives pertaining to a bidder. It is sufficient to invoke this endpoint once per bidder. A Pub/Sub topic will be created and
-             * notifications will be pushed to the topic when any of the bidder's creatives change status. All of the bidder's service accounts will have access to
-             * read from the topic. Subsequent invocations of this method will return the existing Pub/Sub configuration.
+             * Watches all creatives pertaining to a bidder. It is sufficient to invoke this endpoint once per bidder. A Pub/Sub topic will be created and notifications will be pushed to the topic
+             * when any of the bidder's creatives change status. All of the bidder's service accounts will have access to read from the topic. Subsequent invocations of this method will return the
+             * existing Pub/Sub configuration.
              */
             watch(request: {
                 /** V1 error format. */
@@ -519,10 +496,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. To watch all creatives pertaining to the bidder and all its child seat accounts, the bidder must follow the pattern
-                 * `bidders/{bidderAccountId}`.
-                 */
+                /** Required. To watch all creatives pertaining to the bidder and all its child seat accounts, the bidder must follow the pattern `bidders/{bidderAccountId}`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -550,10 +524,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. To watch all creatives pertaining to the bidder and all its child seat accounts, the bidder must follow the pattern
-                 * `bidders/{bidderAccountId}`.
-                 */
+                /** Required. To watch all creatives pertaining to the bidder and all its child seat accounts, the bidder must follow the pattern `bidders/{bidderAccountId}`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -587,9 +558,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the parent buyer that the new creative belongs to that must follow the pattern `buyers/{buyerAccountId}`, where
-                 * `{buyerAccountId}` represents the account ID of the buyer who owns a creative. For a bidder accessing creatives on behalf of a child seat buyer,
-                 * `{buyerAccountId}` should represent the account ID of the child seat buyer.
+                 * Required. The name of the parent buyer that the new creative belongs to that must follow the pattern `buyers/{buyerAccountId}`, where `{buyerAccountId}` represents the account
+                 * ID of the buyer who owns a creative. For a bidder accessing creatives on behalf of a child seat buyer, `{buyerAccountId}` should represent the account ID of the child seat
+                 * buyer.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -619,9 +590,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the parent buyer that the new creative belongs to that must follow the pattern `buyers/{buyerAccountId}`, where
-                 * `{buyerAccountId}` represents the account ID of the buyer who owns a creative. For a bidder accessing creatives on behalf of a child seat buyer,
-                 * `{buyerAccountId}` should represent the account ID of the child seat buyer.
+                 * Required. The name of the parent buyer that the new creative belongs to that must follow the pattern `buyers/{buyerAccountId}`, where `{buyerAccountId}` represents the account
+                 * ID of the buyer who owns a creative. For a bidder accessing creatives on behalf of a child seat buyer, `{buyerAccountId}` should represent the account ID of the child seat
+                 * buyer.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -661,8 +632,8 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Controls the amount of information included in the response. By default only creativeServingDecision is included. To retrieve the entire creative
-                 * resource (including the declared fields and the creative content) specify the view as "FULL".
+                 * Controls the amount of information included in the response. By default only creativeServingDecision is included. To retrieve the entire creative resource (including the
+                 * declared fields and the creative content) specify the view as "FULL".
                  */
                 view?: string;
             }): Request<Creative>;
@@ -679,8 +650,8 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Query string to filter creatives. If no filter is specified, all active creatives will be returned. Example: 'accountId=12345 AND
-                 * (dealsStatus:DISAPPROVED AND disapprovalReason:UNACCEPTABLE_CONTENT) OR declaredAttributes:IS_COOKIE_TARGETED'
+                 * Query string to filter creatives. If no filter is specified, all active creatives will be returned. Example: 'accountId=12345 AND (dealsStatus:DISAPPROVED AND
+                 * disapprovalReason:UNACCEPTABLE_CONTENT) OR declaredAttributes:IS_COOKIE_TARGETED'
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -688,22 +659,21 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Requested page size. The server may return fewer creatives than requested (due to timeout constraint) even if more are available via another call. If
-                 * unspecified, server will pick an appropriate default. Acceptable values are 1 to 1000, inclusive.
+                 * Requested page size. The server may return fewer creatives than requested (due to timeout constraint) even if more are available via another call. If unspecified, server will
+                 * pick an appropriate default. Acceptable values are 1 to 1000, inclusive.
                  */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListCreativesResponse.nextPageToken returned from the
-                 * previous call to the 'ListCreatives' method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListCreativesResponse.nextPageToken returned from the previous call to the
+                 * 'ListCreatives' method.
                  */
                 pageToken?: string;
                 /**
-                 * Required. Name of the parent buyer that owns the creatives. The pattern for this resource is either `buyers/{buyerAccountId}` or
-                 * `bidders/{bidderAccountId}`. For `buyers/{buyerAccountId}`, the `buyerAccountId` can be one of the following: 1. The ID of the buyer that is accessing
-                 * their own creatives. 2. The ID of the child seat buyer under a bidder account. So for listing creatives pertaining to the child seat buyer (`456`)
-                 * under bidder account (`123`), you would use the pattern: `buyers/456`. 3. The ID of the bidder itself. So for listing creatives pertaining to bidder
-                 * (`123`), you would use `buyers/123`. If you want to access all creatives pertaining to both the bidder and all of its child seat accounts, you would
-                 * use `bidders/{bidderAccountId}`, e.g., for all creatives pertaining to bidder (`123`), use `bidders/123`.
+                 * Required. Name of the parent buyer that owns the creatives. The pattern for this resource is either `buyers/{buyerAccountId}` or `bidders/{bidderAccountId}`. For
+                 * `buyers/{buyerAccountId}`, the `buyerAccountId` can be one of the following: 1. The ID of the buyer that is accessing their own creatives. 2. The ID of the child seat buyer
+                 * under a bidder account. So for listing creatives pertaining to the child seat buyer (`456`) under bidder account (`123`), you would use the pattern: `buyers/456`. 3. The ID of
+                 * the bidder itself. So for listing creatives pertaining to bidder (`123`), you would use `buyers/123`. If you want to access all creatives pertaining to both the bidder and all
+                 * of its child seat accounts, you would use `bidders/{bidderAccountId}`, e.g., for all creatives pertaining to bidder (`123`), use `bidders/123`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -715,8 +685,8 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Controls the amount of information included in the response. By default only creativeServingDecision is included. To retrieve the entire creative
-                 * resource (including the declared fields and the creative content) specify the view as "FULL".
+                 * Controls the amount of information included in the response. By default only creativeServingDecision is included. To retrieve the entire creative resource (including the
+                 * declared fields and the creative content) specify the view as "FULL".
                  */
                 view?: string;
             }): Request<ListCreativesResponse>;
@@ -855,9 +825,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the parent buyer of the user list to be retrieved that must follow the pattern `buyers/{buyerAccountId}`, where
-                 * `{buyerAccountId}` represents the account ID of the buyer who owns user lists. For a bidder accessing user lists on behalf of a child seat buyer ,
-                 * `{buyerAccountId}` should represent the account ID of the child seat buyer.
+                 * Required. The name of the parent buyer of the user list to be retrieved that must follow the pattern `buyers/{buyerAccountId}`, where `{buyerAccountId}` represents the account
+                 * ID of the buyer who owns user lists. For a bidder accessing user lists on behalf of a child seat buyer , `{buyerAccountId}` should represent the account ID of the child seat
+                 * buyer.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -887,9 +857,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the parent buyer of the user list to be retrieved that must follow the pattern `buyers/{buyerAccountId}`, where
-                 * `{buyerAccountId}` represents the account ID of the buyer who owns user lists. For a bidder accessing user lists on behalf of a child seat buyer ,
-                 * `{buyerAccountId}` should represent the account ID of the child seat buyer.
+                 * Required. The name of the parent buyer of the user list to be retrieved that must follow the pattern `buyers/{buyerAccountId}`, where `{buyerAccountId}` represents the account
+                 * ID of the buyer who owns user lists. For a bidder accessing user lists on behalf of a child seat buyer , `{buyerAccountId}` should represent the account ID of the child seat
+                 * buyer.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -930,8 +900,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<UserList>;
             /**
-             * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page
-             * containing a remarketing tag, Google adds the user to a user list.
+             * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google
+             * adds the user to a user list.
              */
             getRemarketingTag(request?: {
                 /** V1 error format. */
@@ -947,10 +917,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. To fetch remarketing tag for an account, name must follow the pattern `buyers/{accountId}` where `{accountId}` represents ID of a buyer that
-                 * owns the remarketing tag. For a bidder accessing remarketing tag on behalf of a child seat buyer, `{accountId}` should represent the ID of the child
-                 * seat buyer. To fetch remarketing tag for a specific user list, name must follow the pattern `buyers/{accountId}/userLists/{userListId}`. See
-                 * UserList.name.
+                 * Required. To fetch remarketing tag for an account, name must follow the pattern `buyers/{accountId}` where `{accountId}` represents ID of a buyer that owns the remarketing tag.
+                 * For a bidder accessing remarketing tag on behalf of a child seat buyer, `{accountId}` should represent the ID of the child seat buyer. To fetch remarketing tag for a specific
+                 * user list, name must follow the pattern `buyers/{accountId}/userLists/{userListId}`. See UserList.name.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -985,9 +954,9 @@ declare namespace gapi.client {
                 /** Continuation page token (as received from a previous response). */
                 pageToken?: string;
                 /**
-                 * Required. The name of the parent buyer for the user lists to be returned that must follow the pattern `buyers/{buyerAccountId}`, where
-                 * `{buyerAccountId}` represents the account ID of the buyer who owns user lists. For a bidder accessing user lists on behalf of a child seat buyer ,
-                 * `{buyerAccountId}` should represent the account ID of the child seat buyer.
+                 * Required. The name of the parent buyer for the user lists to be returned that must follow the pattern `buyers/{buyerAccountId}`, where `{buyerAccountId}` represents the account
+                 * ID of the buyer who owns user lists. For a bidder accessing user lists on behalf of a child seat buyer , `{buyerAccountId}` should represent the account ID of the child seat
+                 * buyer.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1070,9 +1039,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. Name of the user list that must follow the pattern `buyers/{buyer}/userLists/{user_list}`, where `{buyer}` represents the account ID of
-                 * the buyer who owns the user list. For a bidder accessing user lists on behalf of a child seat buyer, `{buyer}` represents the account ID of the child
-                 * seat buyer. `{user_list}` is an int64 identifier assigned by Google to uniquely identify a user list.
+                 * Output only. Name of the user list that must follow the pattern `buyers/{buyer}/userLists/{user_list}`, where `{buyer}` represents the account ID of the buyer who owns the user
+                 * list. For a bidder accessing user lists on behalf of a child seat buyer, `{buyer}` represents the account ID of the child seat buyer. `{user_list}` is an int64 identifier
+                 * assigned by Google to uniquely identify a user list.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1102,9 +1071,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. Name of the user list that must follow the pattern `buyers/{buyer}/userLists/{user_list}`, where `{buyer}` represents the account ID of
-                 * the buyer who owns the user list. For a bidder accessing user lists on behalf of a child seat buyer, `{buyer}` represents the account ID of the child
-                 * seat buyer. `{user_list}` is an int64 identifier assigned by Google to uniquely identify a user list.
+                 * Output only. Name of the user list that must follow the pattern `buyers/{buyer}/userLists/{user_list}`, where `{buyer}` represents the account ID of the buyer who owns the user
+                 * list. For a bidder accessing user lists on behalf of a child seat buyer, `{buyer}` represents the account ID of the child seat buyer. `{user_list}` is an int64 identifier
+                 * assigned by Google to uniquely identify a user list.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1122,8 +1091,8 @@ declare namespace gapi.client {
         }
         interface BuyersResource {
             /**
-             * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page
-             * containing a remarketing tag, Google adds the user to a user list.
+             * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google
+             * adds the user to a user list.
              */
             getRemarketingTag(request?: {
                 /** V1 error format. */
@@ -1139,10 +1108,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. To fetch remarketing tag for an account, name must follow the pattern `buyers/{accountId}` where `{accountId}` represents ID of a buyer that
-                 * owns the remarketing tag. For a bidder accessing remarketing tag on behalf of a child seat buyer, `{accountId}` should represent the ID of the child
-                 * seat buyer. To fetch remarketing tag for a specific user list, name must follow the pattern `buyers/{accountId}/userLists/{userListId}`. See
-                 * UserList.name.
+                 * Required. To fetch remarketing tag for an account, name must follow the pattern `buyers/{accountId}` where `{accountId}` represents ID of a buyer that owns the remarketing tag.
+                 * For a bidder accessing remarketing tag on behalf of a child seat buyer, `{accountId}` should represent the ID of the child seat buyer. To fetch remarketing tag for a specific
+                 * user list, name must follow the pattern `buyers/{accountId}/userLists/{userListId}`. See UserList.name.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */

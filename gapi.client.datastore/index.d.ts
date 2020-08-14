@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Datastore API v1 1.0
 // Project: https://cloud.google.com/datastore/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -42,9 +45,9 @@ declare namespace gapi.client {
             /** The type of commit to perform. Defaults to `TRANSACTIONAL`. */
             mode?: string;
             /**
-             * The mutations to perform. When mode is `TRANSACTIONAL`, mutations affecting a single entity are applied in order. The following sequences of mutations
-             * affecting a single entity are not permitted in a single `Commit` request: - `insert` followed by `insert` - `update` followed by `insert` - `upsert`
-             * followed by `insert` - `delete` followed by `update` When mode is `NON_TRANSACTIONAL`, no two mutations may affect a single entity.
+             * The mutations to perform. When mode is `TRANSACTIONAL`, mutations affecting a single entity are applied in order. The following sequences of mutations affecting a single entity are
+             * not permitted in a single `Commit` request: - `insert` followed by `insert` - `update` followed by `insert` - `upsert` followed by `insert` - `delete` followed by `update` When mode
+             * is `NON_TRANSACTIONAL`, no two mutations may affect a single entity.
              */
             mutations?: Mutation[];
             /** The identifier of the transaction associated with the commit. A transaction identifier is returned by a call to Datastore.BeginTransaction. */
@@ -67,13 +70,13 @@ declare namespace gapi.client {
         }
         interface Entity {
             /**
-             * The entity's key. An entity must have a key, unless otherwise documented (for example, an entity in `Value.entity_value` may have no key). An entity's
-             * kind is its key path's last element's kind, or null if it has no key.
+             * The entity's key. An entity must have a key, unless otherwise documented (for example, an entity in `Value.entity_value` may have no key). An entity's kind is its key path's last
+             * element's kind, or null if it has no key.
              */
             key?: Key;
             /**
-             * The entity's properties. The map's keys are property names. A property name matching regex `__.∗__` is reserved. A reserved property name is forbidden
-             * in certain documented contexts. The name must not contain more than 500 characters. The name cannot be `""`.
+             * The entity's properties. The map's keys are property names. A property name matching regex `__.*__` is reserved. A reserved property name is forbidden in certain documented
+             * contexts. The name must not contain more than 500 characters. The name cannot be `""`.
              */
             properties?: { [P in string]: Value };
         }
@@ -83,9 +86,8 @@ declare namespace gapi.client {
             /** The resulting entity. */
             entity?: Entity;
             /**
-             * The version of the entity, a strictly positive number that monotonically increases with changes to the entity. This field is set for `FULL` entity
-             * results. For missing entities in `LookupResponse`, this is the version of the snapshot that was used to look up the entity, and it is always set except
-             * for eventually consistent reads.
+             * The version of the entity, a strictly positive number that monotonically increases with changes to the entity. This field is set for `FULL` entity results. For missing entities in
+             * `LookupResponse`, this is the version of the snapshot that was used to look up the entity, and it is always set except for eventually consistent reads.
              */
             version?: string;
         }
@@ -111,9 +113,8 @@ declare namespace gapi.client {
             /** If empty, then this represents all kinds. */
             kinds?: string[];
             /**
-             * An empty list represents all namespaces. This is the preferred usage for projects that don't use namespaces. An empty string element represents the
-             * default namespace. This should be used if the project has data in non-default namespaces, but doesn't want to include them. Each namespace in this list
-             * must be unique.
+             * An empty list represents all namespaces. This is the preferred usage for projects that don't use namespaces. An empty string element represents the default namespace. This should be
+             * used if the project has data in non-default namespaces, but doesn't want to include them. Each namespace in this list must be unique.
              */
             namespaceIds?: string[];
         }
@@ -123,9 +124,8 @@ declare namespace gapi.client {
             /** Description of which entities are being exported. */
             entityFilter?: GoogleDatastoreAdminV1beta1EntityFilter;
             /**
-             * Location for the export metadata and data files. This will be the same value as the
-             * google.datastore.admin.v1beta1.ExportEntitiesRequest.output_url_prefix field. The final output location is provided in
-             * google.datastore.admin.v1beta1.ExportEntitiesResponse.output_url.
+             * Location for the export metadata and data files. This will be the same value as the google.datastore.admin.v1beta1.ExportEntitiesRequest.output_url_prefix field. The final output
+             * location is provided in google.datastore.admin.v1beta1.ExportEntitiesResponse.output_url.
              */
             outputUrlPrefix?: string;
             /** An estimate of the number of bytes processed. */
@@ -174,9 +174,8 @@ declare namespace gapi.client {
             /** If empty, then this represents all kinds. */
             kinds?: string[];
             /**
-             * An empty list represents all namespaces. This is the preferred usage for projects that don't use namespaces. An empty string element represents the
-             * default namespace. This should be used if the project has data in non-default namespaces, but doesn't want to include them. Each namespace in this list
-             * must be unique.
+             * An empty list represents all namespaces. This is the preferred usage for projects that don't use namespaces. An empty string element represents the default namespace. This should be
+             * used if the project has data in non-default namespaces, but doesn't want to include them. Each namespace in this list must be unique.
              */
             namespaceIds?: string[];
         }
@@ -186,8 +185,8 @@ declare namespace gapi.client {
             /** Description of which entities are being exported. */
             entityFilter?: GoogleDatastoreAdminV1EntityFilter;
             /**
-             * Location for the export metadata and data files. This will be the same value as the google.datastore.admin.v1.ExportEntitiesRequest.output_url_prefix
-             * field. The final output location is provided in google.datastore.admin.v1.ExportEntitiesResponse.output_url.
+             * Location for the export metadata and data files. This will be the same value as the google.datastore.admin.v1.ExportEntitiesRequest.output_url_prefix field. The final output
+             * location is provided in google.datastore.admin.v1.ExportEntitiesResponse.output_url.
              */
             outputUrlPrefix?: string;
             /** An estimate of the number of bytes processed. */
@@ -201,13 +200,12 @@ declare namespace gapi.client {
             /** Client-assigned labels. */
             labels?: { [P in string]: string };
             /**
-             * Required. Location for the export metadata and data files. The full resource URL of the external storage location. Currently, only Google Cloud Storage
-             * is supported. So output_url_prefix should be of the form: `gs://BUCKET_NAME[/NAMESPACE_PATH]`, where `BUCKET_NAME` is the name of the Cloud Storage
-             * bucket and `NAMESPACE_PATH` is an optional Cloud Storage namespace path (this is not a Cloud Datastore namespace). For more information about Cloud
-             * Storage namespace paths, see [Object name considerations](https://cloud.google.com/storage/docs/naming#object-considerations). The resulting files will
-             * be nested deeper than the specified URL prefix. The final output URL will be provided in the
-             * google.datastore.admin.v1.ExportEntitiesResponse.output_url field. That value should be used for subsequent ImportEntities operations. By nesting the
-             * data files deeper, the same Cloud Storage bucket can be used in multiple ExportEntities operations without conflict.
+             * Required. Location for the export metadata and data files. The full resource URL of the external storage location. Currently, only Google Cloud Storage is supported. So
+             * output_url_prefix should be of the form: `gs://BUCKET_NAME[/NAMESPACE_PATH]`, where `BUCKET_NAME` is the name of the Cloud Storage bucket and `NAMESPACE_PATH` is an optional Cloud
+             * Storage namespace path (this is not a Cloud Datastore namespace). For more information about Cloud Storage namespace paths, see [Object name
+             * considerations](https://cloud.google.com/storage/docs/naming#object-considerations). The resulting files will be nested deeper than the specified URL prefix. The final output URL
+             * will be provided in the google.datastore.admin.v1.ExportEntitiesResponse.output_url field. That value should be used for subsequent ImportEntities operations. By nesting the data
+             * files deeper, the same Cloud Storage bucket can be used in multiple ExportEntities operations without conflict.
              */
             outputUrlPrefix?: string;
         }
@@ -232,16 +230,15 @@ declare namespace gapi.client {
         }
         interface GoogleDatastoreAdminV1ImportEntitiesRequest {
             /**
-             * Optionally specify which kinds/namespaces are to be imported. If provided, the list must be a subset of the EntityFilter used in creating the export,
-             * otherwise a FAILED_PRECONDITION error will be returned. If no filter is specified then all entities from the export are imported.
+             * Optionally specify which kinds/namespaces are to be imported. If provided, the list must be a subset of the EntityFilter used in creating the export, otherwise a FAILED_PRECONDITION
+             * error will be returned. If no filter is specified then all entities from the export are imported.
              */
             entityFilter?: GoogleDatastoreAdminV1EntityFilter;
             /**
-             * Required. The full resource URL of the external storage location. Currently, only Google Cloud Storage is supported. So input_url should be of the
-             * form: `gs://BUCKET_NAME[/NAMESPACE_PATH]/OVERALL_EXPORT_METADATA_FILE`, where `BUCKET_NAME` is the name of the Cloud Storage bucket, `NAMESPACE_PATH`
-             * is an optional Cloud Storage namespace path (this is not a Cloud Datastore namespace), and `OVERALL_EXPORT_METADATA_FILE` is the metadata file written
-             * by the ExportEntities operation. For more information about Cloud Storage namespace paths, see [Object name
-             * considerations](https://cloud.google.com/storage/docs/naming#object-considerations). For more information, see
+             * Required. The full resource URL of the external storage location. Currently, only Google Cloud Storage is supported. So input_url should be of the form:
+             * `gs://BUCKET_NAME[/NAMESPACE_PATH]/OVERALL_EXPORT_METADATA_FILE`, where `BUCKET_NAME` is the name of the Cloud Storage bucket, `NAMESPACE_PATH` is an optional Cloud Storage
+             * namespace path (this is not a Cloud Datastore namespace), and `OVERALL_EXPORT_METADATA_FILE` is the metadata file written by the ExportEntities operation. For more information about
+             * Cloud Storage namespace paths, see [Object name considerations](https://cloud.google.com/storage/docs/naming#object-considerations). For more information, see
              * google.datastore.admin.v1.ExportEntitiesResponse.output_url.
              */
             inputUrl?: string;
@@ -295,45 +292,41 @@ declare namespace gapi.client {
             operations?: GoogleLongrunningOperation[];
         }
         interface GoogleLongrunningOperation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
         interface GqlQuery {
             /**
-             * When false, the query string must not contain any literals and instead must bind all values. For example, `SELECT ∗ FROM Kind WHERE a = 'string
-             * literal'` is not allowed, while `SELECT ∗ FROM Kind WHERE a = @value` is.
+             * When false, the query string must not contain any literals and instead must bind all values. For example, `SELECT * FROM Kind WHERE a = 'string literal'` is not allowed, while
+             * `SELECT * FROM Kind WHERE a = @value` is.
              */
             allowLiterals?: boolean;
             /**
-             * For each non-reserved named binding site in the query string, there must be a named parameter with that name, but not necessarily the inverse. Key must
-             * match regex `A-Za-z_$∗`, must not match regex `__.∗__`, and must not be `""`.
+             * For each non-reserved named binding site in the query string, there must be a named parameter with that name, but not necessarily the inverse. Key must match regex `A-Za-z_$*`, must
+             * not match regex `__.*__`, and must not be `""`.
              */
             namedBindings?: { [P in string]: GqlQueryParameter };
             /**
-             * Numbered binding site @1 references the first numbered parameter, effectively using 1-based indexing, rather than the usual 0. For each binding site
-             * numbered i in `query_string`, there must be an i-th numbered parameter. The inverse must also be true.
+             * Numbered binding site @1 references the first numbered parameter, effectively using 1-based indexing, rather than the usual 0. For each binding site numbered i in `query_string`,
+             * there must be an i-th numbered parameter. The inverse must also be true.
              */
             positionalBindings?: GqlQueryParameter[];
             /** A string of the format described [here](https://cloud.google.com/datastore/docs/apis/gql/gql_reference). */
@@ -349,12 +342,11 @@ declare namespace gapi.client {
             /** Entities are partitioned into subsets, currently identified by a project ID and namespace ID. Queries are scoped to a single partition. */
             partitionId?: PartitionId;
             /**
-             * The entity path. An entity path consists of one or more elements composed of a kind and a string or numerical identifier, which identify entities. The
-             * first element identifies a _root entity_, the second element identifies a _child_ of the root entity, the third element identifies a child of the
-             * second entity, and so forth. The entities identified by all prefixes of the path are called the element's _ancestors_. An entity path is always fully
-             * complete: ∗all∗ of the entity's ancestors are required to be in the path along with the entity identifier itself. The only exception is that in some
-             * documented cases, the identifier in the last path element (for the entity) itself may be omitted. For example, the last path element of the key of
-             * `Mutation.insert` may have no identifier. A path can never be empty, and a path can have at most 100 elements.
+             * The entity path. An entity path consists of one or more elements composed of a kind and a string or numerical identifier, which identify entities. The first element identifies a
+             * _root entity_, the second element identifies a _child_ of the root entity, the third element identifies a child of the second entity, and so forth. The entities identified by all
+             * prefixes of the path are called the element's _ancestors_. An entity path is always fully complete: *all* of the entity's ancestors are required to be in the path along with the
+             * entity identifier itself. The only exception is that in some documented cases, the identifier in the last path element (for the entity) itself may be omitted. For example, the last
+             * path element of the key of `Mutation.insert` may have no identifier. A path can never be empty, and a path can have at most 100 elements.
              */
             path?: PathElement[];
         }
@@ -375,20 +367,11 @@ declare namespace gapi.client {
             readOptions?: ReadOptions;
         }
         interface LookupResponse {
-            /**
-             * A list of keys that were not looked up due to resource constraints. The order of results in this field is undefined and has no relation to the order of
-             * the keys in the input.
-             */
+            /** A list of keys that were not looked up due to resource constraints. The order of results in this field is undefined and has no relation to the order of the keys in the input. */
             deferred?: Key[];
-            /**
-             * Entities found as `ResultType.FULL` entities. The order of results in this field is undefined and has no relation to the order of the keys in the
-             * input.
-             */
+            /** Entities found as `ResultType.FULL` entities. The order of results in this field is undefined and has no relation to the order of the keys in the input. */
             found?: EntityResult[];
-            /**
-             * Entities not found as `ResultType.KEY_ONLY` entities. The order of results in this field is undefined and has no relation to the order of the keys in
-             * the input.
-             */
+            /** Entities not found as `ResultType.KEY_ONLY` entities. The order of results in this field is undefined and has no relation to the order of the keys in the input. */
             missing?: EntityResult[];
         }
         interface Mutation {
@@ -409,9 +392,8 @@ declare namespace gapi.client {
             /** The automatically allocated key. Set only when the mutation allocated a key. */
             key?: Key;
             /**
-             * The version of the entity on the server after processing the mutation. If the mutation doesn't change anything on the server, then the version will be
-             * the version of the current entity or, if no entity is present, a version that is strictly greater than the version of any previous entity and less than
-             * the version of any possible future entity.
+             * The version of the entity on the server after processing the mutation. If the mutation doesn't change anything on the server, then the version will be the version of the current
+             * entity or, if no entity is present, a version that is strictly greater than the version of any previous entity and less than the version of any possible future entity.
              */
             version?: string;
         }
@@ -424,15 +406,9 @@ declare namespace gapi.client {
         interface PathElement {
             /** The auto-allocated ID of the entity. Never equal to zero. Values less than zero are discouraged and may not be supported in the future. */
             id?: string;
-            /**
-             * The kind of the entity. A kind matching regex `__.∗__` is reserved/read-only. A kind must not contain more than 1500 bytes when UTF-8 encoded. Cannot
-             * be `""`.
-             */
+            /** The kind of the entity. A kind matching regex `__.*__` is reserved/read-only. A kind must not contain more than 1500 bytes when UTF-8 encoded. Cannot be `""`. */
             kind?: string;
-            /**
-             * The name of the entity. A name matching regex `__.∗__` is reserved/read-only. A name must not be more than 1500 bytes when UTF-8 encoded. Cannot be
-             * `""`.
-             */
+            /** The name of the entity. A name matching regex `__.*__` is reserved/read-only. A name must not be more than 1500 bytes when UTF-8 encoded. Cannot be `""`. */
             name?: string;
         }
         interface Projection {
@@ -459,8 +435,8 @@ declare namespace gapi.client {
         }
         interface Query {
             /**
-             * The properties to make distinct. The query results will contain the first result for each distinct combination of values for the given properties (if
-             * empty, all results are returned).
+             * The properties to make distinct. The query results will contain the first result for each distinct combination of values for the given properties (if empty, all results are
+             * returned).
              */
             distinctOn?: PropertyReference[];
             /**
@@ -472,10 +448,7 @@ declare namespace gapi.client {
             filter?: Filter;
             /** The kinds to query (if empty, returns entities of all kinds). Currently at most 1 kind may be specified. */
             kind?: KindExpression[];
-            /**
-             * The maximum number of results to return. Applies after all other constraints. Optional. Unspecified is interpreted as no limit. Must be >= 0 if
-             * specified.
-             */
+            /** The maximum number of results to return. Applies after all other constraints. Optional. Unspecified is interpreted as no limit. Must be >= 0 if specified. */
             limit?: number;
             /** The number of results to skip. Applies before limit, but after all other constraints. Optional. Must be >= 0 if specified. */
             offset?: number;
@@ -503,10 +476,9 @@ declare namespace gapi.client {
             /** The number of results skipped, typically because of an offset. */
             skippedResults?: number;
             /**
-             * The version number of the snapshot this batch was returned from. This applies to the range of results from the query's `start_cursor` (or the beginning
-             * of the query if no cursor was given) to this batch's `end_cursor` (not the query's `end_cursor`). In a single transaction, subsequent query result
-             * batches for the same query can have a greater snapshot version number. Each batch's snapshot version is valid for all preceding batches. The value will
-             * be zero for eventually consistent queries.
+             * The version number of the snapshot this batch was returned from. This applies to the range of results from the query's `start_cursor` (or the beginning of the query if no cursor was
+             * given) to this batch's `end_cursor` (not the query's `end_cursor`). In a single transaction, subsequent query result batches for the same query can have a greater snapshot version
+             * number. Each batch's snapshot version is valid for all preceding batches. The value will be zero for eventually consistent queries.
              */
             snapshotVersion?: string;
         }
@@ -543,8 +515,8 @@ declare namespace gapi.client {
             /** The GQL query to run. */
             gqlQuery?: GqlQuery;
             /**
-             * Entities are partitioned into subsets, identified by a partition ID. Queries are scoped to a single partition. This partition ID is normalized with the
-             * standard default context partition ID.
+             * Entities are partitioned into subsets, identified by a partition ID. Queries are scoped to a single partition. This partition ID is normalized with the standard default context
+             * partition ID.
              */
             partitionId?: PartitionId;
             /** The query to run. */
@@ -564,8 +536,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -576,15 +548,9 @@ declare namespace gapi.client {
             readWrite?: ReadWrite;
         }
         interface Value {
-            /**
-             * An array value. Cannot contain another array value. A `Value` instance that sets field `array_value` must not set fields `meaning` or
-             * `exclude_from_indexes`.
-             */
+            /** An array value. Cannot contain another array value. A `Value` instance that sets field `array_value` must not set fields `meaning` or `exclude_from_indexes`. */
             arrayValue?: ArrayValue;
-            /**
-             * A blob value. May have at most 1,000,000 bytes. When `exclude_from_indexes` is false, may have at most 1500 bytes. In JSON requests, must be
-             * base64-encoded.
-             */
+            /** A blob value. May have at most 1,000,000 bytes. When `exclude_from_indexes` is false, may have at most 1500 bytes. In JSON requests, must be base64-encoded. */
             blobValue?: string;
             /** A boolean value. */
             booleanValue?: boolean;
@@ -604,10 +570,7 @@ declare namespace gapi.client {
             meaning?: number;
             /** A null value. */
             nullValue?: string;
-            /**
-             * A UTF-8 encoded string value. When `exclude_from_indexes` is false (it is indexed) , may have at most 1500 bytes. Otherwise, may be set to at most
-             * 1,000,000 bytes.
-             */
+            /** A UTF-8 encoded string value. When `exclude_from_indexes` is false (it is indexed) , may have at most 1500 bytes. Otherwise, may be set to at most 1,000,000 bytes. */
             stringValue?: string;
             /** A timestamp value. When stored in the Datastore, precise only to microseconds; any additional precision is rounded down. */
             timestampValue?: string;
@@ -615,10 +578,10 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface IndexesResource {
             /**
-             * Creates the specified index. A newly created index's initial state is `CREATING`. On completion of the returned google.longrunning.Operation, the state
-             * will be `READY`. If the index already exists, the call will return an `ALREADY_EXISTS` status. During index creation, the process could result in an
-             * error, in which case the index will move to the `ERROR` state. The process can be recovered by fixing the data that caused the error, removing the
-             * index with delete, then re-creating the index with create. Indexes with a single property cannot be created.
+             * Creates the specified index. A newly created index's initial state is `CREATING`. On completion of the returned google.longrunning.Operation, the state will be `READY`. If the index
+             * already exists, the call will return an `ALREADY_EXISTS` status. During index creation, the process could result in an error, in which case the index will move to the `ERROR` state.
+             * The process can be recovered by fixing the data that caused the error, removing the index with delete, then re-creating the index with create. Indexes with a single property cannot
+             * be created.
              */
             create(request: {
                 /** V1 error format. */
@@ -676,10 +639,9 @@ declare namespace gapi.client {
             },
             body: GoogleDatastoreAdminV1Index): Request<GoogleLongrunningOperation>;
             /**
-             * Deletes an existing index. An index can only be deleted if it is in a `READY` or `ERROR` state. On successful execution of the request, the index will
-             * be in a `DELETING` state. And on completion of the returned google.longrunning.Operation, the index will be removed. During index deletion, the process
-             * could result in an error, in which case the index will move to the `ERROR` state. The process can be recovered by fixing the data that caused the
-             * error, followed by calling delete again.
+             * Deletes an existing index. An index can only be deleted if it is in a `READY` or `ERROR` state. On successful execution of the request, the index will be in a `DELETING` state. And
+             * on completion of the returned google.longrunning.Operation, the index will be removed. During index deletion, the process could result in an error, in which case the index will move
+             * to the `ERROR` state. The process can be recovered by fixing the data that caused the error, followed by calling delete again.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -738,10 +700,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<GoogleDatastoreAdminV1Index>;
-            /**
-             * Lists the indexes that match the specified filters. Datastore uses an eventually consistent query to fetch the list of indexes and may occasionally
-             * return stale results.
-             */
+            /** Lists the indexes that match the specified filters. Datastore uses an eventually consistent query to fetch the list of indexes and may occasionally return stale results. */
             list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -776,10 +735,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request?: {
                 /** V1 error format. */
@@ -808,8 +767,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -837,10 +796,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -868,11 +824,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleLongrunningOperation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1077,10 +1032,9 @@ declare namespace gapi.client {
             },
             body: CommitRequest): Request<CommitResponse>;
             /**
-             * Exports a copy of all or a subset of entities from Google Cloud Datastore to another storage system, such as Google Cloud Storage. Recent updates to
-             * entities may not be reflected in the export. The export occurs in the background and its progress can be monitored and managed via the Operation
-             * resource that is created. The output of an export may only be used once the associated operation is done. If an export operation is cancelled before
-             * completion it may leave partial data behind in Google Cloud Storage.
+             * Exports a copy of all or a subset of entities from Google Cloud Datastore to another storage system, such as Google Cloud Storage. Recent updates to entities may not be reflected in
+             * the export. The export occurs in the background and its progress can be monitored and managed via the Operation resource that is created. The output of an export may only be used
+             * once the associated operation is done. If an export operation is cancelled before completion it may leave partial data behind in Google Cloud Storage.
              */
             export(request: {
                 /** V1 error format. */
@@ -1138,9 +1092,8 @@ declare namespace gapi.client {
             },
             body: GoogleDatastoreAdminV1ExportEntitiesRequest): Request<GoogleLongrunningOperation>;
             /**
-             * Imports entities into Google Cloud Datastore. Existing entities with the same key are overwritten. The import occurs in the background and its progress
-             * can be monitored and managed via the Operation resource that is created. If an ImportEntities operation is cancelled, it is possible that a subset of
-             * the data has already been imported to Cloud Datastore.
+             * Imports entities into Google Cloud Datastore. Existing entities with the same key are overwritten. The import occurs in the background and its progress can be monitored and managed
+             * via the Operation resource that is created. If an ImportEntities operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Datastore.
              */
             import(request: {
                 /** V1 error format. */

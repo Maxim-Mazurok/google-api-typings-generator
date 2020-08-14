@@ -28,8 +28,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Lints, or validates, an IAM policy. Currently checks the google.iam.v1.Binding.condition field, which contains a condition expression for a role
-         * binding. Successful calls to this method always return an HTTP `200 OK` status code, even if the linter detects an issue in the IAM policy.
+         * Lints, or validates, an IAM policy. Currently checks the google.iam.v1.Binding.condition field, which contains a condition expression for a role binding. Successful calls to this method
+         * always return an HTTP `200 OK` status code, even if the linter detects an issue in the IAM policy.
          */
         await gapi.client.iam.iamPolicies.lintPolicy({
         }, {

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Chrome UX Report API v1 1.0
 // Project: https://developers.google.com/web/tools/chrome-user-experience-report/api/reference
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -28,19 +31,19 @@ declare namespace gapi.client {
         }
         interface Key {
             /**
-             * The effective connection type is the general connection class that all users experienced for this record. This field uses the values ["offline",
-             * "slow-2G", "2G", "3G", "4G"] as specified in: https://wicg.github.io/netinfo/#effective-connection-types If the effective connection type is
-             * unspecified, then aggregated data over all effective connection types will be returned.
+             * The effective connection type is the general connection class that all users experienced for this record. This field uses the values ["offline", "slow-2G", "2G", "3G", "4G"] as
+             * specified in: https://wicg.github.io/netinfo/#effective-connection-types If the effective connection type is unspecified, then aggregated data over all effective connection types
+             * will be returned.
              */
             effectiveConnectionType?: string;
             /**
-             * The form factor is the device class that all users used to access the site for this record. If the form factor is unspecified, then aggregated data
-             * over all form factors will be returned.
+             * The form factor is the device class that all users used to access the site for this record. If the form factor is unspecified, then aggregated data over all form factors will be
+             * returned.
              */
             formFactor?: string;
             /**
-             * Origin specifies the origin that this record is for. Note: When specifying an origin, data for loads under this origin over all pages are aggregated
-             * into origin level user experience data.
+             * Origin specifies the origin that this record is for. Note: When specifying an origin, data for loads under this origin over all pages are aggregated into origin level user
+             * experience data.
              */
             origin?: string;
             /** Url specifies a specific url that this record is for. Note: When specifying a "url" only data for that specific url will be aggregated. */
@@ -58,19 +61,19 @@ declare namespace gapi.client {
         }
         interface QueryRequest {
             /**
-             * The effective connection type is a query dimension that specifies the effective network class that the record's data should belong to. This field uses
-             * the values ["offline", "slow-2G", "2G", "3G", "4G"] as specified in: https://wicg.github.io/netinfo/#effective-connection-types Note: If no effective
-             * connection type is specified, then a special record with aggregated data over all effective connection types will be returned.
+             * The effective connection type is a query dimension that specifies the effective network class that the record's data should belong to. This field uses the values ["offline",
+             * "slow-2G", "2G", "3G", "4G"] as specified in: https://wicg.github.io/netinfo/#effective-connection-types Note: If no effective connection type is specified, then a special record
+             * with aggregated data over all effective connection types will be returned.
              */
             effectiveConnectionType?: string;
             /**
-             * The form factor is a query dimension that specifies the device class that the record's data should belong to. Note: If no form factor is specified,
-             * then a special record with aggregated data over all form factors will be returned.
+             * The form factor is a query dimension that specifies the device class that the record's data should belong to. Note: If no form factor is specified, then a special record with
+             * aggregated data over all form factors will be returned.
              */
             formFactor?: string;
             /**
-             * The metrics that should be included in the response. If none are specified then any metrics found will be returned. Allowed values:
-             * ["first_contentful_paint", "first_input_delay", "largest_contentful_paint", "cumulative_layout_shift"]
+             * The metrics that should be included in the response. If none are specified then any metrics found will be returned. Allowed values: ["first_contentful_paint", "first_input_delay",
+             * "largest_contentful_paint", "cumulative_layout_shift"]
              */
             metrics?: string[];
             /** The url pattern "origin" refers to a url pattern that is the origin of a website. Examples: "https://example.com", "https://cloud.google.com" */
@@ -88,8 +91,8 @@ declare namespace gapi.client {
             /** Key defines all of the unique querying parameters needed to look up a user experience record. */
             key?: Key;
             /**
-             * Metrics is the map of user experience data available for the record defined in the key field. Metrics are keyed on the metric name. Allowed key values:
-             * ["first_contentful_paint", "first_input_delay", "largest_contentful_paint", "cumulative_layout_shift"]
+             * Metrics is the map of user experience data available for the record defined in the key field. Metrics are keyed on the metric name. Allowed key values: ["first_contentful_paint",
+             * "first_input_delay", "largest_contentful_paint", "cumulative_layout_shift"]
              */
             metrics?: { [P in string]: Metric };
         }
@@ -101,8 +104,8 @@ declare namespace gapi.client {
         }
         interface RecordsResource {
             /**
-             * Queries the Chrome User Experience for a single `record` for a given site. Returns a `record` that contains one or more `metrics` corresponding to
-             * performance data about the requested site.
+             * Queries the Chrome User Experience for a single `record` for a given site. Returns a `record` that contains one or more `metrics` corresponding to performance data about the
+             * requested site.
              */
             queryRecord(request: {
                 /** V1 error format. */

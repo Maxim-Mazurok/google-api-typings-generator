@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Composer API v1 1.0
 // Project: https://cloud.google.com/composer/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -31,9 +34,9 @@ declare namespace gapi.client {
              * The labels map can contain no more than 64 entries. Entries of the labels
              * map are UTF8 strings that comply with the following restrictions:
              *
-             * ∗ Keys must conform to regexp: \p{Ll}\p{Lo}{0,62}
-             * ∗ Values must conform to regexp:  [\p{Ll}\p{Lo}\p{N}_-]{0,63}
-             * ∗ Both keys and values are additionally constrained to be <= 128 bytes in
+             * * Keys must conform to regexp: \p{Ll}\p{Lo}{0,62}
+             * * Values must conform to regexp:  [\p{Ll}\p{Lo}\p{N}_-]{0,63}
+             * * Both keys and values are additionally constrained to be <= 128 bytes in
              * size.
              */
             labels?: { [P in string]: string };
@@ -393,31 +396,31 @@ declare namespace gapi.client {
              * scheduler, worker, and webserver processes.
              *
              * Environment variable names must match the regular expression
-             * `a-zA-Z_∗`. They cannot specify Apache Airflow
+             * `a-zA-Z_*`. They cannot specify Apache Airflow
              * software configuration overrides (they cannot match the regular expression
              * `AIRFLOW__[A-Z0-9_]+__[A-Z0-9_]+`), and they cannot match any of the
              * following reserved names:
              *
-             * ∗ `AIRFLOW_HOME`
-             * ∗ `C_FORCE_ROOT`
-             * ∗ `CONTAINER_NAME`
-             * ∗ `DAGS_FOLDER`
-             * ∗ `GCP_PROJECT`
-             * ∗ `GCS_BUCKET`
-             * ∗ `GKE_CLUSTER_NAME`
-             * ∗ `SQL_DATABASE`
-             * ∗ `SQL_INSTANCE`
-             * ∗ `SQL_PASSWORD`
-             * ∗ `SQL_PROJECT`
-             * ∗ `SQL_REGION`
-             * ∗ `SQL_USER`
+             * * `AIRFLOW_HOME`
+             * * `C_FORCE_ROOT`
+             * * `CONTAINER_NAME`
+             * * `DAGS_FOLDER`
+             * * `GCP_PROJECT`
+             * * `GCS_BUCKET`
+             * * `GKE_CLUSTER_NAME`
+             * * `SQL_DATABASE`
+             * * `SQL_INSTANCE`
+             * * `SQL_PASSWORD`
+             * * `SQL_PROJECT`
+             * * `SQL_REGION`
+             * * `SQL_USER`
              */
             envVariables?: { [P in string]: string };
             /**
              * The version of the software running in the environment.
              * This encapsulates both the version of Cloud Composer functionality and the
              * version of Apache Airflow. It must match the regular expression
-             * `composer-([0-9]+\.[0-9]+\.[0-9]+|latest)-airflow-[0-9]+\.[0-9]+(\.[0-9]+.∗)?`.
+             * `composer-([0-9]+\.[0-9]+\.[0-9]+|latest)-airflow-[0-9]+\.[0-9]+(\.[0-9]+.*)?`.
              * When used as input, the server also checks if the provided version is
              * supported and denies the request for an unsupported version.
              *
@@ -713,7 +716,7 @@ declare namespace gapi.client {
                  * }
                  * }
                  *
-                 * ∗∗Note:∗∗ Only the following fields can be updated:
+                 * **Note:** Only the following fields can be updated:
                  *
                  * <table>
                  * <tbody>
@@ -880,7 +883,7 @@ declare namespace gapi.client {
                  * }
                  * }
                  *
-                 * ∗∗Note:∗∗ Only the following fields can be updated:
+                 * **Note:** Only the following fields can be updated:
                  *
                  * <table>
                  * <tbody>
@@ -1071,7 +1074,7 @@ declare namespace gapi.client {
              * NOTE: the `name` binding allows API services to override the binding
              * to use different resource name schemes, such as `users/∗/operations`. To
              * override the binding, API services can add a binding such as
-             * `"/v1/{name=users/∗}/operations"` to their service configuration.
+             * `"/v1/{name=users/*}/operations"` to their service configuration.
              * For backwards compatibility, the default name includes the operations
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.

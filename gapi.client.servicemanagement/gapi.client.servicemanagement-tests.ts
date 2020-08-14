@@ -33,10 +33,7 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
+        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
         await gapi.client.servicemanagement.operations.get({
             name: "Test string",
         });
@@ -48,9 +45,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Creates a new managed service. A managed service is immutable, and is subject to mandatory 30-day data retention. You cannot move a service or recreate
-         * it within 30 days after deletion. One producer project can own no more than 500 services. For security and reliability purposes, a production service
-         * should be hosted in a dedicated producer project. Operation
+         * Creates a new managed service. A managed service is immutable, and is subject to mandatory 30-day data retention. You cannot move a service or recreate it within 30 days after deletion.
+         * One producer project can own no more than 500 services. For security and reliability purposes, a production service should be hosted in a dedicated producer project. Operation
          */
         await gapi.client.servicemanagement.services.create({
         }, {
@@ -58,9 +54,8 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service
-         * configuration to backend systems please call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing
-         * rollouts are kept for each service. The rest will be deleted eventually.
+         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service configuration to backend systems please
+         * call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing rollouts are kept for each service. The rest will be deleted eventually.
          */
         await gapi.client.servicemanagement.services.configs.create({
             serviceName: "Test string",
@@ -468,10 +463,9 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the generated service configuration. To rollout the service configuration to
-         * other services, please call CreateServiceRollout. Only the 100 most recent configuration sources and ones referenced by existing service configurtions
-         * are kept for each service. The rest will be deleted eventually. Operation
+         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI Specification). This method stores the source
+         * configurations as well as the generated service configuration. To rollout the service configuration to other services, please call CreateServiceRollout. Only the 100 most recent
+         * configuration sources and ones referenced by existing service configurtions are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.configs.submit({
             serviceName: "Test string",
@@ -495,10 +489,7 @@ gapi.load('client', () => {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.consumers.setIamPolicy({
             resource: "Test string",
         }, {
@@ -531,9 +522,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.consumers.testIamPermissions({
             resource: "Test string",
@@ -542,11 +532,10 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different
-         * backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running
-         * Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100
-         * most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest
-         * will be deleted eventually. Operation
+         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the
+         * logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so
+         * that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent)
+         * rollouts are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.rollouts.create({
             serviceName: "Test string",
@@ -576,16 +565,15 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Deletes a managed service. This method will change the service to the `Soft-Delete` state for 30 days. Within this period, service producers may call
-         * UndeleteService to restore the service. After 30 days, the service will be permanently deleted. Operation
+         * Deletes a managed service. This method will change the service to the `Soft-Delete` state for 30 days. Within this period, service producers may call UndeleteService to restore the
+         * service. After 30 days, the service will be permanently deleted. Operation
          */
         await gapi.client.servicemanagement.services.delete({
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service
-         * configuration to backend systems please call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing
-         * rollouts are kept for each service. The rest will be deleted eventually.
+         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service configuration to backend systems please
+         * call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing rollouts are kept for each service. The rest will be deleted eventually.
          */
         await gapi.client.servicemanagement.services.configs.create({
             serviceName: "Test string",
@@ -993,10 +981,9 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the generated service configuration. To rollout the service configuration to
-         * other services, please call CreateServiceRollout. Only the 100 most recent configuration sources and ones referenced by existing service configurtions
-         * are kept for each service. The rest will be deleted eventually. Operation
+         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI Specification). This method stores the source
+         * configurations as well as the generated service configuration. To rollout the service configuration to other services, please call CreateServiceRollout. Only the 100 most recent
+         * configuration sources and ones referenced by existing service configurtions are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.configs.submit({
             serviceName: "Test string",
@@ -1020,10 +1007,7 @@ gapi.load('client', () => {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.consumers.setIamPolicy({
             resource: "Test string",
         }, {
@@ -1056,9 +1040,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.consumers.testIamPermissions({
             resource: "Test string",
@@ -1067,11 +1050,10 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different
-         * backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running
-         * Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100
-         * most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest
-         * will be deleted eventually. Operation
+         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the
+         * logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so
+         * that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent)
+         * rollouts are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.rollouts.create({
             serviceName: "Test string",
@@ -1100,19 +1082,15 @@ gapi.load('client', () => {
             pageToken: "Test string",
             serviceName: "Test string",
         });
-        /**
-         * Disables a service for a project, so it can no longer be be used for the project. It prevents accidental usage that may cause unexpected billing
-         * charges or security leaks. Operation
-         */
+        /** Disables a service for a project, so it can no longer be be used for the project. It prevents accidental usage that may cause unexpected billing charges or security leaks. Operation */
         await gapi.client.servicemanagement.services.disable({
             serviceName: "Test string",
         }, {
             consumerId: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service
-         * configuration to backend systems please call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing
-         * rollouts are kept for each service. The rest will be deleted eventually.
+         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service configuration to backend systems please
+         * call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing rollouts are kept for each service. The rest will be deleted eventually.
          */
         await gapi.client.servicemanagement.services.configs.create({
             serviceName: "Test string",
@@ -1520,10 +1498,9 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the generated service configuration. To rollout the service configuration to
-         * other services, please call CreateServiceRollout. Only the 100 most recent configuration sources and ones referenced by existing service configurtions
-         * are kept for each service. The rest will be deleted eventually. Operation
+         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI Specification). This method stores the source
+         * configurations as well as the generated service configuration. To rollout the service configuration to other services, please call CreateServiceRollout. Only the 100 most recent
+         * configuration sources and ones referenced by existing service configurtions are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.configs.submit({
             serviceName: "Test string",
@@ -1547,10 +1524,7 @@ gapi.load('client', () => {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.consumers.setIamPolicy({
             resource: "Test string",
         }, {
@@ -1583,9 +1557,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.consumers.testIamPermissions({
             resource: "Test string",
@@ -1594,11 +1567,10 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different
-         * backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running
-         * Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100
-         * most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest
-         * will be deleted eventually. Operation
+         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the
+         * logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so
+         * that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent)
+         * rollouts are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.rollouts.create({
             serviceName: "Test string",
@@ -1627,19 +1599,15 @@ gapi.load('client', () => {
             pageToken: "Test string",
             serviceName: "Test string",
         });
-        /**
-         * Enables a service for a project, so it can be used for the project. See [Cloud Auth Guide](https://cloud.google.com/docs/authentication) for more
-         * information. Operation
-         */
+        /** Enables a service for a project, so it can be used for the project. See [Cloud Auth Guide](https://cloud.google.com/docs/authentication) for more information. Operation */
         await gapi.client.servicemanagement.services.enable({
             serviceName: "Test string",
         }, {
             consumerId: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service
-         * configuration to backend systems please call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing
-         * rollouts are kept for each service. The rest will be deleted eventually.
+         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service configuration to backend systems please
+         * call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing rollouts are kept for each service. The rest will be deleted eventually.
          */
         await gapi.client.servicemanagement.services.configs.create({
             serviceName: "Test string",
@@ -2047,10 +2015,9 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the generated service configuration. To rollout the service configuration to
-         * other services, please call CreateServiceRollout. Only the 100 most recent configuration sources and ones referenced by existing service configurtions
-         * are kept for each service. The rest will be deleted eventually. Operation
+         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI Specification). This method stores the source
+         * configurations as well as the generated service configuration. To rollout the service configuration to other services, please call CreateServiceRollout. Only the 100 most recent
+         * configuration sources and ones referenced by existing service configurtions are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.configs.submit({
             serviceName: "Test string",
@@ -2074,10 +2041,7 @@ gapi.load('client', () => {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.consumers.setIamPolicy({
             resource: "Test string",
         }, {
@@ -2110,9 +2074,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.consumers.testIamPermissions({
             resource: "Test string",
@@ -2121,11 +2084,10 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different
-         * backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running
-         * Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100
-         * most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest
-         * will be deleted eventually. Operation
+         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the
+         * logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so
+         * that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent)
+         * rollouts are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.rollouts.create({
             serviceName: "Test string",
@@ -2155,10 +2117,10 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Generates and returns a report (errors, warnings and changes from existing configurations) associated with GenerateConfigReportRequest.new_value If
-         * GenerateConfigReportRequest.old_value is specified, GenerateConfigReportRequest will contain a single ChangeReport based on the comparison between
-         * GenerateConfigReportRequest.new_value and GenerateConfigReportRequest.old_value. If GenerateConfigReportRequest.old_value is not specified, this method
-         * will compare GenerateConfigReportRequest.new_value with the last pushed service configuration.
+         * Generates and returns a report (errors, warnings and changes from existing configurations) associated with GenerateConfigReportRequest.new_value If GenerateConfigReportRequest.old_value
+         * is specified, GenerateConfigReportRequest will contain a single ChangeReport based on the comparison between GenerateConfigReportRequest.new_value and
+         * GenerateConfigReportRequest.old_value. If GenerateConfigReportRequest.old_value is not specified, this method will compare GenerateConfigReportRequest.new_value with the last pushed
+         * service configuration.
          */
         await gapi.client.servicemanagement.services.generateConfigReport({
         }, {
@@ -2168,9 +2130,8 @@ gapi.load('client', () => {
                 A: 42            },
         });
         /**
-         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service
-         * configuration to backend systems please call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing
-         * rollouts are kept for each service. The rest will be deleted eventually.
+         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service configuration to backend systems please
+         * call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing rollouts are kept for each service. The rest will be deleted eventually.
          */
         await gapi.client.servicemanagement.services.configs.create({
             serviceName: "Test string",
@@ -2578,10 +2539,9 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the generated service configuration. To rollout the service configuration to
-         * other services, please call CreateServiceRollout. Only the 100 most recent configuration sources and ones referenced by existing service configurtions
-         * are kept for each service. The rest will be deleted eventually. Operation
+         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI Specification). This method stores the source
+         * configurations as well as the generated service configuration. To rollout the service configuration to other services, please call CreateServiceRollout. Only the 100 most recent
+         * configuration sources and ones referenced by existing service configurtions are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.configs.submit({
             serviceName: "Test string",
@@ -2605,10 +2565,7 @@ gapi.load('client', () => {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.consumers.setIamPolicy({
             resource: "Test string",
         }, {
@@ -2641,9 +2598,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.consumers.testIamPermissions({
             resource: "Test string",
@@ -2652,11 +2608,10 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different
-         * backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running
-         * Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100
-         * most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest
-         * will be deleted eventually. Operation
+         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the
+         * logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so
+         * that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent)
+         * rollouts are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.rollouts.create({
             serviceName: "Test string",
@@ -2690,9 +2645,8 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service
-         * configuration to backend systems please call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing
-         * rollouts are kept for each service. The rest will be deleted eventually.
+         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service configuration to backend systems please
+         * call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing rollouts are kept for each service. The rest will be deleted eventually.
          */
         await gapi.client.servicemanagement.services.configs.create({
             serviceName: "Test string",
@@ -3100,10 +3054,9 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the generated service configuration. To rollout the service configuration to
-         * other services, please call CreateServiceRollout. Only the 100 most recent configuration sources and ones referenced by existing service configurtions
-         * are kept for each service. The rest will be deleted eventually. Operation
+         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI Specification). This method stores the source
+         * configurations as well as the generated service configuration. To rollout the service configuration to other services, please call CreateServiceRollout. Only the 100 most recent
+         * configuration sources and ones referenced by existing service configurtions are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.configs.submit({
             serviceName: "Test string",
@@ -3127,10 +3080,7 @@ gapi.load('client', () => {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.consumers.setIamPolicy({
             resource: "Test string",
         }, {
@@ -3163,9 +3113,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.consumers.testIamPermissions({
             resource: "Test string",
@@ -3174,11 +3123,10 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different
-         * backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running
-         * Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100
-         * most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest
-         * will be deleted eventually. Operation
+         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the
+         * logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so
+         * that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent)
+         * rollouts are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.rollouts.create({
             serviceName: "Test string",
@@ -3214,9 +3162,8 @@ gapi.load('client', () => {
             view: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service
-         * configuration to backend systems please call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing
-         * rollouts are kept for each service. The rest will be deleted eventually.
+         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service configuration to backend systems please
+         * call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing rollouts are kept for each service. The rest will be deleted eventually.
          */
         await gapi.client.servicemanagement.services.configs.create({
             serviceName: "Test string",
@@ -3624,10 +3571,9 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the generated service configuration. To rollout the service configuration to
-         * other services, please call CreateServiceRollout. Only the 100 most recent configuration sources and ones referenced by existing service configurtions
-         * are kept for each service. The rest will be deleted eventually. Operation
+         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI Specification). This method stores the source
+         * configurations as well as the generated service configuration. To rollout the service configuration to other services, please call CreateServiceRollout. Only the 100 most recent
+         * configuration sources and ones referenced by existing service configurtions are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.configs.submit({
             serviceName: "Test string",
@@ -3651,10 +3597,7 @@ gapi.load('client', () => {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.consumers.setIamPolicy({
             resource: "Test string",
         }, {
@@ -3687,9 +3630,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.consumers.testIamPermissions({
             resource: "Test string",
@@ -3698,11 +3640,10 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different
-         * backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running
-         * Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100
-         * most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest
-         * will be deleted eventually. Operation
+         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the
+         * logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so
+         * that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent)
+         * rollouts are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.rollouts.create({
             serviceName: "Test string",
@@ -3740,9 +3681,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service
-         * configuration to backend systems please call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing
-         * rollouts are kept for each service. The rest will be deleted eventually.
+         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service configuration to backend systems please
+         * call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing rollouts are kept for each service. The rest will be deleted eventually.
          */
         await gapi.client.servicemanagement.services.configs.create({
             serviceName: "Test string",
@@ -4150,10 +4090,9 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the generated service configuration. To rollout the service configuration to
-         * other services, please call CreateServiceRollout. Only the 100 most recent configuration sources and ones referenced by existing service configurtions
-         * are kept for each service. The rest will be deleted eventually. Operation
+         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI Specification). This method stores the source
+         * configurations as well as the generated service configuration. To rollout the service configuration to other services, please call CreateServiceRollout. Only the 100 most recent
+         * configuration sources and ones referenced by existing service configurtions are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.configs.submit({
             serviceName: "Test string",
@@ -4177,10 +4116,7 @@ gapi.load('client', () => {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.consumers.setIamPolicy({
             resource: "Test string",
         }, {
@@ -4213,9 +4149,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.consumers.testIamPermissions({
             resource: "Test string",
@@ -4224,11 +4159,10 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different
-         * backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running
-         * Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100
-         * most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest
-         * will be deleted eventually. Operation
+         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the
+         * logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so
+         * that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent)
+         * rollouts are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.rollouts.create({
             serviceName: "Test string",
@@ -4258,9 +4192,8 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Lists managed services. Returns all public services. For authenticated users, also returns all services the calling user has
-         * "servicemanagement.services.get" permission for. ∗∗BETA:∗∗ If the caller specifies the `consumer_id`, it returns only the services enabled on the
-         * consumer. The `consumer_id` must have the format of "project:{PROJECT-ID}".
+         * Lists managed services. Returns all public services. For authenticated users, also returns all services the calling user has "servicemanagement.services.get" permission for. **BETA:**
+         * If the caller specifies the `consumer_id`, it returns only the services enabled on the consumer. The `consumer_id` must have the format of "project:{PROJECT-ID}".
          */
         await gapi.client.servicemanagement.services.list({
             consumerId: "Test string",
@@ -4269,9 +4202,8 @@ gapi.load('client', () => {
             producerProjectId: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service
-         * configuration to backend systems please call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing
-         * rollouts are kept for each service. The rest will be deleted eventually.
+         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service configuration to backend systems please
+         * call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing rollouts are kept for each service. The rest will be deleted eventually.
          */
         await gapi.client.servicemanagement.services.configs.create({
             serviceName: "Test string",
@@ -4679,10 +4611,9 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the generated service configuration. To rollout the service configuration to
-         * other services, please call CreateServiceRollout. Only the 100 most recent configuration sources and ones referenced by existing service configurtions
-         * are kept for each service. The rest will be deleted eventually. Operation
+         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI Specification). This method stores the source
+         * configurations as well as the generated service configuration. To rollout the service configuration to other services, please call CreateServiceRollout. Only the 100 most recent
+         * configuration sources and ones referenced by existing service configurtions are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.configs.submit({
             serviceName: "Test string",
@@ -4706,10 +4637,7 @@ gapi.load('client', () => {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.consumers.setIamPolicy({
             resource: "Test string",
         }, {
@@ -4742,9 +4670,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.consumers.testIamPermissions({
             resource: "Test string",
@@ -4753,11 +4680,10 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different
-         * backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running
-         * Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100
-         * most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest
-         * will be deleted eventually. Operation
+         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the
+         * logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so
+         * that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent)
+         * rollouts are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.rollouts.create({
             serviceName: "Test string",
@@ -4786,10 +4712,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             serviceName: "Test string",
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.setIamPolicy({
             resource: "Test string",
         }, {
@@ -4822,9 +4745,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service
-         * configuration to backend systems please call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing
-         * rollouts are kept for each service. The rest will be deleted eventually.
+         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service configuration to backend systems please
+         * call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing rollouts are kept for each service. The rest will be deleted eventually.
          */
         await gapi.client.servicemanagement.services.configs.create({
             serviceName: "Test string",
@@ -5232,10 +5154,9 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the generated service configuration. To rollout the service configuration to
-         * other services, please call CreateServiceRollout. Only the 100 most recent configuration sources and ones referenced by existing service configurtions
-         * are kept for each service. The rest will be deleted eventually. Operation
+         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI Specification). This method stores the source
+         * configurations as well as the generated service configuration. To rollout the service configuration to other services, please call CreateServiceRollout. Only the 100 most recent
+         * configuration sources and ones referenced by existing service configurtions are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.configs.submit({
             serviceName: "Test string",
@@ -5259,10 +5180,7 @@ gapi.load('client', () => {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.consumers.setIamPolicy({
             resource: "Test string",
         }, {
@@ -5295,9 +5213,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.consumers.testIamPermissions({
             resource: "Test string",
@@ -5306,11 +5223,10 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different
-         * backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running
-         * Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100
-         * most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest
-         * will be deleted eventually. Operation
+         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the
+         * logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so
+         * that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent)
+         * rollouts are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.rollouts.create({
             serviceName: "Test string",
@@ -5340,9 +5256,8 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.testIamPermissions({
             resource: "Test string",
@@ -5351,9 +5266,8 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service
-         * configuration to backend systems please call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing
-         * rollouts are kept for each service. The rest will be deleted eventually.
+         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service configuration to backend systems please
+         * call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing rollouts are kept for each service. The rest will be deleted eventually.
          */
         await gapi.client.servicemanagement.services.configs.create({
             serviceName: "Test string",
@@ -5761,10 +5675,9 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the generated service configuration. To rollout the service configuration to
-         * other services, please call CreateServiceRollout. Only the 100 most recent configuration sources and ones referenced by existing service configurtions
-         * are kept for each service. The rest will be deleted eventually. Operation
+         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI Specification). This method stores the source
+         * configurations as well as the generated service configuration. To rollout the service configuration to other services, please call CreateServiceRollout. Only the 100 most recent
+         * configuration sources and ones referenced by existing service configurtions are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.configs.submit({
             serviceName: "Test string",
@@ -5788,10 +5701,7 @@ gapi.load('client', () => {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.consumers.setIamPolicy({
             resource: "Test string",
         }, {
@@ -5824,9 +5734,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.consumers.testIamPermissions({
             resource: "Test string",
@@ -5835,11 +5744,10 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different
-         * backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running
-         * Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100
-         * most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest
-         * will be deleted eventually. Operation
+         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the
+         * logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so
+         * that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent)
+         * rollouts are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.rollouts.create({
             serviceName: "Test string",
@@ -5869,16 +5777,15 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Revives a previously deleted managed service. The method restores the service using the configuration at the time the service was deleted. The target
-         * service must exist and must have been deleted within the last 30 days. Operation
+         * Revives a previously deleted managed service. The method restores the service using the configuration at the time the service was deleted. The target service must exist and must have
+         * been deleted within the last 30 days. Operation
          */
         await gapi.client.servicemanagement.services.undelete({
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service
-         * configuration to backend systems please call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing
-         * rollouts are kept for each service. The rest will be deleted eventually.
+         * Creates a new service configuration (version) for a managed service. This method only stores the service configuration. To roll out the service configuration to backend systems please
+         * call CreateServiceRollout. Only the 100 most recent service configurations and ones referenced by existing rollouts are kept for each service. The rest will be deleted eventually.
          */
         await gapi.client.servicemanagement.services.configs.create({
             serviceName: "Test string",
@@ -6286,10 +6193,9 @@ gapi.load('client', () => {
             serviceName: "Test string",
         });
         /**
-         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI
-         * Specification). This method stores the source configurations as well as the generated service configuration. To rollout the service configuration to
-         * other services, please call CreateServiceRollout. Only the 100 most recent configuration sources and ones referenced by existing service configurtions
-         * are kept for each service. The rest will be deleted eventually. Operation
+         * Creates a new service configuration (version) for a managed service based on user-supplied configuration source files (for example: OpenAPI Specification). This method stores the source
+         * configurations as well as the generated service configuration. To rollout the service configuration to other services, please call CreateServiceRollout. Only the 100 most recent
+         * configuration sources and ones referenced by existing service configurtions are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.configs.submit({
             serviceName: "Test string",
@@ -6313,10 +6219,7 @@ gapi.load('client', () => {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.servicemanagement.services.consumers.setIamPolicy({
             resource: "Test string",
         }, {
@@ -6349,9 +6252,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.servicemanagement.services.consumers.testIamPermissions({
             resource: "Test string",
@@ -6360,11 +6262,10 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different
-         * backend services. For example, the logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running
-         * Rollouts and associated Operations will be automatically cancelled so that the latest Rollout will not be blocked by previous Rollouts. Only the 100
-         * most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent) rollouts are kept for each service. The rest
-         * will be deleted eventually. Operation
+         * Creates a new service configuration rollout. Based on rollout, the Google Service Management will roll out the service configurations to different backend services. For example, the
+         * logging configuration will be pushed to Google Cloud Logging. Please note that any previous pending and running Rollouts and associated Operations will be automatically cancelled so
+         * that the latest Rollout will not be blocked by previous Rollouts. Only the 100 most recent (in any state) and the last 10 successful (if not already part of the set of 100 most recent)
+         * rollouts are kept for each service. The rest will be deleted eventually. Operation
          */
         await gapi.client.servicemanagement.services.rollouts.create({
             serviceName: "Test string",

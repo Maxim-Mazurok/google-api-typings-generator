@@ -120,10 +120,7 @@ gapi.load('client', () => {
             customerId: "Test string",
             subscriptionId: "Test string",
         });
-        /**
-         * Update a subscription plan. Use this method to update a plan for a 30-day trial or a flexible plan subscription to an annual commitment plan with
-         * monthly or yearly payments.
-         */
+        /** Update a subscription plan. Use this method to update a plan for a 30-day trial or a flexible plan subscription to an annual commitment plan with monthly or yearly payments. */
         await gapi.client.reseller.subscriptions.changePlan({
             customerId: "Test string",
             subscriptionId: "Test string",
@@ -214,10 +211,7 @@ gapi.load('client', () => {
                 trialEndTime: "Test string",
             },
         });
-        /**
-         * List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's
-         * transferable subscriptions.
-         */
+        /** List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's transferable subscriptions. */
         await gapi.client.reseller.subscriptions.list({
             customerAuthToken: "Test string",
             customerId: "Test string",

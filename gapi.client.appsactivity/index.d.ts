@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Drive Activity API v1 1.0
 // Project: https://developers.google.com/google-apps/activity/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -26,8 +29,8 @@ declare namespace gapi.client {
         }
         interface Event {
             /**
-             * Additional event types. Some events may have multiple types when multiple actions are part of a single event. For example, creating a document,
-             * renaming it, and sharing it may be part of a single file-creation event.
+             * Additional event types. Some events may have multiple types when multiple actions are part of a single event. For example, creating a document, renaming it, and sharing it may be
+             * part of a single file-creation event.
              */
             additionalEventTypes?: string[];
             /** The time at which the event occurred formatted as Unix time in milliseconds. */
@@ -112,19 +115,16 @@ declare namespace gapi.client {
             isMe?: boolean;
             /** The displayable name of the user. */
             name?: string;
-            /**
-             * The permission ID associated with this user. Equivalent to the Drive API's permission ID for this user, returned as part of the Drive Permissions
-             * resource.
-             */
+            /** The permission ID associated with this user. Equivalent to the Drive API's permission ID for this user, returned as part of the Drive Permissions resource. */
             permissionId?: string;
             /** The profile photo of the user. Not present if the user has no profile photo. */
             photo?: Photo;
         }
         interface ActivitiesResource {
             /**
-             * Returns a list of activities visible to the current logged in user. Visible activities are determined by the visibility settings of the object that was
-             * acted on, e.g. Drive files a user can see. An activity is a record of past events. Multiple events may be merged if they are similar. A request is
-             * scoped to activities from a given Google service using the source parameter.
+             * Returns a list of activities visible to the current logged in user. Visible activities are determined by the visibility settings of the object that was acted on, e.g. Drive files a
+             * user can see. An activity is a record of past events. Multiple events may be merged if they are similar. A request is scoped to activities from a given Google service using the
+             * source parameter.
              */
             list(request?: {
                 /** Data format for the response. */
@@ -154,10 +154,7 @@ declare namespace gapi.client {
                  * - drive.google.com
                  */
                 source?: string;
-                /**
-                 * The ID used for ACL checks (does not filter the resulting event list by the assigned value). Use the special value me to indicate the currently
-                 * authenticated user.
-                 */
+                /** The ID used for ACL checks (does not filter the resulting event list by the assigned value). Use the special value me to indicate the currently authenticated user. */
                 userId?: string;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;

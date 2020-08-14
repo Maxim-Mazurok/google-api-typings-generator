@@ -1,6 +1,9 @@
 // Type definitions for non-npm package DCM/DFA Reporting And Trafficking API v3.4 3.4
 // Project: https://developers.google.com/doubleclick-advertisers/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -34,12 +37,11 @@ declare namespace gapi.client {
             /** ID of the country associated with this account. */
             countryId?: string;
             /**
-             * ID of currency associated with this account. This is a required field. Acceptable values are: - "1" for USD - "2" for GBP - "3" for ESP - "4" for SEK -
-             * "5" for CAD - "6" for JPY - "7" for DEM - "8" for AUD - "9" for FRF - "10" for ITL - "11" for DKK - "12" for NOK - "13" for FIM - "14" for ZAR - "15"
-             * for IEP - "16" for NLG - "17" for EUR - "18" for KRW - "19" for TWD - "20" for SGD - "21" for CNY - "22" for HKD - "23" for NZD - "24" for MYR - "25"
-             * for BRL - "26" for PTE - "27" for MXP - "28" for CLP - "29" for TRY - "30" for ARS - "31" for PEN - "32" for ILS - "33" for CHF - "34" for VEF - "35"
-             * for COP - "36" for GTQ - "37" for PLN - "39" for INR - "40" for THB - "41" for IDR - "42" for CZK - "43" for RON - "44" for HUF - "45" for RUB - "46"
-             * for AED - "47" for BGN - "48" for HRK - "49" for MXN - "50" for NGN - "51" for EGP
+             * ID of currency associated with this account. This is a required field. Acceptable values are: - "1" for USD - "2" for GBP - "3" for ESP - "4" for SEK - "5" for CAD - "6" for JPY -
+             * "7" for DEM - "8" for AUD - "9" for FRF - "10" for ITL - "11" for DKK - "12" for NOK - "13" for FIM - "14" for ZAR - "15" for IEP - "16" for NLG - "17" for EUR - "18" for KRW - "19"
+             * for TWD - "20" for SGD - "21" for CNY - "22" for HKD - "23" for NZD - "24" for MYR - "25" for BRL - "26" for PTE - "27" for MXP - "28" for CLP - "29" for TRY - "30" for ARS - "31"
+             * for PEN - "32" for ILS - "33" for CHF - "34" for VEF - "35" for COP - "36" for GTQ - "37" for PLN - "39" for INR - "40" for THB - "41" for IDR - "42" for CZK - "43" for RON - "44"
+             * for HUF - "45" for RUB - "46" for AED - "47" for BGN - "48" for HRK - "49" for MXN - "50" for NGN - "51" for EGP
              */
             currencyId?: string;
             /** Default placement dimensions for this account. */
@@ -51,9 +53,9 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#account". */
             kind?: string;
             /**
-             * Locale of this account. Acceptable values are: - "cs" (Czech) - "de" (German) - "en" (English) - "en-GB" (English United Kingdom) - "es" (Spanish) -
-             * "fr" (French) - "it" (Italian) - "ja" (Japanese) - "ko" (Korean) - "pl" (Polish) - "pt-BR" (Portuguese Brazil) - "ru" (Russian) - "sv" (Swedish) - "tr"
-             * (Turkish) - "zh-CN" (Chinese Simplified) - "zh-TW" (Chinese Traditional)
+             * Locale of this account. Acceptable values are: - "cs" (Czech) - "de" (German) - "en" (English) - "en-GB" (English United Kingdom) - "es" (Spanish) - "fr" (French) - "it" (Italian) -
+             * "ja" (Japanese) - "ko" (Korean) - "pl" (Polish) - "pt-BR" (Portuguese Brazil) - "ru" (Russian) - "sv" (Swedish) - "tr" (Turkish) - "zh-CN" (Chinese Simplified) - "zh-TW" (Chinese
+             * Traditional)
              */
             locale?: string;
             /** Maximum image size allowed for this account, in kilobytes. Value must be greater than or equal to 1. */
@@ -141,14 +143,14 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountUserProfile". */
             kind?: string;
             /**
-             * Locale of the user profile. This is a required field. Acceptable values are: - "cs" (Czech) - "de" (German) - "en" (English) - "en-GB" (English United
-             * Kingdom) - "es" (Spanish) - "fr" (French) - "it" (Italian) - "ja" (Japanese) - "ko" (Korean) - "pl" (Polish) - "pt-BR" (Portuguese Brazil) - "ru"
-             * (Russian) - "sv" (Swedish) - "tr" (Turkish) - "zh-CN" (Chinese Simplified) - "zh-TW" (Chinese Traditional)
+             * Locale of the user profile. This is a required field. Acceptable values are: - "cs" (Czech) - "de" (German) - "en" (English) - "en-GB" (English United Kingdom) - "es" (Spanish) -
+             * "fr" (French) - "it" (Italian) - "ja" (Japanese) - "ko" (Korean) - "pl" (Polish) - "pt-BR" (Portuguese Brazil) - "ru" (Russian) - "sv" (Swedish) - "tr" (Turkish) - "zh-CN" (Chinese
+             * Simplified) - "zh-TW" (Chinese Traditional)
              */
             locale?: string;
             /**
-             * Name of the user profile. This is a required field. Must be less than 64 characters long, must be globally unique, and cannot contain whitespace or any
-             * of the following characters: "&;<>"#%,".
+             * Name of the user profile. This is a required field. Must be less than 64 characters long, must be globally unique, and cannot contain whitespace or any of the following characters:
+             * "&;<>"#%,".
              */
             name?: string;
             /** Filter that describes which sites are visible to the user profile. */
@@ -204,64 +206,46 @@ declare namespace gapi.client {
             /** Comments for this ad. */
             comments?: string;
             /**
-             * Compatibility of this ad. Applicable when type is AD_SERVING_DEFAULT_AD. DISPLAY and DISPLAY_INTERSTITIAL refer to either rendering on desktop or on
-             * mobile devices or in mobile apps for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are only used for existing default ads. New
-             * mobile placements must be assigned DISPLAY or DISPLAY_INTERSTITIAL and default ads created for those placements will be limited to those compatibility
-             * types. IN_STREAM_VIDEO refers to rendering in-stream video ads developed with the VAST standard.
+             * Compatibility of this ad. Applicable when type is AD_SERVING_DEFAULT_AD. DISPLAY and DISPLAY_INTERSTITIAL refer to either rendering on desktop or on mobile devices or in mobile apps
+             * for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are only used for existing default ads. New mobile placements must be assigned DISPLAY or
+             * DISPLAY_INTERSTITIAL and default ads created for those placements will be limited to those compatibility types. IN_STREAM_VIDEO refers to rendering in-stream video ads developed
+             * with the VAST standard.
              */
             compatibility?: string;
             /** Information about the creation of this ad. This is a read-only field. */
             createInfo?: LastModifiedInfo;
-            /**
-             * Creative group assignments for this ad. Applicable when type is AD_SERVING_CLICK_TRACKER. Only one assignment per creative group number is allowed for
-             * a maximum of two assignments.
-             */
+            /** Creative group assignments for this ad. Applicable when type is AD_SERVING_CLICK_TRACKER. Only one assignment per creative group number is allowed for a maximum of two assignments. */
             creativeGroupAssignments?: CreativeGroupAssignment[];
             /**
-             * Creative rotation for this ad. Applicable when type is AD_SERVING_DEFAULT_AD, AD_SERVING_STANDARD_AD, or AD_SERVING_TRACKING. When type is
-             * AD_SERVING_DEFAULT_AD, this field should have exactly one creativeAssignment .
+             * Creative rotation for this ad. Applicable when type is AD_SERVING_DEFAULT_AD, AD_SERVING_STANDARD_AD, or AD_SERVING_TRACKING. When type is AD_SERVING_DEFAULT_AD, this field should
+             * have exactly one creativeAssignment .
              */
             creativeRotation?: CreativeRotation;
-            /**
-             * Time and day targeting information for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is
-             * AD_SERVING_STANDARD_AD.
-             */
+            /** Time and day targeting information for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is AD_SERVING_STANDARD_AD. */
             dayPartTargeting?: DayPartTargeting;
             /** Default click-through event tag properties for this ad. */
             defaultClickThroughEventTagProperties?: DefaultClickThroughEventTagProperties;
             /**
-             * Delivery schedule information for this ad. Applicable when type is AD_SERVING_STANDARD_AD or AD_SERVING_TRACKING. This field along with subfields
-             * priority and impressionRatio are required on insertion when type is AD_SERVING_STANDARD_AD.
+             * Delivery schedule information for this ad. Applicable when type is AD_SERVING_STANDARD_AD or AD_SERVING_TRACKING. This field along with subfields priority and impressionRatio are
+             * required on insertion when type is AD_SERVING_STANDARD_AD.
              */
             deliverySchedule?: DeliverySchedule;
-            /**
-             * Whether this ad is a dynamic click tracker. Applicable when type is AD_SERVING_CLICK_TRACKER. This is a required field on insert, and is read-only
-             * after insert.
-             */
+            /** Whether this ad is a dynamic click tracker. Applicable when type is AD_SERVING_CLICK_TRACKER. This is a required field on insert, and is read-only after insert. */
             dynamicClickTracker?: boolean;
             endTime?: string;
             /** Event tag overrides for this ad. */
             eventTagOverrides?: EventTagOverride[];
-            /**
-             * Geographical targeting information for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is
-             * AD_SERVING_STANDARD_AD.
-             */
+            /** Geographical targeting information for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is AD_SERVING_STANDARD_AD. */
             geoTargeting?: GeoTargeting;
             /** ID of this ad. This is a read-only, auto-generated field. */
             id?: string;
             /** Dimension value for the ID of this ad. This is a read-only, auto-generated field. */
             idDimensionValue?: DimensionValue;
-            /**
-             * Key-value targeting information for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is
-             * AD_SERVING_STANDARD_AD.
-             */
+            /** Key-value targeting information for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is AD_SERVING_STANDARD_AD. */
             keyValueTargetingExpression?: KeyValueTargetingExpression;
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#ad". */
             kind?: string;
-            /**
-             * Language targeting information for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is
-             * AD_SERVING_STANDARD_AD.
-             */
+            /** Language targeting information for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is AD_SERVING_STANDARD_AD. */
             languageTargeting?: LanguageTargeting;
             /** Information about the most recent modification of this ad. This is a read-only field. */
             lastModifiedInfo?: LastModifiedInfo;
@@ -269,10 +253,7 @@ declare namespace gapi.client {
             name?: string;
             /** Placement assignments for this ad. */
             placementAssignments?: PlacementAssignment[];
-            /**
-             * Remarketing list targeting expression for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is
-             * AD_SERVING_STANDARD_AD.
-             */
+            /** Remarketing list targeting expression for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is AD_SERVING_STANDARD_AD. */
             remarketingListExpression?: ListTargetingExpression;
             /** Size of this ad. Applicable when type is AD_SERVING_DEFAULT_AD. */
             size?: Size;
@@ -284,15 +265,11 @@ declare namespace gapi.client {
             /** Subaccount ID of this ad. This is a read-only field that can be left blank. */
             subaccountId?: string;
             /**
-             * Targeting template ID, used to apply preconfigured targeting information to this ad. This cannot be set while any of dayPartTargeting, geoTargeting,
-             * keyValueTargetingExpression, languageTargeting, remarketingListExpression, or technologyTargeting are set. Applicable when type is
-             * AD_SERVING_STANDARD_AD.
+             * Targeting template ID, used to apply preconfigured targeting information to this ad. This cannot be set while any of dayPartTargeting, geoTargeting, keyValueTargetingExpression,
+             * languageTargeting, remarketingListExpression, or technologyTargeting are set. Applicable when type is AD_SERVING_STANDARD_AD.
              */
             targetingTemplateId?: string;
-            /**
-             * Technology platform targeting information for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is
-             * AD_SERVING_STANDARD_AD.
-             */
+            /** Technology platform targeting information for this ad. This field must be left blank if the ad is using a targeting template. Applicable when type is AD_SERVING_STANDARD_AD. */
             technologyTargeting?: TechnologyTargeting;
             /** Type of ad. This is a required field on insertion. Note that default ads ( AD_SERVING_DEFAULT_AD) cannot be created directly (see Creative resource). */
             type?: string;
@@ -300,19 +277,16 @@ declare namespace gapi.client {
         interface AdBlockingConfiguration {
             /** Click-through URL used by brand-neutral ads. This is a required field when overrideClickThroughUrl is set to true. */
             clickThroughUrl?: string;
-            /**
-             * ID of a creative bundle to use for this campaign. If set, brand-neutral ads will select creatives from this bundle. Otherwise, a default transparent
-             * pixel will be used.
-             */
+            /** ID of a creative bundle to use for this campaign. If set, brand-neutral ads will select creatives from this bundle. Otherwise, a default transparent pixel will be used. */
             creativeBundleId?: string;
             /**
-             * Whether this campaign has enabled ad blocking. When true, ad blocking is enabled for placements in the campaign, but this may be overridden by site and
-             * placement settings. When false, ad blocking is disabled for all placements under the campaign, regardless of site and placement settings.
+             * Whether this campaign has enabled ad blocking. When true, ad blocking is enabled for placements in the campaign, but this may be overridden by site and placement settings. When
+             * false, ad blocking is disabled for all placements under the campaign, regardless of site and placement settings.
              */
             enabled?: boolean;
             /**
-             * Whether the brand-neutral ad's click-through URL comes from the campaign's creative bundle or the override URL. Must be set to true if ad blocking is
-             * enabled and no creative bundle is configured.
+             * Whether the brand-neutral ad's click-through URL comes from the campaign's creative bundle or the override URL. Must be set to true if ad blocking is enabled and no creative bundle
+             * is configured.
              */
             overrideClickThroughUrl?: boolean;
         }
@@ -328,9 +302,8 @@ declare namespace gapi.client {
             /** Comment for this ad slot. */
             comment?: string;
             /**
-             * Ad slot compatibility. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop, mobile devices or in mobile apps for regular or
-             * interstitial ads respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps. IN_STREAM_VIDEO refers to rendering in in-stream video ads
-             * developed with the VAST standard.
+             * Ad slot compatibility. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop, mobile devices or in mobile apps for regular or interstitial ads respectively. APP and
+             * APP_INTERSTITIAL are for rendering in mobile apps. IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with the VAST standard.
              */
             compatibility?: string;
             /** Height of this ad slot. */
@@ -350,8 +323,8 @@ declare namespace gapi.client {
             /** Account ID of this advertiser.This is a read-only field that can be left blank. */
             accountId?: string;
             /**
-             * ID of the advertiser group this advertiser belongs to. You can group advertisers for reporting purposes, allowing you to see aggregated information for
-             * all advertisers in each group.
+             * ID of the advertiser group this advertiser belongs to. You can group advertisers for reporting purposes, allowing you to see aggregated information for all advertisers in each
+             * group.
              */
             advertiserGroupId?: string;
             /** Suffix added to click-through URL of ad creative associations under this advertiser. Must be less than 129 characters long. */
@@ -361,10 +334,10 @@ declare namespace gapi.client {
             /** Default email address used in sender field for tag emails. */
             defaultEmail?: string;
             /**
-             * Floodlight configuration ID of this advertiser. The floodlight configuration ID will be created automatically, so on insert this field should be left
-             * blank. This field can be set to another advertiser's floodlight configuration ID in order to share that advertiser's floodlight configuration with this
-             * advertiser, so long as: - This advertiser's original floodlight configuration is not already associated with floodlight activities or floodlight
-             * activity groups. - This advertiser's original floodlight configuration is not already shared with another advertiser.
+             * Floodlight configuration ID of this advertiser. The floodlight configuration ID will be created automatically, so on insert this field should be left blank. This field can be set to
+             * another advertiser's floodlight configuration ID in order to share that advertiser's floodlight configuration with this advertiser, so long as: - This advertiser's original
+             * floodlight configuration is not already associated with floodlight activities or floodlight activity groups. - This advertiser's original floodlight configuration is not already
+             * shared with another advertiser.
              */
             floodlightConfigurationId?: string;
             /** Dimension value for the ID of the floodlight configuration. This is a read-only, auto-generated field. */
@@ -378,9 +351,8 @@ declare namespace gapi.client {
             /** Name of this advertiser. This is a required field and must be less than 256 characters long and unique among advertisers of the same account. */
             name?: string;
             /**
-             * Original floodlight configuration before any sharing occurred. Set the floodlightConfigurationId of this advertiser to
-             * originalFloodlightConfigurationId to unshare the advertiser's current floodlight configuration. You cannot unshare an advertiser's floodlight
-             * configuration if the shared configuration has activities associated with any campaign or placement.
+             * Original floodlight configuration before any sharing occurred. Set the floodlightConfigurationId of this advertiser to originalFloodlightConfigurationId to unshare the advertiser's
+             * current floodlight configuration. You cannot unshare an advertiser's floodlight configuration if the shared configuration has activities associated with any campaign or placement.
              */
             originalFloodlightConfigurationId?: string;
             /** Status of this advertiser. */
@@ -397,10 +369,7 @@ declare namespace gapi.client {
             id?: string;
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#advertiserGroup". */
             kind?: string;
-            /**
-             * Name of this advertiser group. This is a required field and must be less than 256 characters long and unique among advertiser groups of the same
-             * account.
-             */
+            /** Name of this advertiser group. This is a required field and must be less than 256 characters long and unique among advertiser groups of the same account. */
             name?: string;
         }
         interface AdvertiserGroupsListResponse {
@@ -429,8 +398,8 @@ declare namespace gapi.client {
         }
         interface AudienceSegment {
             /**
-             * Weight allocated to this segment. The weight assigned will be understood in proportion to the weights assigned to other segments in the same segment
-             * group. Acceptable values are 1 to 1000, inclusive.
+             * Weight allocated to this segment. The weight assigned will be understood in proportion to the weights assigned to other segments in the same segment group. Acceptable values are 1
+             * to 1000, inclusive.
              */
             allocation?: number;
             /** ID of this audience segment. This is a read-only, auto-generated field. */
@@ -454,17 +423,15 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#browser". */
             kind?: string;
             /**
-             * Major version number (leftmost number) of this browser. For example, for Chrome 5.0.376.86 beta, this field should be set to 5. An asterisk (∗) may be
-             * used to target any version number, and a question mark (?) may be used to target cases where the version number cannot be identified. For example,
-             * Chrome ∗.∗ targets any version of Chrome: 1.2, 2.5, 3.5, and so on. Chrome 3.∗ targets Chrome 3.1, 3.5, but not 4.0. Firefox ?.? targets cases where
-             * the ad server knows the browser is Firefox but can't tell which version it is.
+             * Major version number (leftmost number) of this browser. For example, for Chrome 5.0.376.86 beta, this field should be set to 5. An asterisk (*) may be used to target any version
+             * number, and a question mark (?) may be used to target cases where the version number cannot be identified. For example, Chrome *.* targets any version of Chrome: 1.2, 2.5, 3.5, and
+             * so on. Chrome 3.* targets Chrome 3.1, 3.5, but not 4.0. Firefox ?.? targets cases where the ad server knows the browser is Firefox but can't tell which version it is.
              */
             majorVersion?: string;
             /**
-             * Minor version number (number after first dot on left) of this browser. For example, for Chrome 5.0.375.86 beta, this field should be set to 0. An
-             * asterisk (∗) may be used to target any version number, and a question mark (?) may be used to target cases where the version number cannot be
-             * identified. For example, Chrome ∗.∗ targets any version of Chrome: 1.2, 2.5, 3.5, and so on. Chrome 3.∗ targets Chrome 3.1, 3.5, but not 4.0. Firefox
-             * ?.? targets cases where the ad server knows the browser is Firefox but can't tell which version it is.
+             * Minor version number (number after first dot on left) of this browser. For example, for Chrome 5.0.375.86 beta, this field should be set to 0. An asterisk (*) may be used to target
+             * any version number, and a question mark (?) may be used to target cases where the version number cannot be identified. For example, Chrome *.* targets any version of Chrome: 1.2,
+             * 2.5, 3.5, and so on. Chrome 3.* targets Chrome 3.1, 3.5, but not 4.0. Firefox ?.? targets cases where the ad server knows the browser is Firefox but can't tell which version it is.
              */
             minorVersion?: string;
             /** Name of this browser. */
@@ -590,10 +557,7 @@ declare namespace gapi.client {
             oldValue?: string;
             /** Subaccount ID of the modified object. */
             subaccountId?: string;
-            /**
-             * Transaction ID of this change log. When a single API call results in many changes, each change will have a separate ID in the change log but will share
-             * the same transactionId.
-             */
+            /** Transaction ID of this change log. When a single API call results in many changes, each change will have a separate ID in the change log but will share the same transactionId. */
             transactionId?: string;
             /** ID of the user who modified the object. */
             userProfileId?: string;
@@ -656,22 +620,18 @@ declare namespace gapi.client {
             /** Parameter value for the specified click tag. This field contains a click-through url. */
             clickThroughUrl?: CreativeClickThroughUrl;
             /**
-             * Advertiser event name associated with the click tag. This field is used by DISPLAY_IMAGE_GALLERY and HTML5_BANNER creatives. Applicable to DISPLAY when
-             * the primary asset type is not HTML_IMAGE.
+             * Advertiser event name associated with the click tag. This field is used by DISPLAY_IMAGE_GALLERY and HTML5_BANNER creatives. Applicable to DISPLAY when the primary asset type is not
+             * HTML_IMAGE.
              */
             eventName?: string;
-            /**
-             * Parameter name for the specified click tag. For DISPLAY_IMAGE_GALLERY creative assets, this field must match the value of the creative asset's
-             * creativeAssetId.name field.
-             */
+            /** Parameter name for the specified click tag. For DISPLAY_IMAGE_GALLERY creative assets, this field must match the value of the creative asset's creativeAssetId.name field. */
             name?: string;
         }
         interface ClickThroughUrl {
             /**
-             * Read-only convenience field representing the actual URL that will be used for this click-through. The URL is computed as follows: - If
-             * defaultLandingPage is enabled then the campaign's default landing page URL is assigned to this field. - If defaultLandingPage is not enabled and a
-             * landingPageId is specified then that landing page's URL is assigned to this field. - If neither of the above cases apply, then the
-             * customClickThroughUrl is assigned to this field.
+             * Read-only convenience field representing the actual URL that will be used for this click-through. The URL is computed as follows: - If defaultLandingPage is enabled then the
+             * campaign's default landing page URL is assigned to this field. - If defaultLandingPage is not enabled and a landingPageId is specified then that landing page's URL is assigned to
+             * this field. - If neither of the above cases apply, then the customClickThroughUrl is assigned to this field.
              */
             computedClickThroughUrl?: string;
             /** Custom click-through URL. Applicable if the defaultLandingPage field is set to false and the landingPageId field is left unset. */
@@ -750,10 +710,7 @@ declare namespace gapi.client {
             id?: string;
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#contentCategory". */
             kind?: string;
-            /**
-             * Name of this content category. This is a required field and must be less than 256 characters long and unique among content categories of the same
-             * account.
-             */
+            /** Name of this content category. This is a required field and must be less than 256 characters long and unique among content categories of the same account. */
             name?: string;
         }
         interface Conversion {
@@ -762,16 +719,15 @@ declare namespace gapi.client {
             /** Custom floodlight variables. */
             customVariables?: CustomFloodlightVariable[];
             /**
-             * The alphanumeric encrypted user ID. When set, encryptionInfo should also be specified. This field is mutually exclusive with
-             * encryptedUserIdCandidates[], matchId, mobileDeviceId and gclid. This or encryptedUserIdCandidates[] or matchId or mobileDeviceId or gclid is a required
-             * field.
+             * The alphanumeric encrypted user ID. When set, encryptionInfo should also be specified. This field is mutually exclusive with encryptedUserIdCandidates[], matchId, mobileDeviceId and
+             * gclid. This or encryptedUserIdCandidates[] or matchId or mobileDeviceId or gclid is a required field.
              */
             encryptedUserId?: string;
             /**
-             * A list of the alphanumeric encrypted user IDs. Any user ID with exposure prior to the conversion timestamp will be used in the inserted conversion. If
-             * no such user ID is found then the conversion will be rejected with INVALID_ARGUMENT error. When set, encryptionInfo should also be specified. This
-             * field may only be used when calling batchinsert; it is not supported by batchupdate. This field is mutually exclusive with encryptedUserId, matchId,
-             * mobileDeviceId and gclid. This or encryptedUserId or matchId or mobileDeviceId or gclid is a required field.
+             * A list of the alphanumeric encrypted user IDs. Any user ID with exposure prior to the conversion timestamp will be used in the inserted conversion. If no such user ID is found then
+             * the conversion will be rejected with INVALID_ARGUMENT error. When set, encryptionInfo should also be specified. This field may only be used when calling batchinsert; it is not
+             * supported by batchupdate. This field is mutually exclusive with encryptedUserId, matchId, mobileDeviceId and gclid. This or encryptedUserId or matchId or mobileDeviceId or gclid is
+             * a required field.
              */
             encryptedUserIdCandidates?: string[];
             /** Floodlight Activity ID of this conversion. This is a required field. */
@@ -779,8 +735,8 @@ declare namespace gapi.client {
             /** Floodlight Configuration ID of this conversion. This is a required field. */
             floodlightConfigurationId?: string;
             /**
-             * The Google click ID. This field is mutually exclusive with encryptedUserId, encryptedUserIdCandidates[], matchId and mobileDeviceId. This or
-             * encryptedUserId or encryptedUserIdCandidates[] or matchId or mobileDeviceId is a required field.
+             * The Google click ID. This field is mutually exclusive with encryptedUserId, encryptedUserIdCandidates[], matchId and mobileDeviceId. This or encryptedUserId or
+             * encryptedUserIdCandidates[] or matchId or mobileDeviceId is a required field.
              */
             gclid?: string;
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#conversion". */
@@ -788,14 +744,13 @@ declare namespace gapi.client {
             /** Whether Limit Ad Tracking is enabled. When set to true, the conversion will be used for reporting but not targeting. This will prevent remarketing. */
             limitAdTracking?: boolean;
             /**
-             * The match ID field. A match ID is your own first-party identifier that has been synced with Google using the match ID feature in Floodlight. This field
-             * is mutually exclusive with encryptedUserId, encryptedUserIdCandidates[],mobileDeviceId and gclid. This or encryptedUserId or
-             * encryptedUserIdCandidates[] or mobileDeviceId or gclid is a required field.
+             * The match ID field. A match ID is your own first-party identifier that has been synced with Google using the match ID feature in Floodlight. This field is mutually exclusive with
+             * encryptedUserId, encryptedUserIdCandidates[],mobileDeviceId and gclid. This or encryptedUserId or encryptedUserIdCandidates[] or mobileDeviceId or gclid is a required field.
              */
             matchId?: string;
             /**
-             * The mobile device ID. This field is mutually exclusive with encryptedUserId, encryptedUserIdCandidates[], matchId and gclid. This or encryptedUserId or
-             * encryptedUserIdCandidates[] or matchId or gclid is a required field.
+             * The mobile device ID. This field is mutually exclusive with encryptedUserId, encryptedUserIdCandidates[], matchId and gclid. This or encryptedUserId or encryptedUserIdCandidates[]
+             * or matchId or gclid is a required field.
              */
             mobileDeviceId?: string;
             /** Whether the conversion was for a non personalized ad. */
@@ -807,8 +762,8 @@ declare namespace gapi.client {
             /** The timestamp of conversion, in Unix epoch micros. This is a required field. */
             timestampMicros?: string;
             /**
-             * Whether this particular request may come from a user under the age of 16 (may differ by country), under compliance with the European Union's General
-             * Data Protection Regulation (GDPR).
+             * Whether this particular request may come from a user under the age of 16 (may differ by country), under compliance with the European Union's General Data Protection Regulation
+             * (GDPR).
              */
             treatmentForUnderage?: boolean;
             /** The value of the conversion. */
@@ -825,10 +780,7 @@ declare namespace gapi.client {
         interface ConversionsBatchInsertRequest {
             /** The set of conversions to insert. */
             conversions?: Conversion[];
-            /**
-             * Describes how encryptedUserId or encryptedUserIdCandidates[] is encrypted. This is a required field if encryptedUserId or encryptedUserIdCandidates[]
-             * is used.
-             */
+            /** Describes how encryptedUserId or encryptedUserIdCandidates[] is encrypted. This is a required field if encryptedUserId or encryptedUserIdCandidates[] is used. */
             encryptionInfo?: EncryptionInfo;
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#conversionsBatchInsertRequest". */
             kind?: string;
@@ -889,23 +841,22 @@ declare namespace gapi.client {
             /** Whether the creative is active. Applicable to all creative types. */
             active?: boolean;
             /**
-             * Additional sizes associated with a responsive creative. When inserting or updating a creative either the size ID field or size width and height fields
-             * can be used. Applicable to DISPLAY creatives when the primary asset type is HTML_IMAGE.
+             * Additional sizes associated with a responsive creative. When inserting or updating a creative either the size ID field or size width and height fields can be used. Applicable to
+             * DISPLAY creatives when the primary asset type is HTML_IMAGE.
              */
             additionalSizes?: Size[];
             /** Ad parameters user for VPAID creative. This is a read-only field. Applicable to the following creative types: all VPAID. */
             adParameters?: string;
             /**
-             * Keywords for a Rich Media creative. Keywords let you customize the creative settings of a Rich Media ad running on your site without having to contact
-             * the advertiser. You can use keywords to dynamically change the look or functionality of a creative. Applicable to the following creative types: all
-             * RICH_MEDIA, and all VPAID.
+             * Keywords for a Rich Media creative. Keywords let you customize the creative settings of a Rich Media ad running on your site without having to contact the advertiser. You can use
+             * keywords to dynamically change the look or functionality of a creative. Applicable to the following creative types: all RICH_MEDIA, and all VPAID.
              */
             adTagKeys?: string[];
             /** Advertiser ID of this creative. This is a required field. Applicable to all creative types. */
             advertiserId?: string;
             /**
-             * Whether script access is allowed for this creative. This is a read-only and deprecated field which will automatically be set to true on update.
-             * Applicable to the following creative types: FLASH_INPAGE.
+             * Whether script access is allowed for this creative. This is a read-only and deprecated field which will automatically be set to true on update. Applicable to the following creative
+             * types: FLASH_INPAGE.
              */
             allowScriptAccess?: boolean;
             /** Whether the creative is archived. Applicable to all creative types. */
@@ -919,61 +870,55 @@ declare namespace gapi.client {
             /** Whether images are automatically advanced for image gallery creatives. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY. */
             autoAdvanceImages?: boolean;
             /**
-             * The 6-character HTML color code, beginning with #, for the background of the window area where the Flash file is displayed. Default is white.
-             * Applicable to the following creative types: FLASH_INPAGE.
+             * The 6-character HTML color code, beginning with #, for the background of the window area where the Flash file is displayed. Default is white. Applicable to the following creative
+             * types: FLASH_INPAGE.
              */
             backgroundColor?: string;
             /** Click-through URL for backup image. Applicable to ENHANCED_BANNER when the primary asset type is not HTML_IMAGE. */
             backupImageClickThroughUrl?: CreativeClickThroughUrl;
             /**
-             * List of feature dependencies that will cause a backup image to be served if the browser that serves the ad does not support them. Feature dependencies
-             * are features that a browser must be able to support in order to render your HTML5 creative asset correctly. This field is initially auto-generated to
-             * contain all features detected by Campaign Manager for all the assets of this creative and can then be modified by the client. To reset this field, copy
-             * over all the creativeAssets' detected features. Applicable to the following creative types: HTML5_BANNER. Applicable to DISPLAY when the primary asset
-             * type is not HTML_IMAGE.
+             * List of feature dependencies that will cause a backup image to be served if the browser that serves the ad does not support them. Feature dependencies are features that a browser
+             * must be able to support in order to render your HTML5 creative asset correctly. This field is initially auto-generated to contain all features detected by Campaign Manager for all
+             * the assets of this creative and can then be modified by the client. To reset this field, copy over all the creativeAssets' detected features. Applicable to the following creative
+             * types: HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
              */
             backupImageFeatures?: string[];
             /** Reporting label used for HTML5 banner backup image. Applicable to the following creative types: DISPLAY when the primary asset type is not HTML_IMAGE. */
             backupImageReportingLabel?: string;
-            /**
-             * Target window for backup image. Applicable to the following creative types: FLASH_INPAGE and HTML5_BANNER. Applicable to DISPLAY when the primary asset
-             * type is not HTML_IMAGE.
-             */
+            /** Target window for backup image. Applicable to the following creative types: FLASH_INPAGE and HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE. */
             backupImageTargetWindow?: TargetWindow;
             /**
-             * Click tags of the creative. For DISPLAY, FLASH_INPAGE, and HTML5_BANNER creatives, this is a subset of detected click tags for the assets associated
-             * with this creative. After creating a flash asset, detected click tags will be returned in the creativeAssetMetadata. When inserting the creative,
-             * populate the creative clickTags field using the creativeAssetMetadata.clickTags field. For DISPLAY_IMAGE_GALLERY creatives, there should be exactly one
-             * entry in this list for each image creative asset. A click tag is matched with a corresponding creative asset by matching the clickTag.name field with
-             * the creativeAsset.assetIdentifier.name field. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY, FLASH_INPAGE, HTML5_BANNER. Applicable
-             * to DISPLAY when the primary asset type is not HTML_IMAGE.
+             * Click tags of the creative. For DISPLAY, FLASH_INPAGE, and HTML5_BANNER creatives, this is a subset of detected click tags for the assets associated with this creative. After
+             * creating a flash asset, detected click tags will be returned in the creativeAssetMetadata. When inserting the creative, populate the creative clickTags field using the
+             * creativeAssetMetadata.clickTags field. For DISPLAY_IMAGE_GALLERY creatives, there should be exactly one entry in this list for each image creative asset. A click tag is matched with
+             * a corresponding creative asset by matching the clickTag.name field with the creativeAsset.assetIdentifier.name field. Applicable to the following creative types:
+             * DISPLAY_IMAGE_GALLERY, FLASH_INPAGE, HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
              */
             clickTags?: ClickTag[];
             /** Industry standard ID assigned to creative for reach and frequency. Applicable to INSTREAM_VIDEO_REDIRECT creatives. */
             commercialId?: string;
             /**
-             * List of companion creatives assigned to an in-Stream video creative. Acceptable values include IDs of existing flash and image creatives. Applicable to
-             * the following creative types: all VPAID, all INSTREAM_AUDIO and all INSTREAM_VIDEO with dynamicAssetSelection set to false.
+             * List of companion creatives assigned to an in-Stream video creative. Acceptable values include IDs of existing flash and image creatives. Applicable to the following creative types:
+             * all VPAID, all INSTREAM_AUDIO and all INSTREAM_VIDEO with dynamicAssetSelection set to false.
              */
             companionCreatives?: string[];
             /**
-             * Compatibilities associated with this creative. This is a read-only field. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop or on
-             * mobile devices or in mobile apps for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps. Only
-             * pre-existing creatives may have these compatibilities since new creatives will either be assigned DISPLAY or DISPLAY_INTERSTITIAL instead.
-             * IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with the VAST standard. IN_STREAM_AUDIO refers to rendering in in-stream audio ads
-             * developed with the VAST standard. Applicable to all creative types. Acceptable values are: - "APP" - "APP_INTERSTITIAL" - "IN_STREAM_VIDEO" -
-             * "IN_STREAM_AUDIO" - "DISPLAY" - "DISPLAY_INTERSTITIAL"
+             * Compatibilities associated with this creative. This is a read-only field. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop or on mobile devices or in mobile
+             * apps for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps. Only pre-existing creatives may have these compatibilities since new
+             * creatives will either be assigned DISPLAY or DISPLAY_INTERSTITIAL instead. IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with the VAST standard.
+             * IN_STREAM_AUDIO refers to rendering in in-stream audio ads developed with the VAST standard. Applicable to all creative types. Acceptable values are: - "APP" - "APP_INTERSTITIAL" -
+             * "IN_STREAM_VIDEO" - "IN_STREAM_AUDIO" - "DISPLAY" - "DISPLAY_INTERSTITIAL"
              */
             compatibility?: string[];
             /**
-             * Whether Flash assets associated with the creative need to be automatically converted to HTML5. This flag is enabled by default and users can choose to
-             * disable it if they don't want the system to generate and use HTML5 asset for this creative. Applicable to the following creative type: FLASH_INPAGE.
-             * Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
+             * Whether Flash assets associated with the creative need to be automatically converted to HTML5. This flag is enabled by default and users can choose to disable it if they don't want
+             * the system to generate and use HTML5 asset for this creative. Applicable to the following creative type: FLASH_INPAGE. Applicable to DISPLAY when the primary asset type is not
+             * HTML_IMAGE.
              */
             convertFlashToHtml5?: boolean;
             /**
-             * List of counter events configured for the creative. For DISPLAY_IMAGE_GALLERY creatives, these are read-only and auto-generated from clickTags.
-             * Applicable to the following creative types: DISPLAY_IMAGE_GALLERY, all RICH_MEDIA, and all VPAID.
+             * List of counter events configured for the creative. For DISPLAY_IMAGE_GALLERY creatives, these are read-only and auto-generated from clickTags. Applicable to the following creative
+             * types: DISPLAY_IMAGE_GALLERY, all RICH_MEDIA, and all VPAID.
              */
             counterCustomEvents?: CreativeCustomEvent[];
             /** Assets associated with a creative. Applicable to all but the following creative types: INTERNAL_REDIRECT, INTERSTITIAL_INTERNAL_REDIRECT, and REDIRECT */
@@ -983,36 +928,34 @@ declare namespace gapi.client {
             /** Creative field assignments for this creative. Applicable to all creative types. */
             creativeFieldAssignments?: CreativeFieldAssignment[];
             /**
-             * Custom key-values for a Rich Media creative. Key-values let you customize the creative settings of a Rich Media ad running on your site without having
-             * to contact the advertiser. You can use key-values to dynamically change the look or functionality of a creative. Applicable to the following creative
-             * types: all RICH_MEDIA, and all VPAID.
+             * Custom key-values for a Rich Media creative. Key-values let you customize the creative settings of a Rich Media ad running on your site without having to contact the advertiser. You
+             * can use key-values to dynamically change the look or functionality of a creative. Applicable to the following creative types: all RICH_MEDIA, and all VPAID.
              */
             customKeyValues?: string[];
             /**
-             * Set this to true to enable the use of rules to target individual assets in this creative. When set to true creativeAssetSelection must be set. This
-             * also controls asset-level companions. When this is true, companion creatives should be assigned to creative assets. Learn more. Applicable to
-             * INSTREAM_VIDEO creatives.
+             * Set this to true to enable the use of rules to target individual assets in this creative. When set to true creativeAssetSelection must be set. This also controls asset-level
+             * companions. When this is true, companion creatives should be assigned to creative assets. Learn more. Applicable to INSTREAM_VIDEO creatives.
              */
             dynamicAssetSelection?: boolean;
             /**
-             * List of exit events configured for the creative. For DISPLAY and DISPLAY_IMAGE_GALLERY creatives, these are read-only and auto-generated from
-             * clickTags, For DISPLAY, an event is also created from the backupImageReportingLabel. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY,
-             * all RICH_MEDIA, and all VPAID. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
+             * List of exit events configured for the creative. For DISPLAY and DISPLAY_IMAGE_GALLERY creatives, these are read-only and auto-generated from clickTags, For DISPLAY, an event is
+             * also created from the backupImageReportingLabel. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY, all RICH_MEDIA, and all VPAID. Applicable to DISPLAY when the
+             * primary asset type is not HTML_IMAGE.
              */
             exitCustomEvents?: CreativeCustomEvent[];
             /**
-             * OpenWindow FSCommand of this creative. This lets the SWF file communicate with either Flash Player or the program hosting Flash Player, such as a web
-             * browser. This is only triggered if allowScriptAccess field is true. Applicable to the following creative types: FLASH_INPAGE.
+             * OpenWindow FSCommand of this creative. This lets the SWF file communicate with either Flash Player or the program hosting Flash Player, such as a web browser. This is only triggered
+             * if allowScriptAccess field is true. Applicable to the following creative types: FLASH_INPAGE.
              */
             fsCommand?: FsCommand;
             /**
-             * HTML code for the creative. This is a required field when applicable. This field is ignored if htmlCodeLocked is true. Applicable to the following
-             * creative types: all CUSTOM, FLASH_INPAGE, and HTML5_BANNER, and all RICH_MEDIA.
+             * HTML code for the creative. This is a required field when applicable. This field is ignored if htmlCodeLocked is true. Applicable to the following creative types: all CUSTOM,
+             * FLASH_INPAGE, and HTML5_BANNER, and all RICH_MEDIA.
              */
             htmlCode?: string;
             /**
-             * Whether HTML code is generated by Campaign Manager or manually entered. Set to true to ignore changes to htmlCode. Applicable to the following creative
-             * types: FLASH_INPAGE and HTML5_BANNER.
+             * Whether HTML code is generated by Campaign Manager or manually entered. Set to true to ignore changes to htmlCode. Applicable to the following creative types: FLASH_INPAGE and
+             * HTML5_BANNER.
              */
             htmlCodeLocked?: boolean;
             /** ID of this creative. This is a read-only, auto-generated field. Applicable to all creative types. */
@@ -1024,16 +967,13 @@ declare namespace gapi.client {
             /** Creative last modification information. This is a read-only field. Applicable to all creative types. */
             lastModifiedInfo?: LastModifiedInfo;
             /**
-             * Latest Studio trafficked creative ID associated with rich media and VPAID creatives. This is a read-only field. Applicable to the following creative
-             * types: all RICH_MEDIA, and all VPAID.
+             * Latest Studio trafficked creative ID associated with rich media and VPAID creatives. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA, and all
+             * VPAID.
              */
             latestTraffickedCreativeId?: string;
             /** Description of the audio or video ad. Applicable to the following creative types: all INSTREAM_VIDEO, INSTREAM_AUDIO, and all VPAID. */
             mediaDescription?: string;
-            /**
-             * Creative audio or video duration in seconds. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO, INSTREAM_AUDIO, all
-             * RICH_MEDIA, and all VPAID.
-             */
+            /** Creative audio or video duration in seconds. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO, INSTREAM_AUDIO, all RICH_MEDIA, and all VPAID. */
             mediaDuration?: number;
             /** Name of the creative. This is a required field and must be less than 256 characters long. Applicable to all creative types. */
             name?: string;
@@ -1044,9 +984,9 @@ declare namespace gapi.client {
             /** Amount of time to play the video before counting a view. Applicable to the following creative types: all INSTREAM_VIDEO. */
             progressOffset?: VideoOffset;
             /**
-             * URL of hosted image or hosted video or another ad tag. For INSTREAM_VIDEO_REDIRECT creatives this is the in-stream video redirect URL. The standard for
-             * a VAST (Video Ad Serving Template) ad response allows for a redirect link to another VAST 2.0 or 3.0 call. This is a required field when applicable.
-             * Applicable to the following creative types: DISPLAY_REDIRECT, INTERNAL_REDIRECT, INTERSTITIAL_INTERNAL_REDIRECT, and INSTREAM_VIDEO_REDIRECT
+             * URL of hosted image or hosted video or another ad tag. For INSTREAM_VIDEO_REDIRECT creatives this is the in-stream video redirect URL. The standard for a VAST (Video Ad Serving
+             * Template) ad response allows for a redirect link to another VAST 2.0 or 3.0 call. This is a required field when applicable. Applicable to the following creative types:
+             * DISPLAY_REDIRECT, INTERNAL_REDIRECT, INTERSTITIAL_INTERNAL_REDIRECT, and INSTREAM_VIDEO_REDIRECT
              */
             redirectUrl?: string;
             /** ID of current rendering version. This is a read-only field. Applicable to all creative types. */
@@ -1054,20 +994,19 @@ declare namespace gapi.client {
             /** Dimension value for the rendering ID of this creative. This is a read-only field. Applicable to all creative types. */
             renderingIdDimensionValue?: DimensionValue;
             /**
-             * The minimum required Flash plugin version for this creative. For example, 11.2.202.235. This is a read-only field. Applicable to the following creative
-             * types: all RICH_MEDIA, and all VPAID.
+             * The minimum required Flash plugin version for this creative. For example, 11.2.202.235. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA, and
+             * all VPAID.
              */
             requiredFlashPluginVersion?: string;
             /**
-             * The internal Flash version for this creative as calculated by Studio. This is a read-only field. Applicable to the following creative types:
-             * FLASH_INPAGE all RICH_MEDIA, and all VPAID. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
+             * The internal Flash version for this creative as calculated by Studio. This is a read-only field. Applicable to the following creative types: FLASH_INPAGE all RICH_MEDIA, and all
+             * VPAID. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
              */
             requiredFlashVersion?: number;
             /**
-             * Size associated with this creative. When inserting or updating a creative either the size ID field or size width and height fields can be used. This is
-             * a required field when applicable; however for IMAGE, FLASH_INPAGE creatives, and for DISPLAY creatives with a primary asset of type HTML_IMAGE, if left
-             * blank, this field will be automatically set using the actual size of the associated image assets. Applicable to the following creative types: DISPLAY,
-             * DISPLAY_IMAGE_GALLERY, FLASH_INPAGE, HTML5_BANNER, IMAGE, and all RICH_MEDIA.
+             * Size associated with this creative. When inserting or updating a creative either the size ID field or size width and height fields can be used. This is a required field when
+             * applicable; however for IMAGE, FLASH_INPAGE creatives, and for DISPLAY creatives with a primary asset of type HTML_IMAGE, if left blank, this field will be automatically set using
+             * the actual size of the associated image assets. Applicable to the following creative types: DISPLAY, DISPLAY_IMAGE_GALLERY, FLASH_INPAGE, HTML5_BANNER, IMAGE, and all RICH_MEDIA.
              */
             size?: Size;
             /** Amount of time to play the video before the skip button appears. Applicable to the following creative types: all INSTREAM_VIDEO. */
@@ -1078,84 +1017,61 @@ declare namespace gapi.client {
             sslCompliant?: boolean;
             /** Whether creative should be treated as SSL compliant even if the system scan shows it's not. Applicable to all creative types. */
             sslOverride?: boolean;
-            /**
-             * Studio advertiser ID associated with rich media and VPAID creatives. This is a read-only field. Applicable to the following creative types: all
-             * RICH_MEDIA, and all VPAID.
-             */
+            /** Studio advertiser ID associated with rich media and VPAID creatives. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA, and all VPAID. */
             studioAdvertiserId?: string;
-            /**
-             * Studio creative ID associated with rich media and VPAID creatives. This is a read-only field. Applicable to the following creative types: all
-             * RICH_MEDIA, and all VPAID.
-             */
+            /** Studio creative ID associated with rich media and VPAID creatives. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA, and all VPAID. */
             studioCreativeId?: string;
-            /**
-             * Studio trafficked creative ID associated with rich media and VPAID creatives. This is a read-only field. Applicable to the following creative types:
-             * all RICH_MEDIA, and all VPAID.
-             */
+            /** Studio trafficked creative ID associated with rich media and VPAID creatives. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA, and all VPAID. */
             studioTraffickedCreativeId?: string;
-            /**
-             * Subaccount ID of this creative. This field, if left unset, will be auto-generated for both insert and update operations. Applicable to all creative
-             * types.
-             */
+            /** Subaccount ID of this creative. This field, if left unset, will be auto-generated for both insert and update operations. Applicable to all creative types. */
             subaccountId?: string;
             /** Third-party URL used to record backup image impressions. Applicable to the following creative types: all RICH_MEDIA. */
             thirdPartyBackupImageImpressionsUrl?: string;
             /** Third-party URL used to record rich media impressions. Applicable to the following creative types: all RICH_MEDIA. */
             thirdPartyRichMediaImpressionsUrl?: string;
-            /**
-             * Third-party URLs for tracking in-stream creative events. Applicable to the following creative types: all INSTREAM_VIDEO, all INSTREAM_AUDIO, and all
-             * VPAID.
-             */
+            /** Third-party URLs for tracking in-stream creative events. Applicable to the following creative types: all INSTREAM_VIDEO, all INSTREAM_AUDIO, and all VPAID. */
             thirdPartyUrls?: ThirdPartyTrackingUrl[];
             /**
-             * List of timer events configured for the creative. For DISPLAY_IMAGE_GALLERY creatives, these are read-only and auto-generated from clickTags.
-             * Applicable to the following creative types: DISPLAY_IMAGE_GALLERY, all RICH_MEDIA, and all VPAID. Applicable to DISPLAY when the primary asset is not
-             * HTML_IMAGE.
+             * List of timer events configured for the creative. For DISPLAY_IMAGE_GALLERY creatives, these are read-only and auto-generated from clickTags. Applicable to the following creative
+             * types: DISPLAY_IMAGE_GALLERY, all RICH_MEDIA, and all VPAID. Applicable to DISPLAY when the primary asset is not HTML_IMAGE.
              */
             timerCustomEvents?: CreativeCustomEvent[];
             /** Combined size of all creative assets. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA, and all VPAID. */
             totalFileSize?: string;
             /**
-             * Type of this creative. This is a required field. Applicable to all creative types. ∗Note:∗ FLASH_INPAGE, HTML5_BANNER, and IMAGE are only used for
-             * existing creatives. New creatives should use DISPLAY as a replacement for these types.
+             * Type of this creative. This is a required field. Applicable to all creative types. *Note:* FLASH_INPAGE, HTML5_BANNER, and IMAGE are only used for existing creatives. New creatives
+             * should use DISPLAY as a replacement for these types.
              */
             type?: string;
             /** A Universal Ad ID as per the VAST 4.0 spec. Applicable to the following creative types: INSTREAM_AUDIO and INSTREAM_VIDEO and VPAID. */
             universalAdId?: UniversalAdId;
             /**
-             * The version number helps you keep track of multiple versions of your creative in your reports. The version number will always be auto-generated during
-             * insert operations to start at 1. For tracking creatives the version cannot be incremented and will always remain at 1. For all other creative types the
-             * version can be incremented only by 1 during update operations. In addition, the version will be automatically incremented by 1 when undergoing Rich
-             * Media creative merging. Applicable to all creative types.
+             * The version number helps you keep track of multiple versions of your creative in your reports. The version number will always be auto-generated during insert operations to start at
+             * 1. For tracking creatives the version cannot be incremented and will always remain at 1. For all other creative types the version can be incremented only by 1 during update
+             * operations. In addition, the version will be automatically incremented by 1 when undergoing Rich Media creative merging. Applicable to all creative types.
              */
             version?: number;
         }
         interface CreativeAsset {
             /**
-             * Whether ActionScript3 is enabled for the flash asset. This is a read-only field. Applicable to the following creative type: FLASH_INPAGE. Applicable to
-             * DISPLAY when the primary asset type is not HTML_IMAGE.
+             * Whether ActionScript3 is enabled for the flash asset. This is a read-only field. Applicable to the following creative type: FLASH_INPAGE. Applicable to DISPLAY when the primary
+             * asset type is not HTML_IMAGE.
              */
             actionScript3?: boolean;
             /**
-             * Whether the video or audio asset is active. This is a read-only field for VPAID_NON_LINEAR_VIDEO assets. Applicable to the following creative types:
-             * INSTREAM_AUDIO, INSTREAM_VIDEO and all VPAID.
+             * Whether the video or audio asset is active. This is a read-only field for VPAID_NON_LINEAR_VIDEO assets. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO
+             * and all VPAID.
              */
             active?: boolean;
-            /**
-             * Additional sizes associated with this creative asset. HTML5 asset generated by compatible software such as GWD will be able to support more sizes this
-             * creative asset can render.
-             */
+            /** Additional sizes associated with this creative asset. HTML5 asset generated by compatible software such as GWD will be able to support more sizes this creative asset can render. */
             additionalSizes?: Size[];
-            /**
-             * Possible alignments for an asset. This is a read-only field. Applicable to the following creative types: RICH_MEDIA_DISPLAY_MULTI_FLOATING_INTERSTITIAL
-             * .
-             */
+            /** Possible alignments for an asset. This is a read-only field. Applicable to the following creative types: RICH_MEDIA_DISPLAY_MULTI_FLOATING_INTERSTITIAL . */
             alignment?: string;
             /** Artwork type of rich media creative. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA. */
             artworkType?: string;
             /**
-             * Identifier of this asset. This is the same identifier returned during creative asset insert operation. This is a required field. Applicable to all but
-             * the following creative types: all REDIRECT and TRACKING_TEXT.
+             * Identifier of this asset. This is the same identifier returned during creative asset insert operation. This is a required field. Applicable to all but the following creative types:
+             * all REDIRECT and TRACKING_TEXT.
              */
             assetIdentifier?: CreativeAssetId;
             /** Audio stream bit rate in kbps. This is a read-only field. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and all VPAID. */
@@ -1164,59 +1080,47 @@ declare namespace gapi.client {
             audioSampleRate?: number;
             /** Exit event configured for the backup image. Applicable to the following creative types: all RICH_MEDIA. */
             backupImageExit?: CreativeCustomEvent;
-            /**
-             * Detected bit-rate for audio or video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and
-             * all VPAID.
-             */
+            /** Detected bit-rate for audio or video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and all VPAID. */
             bitRate?: number;
             /** Rich media child asset type. This is a read-only field. Applicable to the following creative types: all VPAID. */
             childAssetType?: string;
             /**
-             * Size of an asset when collapsed. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA and all VPAID. Additionally,
-             * applicable to assets whose displayType is ASSET_DISPLAY_TYPE_EXPANDING or ASSET_DISPLAY_TYPE_PEEL_DOWN.
+             * Size of an asset when collapsed. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA and all VPAID. Additionally, applicable to assets whose
+             * displayType is ASSET_DISPLAY_TYPE_EXPANDING or ASSET_DISPLAY_TYPE_PEEL_DOWN.
              */
             collapsedSize?: Size;
             /**
-             * List of companion creatives assigned to an in-stream video creative asset. Acceptable values include IDs of existing flash and image creatives.
-             * Applicable to INSTREAM_VIDEO creative type with dynamicAssetSelection set to true.
+             * List of companion creatives assigned to an in-stream video creative asset. Acceptable values include IDs of existing flash and image creatives. Applicable to INSTREAM_VIDEO creative
+             * type with dynamicAssetSelection set to true.
              */
             companionCreativeIds?: string[];
-            /**
-             * Custom start time in seconds for making the asset visible. Applicable to the following creative types: all RICH_MEDIA. Value must be greater than or
-             * equal to 0.
-             */
+            /** Custom start time in seconds for making the asset visible. Applicable to the following creative types: all RICH_MEDIA. Value must be greater than or equal to 0. */
             customStartTimeValue?: number;
             /**
-             * List of feature dependencies for the creative asset that are detected by Campaign Manager. Feature dependencies are features that a browser must be
-             * able to support in order to render your HTML5 creative correctly. This is a read-only, auto-generated field. Applicable to the following creative
-             * types: HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
+             * List of feature dependencies for the creative asset that are detected by Campaign Manager. Feature dependencies are features that a browser must be able to support in order to
+             * render your HTML5 creative correctly. This is a read-only, auto-generated field. Applicable to the following creative types: HTML5_BANNER. Applicable to DISPLAY when the primary
+             * asset type is not HTML_IMAGE.
              */
             detectedFeatures?: string[];
             /** Type of rich media asset. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA. */
             displayType?: string;
             /**
-             * Duration in seconds for which an asset will be displayed. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and
-             * VPAID_LINEAR_VIDEO. Value must be greater than or equal to 1.
+             * Duration in seconds for which an asset will be displayed. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and VPAID_LINEAR_VIDEO. Value must be greater
+             * than or equal to 1.
              */
             duration?: number;
             /** Duration type for which an asset will be displayed. Applicable to the following creative types: all RICH_MEDIA. */
             durationType?: string;
             /** Detected expanded dimension for video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO and all VPAID. */
             expandedDimension?: Size;
-            /**
-             * File size associated with this creative asset. This is a read-only field. Applicable to all but the following creative types: all REDIRECT and
-             * TRACKING_TEXT.
-             */
+            /** File size associated with this creative asset. This is a read-only field. Applicable to all but the following creative types: all REDIRECT and TRACKING_TEXT. */
             fileSize?: string;
             /**
-             * Flash version of the asset. This is a read-only field. Applicable to the following creative types: FLASH_INPAGE, all RICH_MEDIA, and all VPAID.
-             * Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
+             * Flash version of the asset. This is a read-only field. Applicable to the following creative types: FLASH_INPAGE, all RICH_MEDIA, and all VPAID. Applicable to DISPLAY when the
+             * primary asset type is not HTML_IMAGE.
              */
             flashVersion?: number;
-            /**
-             * Video frame rate for video asset in frames per second. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO and all
-             * VPAID.
-             */
+            /** Video frame rate for video asset in frames per second. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO and all VPAID. */
             frameRate?: number;
             /** Whether to hide Flash objects flag for an asset. Applicable to the following creative types: all RICH_MEDIA. */
             hideFlashObjects?: boolean;
@@ -1224,26 +1128,17 @@ declare namespace gapi.client {
             hideSelectionBoxes?: boolean;
             /** Whether the asset is horizontally locked. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA. */
             horizontallyLocked?: boolean;
-            /**
-             * Numeric ID of this creative asset. This is a required field and should not be modified. Applicable to all but the following creative types: all
-             * REDIRECT and TRACKING_TEXT.
-             */
+            /** Numeric ID of this creative asset. This is a required field and should not be modified. Applicable to all but the following creative types: all REDIRECT and TRACKING_TEXT. */
             id?: string;
             /** Dimension value for the ID of the asset. This is a read-only, auto-generated field. */
             idDimensionValue?: DimensionValue;
-            /**
-             * Detected duration for audio or video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and
-             * all VPAID.
-             */
+            /** Detected duration for audio or video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and all VPAID. */
             mediaDuration?: number;
-            /**
-             * Detected MIME type for audio or video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and
-             * all VPAID.
-             */
+            /** Detected MIME type for audio or video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_AUDIO, INSTREAM_VIDEO and all VPAID. */
             mimeType?: string;
             /**
-             * Offset position for an asset in collapsed mode. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA and all VPAID.
-             * Additionally, only applicable to assets whose displayType is ASSET_DISPLAY_TYPE_EXPANDING or ASSET_DISPLAY_TYPE_PEEL_DOWN.
+             * Offset position for an asset in collapsed mode. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA and all VPAID. Additionally, only applicable to
+             * assets whose displayType is ASSET_DISPLAY_TYPE_EXPANDING or ASSET_DISPLAY_TYPE_PEEL_DOWN.
              */
             offset?: OffsetPosition;
             /** Orientation of video asset. This is a read-only, auto-generated field. */
@@ -1256,43 +1151,37 @@ declare namespace gapi.client {
             position?: OffsetPosition;
             /** Offset left unit for an asset. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA. */
             positionLeftUnit?: string;
-            /**
-             * Offset top unit for an asset. This is a read-only field if the asset displayType is ASSET_DISPLAY_TYPE_OVERLAY. Applicable to the following creative
-             * types: all RICH_MEDIA.
-             */
+            /** Offset top unit for an asset. This is a read-only field if the asset displayType is ASSET_DISPLAY_TYPE_OVERLAY. Applicable to the following creative types: all RICH_MEDIA. */
             positionTopUnit?: string;
             /** Progressive URL for video asset. This is a read-only field. Applicable to the following creative types: INSTREAM_VIDEO and all VPAID. */
             progressiveServingUrl?: string;
             /**
-             * Whether the asset pushes down other content. Applicable to the following creative types: all RICH_MEDIA. Additionally, only applicable when the asset
-             * offsets are 0, the collapsedSize.width matches size.width, and the collapsedSize.height is less than size.height.
+             * Whether the asset pushes down other content. Applicable to the following creative types: all RICH_MEDIA. Additionally, only applicable when the asset offsets are 0, the
+             * collapsedSize.width matches size.width, and the collapsedSize.height is less than size.height.
              */
             pushdown?: boolean;
             /**
-             * Pushdown duration in seconds for an asset. Applicable to the following creative types: all RICH_MEDIA.Additionally, only applicable when the asset
-             * pushdown field is true, the offsets are 0, the collapsedSize.width matches size.width, and the collapsedSize.height is less than size.height.
-             * Acceptable values are 0 to 9.99, inclusive.
+             * Pushdown duration in seconds for an asset. Applicable to the following creative types: all RICH_MEDIA.Additionally, only applicable when the asset pushdown field is true, the
+             * offsets are 0, the collapsedSize.width matches size.width, and the collapsedSize.height is less than size.height. Acceptable values are 0 to 9.99, inclusive.
              */
             pushdownDuration?: number;
             /**
-             * Role of the asset in relation to creative. Applicable to all but the following creative types: all REDIRECT and TRACKING_TEXT. This is a required
-             * field. PRIMARY applies to DISPLAY, FLASH_INPAGE, HTML5_BANNER, IMAGE, DISPLAY_IMAGE_GALLERY, all RICH_MEDIA (which may contain multiple primary
-             * assets), and all VPAID creatives. BACKUP_IMAGE applies to FLASH_INPAGE, HTML5_BANNER, all RICH_MEDIA, and all VPAID creatives. Applicable to DISPLAY
-             * when the primary asset type is not HTML_IMAGE. ADDITIONAL_IMAGE and ADDITIONAL_FLASH apply to FLASH_INPAGE creatives. OTHER refers to assets from
-             * sources other than Campaign Manager, such as Studio uploaded assets, applicable to all RICH_MEDIA and all VPAID creatives. PARENT_VIDEO refers to
-             * videos uploaded by the user in Campaign Manager and is applicable to INSTREAM_VIDEO and VPAID_LINEAR_VIDEO creatives. TRANSCODED_VIDEO refers to videos
-             * transcoded by Campaign Manager from PARENT_VIDEO assets and is applicable to INSTREAM_VIDEO and VPAID_LINEAR_VIDEO creatives. ALTERNATE_VIDEO refers to
-             * the Campaign Manager representation of child asset videos from Studio, and is applicable to VPAID_LINEAR_VIDEO creatives. These cannot be added or
-             * removed within Campaign Manager. For VPAID_LINEAR_VIDEO creatives, PARENT_VIDEO, TRANSCODED_VIDEO and ALTERNATE_VIDEO assets that are marked active
-             * serve as backup in case the VPAID creative cannot be served. Only PARENT_VIDEO assets can be added or removed for an INSTREAM_VIDEO or
-             * VPAID_LINEAR_VIDEO creative. PARENT_AUDIO refers to audios uploaded by the user in Campaign Manager and is applicable to INSTREAM_AUDIO creatives.
-             * TRANSCODED_AUDIO refers to audios transcoded by Campaign Manager from PARENT_AUDIO assets and is applicable to INSTREAM_AUDIO creatives.
+             * Role of the asset in relation to creative. Applicable to all but the following creative types: all REDIRECT and TRACKING_TEXT. This is a required field. PRIMARY applies to DISPLAY,
+             * FLASH_INPAGE, HTML5_BANNER, IMAGE, DISPLAY_IMAGE_GALLERY, all RICH_MEDIA (which may contain multiple primary assets), and all VPAID creatives. BACKUP_IMAGE applies to FLASH_INPAGE,
+             * HTML5_BANNER, all RICH_MEDIA, and all VPAID creatives. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE. ADDITIONAL_IMAGE and ADDITIONAL_FLASH apply to
+             * FLASH_INPAGE creatives. OTHER refers to assets from sources other than Campaign Manager, such as Studio uploaded assets, applicable to all RICH_MEDIA and all VPAID creatives.
+             * PARENT_VIDEO refers to videos uploaded by the user in Campaign Manager and is applicable to INSTREAM_VIDEO and VPAID_LINEAR_VIDEO creatives. TRANSCODED_VIDEO refers to videos
+             * transcoded by Campaign Manager from PARENT_VIDEO assets and is applicable to INSTREAM_VIDEO and VPAID_LINEAR_VIDEO creatives. ALTERNATE_VIDEO refers to the Campaign Manager
+             * representation of child asset videos from Studio, and is applicable to VPAID_LINEAR_VIDEO creatives. These cannot be added or removed within Campaign Manager. For VPAID_LINEAR_VIDEO
+             * creatives, PARENT_VIDEO, TRANSCODED_VIDEO and ALTERNATE_VIDEO assets that are marked active serve as backup in case the VPAID creative cannot be served. Only PARENT_VIDEO assets can
+             * be added or removed for an INSTREAM_VIDEO or VPAID_LINEAR_VIDEO creative. PARENT_AUDIO refers to audios uploaded by the user in Campaign Manager and is applicable to INSTREAM_AUDIO
+             * creatives. TRANSCODED_AUDIO refers to audios transcoded by Campaign Manager from PARENT_AUDIO assets and is applicable to INSTREAM_AUDIO creatives.
              */
             role?: string;
             /**
-             * Size associated with this creative asset. This is a required field when applicable; however for IMAGE and FLASH_INPAGE, creatives if left blank, this
-             * field will be automatically set using the actual size of the associated image asset. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY,
-             * FLASH_INPAGE, HTML5_BANNER, IMAGE, and all RICH_MEDIA. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
+             * Size associated with this creative asset. This is a required field when applicable; however for IMAGE and FLASH_INPAGE, creatives if left blank, this field will be automatically set
+             * using the actual size of the associated image asset. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY, FLASH_INPAGE, HTML5_BANNER, IMAGE, and all RICH_MEDIA.
+             * Applicable to DISPLAY when the primary asset type is not HTML_IMAGE.
              */
             size?: Size;
             /** Whether the asset is SSL-compliant. This is a read-only field. Applicable to all but the following creative types: all REDIRECT and TRACKING_TEXT. */
@@ -1306,13 +1195,13 @@ declare namespace gapi.client {
             /** Whether the asset is vertically locked. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA. */
             verticallyLocked?: boolean;
             /**
-             * Window mode options for flash assets. Applicable to the following creative types: FLASH_INPAGE, RICH_MEDIA_DISPLAY_EXPANDING, RICH_MEDIA_IM_EXPAND,
-             * RICH_MEDIA_DISPLAY_BANNER, and RICH_MEDIA_INPAGE_FLOATING.
+             * Window mode options for flash assets. Applicable to the following creative types: FLASH_INPAGE, RICH_MEDIA_DISPLAY_EXPANDING, RICH_MEDIA_IM_EXPAND, RICH_MEDIA_DISPLAY_BANNER, and
+             * RICH_MEDIA_INPAGE_FLOATING.
              */
             windowMode?: string;
             /**
-             * zIndex value of an asset. Applicable to the following creative types: all RICH_MEDIA.Additionally, only applicable to assets whose displayType is NOT
-             * one of the following types: ASSET_DISPLAY_TYPE_INPAGE or ASSET_DISPLAY_TYPE_OVERLAY. Acceptable values are -999999999 to 999999999, inclusive.
+             * zIndex value of an asset. Applicable to the following creative types: all RICH_MEDIA.Additionally, only applicable to assets whose displayType is NOT one of the following types:
+             * ASSET_DISPLAY_TYPE_INPAGE or ASSET_DISPLAY_TYPE_OVERLAY. Acceptable values are -999999999 to 999999999, inclusive.
              */
             zIndex?: number;
             /** File name of zip file. This is a read-only field. Applicable to the following creative types: HTML5_BANNER. */
@@ -1322,8 +1211,8 @@ declare namespace gapi.client {
         }
         interface CreativeAssetId {
             /**
-             * Name of the creative asset. This is a required field while inserting an asset. After insertion, this assetIdentifier is used to identify the uploaded
-             * asset. Characters in the name must be alphanumeric or one of the following: ".-_ ". Spaces are allowed.
+             * Name of the creative asset. This is a required field while inserting an asset. After insertion, this assetIdentifier is used to identify the uploaded asset. Characters in the name
+             * must be alphanumeric or one of the following: ".-_ ". Spaces are allowed.
              */
             name?: string;
             /** Type of asset to upload. This is a required field. FLASH and IMAGE are no longer supported for new uploads. All image assets should use HTML_IMAGE. */
@@ -1337,8 +1226,8 @@ declare namespace gapi.client {
             /** List of counter events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
             counterCustomEvents?: CreativeCustomEvent[];
             /**
-             * List of feature dependencies for the creative asset that are detected by Campaign Manager. Feature dependencies are features that a browser must be
-             * able to support in order to render your HTML5 creative correctly. This is a read-only, auto-generated field.
+             * List of feature dependencies for the creative asset that are detected by Campaign Manager. Feature dependencies are features that a browser must be able to support in order to
+             * render your HTML5 creative correctly. This is a read-only, auto-generated field.
              */
             detectedFeatures?: string[];
             /** List of exit events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
@@ -1355,22 +1244,19 @@ declare namespace gapi.client {
             timerCustomEvents?: CreativeCustomEvent[];
             /**
              * Rules validated during code generation that generated a warning. This is a read-only, auto-generated field. Possible values are: - "ADMOB_REFERENCED" -
-             * "ASSET_FORMAT_UNSUPPORTED_DCM" - "ASSET_INVALID" - "CLICK_TAG_HARD_CODED" - "CLICK_TAG_INVALID" - "CLICK_TAG_IN_GWD" - "CLICK_TAG_MISSING" -
-             * "CLICK_TAG_MORE_THAN_ONE" - "CLICK_TAG_NON_TOP_LEVEL" - "COMPONENT_UNSUPPORTED_DCM" - "ENABLER_UNSUPPORTED_METHOD_DCM" - "EXTERNAL_FILE_REFERENCED" -
-             * "FILE_DETAIL_EMPTY" - "FILE_TYPE_INVALID" - "GWD_PROPERTIES_INVALID" - "HTML5_FEATURE_UNSUPPORTED" - "LINKED_FILE_NOT_FOUND" - "MAX_FLASH_VERSION_11" -
-             * "MRAID_REFERENCED" - "NOT_SSL_COMPLIANT" - "ORPHANED_ASSET" - "PRIMARY_HTML_MISSING" - "SVG_INVALID" - "ZIP_INVALID"
+             * "ASSET_FORMAT_UNSUPPORTED_DCM" - "ASSET_INVALID" - "CLICK_TAG_HARD_CODED" - "CLICK_TAG_INVALID" - "CLICK_TAG_IN_GWD" - "CLICK_TAG_MISSING" - "CLICK_TAG_MORE_THAN_ONE" -
+             * "CLICK_TAG_NON_TOP_LEVEL" - "COMPONENT_UNSUPPORTED_DCM" - "ENABLER_UNSUPPORTED_METHOD_DCM" - "EXTERNAL_FILE_REFERENCED" - "FILE_DETAIL_EMPTY" - "FILE_TYPE_INVALID" -
+             * "GWD_PROPERTIES_INVALID" - "HTML5_FEATURE_UNSUPPORTED" - "LINKED_FILE_NOT_FOUND" - "MAX_FLASH_VERSION_11" - "MRAID_REFERENCED" - "NOT_SSL_COMPLIANT" - "ORPHANED_ASSET" -
+             * "PRIMARY_HTML_MISSING" - "SVG_INVALID" - "ZIP_INVALID"
              */
             warnedValidationRules?: string[];
         }
         interface CreativeAssetSelection {
-            /**
-             * A creativeAssets[].id. This should refer to one of the parent assets in this creative, and will be served if none of the rules match. This is a
-             * required field.
-             */
+            /** A creativeAssets[].id. This should refer to one of the parent assets in this creative, and will be served if none of the rules match. This is a required field. */
             defaultAssetId?: string;
             /**
-             * Rules determine which asset will be served to a viewer. Rules will be evaluated in the order in which they are stored in this list. This list must
-             * contain at least one rule. Applicable to INSTREAM_VIDEO creatives.
+             * Rules determine which asset will be served to a viewer. Rules will be evaluated in the order in which they are stored in this list. This list must contain at least one rule.
+             * Applicable to INSTREAM_VIDEO creatives.
              */
             rules?: Rule[];
         }
@@ -1378,8 +1264,8 @@ declare namespace gapi.client {
             /** Whether this creative assignment is active. When true, the creative will be included in the ad's rotation. */
             active?: boolean;
             /**
-             * Whether applicable event tags should fire when this creative assignment is rendered. If this value is unset when the ad is inserted or updated, it will
-             * default to true for all creative types EXCEPT for INTERNAL_REDIRECT, INTERSTITIAL_INTERNAL_REDIRECT, and INSTREAM_VIDEO.
+             * Whether applicable event tags should fire when this creative assignment is rendered. If this value is unset when the ad is inserted or updated, it will default to true for all
+             * creative types EXCEPT for INTERNAL_REDIRECT, INTERSTITIAL_INTERNAL_REDIRECT, and INSTREAM_VIDEO.
              */
             applyEventTags?: boolean;
             /** Click-through URL of the creative assignment. */
@@ -1394,15 +1280,12 @@ declare namespace gapi.client {
             creativeIdDimensionValue?: DimensionValue;
             endTime?: string;
             /**
-             * Rich media exit overrides for this creative assignment. Applicable when the creative type is any of the following: - DISPLAY - RICH_MEDIA_INPAGE -
-             * RICH_MEDIA_INPAGE_FLOATING - RICH_MEDIA_IM_EXPAND - RICH_MEDIA_EXPANDING - RICH_MEDIA_INTERSTITIAL_FLOAT - RICH_MEDIA_MOBILE_IN_APP -
-             * RICH_MEDIA_MULTI_FLOATING - RICH_MEDIA_PEEL_DOWN - VPAID_LINEAR - VPAID_NON_LINEAR
+             * Rich media exit overrides for this creative assignment. Applicable when the creative type is any of the following: - DISPLAY - RICH_MEDIA_INPAGE - RICH_MEDIA_INPAGE_FLOATING -
+             * RICH_MEDIA_IM_EXPAND - RICH_MEDIA_EXPANDING - RICH_MEDIA_INTERSTITIAL_FLOAT - RICH_MEDIA_MOBILE_IN_APP - RICH_MEDIA_MULTI_FLOATING - RICH_MEDIA_PEEL_DOWN - VPAID_LINEAR -
+             * VPAID_NON_LINEAR
              */
             richMediaExitOverrides?: RichMediaExitOverride[];
-            /**
-             * Sequence number of the creative assignment, applicable when the rotation type is CREATIVE_ROTATION_TYPE_SEQUENTIAL. Acceptable values are 1 to 65535,
-             * inclusive.
-             */
+            /** Sequence number of the creative assignment, applicable when the rotation type is CREATIVE_ROTATION_TYPE_SEQUENTIAL. Acceptable values are 1 to 65535, inclusive. */
             sequence?: number;
             /** Whether the creative to be assigned is SSL-compliant. This is a read-only field that is auto-generated when the ad is inserted or updated. */
             sslCompliant?: boolean;
@@ -1412,8 +1295,8 @@ declare namespace gapi.client {
         }
         interface CreativeClickThroughUrl {
             /**
-             * Read-only convenience field representing the actual URL that will be used for this click-through. The URL is computed as follows: - If landingPageId is
-             * specified then that landing page's URL is assigned to this field. - Otherwise, the customClickThroughUrl is assigned to this field.
+             * Read-only convenience field representing the actual URL that will be used for this click-through. The URL is computed as follows: - If landingPageId is specified then that landing
+             * page's URL is assigned to this field. - Otherwise, the customClickThroughUrl is assigned to this field.
              */
             computedClickThroughUrl?: string;
             /** Custom click-through URL. Applicable if the landingPageId field is left unset. */
@@ -1428,10 +1311,7 @@ declare namespace gapi.client {
             advertiserCustomEventName?: string;
             /** Type of the event. This is a read-only field. */
             advertiserCustomEventType?: string;
-            /**
-             * Artwork label column, used to link events in Campaign Manager back to events in Studio. This is a required field and should not be modified after
-             * insertion.
-             */
+            /** Artwork label column, used to link events in Campaign Manager back to events in Studio. This is a required field and should not be modified after insertion. */
             artworkLabel?: string;
             /** Artwork type used by the creative.This is a read-only field. */
             artworkType?: string;
@@ -1457,10 +1337,7 @@ declare namespace gapi.client {
             id?: string;
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#creativeField". */
             kind?: string;
-            /**
-             * Name of this creative field. This is a required field and must be less than 256 characters long and unique among creative fields of the same
-             * advertiser.
-             */
+            /** Name of this creative field. This is a required field and must be less than 256 characters long and unique among creative fields of the same advertiser. */
             name?: string;
             /** Subaccount ID of this creative field. This is a read-only field that can be left blank. */
             subaccountId?: string;
@@ -1503,18 +1380,15 @@ declare namespace gapi.client {
             /** Dimension value for the ID of the advertiser. This is a read-only, auto-generated field. */
             advertiserIdDimensionValue?: DimensionValue;
             /**
-             * Subgroup of the creative group. Assign your creative groups to a subgroup in order to filter or manage them more easily. This field is required on
-             * insertion and is read-only after insertion. Acceptable values are 1 to 2, inclusive.
+             * Subgroup of the creative group. Assign your creative groups to a subgroup in order to filter or manage them more easily. This field is required on insertion and is read-only after
+             * insertion. Acceptable values are 1 to 2, inclusive.
              */
             groupNumber?: number;
             /** ID of this creative group. This is a read-only, auto-generated field. */
             id?: string;
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#creativeGroup". */
             kind?: string;
-            /**
-             * Name of this creative group. This is a required field and must be less than 256 characters long and unique among creative groups of the same
-             * advertiser.
-             */
+            /** Name of this creative group. This is a required field and must be less than 256 characters long and unique among creative groups of the same advertiser. */
             name?: string;
             /** Subaccount ID of this creative group. This is a read-only field that can be left blank. */
             subaccountId?: string;
@@ -1547,8 +1421,8 @@ declare namespace gapi.client {
             /** Creative assignments in this creative rotation. */
             creativeAssignments?: CreativeAssignment[];
             /**
-             * Creative optimization configuration that is used by this ad. It should refer to one of the existing optimization configurations in the ad's campaign.
-             * If it is unset or set to 0, then the campaign's default optimization configuration will be used for this ad.
+             * Creative optimization configuration that is used by this ad. It should refer to one of the existing optimization configurations in the ad's campaign. If it is unset or set to 0,
+             * then the campaign's default optimization configuration will be used for this ad.
              */
             creativeOptimizationConfigurationId?: string;
             /** Type of creative rotation. Can be used to specify whether to use sequential or random rotation. */
@@ -1577,28 +1451,19 @@ declare namespace gapi.client {
             overlapMetrics?: Metric[];
         }
         interface CustomEvent {
-            /**
-             * Annotate a click event. This field is mutually exclusive with insertEvent and annotateImpressionEvent. This or insertEvent and annotateImpressionEvent
-             * is a required field.
-             */
+            /** Annotate a click event. This field is mutually exclusive with insertEvent and annotateImpressionEvent. This or insertEvent and annotateImpressionEvent is a required field. */
             annotateClickEvent?: CustomEventClickAnnotation;
-            /**
-             * Annotate an impression. This field is mutually exclusive with insertEvent and annotateClickEvent. This or insertEvent and annotateClickEvent is a
-             * required field.
-             */
+            /** Annotate an impression. This field is mutually exclusive with insertEvent and annotateClickEvent. This or insertEvent and annotateClickEvent is a required field. */
             annotateImpressionEvent?: CustomEventImpressionAnnotation;
             /** Custom variables associated with the event. */
             customVariables?: CustomVariable[];
-            /**
-             * The type of event. If INSERT, the fields in insertEvent need to be populated. If ANNOTATE, the fields in either annotateClickEvent or
-             * annotateImpressionEvent need to be populated.
-             */
+            /** The type of event. If INSERT, the fields in insertEvent need to be populated. If ANNOTATE, the fields in either annotateClickEvent or annotateImpressionEvent need to be populated. */
             eventType?: string;
             /** Floodlight configuration ID of the advertiser the event is linked to. This is a required field. */
             floodlightConfigurationId?: string;
             /**
-             * Insert custom event. This field is mutually exclusive with annotateClickEvent and annotateImpressionEvent. This or annotateClickEvent and
-             * annotateImpressionEvent is a required field.
+             * Insert custom event. This field is mutually exclusive with annotateClickEvent and annotateImpressionEvent. This or annotateClickEvent and annotateImpressionEvent is a required
+             * field.
              */
             insertEvent?: CustomEventInsert;
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#customEvent". */
@@ -1638,8 +1503,8 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#customEventInsert". */
             kind?: string;
             /**
-             * The match ID field. A match ID is your own first-party identifier that has been synced with Google using the match ID feature in Floodlight. This field
-             * is mutually exclusive with mobileDeviceId, and at least one of the two fields is required.
+             * The match ID field. A match ID is your own first-party identifier that has been synced with Google using the match ID feature in Floodlight. This field is mutually exclusive with
+             * mobileDeviceId, and at least one of the two fields is required.
              */
             matchId?: string;
             /** The mobile device ID. This field is mutually exclusive with matchId, and at least one of the two fields is required. */
@@ -1701,14 +1566,11 @@ declare namespace gapi.client {
             /** Whether the video must be audible to count an impression. */
             audible?: boolean;
             /**
-             * The time in milliseconds the video must play for the Custom Viewability Metric to count an impression. If both this and timePercent are specified, the
-             * earlier of the two will be used.
+             * The time in milliseconds the video must play for the Custom Viewability Metric to count an impression. If both this and timePercent are specified, the earlier of the two will be
+             * used.
              */
             timeMillis?: number;
-            /**
-             * The percentage of video that must play for the Custom Viewability Metric to count an impression. If both this and timeMillis are specified, the earlier
-             * of the two will be used.
-             */
+            /** The percentage of video that must play for the Custom Viewability Metric to count an impression. If both this and timeMillis are specified, the earlier of the two will be used. */
             timePercent?: number;
             /** The percentage of video that must be on screen for the Custom Viewability Metric to count an impression. */
             viewabilityPercent?: number;
@@ -1725,9 +1587,9 @@ declare namespace gapi.client {
             /** Days of the week when the ad will serve. Acceptable values are: - "SUNDAY" - "MONDAY" - "TUESDAY" - "WEDNESDAY" - "THURSDAY" - "FRIDAY" - "SATURDAY" */
             daysOfWeek?: string[];
             /**
-             * Hours of the day when the ad will serve, where 0 is midnight to 1 AM and 23 is 11 PM to midnight. Can be specified with days of week, in which case the
-             * ad would serve during these hours on the specified days. For example if Monday, Wednesday, Friday are the days of week specified and 9-10am, 3-5pm
-             * (hours 9, 15, and 16) is specified, the ad would serve Monday, Wednesdays, and Fridays at 9-10am and 3-5pm. Acceptable values are 0 to 23, inclusive.
+             * Hours of the day when the ad will serve, where 0 is midnight to 1 AM and 23 is 11 PM to midnight. Can be specified with days of week, in which case the ad would serve during these
+             * hours on the specified days. For example if Monday, Wednesday, Friday are the days of week specified and 9-10am, 3-5pm (hours 9, 15, and 16) is specified, the ad would serve Monday,
+             * Wednesdays, and Fridays at 9-10am and 3-5pm. Acceptable values are 0 to 23, inclusive.
              */
             hoursOfDay?: number[];
             /** Whether or not to use the user's local time. If false, the America/New York time zone applies. */
@@ -1755,13 +1617,13 @@ declare namespace gapi.client {
             /** Limit on the number of times an individual user can be served the ad within a specified period of time. */
             frequencyCap?: FrequencyCap;
             /**
-             * Whether or not hard cutoff is enabled. If true, the ad will not serve after the end date and time. Otherwise the ad will continue to be served until it
-             * has reached its delivery goals.
+             * Whether or not hard cutoff is enabled. If true, the ad will not serve after the end date and time. Otherwise the ad will continue to be served until it has reached its delivery
+             * goals.
              */
             hardCutoff?: boolean;
             /**
-             * Impression ratio for this ad. This ratio determines how often each ad is served relative to the others. For example, if ad A has an impression ratio of
-             * 1 and ad B has an impression ratio of 3, then Campaign Manager will serve ad B three times as often as ad A. Acceptable values are 1 to 10, inclusive.
+             * Impression ratio for this ad. This ratio determines how often each ad is served relative to the others. For example, if ad A has an impression ratio of 1 and ad B has an impression
+             * ratio of 3, then Campaign Manager will serve ad B three times as often as ad A. Acceptable values are 1 to 10, inclusive.
              */
             impressionRatio?: string;
             /** Serving priority of an ad, with respect to other ads. The lower the priority number, the greater the priority with which it is served. */
@@ -1803,9 +1665,8 @@ declare namespace gapi.client {
             /** The kind of resource this is, in this case dfareporting#dimensionValue. */
             kind?: string;
             /**
-             * Determines how the 'value' field is matched when filtering. If not specified, defaults to EXACT. If set to WILDCARD_EXPRESSION, '∗' is allowed as a
-             * placeholder for variable length character sequences, and it can be escaped with a backslash. Note, only paid search dimensions ('dfa:paidSearch∗')
-             * allow a matchType other than EXACT.
+             * Determines how the 'value' field is matched when filtering. If not specified, defaults to EXACT. If set to WILDCARD_EXPRESSION, '*' is allowed as a placeholder for variable length
+             * character sequences, and it can be escaped with a backslash. Note, only paid search dimensions ('dfa:paidSearch*') allow a matchType other than EXACT.
              */
             matchType?: string;
             /** The value of the dimension. */
@@ -1819,8 +1680,8 @@ declare namespace gapi.client {
             /** The kind of list this is, in this case dfareporting#dimensionValueList. */
             kind?: string;
             /**
-             * Continuation token used to page through dimension values. To retrieve the next page of results, set the next request's "pageToken" to the value of this
-             * field. The page token is only valid for a limited amount of time and should not be persisted.
+             * Continuation token used to page through dimension values. To retrieve the next page of results, set the next request's "pageToken" to the value of this field. The page token is only
+             * valid for a limited amount of time and should not be persisted.
              */
             nextPageToken?: string;
         }
@@ -1841,10 +1702,7 @@ declare namespace gapi.client {
             idDimensionValue?: DimensionValue;
             /** Tag types for regular placements. Acceptable values are: - "STANDARD" - "IFRAME_JAVASCRIPT_INPAGE" - "INTERNAL_REDIRECT_INPAGE" - "JAVASCRIPT_INPAGE" */
             inpageTagFormats?: string[];
-            /**
-             * Tag types for interstitial placements. Acceptable values are: - "IFRAME_JAVASCRIPT_INTERSTITIAL" - "INTERNAL_REDIRECT_INTERSTITIAL" -
-             * "JAVASCRIPT_INTERSTITIAL"
-             */
+            /** Tag types for interstitial placements. Acceptable values are: - "IFRAME_JAVASCRIPT_INTERSTITIAL" - "INTERNAL_REDIRECT_INTERSTITIAL" - "JAVASCRIPT_INTERSTITIAL" */
             interstitialTagFormats?: string[];
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#directorySite". */
             kind?: string;
@@ -1896,10 +1754,7 @@ declare namespace gapi.client {
         interface DynamicTargetingKey {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#dynamicTargetingKey". */
             kind?: string;
-            /**
-             * Name of this dynamic targeting key. This is a required field. Must be less than 256 characters long and cannot contain commas. All characters are
-             * converted to lowercase.
-             */
+            /** Name of this dynamic targeting key. This is a required field. Must be less than 256 characters long and cannot contain commas. All characters are converted to lowercase. */
             name?: string;
             /** ID of the object of this dynamic targeting key. This is a required field. */
             objectId?: string;
@@ -1942,8 +1797,8 @@ declare namespace gapi.client {
             /** Whether this event tag should be automatically enabled for all of the advertiser's campaigns and ads. */
             enabledByDefault?: boolean;
             /**
-             * Whether to remove this event tag from ads that are trafficked through Display & Video 360 to Ad Exchange. This may be useful if the event tag uses a
-             * pixel that is unapproved for Ad Exchange bids on one or more networks, such as the Google Display Network.
+             * Whether to remove this event tag from ads that are trafficked through Display & Video 360 to Ad Exchange. This may be useful if the event tag uses a pixel that is unapproved for Ad
+             * Exchange bids on one or more networks, such as the Google Display Network.
              */
             excludeFromAdxRequests?: boolean;
             /** ID of this event tag. This is a read-only, auto-generated field. */
@@ -1963,18 +1818,15 @@ declare namespace gapi.client {
             /** Subaccount ID of this event tag. This is a read-only field that can be left blank. */
             subaccountId?: string;
             /**
-             * Event tag type. Can be used to specify whether to use a third-party pixel, a third-party JavaScript URL, or a third-party click-through URL for either
-             * impression or click tracking. This is a required field.
+             * Event tag type. Can be used to specify whether to use a third-party pixel, a third-party JavaScript URL, or a third-party click-through URL for either impression or click tracking.
+             * This is a required field.
              */
             type?: string;
-            /**
-             * Payload URL for this event tag. The URL on a click-through event tag should have a landing page URL appended to the end of it. This field is required
-             * on insertion.
-             */
+            /** Payload URL for this event tag. The URL on a click-through event tag should have a landing page URL appended to the end of it. This field is required on insertion. */
             url?: string;
             /**
-             * Number of times the landing page URL should be URL-escaped before being appended to the click-through event tag URL. Only applies to click-through
-             * event tags as specified by the event tag type.
+             * Number of times the landing page URL should be URL-escaped before being appended to the click-through event tag URL. Only applies to click-through event tags as specified by the
+             * event tag type.
              */
             urlEscapeLevels?: number;
         }
@@ -2027,8 +1879,8 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#fileList". */
             kind?: string;
             /**
-             * Continuation token used to page through files. To retrieve the next page of results, set the next request's "pageToken" to the value of this field. The
-             * page token is only valid for a limited amount of time and should not be persisted.
+             * Continuation token used to page through files. To retrieve the next page of results, set the next request's "pageToken" to the value of this field. The page token is only valid for
+             * a limited amount of time and should not be persisted.
              */
             nextPageToken?: string;
         }
@@ -2044,8 +1896,8 @@ declare namespace gapi.client {
             /** Generated tag for this Floodlight activity. For global site tags, this is the event snippet. */
             floodlightActivityTag?: string;
             /**
-             * The global snippet section of a global site tag. The global site tag sets new cookies on your domain, which will store a unique identifier for a user
-             * or the ad click that brought the user to your site. Learn more.
+             * The global snippet section of a global site tag. The global site tag sets new cookies on your domain, which will store a unique identifier for a user or the ad click that brought
+             * the user to your site. Learn more.
              */
             globalSiteTagGlobalSnippet?: string;
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#floodlightActivitiesGenerateTagResponse". */
@@ -2063,18 +1915,15 @@ declare namespace gapi.client {
             /** Account ID of this floodlight activity. This is a read-only field that can be left blank. */
             accountId?: string;
             /**
-             * Advertiser ID of this floodlight activity. If this field is left blank, the value will be copied over either from the activity group's advertiser or
-             * the existing activity's advertiser.
+             * Advertiser ID of this floodlight activity. If this field is left blank, the value will be copied over either from the activity group's advertiser or the existing activity's
+             * advertiser.
              */
             advertiserId?: string;
             /** Dimension value for the ID of the advertiser. This is a read-only, auto-generated field. */
             advertiserIdDimensionValue?: DimensionValue;
             /** Whether the activity is enabled for attribution. */
             attributionEnabled?: boolean;
-            /**
-             * Code type used for cache busting in the generated tag. Applicable only when floodlightActivityGroupType is COUNTER and countingMethod is
-             * STANDARD_COUNTING or UNIQUE_COUNTING.
-             */
+            /** Code type used for cache busting in the generated tag. Applicable only when floodlightActivityGroupType is COUNTER and countingMethod is STANDARD_COUNTING or UNIQUE_COUNTING. */
             cacheBustingType?: string;
             /** Counting method for conversions for this floodlight activity. This is a required field. */
             countingMethod?: string;
@@ -2091,8 +1940,8 @@ declare namespace gapi.client {
             /** Type of the associated floodlight activity group. This is a read-only field. */
             floodlightActivityGroupType?: string;
             /**
-             * Floodlight configuration ID of this floodlight activity. If this field is left blank, the value will be copied over either from the activity group's
-             * floodlight configuration or from the existing activity's floodlight configuration.
+             * Floodlight configuration ID of this floodlight activity. If this field is left blank, the value will be copied over either from the activity group's floodlight configuration or from
+             * the existing activity's floodlight configuration.
              */
             floodlightConfigurationId?: string;
             /** Dimension value for the ID of the floodlight configuration. This is a read-only, auto-generated field. */
@@ -2118,9 +1967,8 @@ declare namespace gapi.client {
             /** Whether this floodlight activity must be SSL-compliant. */
             sslRequired?: boolean;
             /**
-             * The status of the activity. This can only be set to ACTIVE or ARCHIVED_AND_DISABLED. The ARCHIVED status is no longer supported and cannot be set for
-             * Floodlight activities. The DISABLED_POLICY status indicates that a Floodlight activity is violating Google policy. Contact your account manager for
-             * more information.
+             * The status of the activity. This can only be set to ACTIVE or ARCHIVED_AND_DISABLED. The ARCHIVED status is no longer supported and cannot be set for Floodlight activities. The
+             * DISABLED_POLICY status indicates that a Floodlight activity is violating Google policy. Contact your account manager for more information.
              */
             status?: string;
             /** Subaccount ID of this floodlight activity. This is a read-only field that can be left blank. */
@@ -2128,14 +1976,14 @@ declare namespace gapi.client {
             /** Tag format type for the floodlight activity. If left blank, the tag format will default to HTML. */
             tagFormat?: string;
             /**
-             * Value of the cat= parameter in the floodlight tag, which the ad servers use to identify the activity. This is optional: if empty, a new tag string will
-             * be generated for you. This string must be 1 to 8 characters long, with valid characters being a-z0-9[ _ ]. This tag string must also be unique among
-             * activities of the same activity group. This field is read-only after insertion.
+             * Value of the cat= parameter in the floodlight tag, which the ad servers use to identify the activity. This is optional: if empty, a new tag string will be generated for you. This
+             * string must be 1 to 8 characters long, with valid characters being a-z0-9[ _ ]. This tag string must also be unique among activities of the same activity group. This field is
+             * read-only after insertion.
              */
             tagString?: string;
             /**
-             * List of the user-defined variables used by this conversion tag. These map to the "u[1-100]=" in the tags. Each of these can have a user defined type.
-             * Acceptable values are U1 to U100, inclusive.
+             * List of the user-defined variables used by this conversion tag. These map to the "u[1-100]=" in the tags. Each of these can have a user defined type. Acceptable values are U1 to
+             * U100, inclusive.
              */
             userDefinedVariableTypes?: string[];
         }
@@ -2151,8 +1999,8 @@ declare namespace gapi.client {
             /** Account ID of this floodlight activity group. This is a read-only field that can be left blank. */
             accountId?: string;
             /**
-             * Advertiser ID of this floodlight activity group. If this field is left blank, the value will be copied over either from the floodlight configuration's
-             * advertiser or from the existing activity group's advertiser.
+             * Advertiser ID of this floodlight activity group. If this field is left blank, the value will be copied over either from the floodlight configuration's advertiser or from the
+             * existing activity group's advertiser.
              */
             advertiserId?: string;
             /** Dimension value for the ID of the advertiser. This is a read-only, auto-generated field. */
@@ -2172,9 +2020,9 @@ declare namespace gapi.client {
             /** Subaccount ID of this floodlight activity group. This is a read-only field that can be left blank. */
             subaccountId?: string;
             /**
-             * Value of the type= parameter in the floodlight tag, which the ad servers use to identify the activity group that the activity belongs to. This is
-             * optional: if empty, a new tag string will be generated for you. This string must be 1 to 8 characters long, with valid characters being a-z0-9[ _ ].
-             * This tag string must also be unique among activity groups of the same floodlight configuration. This field is read-only after insertion.
+             * Value of the type= parameter in the floodlight tag, which the ad servers use to identify the activity group that the activity belongs to. This is optional: if empty, a new tag
+             * string will be generated for you. This string must be 1 to 8 characters long, with valid characters being a-z0-9[ _ ]. This tag string must also be unique among activity groups of
+             * the same floodlight configuration. This field is read-only after insertion.
              */
             tagString?: string;
             /** Type of the floodlight activity group. This is a required field that is read-only after insertion. */
@@ -2192,8 +2040,8 @@ declare namespace gapi.client {
             /** Whether this tag is applicable only for click-throughs. */
             clickThrough?: boolean;
             /**
-             * Directory site ID of this dynamic tag. This is a write-only field that can be used as an alternative to the siteId field. When this resource is
-             * retrieved, only the siteId field will be populated.
+             * Directory site ID of this dynamic tag. This is a write-only field that can be used as an alternative to the siteId field. When this resource is retrieved, only the siteId field will
+             * be populated.
              */
             directorySiteId?: string;
             /** Dynamic floodlight tag. */
@@ -2216,10 +2064,7 @@ declare namespace gapi.client {
             analyticsDataSharingEnabled?: boolean;
             /** Custom Viewability metric for the floodlight configuration. */
             customViewabilityMetric?: CustomViewabilityMetric;
-            /**
-             * Whether the exposure-to-conversion report is enabled. This report shows detailed pathway information on up to 10 of the most recent ad exposures seen
-             * by a user before converting.
-             */
+            /** Whether the exposure-to-conversion report is enabled. This report shows detailed pathway information on up to 10 of the most recent ad exposures seen by a user before converting. */
             exposureToConversionEnabled?: boolean;
             /** Day that will be counted as the first day of the week in reports. This is a required field. */
             firstDayOfWeek?: string;
@@ -2282,34 +2127,30 @@ declare namespace gapi.client {
         }
         interface GeoTargeting {
             /**
-             * Cities to be targeted. For each city only dartId is required. The other fields are populated automatically when the ad is inserted or updated. If
-             * targeting a city, do not target or exclude the country of the city, and do not target the metro or region of the city.
+             * Cities to be targeted. For each city only dartId is required. The other fields are populated automatically when the ad is inserted or updated. If targeting a city, do not target or
+             * exclude the country of the city, and do not target the metro or region of the city.
              */
             cities?: City[];
             /**
-             * Countries to be targeted or excluded from targeting, depending on the setting of the excludeCountries field. For each country only dartId is required.
-             * The other fields are populated automatically when the ad is inserted or updated. If targeting or excluding a country, do not target regions, cities,
-             * metros, or postal codes in the same country.
+             * Countries to be targeted or excluded from targeting, depending on the setting of the excludeCountries field. For each country only dartId is required. The other fields are populated
+             * automatically when the ad is inserted or updated. If targeting or excluding a country, do not target regions, cities, metros, or postal codes in the same country.
              */
             countries?: Country[];
-            /**
-             * Whether or not to exclude the countries in the countries field from targeting. If false, the countries field refers to countries which will be targeted
-             * by the ad.
-             */
+            /** Whether or not to exclude the countries in the countries field from targeting. If false, the countries field refers to countries which will be targeted by the ad. */
             excludeCountries?: boolean;
             /**
-             * Metros to be targeted. For each metro only dmaId is required. The other fields are populated automatically when the ad is inserted or updated. If
-             * targeting a metro, do not target or exclude the country of the metro.
+             * Metros to be targeted. For each metro only dmaId is required. The other fields are populated automatically when the ad is inserted or updated. If targeting a metro, do not target or
+             * exclude the country of the metro.
              */
             metros?: Metro[];
             /**
-             * Postal codes to be targeted. For each postal code only id is required. The other fields are populated automatically when the ad is inserted or updated.
-             * If targeting a postal code, do not target or exclude the country of the postal code.
+             * Postal codes to be targeted. For each postal code only id is required. The other fields are populated automatically when the ad is inserted or updated. If targeting a postal code,
+             * do not target or exclude the country of the postal code.
              */
             postalCodes?: PostalCode[];
             /**
-             * Regions to be targeted. For each region only dartId is required. The other fields are populated automatically when the ad is inserted or updated. If
-             * targeting a region, do not target or exclude the country of the region.
+             * Regions to be targeted. For each region only dartId is required. The other fields are populated automatically when the ad is inserted or updated. If targeting a region, do not
+             * target or exclude the country of the region.
              */
             regions?: Region[];
         }
@@ -2318,8 +2159,8 @@ declare namespace gapi.client {
             /** Account ID of this inventory item. */
             accountId?: string;
             /**
-             * Ad slots of this inventory item. If this inventory item represents a standalone placement, there will be exactly one ad slot. If this inventory item
-             * represents a placement group, there will be more than one ad slot, each representing one child placement in that placement group.
+             * Ad slots of this inventory item. If this inventory item represents a standalone placement, there will be exactly one ad slot. If this inventory item represents a placement group,
+             * there will be more than one ad slot, each representing one child placement in that placement group.
              */
             adSlots?: AdSlot[];
             /** Advertiser ID of this inventory item. */
@@ -2339,8 +2180,8 @@ declare namespace gapi.client {
             /** Information about the most recent modification of this inventory item. */
             lastModifiedInfo?: LastModifiedInfo;
             /**
-             * Name of this inventory item. For standalone inventory items, this is the same name as that of its only ad slot. For group inventory items, this can
-             * differ from the name of any of its ad slots.
+             * Name of this inventory item. For standalone inventory items, this is the same name as that of its only ad slot. For group inventory items, this can differ from the name of any of
+             * its ad slots.
              */
             name?: string;
             /** Negotiation channel ID of this inventory item. */
@@ -2397,8 +2238,8 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#language". */
             kind?: string;
             /**
-             * Format of language code is an ISO 639 two-letter language code optionally followed by an underscore followed by an ISO 3166 code. Examples are "en" for
-             * English or "zh_CN" for Simplified Chinese.
+             * Format of language code is an ISO 639 two-letter language code optionally followed by an underscore followed by an ISO 3166 code. Examples are "en" for English or "zh_CN" for
+             * Simplified Chinese.
              */
             languageCode?: string;
             /** Name of this language. */
@@ -2411,10 +2252,7 @@ declare namespace gapi.client {
             languages?: Language[];
         }
         interface LanguageTargeting {
-            /**
-             * Languages that this ad targets. For each language only languageId is required. The other fields are populated automatically when the ad is inserted or
-             * updated.
-             */
+            /** Languages that this ad targets. For each language only languageId is required. The other fields are populated automatically when the ad is inserted or updated. */
             languages?: Language[];
         }
         interface LastModifiedInfo {
@@ -2430,44 +2268,32 @@ declare namespace gapi.client {
             floodlightActivityId?: string;
             /** Name of floodlight activity associated with this rule. This is a read-only, auto-generated field. */
             floodlightActivityName?: string;
-            /**
-             * Clauses that make up this list population rule. Clauses are joined by ANDs, and the clauses themselves are made up of list population terms which are
-             * joined by ORs.
-             */
+            /** Clauses that make up this list population rule. Clauses are joined by ANDs, and the clauses themselves are made up of list population terms which are joined by ORs. */
             listPopulationClauses?: ListPopulationClause[];
         }
         interface ListPopulationTerm {
             /**
-             * Will be true if the term should check if the user is in the list and false if the term should check if the user is not in the list. This field is only
-             * relevant when type is set to LIST_MEMBERSHIP_TERM. False by default.
+             * Will be true if the term should check if the user is in the list and false if the term should check if the user is not in the list. This field is only relevant when type is set to
+             * LIST_MEMBERSHIP_TERM. False by default.
              */
             contains?: boolean;
-            /**
-             * Whether to negate the comparison result of this term during rule evaluation. This field is only relevant when type is left unset or set to
-             * CUSTOM_VARIABLE_TERM or REFERRER_TERM.
-             */
+            /** Whether to negate the comparison result of this term during rule evaluation. This field is only relevant when type is left unset or set to CUSTOM_VARIABLE_TERM or REFERRER_TERM. */
             negation?: boolean;
             /** Comparison operator of this term. This field is only relevant when type is left unset or set to CUSTOM_VARIABLE_TERM or REFERRER_TERM. */
             operator?: string;
             /** ID of the list in question. This field is only relevant when type is set to LIST_MEMBERSHIP_TERM. */
             remarketingListId?: string;
             /**
-             * List population term type determines the applicable fields in this object. If left unset or set to CUSTOM_VARIABLE_TERM, then variableName,
-             * variableFriendlyName, operator, value, and negation are applicable. If set to LIST_MEMBERSHIP_TERM then remarketingListId and contains are applicable.
-             * If set to REFERRER_TERM then operator, value, and negation are applicable.
+             * List population term type determines the applicable fields in this object. If left unset or set to CUSTOM_VARIABLE_TERM, then variableName, variableFriendlyName, operator, value,
+             * and negation are applicable. If set to LIST_MEMBERSHIP_TERM then remarketingListId and contains are applicable. If set to REFERRER_TERM then operator, value, and negation are
+             * applicable.
              */
             type?: string;
             /** Literal to compare the variable to. This field is only relevant when type is left unset or set to CUSTOM_VARIABLE_TERM or REFERRER_TERM. */
             value?: string;
-            /**
-             * Friendly name of this term's variable. This is a read-only, auto-generated field. This field is only relevant when type is left unset or set to
-             * CUSTOM_VARIABLE_TERM.
-             */
+            /** Friendly name of this term's variable. This is a read-only, auto-generated field. This field is only relevant when type is left unset or set to CUSTOM_VARIABLE_TERM. */
             variableFriendlyName?: string;
-            /**
-             * Name of the variable (U1, U2, etc.) being compared in this term. This field is only relevant when type is set to null, CUSTOM_VARIABLE_TERM or
-             * REFERRER_TERM.
-             */
+            /** Name of the variable (U1, U2, etc.) being compared in this term. This field is only relevant when type is set to null, CUSTOM_VARIABLE_TERM or REFERRER_TERM. */
             variableName?: string;
         }
         interface ListTargetingExpression {
@@ -2476,30 +2302,24 @@ declare namespace gapi.client {
         }
         interface LookbackConfiguration {
             /**
-             * Lookback window, in days, from the last time a given user clicked on one of your ads. If you enter 0, clicks will not be considered as triggering
-             * events for floodlight tracking. If you leave this field blank, the default value for your account will be used. Acceptable values are 0 to 90,
-             * inclusive.
+             * Lookback window, in days, from the last time a given user clicked on one of your ads. If you enter 0, clicks will not be considered as triggering events for floodlight tracking. If
+             * you leave this field blank, the default value for your account will be used. Acceptable values are 0 to 90, inclusive.
              */
             clickDuration?: number;
             /**
-             * Lookback window, in days, from the last time a given user viewed one of your ads. If you enter 0, impressions will not be considered as triggering
-             * events for floodlight tracking. If you leave this field blank, the default value for your account will be used. Acceptable values are 0 to 90,
-             * inclusive.
+             * Lookback window, in days, from the last time a given user viewed one of your ads. If you enter 0, impressions will not be considered as triggering events for floodlight tracking. If
+             * you leave this field blank, the default value for your account will be used. Acceptable values are 0 to 90, inclusive.
              */
             postImpressionActivitiesDuration?: number;
         }
         interface MediaRequestInfo {
             /** The number of current bytes uploaded or downloaded. */
             currentBytes?: string;
-            /**
-             * Data to be copied to backend requests. Custom data is returned to Scotty in the agent_state field, which Scotty will then provide in subsequent upload
-             * notifications.
-             */
+            /** Data to be copied to backend requests. Custom data is returned to Scotty in the agent_state field, which Scotty will then provide in subsequent upload notifications. */
             customData?: string;
             /**
-             * Set if the http request info is diff encoded. The value of this field is the version number of the base revision. This is corresponding to Apiary's
-             * mediaDiffObjectVersion (//depot/google3/java/com/google/api/server/media/variable/DiffObjectVersionVariable.java). See go/esf-scotty-diff-upload for
-             * more information.
+             * Set if the http request info is diff encoded. The value of this field is the version number of the base revision. This is corresponding to Apiary's mediaDiffObjectVersion
+             * (//depot/google3/java/com/google/api/server/media/variable/DiffObjectVersionVariable.java). See go/esf-scotty-diff-upload for more information.
              */
             diffObjectVersion?: string;
             /** The type of notification received from Scotty. */
@@ -2513,21 +2333,20 @@ declare namespace gapi.client {
         }
         interface MediaResponseInfo {
             /**
-             * Data to copy from backend response to the next backend requests. Custom data is returned to Scotty in the agent_state field, which Scotty will then
-             * provide in subsequent upload notifications.
+             * Data to copy from backend response to the next backend requests. Custom data is returned to Scotty in the agent_state field, which Scotty will then provide in subsequent upload
+             * notifications.
              */
             customData?: string;
             /**
-             * Specifies any transformation to be applied to data before persisting it or retrieving from storage. E.g., encryption options for blobstore2. This
-             * should be of the form uploader_service.DataStorageTransform.
+             * Specifies any transformation to be applied to data before persisting it or retrieving from storage. E.g., encryption options for blobstore2. This should be of the form
+             * uploader_service.DataStorageTransform.
              */
             dataStorageTransform?: string;
             /**
-             * Specifies the Scotty Drop Target to use for uploads. If present in a media response, Scotty does not upload to a standard drop zone. Instead, Scotty
-             * saves the upload directly to the location specified in this drop target. Unlike drop zones, the drop target is the final storage location for an
-             * upload. So, the agent does not need to clone the blob at the end of the upload. The agent is responsible for garbage collecting any orphaned blobs that
-             * may occur due to aborted uploads. For more information, see the drop target design doc here: http://goto/ScottyDropTarget This field will be preferred
-             * to dynamicDropzone. If provided, the identified field in the response must be of the type uploader.agent.DropTarget.
+             * Specifies the Scotty Drop Target to use for uploads. If present in a media response, Scotty does not upload to a standard drop zone. Instead, Scotty saves the upload directly to the
+             * location specified in this drop target. Unlike drop zones, the drop target is the final storage location for an upload. So, the agent does not need to clone the blob at the end of
+             * the upload. The agent is responsible for garbage collecting any orphaned blobs that may occur due to aborted uploads. For more information, see the drop target design doc here:
+             * http://goto/ScottyDropTarget This field will be preferred to dynamicDropzone. If provided, the identified field in the response must be of the type uploader.agent.DropTarget.
              */
             dynamicDropTarget?: string;
             /** Specifies the Scotty dropzone to use for uploads. */
@@ -2535,9 +2354,9 @@ declare namespace gapi.client {
             /** Request class to use for all Blobstore operations for this request. */
             requestClass?: string;
             /**
-             * Specifies the TrafficClass that Scotty should use for any RPCs to fetch the response bytes. Will override the traffic class GTOS of the incoming http
-             * request. This is a temporary field to facilitate whitelisting and experimentation by the bigstore agent only. For instance, this does not apply to RTMP
-             * reads. WARNING: DO NOT USE WITHOUT PERMISSION FROM THE SCOTTY TEAM.
+             * Specifies the TrafficClass that Scotty should use for any RPCs to fetch the response bytes. Will override the traffic class GTOS of the incoming http request. This is a temporary
+             * field to facilitate whitelisting and experimentation by the bigstore agent only. For instance, this does not apply to RTMP reads. WARNING: DO NOT USE WITHOUT PERMISSION FROM THE
+             * SCOTTY TEAM.
              */
             trafficClassField?: string;
             /** Tells Scotty to verify hashes on the agent's behalf by parsing out the X-Goog-Hash header. */
@@ -2633,8 +2452,8 @@ declare namespace gapi.client {
             /** Applicable when status is ASSIGNED. The user has access to objects with these object IDs. */
             objectIds?: string[];
             /**
-             * Status of the filter. NONE means the user has access to none of the objects. ALL means the user has access to all objects. ASSIGNED means the user has
-             * access to the objects with IDs in the objectIds list.
+             * Status of the filter. NONE means the user has access to none of the objects. ALL means the user has access to all objects. ASSIGNED means the user has access to the objects with IDs
+             * in the objectIds list.
              */
             status?: string;
         }
@@ -2694,8 +2513,8 @@ declare namespace gapi.client {
             /** Dimension value for the ID of the floodlight activity. This is a read-only, auto-generated field. */
             floodlightActivityIdDimensionValue?: DimensionValue;
             /**
-             * Weight associated with this optimization. The weight assigned will be understood in proportion to the weights assigned to the other optimization
-             * activities. Value must be greater than or equal to 1.
+             * Weight associated with this optimization. The weight assigned will be understood in proportion to the weights assigned to the other optimization activities. Value must be greater
+             * than or equal to 1.
              */
             weight?: number;
         }
@@ -2742,10 +2561,7 @@ declare namespace gapi.client {
             termsAndConditions?: string;
         }
         interface OrderContact {
-            /**
-             * Free-form information about this contact. It could be any information related to this contact in addition to type, title, name, and signature user
-             * profile ID.
-             */
+            /** Free-form information about this contact. It could be any information related to this contact in addition to type, title, name, and signature user profile ID. */
             contactInfo?: string;
             /** Name of this contact. */
             contactName?: string;
@@ -2761,10 +2577,7 @@ declare namespace gapi.client {
             accountId?: string;
             /** Advertiser ID of this order document. */
             advertiserId?: string;
-            /**
-             * The amended order document ID of this order document. An order document can be created by optionally amending another order document so that the change
-             * history can be preserved.
-             */
+            /** The amended order document ID of this order document. An order document can be created by optionally amending another order document so that the change history can be preserved. */
             amendedOrderDocumentId?: string;
             /** IDs of users who have approved this order document. */
             approvedByUserProfileIds?: string[];
@@ -2815,9 +2628,8 @@ declare namespace gapi.client {
             /** The kind of resource this is, in this case dfareporting#pathFilter. */
             kind?: string;
             /**
-             * Determines how the 'value' field is matched when filtering. If not specified, defaults to EXACT. If set to WILDCARD_EXPRESSION, '∗' is allowed as a
-             * placeholder for variable length character sequences, and it can be escaped with a backslash. Note, only paid search dimensions ('dfa:paidSearch∗')
-             * allow a matchType other than EXACT.
+             * Determines how the 'value' field is matched when filtering. If not specified, defaults to EXACT. If set to WILDCARD_EXPRESSION, '*' is allowed as a placeholder for variable length
+             * character sequences, and it can be escaped with a backslash. Note, only paid search dimensions ('dfa:paidSearch*') allow a matchType other than EXACT.
              */
             pathMatchPosition?: string;
         }
@@ -2841,9 +2653,8 @@ declare namespace gapi.client {
             /** The kind of resource this is, in this case dfareporting#pathReportDimensionValue. */
             kind?: string;
             /**
-             * Determines how the 'value' field is matched when filtering. If not specified, defaults to EXACT. If set to WILDCARD_EXPRESSION, '∗' is allowed as a
-             * placeholder for variable length character sequences, and it can be escaped with a backslash. Note, only paid search dimensions ('dfa:paidSearch∗')
-             * allow a matchType other than EXACT.
+             * Determines how the 'value' field is matched when filtering. If not specified, defaults to EXACT. If set to WILDCARD_EXPRESSION, '*' is allowed as a placeholder for variable length
+             * character sequences, and it can be escaped with a backslash. Note, only paid search dimensions ('dfa:paidSearch*') allow a matchType other than EXACT.
              */
             matchType?: string;
             /** The possible values of the dimension. */
@@ -2864,10 +2675,7 @@ declare namespace gapi.client {
         interface Placement {
             /** Account ID of this placement. This field can be left blank. */
             accountId?: string;
-            /**
-             * Whether this placement opts out of ad blocking. When true, ad blocking is disabled for this placement. When false, the campaign and site settings take
-             * effect.
-             */
+            /** Whether this placement opts out of ad blocking. When true, ad blocking is disabled for this placement. When false, the campaign and site settings take effect. */
             adBlockingOptOut?: boolean;
             /** Additional sizes associated with this placement. When inserting or updating a placement, only the size ID field is used. */
             additionalSizes?: Size[];
@@ -2884,9 +2692,9 @@ declare namespace gapi.client {
             /** Comments for this placement. */
             comment?: string;
             /**
-             * Placement compatibility. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering on desktop, on mobile devices or in mobile apps for regular or
-             * interstitial ads respectively. APP and APP_INTERSTITIAL are no longer allowed for new placement insertions. Instead, use DISPLAY or
-             * DISPLAY_INTERSTITIAL. IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with the VAST standard. This field is required on insertion.
+             * Placement compatibility. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering on desktop, on mobile devices or in mobile apps for regular or interstitial ads respectively. APP and
+             * APP_INTERSTITIAL are no longer allowed for new placement insertions. Instead, use DISPLAY or DISPLAY_INTERSTITIAL. IN_STREAM_VIDEO refers to rendering in in-stream video ads
+             * developed with the VAST standard. This field is required on insertion.
              */
             compatibility?: string;
             /** ID of the content category assigned to this placement. */
@@ -2894,8 +2702,8 @@ declare namespace gapi.client {
             /** Information about the creation of this placement. This is a read-only field. */
             createInfo?: LastModifiedInfo;
             /**
-             * Directory site ID of this placement. On insert, you must set either this field or the siteId field to specify the site associated with this placement.
-             * This is a required field that is read-only after insertion.
+             * Directory site ID of this placement. On insert, you must set either this field or the siteId field to specify the site associated with this placement. This is a required field that
+             * is read-only after insertion.
              */
             directorySiteId?: string;
             /** Dimension value for the ID of the directory site. This is a read-only, auto-generated field. */
@@ -2929,16 +2737,15 @@ declare namespace gapi.client {
             /** Pricing schedule of this placement. This field is required on insertion, specifically subfields startDate, endDate and pricingType. */
             pricingSchedule?: PricingSchedule;
             /**
-             * Whether this placement is the primary placement of a roadblock (placement group). You cannot change this field from true to false. Setting this field
-             * to true will automatically set the primary field on the original primary placement of the roadblock to false, and it will automatically set the
-             * roadblock's primaryPlacementId field to the ID of this placement.
+             * Whether this placement is the primary placement of a roadblock (placement group). You cannot change this field from true to false. Setting this field to true will automatically set
+             * the primary field on the original primary placement of the roadblock to false, and it will automatically set the roadblock's primaryPlacementId field to the ID of this placement.
              */
             primary?: boolean;
             /** Information about the last publisher update. This is a read-only field. */
             publisherUpdateInfo?: LastModifiedInfo;
             /**
-             * Site ID associated with this placement. On insert, you must set either this field or the directorySiteId field to specify the site associated with this
-             * placement. This is a required field that is read-only after insertion.
+             * Site ID associated with this placement. On insert, you must set either this field or the directorySiteId field to specify the site associated with this placement. This is a required
+             * field that is read-only after insertion.
              */
             siteId?: string;
             /** Dimension value for the ID of the site. This is a read-only, auto-generated field. */
@@ -2952,27 +2759,26 @@ declare namespace gapi.client {
             /** Subaccount ID of this placement. This field can be left blank. */
             subaccountId?: string;
             /**
-             * Tag formats to generate for this placement. This field is required on insertion. Acceptable values are: - "PLACEMENT_TAG_STANDARD" -
-             * "PLACEMENT_TAG_IFRAME_JAVASCRIPT" - "PLACEMENT_TAG_IFRAME_ILAYER" - "PLACEMENT_TAG_INTERNAL_REDIRECT" - "PLACEMENT_TAG_JAVASCRIPT" -
-             * "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT" - "PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT" - "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT" -
-             * "PLACEMENT_TAG_CLICK_COMMANDS" - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH" - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3" -
-             * "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4" - "PLACEMENT_TAG_TRACKING" - "PLACEMENT_TAG_TRACKING_IFRAME" - "PLACEMENT_TAG_TRACKING_JAVASCRIPT"
+             * Tag formats to generate for this placement. This field is required on insertion. Acceptable values are: - "PLACEMENT_TAG_STANDARD" - "PLACEMENT_TAG_IFRAME_JAVASCRIPT" -
+             * "PLACEMENT_TAG_IFRAME_ILAYER" - "PLACEMENT_TAG_INTERNAL_REDIRECT" - "PLACEMENT_TAG_JAVASCRIPT" - "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT" -
+             * "PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT" - "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT" - "PLACEMENT_TAG_CLICK_COMMANDS" - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH" -
+             * "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3" - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4" - "PLACEMENT_TAG_TRACKING" - "PLACEMENT_TAG_TRACKING_IFRAME" -
+             * "PLACEMENT_TAG_TRACKING_JAVASCRIPT"
              */
             tagFormats?: string[];
             /** Tag settings for this placement. */
             tagSetting?: TagSetting;
             /**
-             * Whether Verification and ActiveView are disabled for in-stream video creatives for this placement. The same setting videoActiveViewOptOut exists on the
-             * site level -- the opt out occurs if either of these settings are true. These settings are distinct from DirectorySites.settings.activeViewOptOut or
-             * Sites.siteSettings.activeViewOptOut which only apply to display ads. However, Accounts.activeViewOptOut opts out both video traffic, as well as display
-             * ads, from Verification and ActiveView.
+             * Whether Verification and ActiveView are disabled for in-stream video creatives for this placement. The same setting videoActiveViewOptOut exists on the site level -- the opt out
+             * occurs if either of these settings are true. These settings are distinct from DirectorySites.settings.activeViewOptOut or Sites.siteSettings.activeViewOptOut which only apply to
+             * display ads. However, Accounts.activeViewOptOut opts out both video traffic, as well as display ads, from Verification and ActiveView.
              */
             videoActiveViewOptOut?: boolean;
             /** A collection of settings which affect video creatives served through this placement. Applicable to placements with IN_STREAM_VIDEO compatibility. */
             videoSettings?: VideoSettings;
             /**
-             * VPAID adapter setting for this placement. Controls which VPAID format the measurement adapter will use for in-stream video creatives assigned to this
-             * placement. ∗Note:∗ Flash is no longer supported. This field now defaults to HTML5 when the following values are provided: FLASH, BOTH.
+             * VPAID adapter setting for this placement. Controls which VPAID format the measurement adapter will use for in-stream video creatives assigned to this placement. *Note:* Flash is no
+             * longer supported. This field now defaults to HTML5 when the following values are provided: FLASH, BOTH.
              */
             vpaidAdapterChoice?: string;
         }
@@ -3008,8 +2814,8 @@ declare namespace gapi.client {
             /** Information about the creation of this placement group. This is a read-only field. */
             createInfo?: LastModifiedInfo;
             /**
-             * Directory site ID associated with this placement group. On insert, you must set either this field or the site_id field to specify the site associated
-             * with this placement group. This is a required field that is read-only after insertion.
+             * Directory site ID associated with this placement group. On insert, you must set either this field or the site_id field to specify the site associated with this placement group. This
+             * is a required field that is read-only after insertion.
              */
             directorySiteId?: string;
             /** Dimension value for the ID of the directory site. This is a read-only, auto-generated field. */
@@ -3027,9 +2833,9 @@ declare namespace gapi.client {
             /** Name of this placement group. This is a required field and must be less than 256 characters long. */
             name?: string;
             /**
-             * Type of this placement group. A package is a simple group of placements that acts as a single pricing point for a group of tags. A roadblock is a group
-             * of placements that not only acts as a single pricing point, but also assumes that all the tags in it will be served at the same time. A roadblock
-             * requires one of its assigned placements to be marked as primary for reporting. This field is required on insertion.
+             * Type of this placement group. A package is a simple group of placements that acts as a single pricing point for a group of tags. A roadblock is a group of placements that not only
+             * acts as a single pricing point, but also assumes that all the tags in it will be served at the same time. A roadblock requires one of its assigned placements to be marked as primary
+             * for reporting. This field is required on insertion.
              */
             placementGroupType?: string;
             /** ID of the placement strategy assigned to this placement group. */
@@ -3037,15 +2843,15 @@ declare namespace gapi.client {
             /** Pricing schedule of this placement group. This field is required on insertion. */
             pricingSchedule?: PricingSchedule;
             /**
-             * ID of the primary placement, used to calculate the media cost of a roadblock (placement group). Modifying this field will automatically modify the
-             * primary field on all affected roadblock child placements.
+             * ID of the primary placement, used to calculate the media cost of a roadblock (placement group). Modifying this field will automatically modify the primary field on all affected
+             * roadblock child placements.
              */
             primaryPlacementId?: string;
             /** Dimension value for the ID of the primary placement. This is a read-only, auto-generated field. */
             primaryPlacementIdDimensionValue?: DimensionValue;
             /**
-             * Site ID associated with this placement group. On insert, you must set either this field or the directorySiteId field to specify the site associated
-             * with this placement group. This is a required field that is read-only after insertion.
+             * Site ID associated with this placement group. On insert, you must set either this field or the directorySiteId field to specify the site associated with this placement group. This
+             * is a required field that is read-only after insertion.
              */
             siteId?: string;
             /** Dimension value for the ID of the site. This is a read-only, auto-generated field. */
@@ -3090,10 +2896,7 @@ declare namespace gapi.client {
             id?: string;
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#placementStrategy". */
             kind?: string;
-            /**
-             * Name of this placement strategy. This is a required field. It must be less than 256 characters long and unique among placement strategies of the same
-             * account.
-             */
+            /** Name of this placement strategy. This is a required field. It must be less than 256 characters long and unique among placement strategies of the same account. */
             name?: string;
         }
         interface PlacementTag {
@@ -3161,10 +2964,9 @@ declare namespace gapi.client {
             /** Flights of this inventory item. A flight (a.k.a. pricing period) represents the inventory item pricing information for a specific period of time. */
             flights?: Flight[];
             /**
-             * Group type of this inventory item if it represents a placement group. Is null otherwise. There are two type of placement groups:
-             * PLANNING_PLACEMENT_GROUP_TYPE_PACKAGE is a simple group of inventory items that acts as a single pricing point for a group of tags.
-             * PLANNING_PLACEMENT_GROUP_TYPE_ROADBLOCK is a group of inventory items that not only acts as a single pricing point, but also assumes that all the tags
-             * in it will be served at the same time. A roadblock requires one of its assigned inventory items to be marked as primary.
+             * Group type of this inventory item if it represents a placement group. Is null otherwise. There are two type of placement groups: PLANNING_PLACEMENT_GROUP_TYPE_PACKAGE is a simple
+             * group of inventory items that acts as a single pricing point for a group of tags. PLANNING_PLACEMENT_GROUP_TYPE_ROADBLOCK is a group of inventory items that not only acts as a
+             * single pricing point, but also assumes that all the tags in it will be served at the same time. A roadblock requires one of its assigned inventory items to be marked as primary.
              */
             groupType?: string;
             /** Pricing type of this inventory item. */
@@ -3206,8 +3008,8 @@ declare namespace gapi.client {
             /** Audience gender of this project. */
             audienceGender?: string;
             /**
-             * Budget of this project in the currency specified by the current account. The value stored in this field represents only the non-fractional amount. For
-             * example, for USD, the smallest value that can be represented by this field is 1 US dollar.
+             * Budget of this project in the currency specified by the current account. The value stored in this field represents only the non-fractional amount. For example, for USD, the smallest
+             * value that can be represented by this field is 1 US dollar.
              */
             budget?: string;
             /** Client billing code of this project. */
@@ -3350,10 +3152,7 @@ declare namespace gapi.client {
                 customRichMediaEvents?: CustomRichMediaEvents;
                 /** The date range for which this report should be run. */
                 dateRange?: DateRange;
-                /**
-                 * The list of filters on which dimensions are filtered. Filters for different dimensions are ANDed, filters for the same dimension are grouped together
-                 * and ORed.
-                 */
+                /** The list of filters on which dimensions are filtered. Filters for different dimensions are ANDed, filters for the same dimension are grouped together and ORed. */
                 dimensionFilters?: DimensionValue[];
                 /** The list of standard dimensions the report should include. */
                 dimensions?: SortedDimension[];
@@ -3398,16 +3197,13 @@ declare namespace gapi.client {
                 customRichMediaEvents?: DimensionValue[];
                 /** The date range this report should be run for. */
                 dateRange?: DateRange;
-                /**
-                 * The list of filters on which dimensions are filtered. Filters for different dimensions are ANDed, filters for the same dimension are grouped together
-                 * and ORed.
-                 */
+                /** The list of filters on which dimensions are filtered. Filters for different dimensions are ANDed, filters for the same dimension are grouped together and ORed. */
                 dimensionFilters?: DimensionValue[];
                 /** The list of dimensions the report should include. */
                 dimensions?: SortedDimension[];
                 /**
-                 * The floodlight ID for which to show data in this report. All advertisers associated with that ID will automatically be added. The dimension of the
-                 * value needs to be 'dfa:floodlightConfigId'.
+                 * The floodlight ID for which to show data in this report. All advertisers associated with that ID will automatically be added. The dimension of the value needs to be
+                 * 'dfa:floodlightConfigId'.
                  */
                 floodlightConfigId?: DimensionValue;
                 /** The list of names of metrics the report should include. */
@@ -3417,20 +3213,20 @@ declare namespace gapi.client {
                     /** Include conversions that have no cookie, but do have an exposure path. */
                     includeAttributedIPConversions?: boolean;
                     /**
-                     * Include conversions of users with a DoubleClick cookie but without an exposure. That means the user did not click or see an ad from the advertiser
-                     * within the Floodlight group, or that the interaction happened outside the lookback window.
+                     * Include conversions of users with a DoubleClick cookie but without an exposure. That means the user did not click or see an ad from the advertiser within the Floodlight
+                     * group, or that the interaction happened outside the lookback window.
                      */
                     includeUnattributedCookieConversions?: boolean;
                     /**
-                     * Include conversions that have no associated cookies and no exposures. It’s therefore impossible to know how the user was exposed to your ads during the
-                     * lookback window prior to a conversion.
+                     * Include conversions that have no associated cookies and no exposures. It’s therefore impossible to know how the user was exposed to your ads during the lookback window prior
+                     * to a conversion.
                      */
                     includeUnattributedIPConversions?: boolean;
                 };
             };
             /**
-             * The output format of the report. If not specified, default format is "CSV". Note that the actual format in the completed report file might differ if
-             * for instance the report's size exceeds the format's capabilities. "CSV" will then be the fallback format.
+             * The output format of the report. If not specified, default format is "CSV". Note that the actual format in the completed report file might differ if for instance the report's size
+             * exceeds the format's capabilities. "CSV" will then be the fallback format.
              */
             format?: string;
             /** The unique ID identifying this report resource. */
@@ -3454,8 +3250,8 @@ declare namespace gapi.client {
                 /** The list of dimensions the report should include. */
                 dimensions?: SortedDimension[];
                 /**
-                 * The floodlight ID for which to show data in this report. All advertisers associated with that ID will automatically be added. The dimension of the
-                 * value needs to be 'dfa:floodlightConfigId'.
+                 * The floodlight ID for which to show data in this report. All advertisers associated with that ID will automatically be added. The dimension of the value needs to be
+                 * 'dfa:floodlightConfigId'.
                  */
                 floodlightConfigId?: DimensionValue;
                 /** The list of names of metrics the report should include. */
@@ -3474,8 +3270,8 @@ declare namespace gapi.client {
                 /** The list of dimensions the report should include. */
                 dimensions?: SortedDimension[];
                 /**
-                 * The floodlight ID for which to show data in this report. All advertisers associated with that ID will automatically be added. The dimension of the
-                 * value needs to be 'dfa:floodlightConfigId'.
+                 * The floodlight ID for which to show data in this report. All advertisers associated with that ID will automatically be added. The dimension of the value needs to be
+                 * 'dfa:floodlightConfigId'.
                  */
                 floodlightConfigId?: DimensionValue;
                 /** The list of names of metrics the report should include. */
@@ -3496,8 +3292,8 @@ declare namespace gapi.client {
                 /** The date range this report should be run for. */
                 dateRange?: DateRange;
                 /**
-                 * The floodlight ID for which to show data in this report. All advertisers associated with that ID will automatically be added. The dimension of the
-                 * value needs to be 'dfa:floodlightConfigId'.
+                 * The floodlight ID for which to show data in this report. All advertisers associated with that ID will automatically be added. The dimension of the value needs to be
+                 * 'dfa:floodlightConfigId'.
                  */
                 floodlightConfigId?: DimensionValue;
                 /** The list of names of metrics the report should include. */
@@ -3507,35 +3303,35 @@ declare namespace gapi.client {
                 /** The properties of the report. */
                 reportProperties?: {
                     /**
-                     * DFA checks to see if a click interaction occurred within the specified period of time before a conversion. By default the value is pulled from
-                     * Floodlight or you can manually enter a custom value. Valid values: 1-90.
+                     * DFA checks to see if a click interaction occurred within the specified period of time before a conversion. By default the value is pulled from Floodlight or you can manually
+                     * enter a custom value. Valid values: 1-90.
                      */
                     clicksLookbackWindow?: number;
                     /**
-                     * DFA checks to see if an impression interaction occurred within the specified period of time before a conversion. By default the value is pulled from
-                     * Floodlight or you can manually enter a custom value. Valid values: 1-90.
+                     * DFA checks to see if an impression interaction occurred within the specified period of time before a conversion. By default the value is pulled from Floodlight or you can
+                     * manually enter a custom value. Valid values: 1-90.
                      */
                     impressionsLookbackWindow?: number;
                     /** Deprecated: has no effect. */
                     includeAttributedIPConversions?: boolean;
                     /**
-                     * Include conversions of users with a DoubleClick cookie but without an exposure. That means the user did not click or see an ad from the advertiser
-                     * within the Floodlight group, or that the interaction happened outside the lookback window.
+                     * Include conversions of users with a DoubleClick cookie but without an exposure. That means the user did not click or see an ad from the advertiser within the Floodlight
+                     * group, or that the interaction happened outside the lookback window.
                      */
                     includeUnattributedCookieConversions?: boolean;
                     /**
-                     * Include conversions that have no associated cookies and no exposures. It’s therefore impossible to know how the user was exposed to your ads during the
-                     * lookback window prior to a conversion.
+                     * Include conversions that have no associated cookies and no exposures. It’s therefore impossible to know how the user was exposed to your ads during the lookback window prior
+                     * to a conversion.
                      */
                     includeUnattributedIPConversions?: boolean;
                     /**
-                     * The maximum number of click interactions to include in the report. Advertisers currently paying for E2C reports get up to 200 (100 clicks, 100
-                     * impressions). If another advertiser in your network is paying for E2C, you can have up to 5 total exposures per report.
+                     * The maximum number of click interactions to include in the report. Advertisers currently paying for E2C reports get up to 200 (100 clicks, 100 impressions). If another
+                     * advertiser in your network is paying for E2C, you can have up to 5 total exposures per report.
                      */
                     maximumClickInteractions?: number;
                     /**
-                     * The maximum number of click interactions to include in the report. Advertisers currently paying for E2C reports get up to 200 (100 clicks, 100
-                     * impressions). If another advertiser in your network is paying for E2C, you can have up to 5 total exposures per report.
+                     * The maximum number of click interactions to include in the report. Advertisers currently paying for E2C reports get up to 200 (100 clicks, 100 impressions). If another
+                     * advertiser in your network is paying for E2C, you can have up to 5 total exposures per report.
                      */
                     maximumImpressionInteractions?: number;
                     /** The maximum amount of time that can take place between interactions (clicks or impressions) by the same user. Valid values: 1-90. */
@@ -3552,17 +3348,11 @@ declare namespace gapi.client {
                 customRichMediaEvents?: CustomRichMediaEvents;
                 /** The date range this report should be run for. */
                 dateRange?: DateRange;
-                /**
-                 * The list of filters on which dimensions are filtered. Filters for different dimensions are ANDed, filters for the same dimension are grouped together
-                 * and ORed.
-                 */
+                /** The list of filters on which dimensions are filtered. Filters for different dimensions are ANDed, filters for the same dimension are grouped together and ORed. */
                 dimensionFilters?: DimensionValue[];
                 /** The list of dimensions the report should include. */
                 dimensions?: SortedDimension[];
-                /**
-                 * Whether to enable all reach dimension combinations in the report. Defaults to false. If enabled, the date range of the report should be within the last
-                 * 42 days.
-                 */
+                /** Whether to enable all reach dimension combinations in the report. Defaults to false. If enabled, the date range of the report should be within the last 42 days. */
                 enableAllDimensionCombinations?: boolean;
                 /** The list of names of metrics the report should include. */
                 metricNames?: string[];
@@ -3577,16 +3367,16 @@ declare namespace gapi.client {
                 every?: number;
                 expirationDate?: string;
                 /**
-                 * The interval for which the report is repeated. Note: - "DAILY" also requires field "every" to be set. - "WEEKLY" also requires fields "every" and
-                 * "repeatsOnWeekDays" to be set. - "MONTHLY" also requires fields "every" and "runsOnDayOfMonth" to be set.
+                 * The interval for which the report is repeated. Note: - "DAILY" also requires field "every" to be set. - "WEEKLY" also requires fields "every" and "repeatsOnWeekDays" to be set.
+                 * - "MONTHLY" also requires fields "every" and "runsOnDayOfMonth" to be set.
                  */
                 repeats?: string;
                 /** List of week days "WEEKLY" on which scheduled reports should run. */
                 repeatsOnWeekDays?: string[];
                 /**
-                 * Enum to define for "MONTHLY" scheduled reports whether reports should be repeated on the same day of the month as "startDate" or the same day of the
-                 * week of the month. Example: If 'startDate' is Monday, April 2nd 2012 (2012-04-02), "DAY_OF_MONTH" would run subsequent reports on the 2nd of every
-                 * Month, and "WEEK_OF_MONTH" would run subsequent reports on the first Monday of the month.
+                 * Enum to define for "MONTHLY" scheduled reports whether reports should be repeated on the same day of the month as "startDate" or the same day of the week of the month. Example:
+                 * If 'startDate' is Monday, April 2nd 2012 (2012-04-02), "DAY_OF_MONTH" would run subsequent reports on the 2nd of every Month, and "WEEK_OF_MONTH" would run subsequent reports on
+                 * the first Monday of the month.
                  */
                 runsOnDayOfMonth?: string;
                 startDate?: string;
@@ -3616,28 +3406,23 @@ declare namespace gapi.client {
             /** The kind of list this is, in this case dfareporting#reportList. */
             kind?: string;
             /**
-             * Continuation token used to page through reports. To retrieve the next page of results, set the next request's "pageToken" to the value of this field.
-             * The page token is only valid for a limited amount of time and should not be persisted.
+             * Continuation token used to page through reports. To retrieve the next page of results, set the next request's "pageToken" to the value of this field. The page token is only valid
+             * for a limited amount of time and should not be persisted.
              */
             nextPageToken?: string;
         }
         interface ReportsConfiguration {
-            /**
-             * Whether the exposure to conversion report is enabled. This report shows detailed pathway information on up to 10 of the most recent ad exposures seen
-             * by a user before converting.
-             */
+            /** Whether the exposure to conversion report is enabled. This report shows detailed pathway information on up to 10 of the most recent ad exposures seen by a user before converting. */
             exposureToConversionEnabled?: boolean;
             /** Default lookback windows for new advertisers in this account. */
             lookbackConfiguration?: LookbackConfiguration;
             /**
-             * Report generation time zone ID of this account. This is a required field that can only be changed by a superuser. Acceptable values are: - "1" for
-             * "America/New_York" - "2" for "Europe/London" - "3" for "Europe/Paris" - "4" for "Africa/Johannesburg" - "5" for "Asia/Jerusalem" - "6" for
-             * "Asia/Shanghai" - "7" for "Asia/Hong_Kong" - "8" for "Asia/Tokyo" - "9" for "Australia/Sydney" - "10" for "Asia/Dubai" - "11" for "America/Los_Angeles"
-             * - "12" for "Pacific/Auckland" - "13" for "America/Sao_Paulo" - "16" for "America/Asuncion" - "17" for "America/Chicago" - "18" for "America/Denver" -
-             * "19" for "America/St_Johns" - "20" for "Asia/Dhaka" - "21" for "Asia/Jakarta" - "22" for "Asia/Kabul" - "23" for "Asia/Karachi" - "24" for
-             * "Asia/Calcutta" - "25" for "Asia/Pyongyang" - "26" for "Asia/Rangoon" - "27" for "Atlantic/Cape_Verde" - "28" for "Atlantic/South_Georgia" - "29" for
-             * "Australia/Adelaide" - "30" for "Australia/Lord_Howe" - "31" for "Europe/Moscow" - "32" for "Pacific/Kiritimati" - "35" for "Pacific/Norfolk" - "36"
-             * for "Pacific/Tongatapu"
+             * Report generation time zone ID of this account. This is a required field that can only be changed by a superuser. Acceptable values are: - "1" for "America/New_York" - "2" for
+             * "Europe/London" - "3" for "Europe/Paris" - "4" for "Africa/Johannesburg" - "5" for "Asia/Jerusalem" - "6" for "Asia/Shanghai" - "7" for "Asia/Hong_Kong" - "8" for "Asia/Tokyo" - "9"
+             * for "Australia/Sydney" - "10" for "Asia/Dubai" - "11" for "America/Los_Angeles" - "12" for "Pacific/Auckland" - "13" for "America/Sao_Paulo" - "16" for "America/Asuncion" - "17" for
+             * "America/Chicago" - "18" for "America/Denver" - "19" for "America/St_Johns" - "20" for "Asia/Dhaka" - "21" for "Asia/Jakarta" - "22" for "Asia/Kabul" - "23" for "Asia/Karachi" -
+             * "24" for "Asia/Calcutta" - "25" for "Asia/Pyongyang" - "26" for "Asia/Rangoon" - "27" for "Atlantic/Cape_Verde" - "28" for "Atlantic/South_Georgia" - "29" for "Australia/Adelaide" -
+             * "30" for "Australia/Lord_Howe" - "31" for "Europe/Moscow" - "32" for "Pacific/Kiritimati" - "35" for "Pacific/Norfolk" - "36" for "Pacific/Tongatapu"
              */
             reportGenerationTimeZoneId?: string;
         }
@@ -3654,10 +3439,7 @@ declare namespace gapi.client {
             assetId?: string;
             /** A user-friendly name for this rule. This is a required field. */
             name?: string;
-            /**
-             * A targeting template ID. The targeting from the targeting template will be used to determine whether this asset should be served. This is a required
-             * field.
-             */
+            /** A targeting template ID. The targeting from the targeting template will be used to determine whether this asset should be served. This is a required field. */
             targetingTemplateId?: string;
         }
         interface Site {
@@ -3678,8 +3460,8 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#site". */
             kind?: string;
             /**
-             * Name of this site.This is a required field. Must be less than 128 characters long. If this site is under a subaccount, the name must be unique among
-             * sites of the same subaccount. Otherwise, this site is a top-level site, and the name must be unique among top-level sites of the same account.
+             * Name of this site.This is a required field. Must be less than 128 characters long. If this site is under a subaccount, the name must be unique among sites of the same subaccount.
+             * Otherwise, this site is a top-level site, and the name must be unique among top-level sites of the same account.
              */
             name?: string;
             /** Site contacts. */
@@ -3689,8 +3471,8 @@ declare namespace gapi.client {
             /** Subaccount ID of this site. This is a read-only field that can be left blank. */
             subaccountId?: string;
             /**
-             * Default video settings for new placements created under this site. This value will be used to populate the placements.videoSettings field, when no
-             * value is specified for the new placement.
+             * Default video settings for new placements created under this site. This value will be used to populate the placements.videoSettings field, when no value is specified for the new
+             * placement.
              */
             videoSettings?: SiteVideoSettings;
         }
@@ -3726,8 +3508,8 @@ declare namespace gapi.client {
             /** Whether active view creatives are disabled for this site. */
             activeViewOptOut?: boolean;
             /**
-             * Whether this site opts out of ad blocking. When true, ad blocking is disabled for all placements under the site, regardless of the individual placement
-             * settings. When false, the campaign and placement settings take effect.
+             * Whether this site opts out of ad blocking. When true, ad blocking is disabled for all placements under the site, regardless of the individual placement settings. When false, the
+             * campaign and placement settings take effect.
              */
             adBlockingOptOut?: boolean;
             /** Whether new cookies are disabled for this site. */
@@ -3735,16 +3517,15 @@ declare namespace gapi.client {
             /** Configuration settings for dynamic and image floodlight tags. */
             tagSetting?: TagSetting;
             /**
-             * Whether Verification and ActiveView for in-stream video creatives are disabled by default for new placements created under this site. This value will
-             * be used to populate the placement.videoActiveViewOptOut field, when no value is specified for the new placement.
+             * Whether Verification and ActiveView for in-stream video creatives are disabled by default for new placements created under this site. This value will be used to populate the
+             * placement.videoActiveViewOptOut field, when no value is specified for the new placement.
              */
             videoActiveViewOptOutTemplate?: boolean;
             /**
-             * Default VPAID adapter setting for new placements created under this site. This value will be used to populate the placements.vpaidAdapterChoice field,
-             * when no value is specified for the new placement. Controls which VPAID format the measurement adapter will use for in-stream video creatives assigned
-             * to the placement. The publisher's specifications will typically determine this setting. For VPAID creatives, the adapter format will match the VPAID
-             * format (HTML5 VPAID creatives use the HTML5 adapter). ∗Note:∗ Flash is no longer supported. This field now defaults to HTML5 when the following values
-             * are provided: FLASH, BOTH.
+             * Default VPAID adapter setting for new placements created under this site. This value will be used to populate the placements.vpaidAdapterChoice field, when no value is specified for
+             * the new placement. Controls which VPAID format the measurement adapter will use for in-stream video creatives assigned to the placement. The publisher's specifications will
+             * typically determine this setting. For VPAID creatives, the adapter format will match the VPAID format (HTML5 VPAID creatives use the HTML5 adapter). *Note:* Flash is no longer
+             * supported. This field now defaults to HTML5 when the following values are provided: FLASH, BOTH.
              */
             vpaidAdapterChoiceTemplate?: string;
         }
@@ -3858,8 +3639,8 @@ declare namespace gapi.client {
         }
         interface TagSetting {
             /**
-             * Additional key-values to be included in tags. Each key-value pair must be of the form key=value, and pairs must be separated by a semicolon (;). Keys
-             * and values must not contain commas. For example, id=2;color=red is a valid value for this field.
+             * Additional key-values to be included in tags. Each key-value pair must be of the form key=value, and pairs must be separated by a semicolon (;). Keys and values must not contain
+             * commas. For example, id=2;color=red is a valid value for this field.
              */
             additionalKeyValues?: string;
             /** Whether static landing page URLs should be included in the tags. This setting applies only to placements. */
@@ -3867,8 +3648,8 @@ declare namespace gapi.client {
             /** Whether click-tracking string should be included in the tags. */
             includeClickTracking?: boolean;
             /**
-             * Option specifying how keywords are embedded in ad tags. This setting can be used to specify whether keyword placeholders are inserted in placement tags
-             * for this site. Publishers can then add keywords to those placeholders.
+             * Option specifying how keywords are embedded in ad tags. This setting can be used to specify whether keyword placeholders are inserted in placement tags for this site. Publishers can
+             * then add keywords to those placeholders.
              */
             keywordOption?: string;
         }
@@ -3956,35 +3737,30 @@ declare namespace gapi.client {
         }
         interface TechnologyTargeting {
             /**
-             * Browsers that this ad targets. For each browser either set browserVersionId or dartId along with the version numbers. If both are specified, only
-             * browserVersionId will be used. The other fields are populated automatically when the ad is inserted or updated.
+             * Browsers that this ad targets. For each browser either set browserVersionId or dartId along with the version numbers. If both are specified, only browserVersionId will be used. The
+             * other fields are populated automatically when the ad is inserted or updated.
              */
             browsers?: Browser[];
-            /**
-             * Connection types that this ad targets. For each connection type only id is required. The other fields are populated automatically when the ad is
-             * inserted or updated.
-             */
+            /** Connection types that this ad targets. For each connection type only id is required. The other fields are populated automatically when the ad is inserted or updated. */
             connectionTypes?: ConnectionType[];
             /**
-             * Mobile carriers that this ad targets. For each mobile carrier only id is required, and the other fields are populated automatically when the ad is
-             * inserted or updated. If targeting a mobile carrier, do not set targeting for any zip codes.
+             * Mobile carriers that this ad targets. For each mobile carrier only id is required, and the other fields are populated automatically when the ad is inserted or updated. If targeting
+             * a mobile carrier, do not set targeting for any zip codes.
              */
             mobileCarriers?: MobileCarrier[];
             /**
-             * Operating systems that this ad targets. To target specific versions, use operatingSystemVersions. For each operating system only dartId is required.
-             * The other fields are populated automatically when the ad is inserted or updated. If targeting an operating system, do not set targeting for operating
-             * system versions for the same operating system.
+             * Operating systems that this ad targets. To target specific versions, use operatingSystemVersions. For each operating system only dartId is required. The other fields are populated
+             * automatically when the ad is inserted or updated. If targeting an operating system, do not set targeting for operating system versions for the same operating system.
              */
             operatingSystems?: OperatingSystem[];
             /**
-             * Operating system versions that this ad targets. To target all versions, use operatingSystems. For each operating system version, only id is required.
-             * The other fields are populated automatically when the ad is inserted or updated. If targeting an operating system version, do not set targeting for the
-             * corresponding operating system in operatingSystems.
+             * Operating system versions that this ad targets. To target all versions, use operatingSystems. For each operating system version, only id is required. The other fields are populated
+             * automatically when the ad is inserted or updated. If targeting an operating system version, do not set targeting for the corresponding operating system in operatingSystems.
              */
             operatingSystemVersions?: OperatingSystemVersion[];
             /**
-             * Platform types that this ad targets. For example, desktop, mobile, or tablet. For each platform type, only id is required, and the other fields are
-             * populated automatically when the ad is inserted or updated.
+             * Platform types that this ad targets. For example, desktop, mobile, or tablet. For each platform type, only id is required, and the other fields are populated automatically when the
+             * ad is inserted or updated.
              */
             platformTypes?: PlatformType[];
         }
@@ -4009,19 +3785,13 @@ declare namespace gapi.client {
         interface UniversalAdId {
             /** Registry used for the Ad ID value. */
             registry?: string;
-            /**
-             * ID value for this creative. Only alphanumeric characters and the following symbols are valid: "_/\-". Maximum length is 64 characters. Read only when
-             * registry is DCM.
-             */
+            /** ID value for this creative. Only alphanumeric characters and the following symbols are valid: "_/\-". Maximum length is 64 characters. Read only when registry is DCM. */
             value?: string;
         }
         interface UserDefinedVariableConfiguration {
             /** Data type for the variable. This is a required field. */
             dataType?: string;
-            /**
-             * User-friendly name for the variable which will appear in reports. This is a required field, must be less than 64 characters long, and cannot contain
-             * the following characters: ""<>".
-             */
+            /** User-friendly name for the variable which will appear in reports. This is a required field, must be less than 64 characters long, and cannot contain the following characters: ""<>". */
             reportName?: string;
             /** Variable name in the tag. This is a required field. */
             variableType?: string;
@@ -4056,8 +3826,8 @@ declare namespace gapi.client {
             /** Account ID of this user role. This is a read-only field that can be left blank. */
             accountId?: string;
             /**
-             * Whether this is a default user role. Default user roles are created by the system for the account/subaccount and cannot be modified or deleted. Each
-             * default user role comes with a basic set of preassigned permissions.
+             * Whether this is a default user role. Default user roles are created by the system for the account/subaccount and cannot be modified or deleted. Each default user role comes with a
+             * basic set of preassigned permissions.
              */
             defaultUserRole?: boolean;
             /** ID of this user role. This is a read-only, auto-generated field. */
@@ -4065,9 +3835,8 @@ declare namespace gapi.client {
             /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#userRole". */
             kind?: string;
             /**
-             * Name of this user role. This is a required field. Must be less than 256 characters long. If this user role is under a subaccount, the name must be
-             * unique among sites of the same subaccount. Otherwise, this user role is a top-level user role, and the name must be unique among top-level user roles
-             * of the same account.
+             * Name of this user role. This is a required field. Must be less than 256 characters long. If this user role is under a subaccount, the name must be unique among sites of the same
+             * subaccount. Otherwise, this user role is a top-level user role, and the name must be unique among top-level user roles of the same account.
              */
             name?: string;
             /** ID of the user role that this user role is based on or copied from. This is a required field. */
@@ -4152,15 +3921,9 @@ declare namespace gapi.client {
             obaSettings?: ObaIcon;
             /** Orientation of a video placement. If this value is set, placement will return assets matching the specified orientation. */
             orientation?: string;
-            /**
-             * Settings for the skippability of video creatives served to this placement. If this object is provided, the creative-level skippable settings will be
-             * overridden.
-             */
+            /** Settings for the skippability of video creatives served to this placement. If this object is provided, the creative-level skippable settings will be overridden. */
             skippableSettings?: SkippableSetting;
-            /**
-             * Settings for the transcodes of video creatives served to this placement. If this object is provided, the creative-level transcode settings will be
-             * overridden.
-             */
+            /** Settings for the transcodes of video creatives served to this placement. If this object is provided, the creative-level transcode settings will be overridden. */
             transcodeSettings?: TranscodeSetting;
         }
         interface AccountActiveAdSummariesResource {
@@ -4371,9 +4134,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "account∗2015" will return objects with names like "account June
-                 * 2015", "account April 2015", or simply "account 2015". Most of the searches also add wildcards implicitly at the start and the end of the search
-                 * string. For example, a search string of "account" will match objects with name "my account", "account 2015", or simply "account".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "account*2015" will return objects with names like "account June 2015", "account April 2015",
+                 * or simply "account 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "account" will match
+                 * objects with name "my account", "account 2015", or simply "account".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -4619,10 +4382,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name, ID or email. Wildcards (∗) are allowed. For example, "user profile∗2015" will return objects with names like
-                 * "user profile June 2015", "user profile April 2015", or simply "user profile 2015". Most of the searches also add wildcards implicitly at the start and
-                 * the end of the search string. For example, a search string of "user profile" will match objects with name "my user profile", "user profile 2015", or
-                 * simply "user profile".
+                 * Allows searching for objects by name, ID or email. Wildcards (*) are allowed. For example, "user profile*2015" will return objects with names like "user profile June 2015",
+                 * "user profile April 2015", or simply "user profile 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search
+                 * string of "user profile" will match objects with name "my user profile", "user profile 2015", or simply "user profile".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -4862,9 +4624,9 @@ declare namespace gapi.client {
                 /** Select only ads with these campaign IDs. */
                 campaignIds?: string | string[];
                 /**
-                 * Select default ads with the specified compatibility. Applicable when type is AD_SERVING_DEFAULT_AD. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering
-                 * either on desktop or on mobile devices for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps.
-                 * IN_STREAM_VIDEO refers to rendering an in-stream video ads developed with the VAST standard.
+                 * Select default ads with the specified compatibility. Applicable when type is AD_SERVING_DEFAULT_AD. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop or on
+                 * mobile devices for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps. IN_STREAM_VIDEO refers to rendering an in-stream video
+                 * ads developed with the VAST standard.
                  */
                 compatibility?: string;
                 /** Select only ads with these creative IDs assigned. */
@@ -4872,8 +4634,8 @@ declare namespace gapi.client {
                 /** Select only ads with these creative optimization configuration IDs. */
                 creativeOptimizationConfigurationIds?: string | string[];
                 /**
-                 * Select only dynamic click trackers. Applicable when type is AD_SERVING_CLICK_TRACKER. If true, select dynamic click trackers. If false, select static
-                 * click trackers. Leave unset to select both.
+                 * Select only dynamic click trackers. Applicable when type is AD_SERVING_CLICK_TRACKER. If true, select dynamic click trackers. If false, select static click trackers. Leave unset
+                 * to select both.
                  */
                 dynamicClickTracker?: boolean;
                 /** Selector specifying which fields to include in a partial response. */
@@ -4903,9 +4665,9 @@ declare namespace gapi.client {
                 /** Select only ads whose list targeting expression use these remarketing list IDs. */
                 remarketingListIds?: string | string[];
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "ad∗2015" will return objects with names like "ad June 2015", "ad
-                 * April 2015", or simply "ad 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a
-                 * search string of "ad" will match objects with name "my ad", "ad 2015", or simply "ad".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "ad*2015" will return objects with names like "ad June 2015", "ad April 2015", or simply "ad
+                 * 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "ad" will match objects with name "my
+                 * ad", "ad 2015", or simply "ad".
                  */
                 searchString?: string;
                 /** Select only ads with these size IDs. */
@@ -5186,10 +4948,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "advertiser∗2015" will return objects with names like "advertiser
-                 * group June 2015", "advertiser group April 2015", or simply "advertiser group 2015". Most of the searches also add wildcards implicitly at the start and
-                 * the end of the search string. For example, a search string of "advertisergroup" will match objects with name "my advertisergroup", "advertisergroup
-                 * 2015", or simply "advertisergroup".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "advertiser*2015" will return objects with names like "advertiser group June 2015",
+                 * "advertiser group April 2015", or simply "advertiser group 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example,
+                 * a search string of "advertisergroup" will match objects with name "my advertisergroup", "advertisergroup 2015", or simply "advertisergroup".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -5439,10 +5200,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for landing pages by name or ID. Wildcards (∗) are allowed. For example, "landingpage∗2017" will return landing pages with names like
-                 * "landingpage July 2017", "landingpage March 2017", or simply "landingpage 2017". Most of the searches also add wildcards implicitly at the start and
-                 * the end of the search string. For example, a search string of "landingpage" will match campaigns with name "my landingpage", "landingpage 2015", or
-                 * simply "landingpage".
+                 * Allows searching for landing pages by name or ID. Wildcards (*) are allowed. For example, "landingpage*2017" will return landing pages with names like "landingpage July 2017",
+                 * "landingpage March 2017", or simply "landingpage 2017". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search
+                 * string of "landingpage" will match campaigns with name "my landingpage", "landingpage 2015", or simply "landingpage".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -5696,9 +5456,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "advertiser∗2015" will return objects with names like "advertiser
-                 * June 2015", "advertiser April 2015", or simply "advertiser 2015". Most of the searches also add wildcards implicitly at the start and the end of the
-                 * search string. For example, a search string of "advertiser" will match objects with name "my advertiser", "advertiser 2015", or simply "advertiser" .
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "advertiser*2015" will return objects with names like "advertiser June 2015", "advertiser
+                 * April 2015", or simply "advertiser 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of
+                 * "advertiser" will match objects with name "my advertiser", "advertiser 2015", or simply "advertiser" .
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -5862,8 +5622,8 @@ declare namespace gapi.client {
         }
         interface CampaignCreativeAssociationsResource {
             /**
-             * Associates a creative with the specified campaign. This method creates a default ad with dimensions matching the creative in the campaign if such a
-             * default ad does not exist already.
+             * Associates a creative with the specified campaign. This method creates a default ad with dimensions matching the creative in the campaign if such a default ad does not exist
+             * already.
              */
             insert(request: {
                 /** V1 error format. */
@@ -6087,9 +5847,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for campaigns by name or ID. Wildcards (∗) are allowed. For example, "campaign∗2015" will return campaigns with names like "campaign
-                 * June 2015", "campaign April 2015", or simply "campaign 2015". Most of the searches also add wildcards implicitly at the start and the end of the search
-                 * string. For example, a search string of "campaign" will match campaigns with name "my campaign", "campaign 2015", or simply "campaign".
+                 * Allows searching for campaigns by name or ID. Wildcards (*) are allowed. For example, "campaign*2015" will return campaigns with names like "campaign June 2015", "campaign April
+                 * 2015", or simply "campaign 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "campaign"
+                 * will match campaigns with name "my campaign", "campaign 2015", or simply "campaign".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -6269,17 +6029,17 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Select only change logs whose change time is before the specified maxChangeTime.The time should be formatted as an RFC3339 date/time string. For
-                 * example, for 10:54 PM on July 18th, 2015, in the America/New York time zone, the format is "2015-07-18T22:54:00-04:00". In other words, the year,
-                 * month, day, the letter T, the hour (24-hour clock system), minute, second, and then the time zone offset.
+                 * Select only change logs whose change time is before the specified maxChangeTime.The time should be formatted as an RFC3339 date/time string. For example, for 10:54 PM on July
+                 * 18th, 2015, in the America/New York time zone, the format is "2015-07-18T22:54:00-04:00". In other words, the year, month, day, the letter T, the hour (24-hour clock system),
+                 * minute, second, and then the time zone offset.
                  */
                 maxChangeTime?: string;
                 /** Maximum number of results to return. */
                 maxResults?: number;
                 /**
-                 * Select only change logs whose change time is after the specified minChangeTime.The time should be formatted as an RFC3339 date/time string. For
-                 * example, for 10:54 PM on July 18th, 2015, in the America/New York time zone, the format is "2015-07-18T22:54:00-04:00". In other words, the year,
-                 * month, day, the letter T, the hour (24-hour clock system), minute, second, and then the time zone offset.
+                 * Select only change logs whose change time is after the specified minChangeTime.The time should be formatted as an RFC3339 date/time string. For example, for 10:54 PM on July
+                 * 18th, 2015, in the America/New York time zone, the format is "2015-07-18T22:54:00-04:00". In other words, the year, month, day, the letter T, the hour (24-hour clock system),
+                 * minute, second, and then the time zone offset.
                  */
                 minChangeTime?: string;
                 /** OAuth 2.0 token for the current user. */
@@ -6545,10 +6305,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "contentcategory∗2015" will return objects with names like
-                 * "contentcategory June 2015", "contentcategory April 2015", or simply "contentcategory 2015". Most of the searches also add wildcards implicitly at the
-                 * start and the end of the search string. For example, a search string of "contentcategory" will match objects with name "my contentcategory",
-                 * "contentcategory 2015", or simply "contentcategory".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "contentcategory*2015" will return objects with names like "contentcategory June 2015",
+                 * "contentcategory April 2015", or simply "contentcategory 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a
+                 * search string of "contentcategory" will match objects with name "my contentcategory", "contentcategory 2015", or simply "contentcategory".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -7057,10 +6816,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for creative fields by name or ID. Wildcards (∗) are allowed. For example, "creativefield∗2015" will return creative fields with names
-                 * like "creativefield June 2015", "creativefield April 2015", or simply "creativefield 2015". Most of the searches also add wild-cards implicitly at the
-                 * start and the end of the search string. For example, a search string of "creativefield" will match creative fields with the name "my creativefield",
-                 * "creativefield 2015", or simply "creativefield".
+                 * Allows searching for creative fields by name or ID. Wildcards (*) are allowed. For example, "creativefield*2015" will return creative fields with names like "creativefield June
+                 * 2015", "creativefield April 2015", or simply "creativefield 2015". Most of the searches also add wild-cards implicitly at the start and the end of the search string. For
+                 * example, a search string of "creativefield" will match creative fields with the name "my creativefield", "creativefield 2015", or simply "creativefield".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -7342,7 +7100,7 @@ declare namespace gapi.client {
                 profileId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Allows searching for creative field values by their values. Wildcards (e.g. ∗) are not allowed. */
+                /** Allows searching for creative field values by their values. Wildcards (e.g. *) are not allowed. */
                 searchString?: string;
                 /** Field by which to sort the list. */
                 sortField?: string;
@@ -7597,10 +7355,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for creative groups by name or ID. Wildcards (∗) are allowed. For example, "creativegroup∗2015" will return creative groups with names
-                 * like "creativegroup June 2015", "creativegroup April 2015", or simply "creativegroup 2015". Most of the searches also add wild-cards implicitly at the
-                 * start and the end of the search string. For example, a search string of "creativegroup" will match creative groups with the name "my creativegroup",
-                 * "creativegroup 2015", or simply "creativegroup".
+                 * Allows searching for creative groups by name or ID. Wildcards (*) are allowed. For example, "creativegroup*2015" will return creative groups with names like "creativegroup June
+                 * 2015", "creativegroup April 2015", or simply "creativegroup 2015". Most of the searches also add wild-cards implicitly at the start and the end of the search string. For
+                 * example, a search string of "creativegroup" will match creative groups with the name "my creativegroup", "creativegroup 2015", or simply "creativegroup".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -7858,9 +7615,9 @@ declare namespace gapi.client {
                 /** Select only creatives with these rendering IDs. */
                 renderingIds?: string | string[];
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "creative∗2015" will return objects with names like "creative June
-                 * 2015", "creative April 2015", or simply "creative 2015". Most of the searches also add wildcards implicitly at the start and the end of the search
-                 * string. For example, a search string of "creative" will match objects with name "my creative", "creative 2015", or simply "creative".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "creative*2015" will return objects with names like "creative June 2015", "creative April
+                 * 2015", or simply "creative 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "creative"
+                 * will match objects with name "my creative", "creative 2015", or simply "creative".
                  */
                 searchString?: string;
                 /** Select only creatives with these size IDs. */
@@ -8244,10 +8001,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name, ID or URL. Wildcards (∗) are allowed. For example, "directory site∗2015" will return objects with names like
-                 * "directory site June 2015", "directory site April 2015", or simply "directory site 2015". Most of the searches also add wildcards implicitly at the
-                 * start and the end of the search string. For example, a search string of "directory site" will match objects with name "my directory site", "directory
-                 * site 2015" or simply, "directory site".
+                 * Allows searching for objects by name, ID or URL. Wildcards (*) are allowed. For example, "directory site*2015" will return objects with names like "directory site June 2015",
+                 * "directory site April 2015", or simply "directory site 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a
+                 * search string of "directory site" will match objects with name "my directory site", "directory site 2015" or simply, "directory site".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -8275,10 +8031,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Name of this dynamic targeting key. This is a required field. Must be less than 256 characters long and cannot contain commas. All characters are
-                 * converted to lowercase.
-                 */
+                /** Name of this dynamic targeting key. This is a required field. Must be less than 256 characters long and cannot contain commas. All characters are converted to lowercase. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -8298,8 +8051,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /**
-             * Inserts a new dynamic targeting key. Keys must be created at the advertiser level before being assigned to the advertiser's ads, creatives, or
-             * placements. There is a maximum of 1000 keys per advertiser, out of which a maximum of 20 keys can be assigned per ad, creative, or placement.
+             * Inserts a new dynamic targeting key. Keys must be created at the advertiser level before being assigned to the advertiser's ads, creatives, or placements. There is a maximum of 1000
+             * keys per advertiser, out of which a maximum of 20 keys can be assigned per ad, creative, or placement.
              */
             insert(request: {
                 /** V1 error format. */
@@ -8524,20 +8277,20 @@ declare namespace gapi.client {
                 /** Select only event tags that belong to this campaign. */
                 campaignId?: string;
                 /**
-                 * Examine only the specified campaign or advertiser's event tags for matching selector criteria. When set to false, the parent advertiser and parent
-                 * campaign of the specified ad or campaign is examined as well. In addition, when set to false, the status field is examined as well, along with the
-                 * enabledByDefault field. This parameter can not be set to true when adId is specified as ads do not define their own even tags.
+                 * Examine only the specified campaign or advertiser's event tags for matching selector criteria. When set to false, the parent advertiser and parent campaign of the specified ad
+                 * or campaign is examined as well. In addition, when set to false, the status field is examined as well, along with the enabledByDefault field. This parameter can not be set to
+                 * true when adId is specified as ads do not define their own even tags.
                  */
                 definitionsOnly?: boolean;
                 /**
-                 * Select only enabled event tags. What is considered enabled or disabled depends on the definitionsOnly parameter. When definitionsOnly is set to true,
-                 * only the specified advertiser or campaign's event tags' enabledByDefault field is examined. When definitionsOnly is set to false, the specified ad or
-                 * specified campaign's parent advertiser's or parent campaign's event tags' enabledByDefault and status fields are examined as well.
+                 * Select only enabled event tags. What is considered enabled or disabled depends on the definitionsOnly parameter. When definitionsOnly is set to true, only the specified
+                 * advertiser or campaign's event tags' enabledByDefault field is examined. When definitionsOnly is set to false, the specified ad or specified campaign's parent advertiser's or
+                 * parent campaign's event tags' enabledByDefault and status fields are examined as well.
                  */
                 enabled?: boolean;
                 /**
-                 * Select only event tags with the specified event tag types. Event tag types can be used to specify whether to use a third-party pixel, a third-party
-                 * JavaScript URL, or a third-party click-through URL for either impression or click tracking.
+                 * Select only event tags with the specified event tag types. Event tag types can be used to specify whether to use a third-party pixel, a third-party JavaScript URL, or a
+                 * third-party click-through URL for either impression or click tracking.
                  */
                 eventTagTypes?: string | string[];
                 /** Selector specifying which fields to include in a partial response. */
@@ -8555,9 +8308,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "eventtag∗2015" will return objects with names like "eventtag June
-                 * 2015", "eventtag April 2015", or simply "eventtag 2015". Most of the searches also add wildcards implicitly at the start and the end of the search
-                 * string. For example, a search string of "eventtag" will match objects with name "my eventtag", "eventtag 2015", or simply "eventtag".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "eventtag*2015" will return objects with names like "eventtag June 2015", "eventtag April
+                 * 2015", or simply "eventtag 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "eventtag"
+                 * will match objects with name "my eventtag", "eventtag 2015", or simply "eventtag".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -8904,10 +8657,7 @@ declare namespace gapi.client {
                 "$.xgafv"?: string;
                 /** OAuth access token. */
                 access_token?: string;
-                /**
-                 * Select only floodlight activities for the specified advertiser ID. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty
-                 * result.
-                 */
+                /** Select only floodlight activities for the specified advertiser ID. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty result. */
                 advertiserId?: string;
                 /** Data format for response. */
                 alt?: string;
@@ -8923,10 +8673,7 @@ declare namespace gapi.client {
                 floodlightActivityGroupTagString?: string;
                 /** Select only floodlight activities with the specified floodlight activity group type. */
                 floodlightActivityGroupType?: string;
-                /**
-                 * Select only floodlight activities for the specified floodlight configuration ID. Must specify either ids, advertiserId, or floodlightConfigurationId
-                 * for a non-empty result.
-                 */
+                /** Select only floodlight activities for the specified floodlight configuration ID. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty result. */
                 floodlightConfigurationId?: string;
                 /** Select only floodlight activities with the specified IDs. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty result. */
                 ids?: string | string[];
@@ -8945,10 +8692,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "floodlightactivity∗2015" will return objects with names like
-                 * "floodlightactivity June 2015", "floodlightactivity April 2015", or simply "floodlightactivity 2015". Most of the searches also add wildcards
-                 * implicitly at the start and the end of the search string. For example, a search string of "floodlightactivity" will match objects with name "my
-                 * floodlightactivity activity", "floodlightactivity 2015", or simply "floodlightactivity".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "floodlightactivity*2015" will return objects with names like "floodlightactivity June 2015",
+                 * "floodlightactivity April 2015", or simply "floodlightactivity 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For
+                 * example, a search string of "floodlightactivity" will match objects with name "my floodlightactivity activity", "floodlightactivity 2015", or simply "floodlightactivity".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -9171,10 +8917,7 @@ declare namespace gapi.client {
                 "$.xgafv"?: string;
                 /** OAuth access token. */
                 access_token?: string;
-                /**
-                 * Select only floodlight activity groups with the specified advertiser ID. Must specify either advertiserId or floodlightConfigurationId for a non-empty
-                 * result.
-                 */
+                /** Select only floodlight activity groups with the specified advertiser ID. Must specify either advertiserId or floodlightConfigurationId for a non-empty result. */
                 advertiserId?: string;
                 /** Data format for response. */
                 alt?: string;
@@ -9182,10 +8925,7 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * Select only floodlight activity groups with the specified floodlight configuration ID. Must specify either advertiserId, or floodlightConfigurationId
-                 * for a non-empty result.
-                 */
+                /** Select only floodlight activity groups with the specified floodlight configuration ID. Must specify either advertiserId, or floodlightConfigurationId for a non-empty result. */
                 floodlightConfigurationId?: string;
                 /** Select only floodlight activity groups with the specified IDs. Must specify either advertiserId or floodlightConfigurationId for a non-empty result. */
                 ids?: string | string[];
@@ -9204,10 +8944,10 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "floodlightactivitygroup∗2015" will return objects with names like
-                 * "floodlightactivitygroup June 2015", "floodlightactivitygroup April 2015", or simply "floodlightactivitygroup 2015". Most of the searches also add
-                 * wildcards implicitly at the start and the end of the search string. For example, a search string of "floodlightactivitygroup" will match objects with
-                 * name "my floodlightactivitygroup activity", "floodlightactivitygroup 2015", or simply "floodlightactivitygroup".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "floodlightactivitygroup*2015" will return objects with names like "floodlightactivitygroup
+                 * June 2015", "floodlightactivitygroup April 2015", or simply "floodlightactivitygroup 2015". Most of the searches also add wildcards implicitly at the start and the end of the
+                 * search string. For example, a search string of "floodlightactivitygroup" will match objects with name "my floodlightactivitygroup activity", "floodlightactivitygroup 2015", or
+                 * simply "floodlightactivitygroup".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -9714,9 +9454,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "app∗2015" will return objects with names like "app Jan 2018", "app
-                 * Jan 2018", or simply "app 2018". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a
-                 * search string of "app" will match objects with name "my app", "app 2018", or simply "app".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "app*2015" will return objects with names like "app Jan 2018", "app Jan 2018", or simply "app
+                 * 2018". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "app" will match objects with name "my
+                 * app", "app 2018", or simply "app".
                  */
                 searchString?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -9966,10 +9706,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for order documents by name or ID. Wildcards (∗) are allowed. For example, "orderdocument∗2015" will return order documents with names
-                 * like "orderdocument June 2015", "orderdocument April 2015", or simply "orderdocument 2015". Most of the searches also add wildcards implicitly at the
-                 * start and the end of the search string. For example, a search string of "orderdocument" will match order documents with name "my orderdocument",
-                 * "orderdocument 2015", or simply "orderdocument".
+                 * Allows searching for order documents by name or ID. Wildcards (*) are allowed. For example, "orderdocument*2015" will return order documents with names like "orderdocument June
+                 * 2015", "orderdocument April 2015", or simply "orderdocument 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example,
+                 * a search string of "orderdocument" will match order documents with name "my orderdocument", "orderdocument 2015", or simply "orderdocument".
                  */
                 searchString?: string;
                 /** Select only order documents that are associated with these sites. */
@@ -10047,9 +9786,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for orders by name or ID. Wildcards (∗) are allowed. For example, "order∗2015" will return orders with names like "order June 2015",
-                 * "order April 2015", or simply "order 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For
-                 * example, a search string of "order" will match orders with name "my order", "order 2015", or simply "order".
+                 * Allows searching for orders by name or ID. Wildcards (*) are allowed. For example, "order*2015" will return orders with names like "order June 2015", "order April 2015", or
+                 * simply "order 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "order" will match orders
+                 * with name "my order", "order 2015", or simply "order".
                  */
                 searchString?: string;
                 /** Select only orders that are associated with these site IDs. */
@@ -10191,9 +9930,9 @@ declare namespace gapi.client {
                 /** Value of the nextPageToken from the previous result page. */
                 pageToken?: string;
                 /**
-                 * Select only placement groups belonging with this group type. A package is a simple group of placements that acts as a single pricing point for a group
-                 * of tags. A roadblock is a group of placements that not only acts as a single pricing point but also assumes that all the tags in it will be served at
-                 * the same time. A roadblock requires one of its assigned placements to be marked as primary for reporting.
+                 * Select only placement groups belonging with this group type. A package is a simple group of placements that acts as a single pricing point for a group of tags. A roadblock is a
+                 * group of placements that not only acts as a single pricing point but also assumes that all the tags in it will be served at the same time. A roadblock requires one of its
+                 * assigned placements to be marked as primary for reporting.
                  */
                 placementGroupType?: string;
                 /** Select only placement groups that are associated with these placement strategies. */
@@ -10207,10 +9946,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for placement groups by name or ID. Wildcards (∗) are allowed. For example, "placement∗2015" will return placement groups with names
-                 * like "placement group June 2015", "placement group May 2015", or simply "placements 2015". Most of the searches also add wildcards implicitly at the
-                 * start and the end of the search string. For example, a search string of "placementgroup" will match placement groups with name "my placementgroup",
-                 * "placementgroup 2015", or simply "placementgroup".
+                 * Allows searching for placement groups by name or ID. Wildcards (*) are allowed. For example, "placement*2015" will return placement groups with names like "placement group June
+                 * 2015", "placement group May 2015", or simply "placements 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a
+                 * search string of "placementgroup" will match placement groups with name "my placementgroup", "placementgroup 2015", or simply "placementgroup".
                  */
                 searchString?: string;
                 /** Select only placement groups that are associated with these sites. */
@@ -10368,7 +10106,7 @@ declare namespace gapi.client {
                 profileId: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Tag formats to generate for these placements. ∗Note:∗ PLACEMENT_TAG_STANDARD can only be generated for 1x1 placements. */
+                /** Tag formats to generate for these placements. *Note:* PLACEMENT_TAG_STANDARD can only be generated for 1x1 placements. */
                 tagFormats?: string | string[];
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -10477,9 +10215,9 @@ declare namespace gapi.client {
                 /** Select only placements that belong to these campaigns. */
                 campaignIds?: string | string[];
                 /**
-                 * Select only placements that are associated with these compatibilities. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop or on
-                 * mobile devices for regular or interstitial ads respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps. IN_STREAM_VIDEO refers to
-                 * rendering in in-stream video ads developed with the VAST standard.
+                 * Select only placements that are associated with these compatibilities. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop or on mobile devices for regular or
+                 * interstitial ads respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps. IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with the VAST
+                 * standard.
                  */
                 compatibilities?: string | string[];
                 /** Select only placements that are associated with these content categories. */
@@ -10521,10 +10259,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for placements by name or ID. Wildcards (∗) are allowed. For example, "placement∗2015" will return placements with names like
-                 * "placement June 2015", "placement May 2015", or simply "placements 2015". Most of the searches also add wildcards implicitly at the start and the end
-                 * of the search string. For example, a search string of "placement" will match placements with name "my placement", "placement 2015", or simply
-                 * "placement" .
+                 * Allows searching for placements by name or ID. Wildcards (*) are allowed. For example, "placement*2015" will return placements with names like "placement June 2015", "placement
+                 * May 2015", or simply "placements 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of
+                 * "placement" will match placements with name "my placement", "placement 2015", or simply "placement" .
                  */
                 searchString?: string;
                 /** Select only placements that are associated with these sites. */
@@ -10801,10 +10538,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "placementstrategy∗2015" will return objects with names like
-                 * "placementstrategy June 2015", "placementstrategy April 2015", or simply "placementstrategy 2015". Most of the searches also add wildcards implicitly
-                 * at the start and the end of the search string. For example, a search string of "placementstrategy" will match objects with name "my placementstrategy",
-                 * "placementstrategy 2015", or simply "placementstrategy".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "placementstrategy*2015" will return objects with names like "placementstrategy June 2015",
+                 * "placementstrategy April 2015", or simply "placementstrategy 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For
+                 * example, a search string of "placementstrategy" will match objects with name "my placementstrategy", "placementstrategy 2015", or simply "placementstrategy".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -11110,9 +10846,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for projects by name or ID. Wildcards (∗) are allowed. For example, "project∗2015" will return projects with names like "project June
-                 * 2015", "project April 2015", or simply "project 2015". Most of the searches also add wildcards implicitly at the start and the end of the search
-                 * string. For example, a search string of "project" will match projects with name "my project", "project 2015", or simply "project".
+                 * Allows searching for projects by name or ID. Wildcards (*) are allowed. For example, "project*2015" will return projects with names like "project June 2015", "project April
+                 * 2015", or simply "project 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "project" will
+                 * match projects with name "my project", "project 2015", or simply "project".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -11263,10 +10999,9 @@ declare namespace gapi.client {
                 /** Maximum number of results to return. */
                 maxResults?: number;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "remarketing list∗2015" will return objects with names like
-                 * "remarketing list June 2015", "remarketing list April 2015", or simply "remarketing list 2015". Most of the searches also add wildcards implicitly at
-                 * the start and the end of the search string. For example, a search string of "remarketing list" will match objects with name "my remarketing list",
-                 * "remarketing list 2015", or simply "remarketing list".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "remarketing list*2015" will return objects with names like "remarketing list June 2015",
+                 * "remarketing list April 2015", or simply "remarketing list 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example,
+                 * a search string of "remarketing list" will match objects with name "my remarketing list", "remarketing list 2015", or simply "remarketing list".
                  */
                 name?: string;
                 /** OAuth 2.0 token for the current user. */
@@ -11557,10 +11292,7 @@ declare namespace gapi.client {
             body: RemarketingListShare): Request<RemarketingListShare>;
         }
         interface CompatibleFieldsResource {
-            /**
-             * Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input
-             * report and user permissions.
-             */
+            /** Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions. */
             query(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -12122,9 +11854,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name, ID or keyName. Wildcards (∗) are allowed. For example, "site∗2015" will return objects with names like "site June
-                 * 2015", "site April 2015", or simply "site 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For
-                 * example, a search string of "site" will match objects with name "my site", "site 2015", or simply "site".
+                 * Allows searching for objects by name, ID or keyName. Wildcards (*) are allowed. For example, "site*2015" will return objects with names like "site June 2015", "site April 2015",
+                 * or simply "site 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "site" will match
+                 * objects with name "my site", "site 2015", or simply "site".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -12344,8 +12076,8 @@ declare namespace gapi.client {
             },
             body: Size): Request<Size>;
             /**
-             * Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally unique and may include values not currently in use by your account. Due to
-             * this, the list of sizes returned by this method may differ from the list seen in the Trafficking UI.
+             * Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally unique and may include values not currently in use by your account. Due to this, the list of sizes
+             * returned by this method may differ from the list seen in the Trafficking UI.
              */
             list(request?: {
                 /** V1 error format. */
@@ -12497,9 +12229,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "subaccount∗2015" will return objects with names like "subaccount
-                 * June 2015", "subaccount April 2015", or simply "subaccount 2015". Most of the searches also add wildcards implicitly at the start and the end of the
-                 * search string. For example, a search string of "subaccount" will match objects with name "my subaccount", "subaccount 2015", or simply "subaccount" .
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "subaccount*2015" will return objects with names like "subaccount June 2015", "subaccount
+                 * April 2015", or simply "subaccount 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of
+                 * "subaccount" will match objects with name "my subaccount", "subaccount 2015", or simply "subaccount" .
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -12679,10 +12411,9 @@ declare namespace gapi.client {
                 /** Maximum number of results to return. */
                 maxResults?: number;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "remarketing list∗2015" will return objects with names like
-                 * "remarketing list June 2015", "remarketing list April 2015", or simply "remarketing list 2015". Most of the searches also add wildcards implicitly at
-                 * the start and the end of the search string. For example, a search string of "remarketing list" will match objects with name "my remarketing list",
-                 * "remarketing list 2015", or simply "remarketing list".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "remarketing list*2015" will return objects with names like "remarketing list June 2015",
+                 * "remarketing list April 2015", or simply "remarketing list 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example,
+                 * a search string of "remarketing list" will match objects with name "my remarketing list", "remarketing list 2015", or simply "remarketing list".
                  */
                 name?: string;
                 /** OAuth 2.0 token for the current user. */
@@ -12822,9 +12553,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "template∗2015" will return objects with names like "template June
-                 * 2015", "template April 2015", or simply "template 2015". Most of the searches also add wildcards implicitly at the start and the end of the search
-                 * string. For example, a search string of "template" will match objects with name "my template", "template 2015", or simply "template".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "template*2015" will return objects with names like "template June 2015", "template April
+                 * 2015", or simply "template 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "template"
+                 * will match objects with name "my template", "template 2015", or simply "template".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */
@@ -13271,9 +13002,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Allows searching for objects by name or ID. Wildcards (∗) are allowed. For example, "userrole∗2015" will return objects with names like "userrole June
-                 * 2015", "userrole April 2015", or simply "userrole 2015". Most of the searches also add wildcards implicitly at the start and the end of the search
-                 * string. For example, a search string of "userrole" will match objects with name "my userrole", "userrole 2015", or simply "userrole".
+                 * Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "userrole*2015" will return objects with names like "userrole June 2015", "userrole April
+                 * 2015", or simply "userrole 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "userrole"
+                 * will match objects with name "my userrole", "userrole 2015", or simply "userrole".
                  */
                 searchString?: string;
                 /** Field by which to sort the list. */

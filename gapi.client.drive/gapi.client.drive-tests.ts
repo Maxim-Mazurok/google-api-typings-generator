@@ -774,8 +774,8 @@ gapi.load('client', () => {
             writersCanShare: true,
         });
         /**
-         * Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a shared drive the user must be an organizer on the
-         * parent. If the target is a folder, all descendants owned by the user are also deleted.
+         * Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a shared drive the user must be an organizer on the parent. If the target is a
+         * folder, all descendants owned by the user are also deleted.
          */
         await gapi.client.drive.files.delete({
             fileId: "Test string",
@@ -1230,8 +1230,8 @@ gapi.load('client', () => {
             modifiedTime: "Test string",
         });
         /**
-         * Permanently deletes a file version. You can only delete revisions for files with binary content in Google Drive, like images or videos. Revisions for
-         * other files, like Google Docs or Sheets, and the last remaining file version can't be deleted.
+         * Permanently deletes a file version. You can only delete revisions for files with binary content in Google Drive, like images or videos. Revisions for other files, like Google Docs or
+         * Sheets, and the last remaining file version can't be deleted.
          */
         await gapi.client.drive.revisions.delete({
             fileId: "Test string",

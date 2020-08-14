@@ -30,25 +30,22 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed.
-         * Clients may use Operations.GetOperation or Operations.ListOperations to check whether the cancellation succeeded or the operation completed despite
-         * cancellation. Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission: ∗ `genomics.operations.cancel`
+         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. Clients may use
+         * Operations.GetOperation or Operations.ListOperations to check whether the cancellation succeeded or the operation completed despite cancellation. Authorization requires the following
+         * [Google IAM](https://cloud.google.com/iam) permission: * `genomics.operations.cancel`
          */
         await gapi.client.genomics.operations.cancel({
             name: "Test string",
         }, {
         });
         /**
-         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-         * service. Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission: ∗ `genomics.operations.get`
+         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. Authorization requires the
+         * following [Google IAM](https://cloud.google.com/iam) permission: * `genomics.operations.get`
          */
         await gapi.client.genomics.operations.get({
             name: "Test string",
         });
-        /**
-         * Lists operations that match the specified filter in the request. Authorization requires the following [Google IAM](https://cloud.google.com/iam)
-         * permission: ∗ `genomics.operations.list`
-         */
+        /** Lists operations that match the specified filter in the request. Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission: * `genomics.operations.list` */
         await gapi.client.genomics.operations.list({
             filter: "Test string",
             name: "Test string",

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package People API v1 1.0
 // Project: https://developers.google.com/people/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -41,7 +44,7 @@ declare namespace gapi.client {
             region?: string;
             /** The street address. */
             streetAddress?: string;
-            /** The type of the address. The type can be custom or one of these predefined values: ∗ `home` ∗ `work` ∗ `other` */
+            /** The type of the address. The type can be custom or one of these predefined values: * `home` * `work` * `other` */
             type?: string;
         }
         interface AgeRangeType {
@@ -81,7 +84,7 @@ declare namespace gapi.client {
             formattedType?: string;
             /** Metadata about the calendar URL. */
             metadata?: FieldMetadata;
-            /** The type of the calendar URL. The type can be custom or one of these predefined values: ∗ `home` ∗ `freeBusy` ∗ `work` */
+            /** The type of the calendar URL. The type can be custom or one of these predefined values: * `home` * `freeBusy` * `work` */
             type?: string;
             /** The calendar URL. */
             url?: string;
@@ -98,8 +101,8 @@ declare namespace gapi.client {
             /** The [HTTP entity tag](https://en.wikipedia.org/wiki/HTTP_ETag) of the resource. Used for web cache validation. */
             etag?: string;
             /**
-             * Output only. The name translated and formatted in the viewer's account locale or the `Accept-Language` HTTP header locale for system groups names.
-             * Group names set by the owner are the same as name.
+             * Output only. The name translated and formatted in the viewer's account locale or the `Accept-Language` HTTP header locale for system groups names. Group names set by the owner are
+             * the same as name.
              */
             formattedName?: string;
             /** Output only. The contact group type. */
@@ -107,8 +110,8 @@ declare namespace gapi.client {
             /** Output only. The total number of contacts in the group irrespective of max members in specified in the request. */
             memberCount?: number;
             /**
-             * Output only. The list of contact person resource names that are members of the contact group. The field is not populated for LIST requests and can only
-             * be updated through the [ModifyContactGroupMembers](/people/api/rest/v1/contactgroups/members/modify).
+             * Output only. The list of contact person resource names that are members of the contact group. The field is not populated for LIST requests and can only be updated through the
+             * [ModifyContactGroupMembers](/people/api/rest/v1/contactgroups/members/modify).
              */
             memberResourceNames?: string[];
             /** Output only. Metadata about the contact group. */
@@ -122,16 +125,16 @@ declare namespace gapi.client {
             /** Output only. The contact group ID for the contact group membership. */
             contactGroupId?: string;
             /**
-             * The resource name for the contact group, assigned by the server. An ASCII string, in the form of `contactGroups/{contact_group_id}`. Only
-             * contact_group_resource_name can be used for modifying memberships. Any contact group membership can be removed, but only user group or "myContacts" or
-             * "starred" system groups memberships can be added. A contact must always have at least one contact group membership.
+             * The resource name for the contact group, assigned by the server. An ASCII string, in the form of `contactGroups/{contact_group_id}`. Only contact_group_resource_name can be used for
+             * modifying memberships. Any contact group membership can be removed, but only user group or "myContacts" or "starred" system groups memberships can be added. A contact must always
+             * have at least one contact group membership.
              */
             contactGroupResourceName?: string;
         }
         interface ContactGroupMetadata {
             /**
-             * Output only. True if the contact group resource has been deleted. Populated only for [`ListContactGroups`](/people/api/rest/v1/contactgroups/list)
-             * requests that include a sync token.
+             * Output only. True if the contact group resource has been deleted. Populated only for [`ListContactGroups`](/people/api/rest/v1/contactgroups/list) requests that include a sync
+             * token.
              */
             deleted?: boolean;
             /** Output only. The time the group was last updated. */
@@ -146,13 +149,13 @@ declare namespace gapi.client {
             status?: Status;
         }
         interface CopyOtherContactToMyContactsGroupRequest {
-            /** Required. A field mask to restrict which fields are copied into the new contact. Valid values are: ∗ emailAddresses ∗ names ∗ phoneNumbers */
+            /** Required. A field mask to restrict which fields are copied into the new contact. Valid values are: * emailAddresses * names * phoneNumbers */
             copyMask?: string;
             /**
-             * Optional. A field mask to restrict which fields on the person are returned. Multiple fields can be specified by separating them with commas. Defaults
-             * to the copy mask with metadata and membership fields if not set. Valid values are: ∗ addresses ∗ ageRanges ∗ biographies ∗ birthdays ∗ calendarUrls ∗
-             * clientData ∗ coverPhotos ∗ emailAddresses ∗ events ∗ externalIds ∗ genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ metadata ∗ miscKeywords ∗
-             * names ∗ nicknames ∗ occupations ∗ organizations ∗ phoneNumbers ∗ photos ∗ relations ∗ residences ∗ sipAddresses ∗ skills ∗ urls ∗ userDefined
+             * Optional. A field mask to restrict which fields on the person are returned. Multiple fields can be specified by separating them with commas. Defaults to the copy mask with metadata
+             * and membership fields if not set. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events *
+             * externalIds * genders * imClients * interests * locales * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations
+             * * residences * sipAddresses * skills * urls * userDefined
              */
             readMask?: string;
             /** Optional. A mask of what source types to return. Defaults to ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set. */
@@ -171,10 +174,7 @@ declare namespace gapi.client {
             contactGroup?: ContactGroup;
         }
         interface Date {
-            /**
-             * Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not
-             * significant.
-             */
+            /** Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not significant. */
             day?: number;
             /** Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day. */
             month?: number;
@@ -196,7 +196,7 @@ declare namespace gapi.client {
             formattedType?: string;
             /** Metadata about the email address. */
             metadata?: FieldMetadata;
-            /** The type of the email address. The type can be custom or one of these predefined values: ∗ `home` ∗ `work` ∗ `other` */
+            /** The type of the email address. The type can be custom or one of these predefined values: * `home` * `work` * `other` */
             type?: string;
             /** The email address. */
             value?: string;
@@ -211,7 +211,7 @@ declare namespace gapi.client {
             formattedType?: string;
             /** Metadata about the event. */
             metadata?: FieldMetadata;
-            /** The type of the event. The type can be custom or one of these predefined values: ∗ `anniversary` ∗ `other` */
+            /** The type of the event. The type can be custom or one of these predefined values: * `anniversary` * `other` */
             type?: string;
         }
         interface ExternalId {
@@ -219,10 +219,7 @@ declare namespace gapi.client {
             formattedType?: string;
             /** Metadata about the external ID. */
             metadata?: FieldMetadata;
-            /**
-             * The type of the external ID. The type can be custom or one of these predefined values: ∗ `account` ∗ `customer` ∗ `loginId` ∗ `network` ∗
-             * `organization`
-             */
+            /** The type of the external ID. The type can be custom or one of these predefined values: * `account` * `customer` * `loginId` * `network` * `organization` */
             type?: string;
             /** The value of the external ID. */
             value?: string;
@@ -233,8 +230,8 @@ declare namespace gapi.client {
             /** The source of the field. */
             source?: Source;
             /**
-             * Output only. True if the field is verified; false if the field is unverified. A verified field is typically a name, email address, phone number, or
-             * website that has been confirmed to be owned by the person.
+             * Output only. True if the field is verified; false if the field is unverified. A verified field is typically a name, email address, phone number, or website that has been confirmed
+             * to be owned by the person.
              */
             verified?: boolean;
         }
@@ -245,19 +242,16 @@ declare namespace gapi.client {
             value?: string;
         }
         interface Gender {
-            /**
-             * The type of pronouns that should be used to address the person. The value can be custom or one of these predefined values: ∗ `male` ∗ `female` ∗
-             * `other`
-             */
+            /** The type of pronouns that should be used to address the person. The value can be custom or one of these predefined values: * `male` * `female` * `other` */
             addressMeAs?: string;
             /**
-             * Output only. The value of the gender translated and formatted in the viewer's account locale or the `Accept-Language` HTTP header locale. Unspecified
-             * or custom value are not localized.
+             * Output only. The value of the gender translated and formatted in the viewer's account locale or the `Accept-Language` HTTP header locale. Unspecified or custom value are not
+             * localized.
              */
             formattedValue?: string;
             /** Metadata about the gender. */
             metadata?: FieldMetadata;
-            /** The gender for the person. The gender can be custom or one of these predefined values: ∗ `male` ∗ `female` ∗ `unspecified` */
+            /** The gender for the person. The gender can be custom or one of these predefined values: * `male` * `female` * `unspecified` */
             value?: string;
         }
         interface GetPeopleResponse {
@@ -273,11 +267,11 @@ declare namespace gapi.client {
             /** Metadata about the IM client. */
             metadata?: FieldMetadata;
             /**
-             * The protocol of the IM client. The protocol can be custom or one of these predefined values: ∗ `aim` ∗ `msn` ∗ `yahoo` ∗ `skype` ∗ `qq` ∗ `googleTalk`
-             * ∗ `icq` ∗ `jabber` ∗ `netMeeting`
+             * The protocol of the IM client. The protocol can be custom or one of these predefined values: * `aim` * `msn` * `yahoo` * `skype` * `qq` * `googleTalk` * `icq` * `jabber` *
+             * `netMeeting`
              */
             protocol?: string;
-            /** The type of the IM client. The type can be custom or one of these predefined values: ∗ `home` ∗ `work` ∗ `other` */
+            /** The type of the IM client. The type can be custom or one of these predefined values: * `home` * `work` * `other` */
             type?: string;
             /** The user name used in the IM client. */
             username?: string;
@@ -298,7 +292,7 @@ declare namespace gapi.client {
             nextSyncToken?: string;
             /** The total number of items in the list without pagination. */
             totalItems?: number;
-            /** ∗∗DEPRECATED∗∗ (Please use totalItems) The total number of people in the list without pagination. */
+            /** **DEPRECATED** (Please use totalItems) The total number of people in the list without pagination. */
             totalPeople?: number;
         }
         interface ListContactGroupsResponse {
@@ -325,8 +319,8 @@ declare namespace gapi.client {
             /** A token, which can be sent as `sync_token` to retrieve changes since the last request. Request must set `request_sync_token` to return the sync token. */
             nextSyncToken?: string;
             /**
-             * The list of "Other contacts" returned as Person resources. "Other contacts" support a limited subset of fields. See
-             * ListOtherContactsRequest.request_mask for more detailed information.
+             * The list of "Other contacts" returned as Person resources. "Other contacts" support a limited subset of fields. See ListOtherContactsRequest.request_mask for more detailed
+             * information.
              */
             otherContacts?: Person[];
         }
@@ -369,10 +363,7 @@ declare namespace gapi.client {
         interface Name {
             /** Output only. The display name formatted according to the locale specified by the viewer's account or the `Accept-Language` HTTP header. */
             displayName?: string;
-            /**
-             * Output only. The display name with the last name first formatted according to the locale specified by the viewer's account or the `Accept-Language`
-             * HTTP header.
-             */
+            /** Output only. The display name with the last name first formatted according to the locale specified by the viewer's account or the `Accept-Language` HTTP header. */
             displayNameLastFirst?: string;
             /** The family name. */
             familyName?: string;
@@ -442,13 +433,13 @@ declare namespace gapi.client {
             symbol?: string;
             /** The person's job title at the organization. */
             title?: string;
-            /** The type of the organization. The type can be custom or one of these predefined values: ∗ `work` ∗ `school` */
+            /** The type of the organization. The type can be custom or one of these predefined values: * `work` * `school` */
             type?: string;
         }
         interface Person {
             /** The person's street addresses. */
             addresses?: Address[];
-            /** Output only. ∗∗DEPRECATED∗∗ (Please use `person.ageRanges` instead) The person's age range. */
+            /** Output only. **DEPRECATED** (Please use `person.ageRanges` instead) The person's age range. */
             ageRange?: string;
             /** Output only. The person's age ranges. */
             ageRanges?: AgeRangeType[];
@@ -456,7 +447,7 @@ declare namespace gapi.client {
             biographies?: Biography[];
             /** The person's birthdays. This field is a singleton for contact sources. */
             birthdays?: Birthday[];
-            /** ∗∗DEPRECATED∗∗: No data will be returned The person's bragging rights. */
+            /** **DEPRECATED**: No data will be returned The person's bragging rights. */
             braggingRights?: BraggingRights[];
             /** The person's calendar URLs. */
             calendarUrls?: CalendarUrl[];
@@ -502,9 +493,9 @@ declare namespace gapi.client {
             photos?: Photo[];
             /** The person's relations. */
             relations?: Relation[];
-            /** Output only. ∗∗DEPRECATED∗∗: No data will be returned The person's relationship interests. */
+            /** Output only. **DEPRECATED**: No data will be returned The person's relationship interests. */
             relationshipInterests?: RelationshipInterest[];
-            /** Output only. ∗∗DEPRECATED∗∗: No data will be returned The person's relationship statuses. */
+            /** Output only. **DEPRECATED**: No data will be returned The person's relationship statuses. */
             relationshipStatuses?: RelationshipStatus[];
             /** The person's residences. */
             residences?: Residence[];
@@ -514,7 +505,7 @@ declare namespace gapi.client {
             sipAddresses?: SipAddress[];
             /** The person's skills. */
             skills?: Skill[];
-            /** Output only. ∗∗DEPRECATED∗∗: No data will be returned The person's taglines. */
+            /** Output only. **DEPRECATED**: No data will be returned The person's taglines. */
             taglines?: Tagline[];
             /** The person's associated URLs. */
             urls?: Url[];
@@ -522,32 +513,28 @@ declare namespace gapi.client {
             userDefined?: UserDefined[];
         }
         interface PersonMetadata {
-            /**
-             * Output only. True if the person resource has been deleted. Populated only for [`connections.list`](/people/api/rest/v1/people.connections/list)
-             * requests that include a sync token.
-             */
+            /** Output only. True if the person resource has been deleted. Populated only for [`connections.list`](/people/api/rest/v1/people.connections/list) requests that include a sync token. */
             deleted?: boolean;
             /** Output only. Resource names of people linked to this resource. */
             linkedPeopleResourceNames?: string[];
-            /** Output only. ∗∗DEPRECATED∗∗ (Please use `person.metadata.sources.profileMetadata.objectType` instead) The type of the person object. */
+            /** Output only. **DEPRECATED** (Please use `person.metadata.sources.profileMetadata.objectType` instead) The type of the person object. */
             objectType?: string;
             /**
-             * Output only. Any former resource names this person has had. Populated only for [`connections.list`](/people/api/rest/v1/people.connections/list)
-             * requests that include a sync token. The resource name may change when adding or removing fields that link a contact and profile such as a verified
-             * email, verified phone number, or profile URL.
+             * Output only. Any former resource names this person has had. Populated only for [`connections.list`](/people/api/rest/v1/people.connections/list) requests that include a sync token.
+             * The resource name may change when adding or removing fields that link a contact and profile such as a verified email, verified phone number, or profile URL.
              */
             previousResourceNames?: string[];
             /** The sources of data for the person. */
             sources?: Source[];
         }
         interface PersonResponse {
-            /** ∗∗DEPRECATED∗∗ (Please use status instead) [HTTP 1.1 status code] (http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). */
+            /** **DEPRECATED** (Please use status instead) [HTTP 1.1 status code] (http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). */
             httpStatusCode?: number;
             /** The person. */
             person?: Person;
             /**
-             * The original requested resource name. May be different than the resource name on the returned person. The resource name can change when adding or
-             * removing fields that link a contact and profile such as a verified email, verified phone number, or a profile URL.
+             * The original requested resource name. May be different than the resource name on the returned person. The resource name can change when adding or removing fields that link a contact
+             * and profile such as a verified email, verified phone number, or a profile URL.
              */
             requestedResourceName?: string;
             /** The status of the response. */
@@ -561,8 +548,8 @@ declare namespace gapi.client {
             /** Metadata about the phone number. */
             metadata?: FieldMetadata;
             /**
-             * The type of the phone number. The type can be custom or one of these predefined values: ∗ `home` ∗ `work` ∗ `mobile` ∗ `homeFax` ∗ `workFax` ∗
-             * `otherFax` ∗ `pager` ∗ `workMobile` ∗ `workPager` ∗ `main` ∗ `googleVoice` ∗ `other`
+             * The type of the phone number. The type can be custom or one of these predefined values: * `home` * `work` * `mobile` * `homeFax` * `workFax` * `otherFax` * `pager` * `workMobile` *
+             * `workPager` * `main` * `googleVoice` * `other`
              */
             type?: string;
             /** The phone number. */
@@ -574,8 +561,8 @@ declare namespace gapi.client {
             /** Metadata about the photo. */
             metadata?: FieldMetadata;
             /**
-             * The URL of the photo. You can change the desired size by appending a query parameter `sz={size}` at the end of the url, where {size} is the size in
-             * pixels. Example: https://lh3.googleusercontent.com/-T_wVWLlmg7w/AAAAAAAAAAI/AAAAAAAABa8/00gzXvDBYqw/s100/photo.jpg?sz=50
+             * The URL of the photo. You can change the desired size by appending a query parameter `sz={size}` at the end of the url, where {size} is the size in pixels. Example:
+             * https://lh3.googleusercontent.com/-T_wVWLlmg7w/AAAAAAAAAAI/AAAAAAAABa8/00gzXvDBYqw/s100/photo.jpg?sz=50
              */
             url?: string;
         }
@@ -586,33 +573,24 @@ declare namespace gapi.client {
             userTypes?: string[];
         }
         interface Relation {
-            /**
-             * Output only. The type of the relation translated and formatted in the viewer's account locale or the locale specified in the Accept-Language HTTP
-             * header.
-             */
+            /** Output only. The type of the relation translated and formatted in the viewer's account locale or the locale specified in the Accept-Language HTTP header. */
             formattedType?: string;
             /** Metadata about the relation. */
             metadata?: FieldMetadata;
             /** The name of the other person this relation refers to. */
             person?: string;
             /**
-             * The person's relation to the other person. The type can be custom or one of these predefined values: ∗ `spouse` ∗ `child` ∗ `mother` ∗ `father` ∗
-             * `parent` ∗ `brother` ∗ `sister` ∗ `friend` ∗ `relative` ∗ `domesticPartner` ∗ `manager` ∗ `assistant` ∗ `referredBy` ∗ `partner`
+             * The person's relation to the other person. The type can be custom or one of these predefined values: * `spouse` * `child` * `mother` * `father` * `parent` * `brother` * `sister` *
+             * `friend` * `relative` * `domesticPartner` * `manager` * `assistant` * `referredBy` * `partner`
              */
             type?: string;
         }
         interface RelationshipInterest {
-            /**
-             * Output only. The value of the relationship interest translated and formatted in the viewer's account locale or the locale specified in the
-             * Accept-Language HTTP header.
-             */
+            /** Output only. The value of the relationship interest translated and formatted in the viewer's account locale or the locale specified in the Accept-Language HTTP header. */
             formattedValue?: string;
             /** Metadata about the relationship interest. */
             metadata?: FieldMetadata;
-            /**
-             * The kind of relationship the person is looking for. The value can be custom or one of these predefined values: ∗ `friend` ∗ `date` ∗ `relationship` ∗
-             * `networking`
-             */
+            /** The kind of relationship the person is looking for. The value can be custom or one of these predefined values: * `friend` * `date` * `relationship` * `networking` */
             value?: string;
         }
         interface RelationshipStatus {
@@ -621,8 +599,8 @@ declare namespace gapi.client {
             /** Metadata about the relationship status. */
             metadata?: FieldMetadata;
             /**
-             * The relationship status. The value can be custom or one of these predefined values: ∗ `single` ∗ `inARelationship` ∗ `engaged` ∗ `married` ∗
-             * `itsComplicated` ∗ `openRelationship` ∗ `widowed` ∗ `inDomesticPartnership` ∗ `inCivilUnion`
+             * The relationship status. The value can be custom or one of these predefined values: * `single` * `inARelationship` * `engaged` * `married` * `itsComplicated` * `openRelationship` *
+             * `widowed` * `inDomesticPartnership` * `inCivilUnion`
              */
             value?: string;
         }
@@ -647,7 +625,7 @@ declare namespace gapi.client {
             formattedType?: string;
             /** Metadata about the SIP address. */
             metadata?: FieldMetadata;
-            /** The type of the SIP address. The type can be custom or or one of these predefined values: ∗ `home` ∗ `work` ∗ `mobile` ∗ `other` */
+            /** The type of the SIP address. The type can be custom or or one of these predefined values: * `home` * `work` * `mobile` * `other` */
             type?: string;
             /** The SIP address in the [RFC 3261 19.1](https://tools.ietf.org/html/rfc3261#section-19.1) SIP URI format. */
             value?: string;
@@ -659,18 +637,15 @@ declare namespace gapi.client {
             value?: string;
         }
         interface Source {
-            /**
-             * ∗∗Only populated in `person.metadata.sources`.∗∗ The [HTTP entity tag](https://en.wikipedia.org/wiki/HTTP_ETag) of the source. Used for web cache
-             * validation.
-             */
+            /** **Only populated in `person.metadata.sources`.** The [HTTP entity tag](https://en.wikipedia.org/wiki/HTTP_ETag) of the source. Used for web cache validation. */
             etag?: string;
             /** The unique identifier within the source type generated by the server. */
             id?: string;
-            /** Output only. ∗∗Only populated in `person.metadata.sources`.∗∗ Metadata about a source of type PROFILE. */
+            /** Output only. **Only populated in `person.metadata.sources`.** Metadata about a source of type PROFILE. */
             profileMetadata?: ProfileMetadata;
             /** The source type. */
             type?: string;
-            /** Output only. ∗∗Only populated in `person.metadata.sources`.∗∗ Last update timestamp of this source. */
+            /** Output only. **Only populated in `person.metadata.sources`.** Last update timestamp of this source. */
             updateTime?: string;
         }
         interface Status {
@@ -679,8 +654,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -696,10 +671,10 @@ declare namespace gapi.client {
         }
         interface UpdateContactPhotoRequest {
             /**
-             * Optional. A field mask to restrict which fields on the person are returned. Multiple fields can be specified by separating them with commas. Defaults
-             * to empty if not set, which will skip the post mutate get. Valid values are: ∗ addresses ∗ ageRanges ∗ biographies ∗ birthdays ∗ calendarUrls ∗
-             * clientData ∗ coverPhotos ∗ emailAddresses ∗ events ∗ externalIds ∗ genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ metadata ∗ miscKeywords ∗
-             * names ∗ nicknames ∗ occupations ∗ organizations ∗ phoneNumbers ∗ photos ∗ relations ∗ residences ∗ sipAddresses ∗ skills ∗ urls ∗ userDefined
+             * Optional. A field mask to restrict which fields on the person are returned. Multiple fields can be specified by separating them with commas. Defaults to empty if not set, which will
+             * skip the post mutate get. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds *
+             * genders * imClients * interests * locales * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * residences
+             * * sipAddresses * skills * urls * userDefined
              */
             personFields?: string;
             /** Required. Raw photo bytes */
@@ -717,8 +692,8 @@ declare namespace gapi.client {
             /** Metadata about the URL. */
             metadata?: FieldMetadata;
             /**
-             * The type of the URL. The type can be custom or one of these predefined values: ∗ `home` ∗ `work` ∗ `blog` ∗ `profile` ∗ `homePage` ∗ `ftp` ∗
-             * `reservations` ∗ `appInstallPage`: website for a Google+ application. ∗ `other`
+             * The type of the URL. The type can be custom or one of these predefined values: * `home` * `work` * `blog` * `profile` * `homePage` * `ftp` * `reservations` * `appInstallPage`:
+             * website for a Google+ application. * `other`
              */
             type?: string;
             /** The URL. */
@@ -734,8 +709,8 @@ declare namespace gapi.client {
         }
         interface MembersResource {
             /**
-             * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are
-             * `contactGroups/myContacts` and `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
+             * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and
+             * `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed.
              */
             modify(request: {
                 /** V1 error format. */
@@ -951,10 +926,7 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Optional. The maximum number of resources to return. Valid values are between 1 and 1000, inclusive. Defaults to 30 if not set or set to 0. */
                 pageSize?: number;
-                /**
-                 * Optional. The next_page_token value returned from a previous call to [ListContactGroups](/people/api/rest/v1/contactgroups/list). Requests the next
-                 * page of resources.
-                 */
+                /** Optional. The next_page_token value returned from a previous call to [ListContactGroups](/people/api/rest/v1/contactgroups/list). Requests the next page of resources. */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1098,14 +1070,11 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Optional. The number of "Other contacts" to include in the response. Valid values are between 1 and 1000, inclusive. Defaults to 100 if not set or set
-                 * to 0.
-                 */
+                /** Optional. The number of "Other contacts" to include in the response. Valid values are between 1 and 1000, inclusive. Defaults to 100 if not set or set to 0. */
                 pageSize?: number;
                 /**
-                 * Optional. A page token, received from a previous `ListOtherContacts` call. Provide this to retrieve the subsequent page. When paginating, all other
-                 * parameters provided to `ListOtherContacts` must match the call that provided the page token.
+                 * Optional. A page token, received from a previous `ListOtherContacts` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
+                 * `ListOtherContacts` must match the call that provided the page token.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1113,19 +1082,18 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid
-                 * values are: ∗ emailAddresses ∗ names ∗ phoneNumbers
+                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid values are: * emailAddresses
+                 * * names * phoneNumbers
                  */
                 readMask?: string;
                 /**
-                 * Optional. Whether the response should include `next_sync_token`, which can be used to get all changes since the last request. For subsequent sync
-                 * requests use the `sync_token` param instead. Initial sync requests that specify `request_sync_token` have an additional rate limit.
+                 * Optional. Whether the response should include `next_sync_token`, which can be used to get all changes since the last request. For subsequent sync requests use the `sync_token`
+                 * param instead. Initial sync requests that specify `request_sync_token` have an additional rate limit.
                  */
                 requestSyncToken?: boolean;
                 /**
-                 * Optional. A sync token, received from a previous `ListOtherContacts` call. Provide this to retrieve only the resources changed since the last request.
-                 * Sync requests that specify `sync_token` have an additional rate limit. When syncing, all other parameters provided to `ListOtherContacts` must match
-                 * the call that provided the sync token.
+                 * Optional. A sync token, received from a previous `ListOtherContacts` call. Provide this to retrieve only the resources changed since the last request. Sync requests that specify
+                 * `sync_token` have an additional rate limit. When syncing, all other parameters provided to `ListOtherContacts` must match the call that provided the sync token.
                  */
                 syncToken?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1154,29 +1122,25 @@ declare namespace gapi.client {
                 /** Optional. The number of connections to include in the response. Valid values are between 1 and 1000, inclusive. Defaults to 100 if not set or set to 0. */
                 pageSize?: number;
                 /**
-                 * Optional. A page token, received from a previous `ListConnections` call. Provide this to retrieve the subsequent page. When paginating, all other
-                 * parameters provided to `ListConnections` must match the call that provided the page token.
+                 * Optional. A page token, received from a previous `ListConnections` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
+                 * `ListConnections` must match the call that provided the page token.
                  */
                 pageToken?: string;
                 /**
-                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid
-                 * values are: ∗ addresses ∗ ageRanges ∗ biographies ∗ birthdays ∗ calendarUrls ∗ clientData ∗ coverPhotos ∗ emailAddresses ∗ events ∗ externalIds ∗
-                 * genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ metadata ∗ miscKeywords ∗ names ∗ nicknames ∗ occupations ∗ organizations ∗ phoneNumbers ∗
-                 * photos ∗ relations ∗ residences ∗ sipAddresses ∗ skills ∗ urls ∗ userDefined
+                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid values are: * addresses *
+                 * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * memberships *
+                 * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * residences * sipAddresses * skills * urls * userDefined
                  */
                 personFields?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * Required. Comma-separated list of person fields to be included in the response. Each path should start with `person.`: for example, `person.names` or
-                 * `person.photos`.
-                 */
+                /** Required. Comma-separated list of person fields to be included in the response. Each path should start with `person.`: for example, `person.names` or `person.photos`. */
                 "requestMask.includeField"?: string;
                 /**
-                 * Optional. Whether the response should include `next_sync_token`, which can be used to get all changes since the last request. For subsequent sync
-                 * requests use the `sync_token` param instead. Initial sync requests that specify `request_sync_token` have an additional rate limit.
+                 * Optional. Whether the response should include `next_sync_token`, which can be used to get all changes since the last request. For subsequent sync requests use the `sync_token`
+                 * param instead. Initial sync requests that specify `request_sync_token` have an additional rate limit.
                  */
                 requestSyncToken?: boolean;
                 /** Required. The resource name to return connections for. Only `people/me` is valid. */
@@ -1186,9 +1150,8 @@ declare namespace gapi.client {
                 /** Optional. A mask of what source types to return. Defaults to ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set. */
                 sources?: string | string[];
                 /**
-                 * Optional. A sync token, received from a previous `ListConnections` call. Provide this to retrieve only the resources changed since the last request.
-                 * Sync requests that specify `sync_token` have an additional rate limit. When syncing, all other parameters provided to `ListConnections` must match the
-                 * call that provided the sync token.
+                 * Optional. A sync token, received from a previous `ListConnections` call. Provide this to retrieve only the resources changed since the last request. Sync requests that specify
+                 * `sync_token` have an additional rate limit. When syncing, all other parameters provided to `ListConnections` must match the call that provided the sync token.
                  */
                 syncToken?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1199,8 +1162,8 @@ declare namespace gapi.client {
         }
         interface PeopleResource {
             /**
-             * Create a new contact and return the person resource for that contact. The request throws a 400 error if more than one field is specified on a field
-             * that is a singleton for contact sources: ∗ biographies ∗ birthdays ∗ genders ∗ names
+             * Create a new contact and return the person resource for that contact. The request throws a 400 error if more than one field is specified on a field that is a singleton for contact
+             * sources: * biographies * birthdays * genders * names
              */
             createContact(request: {
                 /** V1 error format. */
@@ -1218,10 +1181,10 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Defaults
-                 * to all fields if not set. Valid values are: ∗ addresses ∗ ageRanges ∗ biographies ∗ birthdays ∗ calendarUrls ∗ clientData ∗ coverPhotos ∗
-                 * emailAddresses ∗ events ∗ externalIds ∗ genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ metadata ∗ miscKeywords ∗ names ∗ nicknames ∗
-                 * occupations ∗ organizations ∗ phoneNumbers ∗ photos ∗ relations ∗ residences ∗ sipAddresses ∗ skills ∗ urls ∗ userDefined
+                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Defaults to all fields if not set.
+                 * Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients *
+                 * interests * locales * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * residences * sipAddresses *
+                 * skills * urls * userDefined
                  */
                 personFields?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1253,10 +1216,10 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Defaults
-                 * to all fields if not set. Valid values are: ∗ addresses ∗ ageRanges ∗ biographies ∗ birthdays ∗ calendarUrls ∗ clientData ∗ coverPhotos ∗
-                 * emailAddresses ∗ events ∗ externalIds ∗ genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ metadata ∗ miscKeywords ∗ names ∗ nicknames ∗
-                 * occupations ∗ organizations ∗ phoneNumbers ∗ photos ∗ relations ∗ residences ∗ sipAddresses ∗ skills ∗ urls ∗ userDefined
+                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Defaults to all fields if not set.
+                 * Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients *
+                 * interests * locales * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * residences * sipAddresses *
+                 * skills * urls * userDefined
                  */
                 personFields?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1315,10 +1278,10 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. A field mask to restrict which fields on the person are returned. Multiple fields can be specified by separating them with commas. Defaults
-                 * to empty if not set, which will skip the post mutate get. Valid values are: ∗ addresses ∗ ageRanges ∗ biographies ∗ birthdays ∗ calendarUrls ∗
-                 * clientData ∗ coverPhotos ∗ emailAddresses ∗ events ∗ externalIds ∗ genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ metadata ∗ miscKeywords ∗
-                 * names ∗ nicknames ∗ occupations ∗ organizations ∗ phoneNumbers ∗ photos ∗ relations ∗ residences ∗ sipAddresses ∗ skills ∗ urls ∗ userDefined
+                 * Optional. A field mask to restrict which fields on the person are returned. Multiple fields can be specified by separating them with commas. Defaults to empty if not set, which
+                 * will skip the post mutate get. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events *
+                 * externalIds * genders * imClients * interests * locales * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos *
+                 * relations * residences * sipAddresses * skills * urls * userDefined
                  */
                 personFields?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1335,8 +1298,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<DeleteContactPhotoResponse>;
             /**
-             * Provides information about a person by specifying a resource name. Use `people/me` to indicate the authenticated user. The request throws a 400 error
-             * if 'personFields' is not specified.
+             * Provides information about a person by specifying a resource name. Use `people/me` to indicate the authenticated user. The request throws a 400 error if 'personFields' is not
+             * specified.
              */
             get(request?: {
                 /** V1 error format. */
@@ -1354,25 +1317,21 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. A field mask to restrict which fields on the person are returned. Multiple fields can be specified by separating them with commas. Valid
-                 * values are: ∗ addresses ∗ ageRanges ∗ biographies ∗ birthdays ∗ calendarUrls ∗ clientData ∗ coverPhotos ∗ emailAddresses ∗ events ∗ externalIds ∗
-                 * genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ metadata ∗ miscKeywords ∗ names ∗ nicknames ∗ occupations ∗ organizations ∗ phoneNumbers ∗
-                 * photos ∗ relations ∗ residences ∗ sipAddresses ∗ skills ∗ urls ∗ userDefined
+                 * Required. A field mask to restrict which fields on the person are returned. Multiple fields can be specified by separating them with commas. Valid values are: * addresses *
+                 * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * memberships *
+                 * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * residences * sipAddresses * skills * urls * userDefined
                  */
                 personFields?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * Required. Comma-separated list of person fields to be included in the response. Each path should start with `person.`: for example, `person.names` or
-                 * `person.photos`.
-                 */
+                /** Required. Comma-separated list of person fields to be included in the response. Each path should start with `person.`: for example, `person.names` or `person.photos`. */
                 "requestMask.includeField"?: string;
                 /**
-                 * Required. The resource name of the person to provide information about. - To get information about the authenticated user, specify `people/me`. - To
-                 * get information about a google account, specify `people/{account_id}`. - To get information about a contact, specify the resource name that identifies
-                 * the contact as returned by [`people.connections.list`](/people/api/rest/v1/people.connections/list).
+                 * Required. The resource name of the person to provide information about. - To get information about the authenticated user, specify `people/me`. - To get information about a
+                 * google account, specify `people/{account_id}`. - To get information about a contact, specify the resource name that identifies the contact as returned by
+                 * [`people.connections.list`](/people/api/rest/v1/people.connections/list).
                  */
                 resourceName: string;
                 /** Optional. A mask of what source types to return. Defaults to ReadSourceType.PROFILE and ReadSourceType.CONTACT if not set. */
@@ -1383,8 +1342,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Person>;
             /**
-             * Provides information about a list of specific people by specifying a list of requested resource names. Use `people/me` to indicate the authenticated
-             * user. The request throws a 400 error if 'personFields' is not specified.
+             * Provides information about a list of specific people by specifying a list of requested resource names. Use `people/me` to indicate the authenticated user. The request throws a 400
+             * error if 'personFields' is not specified.
              */
             getBatchGet(request?: {
                 /** V1 error format. */
@@ -1402,26 +1361,21 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid
-                 * values are: ∗ addresses ∗ ageRanges ∗ biographies ∗ birthdays ∗ calendarUrls ∗ clientData ∗ coverPhotos ∗ emailAddresses ∗ events ∗ externalIds ∗
-                 * genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ metadata ∗ miscKeywords ∗ names ∗ nicknames ∗ occupations ∗ organizations ∗ phoneNumbers ∗
-                 * photos ∗ relations ∗ residences ∗ sipAddresses ∗ skills ∗ urls ∗ userDefined
+                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid values are: * addresses *
+                 * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * memberships *
+                 * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * residences * sipAddresses * skills * urls * userDefined
                  */
                 personFields?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * Required. Comma-separated list of person fields to be included in the response. Each path should start with `person.`: for example, `person.names` or
-                 * `person.photos`.
-                 */
+                /** Required. Comma-separated list of person fields to be included in the response. Each path should start with `person.`: for example, `person.names` or `person.photos`. */
                 "requestMask.includeField"?: string;
                 /**
-                 * Required. The resource names of the people to provide information about. - To get information about the authenticated user, specify `people/me`. - To
-                 * get information about a google account, specify `people/{account_id}`. - To get information about a contact, specify the resource name that identifies
-                 * the contact as returned by [`people.connections.list`](/people/api/rest/v1/people.connections/list). You can include up to 50 resource names in one
-                 * request.
+                 * Required. The resource names of the people to provide information about. - To get information about the authenticated user, specify `people/me`. - To get information about a
+                 * google account, specify `people/{account_id}`. - To get information about a contact, specify the resource name that identifies the contact as returned by
+                 * [`people.connections.list`](/people/api/rest/v1/people.connections/list). You can include up to 50 resource names in one request.
                  */
                 resourceNames?: string | string[];
                 /** Optional. A mask of what source types to return. Defaults to ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set. */
@@ -1445,18 +1399,15 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Optional. Additional data to merge into the directory sources if they are connected through verified join keys such as email addresses or phone
-                 * numbers.
-                 */
+                /** Optional. Additional data to merge into the directory sources if they are connected through verified join keys such as email addresses or phone numbers. */
                 mergeSources?: string | string[];
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /** Optional. The number of people to include in the response. Valid values are between 1 and 1000, inclusive. Defaults to 100 if not set or set to 0. */
                 pageSize?: number;
                 /**
-                 * Optional. A page token, received from a previous `ListDirectoryPeople` call. Provide this to retrieve the subsequent page. When paginating, all other
-                 * parameters provided to `ListDirectoryPeople` must match the call that provided the page token.
+                 * Optional. A page token, received from a previous `ListDirectoryPeople` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
+                 * `ListDirectoryPeople` must match the call that provided the page token.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1464,22 +1415,21 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid
-                 * values are: ∗ addresses ∗ ageRanges ∗ biographies ∗ birthdays ∗ calendarUrls ∗ clientData ∗ coverPhotos ∗ emailAddresses ∗ events ∗ externalIds ∗
-                 * genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ metadata ∗ miscKeywords ∗ names ∗ nicknames ∗ occupations ∗ organizations ∗ phoneNumbers ∗
-                 * photos ∗ relations ∗ residences ∗ sipAddresses ∗ skills ∗ urls ∗ userDefined
+                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid values are: * addresses *
+                 * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * memberships *
+                 * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * residences * sipAddresses * skills * urls * userDefined
                  */
                 readMask?: string;
                 /**
-                 * Optional. Whether the response should include `next_sync_token`, which can be used to get all changes since the last request. For subsequent sync
-                 * requests use the `sync_token` param instead.
+                 * Optional. Whether the response should include `next_sync_token`, which can be used to get all changes since the last request. For subsequent sync requests use the `sync_token`
+                 * param instead.
                  */
                 requestSyncToken?: boolean;
                 /** Required. Directory sources to return. */
                 sources?: string | string[];
                 /**
-                 * Optional. A sync token, received from a previous `ListDirectoryPeople` call. Provide this to retrieve only the resources changed since the last
-                 * request. When syncing, all other parameters provided to `ListDirectoryPeople` must match the call that provided the sync token.
+                 * Optional. A sync token, received from a previous `ListDirectoryPeople` call. Provide this to retrieve only the resources changed since the last request. When syncing, all other
+                 * parameters provided to `ListDirectoryPeople` must match the call that provided the sync token.
                  */
                 syncToken?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1501,18 +1451,15 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Optional. Additional data to merge into the directory sources if they are connected through verified join keys such as email addresses or phone
-                 * numbers.
-                 */
+                /** Optional. Additional data to merge into the directory sources if they are connected through verified join keys such as email addresses or phone numbers. */
                 mergeSources?: string | string[];
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /** Optional. The number of people to include in the response. Valid values are between 1 and 500, inclusive. Defaults to 100 if not set or set to 0. */
                 pageSize?: number;
                 /**
-                 * Optional. A page token, received from a previous `SearchDirectoryPeople` call. Provide this to retrieve the subsequent page. When paginating, all other
-                 * parameters provided to `SearchDirectoryPeople` must match the call that provided the page token.
+                 * Optional. A page token, received from a previous `SearchDirectoryPeople` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
+                 * `SearchDirectoryPeople` must match the call that provided the page token.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1522,10 +1469,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid
-                 * values are: ∗ addresses ∗ ageRanges ∗ biographies ∗ birthdays ∗ calendarUrls ∗ clientData ∗ coverPhotos ∗ emailAddresses ∗ events ∗ externalIds ∗
-                 * genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ metadata ∗ miscKeywords ∗ names ∗ nicknames ∗ occupations ∗ organizations ∗ phoneNumbers ∗
-                 * photos ∗ relations ∗ residences ∗ sipAddresses ∗ skills ∗ urls ∗ userDefined
+                 * Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid values are: * addresses *
+                 * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * memberships *
+                 * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * residences * sipAddresses * skills * urls * userDefined
                  */
                 readMask?: string;
                 /** Required. Directory sources to return. */
@@ -1536,13 +1482,12 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<SearchDirectoryPeopleResponse>;
             /**
-             * Update contact data for an existing contact person. Any non-contact data will not be modified. Any non-contact data in the person to update will be
-             * ignored. All fields specified in the `update_mask` will be replaced. The server returns a 400 error if `person.metadata.sources` is not specified for
-             * the contact to be updated or if there is no contact source. The server returns a 400 error with reason `"failedPrecondition"` if
-             * `person.metadata.sources.etag` is different than the contact's etag, which indicates the contact has changed since its data was read. Clients should
-             * get the latest person and merge their updates into the latest person. The server returns a 400 error if `memberships` are being updated and there are
-             * no contact group memberships specified on the person. The server returns a 400 error if more than one field is specified on a field that is a singleton
-             * for contact sources: ∗ biographies ∗ birthdays ∗ genders ∗ names
+             * Update contact data for an existing contact person. Any non-contact data will not be modified. Any non-contact data in the person to update will be ignored. All fields specified in
+             * the `update_mask` will be replaced. The server returns a 400 error if `person.metadata.sources` is not specified for the contact to be updated or if there is no contact source. The
+             * server returns a 400 error with reason `"failedPrecondition"` if `person.metadata.sources.etag` is different than the contact's etag, which indicates the contact has changed since
+             * its data was read. Clients should get the latest person and merge their updates into the latest person. The server returns a 400 error if `memberships` are being updated and there
+             * are no contact group memberships specified on the person. The server returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: *
+             * biographies * birthdays * genders * names
              */
             updateContact(request: {
                 /** V1 error format. */
@@ -1560,10 +1505,10 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Defaults
-                 * to all fields if not set. Valid values are: ∗ addresses ∗ ageRanges ∗ biographies ∗ birthdays ∗ calendarUrls ∗ clientData ∗ coverPhotos ∗
-                 * emailAddresses ∗ events ∗ externalIds ∗ genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ metadata ∗ miscKeywords ∗ names ∗ nicknames ∗
-                 * occupations ∗ organizations ∗ phoneNumbers ∗ photos ∗ relations ∗ residences ∗ sipAddresses ∗ skills ∗ urls ∗ userDefined
+                 * Optional. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Defaults to all fields if not set.
+                 * Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients *
+                 * interests * locales * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * residences * sipAddresses *
+                 * skills * urls * userDefined
                  */
                 personFields?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1575,10 +1520,9 @@ declare namespace gapi.client {
                 /** Optional. A mask of what source types to return. Defaults to ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set. */
                 sources?: string | string[];
                 /**
-                 * Required. A field mask to restrict which fields on the person are updated. Multiple fields can be specified by separating them with commas. All updated
-                 * fields will be replaced. Valid values are: ∗ addresses ∗ biographies ∗ birthdays ∗ calendarUrls ∗ clientData ∗ emailAddresses ∗ events ∗ externalIds ∗
-                 * genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ miscKeywords ∗ names ∗ nicknames ∗ occupations ∗ organizations ∗ phoneNumbers ∗ relations ∗
-                 * residences ∗ sipAddresses ∗ urls ∗ userDefined
+                 * Required. A field mask to restrict which fields on the person are updated. Multiple fields can be specified by separating them with commas. All updated fields will be replaced.
+                 * Valid values are: * addresses * biographies * birthdays * calendarUrls * clientData * emailAddresses * events * externalIds * genders * imClients * interests * locales *
+                 * memberships * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * relations * residences * sipAddresses * urls * userDefined
                  */
                 updatePersonFields?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1604,10 +1548,10 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Defaults
-                 * to all fields if not set. Valid values are: ∗ addresses ∗ ageRanges ∗ biographies ∗ birthdays ∗ calendarUrls ∗ clientData ∗ coverPhotos ∗
-                 * emailAddresses ∗ events ∗ externalIds ∗ genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ metadata ∗ miscKeywords ∗ names ∗ nicknames ∗
-                 * occupations ∗ organizations ∗ phoneNumbers ∗ photos ∗ relations ∗ residences ∗ sipAddresses ∗ skills ∗ urls ∗ userDefined
+                 * Optional. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Defaults to all fields if not set.
+                 * Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients *
+                 * interests * locales * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * residences * sipAddresses *
+                 * skills * urls * userDefined
                  */
                 personFields?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1619,10 +1563,9 @@ declare namespace gapi.client {
                 /** Optional. A mask of what source types to return. Defaults to ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set. */
                 sources?: string | string[];
                 /**
-                 * Required. A field mask to restrict which fields on the person are updated. Multiple fields can be specified by separating them with commas. All updated
-                 * fields will be replaced. Valid values are: ∗ addresses ∗ biographies ∗ birthdays ∗ calendarUrls ∗ clientData ∗ emailAddresses ∗ events ∗ externalIds ∗
-                 * genders ∗ imClients ∗ interests ∗ locales ∗ memberships ∗ miscKeywords ∗ names ∗ nicknames ∗ occupations ∗ organizations ∗ phoneNumbers ∗ relations ∗
-                 * residences ∗ sipAddresses ∗ urls ∗ userDefined
+                 * Required. A field mask to restrict which fields on the person are updated. Multiple fields can be specified by separating them with commas. All updated fields will be replaced.
+                 * Valid values are: * addresses * biographies * birthdays * calendarUrls * clientData * emailAddresses * events * externalIds * genders * imClients * interests * locales *
+                 * memberships * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * relations * residences * sipAddresses * urls * userDefined
                  */
                 updatePersonFields?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */

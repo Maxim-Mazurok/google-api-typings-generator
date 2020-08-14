@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Google Cloud Deployment Manager API v2 2.0
 // Project: https://cloud.google.com/deployment-manager/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -23,8 +26,8 @@ declare namespace gapi.client {
             auditLogConfigs?: AuditLogConfig[];
             exemptedMembers?: string[];
             /**
-             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
-             * special value that covers all services.
+             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
+             * services.
              */
             service?: string;
         }
@@ -45,43 +48,40 @@ declare namespace gapi.client {
              *
              * If the condition evaluates to `true`, then this binding applies to the current request.
              *
-             * If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same
-             * role to one or more of the members in this binding.
+             * If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the
+             * members in this binding.
              *
-             * To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
              * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values:
              *
-             * ∗ `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account.
+             * * `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account.
              *
-             * ∗ `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account.
+             * * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account.
              *
-             * ∗ `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` .
-             *
-             *
-             *
-             * ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`.
-             *
-             * ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`.
-             *
-             * ∗ `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding.
-             *
-             * ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently
-             * deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to
-             * `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding.
-             *
-             * ∗ `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
-             * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding.
+             * * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` .
              *
              *
              *
-             * ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
+             * * `serviceAccount:{emailid}`: An email address that represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`.
+             *
+             * * `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`.
+             *
+             * * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding.
+             *
+             * * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service
+             * account retains the role in the binding.
+             *
+             * * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For example,
+             * `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in the binding.
+             *
+             *
+             *
+             * * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -107,32 +107,27 @@ declare namespace gapi.client {
             /** An optional user-provided description of the deployment. */
             description?: string;
             /**
-             * Provides a fingerprint to use in requests to modify a deployment, such as `update()`, `stop()`, and `cancelPreview()` requests. A fingerprint is a
-             * randomly generated value that must be provided with `update()`, `stop()`, and `cancelPreview()` requests to perform optimistic locking. This ensures
-             * optimistic concurrency so that only one request happens at a time.
+             * Provides a fingerprint to use in requests to modify a deployment, such as `update()`, `stop()`, and `cancelPreview()` requests. A fingerprint is a randomly generated value that must
+             * be provided with `update()`, `stop()`, and `cancelPreview()` requests to perform optimistic locking. This ensures optimistic concurrency so that only one request happens at a time.
              *
-             * The fingerprint is initially generated by Deployment Manager and changes after every request to modify data. To get the latest fingerprint value,
-             * perform a `get()` request to a deployment.
+             * The fingerprint is initially generated by Deployment Manager and changes after every request to modify data. To get the latest fingerprint value, perform a `get()` request to a
+             * deployment.
              */
             fingerprint?: string;
             id?: string;
             /** Output only. Creation timestamp in RFC3339 text format. */
             insertTime?: string;
             /**
-             * Map of labels; provided by the client when the resource is created or updated. Specifically: Label keys must be between 1 and 63 characters long and
-             * must conform to the following regular expression: `[a-z]([-a-z0-9]∗[a-z0-9])?` Label values must be between 0 and 63 characters long and must conform
-             * to the regular expression `([a-z]([-a-z0-9]∗[a-z0-9])?)?`.
+             * Map of labels; provided by the client when the resource is created or updated. Specifically: Label keys must be between 1 and 63 characters long and must conform to the following
+             * regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?` Label values must be between 0 and 63 characters long and must conform to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
              */
             labels?: DeploymentLabelEntry[];
-            /**
-             * Output only. URL of the manifest representing the last manifest that was successfully deployed. If no manifest has been successfully deployed, this
-             * field will be absent.
-             */
+            /** Output only. URL of the manifest representing the last manifest that was successfully deployed. If no manifest has been successfully deployed, this field will be absent. */
             manifest?: string;
             /**
-             * Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
-             * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+             * Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63
+             * characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a
+             * dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
             /** Output only. The Operation that most recently ran, or is currently running, on this deployment. */
@@ -152,12 +147,12 @@ declare namespace gapi.client {
         }
         interface DeploymentsCancelPreviewRequest {
             /**
-             * Specifies a fingerprint for `cancelPreview()` requests. A fingerprint is a randomly generated value that must be provided in `cancelPreview()` requests
-             * to perform optimistic locking. This ensures optimistic concurrency so that the deployment does not have conflicting requests (e.g. if someone attempts
-             * to make a new update request while another user attempts to cancel a preview, this would prevent one of the requests).
+             * Specifies a fingerprint for `cancelPreview()` requests. A fingerprint is a randomly generated value that must be provided in `cancelPreview()` requests to perform optimistic
+             * locking. This ensures optimistic concurrency so that the deployment does not have conflicting requests (e.g. if someone attempts to make a new update request while another user
+             * attempts to cancel a preview, this would prevent one of the requests).
              *
-             * The fingerprint is initially generated by Deployment Manager and changes after every request to modify a deployment. To get the latest fingerprint
-             * value, perform a `get()` request on the deployment.
+             * The fingerprint is initially generated by Deployment Manager and changes after every request to modify a deployment. To get the latest fingerprint value, perform a `get()` request
+             * on the deployment.
              */
             fingerprint?: string;
         }
@@ -169,12 +164,12 @@ declare namespace gapi.client {
         }
         interface DeploymentsStopRequest {
             /**
-             * Specifies a fingerprint for `stop()` requests. A fingerprint is a randomly generated value that must be provided in `stop()` requests to perform
-             * optimistic locking. This ensures optimistic concurrency so that the deployment does not have conflicting requests (e.g. if someone attempts to make a
-             * new update request while another user attempts to stop an ongoing update request, this would prevent a collision).
+             * Specifies a fingerprint for `stop()` requests. A fingerprint is a randomly generated value that must be provided in `stop()` requests to perform optimistic locking. This ensures
+             * optimistic concurrency so that the deployment does not have conflicting requests (e.g. if someone attempts to make a new update request while another user attempts to stop an
+             * ongoing update request, this would prevent a collision).
              *
-             * The fingerprint is initially generated by Deployment Manager and changes after every request to modify a deployment. To get the latest fingerprint
-             * value, perform a `get()` request on the deployment.
+             * The fingerprint is initially generated by Deployment Manager and changes after every request to modify a deployment. To get the latest fingerprint value, perform a `get()` request
+             * on the deployment.
              */
             fingerprint?: string;
         }
@@ -182,9 +177,9 @@ declare namespace gapi.client {
             /** Output only. An optional user-provided description of the deployment after the current update has been applied. */
             description?: string;
             /**
-             * Output only. Map of labels; provided by the client when the resource is created or updated. Specifically: Label keys must be between 1 and 63
-             * characters long and must conform to the following regular expression: `[a-z]([-a-z0-9]∗[a-z0-9])?` Label values must be between 0 and 63 characters
-             * long and must conform to the regular expression `([a-z]([-a-z0-9]∗[a-z0-9])?)?`.
+             * Output only. Map of labels; provided by the client when the resource is created or updated. Specifically: Label keys must be between 1 and 63 characters long and must conform to the
+             * following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?` Label values must be between 0 and 63 characters long and must conform to the regular expression
+             * `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
              */
             labels?: DeploymentUpdateLabelEntry[];
             /** Output only. URL of the manifest representing the update configuration of this deployment. */
@@ -210,8 +205,8 @@ declare namespace gapi.client {
             /** Flatten Policy to create a backward compatible wire-format. Deprecated. Use 'policy' to specify the etag. */
             etag?: string;
             /**
-             * REQUIRED: The complete policy to be applied to the 'resource'. The size of the policy is limited to a few 10s of KB. An empty policy is in general a
-             * valid policy but certain services (like Projects) might reject them.
+             * REQUIRED: The complete policy to be applied to the 'resource'. The size of the policy is limited to a few 10s of KB. An empty policy is in general a valid policy but certain
+             * services (like Projects) might reject them.
              */
             policy?: Policy;
         }
@@ -247,10 +242,7 @@ declare namespace gapi.client {
         interface LogConfigCounterOptionsCustomField {
             /** Name is the field name. */
             name?: string;
-            /**
-             * Value is the field value. It is important that in contrast to the CounterOptions.field, the value here is a constant that is not derived from the
-             * IAMContext.
-             */
+            /** Value is the field value. It is important that in contrast to the CounterOptions.field, the value here is a constant that is not derived from the IAMContext. */
             value?: string;
         }
         interface LogConfigDataAccessOptions {
@@ -306,10 +298,7 @@ declare namespace gapi.client {
             };
             /** [Output Only] If the operation fails, this field contains the HTTP error message that was returned, such as `NOT FOUND`. */
             httpErrorMessage?: string;
-            /**
-             * [Output Only] If the operation fails, this field contains the HTTP error status code that was returned. For example, a `404` means the resource was not
-             * found.
-             */
+            /** [Output Only] If the operation fails, this field contains the HTTP error status code that was returned. For example, a `404` means the resource was not found. */
             httpErrorStatusCode?: number;
             /** [Output Only] The unique identifier for the operation. This identifier is defined by the server. */
             id?: string;
@@ -322,9 +311,8 @@ declare namespace gapi.client {
             /** [Output Only] The type of operation, such as `insert`, `update`, or `delete`, and so on. */
             operationType?: string;
             /**
-             * [Output Only] An optional progress indicator that ranges from 0 to 100. There is no requirement that this be linear or support any granularity of
-             * operations. This should not be used to guess when the operation will be complete. This number should monotonically increase as the operation
-             * progresses.
+             * [Output Only] An optional progress indicator that ranges from 0 to 100. There is no requirement that this be linear or support any granularity of operations. This should not be used
+             * to guess when the operation will be complete. This number should monotonically increase as the operation progresses.
              */
             progress?: number;
             /** [Output Only] The URL of the region where the operation resides. Only applicable when performing regional operations. */
@@ -340,8 +328,8 @@ declare namespace gapi.client {
             /** [Output Only] The unique target ID, which identifies a specific incarnation of the target resource. */
             targetId?: string;
             /**
-             * [Output Only] The URL of the resource that the operation modifies. For operations related to creating a snapshot, this points to the persistent disk
-             * that the snapshot was created from.
+             * [Output Only] The URL of the resource that the operation modifies. For operations related to creating a snapshot, this points to the persistent disk that the snapshot was created
+             * from.
              */
             targetLink?: string;
             /** [Output Only] User who requested the operation, for example: `user@example.com`. */
@@ -356,10 +344,9 @@ declare namespace gapi.client {
                  */
                 data?: Array<{
                     /**
-                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
-                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
-                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
-                     * for IP forwarding).
+                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone,
+                     * this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning
+                     * about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
                      */
                     key?: string;
                     /** [Output Only] A warning data value corresponding to the key. */
@@ -381,26 +368,24 @@ declare namespace gapi.client {
             /** Specifies cloud audit logging configuration for this policy. */
             auditConfigs?: AuditConfig[];
             /**
-             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the
-             * `bindings` must contain at least one member.
+             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
+             * least one member.
              */
             bindings?: Binding[];
             /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
-             * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy.
+             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
+             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
+             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy.
              *
-             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows
-             * you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost.
+             * **Important:** If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3`
+             * policy with a version `1` policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
             iamOwned?: boolean;
             /**
-             * If more than one rule is specified, the rules are applied in the following manner: - All matching LOG rules are always applied. - If any
-             * DENY/DENY_WITH_LOG rule matches, permission is denied. Logging will be applied if one or more matching rule requires logging. - Otherwise, if any
-             * ALLOW/ALLOW_WITH_LOG rule matches, permission is granted. Logging will be applied if one or more matching rule requires logging. - Otherwise, if no
-             * rule applies, permission is denied.
+             * If more than one rule is specified, the rules are applied in the following manner: - All matching LOG rules are always applied. - If any DENY/DENY_WITH_LOG rule matches, permission
+             * is denied. Logging will be applied if one or more matching rule requires logging. - Otherwise, if any ALLOW/ALLOW_WITH_LOG rule matches, permission is granted. Logging will be
+             * applied if one or more matching rule requires logging. - Otherwise, if no rule applies, permission is denied.
              */
             rules?: Rule[];
             /**
@@ -410,16 +395,15 @@ declare namespace gapi.client {
              *
              * Any operation that affects conditional role bindings must specify version `3`. This requirement applies to the following operations:
              *
-             * ∗ Getting a policy that includes a conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a
-             * policy ∗ Removing any role binding, with or without a condition, from a policy that includes conditions
+             * * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a policy * Changing a conditional role binding in a policy * Removing any role
+             * binding, with or without a condition, from a policy that includes conditions
              *
-             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows
-             * you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost.
+             * **Important:** If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3`
+             * policy with a version `1` policy, and all of the conditions in the version `3` policy are lost.
              *
              * If a policy does not include any conditions, operations on that policy may specify any valid version or leave the field unset.
              *
-             * To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
@@ -455,10 +439,9 @@ declare namespace gapi.client {
                  */
                 data?: Array<{
                     /**
-                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
-                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
-                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
-                     * for IP forwarding).
+                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone,
+                     * this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning
+                     * about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
                      */
                     key?: string;
                     /** [Output Only] A warning data value corresponding to the key. */
@@ -513,10 +496,9 @@ declare namespace gapi.client {
                  */
                 data?: Array<{
                     /**
-                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for
-                     * a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and
-                     * a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled
-                     * for IP forwarding).
+                     * [Output Only] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone,
+                     * this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning
+                     * about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
                      */
                     key?: string;
                     /** [Output Only] A warning data value corresponding to the key. */
@@ -539,23 +521,20 @@ declare namespace gapi.client {
             logConfigs?: LogConfig[];
             /** If one or more 'not_in' clauses are specified, the rule matches if the PRINCIPAL/AUTHORITY_SELECTOR is in none of the entries. */
             notIns?: string[];
-            /**
-             * A permission is a string of form '..' (e.g., 'storage.buckets.list'). A value of '∗' matches all permissions, and a verb part of '∗' (e.g.,
-             * 'storage.buckets.∗') matches all verbs.
-             */
+            /** A permission is a string of form '..' (e.g., 'storage.buckets.list'). A value of '*' matches all permissions, and a verb part of '*' (e.g., 'storage.buckets.*') matches all verbs. */
             permissions?: string[];
         }
         interface TargetConfiguration {
             /** The configuration to use for this deployment. */
             config?: ConfigFile;
             /**
-             * Specifies any files to import for this configuration. This can be used to import templates or other files. For example, you might import a text file in
-             * order to use the file in a template.
+             * Specifies any files to import for this configuration. This can be used to import templates or other files. For example, you might import a text file in order to use the file in a
+             * template.
              */
             imports?: ImportFile[];
         }
         interface TestPermissionsRequest {
-            /** The set of permissions to check for the 'resource'. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. */
+            /** The set of permissions to check for the 'resource'. Permissions with wildcards (such as '*' or 'storage.*') are not allowed. */
             permissions?: string[];
         }
         interface TestPermissionsResponse {
@@ -704,10 +683,9 @@ declare namespace gapi.client {
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * If set to true, creates a deployment and creates "shell" resources but does not actually instantiate these resources. This allows you to preview what
-                 * your deployment looks like. After previewing a deployment, you can deploy your resources by making a request with the `update()` method or you can use
-                 * the `cancelPreview()` method to cancel the preview altogether. Note that the deployment will still exist after you cancel the preview and you must
-                 * separately delete this deployment if you want to remove it.
+                 * If set to true, creates a deployment and creates "shell" resources but does not actually instantiate these resources. This allows you to preview what your deployment looks like.
+                 * After previewing a deployment, you can deploy your resources by making a request with the `update()` method or you can use the `cancelPreview()` method to cancel the preview
+                 * altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.
                  */
                 preview?: boolean;
                 /** The project ID for this request. */
@@ -733,10 +711,9 @@ declare namespace gapi.client {
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * If set to true, creates a deployment and creates "shell" resources but does not actually instantiate these resources. This allows you to preview what
-                 * your deployment looks like. After previewing a deployment, you can deploy your resources by making a request with the `update()` method or you can use
-                 * the `cancelPreview()` method to cancel the preview altogether. Note that the deployment will still exist after you cancel the preview and you must
-                 * separately delete this deployment if you want to remove it.
+                 * If set to true, creates a deployment and creates "shell" resources but does not actually instantiate these resources. This allows you to preview what your deployment looks like.
+                 * After previewing a deployment, you can deploy your resources by making a request with the `update()` method or you can use the `cancelPreview()` method to cancel the preview
+                 * altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.
                  */
                 preview?: boolean;
                 /** The project ID for this request. */
@@ -754,26 +731,24 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
-                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for
+                 * filtering. The value must be a string, a number, or a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
                  *
-                 * For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name !=
-                 * example-instance`.
+                 * For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name != example-instance`.
                  *
-                 * You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not
-                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
+                 * You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not scheduled for automatic
+                 * restarts. You can use filtering on nested fields to filter based on resource labels.
                  *
-                 * To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true)
-                 * (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly.
-                 * For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true) ```
+                 * To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ```
+                 * By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform = "Intel Skylake") OR
+                 * (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true) ```
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns
-                 * a `nextPageToken` that can be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
-                 * (Default: `500`)
+                 * The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns a `nextPageToken` that can
+                 * be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive. (Default: `500`)
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -781,9 +756,8 @@ declare namespace gapi.client {
                 /**
                  * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
                  *
-                 * You can also sort results in descending order based on the creation timestamp using `orderBy="creationTimestamp desc"`. This sorts results based on the
-                 * `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
-                 * is returned first.
+                 * You can also sort results in descending order based on the creation timestamp using `orderBy="creationTimestamp desc"`. This sorts results based on the `creationTimestamp` field
+                 * in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first.
                  *
                  * Currently, only sorting by `name` or `creationTimestamp desc` is supported.
                  */
@@ -818,11 +792,10 @@ declare namespace gapi.client {
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * If set to true, updates the deployment and creates and updates the "shell" resources but does not actually alter or instantiate these resources. This
-                 * allows you to preview what your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must
-                 * provide a `target.config` with a configuration if this is set to true. After previewing a deployment, you can deploy your resources by making a request
-                 * with the `update()` or you can `cancelPreview()` to remove the preview altogether. Note that the deployment will still exist after you cancel the
-                 * preview and you must separately delete this deployment if you want to remove it.
+                 * If set to true, updates the deployment and creates and updates the "shell" resources but does not actually alter or instantiate these resources. This allows you to preview what
+                 * your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must provide a `target.config` with a configuration if this is
+                 * set to true. After previewing a deployment, you can deploy your resources by making a request with the `update()` or you can `cancelPreview()` to remove the preview altogether.
+                 * Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.
                  */
                 preview?: boolean;
                 /** The project ID for this request. */
@@ -852,11 +825,10 @@ declare namespace gapi.client {
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * If set to true, updates the deployment and creates and updates the "shell" resources but does not actually alter or instantiate these resources. This
-                 * allows you to preview what your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must
-                 * provide a `target.config` with a configuration if this is set to true. After previewing a deployment, you can deploy your resources by making a request
-                 * with the `update()` or you can `cancelPreview()` to remove the preview altogether. Note that the deployment will still exist after you cancel the
-                 * preview and you must separately delete this deployment if you want to remove it.
+                 * If set to true, updates the deployment and creates and updates the "shell" resources but does not actually alter or instantiate these resources. This allows you to preview what
+                 * your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must provide a `target.config` with a configuration if this is
+                 * set to true. After previewing a deployment, you can deploy your resources by making a request with the `update()` or you can `cancelPreview()` to remove the preview altogether.
+                 * Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.
                  */
                 preview?: boolean;
                 /** The project ID for this request. */
@@ -974,11 +946,10 @@ declare namespace gapi.client {
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * If set to true, updates the deployment and creates and updates the "shell" resources but does not actually alter or instantiate these resources. This
-                 * allows you to preview what your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must
-                 * provide a `target.config` with a configuration if this is set to true. After previewing a deployment, you can deploy your resources by making a request
-                 * with the `update()` or you can `cancelPreview()` to remove the preview altogether. Note that the deployment will still exist after you cancel the
-                 * preview and you must separately delete this deployment if you want to remove it.
+                 * If set to true, updates the deployment and creates and updates the "shell" resources but does not actually alter or instantiate these resources. This allows you to preview what
+                 * your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must provide a `target.config` with a configuration if this is
+                 * set to true. After previewing a deployment, you can deploy your resources by making a request with the `update()` or you can `cancelPreview()` to remove the preview altogether.
+                 * Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.
                  */
                 preview?: boolean;
                 /** The project ID for this request. */
@@ -1008,11 +979,10 @@ declare namespace gapi.client {
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * If set to true, updates the deployment and creates and updates the "shell" resources but does not actually alter or instantiate these resources. This
-                 * allows you to preview what your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must
-                 * provide a `target.config` with a configuration if this is set to true. After previewing a deployment, you can deploy your resources by making a request
-                 * with the `update()` or you can `cancelPreview()` to remove the preview altogether. Note that the deployment will still exist after you cancel the
-                 * preview and you must separately delete this deployment if you want to remove it.
+                 * If set to true, updates the deployment and creates and updates the "shell" resources but does not actually alter or instantiate these resources. This allows you to preview what
+                 * your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must provide a `target.config` with a configuration if this is
+                 * set to true. After previewing a deployment, you can deploy your resources by making a request with the `update()` or you can `cancelPreview()` to remove the preview altogether.
+                 * Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.
                  */
                 preview?: boolean;
                 /** The project ID for this request. */
@@ -1057,26 +1027,24 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
-                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for
+                 * filtering. The value must be a string, a number, or a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
                  *
-                 * For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name !=
-                 * example-instance`.
+                 * For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name != example-instance`.
                  *
-                 * You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not
-                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
+                 * You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not scheduled for automatic
+                 * restarts. You can use filtering on nested fields to filter based on resource labels.
                  *
-                 * To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true)
-                 * (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly.
-                 * For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true) ```
+                 * To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ```
+                 * By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform = "Intel Skylake") OR
+                 * (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true) ```
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns
-                 * a `nextPageToken` that can be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
-                 * (Default: `500`)
+                 * The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns a `nextPageToken` that can
+                 * be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive. (Default: `500`)
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -1084,9 +1052,8 @@ declare namespace gapi.client {
                 /**
                  * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
                  *
-                 * You can also sort results in descending order based on the creation timestamp using `orderBy="creationTimestamp desc"`. This sorts results based on the
-                 * `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
-                 * is returned first.
+                 * You can also sort results in descending order based on the creation timestamp using `orderBy="creationTimestamp desc"`. This sorts results based on the `creationTimestamp` field
+                 * in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first.
                  *
                  * Currently, only sorting by `name` or `creationTimestamp desc` is supported.
                  */
@@ -1132,26 +1099,24 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
-                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for
+                 * filtering. The value must be a string, a number, or a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
                  *
-                 * For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name !=
-                 * example-instance`.
+                 * For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name != example-instance`.
                  *
-                 * You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not
-                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
+                 * You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not scheduled for automatic
+                 * restarts. You can use filtering on nested fields to filter based on resource labels.
                  *
-                 * To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true)
-                 * (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly.
-                 * For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true) ```
+                 * To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ```
+                 * By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform = "Intel Skylake") OR
+                 * (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true) ```
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns
-                 * a `nextPageToken` that can be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
-                 * (Default: `500`)
+                 * The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns a `nextPageToken` that can
+                 * be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive. (Default: `500`)
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -1159,9 +1124,8 @@ declare namespace gapi.client {
                 /**
                  * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
                  *
-                 * You can also sort results in descending order based on the creation timestamp using `orderBy="creationTimestamp desc"`. This sorts results based on the
-                 * `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
-                 * is returned first.
+                 * You can also sort results in descending order based on the creation timestamp using `orderBy="creationTimestamp desc"`. This sorts results based on the `creationTimestamp` field
+                 * in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first.
                  *
                  * Currently, only sorting by `name` or `creationTimestamp desc` is supported.
                  */
@@ -1211,26 +1175,24 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
-                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for
+                 * filtering. The value must be a string, a number, or a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
                  *
-                 * For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name !=
-                 * example-instance`.
+                 * For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name != example-instance`.
                  *
-                 * You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not
-                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
+                 * You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not scheduled for automatic
+                 * restarts. You can use filtering on nested fields to filter based on resource labels.
                  *
-                 * To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true)
-                 * (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly.
-                 * For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true) ```
+                 * To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ```
+                 * By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform = "Intel Skylake") OR
+                 * (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true) ```
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns
-                 * a `nextPageToken` that can be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
-                 * (Default: `500`)
+                 * The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns a `nextPageToken` that can
+                 * be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive. (Default: `500`)
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -1238,9 +1200,8 @@ declare namespace gapi.client {
                 /**
                  * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
                  *
-                 * You can also sort results in descending order based on the creation timestamp using `orderBy="creationTimestamp desc"`. This sorts results based on the
-                 * `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
-                 * is returned first.
+                 * You can also sort results in descending order based on the creation timestamp using `orderBy="creationTimestamp desc"`. This sorts results based on the `creationTimestamp` field
+                 * in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first.
                  *
                  * Currently, only sorting by `name` or `creationTimestamp desc` is supported.
                  */
@@ -1265,26 +1226,24 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value
-                 * that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+                 * A filter expression that filters resources listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for
+                 * filtering. The value must be a string, a number, or a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
                  *
-                 * For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name !=
-                 * example-instance`.
+                 * For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name != example-instance`.
                  *
-                 * You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not
-                 * scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
+                 * You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not scheduled for automatic
+                 * restarts. You can use filtering on nested fields to filter based on resource labels.
                  *
-                 * To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true)
-                 * (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly.
-                 * For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true) ```
+                 * To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ```
+                 * By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform = "Intel Skylake") OR
+                 * (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true) ```
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns
-                 * a `nextPageToken` that can be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
-                 * (Default: `500`)
+                 * The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns a `nextPageToken` that can
+                 * be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive. (Default: `500`)
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -1292,9 +1251,8 @@ declare namespace gapi.client {
                 /**
                  * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
                  *
-                 * You can also sort results in descending order based on the creation timestamp using `orderBy="creationTimestamp desc"`. This sorts results based on the
-                 * `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation
-                 * is returned first.
+                 * You can also sort results in descending order based on the creation timestamp using `orderBy="creationTimestamp desc"`. This sorts results based on the `creationTimestamp` field
+                 * in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first.
                  *
                  * Currently, only sorting by `name` or `creationTimestamp desc` is supported.
                  */

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Licensing API v1 1.0
 // Project: https://developers.google.com/admin-sdk/licensing/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -34,9 +37,8 @@ declare namespace gapi.client {
             /** Display Name of the sku of the product. */
             skuName?: string;
             /**
-             * The user's current primary email address. If the user's email address changes, use the new email address in your API requests. Since a userId is
-             * subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address changes. If the
-             * userId is suspended, the license status changes.
+             * The user's current primary email address. If the user's email address changes, use the new email address in your API requests. Since a userId is subject to change, do not use a
+             * userId value as a key for persistent data. This key could break if the current user's email address changes. If the userId is suspended, the license status changes.
              */
             userId?: string;
         }
@@ -52,8 +54,8 @@ declare namespace gapi.client {
             /** Identifies the resource as a collection of LicenseAssignments. */
             kind?: string;
             /**
-             * The token that you must submit in a subsequent request to retrieve additional license results matching your query parameters. The maxResults query
-             * string is related to the nextPageToken since maxResults determines how many entries are returned on each next page.
+             * The token that you must submit in a subsequent request to retrieve additional license results matching your query parameters. The maxResults query string is related to the
+             * nextPageToken since maxResults determines how many entries are returned on each next page.
              */
             nextPageToken?: string;
         }
@@ -78,8 +80,7 @@ declare namespace gapi.client {
                 skuId: string;
                 /**
                  * The user's current primary email address. If the user's email address changes, use the new email address in your API requests.
-                 * Since a userId is subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address
-                 * changes.
+                 * Since a userId is subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address changes.
                  * If the userId is suspended, the license status changes.
                  */
                 userId: string;
@@ -106,8 +107,7 @@ declare namespace gapi.client {
                 skuId: string;
                 /**
                  * The user's current primary email address. If the user's email address changes, use the new email address in your API requests.
-                 * Since a userId is subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address
-                 * changes.
+                 * Since a userId is subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address changes.
                  * If the userId is suspended, the license status changes.
                  */
                 userId: string;
@@ -171,16 +171,13 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * The maxResults query string determines how many entries are returned on each page of a large response. This is an optional parameter. The value must be
-                 * a positive number.
-                 */
+                /** The maxResults query string determines how many entries are returned on each page of a large response. This is an optional parameter. The value must be a positive number. */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Token to fetch the next page of data. The maxResults query string is related to the pageToken since maxResults determines how many entries are returned
-                 * on each page. This is an optional query string. If not specified, the server returns the first page.
+                 * Token to fetch the next page of data. The maxResults query string is related to the pageToken since maxResults determines how many entries are returned on each page. This is an
+                 * optional query string. If not specified, the server returns the first page.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -205,16 +202,13 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * The maxResults query string determines how many entries are returned on each page of a large response. This is an optional parameter. The value must be
-                 * a positive number.
-                 */
+                /** The maxResults query string determines how many entries are returned on each page of a large response. This is an optional parameter. The value must be a positive number. */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Token to fetch the next page of data. The maxResults query string is related to the pageToken since maxResults determines how many entries are returned
-                 * on each page. This is an optional query string. If not specified, the server returns the first page.
+                 * Token to fetch the next page of data. The maxResults query string is related to the pageToken since maxResults determines how many entries are returned on each page. This is an
+                 * optional query string. If not specified, the server returns the first page.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -248,8 +242,7 @@ declare namespace gapi.client {
                 skuId: string;
                 /**
                  * The user's current primary email address. If the user's email address changes, use the new email address in your API requests.
-                 * Since a userId is subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address
-                 * changes.
+                 * Since a userId is subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address changes.
                  * If the userId is suspended, the license status changes.
                  */
                 userId: string;
@@ -277,8 +270,7 @@ declare namespace gapi.client {
                 skuId: string;
                 /**
                  * The user's current primary email address. If the user's email address changes, use the new email address in your API requests.
-                 * Since a userId is subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address
-                 * changes.
+                 * Since a userId is subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address changes.
                  * If the userId is suspended, the license status changes.
                  */
                 userId: string;
@@ -306,8 +298,7 @@ declare namespace gapi.client {
                 skuId: string;
                 /**
                  * The user's current primary email address. If the user's email address changes, use the new email address in your API requests.
-                 * Since a userId is subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address
-                 * changes.
+                 * Since a userId is subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address changes.
                  * If the userId is suspended, the license status changes.
                  */
                 userId: string;
@@ -335,8 +326,7 @@ declare namespace gapi.client {
                 skuId: string;
                 /**
                  * The user's current primary email address. If the user's email address changes, use the new email address in your API requests.
-                 * Since a userId is subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address
-                 * changes.
+                 * Since a userId is subject to change, do not use a userId value as a key for persistent data. This key could break if the current user's email address changes.
                  * If the userId is suspended, the license status changes.
                  */
                 userId: string;

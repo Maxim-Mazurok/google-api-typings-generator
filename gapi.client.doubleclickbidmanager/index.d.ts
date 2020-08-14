@@ -1,6 +1,9 @@
 // Type definitions for non-npm package DoubleClick Bid Manager API v1.1 1.1
 // Project: https://developers.google.com/bid-manager/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -46,8 +49,8 @@ declare namespace gapi.client {
         }
         interface DownloadRequest {
             /**
-             * File types that will be returned. If INVENTORY_SOURCE is requested, no other file types may be requested. Acceptable values are: - "AD" - "AD_GROUP" -
-             * "CAMPAIGN" - "INSERTION_ORDER" - "INVENTORY_SOURCE" - "LINE_ITEM"
+             * File types that will be returned. If INVENTORY_SOURCE is requested, no other file types may be requested. Acceptable values are: - "AD" - "AD_GROUP" - "CAMPAIGN" - "INSERTION_ORDER"
+             * - "INVENTORY_SOURCE" - "LINE_ITEM"
              */
             fileTypes?: string[];
             /** The IDs of the specified filter type. This is used to filter entities to fetch. At least one ID must be specified. */
@@ -97,10 +100,7 @@ declare namespace gapi.client {
             reports?: Report[];
         }
         interface Options {
-            /**
-             * Set to true and filter your report by `FILTER_INSERTION_ORDER` or `FILTER_LINE_ITEM` to include data for audience lists specifically targeted by those
-             * items.
-             */
+            /** Set to true and filter your report by `FILTER_INSERTION_ORDER` or `FILTER_LINE_ITEM` to include data for audience lists specifically targeted by those items. */
             includeOnlyTargetedUserLists?: boolean;
             /** Options that contain Path Filters and Custom Channel Groupings. */
             pathQueryOptions?: PathQueryOptions;
@@ -148,15 +148,9 @@ declare namespace gapi.client {
             params?: Parameters;
             /** Query ID. */
             queryId?: string;
-            /**
-             * The ending time for the data that is shown in the report. Note, reportDataEndTimeMs is required if metadata.dataRange is CUSTOM_DATES and ignored
-             * otherwise.
-             */
+            /** The ending time for the data that is shown in the report. Note, reportDataEndTimeMs is required if metadata.dataRange is CUSTOM_DATES and ignored otherwise. */
             reportDataEndTimeMs?: string;
-            /**
-             * The starting time for the data that is shown in the report. Note, reportDataStartTimeMs is required if metadata.dataRange is CUSTOM_DATES and ignored
-             * otherwise.
-             */
+            /** The starting time for the data that is shown in the report. Note, reportDataStartTimeMs is required if metadata.dataRange is CUSTOM_DATES and ignored otherwise. */
             reportDataStartTimeMs?: string;
             /** Information on how often and when to run a query. */
             schedule?: QuerySchedule;
@@ -175,9 +169,8 @@ declare namespace gapi.client {
             /** The time when the latest report started to run. */
             latestReportRunTimeMs?: string;
             /**
-             * Locale of the generated reports. Valid values are cs CZECH de GERMAN en ENGLISH es SPANISH fr FRENCH it ITALIAN ja JAPANESE ko KOREAN pl POLISH pt-BR
-             * BRAZILIAN_PORTUGUESE ru RUSSIAN tr TURKISH uk UKRAINIAN zh-CN CHINA_CHINESE zh-TW TAIWAN_CHINESE An locale string not in the list above will generate
-             * reports in English.
+             * Locale of the generated reports. Valid values are cs CZECH de GERMAN en ENGLISH es SPANISH fr FRENCH it ITALIAN ja JAPANESE ko KOREAN pl POLISH pt-BR BRAZILIAN_PORTUGUESE ru RUSSIAN
+             * tr TURKISH uk UKRAINIAN zh-CN CHINA_CHINESE zh-TW TAIWAN_CHINESE An locale string not in the list above will generate reports in English.
              */
             locale?: string;
             /** Number of reports that have been generated for the query. */

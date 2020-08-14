@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Google Play EMM API v1 1.0
 // Project: https://developers.google.com/android/work/play/emm-api
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -29,10 +32,7 @@ declare namespace gapi.client {
         interface AdministratorWebTokenSpec {
             /** Options for displaying the Managed Configuration page. */
             managedConfigurations?: AdministratorWebTokenSpecManagedConfigurations;
-            /**
-             * The URI of the parent frame hosting the iframe. To prevent XSS, the iframe may not be hosted at other URIs. This URI must be https. Use whitespaces to
-             * separate multiple parent URIs.
-             */
+            /** The URI of the parent frame hosting the iframe. To prevent XSS, the iframe may not be hosted at other URIs. This URI must be https. Use whitespaces to separate multiple parent URIs. */
             parent?: string;
             /** Deprecated. Use PlaySearch.approveApps. */
             permission?: string[];
@@ -85,15 +85,15 @@ declare namespace gapi.client {
             /** For choice or multiselect restrictions, the list of possible entries' human-readable names. */
             entry?: string[];
             /**
-             * For choice or multiselect restrictions, the list of possible entries' machine-readable values. These values should be used in the configuration, either
-             * as a single string value for a choice restriction or in a stringArray for a multiselect restriction.
+             * For choice or multiselect restrictions, the list of possible entries' machine-readable values. These values should be used in the configuration, either as a single string value for
+             * a choice restriction or in a stringArray for a multiselect restriction.
              */
             entryValue?: string[];
             /** The unique key that the product uses to identify the restriction, e.g. "com.google.android.gm.fieldname". */
             key?: string;
             /**
-             * For bundle or bundleArray restrictions, the list of nested restrictions. A bundle restriction is always nested within a bundleArray restriction, and a
-             * bundleArray restriction is at most two levels deep.
+             * For bundle or bundleArray restrictions, the list of nested restrictions. A bundle restriction is always nested within a bundleArray restriction, and a bundleArray restriction is at
+             * most two levels deep.
              */
             nestedRestriction?: AppRestrictionsSchemaRestriction[];
             /** The type of the restriction. */
@@ -132,24 +132,15 @@ declare namespace gapi.client {
             isProduction?: boolean;
             /** Deprecated, use trackId instead. */
             track?: string;
-            /**
-             * Track ids that the app version is published in. Replaces the track field (deprecated), but doesn't include the production track (see isProduction
-             * instead).
-             */
+            /** Track ids that the app version is published in. Replaces the track field (deprecated), but doesn't include the production track (see isProduction instead). */
             trackId?: string[];
             /** Unique increasing identifier for the app version. */
             versionCode?: number;
-            /**
-             * The string used in the Play store by the app developer to identify the version. The string is not necessarily unique or localized (for example, the
-             * string could be "1.4").
-             */
+            /** The string used in the Play store by the app developer to identify the version. The string is not necessarily unique or localized (for example, the string could be "1.4"). */
             versionString?: string;
         }
         interface AuthenticationToken {
-            /**
-             * The authentication token to be passed to the device policy client on the device where it can be used to provision the account for which this token was
-             * generated.
-             */
+            /** The authentication token to be passed to the device policy client on the device where it can be used to provision the account for which this token was generated. */
             token?: string;
         }
         interface AutoInstallConstraint {
@@ -168,8 +159,8 @@ declare namespace gapi.client {
             /** The priority of the install, as an unsigned integer. A lower number means higher priority. */
             autoInstallPriority?: number;
             /**
-             * The minimum version of the app. If a lower version of the app is installed, then the app will be auto-updated according to the auto-install
-             * constraints, instead of waiting for the regular auto-update. You can set a minimum version code for at most 20 apps per device.
+             * The minimum version of the app. If a lower version of the app is installed, then the app will be auto-updated according to the auto-install constraints, instead of waiting for the
+             * regular auto-update. You can set a minimum version code for at most 20 apps per device.
              */
             minimumVersionCode?: number;
         }
@@ -183,11 +174,10 @@ declare namespace gapi.client {
             /** The Google Play Services Android ID for the device encoded as a lowercase hex string. For example, "123456789abcdef0". */
             androidId?: string;
             /**
-             * Identifies the extent to which the device is controlled by a managed Google Play EMM in various deployment configurations. Possible values include: -
-             * "managedDevice", a device that has the EMM's device policy controller (DPC) as the device owner. - "managedProfile", a device that has a profile
-             * managed by the DPC (DPC is profile owner) in addition to a separate, personal profile that is unavailable to the DPC. - "containerApp", no longer used
-             * (deprecated). - "unmanagedProfile", a device that has been allowed (by the domain's admin, using the Admin Console to enable the privilege) to use
-             * managed Google Play, but the profile is itself not owned by a DPC.
+             * Identifies the extent to which the device is controlled by a managed Google Play EMM in various deployment configurations. Possible values include: - "managedDevice", a device that
+             * has the EMM's device policy controller (DPC) as the device owner. - "managedProfile", a device that has a profile managed by the DPC (DPC is profile owner) in addition to a
+             * separate, personal profile that is unavailable to the DPC. - "containerApp", no longer used (deprecated). - "unmanagedProfile", a device that has been allowed (by the domain's
+             * admin, using the Admin Console to enable the privilege) to use managed Google Play, but the profile is itself not owned by a DPC.
              */
             managementType?: string;
             /** The policy enforced on the device. */
@@ -215,8 +205,8 @@ declare namespace gapi.client {
         }
         interface DeviceState {
             /**
-             * The state of the Google account on the device. "enabled" indicates that the Google account on the device can be used to access Google services
-             * (including Google Play), while "disabled" means that it cannot. A new device is initially in the "disabled" state.
+             * The state of the Google account on the device. "enabled" indicates that the Google account on the device can be used to access Google services (including Google Play), while
+             * "disabled" means that it cannot. A new device is initially in the "disabled" state.
              */
             accountState?: string;
         }
@@ -247,44 +237,36 @@ declare namespace gapi.client {
         interface Entitlement {
             /** The ID of the product that the entitlement is for. For example, "app:com.google.android.gm". */
             productId?: string;
-            /**
-             * The reason for the entitlement. For example, "free" for free apps. This property is temporary: it will be replaced by the acquisition kind field of
-             * group licenses.
-             */
+            /** The reason for the entitlement. For example, "free" for free apps. This property is temporary: it will be replaced by the acquisition kind field of group licenses. */
             reason?: string;
         }
         interface EntitlementsListResponse {
-            /**
-             * An entitlement of a user to a product (e.g. an app). For example, a free app that they have installed, or a paid app that they have been allocated a
-             * license to.
-             */
+            /** An entitlement of a user to a product (e.g. an app). For example, a free app that they have installed, or a paid app that they have been allocated a license to. */
             entitlement?: Entitlement[];
         }
         interface GroupLicense {
             /**
-             * How this group license was acquired. "bulkPurchase" means that this Grouplicenses resource was created because the enterprise purchased licenses for
-             * this product; otherwise, the value is "free" (for free products).
+             * How this group license was acquired. "bulkPurchase" means that this Grouplicenses resource was created because the enterprise purchased licenses for this product; otherwise, the
+             * value is "free" (for free products).
              */
             acquisitionKind?: string;
             /**
-             * Whether the product to which this group license relates is currently approved by the enterprise. Products are approved when a group license is first
-             * created, but this approval may be revoked by an enterprise admin via Google Play. Unapproved products will not be visible to end users in collections,
-             * and new entitlements to them should not normally be created.
+             * Whether the product to which this group license relates is currently approved by the enterprise. Products are approved when a group license is first created, but this approval may
+             * be revoked by an enterprise admin via Google Play. Unapproved products will not be visible to end users in collections, and new entitlements to them should not normally be created.
              */
             approval?: string;
             /** The total number of provisioned licenses for this product. Returned by read operations, but ignored in write operations. */
             numProvisioned?: number;
             /**
-             * The number of purchased licenses (possibly in multiple purchases). If this field is omitted, then there is no limit on the number of licenses that can
-             * be provisioned (for example, if the acquisition kind is "free").
+             * The number of purchased licenses (possibly in multiple purchases). If this field is omitted, then there is no limit on the number of licenses that can be provisioned (for example,
+             * if the acquisition kind is "free").
              */
             numPurchased?: number;
             /**
-             * The permission approval status of the product. This field is only set if the product is approved. Possible states are: - "currentApproved", the current
-             * set of permissions is approved, but additional permissions will require the administrator to reapprove the product (If the product was approved without
-             * specifying the approved permissions setting, then this is the default behavior.), - "needsReapproval", the product has unapproved permissions. No
-             * additional product licenses can be assigned until the product is reapproved, - "allCurrentAndFutureApproved", the current permissions are approved and
-             * any future permission updates will be automatically approved without administrator review.
+             * The permission approval status of the product. This field is only set if the product is approved. Possible states are: - "currentApproved", the current set of permissions is
+             * approved, but additional permissions will require the administrator to reapprove the product (If the product was approved without specifying the approved permissions setting, then
+             * this is the default behavior.), - "needsReapproval", the product has unapproved permissions. No additional product licenses can be assigned until the product is reapproved, -
+             * "allCurrentAndFutureApproved", the current permissions are approved and any future permission updates will be automatically approved without administrator review.
              */
             permissions?: string;
             /** The ID of the product that the license is for. For example, "app:com.google.android.gm". */
@@ -301,8 +283,8 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface Install {
             /**
-             * Install state. The state "installPending" means that an install request has recently been made and download to the device is in progress. The state
-             * "installed" means that the app has been installed. This field is read-only.
+             * Install state. The state "installPending" means that an install request has recently been made and download to the device is in progress. The state "installed" means that the app
+             * has been installed. This field is read-only.
              */
             installState?: string;
             /** The ID of the product that the install is for. For example, "app:com.google.android.gm". */
@@ -329,20 +311,14 @@ declare namespace gapi.client {
             install?: Install[];
         }
         interface KeyedAppState {
-            /**
-             * Additional field intended for machine-readable data. For example, a number or JSON object. To prevent XSS, we recommend removing any HTML from the data
-             * before displaying it.
-             */
+            /** Additional field intended for machine-readable data. For example, a number or JSON object. To prevent XSS, we recommend removing any HTML from the data before displaying it. */
             data?: string;
             /**
-             * Key indicating what the app is providing a state for. The content of the key is set by the app's developer. To prevent XSS, we recommend removing any
-             * HTML from the key before displaying it. This field will always be present.
+             * Key indicating what the app is providing a state for. The content of the key is set by the app's developer. To prevent XSS, we recommend removing any HTML from the key before
+             * displaying it. This field will always be present.
              */
             key?: string;
-            /**
-             * Free-form, human-readable message describing the app state. For example, an error message. To prevent XSS, we recommend removing any HTML from the
-             * message before displaying it.
-             */
+            /** Free-form, human-readable message describing the app state. For example, an error message. To prevent XSS, we recommend removing any HTML from the message before displaying it. */
             message?: string;
             /** Severity of the app state. This field will always be present. */
             severity?: string;
@@ -417,18 +393,15 @@ declare namespace gapi.client {
             /** Policy app on the device. */
             dpcPackageName?: string;
             /**
-             * Identifies the extent to which the device is controlled by an Android EMM in various deployment configurations. Possible values include: -
-             * "managedDevice", a device where the DPC is set as device owner, - "managedProfile", a device where the DPC is set as profile owner.
+             * Identifies the extent to which the device is controlled by an Android EMM in various deployment configurations. Possible values include: - "managedDevice", a device where the DPC is
+             * set as device owner, - "managedProfile", a device where the DPC is set as profile owner.
              */
             managementType?: string;
             /** The ID of the user. This field will always be present. */
             userId?: string;
         }
         interface NewPermissionsEvent {
-            /**
-             * The set of permissions that the enterprise admin has already approved for this application. Use Permissions.Get on the EMM API to retrieve details
-             * about these permissions.
-             */
+            /** The set of permissions that the enterprise admin has already approved for this application. Use Permissions.Get on the EMM API to retrieve details about these permissions. */
             approvedPermissions?: string[];
             /** The id of the product (e.g. "app:com.google.android.gm") for which new permissions were added. This field will always be present. */
             productId?: string;
@@ -462,10 +435,7 @@ declare namespace gapi.client {
         interface NotificationSet {
             /** The notifications received, or empty if no notifications are present. */
             notification?: Notification[];
-            /**
-             * The notification set ID, required to mark the notification as received with the Enterprises.AcknowledgeNotification API. This will be omitted if no
-             * notifications are present.
-             */
+            /** The notification set ID, required to mark the notification as received with the Enterprises.AcknowledgeNotification API. This will be omitted if no notifications are present. */
             notificationSetId?: string;
         }
         interface PageInfo {
@@ -486,8 +456,8 @@ declare namespace gapi.client {
         }
         interface Policy {
             /**
-             * The auto-update policy for apps installed on the device. "choiceToTheUser" allows the device's user to configure the app update policy. "always"
-             * enables auto updates. "never" disables auto updates. "wifiOnly" enables auto updates only when the device is connected to wifi.
+             * The auto-update policy for apps installed on the device. "choiceToTheUser" allows the device's user to configure the app update policy. "always" enables auto updates. "never"
+             * disables auto updates. "wifiOnly" enables auto updates only when the device is connected to wifi.
              */
             autoUpdatePolicy?: string;
             /** Whether the device reports app states to the EMM. The default value is "deviceReportDisabled". */
@@ -495,10 +465,9 @@ declare namespace gapi.client {
             /** The maintenance window defining when apps running in the foreground should be updated. */
             maintenanceWindow?: MaintenanceWindow;
             /**
-             * The availability granted to the device for the specified products. "all" gives the device access to all products, regardless of approval status. "all"
-             * does not enable automatic visibility of "alpha" or "beta" tracks. "whitelist" grants the device access the products specified in productPolicy[]. Only
-             * products that are approved or products that were previously approved (products with revoked approval) by the enterprise can be whitelisted. If no value
-             * is provided, the availability set at the user level is applied by default.
+             * The availability granted to the device for the specified products. "all" gives the device access to all products, regardless of approval status. "all" does not enable automatic
+             * visibility of "alpha" or "beta" tracks. "whitelist" grants the device access the products specified in productPolicy[]. Only products that are approved or products that were
+             * previously approved (products with revoked approval) by the enterprise can be whitelisted. If no value is provided, the availability set at the user level is applied by default.
              */
             productAvailabilityPolicy?: string;
             /** The list of product policies. The productAvailabilityPolicy needs to be set to WHITELIST or ALL for the product policies to be applied. */
@@ -524,9 +493,9 @@ declare namespace gapi.client {
             /** A link to the (consumer) Google Play details page for the product. */
             detailsUrl?: string;
             /**
-             * How and to whom the package is made available. The value publicGoogleHosted means that the package is available through the Play store and not
-             * restricted to a specific enterprise. The value privateGoogleHosted means that the package is a private app (restricted to an enterprise) but hosted by
-             * Google. The value privateSelfHosted means that the package is a private app (restricted to an enterprise) and is privately hosted.
+             * How and to whom the package is made available. The value publicGoogleHosted means that the package is available through the Play store and not restricted to a specific enterprise.
+             * The value privateGoogleHosted means that the package is a private app (restricted to an enterprise) but hosted by Google. The value privateSelfHosted means that the package is a
+             * private app (restricted to an enterprise) and is privately hosted.
              */
             distributionChannel?: string;
             /** Noteworthy features (if any) of this product. */
@@ -539,11 +508,11 @@ declare namespace gapi.client {
             minAndroidSdkVersion?: number;
             /** A list of permissions required by the app. */
             permissions?: ProductPermission[];
-            /** A string of the form ∗app:<package name>∗. For example, app:com.google.android.gm represents the Gmail app. */
+            /** A string of the form *app:<package name>*. For example, app:com.google.android.gm represents the Gmail app. */
             productId?: string;
             /**
-             * Whether this product is free, free with in-app purchases, or paid. If the pricing is unknown, this means the product is not generally available anymore
-             * (even though it might still be available to people who own it).
+             * Whether this product is free, free with in-app purchases, or paid. If the pricing is unknown, this means the product is not generally available anymore (even though it might still
+             * be available to people who own it).
              */
             productPricing?: string;
             /** A description of the recent changes made to the app. */
@@ -592,25 +561,22 @@ declare namespace gapi.client {
             managedConfiguration?: ManagedConfiguration;
             /** The ID of the product. For example, "app:com.google.android.gm". */
             productId?: string;
-            /**
-             * Grants the device visibility to the specified product release track(s), identified by trackIds. The list of release tracks of a product can be obtained
-             * by calling Products.Get.
-             */
+            /** Grants the device visibility to the specified product release track(s), identified by trackIds. The list of release tracks of a product can be obtained by calling Products.Get. */
             trackIds?: string[];
             /** Deprecated. Use trackIds instead. */
             tracks?: string[];
         }
         interface ProductsApproveRequest {
             /**
-             * The approval URL that was shown to the user. Only the permissions shown to the user with that URL will be accepted, which may not be the product's
-             * entire set of permissions. For example, the URL may only display new permissions from an update after the product was approved, or not include new
-             * permissions if the product was updated since the URL was generated.
+             * The approval URL that was shown to the user. Only the permissions shown to the user with that URL will be accepted, which may not be the product's entire set of permissions. For
+             * example, the URL may only display new permissions from an update after the product was approved, or not include new permissions if the product was updated since the URL was
+             * generated.
              */
             approvalUrlInfo?: ApprovalUrlInfo;
             /**
-             * Sets how new permission requests for the product are handled. "allPermissions" automatically approves all current and future permissions for the
-             * product. "currentPermissionsOnly" approves the current set of permissions for the product, but any future permissions added through updates will
-             * require manual reapproval. If not specified, only the current set of permissions will be approved.
+             * Sets how new permission requests for the product are handled. "allPermissions" automatically approves all current and future permissions for the product. "currentPermissionsOnly"
+             * approves the current set of permissions for the product, but any future permissions added through updates will require manual reapproval. If not specified, only the current set of
+             * permissions will be approved.
              */
             approvedPermissions?: string;
         }
@@ -618,35 +584,31 @@ declare namespace gapi.client {
             /** The list of product IDs making up the set of products. */
             productId?: string[];
             /**
-             * The interpretation of this product set. "unknown" should never be sent and is ignored if received. "whitelist" means that the user is entitled to
-             * access the product set. "includeAll" means that all products are accessible, including products that are approved, products with revoked approval, and
-             * products that have never been approved. "allApproved" means that the user is entitled to access all products that are approved for the enterprise. If
-             * the value is "allApproved" or "includeAll", the productId field is ignored. If no value is provided, it is interpreted as "whitelist" for backwards
-             * compatibility. Further "allApproved" or "includeAll" does not enable automatic visibility of "alpha" or "beta" tracks for Android app. Use
-             * ProductVisibility to enable "alpha" or "beta" tracks per user.
+             * The interpretation of this product set. "unknown" should never be sent and is ignored if received. "whitelist" means that the user is entitled to access the product set.
+             * "includeAll" means that all products are accessible, including products that are approved, products with revoked approval, and products that have never been approved. "allApproved"
+             * means that the user is entitled to access all products that are approved for the enterprise. If the value is "allApproved" or "includeAll", the productId field is ignored. If no
+             * value is provided, it is interpreted as "whitelist" for backwards compatibility. Further "allApproved" or "includeAll" does not enable automatic visibility of "alpha" or "beta"
+             * tracks for Android app. Use ProductVisibility to enable "alpha" or "beta" tracks per user.
              */
             productSetBehavior?: string;
             /**
-             * Additional list of product IDs making up the product set. Unlike the productID array, in this list It's possible to specify which tracks (alpha, beta,
-             * production) of a product are visible to the user. See ProductVisibility and its fields for more information. Specifying the same product ID both here
-             * and in the productId array is not allowed and it will result in an error.
+             * Additional list of product IDs making up the product set. Unlike the productID array, in this list It's possible to specify which tracks (alpha, beta, production) of a product are
+             * visible to the user. See ProductVisibility and its fields for more information. Specifying the same product ID both here and in the productId array is not allowed and it will result
+             * in an error.
              */
             productVisibility?: ProductVisibility[];
         }
         interface ProductsGenerateApprovalUrlResponse {
             /**
-             * A URL that can be rendered in an iframe to display the permissions (if any) of a product. This URL can be used to approve the product only once and
-             * only within 24 hours of being generated, using the Products.approve call. If the product is currently unapproved and has no permissions, this URL will
-             * point to an empty page. If the product is currently approved, a URL will only be generated if that product has added permissions since it was last
-             * approved, and the URL will only display those new permissions that have not yet been accepted.
+             * A URL that can be rendered in an iframe to display the permissions (if any) of a product. This URL can be used to approve the product only once and only within 24 hours of being
+             * generated, using the Products.approve call. If the product is currently unapproved and has no permissions, this URL will point to an empty page. If the product is currently
+             * approved, a URL will only be generated if that product has added permissions since it was last approved, and the URL will only display those new permissions that have not yet been
+             * accepted.
              */
             url?: string;
         }
         interface ProductSigningCertificate {
-            /**
-             * The base64 urlsafe encoded SHA1 hash of the certificate. (This field is deprecated in favor of SHA2-256. It should not be used and may be removed at
-             * any time.)
-             */
+            /** The base64 urlsafe encoded SHA1 hash of the certificate. (This field is deprecated in favor of SHA2-256. It should not be used and may be removed at any time.) */
             certificateHashSha1?: string;
             /** The base64 urlsafe encoded SHA2-256 hash of the certificate. */
             certificateHashSha256?: string;
@@ -674,16 +636,13 @@ declare namespace gapi.client {
             name?: string;
         }
         interface ServiceAccountKey {
-            /**
-             * The body of the private key credentials file, in string format. This is only populated when the ServiceAccountKey is created, and is not stored by
-             * Google.
-             */
+            /** The body of the private key credentials file, in string format. This is only populated when the ServiceAccountKey is created, and is not stored by Google. */
             data?: string;
             /** An opaque, unique identifier for this ServiceAccountKey. Assigned by the server. */
             id?: string;
             /**
-             * Public key data for the credentials file. This is an X.509 cert. If you are using the googleCredentials key type, this is identical to the cert that
-             * can be retrieved by using the X.509 cert url inside of the credentials file.
+             * Public key data for the credentials file. This is an X.509 cert. If you are using the googleCredentials key type, this is identical to the cert that can be retrieved by using the
+             * X.509 cert url inside of the credentials file.
              */
             publicData?: string;
             /** The file format of the generated key data. */
@@ -705,14 +664,14 @@ declare namespace gapi.client {
             /** Unique ID of this cluster. Assigned by the server. Immutable once assigned. */
             id?: string;
             /**
-             * Ordered list of localized strings giving the name of this page. The text displayed is the one that best matches the user locale, or the first entry if
-             * there is no good match. There needs to be at least one entry.
+             * Ordered list of localized strings giving the name of this page. The text displayed is the one that best matches the user locale, or the first entry if there is no good match. There
+             * needs to be at least one entry.
              */
             name?: LocalizedText[];
             /**
-             * String (US-ASCII only) used to determine order of this cluster within the parent page's elements. Page elements are sorted in lexicographic order of
-             * this field. Duplicated values are allowed, but ordering between elements with duplicate order is undefined. The value of this field is never visible to
-             * a user, it is used solely for the purpose of defining an ordering. Maximum length is 256 characters.
+             * String (US-ASCII only) used to determine order of this cluster within the parent page's elements. Page elements are sorted in lexicographic order of this field. Duplicated values
+             * are allowed, but ordering between elements with duplicate order is undefined. The value of this field is never visible to a user, it is used solely for the purpose of defining an
+             * ordering. Maximum length is 256 characters.
              */
             orderInPage?: string;
             /** List of products in the order they are displayed in the cluster. There should not be duplicates within a cluster. */
@@ -720,13 +679,13 @@ declare namespace gapi.client {
         }
         interface StoreLayout {
             /**
-             * The ID of the store page to be used as the homepage. The homepage is the first page shown in the managed Google Play Store. Not specifying a homepage
-             * is equivalent to setting the store layout type to "basic".
+             * The ID of the store page to be used as the homepage. The homepage is the first page shown in the managed Google Play Store. Not specifying a homepage is equivalent to setting the
+             * store layout type to "basic".
              */
             homepageId?: string;
             /**
-             * The store layout type. By default, this value is set to "basic" if the homepageId field is not set, and to "custom" otherwise. If set to "basic", the
-             * layout will consist of all approved apps that have been whitelisted for the user.
+             * The store layout type. By default, this value is set to "basic" if the homepageId field is not set, and to "custom" otherwise. If set to "basic", the layout will consist of all
+             * approved apps that have been whitelisted for the user.
              */
             storeLayoutType?: string;
         }
@@ -742,13 +701,13 @@ declare namespace gapi.client {
             /** Unique ID of this page. Assigned by the server. Immutable once assigned. */
             id?: string;
             /**
-             * Ordered list of pages a user should be able to reach from this page. The list can't include this page. It is recommended that the basic pages are
-             * created first, before adding the links between pages. The API doesn't verify that the pages exist or the pages are reachable.
+             * Ordered list of pages a user should be able to reach from this page. The list can't include this page. It is recommended that the basic pages are created first, before adding the
+             * links between pages. The API doesn't verify that the pages exist or the pages are reachable.
              */
             link?: string[];
             /**
-             * Ordered list of localized strings giving the name of this page. The text displayed is the one that best matches the user locale, or the first entry if
-             * there is no good match. There needs to be at least one entry.
+             * Ordered list of localized strings giving the name of this page. The text displayed is the one that best matches the user locale, or the first entry if there is no good match. There
+             * needs to be at least one entry.
              */
             name?: LocalizedText[];
         }
@@ -760,34 +719,30 @@ declare namespace gapi.client {
         interface TrackInfo {
             /** A modifiable name for a track. This is the visible name in the play developer console. */
             trackAlias?: string;
-            /**
-             * Unmodifiable, unique track identifier. This identifier is the releaseTrackId in the url of the play developer console page that displays the track
-             * information.
-             */
+            /** Unmodifiable, unique track identifier. This identifier is the releaseTrackId in the url of the play developer console page that displays the track information. */
             trackId?: string;
         }
         interface User {
             /**
-             * A unique identifier you create for this user, such as "user342" or "asset#44418". Do not use personally identifiable information (PII) for this
-             * property. Must always be set for EMM-managed users. Not set for Google-managed users.
+             * A unique identifier you create for this user, such as "user342" or "asset#44418". Do not use personally identifiable information (PII) for this property. Must always be set for
+             * EMM-managed users. Not set for Google-managed users.
              */
             accountIdentifier?: string;
             /**
-             * The type of account that this user represents. A userAccount can be installed on multiple devices, but a deviceAccount is specific to a single device.
-             * An EMM-managed user (emmManaged) can be either type (userAccount, deviceAccount), but a Google-managed user (googleManaged) is always a userAccount.
+             * The type of account that this user represents. A userAccount can be installed on multiple devices, but a deviceAccount is specific to a single device. An EMM-managed user
+             * (emmManaged) can be either type (userAccount, deviceAccount), but a Google-managed user (googleManaged) is always a userAccount.
              */
             accountType?: string;
             /**
-             * The name that will appear in user interfaces. Setting this property is optional when creating EMM-managed users. If you do set this property, use
-             * something generic about the organization (such as "Example, Inc.") or your name (as EMM). Not used for Google-managed user accounts. @mutable
-             * androidenterprise.users.update
+             * The name that will appear in user interfaces. Setting this property is optional when creating EMM-managed users. If you do set this property, use something generic about the
+             * organization (such as "Example, Inc.") or your name (as EMM). Not used for Google-managed user accounts. @mutable androidenterprise.users.update
              */
             displayName?: string;
             /** The unique ID for the user. */
             id?: string;
             /**
-             * The entity that manages the user. With googleManaged users, the source of truth is Google so EMMs have to make sure a Google Account exists for the
-             * user. With emmManaged users, the EMM is in charge.
+             * The entity that manages the user. With googleManaged users, the source of truth is Google so EMMs have to make sure a Google Account exists for the user. With emmManaged users, the
+             * EMM is in charge.
              */
             managementType?: string;
             /** The user's primary email address, for example, "jsmith@example.com". Will always be set for Google managed users and not set for EMM managed users. */
@@ -805,10 +760,10 @@ declare namespace gapi.client {
         }
         interface WebApp {
             /**
-             * The display mode of the web app. Possible values include: - "minimalUi", the device's status bar, navigation bar, the app's URL, and a refresh button
-             * are visible when the app is open. For HTTP URLs, you can only select this option. - "standalone", the device's status bar and navigation bar are
-             * visible when the app is open. - "fullScreen", the app opens in full screen mode, hiding the device's status and navigation bars. All browser UI
-             * elements, page URL, system status bar and back button are not visible, and the web app takes up the entirety of the available display area.
+             * The display mode of the web app. Possible values include: - "minimalUi", the device's status bar, navigation bar, the app's URL, and a refresh button are visible when the app is
+             * open. For HTTP URLs, you can only select this option. - "standalone", the device's status bar and navigation bar are visible when the app is open. - "fullScreen", the app opens in
+             * full screen mode, hiding the device's status and navigation bars. All browser UI elements, page URL, system status bar and back button are not visible, and the web app takes up the
+             * entirety of the available display area.
              */
             displayMode?: string;
             /** A list of icons representing this website. If absent, a default icon (for create) or the current icon (for update) will be used. */
@@ -820,20 +775,17 @@ declare namespace gapi.client {
             /** The title of the web app as displayed to the user (e.g., amongst a list of other applications, or as a label for an icon). */
             title?: string;
             /**
-             * The current version of the app. Note that the version can automatically increase during the lifetime of the web app, while Google does internal
-             * housekeeping to keep the web app up-to-date.
+             * The current version of the app. Note that the version can automatically increase during the lifetime of the web app, while Google does internal housekeeping to keep the web app
+             * up-to-date.
              */
             versionCode?: string;
-            /**
-             * The ID of the application. A string of the form "app:<package name>" where the package name always starts with the prefix
-             * "com.google.enterprise.webapp." followed by a random id.
-             */
+            /** The ID of the application. A string of the form "app:<package name>" where the package name always starts with the prefix "com.google.enterprise.webapp." followed by a random id. */
             webAppId?: string;
         }
         interface WebAppIcon {
             /**
-             * The actual bytes of the image in a base64url encoded string (c.f. RFC4648, section 5 "Base 64 Encoding with URL and Filename Safe Alphabet"). - The
-             * image type can be png or jpg. - The image should ideally be square. - The image should ideally have a size of 512x512.
+             * The actual bytes of the image in a base64url encoded string (c.f. RFC4648, section 5 "Base 64 Encoding with URL and Filename Safe Alphabet"). - The image type can be png or jpg. -
+             * The image should ideally be square. - The image should ideally have a size of 512x512.
              */
             imageData?: string;
         }
@@ -843,8 +795,8 @@ declare namespace gapi.client {
         }
         interface DevicesResource {
             /**
-             * Uploads a report containing any changes in app states on the device since the last report was generated. You can call this method up to 3 times every
-             * 24 hours for a given device. If you exceed the quota, then the Google Play EMM API returns HTTP 429 Too Many Requests.
+             * Uploads a report containing any changes in app states on the device since the last report was generated. You can call this method up to 3 times every 24 hours for a given device. If
+             * you exceed the quota, then the Google Play EMM API returns HTTP 429 Too Many Requests.
              */
             forceReportUpload(request?: {
                 /** V1 error format. */
@@ -908,9 +860,8 @@ declare namespace gapi.client {
                 userId: string;
             }): Request<Device>;
             /**
-             * Retrieves whether a device's access to Google services is enabled or disabled. The device state takes effect only if enforcing EMM policies on Android
-             * devices is enabled in the Google Admin Console. Otherwise, the device state is ignored and all devices are allowed access to Google services. This is
-             * only supported for Google-managed users.
+             * Retrieves whether a device's access to Google services is enabled or disabled. The device state takes effect only if enforcing EMM policies on Android devices is enabled in the
+             * Google Admin Console. Otherwise, the device state is ignored and all devices are allowed access to Google services. This is only supported for Google-managed users.
              */
             getState(request?: {
                 /** V1 error format. */
@@ -972,9 +923,8 @@ declare namespace gapi.client {
                 userId: string;
             }): Request<DevicesListResponse>;
             /**
-             * Sets whether a device's access to Google services is enabled or disabled. The device state takes effect only if enforcing EMM policies on Android
-             * devices is enabled in the Google Admin Console. Otherwise, the device state is ignored and all devices are allowed access to Google services. This is
-             * only supported for Google-managed users.
+             * Sets whether a device's access to Google services is enabled or disabled. The device state takes effect only if enforcing EMM policies on Android devices is enabled in the Google
+             * Admin Console. Otherwise, the device state is ignored and all devices are allowed access to Google services. This is only supported for Google-managed users.
              */
             setState(request: {
                 /** V1 error format. */
@@ -1064,8 +1014,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Mask that identifies which fields to update. If not set, all modifiable fields will be modified. When set in a query parameter, this field should be
-                 * specified as updateMask=<field1>,<field2>,...
+                 * Mask that identifies which fields to update. If not set, all modifiable fields will be modified. When set in a query parameter, this field should be specified as
+                 * updateMask=<field1>,<field2>,...
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1101,8 +1051,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Mask that identifies which fields to update. If not set, all modifiable fields will be modified. When set in a query parameter, this field should be
-                 * specified as updateMask=<field1>,<field2>,...
+                 * Mask that identifies which fields to update. If not set, all modifiable fields will be modified. When set in a query parameter, this field should be specified as
+                 * updateMask=<field1>,<field2>,...
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1142,10 +1092,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<void>;
-            /**
-             * Completes the signup flow, by specifying the Completion token and Enterprise token. This request must not be called multiple times for a given
-             * Enterprise Token.
-             */
+            /** Completes the signup flow, by specifying the Completion token and Enterprise token. This request must not be called multiple times for a given Enterprise Token. */
             completeSignup(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1175,8 +1122,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Enterprise>;
             /**
-             * Returns a unique token to access an embeddable UI. To generate a web UI, pass the generated token into the managed Google Play javascript API. Each
-             * token may only be used to start one UI session. See the javascript API documentation for further information.
+             * Returns a unique token to access an embeddable UI. To generate a web UI, pass the generated token into the managed Google Play javascript API. Each token may only be used to start
+             * one UI session. See the javascript API documentation for further information.
              */
             createWebToken(request: {
                 /** V1 error format. */
@@ -1300,10 +1247,9 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * The callback URL to which the Admin will be redirected after successfully creating an enterprise. Before redirecting there the system will add a single
-                 * query parameter to this URL named "enterpriseToken" which will contain an opaque token to be used for the CompleteSignup request. Beware that this
-                 * means that the URL will be parsed, the parameter added and then a new URL formatted, i.e. there may be some minor formatting changes and, more
-                 * importantly, the URL must be well-formed so that it can be parsed.
+                 * The callback URL to which the Admin will be redirected after successfully creating an enterprise. Before redirecting there the system will add a single query parameter to this
+                 * URL named "enterpriseToken" which will contain an opaque token to be used for the CompleteSignup request. Beware that this means that the URL will be parsed, the parameter added
+                 * and then a new URL formatted, i.e. there may be some minor formatting changes and, more importantly, the URL must be well-formed so that it can be parsed.
                  */
                 callbackUrl?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1349,11 +1295,11 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Enterprise>;
             /**
-             * Returns a service account and credentials. The service account can be bound to the enterprise by calling setAccount. The service account is unique to
-             * this enterprise and EMM, and will be deleted if the enterprise is unbound. The credentials contain private key data and are not stored server-side.
-             * This method can only be called after calling Enterprises.Enroll or Enterprises.CompleteSignup, and before Enterprises.SetAccount; at other times it
-             * will return an error. Subsequent calls after the first will generate a new, unique set of credentials, and invalidate the previously generated
-             * credentials. Once the service account is bound to the enterprise, it can be managed using the serviceAccountKeys resource.
+             * Returns a service account and credentials. The service account can be bound to the enterprise by calling setAccount. The service account is unique to this enterprise and EMM, and
+             * will be deleted if the enterprise is unbound. The credentials contain private key data and are not stored server-side. This method can only be called after calling
+             * Enterprises.Enroll or Enterprises.CompleteSignup, and before Enterprises.SetAccount; at other times it will return an error. Subsequent calls after the first will generate a new,
+             * unique set of credentials, and invalidate the previously generated credentials. Once the service account is bound to the enterprise, it can be managed using the serviceAccountKeys
+             * resource.
              */
             getServiceAccount(request?: {
                 /** V1 error format. */
@@ -1411,9 +1357,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<StoreLayout>;
             /**
-             * Looks up an enterprise by domain name. This is only supported for enterprises created via the Google-initiated creation flow. Lookup of the id is not
-             * needed for enterprises created via the EMM-initiated flow since the EMM learns the enterprise ID in the callback specified in the
-             * Enterprises.generateSignupUrl call.
+             * Looks up an enterprise by domain name. This is only supported for enterprises created via the Google-initiated creation flow. Lookup of the id is not needed for enterprises created
+             * via the EMM-initiated flow since the EMM learns the enterprise ID in the callback specified in the Enterprises.generateSignupUrl call.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1442,13 +1387,12 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<EnterprisesListResponse>;
             /**
-             * Pulls and returns a notification set for the enterprises associated with the service account authenticated for the request. The notification set may be
-             * empty if no notification are pending. A notification set returned needs to be acknowledged within 20 seconds by calling
-             * Enterprises.AcknowledgeNotificationSet, unless the notification set is empty. Notifications that are not acknowledged within the 20 seconds will
-             * eventually be included again in the response to another PullNotificationSet request, and those that are never acknowledged will ultimately be deleted
-             * according to the Google Cloud Platform Pub/Sub system policy. Multiple requests might be performed concurrently to retrieve notifications, in which
-             * case the pending notifications (if any) will be split among each caller, if any are pending. If no notifications are present, an empty notification
-             * list is returned. Subsequent requests may return more notifications once they become available.
+             * Pulls and returns a notification set for the enterprises associated with the service account authenticated for the request. The notification set may be empty if no notification are
+             * pending. A notification set returned needs to be acknowledged within 20 seconds by calling Enterprises.AcknowledgeNotificationSet, unless the notification set is empty.
+             * Notifications that are not acknowledged within the 20 seconds will eventually be included again in the response to another PullNotificationSet request, and those that are never
+             * acknowledged will ultimately be deleted according to the Google Cloud Platform Pub/Sub system policy. Multiple requests might be performed concurrently to retrieve notifications, in
+             * which case the pending notifications (if any) will be split among each caller, if any are pending. If no notifications are present, an empty notification list is returned.
+             * Subsequent requests may return more notifications once they become available.
              */
             pullNotificationSet(request?: {
                 /** V1 error format. */
@@ -1470,9 +1414,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The request mode for pulling notifications. Specifying waitForNotifications will cause the request to block and wait until one or more notifications
-                 * are present, or return an empty notification list if no notifications are present after some time. Speciying returnImmediately will cause the request
-                 * to immediately return the pending notifications, or an empty list if no notifications are present. If omitted, defaults to waitForNotifications.
+                 * The request mode for pulling notifications. Specifying waitForNotifications will cause the request to block and wait until one or more notifications are present, or return an
+                 * empty notification list if no notifications are present after some time. Speciying returnImmediately will cause the request to immediately return the pending notifications, or
+                 * an empty list if no notifications are present. If omitted, defaults to waitForNotifications.
                  */
                 requestMode?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1564,10 +1508,9 @@ declare namespace gapi.client {
             },
             body: EnterpriseAccount): Request<EnterpriseAccount>;
             /**
-             * Sets the store layout for the enterprise. By default, storeLayoutType is set to "basic" and the basic store layout is enabled. The basic layout only
-             * contains apps approved by the admin, and that have been added to the available product set for a user (using the setAvailableProductSet call). Apps on
-             * the page are sorted in order of their product ID value. If you create a custom store layout (by setting storeLayoutType = "custom" and setting a
-             * homepage), the basic store layout is disabled.
+             * Sets the store layout for the enterprise. By default, storeLayoutType is set to "basic" and the basic store layout is enabled. The basic layout only contains apps approved by the
+             * admin, and that have been added to the available product set for a user (using the setAvailableProductSet call). Apps on the page are sorted in order of their product ID value. If
+             * you create a custom store layout (by setting storeLayoutType = "custom" and setting a homepage), the basic store layout is disabled.
              */
             setStoreLayout(request: {
                 /** V1 error format. */
@@ -1761,8 +1704,8 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Set to true to also install the product on all the user's devices where possible. Failure to install on one or more devices will not prevent this
-                 * operation from returning successfully, as long as the entitlement was successfully assigned to the user.
+                 * Set to true to also install the product on all the user's devices where possible. Failure to install on one or more devices will not prevent this operation from returning
+                 * successfully, as long as the entitlement was successfully assigned to the user.
                  */
                 install?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1798,8 +1741,8 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Set to true to also install the product on all the user's devices where possible. Failure to install on one or more devices will not prevent this
-                 * operation from returning successfully, as long as the entitlement was successfully assigned to the user.
+                 * Set to true to also install the product on all the user's devices where possible. Failure to install on one or more devices will not prevent this operation from returning
+                 * successfully, as long as the entitlement was successfully assigned to the user.
                  */
                 install?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2336,9 +2279,9 @@ declare namespace gapi.client {
                 userId: string;
             }): Request<ManagedConfigurationsForUserListResponse>;
             /**
-             * Adds or updates the managed configuration settings for an app for the specified user. If you support the Managed configurations iframe, you can apply
-             * managed configurations to a user by specifying an mcmId and its associated configuration variables (if any) in the request. Alternatively, all EMMs can
-             * apply managed configurations by passing a list of managed properties.
+             * Adds or updates the managed configuration settings for an app for the specified user. If you support the Managed configurations iframe, you can apply managed configurations to a
+             * user by specifying an mcmId and its associated configuration variables (if any) in the request. Alternatively, all EMMs can apply managed configurations by passing a list of managed
+             * properties.
              */
             update(request: {
                 /** V1 error format. */
@@ -2468,8 +2411,8 @@ declare namespace gapi.client {
         }
         interface ProductsResource {
             /**
-             * Approves the specified product and the relevant app permissions, if any. The maximum number of products that you can approve per enterprise customer is
-             * 1,000. To learn how to use managed Google Play to design and create a store layout to display approved products to your users, see Store Layout Design.
+             * Approves the specified product and the relevant app permissions, if any. The maximum number of products that you can approve per enterprise customer is 1,000. To learn how to use
+             * managed Google Play to design and create a store layout to display approved products to your users, see Store Layout Design.
              */
             approve(request: {
                 /** V1 error format. */
@@ -2531,10 +2474,10 @@ declare namespace gapi.client {
             },
             body: ProductsApproveRequest): Request<void>;
             /**
-             * Generates a URL that can be rendered in an iframe to display the permissions (if any) of a product. An enterprise admin must view these permissions and
-             * accept them on behalf of their organization in order to approve that product. Admins should accept the displayed permissions by interacting with a
-             * separate UI element in the EMM console, which in turn should trigger the use of this URL as the approvalUrlInfo.approvalUrl property in a
-             * Products.approve call to approve the product. This URL can only be used to display permissions for up to 1 day.
+             * Generates a URL that can be rendered in an iframe to display the permissions (if any) of a product. An enterprise admin must view these permissions and accept them on behalf of
+             * their organization in order to approve that product. Admins should accept the displayed permissions by interacting with a separate UI element in the EMM console, which in turn
+             * should trigger the use of this URL as the approvalUrlInfo.approvalUrl property in a Products.approve call to approve the product. This URL can only be used to display permissions
+             * for up to 1 day.
              */
             generateApprovalUrl(request?: {
                 /** V1 error format. */
@@ -2598,9 +2541,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Product>;
             /**
-             * Retrieves the schema that defines the configurable properties for this product. All products have a schema, but this schema may be empty if no managed
-             * configurations have been defined. This schema can be used to populate a UI that allows an admin to configure the product. To apply a managed
-             * configuration based on the schema obtained using this API, see Managed Configurations through Play.
+             * Retrieves the schema that defines the configurable properties for this product. All products have a schema, but this schema may be empty if no managed configurations have been
+             * defined. This schema can be used to populate a UI that allows an admin to configure the product. To apply a managed configuration based on the schema obtained using this API, see
+             * Managed Configurations through Play.
              */
             getAppRestrictionsSchema(request?: {
                 /** V1 error format. */
@@ -2669,10 +2612,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /**
-                 * Specifies whether to search among all products (false) or among only products that have been approved (true). Only "true" is supported, and should be
-                 * specified.
-                 */
+                /** Specifies whether to search among all products (false) or among only products that have been approved (true). Only "true" is supported, and should be specified. */
                 approved?: boolean;
                 /** JSONP */
                 callback?: string;
@@ -2691,8 +2631,8 @@ declare namespace gapi.client {
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * The search query as typed in the Google Play store search box. If omitted, all approved apps will be returned (using the pagination parameters),
-                 * including apps that are not available in the store (e.g. unpublished apps).
+                 * The search query as typed in the Google Play store search box. If omitted, all approved apps will be returned (using the pagination parameters), including apps that are not
+                 * available in the store (e.g. unpublished apps).
                  */
                 query?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
@@ -2736,8 +2676,8 @@ declare namespace gapi.client {
         }
         interface ServiceaccountkeysResource {
             /**
-             * Removes and invalidates the specified credentials for the service account associated with this enterprise. The calling service account must have been
-             * retrieved by calling Enterprises.GetServiceAccount and must have been set as the enterprise service account by calling Enterprises.SetAccount.
+             * Removes and invalidates the specified credentials for the service account associated with this enterprise. The calling service account must have been retrieved by calling
+             * Enterprises.GetServiceAccount and must have been set as the enterprise service account by calling Enterprises.SetAccount.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -2768,9 +2708,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<void>;
             /**
-             * Generates new credentials for the service account associated with this enterprise. The calling service account must have been retrieved by calling
-             * Enterprises.GetServiceAccount and must have been set as the enterprise service account by calling Enterprises.SetAccount. Only the type of the key
-             * should be populated in the resource to be inserted.
+             * Generates new credentials for the service account associated with this enterprise. The calling service account must have been retrieved by calling Enterprises.GetServiceAccount and
+             * must have been set as the enterprise service account by calling Enterprises.SetAccount. Only the type of the key should be populated in the resource to be inserted.
              */
             insert(request: {
                 /** V1 error format. */
@@ -2828,9 +2767,8 @@ declare namespace gapi.client {
             },
             body: ServiceAccountKey): Request<ServiceAccountKey>;
             /**
-             * Lists all active credentials for the service account associated with this enterprise. Only the ID and key type are returned. The calling service
-             * account must have been retrieved by calling Enterprises.GetServiceAccount and must have been set as the enterprise service account by calling
-             * Enterprises.SetAccount.
+             * Lists all active credentials for the service account associated with this enterprise. Only the ID and key type are returned. The calling service account must have been retrieved by
+             * calling Enterprises.GetServiceAccount and must have been set as the enterprise service account by calling Enterprises.SetAccount.
              */
             list(request?: {
                 /** V1 error format. */
@@ -3310,9 +3248,8 @@ declare namespace gapi.client {
                 userId: string;
             }): Request<void>;
             /**
-             * Generates an authentication token which the device policy client can use to provision the given EMM-managed user account on a device. The generated
-             * token is single-use and expires after a few minutes. You can provision a maximum of 10 devices per user. This call only works with EMM-managed
-             * accounts.
+             * Generates an authentication token which the device policy client can use to provision the given EMM-managed user account on a device. The generated token is single-use and expires
+             * after a few minutes. You can provision a maximum of 10 devices per user. This call only works with EMM-managed accounts.
              */
             generateAuthenticationToken(request?: {
                 /** V1 error format. */
@@ -3401,9 +3338,8 @@ declare namespace gapi.client {
                 userId: string;
             }): Request<ProductSet>;
             /**
-             * Creates a new EMM-managed user. The Users resource passed in the body of the request should include an accountIdentifier and an accountType. If a
-             * corresponding user already exists with the same account identifier, the user will be updated with the resource. In this case only the displayName field
-             * can be changed.
+             * Creates a new EMM-managed user. The Users resource passed in the body of the request should include an accountIdentifier and an accountType. If a corresponding user already exists
+             * with the same account identifier, the user will be updated with the resource. In this case only the displayName field can be changed.
              */
             insert(request: {
                 /** V1 error format. */
@@ -3461,8 +3397,8 @@ declare namespace gapi.client {
             },
             body: User): Request<User>;
             /**
-             * Looks up a user by primary email address. This is only supported for Google-managed users. Lookup of the id is not needed for EMM-managed users because
-             * the id is already returned in the result of the Users.insert call.
+             * Looks up a user by primary email address. This is only supported for Google-managed users. Lookup of the id is not needed for EMM-managed users because the id is already returned in
+             * the result of the Users.insert call.
              */
             list(request?: {
                 /** V1 error format. */
@@ -3493,8 +3429,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<UsersListResponse>;
             /**
-             * Revokes access to all devices currently provisioned to the user. The user will no longer be able to use the managed Play store on any of their managed
-             * devices. This call only works with EMM-managed accounts.
+             * Revokes access to all devices currently provisioned to the user. The user will no longer be able to use the managed Play store on any of their managed devices. This call only works
+             * with EMM-managed accounts.
              */
             revokeDeviceAccess(request?: {
                 /** V1 error format. */
@@ -3525,8 +3461,8 @@ declare namespace gapi.client {
                 userId: string;
             }): Request<void>;
             /**
-             * Modifies the set of products that a user is entitled to access (referred to as ∗whitelisted∗ products). Only products that are approved or products
-             * that were previously approved (products with revoked approval) can be whitelisted.
+             * Modifies the set of products that a user is entitled to access (referred to as *whitelisted* products). Only products that are approved or products that were previously approved
+             * (products with revoked approval) can be whitelisted.
              */
             setAvailableProductSet(request: {
                 /** V1 error format. */
@@ -3588,8 +3524,8 @@ declare namespace gapi.client {
             },
             body: ProductSet): Request<ProductSet>;
             /**
-             * Updates the details of an EMM-managed user. Can be used with EMM-managed users only (not Google managed users). Pass the new details in the Users
-             * resource in the request body. Only the displayName field can be changed. Other fields must either be unset or have the currently active value.
+             * Updates the details of an EMM-managed user. Can be used with EMM-managed users only (not Google managed users). Pass the new details in the Users resource in the request body. Only
+             * the displayName field can be changed. Other fields must either be unset or have the currently active value.
              */
             update(request: {
                 /** V1 error format. */

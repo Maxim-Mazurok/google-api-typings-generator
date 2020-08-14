@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Talent Solution API v3 3.0
 // Project: https://cloud.google.com/talent-solution/job-search/docs/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -64,8 +67,8 @@ declare namespace gapi.client {
              *
              * The fields eligible for filtering are:
              *
-             * ∗ `companyName` (Required)
-             * ∗ `requisitionId` (Required)
+             * * `companyName` (Required)
+             * * `requisitionId` (Required)
              *
              * Sample Query: companyName = "projects/api-test-project/companies/123" AND
              * requisitionId = "req-1"
@@ -348,7 +351,7 @@ declare namespace gapi.client {
              *
              * At most one entry can be of type
              * CompensationInfo.CompensationType.BASE, which is
-             * referred as ∗∗ base compensation entry ∗∗ for the job.
+             * referred as ** base compensation entry ** for the job.
              */
             entries?: CompensationEntry[];
         }
@@ -567,7 +570,7 @@ declare namespace gapi.client {
              * attributes that are not covered by the provided structured fields.
              *
              * The keys of the map are strings up to 64 bytes and must match the
-             * pattern: a-zA-Z∗. For example, key0LikeThis or
+             * pattern: a-zA-Z*. For example, key0LikeThis or
              * KEY_1_LIKE_THIS.
              *
              * At most 100 filterable and at most 100 unfilterable keys are supported.
@@ -1326,7 +1329,7 @@ declare namespace gapi.client {
              * The schema revision of the `PostalAddress`. This must be set to 0, which is
              * the latest revision.
              *
-             * All new revisions ∗∗must∗∗ be backward compatible with old revisions.
+             * All new revisions **must** be backward compatible with old revisions.
              */
             revision?: number;
             /**
@@ -1352,11 +1355,11 @@ declare namespace gapi.client {
             /**
              * Optional. Option for job HTML content sanitization. Applied fields are:
              *
-             * ∗ description
-             * ∗ applicationInfo.instruction
-             * ∗ incentives
-             * ∗ qualifications
-             * ∗ responsibilities
+             * * description
+             * * applicationInfo.instruction
+             * * incentives
+             * * qualifications
+             * * responsibilities
              *
              * HTML tags in these fields may be stripped if sanitiazation is not
              * disabled.
@@ -1495,28 +1498,28 @@ declare namespace gapi.client {
              *
              * Supported options are:
              *
-             * ∗ `"relevance desc"`: By relevance descending, as determined by the API
+             * * `"relevance desc"`: By relevance descending, as determined by the API
              * algorithms. Relevance thresholding of query results is only available
              * with this ordering.
-             * ∗ `"posting_publish_time desc"`: By Job.posting_publish_time
+             * * `"posting_publish_time desc"`: By Job.posting_publish_time
              * descending.
-             * ∗ `"posting_update_time desc"`: By Job.posting_update_time
+             * * `"posting_update_time desc"`: By Job.posting_update_time
              * descending.
-             * ∗ `"title"`: By Job.title ascending.
-             * ∗ `"title desc"`: By Job.title descending.
-             * ∗ `"annualized_base_compensation"`: By job's
+             * * `"title"`: By Job.title ascending.
+             * * `"title desc"`: By Job.title descending.
+             * * `"annualized_base_compensation"`: By job's
              * CompensationInfo.annualized_base_compensation_range ascending. Jobs
              * whose annualized base compensation is unspecified are put at the end of
              * search results.
-             * ∗ `"annualized_base_compensation desc"`: By job's
+             * * `"annualized_base_compensation desc"`: By job's
              * CompensationInfo.annualized_base_compensation_range descending. Jobs
              * whose annualized base compensation is unspecified are put at the end of
              * search results.
-             * ∗ `"annualized_total_compensation"`: By job's
+             * * `"annualized_total_compensation"`: By job's
              * CompensationInfo.annualized_total_compensation_range ascending. Jobs
              * whose annualized base compensation is unspecified are put at the end of
              * search results.
-             * ∗ `"annualized_total_compensation desc"`: By job's
+             * * `"annualized_total_compensation desc"`: By job's
              * CompensationInfo.annualized_total_compensation_range descending. Jobs
              * whose annualized base compensation is unspecified are put at the end of
              * search results.
@@ -2221,13 +2224,13 @@ declare namespace gapi.client {
                  *
                  * The fields eligible for filtering are:
                  *
-                 * ∗ `companyName` (Required)
-                 * ∗ `requisitionId` (Optional)
+                 * * `companyName` (Required)
+                 * * `requisitionId` (Optional)
                  *
                  * Sample Query:
                  *
-                 * ∗ companyName = "projects/api-test-project/companies/123"
-                 * ∗ companyName = "projects/api-test-project/companies/123" AND requisitionId
+                 * * companyName = "projects/api-test-project/companies/123"
+                 * * companyName = "projects/api-test-project/companies/123" AND requisitionId
                  * = "req-1"
                  */
                 filter?: string;

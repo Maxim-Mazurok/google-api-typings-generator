@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Translation API v3 3.0
 // Project: https://cloud.google.com/translate/docs/quickstarts
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -21,24 +24,19 @@ declare namespace gapi.client {
         interface BatchTranslateTextRequest {
             /** Optional. Glossaries to be applied for translation. It's keyed by target language code. */
             glossaries?: { [P in string]: TranslateTextGlossaryConfig };
-            /**
-             * Required. Input configurations. The total number of files matched should be <= 1000. The total content size should be <= 100M Unicode codepoints. The
-             * files must use UTF-8 encoding.
-             */
+            /** Required. Input configurations. The total number of files matched should be <= 1000. The total content size should be <= 100M Unicode codepoints. The files must use UTF-8 encoding. */
             inputConfigs?: InputConfig[];
             /**
-             * Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can
-             * only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys
-             * must start with a letter. See https://cloud.google.com/translate/docs/advanced/labels for more information.
+             * Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can only contain lowercase letters,
+             * numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. See
+             * https://cloud.google.com/translate/docs/advanced/labels for more information.
              */
             labels?: { [P in string]: string };
             /**
-             * Optional. The models to use for translation. Map's key is target language code. Map's value is model name. Value can be a built-in general model, or an
-             * AutoML Translation model. The value format depends on model type: - AutoML Translation models:
-             * `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}` - General (built-in) models:
-             * `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
-             * `projects/{project-number-or-id}/locations/{location-id}/models/general/base` If the map is empty or a specific model is not requested for a language
-             * pair, then default google model (nmt) is used.
+             * Optional. The models to use for translation. Map's key is target language code. Map's value is model name. Value can be a built-in general model, or an AutoML Translation model. The
+             * value format depends on model type: - AutoML Translation models: `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}` - General (built-in) models:
+             * `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`, `projects/{project-number-or-id}/locations/{location-id}/models/general/base` If the map is empty or a
+             * specific model is not requested for a language pair, then default google model (nmt) is used.
              */
             models?: { [P in string]: string };
             /** Required. Output configuration. If 2 input configs match to the same file (that is, same input path), we don't generate output for duplicate inputs. */
@@ -61,17 +59,16 @@ declare namespace gapi.client {
             /** The content of the input stored as a string. */
             content?: string;
             /**
-             * Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can
-             * only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys
-             * must start with a letter. See https://cloud.google.com/translate/docs/advanced/labels for more information.
+             * Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can only contain lowercase letters,
+             * numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. See
+             * https://cloud.google.com/translate/docs/advanced/labels for more information.
              */
             labels?: { [P in string]: string };
             /** Optional. The format of the source text, for example, "text/html", "text/plain". If left blank, the MIME type defaults to "text/html". */
             mimeType?: string;
             /**
-             * Optional. The language detection model to be used. Format:
-             * `projects/{project-number-or-id}/locations/{location-id}/models/language-detection/{model-id}` Only one language detection model is currently
-             * supported: `projects/{project-number-or-id}/locations/{location-id}/models/language-detection/default`. If not specified, the default model is used.
+             * Optional. The language detection model to be used. Format: `projects/{project-number-or-id}/locations/{location-id}/models/language-detection/{model-id}` Only one language detection
+             * model is currently supported: `projects/{project-number-or-id}/locations/{location-id}/models/language-detection/default`. If not specified, the default model is used.
              */
             model?: string;
         }
@@ -84,9 +81,8 @@ declare namespace gapi.client {
         }
         interface GcsDestination {
             /**
-             * Required. The bucket used in 'output_uri_prefix' must exist and there must be no files under 'output_uri_prefix'. 'output_uri_prefix' must end with "/"
-             * and start with "gs://". One 'output_uri_prefix' can only be used by one batch translation job at a time. Otherwise an INVALID_ARGUMENT (400) error is
-             * returned.
+             * Required. The bucket used in 'output_uri_prefix' must exist and there must be no files under 'output_uri_prefix'. 'output_uri_prefix' must end with "/" and start with "gs://". One
+             * 'output_uri_prefix' can only be used by one batch translation job at a time. Otherwise an INVALID_ARGUMENT (400) error is returned.
              */
             outputUriPrefix?: string;
         }
@@ -105,21 +101,17 @@ declare namespace gapi.client {
             languageCodesSet?: LanguageCodesSet;
             /** Used with unidirectional glossaries. */
             languagePair?: LanguageCodePair;
-            /**
-             * Required. The resource name of the glossary. Glossary names have the form
-             * `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`.
-             */
+            /** Required. The resource name of the glossary. Glossary names have the form `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`. */
             name?: string;
             /** Output only. When CreateGlossary was called. */
             submitTime?: string;
         }
         interface GlossaryInputConfig {
             /**
-             * Required. Google Cloud Storage location of glossary data. File format is determined based on the filename extension. API returns
-             * [google.rpc.Code.INVALID_ARGUMENT] for unsupported URI-s and file formats. Wildcards are not allowed. This must be a single file in one of the
-             * following formats: For unidirectional glossaries: - TSV/CSV (`.tsv`/`.csv`): 2 column file, tab- or comma-separated. The first column is source text.
-             * The second column is target text. The file must not contain headers. That is, the first row is data, not column names. - TMX (`.tmx`): TMX file with
-             * parallel data defining source/target term pairs. For equivalent term sets glossaries: - CSV (`.csv`): Multi-column CSV file defining equivalent
+             * Required. Google Cloud Storage location of glossary data. File format is determined based on the filename extension. API returns [google.rpc.Code.INVALID_ARGUMENT] for unsupported
+             * URI-s and file formats. Wildcards are not allowed. This must be a single file in one of the following formats: For unidirectional glossaries: - TSV/CSV (`.tsv`/`.csv`): 2 column
+             * file, tab- or comma-separated. The first column is source text. The second column is target text. The file must not contain headers. That is, the first row is data, not column
+             * names. - TMX (`.tmx`): TMX file with parallel data defining source/target term pairs. For equivalent term sets glossaries: - CSV (`.csv`): Multi-column CSV file defining equivalent
              * glossary terms in multiple languages. See documentation for more information - [glossaries](https://cloud.google.com/translate/docs/advanced/glossary).
              */
             gcsSource?: GcsSource;
@@ -127,17 +119,17 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface InputConfig {
             /**
-             * Required. Google Cloud Storage location for the source input. This can be a single file (for example, `gs://translation-test/input.tsv`) or a wildcard
-             * (for example, `gs://translation-test/∗`). If a file extension is `.tsv`, it can contain either one or two columns. The first column (optional) is the
-             * id of the text request. If the first column is missing, we use the row number (0-based) from the input file as the ID in the output file. The second
-             * column is the actual text to be translated. We recommend each row be <= 10K Unicode codepoints, otherwise an error might be returned. Note that the
-             * input tsv must be RFC 4180 compliant. You could use https://github.com/Clever/csvlint to check potential formatting errors in your tsv file. csvlint
-             * --delimiter='\t' your_input_file.tsv The other supported file extensions are `.txt` or `.html`, which is treated as a single large chunk of text.
+             * Required. Google Cloud Storage location for the source input. This can be a single file (for example, `gs://translation-test/input.tsv`) or a wildcard (for example,
+             * `gs://translation-test/*`). If a file extension is `.tsv`, it can contain either one or two columns. The first column (optional) is the id of the text request. If the first column
+             * is missing, we use the row number (0-based) from the input file as the ID in the output file. The second column is the actual text to be translated. We recommend each row be <= 10K
+             * Unicode codepoints, otherwise an error might be returned. Note that the input tsv must be RFC 4180 compliant. You could use https://github.com/Clever/csvlint to check potential
+             * formatting errors in your tsv file. csvlint --delimiter='\t' your_input_file.tsv The other supported file extensions are `.txt` or `.html`, which is treated as a single large chunk
+             * of text.
              */
             gcsSource?: GcsSource;
             /**
-             * Optional. Can be "text/plain" or "text/html". For `.tsv`, "text/html" is used if mime_type is missing. For `.html`, this field must be "text/html" or
-             * empty. For `.txt`, this field must be "text/plain" or empty.
+             * Optional. Can be "text/plain" or "text/html". For `.tsv`, "text/html" is used if mime_type is missing. For `.html`, this field must be "text/html" or empty. For `.txt`, this field
+             * must be "text/plain" or empty.
              */
             mimeType?: string;
         }
@@ -149,8 +141,8 @@ declare namespace gapi.client {
         }
         interface LanguageCodesSet {
             /**
-             * The BCP-47 language code(s) for terms defined in the glossary. All entries are unique. The list contains at least two entries. Expected to be an exact
-             * match for GlossaryTerm.language_code.
+             * The BCP-47 language code(s) for terms defined in the glossary. All entries are unique. The list contains at least two entries. Expected to be an exact match for
+             * GlossaryTerm.language_code.
              */
             languageCodes?: string[];
         }
@@ -158,8 +150,8 @@ declare namespace gapi.client {
             /** The list of glossaries for a project. */
             glossaries?: Glossary[];
             /**
-             * A token to retrieve a page of results. Pass this value in the [ListGlossariesRequest.page_token] field in the subsequent call to `ListGlossaries`
-             * method to retrieve the next page of results.
+             * A token to retrieve a page of results. Pass this value in the [ListGlossariesRequest.page_token] field in the subsequent call to `ListGlossaries` method to retrieve the next page of
+             * results.
              */
             nextPageToken?: string;
         }
@@ -188,55 +180,47 @@ declare namespace gapi.client {
             name?: string;
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
         interface OutputConfig {
             /**
-             * Google Cloud Storage destination for output content. For every single input file (for example, gs://a/b/c.[extension]), we generate at most 2 ∗ n
-             * output files. (n is the # of target_language_codes in the BatchTranslateTextRequest). Output files (tsv) generated are compliant with RFC 4180 except
-             * that record delimiters are '\n' instead of '\r\n'. We don't provide any way to change record delimiters. While the input files are being processed, we
-             * write/update an index file 'index.csv' under 'output_uri_prefix' (for example, gs://translation-test/index.csv) The index file is generated/updated as
-             * new files are being translated. The format is: input_file,target_language_code,translations_file,errors_file,
-             * glossary_translations_file,glossary_errors_file input_file is one file we matched using gcs_source.input_uri. target_language_code is provided in the
-             * request. translations_file contains the translations. (details provided below) errors_file contains the errors during processing of the file. (details
-             * below). Both translations_file and errors_file could be empty strings if we have no content to output. glossary_translations_file and
-             * glossary_errors_file are always empty strings if the input_file is tsv. They could also be empty if we have no content to output. Once a row is present
-             * in index.csv, the input/output matching never changes. Callers should also expect all the content in input_file are processed and ready to be consumed
-             * (that is, no partial output file is written). The format of translations_file (for target language code 'trg') is:
-             * gs://translation_test/a_b_c_'trg'_translations.[extension] If the input file extension is tsv, the output has the following columns: Column 1: ID of
-             * the request provided in the input, if it's not provided in the input, then the input row number is used (0-based). Column 2: source sentence. Column 3:
-             * translation without applying a glossary. Empty string if there is an error. Column 4 (only present if a glossary is provided in the request):
-             * translation after applying the glossary. Empty string if there is an error applying the glossary. Could be same string as column 3 if there is no
-             * glossary applied. If input file extension is a txt or html, the translation is directly written to the output file. If glossary is requested, a
-             * separate glossary_translations_file has format of gs://translation_test/a_b_c_'trg'_glossary_translations.[extension] The format of errors file (for
-             * target language code 'trg') is: gs://translation_test/a_b_c_'trg'_errors.[extension] If the input file extension is tsv, errors_file contains the
-             * following: Column 1: ID of the request provided in the input, if it's not provided in the input, then the input row number is used (0-based). Column 2:
-             * source sentence. Column 3: Error detail for the translation. Could be empty. Column 4 (only present if a glossary is provided in the request): Error
-             * when applying the glossary. If the input file extension is txt or html, glossary_error_file will be generated that contains error details.
-             * glossary_error_file has format of gs://translation_test/a_b_c_'trg'_glossary_errors.[extension]
+             * Google Cloud Storage destination for output content. For every single input file (for example, gs://a/b/c.[extension]), we generate at most 2 * n output files. (n is the # of
+             * target_language_codes in the BatchTranslateTextRequest). Output files (tsv) generated are compliant with RFC 4180 except that record delimiters are '\n' instead of '\r\n'. We don't
+             * provide any way to change record delimiters. While the input files are being processed, we write/update an index file 'index.csv' under 'output_uri_prefix' (for example,
+             * gs://translation-test/index.csv) The index file is generated/updated as new files are being translated. The format is: input_file,target_language_code,translations_file,errors_file,
+             * glossary_translations_file,glossary_errors_file input_file is one file we matched using gcs_source.input_uri. target_language_code is provided in the request. translations_file
+             * contains the translations. (details provided below) errors_file contains the errors during processing of the file. (details below). Both translations_file and errors_file could be
+             * empty strings if we have no content to output. glossary_translations_file and glossary_errors_file are always empty strings if the input_file is tsv. They could also be empty if we
+             * have no content to output. Once a row is present in index.csv, the input/output matching never changes. Callers should also expect all the content in input_file are processed and
+             * ready to be consumed (that is, no partial output file is written). The format of translations_file (for target language code 'trg') is:
+             * gs://translation_test/a_b_c_'trg'_translations.[extension] If the input file extension is tsv, the output has the following columns: Column 1: ID of the request provided in the
+             * input, if it's not provided in the input, then the input row number is used (0-based). Column 2: source sentence. Column 3: translation without applying a glossary. Empty string if
+             * there is an error. Column 4 (only present if a glossary is provided in the request): translation after applying the glossary. Empty string if there is an error applying the
+             * glossary. Could be same string as column 3 if there is no glossary applied. If input file extension is a txt or html, the translation is directly written to the output file. If
+             * glossary is requested, a separate glossary_translations_file has format of gs://translation_test/a_b_c_'trg'_glossary_translations.[extension] The format of errors file (for target
+             * language code 'trg') is: gs://translation_test/a_b_c_'trg'_errors.[extension] If the input file extension is tsv, errors_file contains the following: Column 1: ID of the request
+             * provided in the input, if it's not provided in the input, then the input row number is used (0-based). Column 2: source sentence. Column 3: Error detail for the translation. Could
+             * be empty. Column 4 (only present if a glossary is provided in the request): Error when applying the glossary. If the input file extension is txt or html, glossary_error_file will be
+             * generated that contains error details. glossary_error_file has format of gs://translation_test/a_b_c_'trg'_glossary_errors.[extension]
              */
             gcsDestination?: GcsDestination;
         }
@@ -246,8 +230,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -255,8 +239,8 @@ declare namespace gapi.client {
             /** Human readable name of the language localized in the display language specified in the request. */
             displayName?: string;
             /**
-             * Supported language code, generally consisting of its ISO 639-1 identifier, for example, 'en', 'ja'. In certain cases, BCP-47 codes including language
-             * and region identifiers are returned (for example, 'zh-TW' and 'zh-CN')
+             * Supported language code, generally consisting of its ISO 639-1 identifier, for example, 'en', 'ja'. In certain cases, BCP-47 codes including language and region identifiers are
+             * returned (for example, 'zh-TW' and 'zh-CN')
              */
             languageCode?: string;
             /** Can be used as source language. */
@@ -278,20 +262,14 @@ declare namespace gapi.client {
             ignoreCase?: boolean;
         }
         interface TranslateTextRequest {
-            /**
-             * Required. The content of the input in string format. We recommend the total content be less than 30k codepoints. Use BatchTranslateText for larger
-             * text.
-             */
+            /** Required. The content of the input in string format. We recommend the total content be less than 30k codepoints. Use BatchTranslateText for larger text. */
             contents?: string[];
-            /**
-             * Optional. Glossary to be applied. The glossary must be within the same region (have the same location-id) as the model, otherwise an INVALID_ARGUMENT
-             * (400) error is returned.
-             */
+            /** Optional. Glossary to be applied. The glossary must be within the same region (have the same location-id) as the model, otherwise an INVALID_ARGUMENT (400) error is returned. */
             glossaryConfig?: TranslateTextGlossaryConfig;
             /**
-             * Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can
-             * only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys
-             * must start with a letter. See https://cloud.google.com/translate/docs/advanced/labels for more information.
+             * Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can only contain lowercase letters,
+             * numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. See
+             * https://cloud.google.com/translate/docs/advanced/labels for more information.
              */
             labels?: { [P in string]: string };
             /** Optional. The format of the source text, for example, "text/html", "text/plain". If left blank, the MIME type defaults to "text/html". */
@@ -299,41 +277,36 @@ declare namespace gapi.client {
             /**
              * Optional. The `model` type requested for this translation. The format depends on model type: - AutoML Translation models:
              * `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}` - General (built-in) models:
-             * `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
-             * `projects/{project-number-or-id}/locations/{location-id}/models/general/base` For global (non-regionalized) requests, use `location-id` `global`. For
-             * example, `projects/{project-number-or-id}/locations/global/models/general/nmt`. If missing, the system decides which google base model to use.
+             * `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`, `projects/{project-number-or-id}/locations/{location-id}/models/general/base` For global
+             * (non-regionalized) requests, use `location-id` `global`. For example, `projects/{project-number-or-id}/locations/global/models/general/nmt`. If missing, the system decides which
+             * google base model to use.
              */
             model?: string;
             /**
-             * Optional. The BCP-47 language code of the input text if known, for example, "en-US" or "sr-Latn". Supported language codes are listed in Language
-             * Support. If the source language isn't specified, the API attempts to identify the source language automatically and returns the source language within
-             * the response.
+             * Optional. The BCP-47 language code of the input text if known, for example, "en-US" or "sr-Latn". Supported language codes are listed in Language Support. If the source language
+             * isn't specified, the API attempts to identify the source language automatically and returns the source language within the response.
              */
             sourceLanguageCode?: string;
             /** Required. The BCP-47 language code to use for translation of the input text, set to one of the language codes listed in Language Support. */
             targetLanguageCode?: string;
         }
         interface TranslateTextResponse {
-            /**
-             * Text translation responses if a glossary is provided in the request. This can be the same as `translations` if no terms apply. This field has the same
-             * length as `contents`.
-             */
+            /** Text translation responses if a glossary is provided in the request. This can be the same as `translations` if no terms apply. This field has the same length as `contents`. */
             glossaryTranslations?: Translation[];
             /** Text translation responses with no glossary applied. This field has the same length as `contents`. */
             translations?: Translation[];
         }
         interface Translation {
             /**
-             * The BCP-47 language code of source text in the initial request, detected automatically, if no source language was passed within the initial request. If
-             * the source language was passed, auto-detection of the language does not occur and this field is empty.
+             * The BCP-47 language code of source text in the initial request, detected automatically, if no source language was passed within the initial request. If the source language was
+             * passed, auto-detection of the language does not occur and this field is empty.
              */
             detectedLanguageCode?: string;
             /** The `glossary_config` used for this translation. */
             glossaryConfig?: TranslateTextGlossaryConfig;
             /**
-             * Only present when `model` is present in the request. `model` here is normalized to have project number. For example: If the `model` requested in
-             * TranslationTextRequest is `projects/{project-id}/locations/{location-id}/models/general/nmt` then `model` here would be normalized to
-             * `projects/{project-number}/locations/{location-id}/models/general/nmt`.
+             * Only present when `model` is present in the request. `model` here is normalized to have project number. For example: If the `model` requested in TranslationTextRequest is
+             * `projects/{project-id}/locations/{location-id}/models/general/nmt` then `model` here would be normalized to `projects/{project-number}/locations/{location-id}/models/general/nmt`.
              */
             model?: string;
             /** Text translated into the target language. */
@@ -341,8 +314,8 @@ declare namespace gapi.client {
         }
         interface WaitOperationRequest {
             /**
-             * The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
-             * context deadline is also specified, the shorter one will be used.
+             * The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also
+             * specified, the shorter one will be used.
              */
             timeout?: string;
         }
@@ -470,13 +443,12 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. Filter specifying constraints of a list operation. Specify the constraint by the format of "key=value", where key must be "src" or "tgt", and
-                 * the value must be a valid language code. For multiple restrictions, concatenate them by "AND" (uppercase only), such as: "src=en-US AND tgt=zh-CN".
-                 * Notice that the exact match is used here, which means using 'en-US' and 'en' can lead to different results, which depends on the language code you used
-                 * when you create the glossary. For the unidirectional glossaries, the "src" and "tgt" add restrictions on the source and target language code
-                 * separately. For the equivalent term set glossaries, the "src" and/or "tgt" add restrictions on the term set. For example: "src=en-US AND tgt=zh-CN"
-                 * will only pick the unidirectional glossaries which exactly match the source language code as "en-US" and the target language code "zh-CN", but all
-                 * equivalent term set glossaries which contain "en-US" and "zh-CN" in their language set will be picked. If missing, no filtering is performed.
+                 * Optional. Filter specifying constraints of a list operation. Specify the constraint by the format of "key=value", where key must be "src" or "tgt", and the value must be a valid
+                 * language code. For multiple restrictions, concatenate them by "AND" (uppercase only), such as: "src=en-US AND tgt=zh-CN". Notice that the exact match is used here, which means
+                 * using 'en-US' and 'en' can lead to different results, which depends on the language code you used when you create the glossary. For the unidirectional glossaries, the "src" and
+                 * "tgt" add restrictions on the source and target language code separately. For the equivalent term set glossaries, the "src" and/or "tgt" add restrictions on the term set. For
+                 * example: "src=en-US AND tgt=zh-CN" will only pick the unidirectional glossaries which exactly match the source language code as "en-US" and the target language code "zh-CN", but
+                 * all equivalent term set glossaries which contain "en-US" and "zh-CN" in their language set will be picked. If missing, no filtering is performed.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -486,8 +458,8 @@ declare namespace gapi.client {
                 /** Optional. Requested page size. The server may return fewer glossaries than requested. If unspecified, the server picks an appropriate default. */
                 pageSize?: number;
                 /**
-                 * Optional. A token identifying a page of results the server should return. Typically, this is the value of [ListGlossariesResponse.next_page_token]
-                 * returned from the previous call to `ListGlossaries` method. The first page is returned if `page_token`is empty or missing.
+                 * Optional. A token identifying a page of results the server should return. Typically, this is the value of [ListGlossariesResponse.next_page_token] returned from the previous
+                 * call to `ListGlossaries` method. The first page is returned if `page_token`is empty or missing.
                  */
                 pageToken?: string;
                 /** Required. The name of the project from which to list all of the glossaries. */
@@ -504,10 +476,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request: {
                 /** V1 error format. */
@@ -565,8 +537,8 @@ declare namespace gapi.client {
             },
             body: CancelOperationRequest): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -594,10 +566,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -625,11 +594,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -664,11 +632,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListOperationsResponse>;
             /**
-             * Waits for the specified long-running operation until it is done or reaches at most a specified timeout, returning the latest state. If the operation is
-             * already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is
-             * used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may
-             * return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is
-             * done.
+             * Waits for the specified long-running operation until it is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest
+             * state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it
+             * returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately),
+             * meaning even an immediate response is no guarantee that the operation is done.
              */
             wait(request: {
                 /** V1 error format. */
@@ -728,9 +695,9 @@ declare namespace gapi.client {
         }
         interface LocationsResource {
             /**
-             * Translates a large volume of text in asynchronous batch mode. This function provides real-time output as the inputs are being processed. If caller
-             * cancels a request, the partial results (for an input file, it's all or nothing) may still be available on the specified output location. This call
-             * returns immediately and you can use google.longrunning.Operation.name to poll the status of the call.
+             * Translates a large volume of text in asynchronous batch mode. This function provides real-time output as the inputs are being processed. If caller cancels a request, the partial
+             * results (for an input file, it's all or nothing) may still be available on the specified output location. This call returns immediately and you can use
+             * google.longrunning.Operation.name to poll the status of the call.
              */
             batchTranslateText(request: {
                 /** V1 error format. */
@@ -748,9 +715,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. Location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}/locations/{location-id}`. The `global`
-                 * location is not supported for batch translation. Only AutoML Translation models or glossaries within the same region (have the same location-id) can be
-                 * used, otherwise an INVALID_ARGUMENT (400) error is returned.
+                 * Required. Location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}/locations/{location-id}`. The `global` location is not supported
+                 * for batch translation. Only AutoML Translation models or glossaries within the same region (have the same location-id) can be used, otherwise an INVALID_ARGUMENT (400) error is
+                 * returned.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -780,9 +747,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. Location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}/locations/{location-id}`. The `global`
-                 * location is not supported for batch translation. Only AutoML Translation models or glossaries within the same region (have the same location-id) can be
-                 * used, otherwise an INVALID_ARGUMENT (400) error is returned.
+                 * Required. Location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}/locations/{location-id}`. The `global` location is not supported
+                 * for batch translation. Only AutoML Translation models or glossaries within the same region (have the same location-id) can be used, otherwise an INVALID_ARGUMENT (400) error is
+                 * returned.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -813,8 +780,8 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. Project or location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}/locations/{location-id}` or
-                 * `projects/{project-number-or-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`. Only
-                 * models within the same region (has same location-id) can be used. Otherwise an INVALID_ARGUMENT (400) error is returned.
+                 * `projects/{project-number-or-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`. Only models within the same
+                 * region (has same location-id) can be used. Otherwise an INVALID_ARGUMENT (400) error is returned.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -845,8 +812,8 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. Project or location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}/locations/{location-id}` or
-                 * `projects/{project-number-or-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`. Only
-                 * models within the same region (has same location-id) can be used. Otherwise an INVALID_ARGUMENT (400) error is returned.
+                 * `projects/{project-number-or-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`. Only models within the same
+                 * region (has same location-id) can be used. Otherwise an INVALID_ARGUMENT (400) error is returned.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -896,10 +863,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The language to use to return localized, human readable names of supported languages. If missing, then display names are not returned in a
-                 * response.
-                 */
+                /** Optional. The language to use to return localized, human readable names of supported languages. If missing, then display names are not returned in a response. */
                 displayLanguageCode?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -908,18 +872,16 @@ declare namespace gapi.client {
                 /**
                  * Optional. Get supported languages of this model. The format depends on model type: - AutoML Translation models:
                  * `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}` - General (built-in) models:
-                 * `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
-                 * `projects/{project-number-or-id}/locations/{location-id}/models/general/base` Returns languages supported by the specified model. If missing, we get
-                 * supported languages of Google general base (PBMT) model.
+                 * `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`, `projects/{project-number-or-id}/locations/{location-id}/models/general/base` Returns languages
+                 * supported by the specified model. If missing, we get supported languages of Google general base (PBMT) model.
                  */
                 model?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
                  * Required. Project or location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}` or
-                 * `projects/{project-number-or-id}/locations/{location-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or
-                 * `projects/{project-number-or-id}`. Non-global location is required for AutoML models. Only models within the same region (have same location-id) can be
-                 * used, otherwise an INVALID_ARGUMENT (400) error is returned.
+                 * `projects/{project-number-or-id}/locations/{location-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`.
+                 * Non-global location is required for AutoML models. Only models within the same region (have same location-id) can be used, otherwise an INVALID_ARGUMENT (400) error is returned.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -982,9 +944,9 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. Project or location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}` or
-                 * `projects/{project-number-or-id}/locations/{location-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or
-                 * `projects/{project-number-or-id}`. Non-global location is required for requests using AutoML models or custom glossaries. Models and glossaries must be
-                 * within the same region (have same location-id), otherwise an INVALID_ARGUMENT (400) error is returned.
+                 * `projects/{project-number-or-id}/locations/{location-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`.
+                 * Non-global location is required for requests using AutoML models or custom glossaries. Models and glossaries must be within the same region (have same location-id), otherwise an
+                 * INVALID_ARGUMENT (400) error is returned.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1015,9 +977,9 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. Project or location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}` or
-                 * `projects/{project-number-or-id}/locations/{location-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or
-                 * `projects/{project-number-or-id}`. Non-global location is required for requests using AutoML models or custom glossaries. Models and glossaries must be
-                 * within the same region (have same location-id), otherwise an INVALID_ARGUMENT (400) error is returned.
+                 * `projects/{project-number-or-id}/locations/{location-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`.
+                 * Non-global location is required for requests using AutoML models or custom glossaries. Models and glossaries must be within the same region (have same location-id), otherwise an
+                 * INVALID_ARGUMENT (400) error is returned.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1052,8 +1014,8 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. Project or location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}/locations/{location-id}` or
-                 * `projects/{project-number-or-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`. Only
-                 * models within the same region (has same location-id) can be used. Otherwise an INVALID_ARGUMENT (400) error is returned.
+                 * `projects/{project-number-or-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`. Only models within the same
+                 * region (has same location-id) can be used. Otherwise an INVALID_ARGUMENT (400) error is returned.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1084,8 +1046,8 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. Project or location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}/locations/{location-id}` or
-                 * `projects/{project-number-or-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`. Only
-                 * models within the same region (has same location-id) can be used. Otherwise an INVALID_ARGUMENT (400) error is returned.
+                 * `projects/{project-number-or-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`. Only models within the same
+                 * region (has same location-id) can be used. Otherwise an INVALID_ARGUMENT (400) error is returned.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1108,10 +1070,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The language to use to return localized, human readable names of supported languages. If missing, then display names are not returned in a
-                 * response.
-                 */
+                /** Optional. The language to use to return localized, human readable names of supported languages. If missing, then display names are not returned in a response. */
                 displayLanguageCode?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1120,18 +1079,16 @@ declare namespace gapi.client {
                 /**
                  * Optional. Get supported languages of this model. The format depends on model type: - AutoML Translation models:
                  * `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}` - General (built-in) models:
-                 * `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
-                 * `projects/{project-number-or-id}/locations/{location-id}/models/general/base` Returns languages supported by the specified model. If missing, we get
-                 * supported languages of Google general base (PBMT) model.
+                 * `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`, `projects/{project-number-or-id}/locations/{location-id}/models/general/base` Returns languages
+                 * supported by the specified model. If missing, we get supported languages of Google general base (PBMT) model.
                  */
                 model?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
                  * Required. Project or location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}` or
-                 * `projects/{project-number-or-id}/locations/{location-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or
-                 * `projects/{project-number-or-id}`. Non-global location is required for AutoML models. Only models within the same region (have same location-id) can be
-                 * used, otherwise an INVALID_ARGUMENT (400) error is returned.
+                 * `projects/{project-number-or-id}/locations/{location-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`.
+                 * Non-global location is required for AutoML models. Only models within the same region (have same location-id) can be used, otherwise an INVALID_ARGUMENT (400) error is returned.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1161,9 +1118,9 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. Project or location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}` or
-                 * `projects/{project-number-or-id}/locations/{location-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or
-                 * `projects/{project-number-or-id}`. Non-global location is required for requests using AutoML models or custom glossaries. Models and glossaries must be
-                 * within the same region (have same location-id), otherwise an INVALID_ARGUMENT (400) error is returned.
+                 * `projects/{project-number-or-id}/locations/{location-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`.
+                 * Non-global location is required for requests using AutoML models or custom glossaries. Models and glossaries must be within the same region (have same location-id), otherwise an
+                 * INVALID_ARGUMENT (400) error is returned.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1194,9 +1151,9 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. Project or location to make a call. Must refer to a caller's project. Format: `projects/{project-number-or-id}` or
-                 * `projects/{project-number-or-id}/locations/{location-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or
-                 * `projects/{project-number-or-id}`. Non-global location is required for requests using AutoML models or custom glossaries. Models and glossaries must be
-                 * within the same region (have same location-id), otherwise an INVALID_ARGUMENT (400) error is returned.
+                 * `projects/{project-number-or-id}/locations/{location-id}`. For global calls, use `projects/{project-number-or-id}/locations/global` or `projects/{project-number-or-id}`.
+                 * Non-global location is required for requests using AutoML models or custom glossaries. Models and glossaries must be within the same region (have same location-id), otherwise an
+                 * INVALID_ARGUMENT (400) error is returned.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */

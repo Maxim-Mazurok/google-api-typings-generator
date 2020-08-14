@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Display & Video 360 API v1 1.0
 // Project: https://developers.google.com/display-video/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -22,14 +25,13 @@ declare namespace gapi.client {
             /** Required. The display name of the custom metric. */
             displayName?: string;
             /**
-             * The minimum visible video duration required (in seconds) in order for an impression to be recorded. You must specify minimum_duration, minimum_quartile
-             * or both. If both are specified, an impression meets the metric criteria if either requirement is met (whichever happens first).
+             * The minimum visible video duration required (in seconds) in order for an impression to be recorded. You must specify minimum_duration, minimum_quartile or both. If both are
+             * specified, an impression meets the metric criteria if either requirement is met (whichever happens first).
              */
             minimumDuration?: string;
             /**
-             * The minimum visible video duration required, based on the video quartiles, in order for an impression to be recorded. You must specify
-             * minimum_duration, minimum_quartile or both. If both are specified, an impression meets the metric criteria if either requirement is met (whichever
-             * happens first).
+             * The minimum visible video duration required, based on the video quartiles, in order for an impression to be recorded. You must specify minimum_duration, minimum_quartile or both. If
+             * both are specified, an impression meets the metric criteria if either requirement is met (whichever happens first).
              */
             minimumQuartile?: string;
             /** Required. The minimum percentage of the video ad's pixels visible on the screen in order for an impression to be recorded. */
@@ -53,16 +55,15 @@ declare namespace gapi.client {
             /** Required. The display name of the advertiser. Must be UTF-8 encoded with a maximum size of 240 bytes. */
             displayName?: string;
             /**
-             * Required. Controls whether or not insertion orders and line items of the advertiser can spend their budgets and bid on inventory. ∗ Accepted values are
-             * `ENTITY_STATUS_ACTIVE` and `ENTITY_STATUS_SCHEDULED_FOR_DELETION`. ∗ If set to `ENTITY_STATUS_SCHEDULED_FOR_DELETION`, the advertiser will be deleted
-             * 30 days from when it was first scheduled for deletion.
+             * Required. Controls whether or not insertion orders and line items of the advertiser can spend their budgets and bid on inventory. * Accepted values are `ENTITY_STATUS_ACTIVE` and
+             * `ENTITY_STATUS_SCHEDULED_FOR_DELETION`. * If set to `ENTITY_STATUS_SCHEDULED_FOR_DELETION`, the advertiser will be deleted 30 days from when it was first scheduled for deletion.
              */
             entityStatus?: string;
             /** Required. General settings of the advertiser. */
             generalConfig?: AdvertiserGeneralConfig;
             /**
-             * Integration details of the advertiser. Only integrationCode is currently applicable to advertiser. Other fields of IntegrationDetails are not supported
-             * and will be ignored if provided.
+             * Integration details of the advertiser. Only integrationCode is currently applicable to advertiser. Other fields of IntegrationDetails are not supported and will be ignored if
+             * provided.
              */
             integrationDetails?: IntegrationDetails;
             /** Output only. The resource name of the advertiser. */
@@ -83,20 +84,16 @@ declare namespace gapi.client {
         interface AdvertiserCreativeConfig {
             /** Whether or not the advertiser is enabled for dynamic creatives. */
             dynamicCreativeEnabled?: boolean;
-            /**
-             * An ID for configuring campaign monitoring provided by Integral Ad Service (IAS). The DV360 system will append an IAS "Campaign Monitor" tag containing
-             * this ID to the creative tag.
-             */
+            /** An ID for configuring campaign monitoring provided by Integral Ad Service (IAS). The DV360 system will append an IAS "Campaign Monitor" tag containing this ID to the creative tag. */
             iasClientId?: string;
             /**
-             * Whether or not to use DV360's Online Behavioral Advertising (OBA) compliance. Warning: Changing OBA settings may cause the audit status of your
-             * creatives to be reset by some ad exchanges, making them ineligible to serve until they are re-approved.
+             * Whether or not to use DV360's Online Behavioral Advertising (OBA) compliance. Warning: Changing OBA settings may cause the audit status of your creatives to be reset by some ad
+             * exchanges, making them ineligible to serve until they are re-approved.
              */
             obaComplianceDisabled?: boolean;
             /**
-             * By setting this field to `true`, you, on behalf of your company, authorize Google to use video creatives associated with this Display & Video 360
-             * advertiser to provide reporting and features related to the advertiser's television campaigns. Applicable only when the advertiser has a CM hybrid ad
-             * server configuration.
+             * By setting this field to `true`, you, on behalf of your company, authorize Google to use video creatives associated with this Display & Video 360 advertiser to provide reporting and
+             * features related to the advertiser's television campaigns. Applicable only when the advertiser has a CM hybrid ad server configuration.
              */
             videoCreativeDataSharingAuthorized?: boolean;
         }
@@ -106,34 +103,32 @@ declare namespace gapi.client {
         }
         interface AdvertiserGeneralConfig {
             /**
-             * Required. Immutable. Advertiser's currency in ISO 4217 format. Accepted codes and the currencies they represent are: Currency Code : Currency Name ∗
-             * `ARS` : Argentine Peso ∗ `AUD` : Australian Dollar ∗ `BRL` : Brazilian Real ∗ `CAD` : Canadian Dollar ∗ `CHF` : Swiss Franc ∗ `CLP` : Chilean Peso ∗
-             * `CNY` : Chinese Yuan ∗ `COP` : Colombian Peso ∗ `CZK` : Czech Koruna ∗ `DKK` : Danish Krone ∗ `EGP` : Egyption Pound ∗ `EUR` : Euro ∗ `GBP` : British
-             * Pound ∗ `HKD` : Hong Kong Dollar ∗ `HUF` : Hungarian Forint ∗ `IDR` : Indonesian Rupiah ∗ `ILS` : Israeli Shekel ∗ `INR` : Indian Rupee ∗ `JPY` :
-             * Japanese Yen ∗ `KRW` : South Korean Won ∗ `MXN` : Mexican Pesos ∗ `MYR` : Malaysian Ringgit ∗ `NGN` : Nigerian Naira ∗ `NOK` : Norwegian Krone ∗ `NZD`
-             * : New Zealand Dollar ∗ `PEN` : Peruvian Nuevo Sol ∗ `PLN` : Polish Zloty ∗ `RON` : New Romanian Leu ∗ `RUB` : Russian Ruble ∗ `SEK` : Swedish Krona ∗
-             * `TRY` : Turkish Lira ∗ `TWD` : New Taiwan Dollar ∗ `USD` : US Dollar ∗ `ZAR` : South African Rand
+             * Required. Immutable. Advertiser's currency in ISO 4217 format. Accepted codes and the currencies they represent are: Currency Code : Currency Name * `ARS` : Argentine Peso * `AUD` :
+             * Australian Dollar * `BRL` : Brazilian Real * `CAD` : Canadian Dollar * `CHF` : Swiss Franc * `CLP` : Chilean Peso * `CNY` : Chinese Yuan * `COP` : Colombian Peso * `CZK` : Czech
+             * Koruna * `DKK` : Danish Krone * `EGP` : Egyption Pound * `EUR` : Euro * `GBP` : British Pound * `HKD` : Hong Kong Dollar * `HUF` : Hungarian Forint * `IDR` : Indonesian Rupiah *
+             * `ILS` : Israeli Shekel * `INR` : Indian Rupee * `JPY` : Japanese Yen * `KRW` : South Korean Won * `MXN` : Mexican Pesos * `MYR` : Malaysian Ringgit * `NGN` : Nigerian Naira * `NOK`
+             * : Norwegian Krone * `NZD` : New Zealand Dollar * `PEN` : Peruvian Nuevo Sol * `PLN` : Polish Zloty * `RON` : New Romanian Leu * `RUB` : Russian Ruble * `SEK` : Swedish Krona * `TRY`
+             * : Turkish Lira * `TWD` : New Taiwan Dollar * `USD` : US Dollar * `ZAR` : South African Rand
              */
             currencyCode?: string;
             /**
-             * Required. The domain URL of the advertiser's primary website. The system will send this information to publishers that require website URL to associate
-             * a campaign with an advertiser. Provide a URL with no path or query string, beginning with `http:` or `https:`. For example, http://www.example.com
+             * Required. The domain URL of the advertiser's primary website. The system will send this information to publishers that require website URL to associate a campaign with an
+             * advertiser. Provide a URL with no path or query string, beginning with `http:` or `https:`. For example, http://www.example.com
              */
             domainUrl?: string;
             /**
-             * Output only. The standard TZ database name of the advertiser's time zone. For example, `America/New_York`. See more at:
-             * https://en.wikipedia.org/wiki/List_of_tz_database_time_zones For CM hybrid advertisers, the time zone is the same as that of the associated CM account;
-             * for third-party only advertisers, the time zone is the same as that of the parent partner.
+             * Output only. The standard TZ database name of the advertiser's time zone. For example, `America/New_York`. See more at: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+             * For CM hybrid advertisers, the time zone is the same as that of the associated CM account; for third-party only advertisers, the time zone is the same as that of the parent partner.
              */
             timeZone?: string;
         }
         interface AdvertiserSdfConfig {
             /**
-             * Whether or not this advertiser overrides the SDF configuration of its parent partner. By default, an advertiser inherits the SDF configuration from the
-             * parent partner. To override the partner configuration, set this field to `true` and provide the new configuration in sdfConfig.
+             * Whether or not this advertiser overrides the SDF configuration of its parent partner. By default, an advertiser inherits the SDF configuration from the parent partner. To override
+             * the partner configuration, set this field to `true` and provide the new configuration in sdfConfig.
              */
             overridePartnerSdfConfig?: boolean;
-            /** The SDF configuration for the advertiser. ∗ Required when overridePartnerSdfConfig is `true`. ∗ Output only when overridePartnerSdfConfig is `false`. */
+            /** The SDF configuration for the advertiser. * Required when overridePartnerSdfConfig is `true`. * Output only when overridePartnerSdfConfig is `false`. */
             sdfConfig?: SdfConfig;
         }
         interface AdvertiserTargetingConfig {
@@ -142,9 +137,8 @@ declare namespace gapi.client {
         }
         interface AgeRangeAssignedTargetingOptionDetails {
             /**
-             * Output only. The age range of an audience. We only support targeting a continuous age range of an audience. Thus, the age range represented in this
-             * field can be 1) targeted solely, or, 2) part of a larger continuous age range. The reach of a continuous age range targeting can be expanded by also
-             * targeting an audience of an unknown age.
+             * Output only. The age range of an audience. We only support targeting a continuous age range of an audience. Thus, the age range represented in this field can be 1) targeted solely,
+             * or, 2) part of a larger continuous age range. The reach of a continuous age range targeting can be expanded by also targeting an audience of an unknown age.
              */
             ageRange?: string;
             /** Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_AGE_RANGE`. */
@@ -155,10 +149,7 @@ declare namespace gapi.client {
             ageRange?: string;
         }
         interface AppAssignedTargetingOptionDetails {
-            /**
-             * Required. The ID of the app. Android's Play store app uses bundle ID, for example `com.google.android.gm`. Apple's App store app ID uses 9 digit
-             * string, for example `422689480`.
-             */
+            /** Required. The ID of the app. Android's Play store app uses bundle ID, for example `com.google.android.gm`. Apple's App store app ID uses 9 digit string, for example `422689480`. */
             appId?: string;
             /** Output only. The display name of the app. */
             displayName?: string;
@@ -180,10 +171,7 @@ declare namespace gapi.client {
         interface Asset {
             /** The asset content. For uploaded assets, the content is the serving path. */
             content?: string;
-            /**
-             * Media ID of the uploaded asset. This is a unique identifier for the asset. This ID can be passed to other API calls, e.g. CreateCreative to associate
-             * the asset with a creative.
-             */
+            /** Media ID of the uploaded asset. This is a unique identifier for the asset. This ID can be passed to other API calls, e.g. CreateCreative to associate the asset with a creative. */
             mediaId?: string;
         }
         interface AssetAssociation {
@@ -193,10 +181,7 @@ declare namespace gapi.client {
             role?: string;
         }
         interface AssignedInventorySource {
-            /**
-             * Output only. The unique ID of the assigned inventory source. The ID is only unique within a given inventory source group. It may be reused in other
-             * contexts.
-             */
+            /** Output only. The unique ID of the assigned inventory source. The ID is only unique within a given inventory source group. It may be reused in other contexts. */
             assignedInventorySourceId?: string;
             /** Required. The ID of the inventory source entity being targeted. */
             inventorySourceId?: string;
@@ -218,20 +203,14 @@ declare namespace gapi.client {
             appCategoryDetails?: AppCategoryAssignedTargetingOptionDetails;
             /** App details. This field will be populated when the TargetingType is `TARGETING_TYPE_APP`. */
             appDetails?: AppAssignedTargetingOptionDetails;
-            /**
-             * Output only. The unique ID of the assigned targeting option. The ID is only unique within a given line item and targeting type. It may be reused in
-             * other contexts.
-             */
+            /** Output only. The unique ID of the assigned targeting option. The ID is only unique within a given line item and targeting type. It may be reused in other contexts. */
             assignedTargetingOptionId?: string;
-            /**
-             * Audience targeting details. This field will be populated when the TargetingType is `TARGETING_TYPE_AUDIENCE_GROUP`. You can only target one audience
-             * group option per line item.
-             */
+            /** Audience targeting details. This field will be populated when the TargetingType is `TARGETING_TYPE_AUDIENCE_GROUP`. You can only target one audience group option per line item. */
             audienceGroupDetails?: AudienceGroupAssignedTargetingOptionDetails;
             /**
-             * Authorized seller status details. This field will be populated when the TargetingType is `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS`. You can only target
-             * one authorized seller status option per line item. If a line item doesn't have an authorized seller status option, all authorized sellers indicated as
-             * DIRECT or RESELLER in the ads.txt file are targeted by default.
+             * Authorized seller status details. This field will be populated when the TargetingType is `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS`. You can only target one authorized seller status
+             * option per line item. If a line item doesn't have an authorized seller status option, all authorized sellers indicated as DIRECT or RESELLER in the ads.txt file are targeted by
+             * default.
              */
             authorizedSellerStatusDetails?: AuthorizedSellerStatusAssignedTargetingOptionDetails;
             /** Browser details. This field will be populated when the TargetingType is `TARGETING_TYPE_BROWSER`. */
@@ -239,8 +218,8 @@ declare namespace gapi.client {
             /** Carrier and ISP details. This field will be populated when the TargetingType is `TARGETING_TYPE_CARRIER_AND_ISP`. */
             carrierAndIspDetails?: CarrierAndIspAssignedTargetingOptionDetails;
             /**
-             * Category details. This field will be populated when the TargetingType is `TARGETING_TYPE_CATEGORY`. Targeting a category will also target its
-             * subcategories. If a category is excluded from targeting and a subcategory is included, the exclusion will take precedence.
+             * Category details. This field will be populated when the TargetingType is `TARGETING_TYPE_CATEGORY`. Targeting a category will also target its subcategories. If a category is
+             * excluded from targeting and a subcategory is included, the exclusion will take precedence.
              */
             categoryDetails?: CategoryAssignedTargetingOptionDetails;
             /** Channel details. This field will be populated when the TargetingType is `TARGETING_TYPE_CHANNEL`. */
@@ -256,10 +235,9 @@ declare namespace gapi.client {
             /** Device Type details. This field will be populated when the TargetingType is `TARGETING_TYPE_DEVICE_TYPE`. */
             deviceTypeDetails?: DeviceTypeAssignedTargetingOptionDetails;
             /**
-             * Digital content label details. This field will be populated when the TargetingType is `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`. Digital content
-             * labels are targeting exclusions. Advertiser level digital content label exclusions, if set, are always applied in serving (even though they aren't
-             * visible in line item settings). Line item settings can exclude content labels in addition to advertiser exclusions, but can't override them. A line
-             * item won't serve if all the digital content labels are excluded.
+             * Digital content label details. This field will be populated when the TargetingType is `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`. Digital content labels are targeting
+             * exclusions. Advertiser level digital content label exclusions, if set, are always applied in serving (even though they aren't visible in line item settings). Line item settings can
+             * exclude content labels in addition to advertiser exclusions, but can't override them. A line item won't serve if all the digital content labels are excluded.
              */
             digitalContentLabelExclusionDetails?: DigitalContentLabelAssignedTargetingOptionDetails;
             /** Environment details. This field will be populated when the TargetingType is `TARGETING_TYPE_ENVIRONMENT`. */
@@ -279,18 +257,15 @@ declare namespace gapi.client {
             /** Inventory source group details. This field will be populated when the TargetingType is `TARGETING_TYPE_INVENTORY_SOURCE_GROUP`. */
             inventorySourceGroupDetails?: InventorySourceGroupAssignedTargetingOptionDetails;
             /**
-             * Keyword details. This field will be populated when the TargetingType is `TARGETING_TYPE_KEYWORD`. A maximum of 5000 direct negative keywords can be
-             * assigned to a line item. No limit on number of positive keywords that can be assigned.
+             * Keyword details. This field will be populated when the TargetingType is `TARGETING_TYPE_KEYWORD`. A maximum of 5000 direct negative keywords can be assigned to a line item. No limit
+             * on number of positive keywords that can be assigned.
              */
             keywordDetails?: KeywordAssignedTargetingOptionDetails;
             /** Language details. This field will be populated when the TargetingType is `TARGETING_TYPE_LANGUAGE`. */
             languageDetails?: LanguageAssignedTargetingOptionDetails;
             /** Output only. The resource name for this assigned targeting option. */
             name?: string;
-            /**
-             * Keyword details. This field will be populated when the TargetingType is `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST`. A maximum of 4 negative keyword lists
-             * can be assigned to a line item.
-             */
+            /** Keyword details. This field will be populated when the TargetingType is `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST`. A maximum of 4 negative keyword lists can be assigned to a line item. */
             negativeKeywordListDetails?: NegativeKeywordListAssignedTargetingOptionDetails;
             /** On screen position details. This field will be populated when the TargetingType is `TARGETING_TYPE_ON_SCREEN_POSITION`. */
             onScreenPositionDetails?: OnScreenPositionAssignedTargetingOptionDetails;
@@ -303,9 +278,9 @@ declare namespace gapi.client {
             /** Regional location list details. This field will be populated when the TargetingType is `TARGETING_TYPE_REGIONAL_LOCATION_LIST`. */
             regionalLocationListDetails?: RegionalLocationListAssignedTargetingOptionDetails;
             /**
-             * Sensitive category details. This field will be populated when the TargetingType is `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`. Sensitive categories
-             * are targeting exclusions. Advertiser level sensitive category exclusions, if set, are always applied in serving (even though they aren't visible in
-             * line item settings). Line item settings can exclude sensitive categories in addition to advertiser exclusions, but can't override them.
+             * Sensitive category details. This field will be populated when the TargetingType is `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`. Sensitive categories are targeting exclusions.
+             * Advertiser level sensitive category exclusions, if set, are always applied in serving (even though they aren't visible in line item settings). Line item settings can exclude
+             * sensitive categories in addition to advertiser exclusions, but can't override them.
              */
             sensitiveCategoryExclusionDetails?: SensitiveCategoryAssignedTargetingOptionDetails;
             /** Sub-exchange details. This field will be populated when the TargetingType is `TARGETING_TYPE_SUB_EXCHANGE`. */
@@ -320,10 +295,7 @@ declare namespace gapi.client {
             userRewardedContentDetails?: UserRewardedContentAssignedTargetingOptionDetails;
             /** Video player size details. This field will be populated when the TargetingType is `TARGETING_TYPE_VIDEO_PLAYER_SIZE`. */
             videoPlayerSizeDetails?: VideoPlayerSizeAssignedTargetingOptionDetails;
-            /**
-             * Viewability details. This field will be populated when the TargetingType is `TARGETING_TYPE_VIEWABILITY`. You can only target one viewability option
-             * per line item.
-             */
+            /** Viewability details. This field will be populated when the TargetingType is `TARGETING_TYPE_VIEWABILITY`. You can only target one viewability option per line item. */
             viewabilityDetails?: ViewabilityAssignedTargetingOptionDetails;
         }
         interface AssignedUserRole {
@@ -338,13 +310,13 @@ declare namespace gapi.client {
         }
         interface AudienceGroupAssignedTargetingOptionDetails {
             /**
-             * The first and third party audience ids and recencies of the excluded first and third party audience group. Used for negative targeting. Its COMPLEMENT
-             * is used to UNION other audience groups.
+             * The first and third party audience ids and recencies of the excluded first and third party audience group. Used for negative targeting. Its COMPLEMENT is used to UNION other
+             * audience groups.
              */
             excludedFirstAndThirdPartyAudienceGroup?: FirstAndThirdPartyAudienceGroup;
             /**
-             * The Google audience ids of the excluded Google audience group. Used for negative targeting. It's COMPLEMENT is used to UNION other audience groups.
-             * Only contains Affinity, In-market and Installed-apps type Google audiences. All items are logically ‘OR’ of each other.
+             * The Google audience ids of the excluded Google audience group. Used for negative targeting. It's COMPLEMENT is used to UNION other audience groups. Only contains Affinity, In-market
+             * and Installed-apps type Google audiences. All items are logically ‘OR’ of each other.
              */
             excludedGoogleAudienceGroup?: GoogleAudienceGroup;
             /** The combined audience ids of the included combined audience group. Contains combined audience ids only. */
@@ -352,9 +324,9 @@ declare namespace gapi.client {
             /** The custom list ids of the included custom list group. Contains custom list ids only. */
             includedCustomListGroup?: CustomListGroup;
             /**
-             * The first and third party audience ids and recencies of included first and third party audience groups. Each first and third party audience group
-             * contains first and third party audience ids only. The relation between each first and third party audience group is INTERSECTION, and the result is
-             * UNION'ed with other audience groups. Repeated groups with same settings will be ignored.
+             * The first and third party audience ids and recencies of included first and third party audience groups. Each first and third party audience group contains first and third party
+             * audience ids only. The relation between each first and third party audience group is INTERSECTION, and the result is UNION'ed with other audience groups. Repeated groups with same
+             * settings will be ignored.
              */
             includedFirstAndThirdPartyAudienceGroups?: FirstAndThirdPartyAudienceGroup[];
             /** The Google audience ids of the included Google audience group. Contains Google audience ids only. */
@@ -369,10 +341,7 @@ declare namespace gapi.client {
         interface AuditAdvertiserResponse {
             /** The number of ACTIVE and PAUSED campaigns under this advertiser. These campaigns count towards the limit of 9999 campaigns per advertiser. */
             usedCampaignsCount?: string;
-            /**
-             * The number of ACTIVE, PAUSED and DRAFT insertion orders under this advertiser. These insertion orders count towards the limit of 9999 insertion orders
-             * per advertiser.
-             */
+            /** The number of ACTIVE, PAUSED and DRAFT insertion orders under this advertiser. These insertion orders count towards the limit of 9999 insertion orders per advertiser. */
             usedInsertionOrdersCount?: string;
             /** The number of ACTIVE, PAUSED, and DRAFT line items under this advertiser. These line items count towards the limit of 9999 line items per advertiser. */
             usedLineItemsCount?: string;
@@ -391,12 +360,11 @@ declare namespace gapi.client {
             /** A strategy that uses a fixed bid price. */
             fixedBid?: FixedBidStrategy;
             /**
-             * A strategy that automatically adjusts the bid to optimize to your performance goal while spending the full budget. At insertion order level, the
-             * markup_type of line items cannot be set to `PARTNER_REVENUE_MODEL_MARKUP_TYPE_CPM`. In addition, when performance_goal_type is one of: ∗
-             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA` ∗ `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC` ∗ `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_AV_VIEWED` , the
-             * line_item_type of the insertion order line items must be either: ∗ `LINE_ITEM_TYPE_DISPLAY_DEFAULT` ∗ `LINE_ITEM_TYPE_VIDEO_DEFAULT` , and when
-             * performance_goal_type is either: ∗ `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA` ∗ `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN` the line_item_type
-             * of the insertion order line items must be `LINE_ITEM_TYPE_VIDEO_DEFAULT`.
+             * A strategy that automatically adjusts the bid to optimize to your performance goal while spending the full budget. At insertion order level, the markup_type of line items cannot be
+             * set to `PARTNER_REVENUE_MODEL_MARKUP_TYPE_CPM`. In addition, when performance_goal_type is one of: * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA` *
+             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC` * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_AV_VIEWED` , the line_item_type of the insertion order line items must be either: *
+             * `LINE_ITEM_TYPE_DISPLAY_DEFAULT` * `LINE_ITEM_TYPE_VIDEO_DEFAULT` , and when performance_goal_type is either: * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA` *
+             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN` the line_item_type of the insertion order line items must be `LINE_ITEM_TYPE_VIDEO_DEFAULT`.
              */
             maximizeSpendAutoBid?: MaximizeSpendBidStrategy;
             /** A strategy that automatically adjusts the bid to meet or beat a specified performance goal. It is to be used only for a line item entity. */
@@ -405,10 +373,7 @@ declare namespace gapi.client {
         interface BrowserAssignedTargetingOptionDetails {
             /** Output only. The display name of the browser. */
             displayName?: string;
-            /**
-             * Indicates if this option is being negatively targeted. All assigned browser targeting options on the same line item must have the same value for this
-             * field.
-             */
+            /** Indicates if this option is being negatively targeted. All assigned browser targeting options on the same line item must have the same value for this field. */
             negative?: boolean;
             /** Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_BROWSER`. */
             targetingOptionId?: string;
@@ -454,10 +419,7 @@ declare namespace gapi.client {
         interface BulkEditAssignedUserRolesRequest {
             /** The assigned user roles to create in batch, specified as a list of AssignedUserRoles. */
             createdAssignedUserRoles?: AssignedUserRole[];
-            /**
-             * The assigned user roles to delete in batch, specified as a list of assigned_user_role_ids. The format of assigned_user_role_id is
-             * `entityType-entityid`, for example `partner-123`.
-             */
+            /** The assigned user roles to delete in batch, specified as a list of assigned_user_role_ids. The format of assigned_user_role_id is `entityType-entityid`, for example `partner-123`. */
             deletedAssignedUserRoles?: string[];
         }
         interface BulkEditAssignedUserRolesResponse {
@@ -485,15 +447,9 @@ declare namespace gapi.client {
             negativeKeywords?: NegativeKeyword[];
         }
         interface BulkEditPartnerAssignedTargetingOptionsRequest {
-            /**
-             * The assigned targeting options to create in batch, specified as a list of `CreateAssignedTargetingOptionsRequest`. Supported targeting types: ∗
-             * `TARGETING_TYPE_CHANNEL`
-             */
+            /** The assigned targeting options to create in batch, specified as a list of `CreateAssignedTargetingOptionsRequest`. Supported targeting types: * `TARGETING_TYPE_CHANNEL` */
             createRequests?: CreateAssignedTargetingOptionsRequest[];
-            /**
-             * The assigned targeting options to delete in batch, specified as a list of `DeleteAssignedTargetingOptionsRequest`. Supported targeting types: ∗
-             * `TARGETING_TYPE_CHANNEL`
-             */
+            /** The assigned targeting options to delete in batch, specified as a list of `DeleteAssignedTargetingOptionsRequest`. Supported targeting types: * `TARGETING_TYPE_CHANNEL` */
             deleteRequests?: DeleteAssignedTargetingOptionsRequest[];
         }
         interface BulkEditPartnerAssignedTargetingOptionsResponse {
@@ -518,9 +474,8 @@ declare namespace gapi.client {
             /** The list of assigned targeting options. This list will be absent if empty. */
             assignedTargetingOptions?: AssignedTargetingOption[];
             /**
-             * A token identifying the next page of results. This value should be specified as the pageToken in a subsequent
-             * BulkListAdvertiserAssignedTargetingOptionsRequest to fetch the next page of results. This token will be absent if there are no more
-             * assigned_targeting_options to return.
+             * A token identifying the next page of results. This value should be specified as the pageToken in a subsequent BulkListAdvertiserAssignedTargetingOptionsRequest to fetch the next
+             * page of results. This token will be absent if there are no more assigned_targeting_options to return.
              */
             nextPageToken?: string;
         }
@@ -528,9 +483,8 @@ declare namespace gapi.client {
             /** The list of assigned targeting options. This list will be absent if empty. */
             assignedTargetingOptions?: AssignedTargetingOption[];
             /**
-             * A token identifying the next page of results. This value should be specified as the pageToken in a subsequent
-             * BulkListLineItemAssignedTargetingOptionsRequest to fetch the next page of results. This token will be absent if there are no more
-             * assigned_targeting_options to return.
+             * A token identifying the next page of results. This value should be specified as the pageToken in a subsequent BulkListLineItemAssignedTargetingOptionsRequest to fetch the next page
+             * of results. This token will be absent if there are no more assigned_targeting_options to return.
              */
             nextPageToken?: string;
         }
@@ -546,8 +500,8 @@ declare namespace gapi.client {
             /** Required. The display name of the campaign. Must be UTF-8 encoded with a maximum size of 240 bytes. */
             displayName?: string;
             /**
-             * Required. Controls whether or not the insertion orders under this campaign can spend their budgets and bid on inventory. ∗ Accepted values are
-             * `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_ARCHIVED`, and `ENTITY_STATUS_PAUSED`. ∗ For CreateCampaign method, `ENTITY_STATUS_ARCHIVED` is not allowed.
+             * Required. Controls whether or not the insertion orders under this campaign can spend their budgets and bid on inventory. * Accepted values are `ENTITY_STATUS_ACTIVE`,
+             * `ENTITY_STATUS_ARCHIVED`, and `ENTITY_STATUS_PAUSED`. * For CreateCampaign method, `ENTITY_STATUS_ARCHIVED` is not allowed.
              */
             entityStatus?: string;
             /** Required. The frequency cap setting of the campaign. */
@@ -559,15 +513,15 @@ declare namespace gapi.client {
         }
         interface CampaignFlight {
             /**
-             * Required. The dates that the campaign is expected to run. They are resolved relative to the parent advertiser's time zone. ∗ The dates specified here
-             * will not affect serving. They are used to generate alerts and warnings. For example, if the flight date of any child insertion order is outside the
-             * range of these dates, the user interface will show a warning. ∗ `start_date` is required and must be the current date or later. ∗ `end_date` is
-             * optional. If specified, it must be the `start_date` or later. ∗ Any specified date must be before the year 2037.
+             * Required. The dates that the campaign is expected to run. They are resolved relative to the parent advertiser's time zone. * The dates specified here will not affect serving. They
+             * are used to generate alerts and warnings. For example, if the flight date of any child insertion order is outside the range of these dates, the user interface will show a warning. *
+             * `start_date` is required and must be the current date or later. * `end_date` is optional. If specified, it must be the `start_date` or later. * Any specified date must be before the
+             * year 2037.
              */
             plannedDates?: DateRange;
             /**
-             * The amount the campaign is expected to spend for its given planned_dates. This will not limit serving, but will be used for tracking spend in the DV360
-             * UI. The amount is in micros. Must be greater than or equal to 0. For example, 500000000 represents 500 standard units of the currency.
+             * The amount the campaign is expected to spend for its given planned_dates. This will not limit serving, but will be used for tracking spend in the DV360 UI. The amount is in micros.
+             * Must be greater than or equal to 0. For example, 500000000 represents 500 standard units of the currency.
              */
             plannedSpendAmountMicros?: string;
         }
@@ -575,19 +529,15 @@ declare namespace gapi.client {
             /** Required. The type of the campaign goal. */
             campaignGoalType?: string;
             /**
-             * Required. The performance goal of the campaign. Acceptable values for performance_goal_type are: ∗ `PERFORMANCE_GOAL_TYPE_CPM` ∗
-             * `PERFORMANCE_GOAL_TYPE_CPC` ∗ `PERFORMANCE_GOAL_TYPE_CPA` ∗ `PERFORMANCE_GOAL_TYPE_CPIAVC` ∗ `PERFORMANCE_GOAL_TYPE_CTR` ∗
-             * `PERFORMANCE_GOAL_TYPE_VIEWABILITY` ∗ `PERFORMANCE_GOAL_TYPE_OTHER`
+             * Required. The performance goal of the campaign. Acceptable values for performance_goal_type are: * `PERFORMANCE_GOAL_TYPE_CPM` * `PERFORMANCE_GOAL_TYPE_CPC` *
+             * `PERFORMANCE_GOAL_TYPE_CPA` * `PERFORMANCE_GOAL_TYPE_CPIAVC` * `PERFORMANCE_GOAL_TYPE_CTR` * `PERFORMANCE_GOAL_TYPE_VIEWABILITY` * `PERFORMANCE_GOAL_TYPE_OTHER`
              */
             performanceGoal?: PerformanceGoal;
         }
         interface CarrierAndIspAssignedTargetingOptionDetails {
             /** Output only. The display name of the carrier or ISP. */
             displayName?: string;
-            /**
-             * Indicates if this option is being negatively targeted. All assigned carrier and ISP targeting options on the same line item must have the same value
-             * for this field.
-             */
+            /** Indicates if this option is being negatively targeted. All assigned carrier and ISP targeting options on the same line item must have the same value for this field. */
             negative?: boolean;
             /** Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_CARRIER_AND_ISP`. */
             targetingOptionId?: string;
@@ -624,8 +574,8 @@ declare namespace gapi.client {
         }
         interface ChannelAssignedTargetingOptionDetails {
             /**
-             * Required. ID of the channel. Should refer to the channel ID field on a [Partner-owned channel](partners.channels#Channel.FIELDS.channel_id) or
-             * [advertiser-owned channel](advertisers.channels#Channel.FIELDS.channel_id) resource.
+             * Required. ID of the channel. Should refer to the channel ID field on a [Partner-owned channel](partners.channels#Channel.FIELDS.channel_id) or [advertiser-owned
+             * channel](advertisers.channels#Channel.FIELDS.channel_id) resource.
              */
             channelId?: string;
             /** Indicates if this option is being negatively targeted. For advertiser level assigned targeting option, this field must be true. */
@@ -637,13 +587,13 @@ declare namespace gapi.client {
             /** Required. Immutable. ID of the CM Floodlight configuration linked with the DV360 advertiser. */
             cmFloodlightConfigId?: string;
             /**
-             * Required. Immutable. By setting this field to `true`, you, on behalf of your company, authorize the sharing of information from the given Floodlight
-             * configuration to this Display & Video 360 advertiser.
+             * Required. Immutable. By setting this field to `true`, you, on behalf of your company, authorize the sharing of information from the given Floodlight configuration to this Display &
+             * Video 360 advertiser.
              */
             cmFloodlightLinkingAuthorized?: boolean;
             /**
-             * A list of CM sites whose placements will be synced to DV360 as creatives. If absent or empty in CreateAdvertiser method, the system will automatically
-             * create a CM site. Removing sites from this list may cause DV360 creatives synced from CM to be deleted. At least one site must be specified.
+             * A list of CM sites whose placements will be synced to DV360 as creatives. If absent or empty in CreateAdvertiser method, the system will automatically create a CM site. Removing
+             * sites from this list may cause DV360 creatives synced from CM to be deleted. At least one site must be specified.
              */
             cmSyncableSiteIds?: string[];
             /** Whether or not to report DV360 cost to CM. */
@@ -669,8 +619,8 @@ declare namespace gapi.client {
         }
         interface CombinedAudienceGroup {
             /**
-             * Required. All combined audience targeting settings in combined audience group. Repeated settings with same id will be ignored. The number of combined
-             * audience settings should be no more than five, error will be thrown otherwise.
+             * Required. All combined audience targeting settings in combined audience group. Repeated settings with same id will be ignored. The number of combined audience settings should be no
+             * more than five, error will be thrown otherwise.
              */
             settings?: CombinedAudienceTargetingSetting[];
         }
@@ -700,13 +650,13 @@ declare namespace gapi.client {
         }
         interface ConversionCountingConfig {
             /**
-             * The Floodlight activity configs used to track conversions. The number of conversions counted is the sum of all of the conversions counted by all of the
-             * Floodlight activity IDs specified in this field.
+             * The Floodlight activity configs used to track conversions. The number of conversions counted is the sum of all of the conversions counted by all of the Floodlight activity IDs
+             * specified in this field.
              */
             floodlightActivityConfigs?: TrackingFloodlightActivityConfig[];
             /**
-             * The percentage of post-view conversions to count, in millis (1/1000 of a percent). Must be between 0 and 100000 inclusive. For example, to track 50% of
-             * the post-click conversions, set a value of 50000.
+             * The percentage of post-view conversions to count, in millis (1/1000 of a percent). Must be between 0 and 100000 inclusive. For example, to track 50% of the post-click conversions,
+             * set a value of 50000.
              */
             postViewCountPercentageMillis?: string;
         }
@@ -738,24 +688,24 @@ declare namespace gapi.client {
             /** Filters on Inventory Sources by their IDs. */
             inventorySourceFilter?: InventorySourceFilter;
             /**
-             * Filters on selected file types. The entities in each file are filtered by a chosen set of filter entities. The filter entities must be the same type
-             * as, or a parent type of, the selected file types.
+             * Filters on selected file types. The entities in each file are filtered by a chosen set of filter entities. The filter entities must be the same type as, or a parent type of, the
+             * selected file types.
              */
             parentEntityFilter?: ParentEntityFilter;
             /** The ID of the partner to download SDF for. */
             partnerId?: string;
             /**
-             * Required. The SDF version of the downloaded file. If set to `SDF_VERSION_UNSPECIFIED`, this will default to the version specified by the advertiser or
-             * partner identified by `root_id`. An advertiser inherits its SDF version from its partner unless configured otherwise.
+             * Required. The SDF version of the downloaded file. If set to `SDF_VERSION_UNSPECIFIED`, this will default to the version specified by the advertiser or partner identified by
+             * `root_id`. An advertiser inherits its SDF version from its partner unless configured otherwise.
              */
             version?: string;
         }
         interface Creative {
             /**
-             * Additional dimensions. Applicable when creative_type is one of: ∗ `CREATIVE_TYPE_STANDARD` ∗ `CREATIVE_TYPE_EXPANDABLE` ∗ `CREATIVE_TYPE_NATIVE` ∗
-             * `CREATIVE_TYPE_TEMPLATED_APP_INSTALL` ∗ `CREATIVE_TYPE_NATIVE_SITE_SQUARE` ∗ `CREATIVE_TYPE_LIGHTBOX` ∗ `CREATIVE_TYPE_NATIVE_APP_INSTALL` ∗
-             * `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` ∗ `CREATIVE_TYPE_PUBLISHER_HOSTED` If this field is specified, width_pixels and height_pixels are both
-             * required and must be greater than or equal to 0.
+             * Additional dimensions. Applicable when creative_type is one of: * `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_EXPANDABLE` * `CREATIVE_TYPE_NATIVE` *
+             * `CREATIVE_TYPE_TEMPLATED_APP_INSTALL` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_LIGHTBOX` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` *
+             * `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` * `CREATIVE_TYPE_PUBLISHER_HOSTED` If this field is specified, width_pixels and height_pixels are both required and must be greater than or
+             * equal to 0.
              */
             additionalDimensions?: Dimensions[];
             /** Output only. The unique ID of the advertiser the creative belongs to. */
@@ -763,32 +713,28 @@ declare namespace gapi.client {
             /** Third-party HTML tracking tag to be appended to the creative tag. */
             appendedTag?: string;
             /**
-             * Required. Assets associated to this creative. Assets can be associated to the creative in one of following roles: ∗ `ASSET_ROLE_UNSPECIFIED` ∗
-             * `ASSET_ROLE_MAIN` ∗ `ASSET_ROLE_BACKUP` ∗ `ASSET_ROLE_POLITE_LOAD`
+             * Required. Assets associated to this creative. Assets can be associated to the creative in one of following roles: * `ASSET_ROLE_UNSPECIFIED` * `ASSET_ROLE_MAIN` *
+             * `ASSET_ROLE_BACKUP` * `ASSET_ROLE_POLITE_LOAD`
              */
             assets?: AssetAssociation[];
-            /**
-             * Output only. The unique ID of the Campaign Manager placement associated with the creative. This field is only applicable for creatives that are synced
-             * from Campaign Manager.
-             */
+            /** Output only. The unique ID of the Campaign Manager placement associated with the creative. This field is only applicable for creatives that are synced from Campaign Manager. */
             cmPlacementId?: string;
             /**
-             * The Campaign Manager tracking ad associated with the creative. Optional for the following creative_type when created by an advertiser that uses both
-             * Campaign Manager and third-party ad serving: ∗ `CREATIVE_TYPE_NATIVE` ∗ `CREATIVE_TYPE_NATIVE_SITE_SQUARE` ∗ `CREATIVE_TYPE_NATIVE_APP_INSTALL` ∗
-             * `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` Output only for other cases.
+             * The Campaign Manager tracking ad associated with the creative. Optional for the following creative_type when created by an advertiser that uses both Campaign Manager and third-party
+             * ad serving: * `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` * `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` Output only for other
+             * cases.
              */
             cmTrackingAd?: CmTrackingAd;
             /**
-             * The IDs of companion creatives for a video creative. You can assign existing display creatives (with image or HTML5 assets) to serve surrounding the
-             * publisher's video player. Companions display around the video player while the video is playing and remain after the video has completed. Creatives
-             * contain additional dimensions can not be companion creatives. This field is only supported for following creative_type: ∗ `CREATIVE_TYPE_AUDIO` ∗
-             * `CREATIVE_TYPE_VIDEO`
+             * The IDs of companion creatives for a video creative. You can assign existing display creatives (with image or HTML5 assets) to serve surrounding the publisher's video player.
+             * Companions display around the video player while the video is playing and remain after the video has completed. Creatives contain additional dimensions can not be companion
+             * creatives. This field is only supported for following creative_type: * `CREATIVE_TYPE_AUDIO` * `CREATIVE_TYPE_VIDEO`
              */
             companionCreativeIds?: string[];
             /**
-             * Counter events for a rich media creative. Counters track the number of times that a user interacts with any part of a rich media creative in a
-             * specified way (mouse-overs, mouse-outs, clicks, taps, data loading, keyboard entries, etc.). Any event that can be captured in the creative can be
-             * recorded as a counter. Leave it empty or unset for creatives containing image assets only.
+             * Counter events for a rich media creative. Counters track the number of times that a user interacts with any part of a rich media creative in a specified way (mouse-overs,
+             * mouse-outs, clicks, taps, data loading, keyboard entries, etc.). Any event that can be captured in the creative can be recorded as a counter. Leave it empty or unset for creatives
+             * containing image assets only.
              */
             counterEvents?: CounterEvent[];
             /** Output only. The timestamp when the creative was created. Assigned by the system. */
@@ -800,155 +746,140 @@ declare namespace gapi.client {
             /** Required. Immutable. The type of the creative. */
             creativeType?: string;
             /**
-             * Required. Primary dimensions of the creative. Applicable to all creative types. The value of width_pixels and height_pixels defaults to `0` when
-             * creative_type is one of: ∗ `CREATIVE_TYPE_VIDEO` ∗ `CREATIVE_TYPE_TEMPLATED_APP_INSTALL_INTERSTITIAL` ∗ `CREATIVE_TYPE_AUDIO` ∗
-             * `CREATIVE_TYPE_NATIVE_VIDEO` ∗ `CREATIVE_TYPE_TEMPLATED_APP_INSTALL_VIDEO`
+             * Required. Primary dimensions of the creative. Applicable to all creative types. The value of width_pixels and height_pixels defaults to `0` when creative_type is one of: *
+             * `CREATIVE_TYPE_VIDEO` * `CREATIVE_TYPE_TEMPLATED_APP_INSTALL_INTERSTITIAL` * `CREATIVE_TYPE_AUDIO` * `CREATIVE_TYPE_NATIVE_VIDEO` * `CREATIVE_TYPE_TEMPLATED_APP_INSTALL_VIDEO`
              */
             dimensions?: Dimensions;
             /** Required. The display name of the creative. Must be UTF-8 encoded with a maximum size of 240 bytes. */
             displayName?: string;
             /** Output only. Indicates whether the creative is dynamic. */
             dynamic?: boolean;
-            /**
-             * Required. Controls whether or not the creative can serve. Accepted values are: ∗ `ENTITY_STATUS_ACTIVE` ∗ `ENTITY_STATUS_ARCHIVED` ∗
-             * `ENTITY_STATUS_PAUSED`
-             */
+            /** Required. Controls whether or not the creative can serve. Accepted values are: * `ENTITY_STATUS_ACTIVE` * `ENTITY_STATUS_ARCHIVED` * `ENTITY_STATUS_PAUSED` */
             entityStatus?: string;
             /**
-             * Required. Exit events for this creative. An exit (also known as a click tag) is any area in your creative that someone can click or tap to open an
-             * advertiser's landing page. Every creative must include at least one exit. You can add an exit to your creative in any of the following ways: ∗ Use
-             * Google Web Designer's tap area. ∗ Define a JavaScript variable called "clickTag". ∗ Use the Enabler (Enabler.exit()) to track exits in rich media
-             * formats.
+             * Required. Exit events for this creative. An exit (also known as a click tag) is any area in your creative that someone can click or tap to open an advertiser's landing page. Every
+             * creative must include at least one exit. You can add an exit to your creative in any of the following ways: * Use Google Web Designer's tap area. * Define a JavaScript variable
+             * called "clickTag". * Use the Enabler (Enabler.exit()) to track exits in rich media formats.
              */
             exitEvents?: ExitEvent[];
             /**
-             * Optional. Specifies the expanding direction of the creative. Required and only valid for third-party expandable creatives. Third-party expandable
-             * creatives are creatives with following hosting source: ∗ `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: ∗
-             * `CREATIVE_TYPE_EXPANDABLE`
+             * Optional. Specifies the expanding direction of the creative. Required and only valid for third-party expandable creatives. Third-party expandable creatives are creatives with
+             * following hosting source: * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: * `CREATIVE_TYPE_EXPANDABLE`
              */
             expandingDirection?: string;
             /**
-             * Optional. Indicates the creative will automatically expand on hover. Optional and only valid for third-party expandable creatives. Third-party
-             * expandable creatives are creatives with following hosting source: ∗ `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: ∗
-             * `CREATIVE_TYPE_EXPANDABLE`
+             * Optional. Indicates the creative will automatically expand on hover. Optional and only valid for third-party expandable creatives. Third-party expandable creatives are creatives
+             * with following hosting source: * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: * `CREATIVE_TYPE_EXPANDABLE`
              */
             expandOnHover?: boolean;
             /** Required. Indicates where the creative is hosted. */
             hostingSource?: string;
             /**
-             * Output only. Indicates the third-party VAST tag creative requires HTML5 Video support. Output only and only valid for third-party VAST tag creatives.
-             * Third-party VAST tag creatives are creatives with following hosting_source: ∗ `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: ∗
-             * `CREATIVE_TYPE_VIDEO`
+             * Output only. Indicates the third-party VAST tag creative requires HTML5 Video support. Output only and only valid for third-party VAST tag creatives. Third-party VAST tag creatives
+             * are creatives with following hosting_source: * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: * `CREATIVE_TYPE_VIDEO`
              */
             html5Video?: boolean;
             /**
-             * Indicates whether Integral Ad Science (IAS) campaign monitoring is enabled. To enable this for the creative, make sure the
-             * Advertiser.creative_config.ias_client_id has been set to your IAS client ID.
+             * Indicates whether Integral Ad Science (IAS) campaign monitoring is enabled. To enable this for the creative, make sure the Advertiser.creative_config.ias_client_id has been set to
+             * your IAS client ID.
              */
             iasCampaignMonitoring?: boolean;
             /** ID information used to link this creative to an external system. Must be UTF-8 encoded with a length of no more than 10,000 characters. */
             integrationCode?: string;
             /**
-             * JavaScript measurement URL from supported third-party verification providers (ComScore, DoubleVerify, IAS, Moat). HTML script tags are not supported.
-             * This field is only supported in following creative_type: ∗ `CREATIVE_TYPE_NATIVE` ∗ `CREATIVE_TYPE_NATIVE_SITE_SQUARE` ∗
-             * `CREATIVE_TYPE_NATIVE_APP_INSTALL` ∗ `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` ∗ `CREATIVE_TYPE_NATIVE_VIDEO`
+             * JavaScript measurement URL from supported third-party verification providers (ComScore, DoubleVerify, IAS, Moat). HTML script tags are not supported. This field is only supported in
+             * following creative_type: * `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` * `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` *
+             * `CREATIVE_TYPE_NATIVE_VIDEO`
              */
             jsTrackerUrl?: string;
             /** Output only. The IDs of the line items this creative is associated with. To associate a creative to a line item, use LineItem.creative_ids instead. */
             lineItemIds?: string[];
             /**
-             * Output only. Media duration of the creative. Applicable when creative_type is one of: ∗ `CREATIVE_TYPE_VIDEO` ∗ `CREATIVE_TYPE_AUDIO` ∗
-             * `CREATIVE_TYPE_NATIVE_VIDEO` ∗ `CREATIVE_TYPE_PUBLISHER_HOSTED`
+             * Output only. Media duration of the creative. Applicable when creative_type is one of: * `CREATIVE_TYPE_VIDEO` * `CREATIVE_TYPE_AUDIO` * `CREATIVE_TYPE_NATIVE_VIDEO` *
+             * `CREATIVE_TYPE_PUBLISHER_HOSTED`
              */
             mediaDuration?: string;
             /** Output only. The resource name of the creative. */
             name?: string;
             /** User notes for this creative. Must be UTF-8 encoded with a length of no more than 20,000 characters. */
             notes?: string;
-            /** Specifies the OBA icon for a video creative. This field is only supported in following creative_type: ∗ `CREATIVE_TYPE_VIDEO` */
+            /** Specifies the OBA icon for a video creative. This field is only supported in following creative_type: * `CREATIVE_TYPE_VIDEO` */
             obaIcon?: ObaIcon;
             /**
-             * Amount of time to play the video before counting a view. This field is required when skippable is true. This field is only supported for the following
-             * creative_type: ∗ `CREATIVE_TYPE_VIDEO`
+             * Amount of time to play the video before counting a view. This field is required when skippable is true. This field is only supported for the following creative_type: *
+             * `CREATIVE_TYPE_VIDEO`
              */
             progressOffset?: AudioVideoOffset;
             /**
-             * Optional. Indicates that the creative relies on HTML5 to render properly. Optional and only valid for third-party tag creatives. Third-party tag
-             * creatives are creatives with following hosting_source: ∗ `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: ∗ `CREATIVE_TYPE_STANDARD`
-             * ∗ `CREATIVE_TYPE_EXPANDABLE`
+             * Optional. Indicates that the creative relies on HTML5 to render properly. Optional and only valid for third-party tag creatives. Third-party tag creatives are creatives with
+             * following hosting_source: * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: * `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_EXPANDABLE`
              */
             requireHtml5?: boolean;
             /**
-             * Optional. Indicates that the creative requires MRAID (Mobile Rich Media Ad Interface Definitions system). Set this if the creative relies on mobile
-             * gestures for interactivity, such as swiping or tapping. Optional and only valid for third-party tag creatives. Third-party tag creatives are creatives
-             * with following hosting_source: ∗ `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: ∗ `CREATIVE_TYPE_STANDARD` ∗
-             * `CREATIVE_TYPE_EXPANDABLE`
+             * Optional. Indicates that the creative requires MRAID (Mobile Rich Media Ad Interface Definitions system). Set this if the creative relies on mobile gestures for interactivity, such
+             * as swiping or tapping. Optional and only valid for third-party tag creatives. Third-party tag creatives are creatives with following hosting_source: * `HOSTING_SOURCE_THIRD_PARTY`
+             * combined with following creative_type: * `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_EXPANDABLE`
              */
             requireMraid?: boolean;
             /**
-             * Optional. Indicates that the creative will wait for a return ping for attribution. Only valid when using a Campaign Manager tracking ad with a
-             * third-party ad server parameter and the ${DC_DBM_TOKEN} macro. Optional and only valid for third-party tag creatives or third-party VAST tag creatives.
-             * Third-party tag creatives are creatives with following hosting_source: ∗ `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: ∗
-             * `CREATIVE_TYPE_STANDARD` ∗ `CREATIVE_TYPE_EXPANDABLE` Third-party VAST tag creatives are creatives with following hosting_source: ∗
-             * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: ∗ `CREATIVE_TYPE_VIDEO`
+             * Optional. Indicates that the creative will wait for a return ping for attribution. Only valid when using a Campaign Manager tracking ad with a third-party ad server parameter and
+             * the ${DC_DBM_TOKEN} macro. Optional and only valid for third-party tag creatives or third-party VAST tag creatives. Third-party tag creatives are creatives with following
+             * hosting_source: * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: * `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_EXPANDABLE` Third-party VAST tag creatives are
+             * creatives with following hosting_source: * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: * `CREATIVE_TYPE_VIDEO`
              */
             requirePingForAttribution?: boolean;
             /** Output only. The current status of the creative review process. */
             reviewStatus?: ReviewStatusInfo;
             /**
-             * Amount of time to play the video before the skip button appears. This field is required when skippable is true. This field is only supported for the
-             * following creative_type: ∗ `CREATIVE_TYPE_VIDEO`
+             * Amount of time to play the video before the skip button appears. This field is required when skippable is true. This field is only supported for the following creative_type: *
+             * `CREATIVE_TYPE_VIDEO`
              */
             skipOffset?: AudioVideoOffset;
-            /** Whether the user can choose to skip a video creative. This field is only supported for the following creative_type: ∗ `CREATIVE_TYPE_VIDEO` */
+            /** Whether the user can choose to skip a video creative. This field is only supported for the following creative_type: * `CREATIVE_TYPE_VIDEO` */
             skippable?: boolean;
             /**
-             * Optional. The original third-party tag used for the creative. Required and only valid for third-party tag creatives. Third-party tag creatives are
-             * creatives with following hosting_source: ∗ `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: ∗ `CREATIVE_TYPE_STANDARD` ∗
-             * `CREATIVE_TYPE_EXPANDABLE`
+             * Optional. The original third-party tag used for the creative. Required and only valid for third-party tag creatives. Third-party tag creatives are creatives with following
+             * hosting_source: * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: * `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_EXPANDABLE`
              */
             thirdPartyTag?: string;
             /**
-             * Tracking URLs from third parties to track interactions with a video creative. This field is only supported for the following creative_type: ∗
-             * `CREATIVE_TYPE_AUDIO` ∗ `CREATIVE_TYPE_VIDEO` ∗ `CREATIVE_TYPE_NATIVE_VIDEO`
+             * Tracking URLs from third parties to track interactions with a video creative. This field is only supported for the following creative_type: * `CREATIVE_TYPE_AUDIO` *
+             * `CREATIVE_TYPE_VIDEO` * `CREATIVE_TYPE_NATIVE_VIDEO`
              */
             thirdPartyUrls?: ThirdPartyUrl[];
             /**
-             * Timer custom events for a rich media creative. Timers track the time during which a user views and interacts with a specified part of a rich media
-             * creative. A creative can have multiple timer events, each timed independently. Leave it empty or unset for creatives containing image assets only.
+             * Timer custom events for a rich media creative. Timers track the time during which a user views and interacts with a specified part of a rich media creative. A creative can have
+             * multiple timer events, each timed independently. Leave it empty or unset for creatives containing image assets only.
              */
             timerEvents?: TimerEvent[];
             /**
-             * Tracking URLs for analytics providers or third-party ad technology vendors. The URLs must start with https (except on inventory that doesn't require
-             * SSL compliance). If using macros in your URL, use only macros supported by Display & Video 360. Standard URLs only, no IMG or SCRIPT tags. This field
-             * is only supported in following creative_type: ∗ `CREATIVE_TYPE_NATIVE` ∗ `CREATIVE_TYPE_NATIVE_SITE_SQUARE` ∗ `CREATIVE_TYPE_NATIVE_APP_INSTALL` ∗
-             * `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` ∗ `CREATIVE_TYPE_NATIVE_VIDEO`
+             * Tracking URLs for analytics providers or third-party ad technology vendors. The URLs must start with https (except on inventory that doesn't require SSL compliance). If using macros
+             * in your URL, use only macros supported by Display & Video 360. Standard URLs only, no IMG or SCRIPT tags. This field is only supported in following creative_type: *
+             * `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_APP_INSTALL` * `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
              */
             trackerUrls?: string[];
             /**
-             * Output only. Audio/Video transcodes. Display & Video 360 transcodes the main asset into a number of alternative versions that use different file
-             * formats or have different properties (resolution, audio bit rate, and video bit rate), each designed for specific video players or bandwidths. These
-             * transcodes give a publisher's system more options to choose from for each impression on your video and ensures that the appropriate file serves based
-             * on the viewer’s connection and screen size. This field is only supported in following creative_type: ∗ `CREATIVE_TYPE_VIDEO` ∗
-             * `CREATIVE_TYPE_NATIVE_VIDEO` ∗ `CREATIVE_TYPE_AUDIO`
+             * Output only. Audio/Video transcodes. Display & Video 360 transcodes the main asset into a number of alternative versions that use different file formats or have different properties
+             * (resolution, audio bit rate, and video bit rate), each designed for specific video players or bandwidths. These transcodes give a publisher's system more options to choose from for
+             * each impression on your video and ensures that the appropriate file serves based on the viewer’s connection and screen size. This field is only supported in following creative_type:
+             * * `CREATIVE_TYPE_VIDEO` * `CREATIVE_TYPE_NATIVE_VIDEO` * `CREATIVE_TYPE_AUDIO`
              */
             transcodes?: Transcode[];
             /**
-             * Optional. An optional creative identifier provided by a registry that is unique across all platforms. Universal Ad ID is part of the VAST 4.0 standard.
-             * It can be modified after the creative is created. This field is only supported for the following creative_type: ∗ `CREATIVE_TYPE_VIDEO`
+             * Optional. An optional creative identifier provided by a registry that is unique across all platforms. Universal Ad ID is part of the VAST 4.0 standard. It can be modified after the
+             * creative is created. This field is only supported for the following creative_type: * `CREATIVE_TYPE_VIDEO`
              */
             universalAdId?: UniversalAdId;
             /** Output only. The timestamp when the creative was last updated. Assigned by the system. */
             updateTime?: string;
             /**
-             * Optional. The URL of the VAST tag for a third-party VAST tag creative. Required and only valid for third-party VAST tag creatives. Third-party VAST tag
-             * creatives are creatives with following hosting_source: ∗ `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: ∗ `CREATIVE_TYPE_VIDEO`
+             * Optional. The URL of the VAST tag for a third-party VAST tag creative. Required and only valid for third-party VAST tag creatives. Third-party VAST tag creatives are creatives with
+             * following hosting_source: * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: * `CREATIVE_TYPE_VIDEO`
              */
             vastTagUrl?: string;
             /**
-             * Output only. Indicates the third-party VAST tag creative requires VPAID (Digital Video Player-Ad Interface). Output only and only valid for third-party
-             * VAST tag creatives. Third-party VAST tag creatives are creatives with following hosting_source: ∗ `HOSTING_SOURCE_THIRD_PARTY` combined with following
-             * creative_type: ∗ `CREATIVE_TYPE_VIDEO`
+             * Output only. Indicates the third-party VAST tag creative requires VPAID (Digital Video Player-Ad Interface). Output only and only valid for third-party VAST tag creatives.
+             * Third-party VAST tag creatives are creatives with following hosting_source: * `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: * `CREATIVE_TYPE_VIDEO`
              */
             vpaid?: boolean;
         }
@@ -969,10 +900,7 @@ declare namespace gapi.client {
             customBiddingAlgorithmType?: string;
             /** Required. The display name of the custom bidding algorithm. Must be UTF-8 encoded with a maximum size of 240 bytes. */
             displayName?: string;
-            /**
-             * Controls whether or not the custom bidding algorithm can be used as a bidding strategy. Accepted values are: ∗ `ENTITY_STATUS_ACTIVE` ∗
-             * `ENTITY_STATUS_ARCHIVED`
-             */
+            /** Controls whether or not the custom bidding algorithm can be used as a bidding strategy. Accepted values are: * `ENTITY_STATUS_ACTIVE` * `ENTITY_STATUS_ARCHIVED` */
             entityStatus?: string;
             /** Output only. The resource name of the custom bidding algorithm. */
             name?: string;
@@ -996,10 +924,7 @@ declare namespace gapi.client {
             customListId?: string;
         }
         interface Date {
-            /**
-             * Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not
-             * significant.
-             */
+            /** Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not significant. */
             day?: number;
             /** Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day. */
             month?: number;
@@ -1120,10 +1045,7 @@ declare namespace gapi.client {
         interface EnvironmentAssignedTargetingOptionDetails {
             /** Output only. The serving environment. */
             environment?: string;
-            /**
-             * Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_ENVIRONMENT` (e.g., "508010" for targeting the
-             * `ENVIRONMENT_WEB_OPTIMIZED` option).
-             */
+            /** Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_ENVIRONMENT` (e.g., "508010" for targeting the `ENVIRONMENT_WEB_OPTIMIZED` option). */
             targetingOptionId?: string;
         }
         interface EnvironmentTargetingOptionDetails {
@@ -1159,22 +1081,19 @@ declare namespace gapi.client {
             exchange?: string;
         }
         interface ExitEvent {
-            /**
-             * The name of the click tag of the exit event. The name must be unique within one creative. Leave it empty or unset for creatives containing image assets
-             * only.
-             */
+            /** The name of the click tag of the exit event. The name must be unique within one creative. Leave it empty or unset for creatives containing image assets only. */
             name?: string;
             /** The name used to identify this event in reports. Leave it empty or unset for creatives containing image assets only. */
             reportingName?: string;
             /** Required. The type of the exit event. */
             type?: string;
-            /** Required. The click through URL of the exit event. This is required when type is: ∗ `EXIT_EVENT_TYPE_DEFAULT` ∗ `EXIT_EVENT_TYPE_BACKUP` */
+            /** Required. The click through URL of the exit event. This is required when type is: * `EXIT_EVENT_TYPE_DEFAULT` * `EXIT_EVENT_TYPE_BACKUP` */
             url?: string;
         }
         interface FirstAndThirdPartyAudience {
             /**
-             * Output only. The estimated audience size for the Display network in the past month. If the size is less than 1000, the number will be hidden and 0 will
-             * be returned due to privacy reasons. Otherwise, the number will be rounded off to two significant digits. Only returned in GET request.
+             * Output only. The estimated audience size for the Display network in the past month. If the size is less than 1000, the number will be hidden and 0 will be returned due to privacy
+             * reasons. Otherwise, the number will be rounded off to two significant digits. Only returned in GET request.
              */
             activeDisplayAudienceSize?: string;
             /** Output only. The source of the audience. */
@@ -1184,26 +1103,23 @@ declare namespace gapi.client {
             /** The user-provided description of the audience. Only applicable to first party audiences. */
             description?: string;
             /**
-             * Output only. The estimated audience size for the Display network. If the size is less than 1000, the number will be hidden and 0 will be returned due
-             * to privacy reasons. Otherwise, the number will be rounded off to two significant digits. Only returned in GET request.
+             * Output only. The estimated audience size for the Display network. If the size is less than 1000, the number will be hidden and 0 will be returned due to privacy reasons. Otherwise,
+             * the number will be rounded off to two significant digits. Only returned in GET request.
              */
             displayAudienceSize?: string;
             /**
-             * Output only. The estimated desktop audience size in Display network. If the size is less than 1000, the number will be hidden and 0 will be returned
-             * due to privacy reasons. Otherwise, the number will be rounded off to two significant digits. Only applicable to first party audiences. Only returned in
-             * GET request.
+             * Output only. The estimated desktop audience size in Display network. If the size is less than 1000, the number will be hidden and 0 will be returned due to privacy reasons.
+             * Otherwise, the number will be rounded off to two significant digits. Only applicable to first party audiences. Only returned in GET request.
              */
             displayDesktopAudienceSize?: string;
             /**
-             * Output only. The estimated mobile app audience size in Display network. If the size is less than 1000, the number will be hidden and 0 will be returned
-             * due to privacy reasons. Otherwise, the number will be rounded off to two significant digits. Only applicable to first party audiences. Only returned in
-             * GET request.
+             * Output only. The estimated mobile app audience size in Display network. If the size is less than 1000, the number will be hidden and 0 will be returned due to privacy reasons.
+             * Otherwise, the number will be rounded off to two significant digits. Only applicable to first party audiences. Only returned in GET request.
              */
             displayMobileAppAudienceSize?: string;
             /**
-             * Output only. The estimated mobile web audience size in Display network. If the size is less than 1000, the number will be hidden and 0 will be returned
-             * due to privacy reasons. Otherwise, the number will be rounded off to two significant digits. Only applicable to first party audiences. Only returned in
-             * GET request.
+             * Output only. The estimated mobile web audience size in Display network. If the size is less than 1000, the number will be hidden and 0 will be returned due to privacy reasons.
+             * Otherwise, the number will be rounded off to two significant digits. Only applicable to first party audiences. Only returned in GET request.
              */
             displayMobileWebAudienceSize?: string;
             /** The display name of the first and third party audience. */
@@ -1213,9 +1129,8 @@ declare namespace gapi.client {
             /** Output only. Whether the audience is a first or third party audience. */
             firstAndThirdPartyAudienceType?: string;
             /**
-             * Output only. The estimated audience size for Gmail network. If the size is less than 1000, the number will be hidden and 0 will be returned due to
-             * privacy reasons. Otherwise, the number will be rounded off to two significant digits. Only applicable to first party audiences. Only returned in GET
-             * request.
+             * Output only. The estimated audience size for Gmail network. If the size is less than 1000, the number will be hidden and 0 will be returned due to privacy reasons. Otherwise, the
+             * number will be rounded off to two significant digits. Only applicable to first party audiences. Only returned in GET request.
              */
             gmailAudienceSize?: string;
             /** The duration in days that an entry remains in the audience after the qualifying event. Only applicable to first party audiences. */
@@ -1223,33 +1138,29 @@ declare namespace gapi.client {
             /** Output only. The resource name of the first and third party audience. */
             name?: string;
             /**
-             * Output only. The estimated audience size for YouTube network. If the size is less than 1000, the number will be hidden and 0 will be returned due to
-             * privacy reasons. Otherwise, the number will be rounded off to two significant digits. Only applicable to first party audiences. Only returned in GET
-             * request.
+             * Output only. The estimated audience size for YouTube network. If the size is less than 1000, the number will be hidden and 0 will be returned due to privacy reasons. Otherwise, the
+             * number will be rounded off to two significant digits. Only applicable to first party audiences. Only returned in GET request.
              */
             youtubeAudienceSize?: string;
         }
         interface FirstAndThirdPartyAudienceGroup {
-            /**
-             * Required. All first and third party audience targeting settings in first and third party audience group. Repeated settings with same id are not
-             * allowed.
-             */
+            /** Required. All first and third party audience targeting settings in first and third party audience group. Repeated settings with same id are not allowed. */
             settings?: FirstAndThirdPartyAudienceTargetingSetting[];
         }
         interface FirstAndThirdPartyAudienceTargetingSetting {
             /** Required. First and third party audience id of the first and third party audience targeting setting. This id is first_and_third_party_audience_id. */
             firstAndThirdPartyAudienceId?: string;
             /**
-             * The recency of the first and third party audience targeting setting. Only applicable to first party audiences, otherwise will be ignored. For more
-             * info, refer to https://support.google.com/displayvideo/answer/2949947#recency When unspecified, no recency limit will be used.
+             * The recency of the first and third party audience targeting setting. Only applicable to first party audiences, otherwise will be ignored. For more info, refer to
+             * https://support.google.com/displayvideo/answer/2949947#recency When unspecified, no recency limit will be used.
              */
             recency?: string;
         }
         interface FixedBidStrategy {
             /**
-             * The fixed bid amount, in micros of the advertiser's currency. For insertion order entity, bid_amount_micros should be set as 0. For line item entity,
-             * bid_amount_micros must be greater than or equal to billable unit of the given currency and smaller than or equal to the upper limit 1000000000. For
-             * example, 1500000 represents 1.5 standard units of the currency.
+             * The fixed bid amount, in micros of the advertiser's currency. For insertion order entity, bid_amount_micros should be set as 0. For line item entity, bid_amount_micros must be
+             * greater than or equal to billable unit of the given currency and smaller than or equal to the upper limit 1000000000. For example, 1500000 represents 1.5 standard units of the
+             * currency.
              */
             bidAmountMicros?: string;
         }
@@ -1257,23 +1168,19 @@ declare namespace gapi.client {
             /** The Active View video viewability metric configuration for the Floodlight group. */
             activeViewConfig?: ActiveViewVideoViewabilityMetricConfig;
             /**
-             * User-defined custom variables owned by the Floodlight group. Use custom Floodlight variables to create reporting data that is tailored to your unique
-             * business needs. Custom Floodlight variables use the keys `U1=`, `U2=`, and so on, and can take any values that you choose to pass to them. You can use
-             * them to track virtually any type of data that you collect about your customers, such as the genre of movie that a customer purchases, the country to
-             * which the item is shipped, and so on. Custom Floodlight variables may not be used to pass any data that could be used or recognized as personally
-             * identifiable information (PII). Example: `custom_variables { fields { "U1": value { number_value: 123.4 }, "U2": value { string_value: "MyVariable2" },
-             * "U3": value { string_value: "MyVariable3" } } }` Acceptable values for keys are "U1" through "U100", inclusive. String values must be less than 64
-             * characters long, and cannot contain the following characters: `"<>`.
+             * User-defined custom variables owned by the Floodlight group. Use custom Floodlight variables to create reporting data that is tailored to your unique business needs. Custom
+             * Floodlight variables use the keys `U1=`, `U2=`, and so on, and can take any values that you choose to pass to them. You can use them to track virtually any type of data that you
+             * collect about your customers, such as the genre of movie that a customer purchases, the country to which the item is shipped, and so on. Custom Floodlight variables may not be used
+             * to pass any data that could be used or recognized as personally identifiable information (PII). Example: `custom_variables { fields { "U1": value { number_value: 123.4 }, "U2":
+             * value { string_value: "MyVariable2" }, "U3": value { string_value: "MyVariable3" } } }` Acceptable values for keys are "U1" through "U100", inclusive. String values must be less
+             * than 64 characters long, and cannot contain the following characters: `"<>`.
              */
             customVariables?: { [P in string]: any };
             /** Required. The display name of the Floodlight group. */
             displayName?: string;
             /** Output only. The unique ID of the Floodlight group. Assigned by the system. */
             floodlightGroupId?: string;
-            /**
-             * Required. The lookback window for the Floodlight group. Both click_days and impression_days are required. Acceptable values for both are `0` to `90`,
-             * inclusive.
-             */
+            /** Required. The lookback window for the Floodlight group. Both click_days and impression_days are required. Acceptable values for both are `0` to `90`, inclusive. */
             lookbackWindow?: LookbackWindow;
             /** Output only. The resource name of the Floodlight group. */
             name?: string;
@@ -1286,10 +1193,9 @@ declare namespace gapi.client {
             /** The time unit in which the frequency cap will be applied. Applicable when unlimited is `false`. */
             timeUnit?: string;
             /**
-             * The number of time_unit the frequency cap will last. Applicable when unlimited is `false`. The following restrictions apply based on the value of
-             * time_unit: ∗ `TIME_UNIT_LIFETIME` - this field is output only and will default to 1 ∗ `TIME_UNIT_MONTHS` - must be between 1 and 2 ∗ `TIME_UNIT_WEEKS`
-             * - must be between 1 and 4 ∗ `TIME_UNIT_DAYS` - must be between 1 and 6 ∗ `TIME_UNIT_HOURS` - must be between 1 and 23 ∗ `TIME_UNIT_MINUTES` - must be
-             * between 1 and 59
+             * The number of time_unit the frequency cap will last. Applicable when unlimited is `false`. The following restrictions apply based on the value of time_unit: * `TIME_UNIT_LIFETIME` -
+             * this field is output only and will default to 1 * `TIME_UNIT_MONTHS` - must be between 1 and 2 * `TIME_UNIT_WEEKS` - must be between 1 and 4 * `TIME_UNIT_DAYS` - must be between 1
+             * and 6 * `TIME_UNIT_HOURS` - must be between 1 and 23 * `TIME_UNIT_MINUTES` - must be between 1 and 59
              */
             timeUnitCount?: number;
             /** Whether unlimited frequency capping is applied. When this field is set to `true`, the remaining frequency cap fields are not applicable. */
@@ -1381,10 +1287,9 @@ declare namespace gapi.client {
             /** Required. The display name of the insertion order. Must be UTF-8 encoded with a maximum size of 240 bytes. */
             displayName?: string;
             /**
-             * Required. Controls whether or not the insertion order can spend its budget and bid on inventory. ∗ For CreateInsertionOrder method, only
-             * `ENTITY_STATUS_DRAFT` is allowed. To activate an insertion order, use UpdateInsertionOrder method and update the status to `ENTITY_STATUS_ACTIVE` after
-             * creation. ∗ An insertion order cannot be changed back to `ENTITY_STATUS_DRAFT` status from any other status. ∗ An insertion order cannot be set to
-             * `ENTITY_STATUS_ACTIVE` if its parent campaign is not active.
+             * Required. Controls whether or not the insertion order can spend its budget and bid on inventory. * For CreateInsertionOrder method, only `ENTITY_STATUS_DRAFT` is allowed. To
+             * activate an insertion order, use UpdateInsertionOrder method and update the status to `ENTITY_STATUS_ACTIVE` after creation. * An insertion order cannot be changed back to
+             * `ENTITY_STATUS_DRAFT` status from any other status. * An insertion order cannot be set to `ENTITY_STATUS_ACTIVE` if its parent campaign is not active.
              */
             entityStatus?: string;
             /** Required. The frequency capping setting of the insertion order. */
@@ -1398,8 +1303,8 @@ declare namespace gapi.client {
             /** Required. The budget spending speed setting of the insertion order. */
             pacing?: Pacing;
             /**
-             * The partner costs associated with the insertion order. If absent or empty in CreateInsertionOrder method, the newly created insertion order will
-             * inherit partner costs from the partner settings.
+             * The partner costs associated with the insertion order. If absent or empty in CreateInsertionOrder method, the newly created insertion order will inherit partner costs from the
+             * partner settings.
              */
             partnerCosts?: PartnerCost[];
             /** Required. Performance goal of the insertion order. */
@@ -1409,10 +1314,7 @@ declare namespace gapi.client {
         }
         // tslint:disable-next-line:interface-name
         interface InsertionOrderBudget {
-            /**
-             * The type of automation used to manage bid and budget for the insertion order. If this field is unspecified in creation, the value defaults to
-             * `INSERTION_ORDER_AUTOMATION_TYPE_NONE`.
-             */
+            /** The type of automation used to manage bid and budget for the insertion order. If this field is unspecified in creation, the value defaults to `INSERTION_ORDER_AUTOMATION_TYPE_NONE`. */
             automationType?: string;
             /** Required. The list of budget segments. Use a budget segment to specify a specific budget for a given period of time an insertion order is running. */
             budgetSegments?: InsertionOrderBudgetSegment[];
@@ -1422,21 +1324,21 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface InsertionOrderBudgetSegment {
             /**
-             * Required. The budget amount the insertion order will spend for the given date_range. The amount is in micros. Must be greater than 0. For example,
-             * 500000000 represents 500 standard units of the currency.
+             * Required. The budget amount the insertion order will spend for the given date_range. The amount is in micros. Must be greater than 0. For example, 500000000 represents 500 standard
+             * units of the currency.
              */
             budgetAmountMicros?: string;
             /** The ID of the campaign budget linked to this insertion order budget segment. */
             campaignBudgetId?: string;
             /**
-             * Required. The start and end date settings of the budget segment. They are resolved relative to the parent advertiser's time zone. ∗ When creating a new
-             * budget segment, both `start_date` and `end_date` must be in the future. ∗ An existing budget segment with a `start_date` in the past has a mutable
-             * `end_date` but an immutable `start_date`. ∗ `end_date` must be the `start_date` or later, both before the year 2037.
+             * Required. The start and end date settings of the budget segment. They are resolved relative to the parent advertiser's time zone. * When creating a new budget segment, both
+             * `start_date` and `end_date` must be in the future. * An existing budget segment with a `start_date` in the past has a mutable `end_date` but an immutable `start_date`. * `end_date`
+             * must be the `start_date` or later, both before the year 2037.
              */
             dateRange?: DateRange;
             /**
-             * The budget segment description. It can be used to enter Purchase Order information for each budget segment and have that information printed on the
-             * invoices. Must be UTF-8 encoded with a length of no more than 80 characters.
+             * The budget segment description. It can be used to enter Purchase Order information for each budget segment and have that information printed on the invoices. Must be UTF-8 encoded
+             * with a length of no more than 80 characters.
              */
             description?: string;
         }
@@ -1446,23 +1348,23 @@ declare namespace gapi.client {
             displayViewability?: string;
             /** Ad Fraud settings. */
             excludedAdFraudRisk?: string;
-            /** Brand Safety - ∗∗Adult content∗∗. */
+            /** Brand Safety - **Adult content**. */
             excludedAdultRisk?: string;
-            /** Brand Safety - ∗∗Alcohol∗∗. */
+            /** Brand Safety - **Alcohol**. */
             excludedAlcoholRisk?: string;
-            /** Brand Safety - ∗∗Drugs∗∗. */
+            /** Brand Safety - **Drugs**. */
             excludedDrugsRisk?: string;
-            /** Brand Safety - ∗∗Gambling∗∗. */
+            /** Brand Safety - **Gambling**. */
             excludedGamblingRisk?: string;
-            /** Brand Safety - ∗∗Hate speech∗∗. */
+            /** Brand Safety - **Hate speech**. */
             excludedHateSpeechRisk?: string;
-            /** Brand Safety - ∗∗Illegal downloads∗∗. */
+            /** Brand Safety - **Illegal downloads**. */
             excludedIllegalDownloadsRisk?: string;
-            /** Brand Safety - ∗∗Offensive language∗∗. */
+            /** Brand Safety - **Offensive language**. */
             excludedOffensiveLanguageRisk?: string;
-            /** Brand Safety - ∗∗Violence∗∗. */
+            /** Brand Safety - **Violence**. */
             excludedViolenceRisk?: string;
-            /** Brand Safety - ∗∗Unrateable∗∗. */
+            /** Brand Safety - **Unrateable**. */
             excludeUnrateable?: boolean;
             /** True advertising quality (applicable to Display line items only). */
             traqScoreOption?: string;
@@ -1474,8 +1376,8 @@ declare namespace gapi.client {
             /** Additional details of the entry in string format. Must be UTF-8 encoded with a length of no more than 1000 characters. */
             details?: string;
             /**
-             * An external identifier to be associated with the entry. The integration code will show up together with the entry in many places in the system, for
-             * example, reporting. Must be UTF-8 encoded with a length of no more than 500 characters.
+             * An external identifier to be associated with the entry. The integration code will show up together with the entry in many places in the system, for example, reporting. Must be UTF-8
+             * encoded with a length of no more than 500 characters.
              */
             integrationCode?: string;
         }
@@ -1485,15 +1387,11 @@ declare namespace gapi.client {
             commitment?: string;
             /** The creative requirements of the inventory source. Not applicable for auction packages. */
             creativeConfigs?: CreativeConfig[];
-            /**
-             * The ID in the exchange space that uniquely identifies the inventory source. Must be unique across buyers within each exchange but not necessarily
-             * unique across exchanges.
-             */
+            /** The ID in the exchange space that uniquely identifies the inventory source. Must be unique across buyers within each exchange but not necessarily unique across exchanges. */
             dealId?: string;
             /**
-             * The delivery method of the inventory source. ∗ For non-guaranteed inventory sources, the only acceptable value is
-             * `INVENTORY_SOURCE_DELIVERY_METHOD_PROGRAMMATIC`. ∗ For guaranteed inventory sources, acceptable values are `INVENTORY_SOURCE_DELIVERY_METHOD_TAG` and
-             * `INVENTORY_SOURCE_DELIVERY_METHOD_PROGRAMMATIC`.
+             * The delivery method of the inventory source. * For non-guaranteed inventory sources, the only acceptable value is `INVENTORY_SOURCE_DELIVERY_METHOD_PROGRAMMATIC`. * For guaranteed
+             * inventory sources, acceptable values are `INVENTORY_SOURCE_DELIVERY_METHOD_TAG` and `INVENTORY_SOURCE_DELIVERY_METHOD_PROGRAMMATIC`.
              */
             deliveryMethod?: string;
             /** The display name of the inventory source. Must be UTF-8 encoded with a maximum size of 240 bytes. */
@@ -1530,8 +1428,8 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface InventorySourceFilter {
             /**
-             * Inventory Sources to download by ID. All IDs must belong to the same Advertiser or Partner specified in CreateSdfDownloadTaskRequest. Leave empty to
-             * download all Inventory Sources for the selected Advertiser or Partner.
+             * Inventory Sources to download by ID. All IDs must belong to the same Advertiser or Partner specified in CreateSdfDownloadTaskRequest. Leave empty to download all Inventory Sources
+             * for the selected Advertiser or Partner.
              */
             inventorySourceIds?: string[];
         }
@@ -1552,29 +1450,26 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface InventorySourceStatus {
             /**
-             * Output only. The configuration status of the inventory source. Only applicable for guaranteed inventory sources. Acceptable values are
-             * `INVENTORY_SOURCE_CONFIG_STATUS_PENDING` and `INVENTORY_SOURCE_CONFIG_STATUS_COMPLETED`. An inventory source must be configured (fill in the required
-             * fields, choose creatives, and select a default campaign) before it can serve.
+             * Output only. The configuration status of the inventory source. Only applicable for guaranteed inventory sources. Acceptable values are `INVENTORY_SOURCE_CONFIG_STATUS_PENDING` and
+             * `INVENTORY_SOURCE_CONFIG_STATUS_COMPLETED`. An inventory source must be configured (fill in the required fields, choose creatives, and select a default campaign) before it can
+             * serve.
              */
             configStatus?: string;
-            /**
-             * The user-provided reason for pausing this inventory source. Must not exceed 100 characters. Only applicable when entity_status is set to
-             * `ENTITY_STATUS_PAUSED`.
-             */
+            /** The user-provided reason for pausing this inventory source. Must not exceed 100 characters. Only applicable when entity_status is set to `ENTITY_STATUS_PAUSED`. */
             entityPauseReason?: string;
             /**
-             * Whether or not the inventory source is servable. Acceptable values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_ARCHIVED`, and `ENTITY_STATUS_PAUSED`.
-             * Default value is `ENTITY_STATUS_ACTIVE`.
+             * Whether or not the inventory source is servable. Acceptable values are `ENTITY_STATUS_ACTIVE`, `ENTITY_STATUS_ARCHIVED`, and `ENTITY_STATUS_PAUSED`. Default value is
+             * `ENTITY_STATUS_ACTIVE`.
              */
             entityStatus?: string;
             /**
-             * Output only. The seller-provided reason for pausing this inventory source. Only applicable for inventory sources synced directly from the publishers
-             * and when seller_status is set to `ENTITY_STATUS_PAUSED`.
+             * Output only. The seller-provided reason for pausing this inventory source. Only applicable for inventory sources synced directly from the publishers and when seller_status is set to
+             * `ENTITY_STATUS_PAUSED`.
              */
             sellerPauseReason?: string;
             /**
-             * Output only. The status set by the seller for the inventory source. Only applicable for inventory sources synced directly from the publishers.
-             * Acceptable values are `ENTITY_STATUS_ACTIVE` and `ENTITY_STATUS_PAUSED`.
+             * Output only. The status set by the seller for the inventory source. Only applicable for inventory sources synced directly from the publishers. Acceptable values are
+             * `ENTITY_STATUS_ACTIVE` and `ENTITY_STATUS_PAUSED`.
              */
             sellerStatus?: string;
         }
@@ -1585,8 +1480,8 @@ declare namespace gapi.client {
         }
         interface KeywordAssignedTargetingOptionDetails {
             /**
-             * Required. The keyword, for example `car insurance`. Positive keyword cannot be offensive word. Must be UTF-8 encoded with a maximum size of 255 bytes.
-             * Maximum number of characters is 80. Maximum number of words is 10.
+             * Required. The keyword, for example `car insurance`. Positive keyword cannot be offensive word. Must be UTF-8 encoded with a maximum size of 255 bytes. Maximum number of characters
+             * is 80. Maximum number of words is 10.
              */
             keyword?: string;
             /** Indicates if this option is being negatively targeted. */
@@ -1595,10 +1490,7 @@ declare namespace gapi.client {
         interface LanguageAssignedTargetingOptionDetails {
             /** Output only. The display name of the language (e.g., "French"). */
             displayName?: string;
-            /**
-             * Indicates if this option is being negatively targeted. All assigned language targeting options on the same line item must have the same value for this
-             * field.
-             */
+            /** Indicates if this option is being negatively targeted. All assigned language targeting options on the same line item must have the same value for this field. */
             negative?: boolean;
             /** Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_LANGUAGE`. */
             targetingOptionId?: string;
@@ -1623,10 +1515,9 @@ declare namespace gapi.client {
             /** Required. The display name of the line item. Must be UTF-8 encoded with a maximum size of 240 bytes. */
             displayName?: string;
             /**
-             * Required. Controls whether or not the line item can spend its budget and bid on inventory. ∗ For CreateLineItem method, only `ENTITY_STATUS_DRAFT` is
-             * allowed. To activate a line item, use UpdateLineItem method and update the status to `ENTITY_STATUS_ACTIVE` after creation. ∗ A line item cannot be
-             * changed back to `ENTITY_STATUS_DRAFT` status from any other status. ∗ If the line item's parent insertion order is not active, the line item can't
-             * spend its budget even if its own status is `ENTITY_STATUS_ACTIVE`.
+             * Required. Controls whether or not the line item can spend its budget and bid on inventory. * For CreateLineItem method, only `ENTITY_STATUS_DRAFT` is allowed. To activate a line
+             * item, use UpdateLineItem method and update the status to `ENTITY_STATUS_ACTIVE` after creation. * A line item cannot be changed back to `ENTITY_STATUS_DRAFT` status from any other
+             * status. * If the line item's parent insertion order is not active, the line item can't spend its budget even if its own status is `ENTITY_STATUS_ACTIVE`.
              */
             entityStatus?: string;
             /** Required. The start and end time of the line item's flight. */
@@ -1647,10 +1538,7 @@ declare namespace gapi.client {
             name?: string;
             /** Required. The budget spending speed setting of the line item. */
             pacing?: Pacing;
-            /**
-             * The partner costs associated with the line item. If absent or empty in CreateLineItem method, the newly created line item will inherit partner costs
-             * from its parent insertion order.
-             */
+            /** The partner costs associated with the line item. If absent or empty in CreateLineItem method, the newly created line item will inherit partner costs from its parent insertion order. */
             partnerCosts?: PartnerCost[];
             /** Required. The partner revenue model setting of the line item. */
             partnerRevenueModel?: PartnerRevenueModel;
@@ -1659,30 +1547,25 @@ declare namespace gapi.client {
         }
         interface LineItemBudget {
             /**
-             * Required. The type of the budget allocation. `LINE_ITEM_BUDGET_ALLOCATION_TYPE_AUTOMATIC` is only applicable when automatic budget allocation is
-             * enabled for the parent insertion order.
-             */
-            budgetAllocationType?: string;
-            /**
-             * Output only. The budget unit specifies whether the budget is currency based or impression based. This value is inherited from the parent insertion
+             * Required. The type of the budget allocation. `LINE_ITEM_BUDGET_ALLOCATION_TYPE_AUTOMATIC` is only applicable when automatic budget allocation is enabled for the parent insertion
              * order.
              */
+            budgetAllocationType?: string;
+            /** Output only. The budget unit specifies whether the budget is currency based or impression based. This value is inherited from the parent insertion order. */
             budgetUnit?: string;
             /**
-             * The maximum budget amount the line item will spend. Must be greater than 0. When budget_allocation_type is: ∗
-             * `LINE_ITEM_BUDGET_ALLOCATION_TYPE_AUTOMATIC`, this field is immutable and is set by the system. ∗ `LINE_ITEM_BUDGET_ALLOCATION_TYPE_FIXED`, if
-             * budget_unit is: - `BUDGET_UNIT_CURRENCY`, this field represents maximum budget amount to spend, in micros of the advertiser's currency. For example,
-             * 1500000 represents 1.5 standard units of the currency. - `BUDGET_UNIT_IMPRESSIONS`, this field represents the maximum number of impressions to serve. ∗
-             * `LINE_ITEM_BUDGET_ALLOCATION_TYPE_UNLIMITED`, this field is not applicable and will be ignored by the system.
+             * The maximum budget amount the line item will spend. Must be greater than 0. When budget_allocation_type is: * `LINE_ITEM_BUDGET_ALLOCATION_TYPE_AUTOMATIC`, this field is immutable
+             * and is set by the system. * `LINE_ITEM_BUDGET_ALLOCATION_TYPE_FIXED`, if budget_unit is: - `BUDGET_UNIT_CURRENCY`, this field represents maximum budget amount to spend, in micros of
+             * the advertiser's currency. For example, 1500000 represents 1.5 standard units of the currency. - `BUDGET_UNIT_IMPRESSIONS`, this field represents the maximum number of impressions
+             * to serve. * `LINE_ITEM_BUDGET_ALLOCATION_TYPE_UNLIMITED`, this field is not applicable and will be ignored by the system.
              */
             maxAmount?: string;
         }
         interface LineItemFlight {
             /**
-             * The flight start and end dates of the line item. They are resolved relative to the parent advertiser's time zone. ∗ Required when flight_date_type is
-             * `LINE_ITEM_FLIGHT_DATE_TYPE_CUSTOM`. Output only otherwise. ∗ When creating a new flight, both `start_date` and `end_date` must be in the future. ∗ An
-             * existing flight with a `start_date` in the past has a mutable `end_date` but an immutable `start_date`. ∗ `end_date` must be the `start_date` or later,
-             * both before the year 2037.
+             * The flight start and end dates of the line item. They are resolved relative to the parent advertiser's time zone. * Required when flight_date_type is
+             * `LINE_ITEM_FLIGHT_DATE_TYPE_CUSTOM`. Output only otherwise. * When creating a new flight, both `start_date` and `end_date` must be in the future. * An existing flight with a
+             * `start_date` in the past has a mutable `end_date` but an immutable `start_date`. * `end_date` must be the `start_date` or later, both before the year 2037.
              */
             dateRange?: DateRange;
             /** Required. The type of the line item's flight dates. */
@@ -1692,72 +1575,56 @@ declare namespace gapi.client {
             /** The list of assigned targeting options. This list will be absent if empty. */
             assignedTargetingOptions?: AssignedTargetingOption[];
             /**
-             * A token identifying the next page of results. This value should be specified as the pageToken in a subsequent
-             * ListAdvertiserAssignedTargetingOptionsRequest to fetch the next page of results. This token will be absent if there are no more
-             * assigned_targeting_options to return.
+             * A token identifying the next page of results. This value should be specified as the pageToken in a subsequent ListAdvertiserAssignedTargetingOptionsRequest to fetch the next page of
+             * results. This token will be absent if there are no more assigned_targeting_options to return.
              */
             nextPageToken?: string;
         }
         interface ListAdvertisersResponse {
             /** The list of advertisers. This list will be absent if empty. */
             advertisers?: Advertiser[];
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListAdvertisers` method to retrieve
-             * the next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListAdvertisers` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListAssignedInventorySourcesResponse {
             /** The list of assigned inventory sources. This list will be absent if empty. */
             assignedInventorySources?: AssignedInventorySource[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListAssignedInventorySources` method
-             * to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListAssignedInventorySources` method to retrieve the next page of
+             * results.
              */
             nextPageToken?: string;
         }
         interface ListAssignedLocationsResponse {
             /** The list of assigned locations. This list will be absent if empty. */
             assignedLocations?: AssignedLocation[];
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListAssignedLocations` method to
-             * retrieve the next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListAssignedLocations` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListCampaignsResponse {
             /** The list of campaigns. This list will be absent if empty. */
             campaigns?: Campaign[];
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListCampaigns` method to retrieve the
-             * next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListCampaigns` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListChannelsResponse {
             /** The list of channels. This list will be absent if empty. */
             channels?: Channel[];
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListChannels` method to retrieve the
-             * next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListChannels` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListCombinedAudiencesResponse {
             /** The list of combined audiences. This list will be absent if empty. */
             combinedAudiences?: CombinedAudience[];
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListCombinedAudiences` method to
-             * retrieve the next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListCombinedAudiences` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListCreativesResponse {
             /** The list of creatives. This list will be absent if empty. */
             creatives?: Creative[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListCreativesRequest` method to
-             * retrieve the next page of results. If this field is null, it means this is the last page.
+             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListCreativesRequest` method to retrieve the next page of results.
+             * If this field is null, it means this is the last page.
              */
             nextPageToken?: string;
         }
@@ -1765,152 +1632,120 @@ declare namespace gapi.client {
             /** The list of custom bidding algorithms. This list will be absent if empty. */
             customBiddingAlgorithms?: CustomBiddingAlgorithm[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListCustomBiddingAlgorithmsRequest`
-             * method to retrieve the next page of results. If this field is null, it means this is the last page.
+             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListCustomBiddingAlgorithmsRequest` method to retrieve the next page
+             * of results. If this field is null, it means this is the last page.
              */
             nextPageToken?: string;
         }
         interface ListCustomListsResponse {
             /** The list of custom lists. This list will be absent if empty. */
             customLists?: CustomList[];
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListCustomLists` method to retrieve
-             * the next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListCustomLists` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListFirstAndThirdPartyAudiencesResponse {
             /** The list of first and third party audiences. Audience size properties will not be included. This list will be absent if empty. */
             firstAndThirdPartyAudiences?: FirstAndThirdPartyAudience[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListFirstAndThirdPartyAudiences`
-             * method to retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListFirstAndThirdPartyAudiences` method to retrieve the next page of
+             * results.
              */
             nextPageToken?: string;
         }
         interface ListGoogleAudiencesResponse {
             /** The list of Google audiences. This list will be absent if empty. */
             googleAudiences?: GoogleAudience[];
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListGoogleAudiences` method to
-             * retrieve the next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListGoogleAudiences` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListInsertionOrdersResponse {
             /** The list of insertion orders. This list will be absent if empty. */
             insertionOrders?: InsertionOrder[];
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListInsertionOrders` method to
-             * retrieve the next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListInsertionOrders` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListInventorySourceGroupsResponse {
             /** The list of inventory source groups. This list will be absent if empty. */
             inventorySourceGroups?: InventorySourceGroup[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListInventorySourceGroups` method to
-             * retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListInventorySourceGroups` method to retrieve the next page of
+             * results.
              */
             nextPageToken?: string;
         }
         interface ListInventorySourcesResponse {
             /** The list of inventory sources. This list will be absent if empty. */
             inventorySources?: InventorySource[];
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListInventorySources` method to
-             * retrieve the next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListInventorySources` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListLineItemAssignedTargetingOptionsResponse {
             /** The list of assigned targeting options. This list will be absent if empty. */
             assignedTargetingOptions?: AssignedTargetingOption[];
             /**
-             * A token identifying the next page of results. This value should be specified as the pageToken in a subsequent
-             * ListLineItemAssignedTargetingOptionsRequest to fetch the next page of results. This token will be absent if there are no more
-             * assigned_targeting_options to return.
+             * A token identifying the next page of results. This value should be specified as the pageToken in a subsequent ListLineItemAssignedTargetingOptionsRequest to fetch the next page of
+             * results. This token will be absent if there are no more assigned_targeting_options to return.
              */
             nextPageToken?: string;
         }
         interface ListLineItemsResponse {
             /** The list of line items. This list will be absent if empty. */
             lineItems?: LineItem[];
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListLineItems` method to retrieve the
-             * next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListLineItems` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListLocationListsResponse {
             /** The list of location lists. This list will be absent if empty. */
             locationLists?: LocationList[];
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListLocationLists` method to retrieve
-             * the next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListLocationLists` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListNegativeKeywordListsResponse {
             /** The list of negative keyword lists. This list will be absent if empty. */
             negativeKeywordLists?: NegativeKeywordList[];
             /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListNegativeKeywordLists` method to
-             * retrieve the next page of results.
+             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListNegativeKeywordLists` method to retrieve the next page of
+             * results.
              */
             nextPageToken?: string;
         }
         interface ListNegativeKeywordsResponse {
             /** The list of negative keywords. This list will be absent if empty. */
             negativeKeywords?: NegativeKeyword[];
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListNegativeKeywords` method to
-             * retrieve the next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListNegativeKeywords` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface ListPartnerAssignedTargetingOptionsResponse {
             /** The list of assigned targeting options. This list will be absent if empty. */
             assignedTargetingOptions?: AssignedTargetingOption[];
             /**
-             * A token identifying the next page of results. This value should be specified as the pageToken in a subsequent
-             * ListPartnerAssignedTargetingOptionsRequest to fetch the next page of results. This token will be absent if there are no more assigned_targeting_options
-             * to return.
+             * A token identifying the next page of results. This value should be specified as the pageToken in a subsequent ListPartnerAssignedTargetingOptionsRequest to fetch the next page of
+             * results. This token will be absent if there are no more assigned_targeting_options to return.
              */
             nextPageToken?: string;
         }
         interface ListPartnersResponse {
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListPartners` method to retrieve the
-             * next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListPartners` method to retrieve the next page of results. */
             nextPageToken?: string;
             /** The list of partners. This list will be absent if empty. */
             partners?: Partner[];
         }
         interface ListSitesResponse {
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListSites` method to retrieve the next
-             * page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListSites` method to retrieve the next page of results. */
             nextPageToken?: string;
             /** The list of sites. This list will be absent if empty. */
             sites?: Site[];
         }
         interface ListTargetingOptionsResponse {
-            /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListTargetingOptions` method to
-             * retrieve the next page of results.
-             */
+            /** A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListTargetingOptions` method to retrieve the next page of results. */
             nextPageToken?: string;
             /** The list of targeting options. This list will be absent if empty. */
             targetingOptions?: TargetingOption[];
         }
         interface ListUsersResponse {
             /**
-             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListUsers` method to retrieve the next
-             * page of results. This token will be absent if there are no more results to return.
+             * A token to retrieve the next page of results. Pass this value in the page_token field in the subsequent call to `ListUsers` method to retrieve the next page of results. This token
+             * will be absent if there are no more results to return.
              */
             nextPageToken?: string;
             /** The list of users. This list will be absent if empty. */
@@ -1935,19 +1770,16 @@ declare namespace gapi.client {
             impressionDays?: number;
         }
         interface MaximizeSpendBidStrategy {
-            /**
-             * The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to
-             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`.
-             */
+            /** The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. */
             customBiddingAlgorithmId?: string;
             /**
-             * The maximum average CPM that may be bid, in micros of the advertiser's currency. Must be greater than or equal to a billable unit of the given
-             * currency. For example, 1500000 represents 1.5 standard units of the currency.
+             * The maximum average CPM that may be bid, in micros of the advertiser's currency. Must be greater than or equal to a billable unit of the given currency. For example, 1500000
+             * represents 1.5 standard units of the currency.
              */
             maxAverageCpmBidAmountMicros?: string;
             /**
-             * Required. The type of the performance goal that the bidding strategy tries to minimize while spending the full budget.
-             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM` is not supported for this strategy.
+             * Required. The type of the performance goal that the bidding strategy tries to minimize while spending the full budget. `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM` is not
+             * supported for this strategy.
              */
             performanceGoalType?: string;
         }
@@ -1961,9 +1793,9 @@ declare namespace gapi.client {
             /** The 3-letter currency code defined in ISO 4217. */
             currencyCode?: string;
             /**
-             * Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be
-             * positive or zero. If `units` is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example
-             * $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+             * Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be positive or zero. If `units`
+             * is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example $-1.75 is represented as `units`=-1 and
+             * `nanos`=-750,000,000.
              */
             nanos?: number;
             /** The whole units of the amount. For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar. */
@@ -1971,9 +1803,9 @@ declare namespace gapi.client {
         }
         interface NegativeKeyword {
             /**
-             * Required. Immutable. The negatively targeted keyword, for example `car insurance`. Must be UTF-8 encoded with a maximum size of 255 bytes. Maximum
-             * number of characters is 80. Maximum number of words is 10. Valid characters are restricted to ASCII characters only. The only URL-escaping permitted is
-             * for representing whitespace between words. Leading or trailing whitespace is ignored.
+             * Required. Immutable. The negatively targeted keyword, for example `car insurance`. Must be UTF-8 encoded with a maximum size of 255 bytes. Maximum number of characters is 80.
+             * Maximum number of words is 10. Valid characters are restricted to ASCII characters only. The only URL-escaping permitted is for representing whitespace between words. Leading or
+             * trailing whitespace is ignored.
              */
             keywordValue?: string;
             /** Output only. The resource name of the negative keyword. */
@@ -1994,11 +1826,11 @@ declare namespace gapi.client {
             negativeKeywordListId?: string;
         }
         interface ObaIcon {
-            /** Required. The click tracking URL of the OBA icon. Only URLs of the following domains are allowed: ∗ https://info.evidon.com ∗ https://l.betrad.com */
+            /** Required. The click tracking URL of the OBA icon. Only URLs of the following domains are allowed: * https://info.evidon.com * https://l.betrad.com */
             clickTrackingUrl?: string;
             /** The dimensions of the OBA icon. */
             dimensions?: Dimensions;
-            /** Required. The landing page URL of the OBA icon. Only URLs of the following domains are allowed: ∗ https://info.evidon.com ∗ https://l.betrad.com */
+            /** Required. The landing page URL of the OBA icon. Only URLs of the following domains are allowed: * https://info.evidon.com * https://l.betrad.com */
             landingPageUrl?: string;
             /** The position of the OBA icon on the creative. */
             position?: string;
@@ -2008,7 +1840,7 @@ declare namespace gapi.client {
             resourceMimeType?: string;
             /** The URL of the OBA icon resource. */
             resourceUrl?: string;
-            /** Required. The view tracking URL of the OBA icon. Only URLs of the following domains are allowed: ∗ https://info.evidon.com ∗ https://l.betrad.com */
+            /** Required. The view tracking URL of the OBA icon. Only URLs of the following domains are allowed: * https://info.evidon.com * https://l.betrad.com */
             viewTrackingUrl?: string;
         }
         interface OnScreenPositionAssignedTargetingOptionDetails {
@@ -2034,28 +1866,24 @@ declare namespace gapi.client {
             displayName?: string;
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -2063,16 +1891,16 @@ declare namespace gapi.client {
             /** Maximum number of impressions to serve every day. Applicable when the budget is impression based. Must be greater than 0. */
             dailyMaxImpressions?: string;
             /**
-             * Maximum currency amount to spend every day in micros of advertiser's currency. Applicable when the budget is currency based. Must be greater than 0.
-             * For example, for 1.5 standard unit of the currency, set this field to 1500000. The value assigned will be rounded to whole billable units for the
-             * relevant currency by the following rules: any positive value less than a single billable unit will be rounded up to one billable unit and any value
-             * larger than a single billable unit will be rounded down to the nearest billable value. For example, if the currency's billable unit is 0.01, and this
-             * field is set to 10257770, it will round down to 10250000, a value of 10.25. If set to 505, it will round up to 10000, a value of 0.01.
+             * Maximum currency amount to spend every day in micros of advertiser's currency. Applicable when the budget is currency based. Must be greater than 0. For example, for 1.5 standard
+             * unit of the currency, set this field to 1500000. The value assigned will be rounded to whole billable units for the relevant currency by the following rules: any positive value less
+             * than a single billable unit will be rounded up to one billable unit and any value larger than a single billable unit will be rounded down to the nearest billable value. For example,
+             * if the currency's billable unit is 0.01, and this field is set to 10257770, it will round down to 10250000, a value of 10.25. If set to 505, it will round up to 10000, a value of
+             * 0.01.
              */
             dailyMaxMicros?: string;
             /**
-             * Required. The time period in which the pacing budget will be spent. When automatic budget allocation is enabled at the insertion order via
-             * auto_budget_allocation, this field is output only and defaults to `PACING_PERIOD_FLIGHT`.
+             * Required. The time period in which the pacing budget will be spent. When automatic budget allocation is enabled at the insertion order via auto_budget_allocation, this field is
+             * output only and defaults to `PACING_PERIOD_FLIGHT`.
              */
             pacingPeriod?: string;
             /** Required. The type of pacing that defines how the budget amount will be spent across the pacing_period. */
@@ -2091,10 +1919,7 @@ declare namespace gapi.client {
         interface ParentEntityFilter {
             /** Required. File types that will be returned. */
             fileType?: string[];
-            /**
-             * The IDs of the specified filter type. This is used to filter entities to fetch. If filter type is not `FILTER_TYPE_NONE`, at least one ID must be
-             * specified.
-             */
+            /** The IDs of the specified filter type. This is used to filter entities to fetch. If filter type is not `FILTER_TYPE_NONE`, at least one ID must be specified. */
             filterIds?: string[];
             /** Required. Filter type used to filter fetched entities. */
             filterType?: string;
@@ -2127,20 +1952,20 @@ declare namespace gapi.client {
             /** Required. The type of the partner cost. */
             costType?: string;
             /**
-             * The CPM fee amount in micros of advertiser's currency. Applicable when the fee_type is `PARTNER_FEE_TYPE_CPM_FEE`. Must be greater than or equal to 0.
-             * For example, for 1.5 standard unit of the advertiser's currency, set this field to 1500000.
+             * The CPM fee amount in micros of advertiser's currency. Applicable when the fee_type is `PARTNER_FEE_TYPE_CPM_FEE`. Must be greater than or equal to 0. For example, for 1.5 standard
+             * unit of the advertiser's currency, set this field to 1500000.
              */
             feeAmount?: string;
             /**
-             * The media fee percentage in millis (1/1000 of a percent). Applicable when the fee_type is `PARTNER_FEE_TYPE_MEDIA_FEE`. Must be greater than or equal
-             * to 0. For example: 100 represents 0.1%.
+             * The media fee percentage in millis (1/1000 of a percent). Applicable when the fee_type is `PARTNER_FEE_TYPE_MEDIA_FEE`. Must be greater than or equal to 0. For example: 100
+             * represents 0.1%.
              */
             feePercentageMillis?: string;
             /** Required. The fee type for this partner cost. */
             feeType?: string;
             /**
-             * The invoice type for this partner cost. ∗ Required when cost_type is one of: - `PARTNER_COST_TYPE_ADLOOX` - `PARTNER_COST_TYPE_DOUBLE_VERIFY` -
-             * `PARTNER_COST_TYPE_INTEGRAL_AD_SCIENCE`. ∗ Output only for other types.
+             * The invoice type for this partner cost. * Required when cost_type is one of: - `PARTNER_COST_TYPE_ADLOOX` - `PARTNER_COST_TYPE_DOUBLE_VERIFY` -
+             * `PARTNER_COST_TYPE_INTEGRAL_AD_SCIENCE`. * Output only for other types.
              */
             invoiceType?: string;
         }
@@ -2151,19 +1976,15 @@ declare namespace gapi.client {
         interface PartnerGeneralConfig {
             /** Immutable. Partner's currency in ISO 4217 format. */
             currencyCode?: string;
-            /**
-             * Immutable. The standard TZ database name of the partner's time zone. For example, `America/New_York`. See more at:
-             * https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-             */
+            /** Immutable. The standard TZ database name of the partner's time zone. For example, `America/New_York`. See more at: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones */
             timeZone?: string;
         }
         interface PartnerRevenueModel {
             /**
-             * Required. The markup amount of the partner revenue model. Must be greater than or equal to 0. ∗ When the markup_type is set to be
-             * `PARTNER_REVENUE_MODEL_MARKUP_TYPE_CPM`, this field represents the CPM markup in micros of advertiser's currency. For example, 1500000 represents 1.5
-             * standard units of the currency. ∗ When the markup_type is set to be `PARTNER_REVENUE_MODEL_MARKUP_TYPE_MEDIA_COST_MARKUP`, this field represents the
-             * media cost percent markup in millis. For example, 100 represents 0.1% (decimal 0.001). ∗ When the markup_type is set to be
-             * `PARTNER_REVENUE_MODEL_MARKUP_TYPE_TOTAL_MEDIA_COST_MARKUP`, this field represents the total media cost percent markup in millis. For example, 100
+             * Required. The markup amount of the partner revenue model. Must be greater than or equal to 0. * When the markup_type is set to be `PARTNER_REVENUE_MODEL_MARKUP_TYPE_CPM`, this field
+             * represents the CPM markup in micros of advertiser's currency. For example, 1500000 represents 1.5 standard units of the currency. * When the markup_type is set to be
+             * `PARTNER_REVENUE_MODEL_MARKUP_TYPE_MEDIA_COST_MARKUP`, this field represents the media cost percent markup in millis. For example, 100 represents 0.1% (decimal 0.001). * When the
+             * markup_type is set to be `PARTNER_REVENUE_MODEL_MARKUP_TYPE_TOTAL_MEDIA_COST_MARKUP`, this field represents the total media cost percent markup in millis. For example, 100
              * represents 0.1% (decimal 0.001).
              */
             markupAmount?: string;
@@ -2172,66 +1993,56 @@ declare namespace gapi.client {
         }
         interface PerformanceGoal {
             /**
-             * The goal amount, in micros of the advertiser's currency. Applicable when performance_goal_type is one of: ∗ `PERFORMANCE_GOAL_TYPE_CPM` ∗
-             * `PERFORMANCE_GOAL_TYPE_CPC` ∗ `PERFORMANCE_GOAL_TYPE_CPA` ∗ `PERFORMANCE_GOAL_TYPE_CPIAVC` For example 1500000 represents 1.5 standard units of the
-             * currency.
+             * The goal amount, in micros of the advertiser's currency. Applicable when performance_goal_type is one of: * `PERFORMANCE_GOAL_TYPE_CPM` * `PERFORMANCE_GOAL_TYPE_CPC` *
+             * `PERFORMANCE_GOAL_TYPE_CPA` * `PERFORMANCE_GOAL_TYPE_CPIAVC` For example 1500000 represents 1.5 standard units of the currency.
              */
             performanceGoalAmountMicros?: string;
             /**
-             * The decimal representation of the goal percentage in micros. Applicable when performance_goal_type is one of: ∗ `PERFORMANCE_GOAL_TYPE_CTR` ∗
-             * `PERFORMANCE_GOAL_TYPE_VIEWABILITY` For example, 70000 represents 7% (decimal 0.07).
+             * The decimal representation of the goal percentage in micros. Applicable when performance_goal_type is one of: * `PERFORMANCE_GOAL_TYPE_CTR` * `PERFORMANCE_GOAL_TYPE_VIEWABILITY` For
+             * example, 70000 represents 7% (decimal 0.07).
              */
             performanceGoalPercentageMicros?: string;
             /**
-             * A key performance indicator (KPI) string, which can be empty. Must be UTF-8 encoded with a length of no more than 100 characters. Applicable when
-             * performance_goal_type is set to `PERFORMANCE_GOAL_TYPE_OTHER`.
+             * A key performance indicator (KPI) string, which can be empty. Must be UTF-8 encoded with a length of no more than 100 characters. Applicable when performance_goal_type is set to
+             * `PERFORMANCE_GOAL_TYPE_OTHER`.
              */
             performanceGoalString?: string;
             /** Required. The type of the performance goal. */
             performanceGoalType?: string;
         }
         interface PerformanceGoalBidStrategy {
-            /**
-             * The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to
-             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`.
-             */
+            /** The ID of the Custom Bidding Algorithm used by this strategy. Only applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. */
             customBiddingAlgorithmId?: string;
             /**
-             * The maximum average CPM that may be bid, in micros of the advertiser's currency. Must be greater than or equal to a billable unit of the given
-             * currency. Not applicable when performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`. For example, 1500000 represents
-             * 1.5 standard units of the currency.
+             * The maximum average CPM that may be bid, in micros of the advertiser's currency. Must be greater than or equal to a billable unit of the given currency. Not applicable when
+             * performance_goal_type is set to `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`. For example, 1500000 represents 1.5 standard units of the currency.
              */
             maxAverageCpmBidAmountMicros?: string;
             /**
-             * Required. The performance goal the bidding strategy will attempt to meet or beat, in micros of the advertiser's currency or in micro of the ROAS
-             * (Return On Advertising Spend) value which is also based on advertiser's currency. Must be greater than or equal to a billable unit of the given
-             * currency and smaller or equal to upper bounds. Each performance_goal_type has its upper bound: ∗ when performance_goal_type is
-             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA`, upper bound is 10000.00 USD. ∗ when performance_goal_type is
-             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC`, upper bound is 1000.00 USD. ∗ when performance_goal_type is
-             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`, upper bound is 1000.00 USD. ∗ when performance_goal_type is
-             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`, upper bound is 1000.00 and lower bound is 0.01. Example: If set to
-             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`, the bid price will be based on the probability that each available impression will be viewable.
-             * For example, if viewable CPM target is $2 and an impression is 40% likely to be viewable, the bid price will be $0.80 CPM (40% of $2). For example,
-             * 1500000 represents 1.5 standard units of the currency or ROAS value.
+             * Required. The performance goal the bidding strategy will attempt to meet or beat, in micros of the advertiser's currency or in micro of the ROAS (Return On Advertising Spend) value
+             * which is also based on advertiser's currency. Must be greater than or equal to a billable unit of the given currency and smaller or equal to upper bounds. Each performance_goal_type
+             * has its upper bound: * when performance_goal_type is `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA`, upper bound is 10000.00 USD. * when performance_goal_type is
+             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC`, upper bound is 1000.00 USD. * when performance_goal_type is `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`, upper bound is
+             * 1000.00 USD. * when performance_goal_type is `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`, upper bound is 1000.00 and lower bound is 0.01. Example: If set to
+             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`, the bid price will be based on the probability that each available impression will be viewable. For example, if viewable CPM
+             * target is $2 and an impression is 40% likely to be viewable, the bid price will be $0.80 CPM (40% of $2). For example, 1500000 represents 1.5 standard units of the currency or ROAS
+             * value.
              */
             performanceGoalAmountMicros?: string;
             /**
-             * Required. The type of the performance goal that the bidding strategy will try to meet or beat. For line item level usage, the value must be one of: ∗
-             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA` ∗ `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC` ∗ `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM` ∗
+             * Required. The type of the performance goal that the bidding strategy will try to meet or beat. For line item level usage, the value must be one of: *
+             * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA` * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC` * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM` *
              * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`.
              */
             performanceGoalType?: string;
         }
         interface ProximityLocationListAssignedTargetingOptionDetails {
-            /**
-             * Required. ID of the proximity location list. Should refer to the location_list_id field of a LocationList resource whose type is
-             * `TARGETING_LOCATION_TYPE_PROXIMITY`.
-             */
+            /** Required. ID of the proximity location list. Should refer to the location_list_id field of a LocationList resource whose type is `TARGETING_LOCATION_TYPE_PROXIMITY`. */
             proximityLocationListId?: string;
             /**
-             * Required. Radius range for proximity location list. This represents the size of the area around a chosen location that will be targeted. `All`
-             * proximity location targeting under a single line item must have the same radius range value. Set this value to match any existing targeting. If
-             * updated, this field will change the radius range for all proximity targeting under the line item.
+             * Required. Radius range for proximity location list. This represents the size of the area around a chosen location that will be targeted. `All` proximity location targeting under a
+             * single line item must have the same radius range value. Set this value to match any existing targeting. If updated, this field will change the radius range for all proximity
+             * targeting under the line item.
              */
             proximityRadiusRange?: string;
         }
@@ -2242,10 +2053,7 @@ declare namespace gapi.client {
             status?: string;
         }
         interface RateDetails {
-            /**
-             * The rate type. Acceptable values are `INVENTORY_SOURCE_RATE_TYPE_CPM_FIXED`, `INVENTORY_SOURCE_RATE_TYPE_CPM_FLOOR`, and
-             * `INVENTORY_SOURCE_RATE_TYPE_CPD`.
-             */
+            /** The rate type. Acceptable values are `INVENTORY_SOURCE_RATE_TYPE_CPM_FIXED`, `INVENTORY_SOURCE_RATE_TYPE_CPM_FLOOR`, and `INVENTORY_SOURCE_RATE_TYPE_CPD`. */
             inventorySourceRateType?: string;
             /** Output only. The amount that the buyer has committed to spending on the inventory source up front. Only applicable for guaranteed inventory sources. */
             minimumSpend?: Money;
@@ -2257,17 +2065,11 @@ declare namespace gapi.client {
         interface RegionalLocationListAssignedTargetingOptionDetails {
             /** Indicates if this option is being negatively targeted. */
             negative?: boolean;
-            /**
-             * Required. ID of the regional location list. Should refer to the location_list_id field of a LocationList resource whose type is
-             * `TARGETING_LOCATION_TYPE_REGIONAL`.
-             */
+            /** Required. ID of the regional location list. Should refer to the location_list_id field of a LocationList resource whose type is `TARGETING_LOCATION_TYPE_REGIONAL`. */
             regionalLocationListId?: string;
         }
         interface ReviewStatusInfo {
-            /**
-             * Represents the basic approval needed for a creative to begin serving. Summary of creative_and_landing_page_review_status and
-             * content_and_policy_review_status.
-             */
+            /** Represents the basic approval needed for a creative to begin serving. Summary of creative_and_landing_page_review_status and content_and_policy_review_status. */
             approvalStatus?: string;
             /** Content and policy review status for the creative. */
             contentAndPolicyReviewStatus?: string;
@@ -2286,8 +2088,8 @@ declare namespace gapi.client {
         }
         interface SdfDownloadTask {
             /**
-             * A resource name to be used in media.download to Download the prepared files. Resource names have the format
-             * `download/sdfdownloadtasks/media/{media_id}`. `media_id` will be made available by the long running operation service once the task status is done.
+             * A resource name to be used in media.download to Download the prepared files. Resource names have the format `download/sdfdownloadtasks/media/{media_id}`. `media_id` will be made
+             * available by the long running operation service once the task status is done.
              */
             resourceName?: string;
         }
@@ -2321,8 +2123,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -2399,10 +2201,7 @@ declare namespace gapi.client {
         interface ThirdPartyUrl {
             /** The type of interaction needs to be tracked by the tracking URL */
             type?: string;
-            /**
-             * Tracking URL used to track the interaction. Provide a URL with optional path or query string, beginning with `https:`. For example,
-             * https://www.example.com/path
-             */
+            /** Tracking URL used to track the interaction. Provide a URL with optional path or query string, beginning with `https:`. For example, https://www.example.com/path */
             url?: string;
         }
         interface ThirdPartyVerifierAssignedTargetingOptionDetails {
@@ -2463,8 +2262,8 @@ declare namespace gapi.client {
             /** Indicates if this option is being negatively targeted. */
             negative?: boolean;
             /**
-             * Required. The URL, for example `example.com`. DV360 supports two levels of subdirectory targeting, for example
-             * `www.example.com/one-subdirectory-level/second-level`, and five levels of subdomain targeting, for example `five.four.three.two.one.example.com`.
+             * Required. The URL, for example `example.com`. DV360 supports two levels of subdirectory targeting, for example `www.example.com/one-subdirectory-level/second-level`, and five levels
+             * of subdomain targeting, for example `five.four.three.two.one.example.com`.
              */
             url?: string;
         }
@@ -2501,10 +2300,7 @@ declare namespace gapi.client {
             videoPlayerSize?: string;
         }
         interface ViewabilityAssignedTargetingOptionDetails {
-            /**
-             * Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_VIEWABILITY` (e.g., "509010" for targeting the
-             * `VIEWABILITY_10_PERCENT_OR_MORE` option).
-             */
+            /** Required. The targeting_option_id of a TargetingOption of type `TARGETING_TYPE_VIEWABILITY` (e.g., "509010" for targeting the `VIEWABILITY_10_PERCENT_OR_MORE` option). */
             targetingOptionId?: string;
             /** Output only. The predicted viewability percentage. */
             viewability?: string;
@@ -2514,10 +2310,7 @@ declare namespace gapi.client {
             viewability?: string;
         }
         interface AssetsResource {
-            /**
-             * Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP
-             * files, and 1 GB for videos.
-             */
+            /** Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP files, and 1 GB for videos. */
             upload(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2632,8 +2425,8 @@ declare namespace gapi.client {
             },
             body: Campaign): Request<Campaign>;
             /**
-             * Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to
-             * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
+             * Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to
+             * delete it.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -2693,8 +2486,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Campaign>;
             /**
-             * Lists campaigns in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, campaigns with
-             * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+             * Lists campaigns in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, campaigns with `ENTITY_STATUS_ARCHIVED` will not be
+             * included in the results.
              */
             list(request?: {
                 /** V1 error format. */
@@ -2710,11 +2503,10 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by campaign properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions can be combined
-                 * by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. ∗ A restriction has the form of `{field} {operator} {value}`. ∗
-                 * The operator must be `EQUALS (=)`. ∗ Supported fields: - `entityStatus` Examples: ∗ All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` campaigns
-                 * under an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR entityStatus="ENTITY_STATUS_PAUSED")` The length of this field should be no more than 500
-                 * characters.
+                 * Allows filtering by campaign properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical
+                 * operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. * Supported
+                 * fields: - `entityStatus` Examples: * All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` campaigns under an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
+                 * entityStatus="ENTITY_STATUS_PAUSED")` The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2722,15 +2514,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `displayName` (default) ∗ `entityStatus` The default sorting order is ascending. To specify
-                 * descending order for a field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `displayName` (default) * `entityStatus` The default sorting order is ascending. To specify descending order for a
+                 * field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
                  */
                 orderBy?: string;
                 /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListCampaigns` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListCampaigns` method. If not
+                 * specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -2809,8 +2601,8 @@ declare namespace gapi.client {
         }
         interface SitesResource {
             /**
-             * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
-             * provided in BulkEditSitesRequest.created_sites.
+             * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites provided in
+             * BulkEditSitesRequest.created_sites.
              */
             bulkEdit(request: {
                 /** V1 error format. */
@@ -2985,9 +2777,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by site fields. Supported syntax: ∗ Filter expressions for site currently can only contain at most one ∗ restriction. ∗ A restriction
-                 * has the form of `{field} {operator} {value}`. ∗ The operator must be `CONTAINS (:)`. ∗ Supported fields: - `urlOrAppId` Examples: ∗ All sites for which
-                 * the URL or app ID contains "google": `urlOrAppId : "google"`
+                 * Allows filtering by site fields. Supported syntax: * Filter expressions for site currently can only contain at most one * restriction. * A restriction has the form of `{field}
+                 * {operator} {value}`. * The operator must be `CONTAINS (:)`. * Supported fields: - `urlOrAppId` Examples: * All sites for which the URL or app ID contains "google": `urlOrAppId :
+                 * "google"`
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2995,18 +2787,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `urlOrAppId` (default) The default sorting order is ascending. To specify descending order
-                 * for a field, a suffix " desc" should be added to the field name. Example: `urlOrAppId desc`.
+                 * Field by which to sort the list. Acceptable values are: * `urlOrAppId` (default) The default sorting order is ascending. To specify descending order for a field, a suffix "
+                 * desc" should be added to the field name. Example: `urlOrAppId desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListSites` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListSites` method. If not
+                 * specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** The ID of the partner that owns the parent channel. */
@@ -3128,9 +2917,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by channel fields. Supported syntax: ∗ Filter expressions for channel currently can only contain at most one ∗ restriction. ∗ A
-                 * restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `CONTAINS (:)`. ∗ Supported fields: - `displayName` Examples: ∗ All
-                 * channels for which the display name contains "google": `displayName : "google"`. The length of this field should be no more than 500 characters.
+                 * Allows filtering by channel fields. Supported syntax: * Filter expressions for channel currently can only contain at most one * restriction. * A restriction has the form of
+                 * `{field} {operator} {value}`. * The operator must be `CONTAINS (:)`. * Supported fields: - `displayName` Examples: * All channels for which the display name contains "google":
+                 * `displayName : "google"`. The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3138,18 +2927,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `displayName` (default) ∗ `channelId` The default sorting order is ascending. To specify
-                 * descending order for a field, a suffix " desc" should be added to the field name. Example: `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `displayName` (default) * `channelId` The default sorting order is ascending. To specify descending order for a field,
+                 * a suffix " desc" should be added to the field name. Example: `displayName desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListChannels` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListChannels` method. If not
+                 * specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** The ID of the partner that owns the channels. */
@@ -3291,8 +3077,8 @@ declare namespace gapi.client {
             },
             body: Creative): Request<Creative>;
             /**
-             * Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to
-             * `ENTITY_STATUS_ARCHIVED`, before it can be deleted.
+             * Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, before
+             * it can be deleted.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -3352,8 +3138,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Creative>;
             /**
-             * Lists creatives in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, creatives with
-             * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+             * Lists creatives in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, creatives with `ENTITY_STATUS_ARCHIVED` will not be
+             * included in the results.
              */
             list(request?: {
                 /** V1 error format. */
@@ -3369,21 +3155,19 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by creative properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restriction for the same
-                 * field must be combined by `OR`. ∗ Restriction for different fields must be combined by `AND`. ∗ Between `(` and `)` there can only be restrictions
-                 * combined by `OR` for the same field. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `EQUALS (=)` for the
-                 * following fields: - `entityStatus` - `creativeType`. - `dimensions` - `minDuration` - `maxDuration` - `approvalStatus` - `exchangeReviewStatus` -
-                 * `dynamic` - `creativeId` ∗ The operator must be `HAS (:)` for the following fields: - `lineItemIds` ∗ For `entityStatus`, `minDuration`, `maxDuration`,
-                 * and `dynamic` there may be at most one restriction. ∗ For `dimensions`, the value is in the form of `"{width}x{height}"`. ∗ For `exchangeReviewStatus`,
-                 * the value is in the form of `{exchange}-{reviewStatus}`. ∗ For `minDuration` and `maxDuration`, the value is in the form of `"{duration}s"`. Only
-                 * seconds are supported with millisecond granularity. ∗ There may be multiple `lineItemIds` restrictions in order to search against multiple possible
-                 * line item IDs. ∗ There may be multiple `creativeId` restrictions in order to search against multiple possible creative IDs. Examples: ∗ All native
-                 * creatives: `creativeType="CREATIVE_TYPE_NATIVE"` ∗ All active creatives with 300x400 or 50x100 dimensions: `entityStatus="ENTITY_STATUS_ACTIVE" AND
-                 * (dimensions="300x400" OR dimensions="50x100")` ∗ All dynamic creatives that are approved by AdX or AppNexus, with a minimum duration of 5 seconds and
-                 * 200ms. `dynamic="true" AND minDuration="5.2s" AND (exchangeReviewStatus="EXCHANGE_GOOGLE_AD_MANAGER-REVIEW_STATUS_APPROVED" OR
-                 * exchangeReviewStatus="EXCHANGE_APPNEXUS-REVIEW_STATUS_APPROVED")` ∗ All video creatives that are associated with line item ID 1 or 2:
-                 * `creativeType="CREATIVE_TYPE_VIDEO" AND (lineItemIds:1 OR lineItemIds:2)` ∗ Find creatives by multiple creative IDs: `creativeId=1 OR creativeId=2` The
-                 * length of this field should be no more than 500 characters.
+                 * Allows filtering by creative properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restriction for the same field must be combined by
+                 * `OR`. * Restriction for different fields must be combined by `AND`. * Between `(` and `)` there can only be restrictions combined by `OR` for the same field. * A restriction has
+                 * the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)` for the following fields: - `entityStatus` - `creativeType`. - `dimensions` - `minDuration` -
+                 * `maxDuration` - `approvalStatus` - `exchangeReviewStatus` - `dynamic` - `creativeId` * The operator must be `HAS (:)` for the following fields: - `lineItemIds` * For
+                 * `entityStatus`, `minDuration`, `maxDuration`, and `dynamic` there may be at most one restriction. * For `dimensions`, the value is in the form of `"{width}x{height}"`. * For
+                 * `exchangeReviewStatus`, the value is in the form of `{exchange}-{reviewStatus}`. * For `minDuration` and `maxDuration`, the value is in the form of `"{duration}s"`. Only seconds
+                 * are supported with millisecond granularity. * There may be multiple `lineItemIds` restrictions in order to search against multiple possible line item IDs. * There may be
+                 * multiple `creativeId` restrictions in order to search against multiple possible creative IDs. Examples: * All native creatives: `creativeType="CREATIVE_TYPE_NATIVE"` * All
+                 * active creatives with 300x400 or 50x100 dimensions: `entityStatus="ENTITY_STATUS_ACTIVE" AND (dimensions="300x400" OR dimensions="50x100")` * All dynamic creatives that are
+                 * approved by AdX or AppNexus, with a minimum duration of 5 seconds and 200ms. `dynamic="true" AND minDuration="5.2s" AND
+                 * (exchangeReviewStatus="EXCHANGE_GOOGLE_AD_MANAGER-REVIEW_STATUS_APPROVED" OR exchangeReviewStatus="EXCHANGE_APPNEXUS-REVIEW_STATUS_APPROVED")` * All video creatives that are
+                 * associated with line item ID 1 or 2: `creativeType="CREATIVE_TYPE_VIDEO" AND (lineItemIds:1 OR lineItemIds:2)` * Find creatives by multiple creative IDs: `creativeId=1 OR
+                 * creativeId=2` The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3391,19 +3175,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `creativeId` (default) ∗ `createTime` ∗ `mediaDuration` ∗ `dimensions` (sorts by width first,
-                 * then by height) The default sorting order is ascending. To specify descending order for a field, a suffix "desc" should be added to the field name.
-                 * Example: `createTime desc`.
+                 * Field by which to sort the list. Acceptable values are: * `creativeId` (default) * `createTime` * `mediaDuration` * `dimensions` (sorts by width first, then by height) The
+                 * default sorting order is ascending. To specify descending order for a field, a suffix "desc" should be added to the field name. Example: `createTime desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListCreatives` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListCreatives` method. If not
+                 * specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3539,8 +3319,8 @@ declare namespace gapi.client {
             },
             body: InsertionOrder): Request<InsertionOrder>;
             /**
-             * Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e.
-             * set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
+             * Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e. set entity_status to
+             * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -3600,8 +3380,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<InsertionOrder>;
             /**
-             * Lists insertion orders in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, insertion
-             * orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+             * Lists insertion orders in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, insertion orders with
+             * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
              */
             list(request?: {
                 /** V1 error format. */
@@ -3617,11 +3397,11 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by insertion order properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions can be
-                 * combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. ∗ A restriction has the form of `{field} {operator}
-                 * {value}`. ∗ The operator must be `EQUALS (=)`. ∗ Supported fields: - `campaignId` - `entityStatus` Examples: ∗ All insertion orders under a campaign:
-                 * `campaignId="1234"` ∗ All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` insertion orders under an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE"
-                 * OR entityStatus="ENTITY_STATUS_PAUSED")` The length of this field should be no more than 500 characters.
+                 * Allows filtering by insertion order properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR`
+                 * logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
+                 * Supported fields: - `campaignId` - `entityStatus` Examples: * All insertion orders under a campaign: `campaignId="1234"` * All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED`
+                 * insertion orders under an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR entityStatus="ENTITY_STATUS_PAUSED")` The length of this field should be no more than 500
+                 * characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3629,18 +3409,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ "displayName" (default) ∗ "entityStatus" The default sorting order is ascending. To specify
-                 * descending order for a field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * "displayName" (default) * "entityStatus" The default sorting order is ascending. To specify descending order for a
+                 * field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListInsertionOrders` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListInsertionOrders` method.
+                 * If not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -3863,11 +3640,10 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by assigned targeting option properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗
-                 * Restrictions can be combined by the logical operator `OR`. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `EQUALS
-                 * (=)`. ∗ Supported fields: - `assignedTargetingOptionId` - `inheritance` Examples: ∗ AssignedTargetingOptions with ID 1 or 2
-                 * `assignedTargetingOptionId="1" OR assignedTargetingOptionId="2"` ∗ AssignedTargetingOptions with inheritance status of NOT_INHERITED or
-                 * INHERITED_FROM_PARTNER `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The length of this field should be no more than 500
+                 * Allows filtering by assigned targeting option properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by the
+                 * logical operator `OR`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. * Supported fields: - `assignedTargetingOptionId` -
+                 * `inheritance` Examples: * AssignedTargetingOptions with ID 1 or 2 `assignedTargetingOptionId="1" OR assignedTargetingOptionId="2"` * AssignedTargetingOptions with inheritance
+                 * status of NOT_INHERITED or INHERITED_FROM_PARTNER `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The length of this field should be no more than 500
                  * characters.
                  */
                 filter?: string;
@@ -3878,14 +3654,11 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `assignedTargetingOptionId` (default) The default sorting order is ascending. To specify
-                 * descending order for a field, a suffix "desc" should be added to the field name. Example: `assignedTargetingOptionId desc`.
+                 * Field by which to sort the list. Acceptable values are: * `assignedTargetingOptionId` (default) The default sorting order is ascending. To specify descending order for a field,
+                 * a suffix "desc" should be added to the field name. Example: `assignedTargetingOptionId desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
                  * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
@@ -3987,12 +3760,11 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by assigned targeting option properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗
-                 * Restrictions can be combined by the logical operator `OR` on the same field. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The
-                 * operator must be `EQUALS (=)`. ∗ Supported fields: - `targetingType` - `inheritance` Examples: ∗ AssignedTargetingOptions of targeting type
-                 * TARGETING_TYPE_PROXIMITY_LOCATION_LIST or TARGETING_TYPE_CHANNEL `targetingType="TARGETING_TYPE_PROXIMITY_LOCATION_LIST" OR
-                 * targetingType="TARGETING_TYPE_CHANNEL"` ∗ AssignedTargetingOptions with inheritance status of NOT_INHERITED or INHERITED_FROM_PARTNER
-                 * `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The length of this field should be no more than 500 characters.
+                 * Allows filtering by assigned targeting option properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by the
+                 * logical operator `OR` on the same field. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. * Supported fields: - `targetingType`
+                 * - `inheritance` Examples: * AssignedTargetingOptions of targeting type TARGETING_TYPE_PROXIMITY_LOCATION_LIST or TARGETING_TYPE_CHANNEL
+                 * `targetingType="TARGETING_TYPE_PROXIMITY_LOCATION_LIST" OR targetingType="TARGETING_TYPE_CHANNEL"` * AssignedTargetingOptions with inheritance status of NOT_INHERITED or
+                 * INHERITED_FROM_PARTNER `inheritance="NOT_INHERITED" OR inheritance="INHERITED_FROM_PARTNER"` The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -4002,13 +3774,13 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `targetingType` (default) The default sorting order is ascending. To specify descending order
-                 * for a field, a suffix "desc" should be added to the field name. Example: `targetingType desc`.
+                 * Field by which to sort the list. Acceptable values are: * `targetingType` (default) The default sorting order is ascending. To specify descending order for a field, a suffix
+                 * "desc" should be added to the field name. Example: `targetingType desc`.
                  */
                 orderBy?: string;
                 /**
-                 * Requested page size. The size must be an integer between `1` and `5000`. If unspecified, the default is '5000'. Returns error code `INVALID_ARGUMENT`
-                 * if an invalid value is specified.
+                 * Requested page size. The size must be an integer between `1` and `5000`. If unspecified, the default is '5000'. Returns error code `INVALID_ARGUMENT` if an invalid value is
+                 * specified.
                  */
                 pageSize?: number;
                 /**
@@ -4082,8 +3854,8 @@ declare namespace gapi.client {
             },
             body: LineItem): Request<LineItem>;
             /**
-             * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to
-             * `ENTITY_STATUS_ARCHIVED`, to be able to delete it.
+             * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to
+             * be able to delete it.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -4143,8 +3915,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<LineItem>;
             /**
-             * Lists line items in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, line items with
-             * `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+             * Lists line items in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, line items with `ENTITY_STATUS_ARCHIVED` will not
+             * be included in the results.
              */
             list(request?: {
                 /** V1 error format. */
@@ -4160,14 +3932,13 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by line item properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions can be
-                 * combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. ∗ A restriction has the form of `{field} {operator}
-                 * {value}`. ∗ The operator used on `flight.dateRange.endDate` must be LESS THAN (<). ∗ The operators used on all other fields must be `EQUALS (=)`. ∗
-                 * Supported fields: - `campaignId` - `insertionOrderId` - `entityStatus` - `lineItemType` - `flight.dateRange.endDate` (input formatted as YYYY-MM-DD)
-                 * Examples: ∗ All line items under an insertion order: `insertionOrderId="1234"` ∗ All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` and
-                 * `LINE_ITEM_TYPE_DISPLAY_DEFAULT` line items under an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR entityStatus="ENTITY_STATUS_PAUSED") AND
-                 * lineItemType="LINE_ITEM_TYPE_DISPLAY_DEFAULT"` ∗ All line items whose flight dates end before March 28, 2019: `flight.dateRange.endDate<"2019-03-28"`
-                 * The length of this field should be no more than 500 characters.
+                 * Allows filtering by line item properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical
+                 * operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The operator used on `flight.dateRange.endDate` must
+                 * be LESS THAN (<). * The operators used on all other fields must be `EQUALS (=)`. * Supported fields: - `campaignId` - `insertionOrderId` - `entityStatus` - `lineItemType` -
+                 * `flight.dateRange.endDate` (input formatted as YYYY-MM-DD) Examples: * All line items under an insertion order: `insertionOrderId="1234"` * All `ENTITY_STATUS_ACTIVE` or
+                 * `ENTITY_STATUS_PAUSED` and `LINE_ITEM_TYPE_DISPLAY_DEFAULT` line items under an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR entityStatus="ENTITY_STATUS_PAUSED") AND
+                 * lineItemType="LINE_ITEM_TYPE_DISPLAY_DEFAULT"` * All line items whose flight dates end before March 28, 2019: `flight.dateRange.endDate<"2019-03-28"` The length of this field
+                 * should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -4175,18 +3946,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ "displayName" (default) ∗ "entityStatus" ∗ “flight.dateRange.endDate” The default sorting
-                 * order is ascending. To specify descending order for a field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * "displayName" (default) * "entityStatus" * “flight.dateRange.endDate” The default sorting order is ascending. To
+                 * specify descending order for a field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListLineItems` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListLineItems` method. If not
+                 * specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -4267,8 +4035,7 @@ declare namespace gapi.client {
         interface AssignedLocationsResource {
             /**
              * Bulk edits multiple assignments between locations and a single location list. The operation will delete the assigned locations provided in
-             * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in
-             * BulkEditAssignedLocationsRequest.created_assigned_locations.
+             * BulkEditAssignedLocationsRequest.deleted_assigned_locations and then create the assigned locations provided in BulkEditAssignedLocationsRequest.created_assigned_locations.
              */
             bulkEdit(request: {
                 /** V1 error format. */
@@ -4435,9 +4202,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by location list assignment fields. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions can
-                 * be combined by the logical operator `OR`. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `EQUALS (=)`. ∗
-                 * Supported fields: - `assignedLocationId` The length of this field should be no more than 500 characters.
+                 * Allows filtering by location list assignment fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by the
+                 * logical operator `OR`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. * Supported fields: - `assignedLocationId` The length
+                 * of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -4447,18 +4214,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `assignedLocationId` (default) The default sorting order is ascending. To specify descending
-                 * order for a field, a suffix " desc" should be added to the field name. Example: `assignedLocationId desc`.
+                 * Field by which to sort the list. Acceptable values are: * `assignedLocationId` (default) The default sorting order is ascending. To specify descending order for a field, a
+                 * suffix " desc" should be added to the field name. Example: `assignedLocationId desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListAssignedLocations` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListAssignedLocations`
+                 * method. If not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -4572,10 +4336,10 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by location list fields. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions can be
-                 * combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. ∗ A restriction has the form of `{field} {operator}
-                 * {value}`. ∗ The operator must be `EQUALS (=)`. ∗ Supported fields: - `locationType` Examples: ∗ All regional location list:
-                 * `locationType="TARGETING_LOCATION_TYPE_REGIONAL"` ∗ All proximity location list: `locationType="TARGETING_LOCATION_TYPE_PROXIMITY"`
+                 * Allows filtering by location list fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical
+                 * operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. * Supported
+                 * fields: - `locationType` Examples: * All regional location list: `locationType="TARGETING_LOCATION_TYPE_REGIONAL"` * All proximity location list:
+                 * `locationType="TARGETING_LOCATION_TYPE_PROXIMITY"`
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -4583,18 +4347,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `locationListId` (default) ∗ `displayName` The default sorting order is ascending. To specify
-                 * descending order for a field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `locationListId` (default) * `displayName` The default sorting order is ascending. To specify descending order for a
+                 * field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. Defaults to `100` if not set. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. Defaults to `100` if not set. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListLocationLists` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListLocationLists` method. If
+                 * not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -4674,10 +4435,9 @@ declare namespace gapi.client {
         }
         interface NegativeKeywordsResource {
             /**
-             * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in
-             * BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in
-             * BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or
-             * partial failure.
+             * Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in BulkEditNegativeKeywordsRequest.deleted_negative_keywords
+             * and then create the negative keywords provided in BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a
+             * partial success or partial failure.
              */
             bulkEdit(request: {
                 /** V1 error format. */
@@ -4844,9 +4604,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by negative keyword fields. Supported syntax: ∗ Filter expressions for negative keyword currently can only contain at most one ∗
-                 * restriction. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `CONTAINS (:)`. ∗ Supported fields: - `keywordValue`
-                 * Examples: ∗ All negative keywords for which the keyword value contains "google": `keywordValue : "google"`
+                 * Allows filtering by negative keyword fields. Supported syntax: * Filter expressions for negative keyword currently can only contain at most one * restriction. * A restriction
+                 * has the form of `{field} {operator} {value}`. * The operator must be `CONTAINS (:)`. * Supported fields: - `keywordValue` Examples: * All negative keywords for which the keyword
+                 * value contains "google": `keywordValue : "google"`
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -4856,18 +4616,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `keywordValue` (default) The default sorting order is ascending. To specify descending order
-                 * for a field, a suffix " desc" should be added to the field name. Example: `keywordValue desc`.
+                 * Field by which to sort the list. Acceptable values are: * `keywordValue` (default) The default sorting order is ascending. To specify descending order for a field, a suffix "
+                 * desc" should be added to the field name. Example: `keywordValue desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListNegativeKeywords` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListNegativeKeywords` method.
+                 * If not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -5013,14 +4770,11 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. Defaults to `100` if not set. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. Defaults to `100` if not set. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListNegativeKeywordLists` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListNegativeKeywordLists`
+                 * method. If not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -5236,10 +4990,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by assigned targeting option properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗
-                 * Restrictions can be combined by the logical operator `OR`. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `EQUALS
-                 * (=)`. ∗ Supported fields: - `assignedTargetingOptionId` Examples: ∗ AssignedTargetingOption with ID 123456 `assignedTargetingOptionId="123456"` The
-                 * length of this field should be no more than 500 characters.
+                 * Allows filtering by assigned targeting option properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by the
+                 * logical operator `OR`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. * Supported fields: - `assignedTargetingOptionId`
+                 * Examples: * AssignedTargetingOption with ID 123456 `assignedTargetingOptionId="123456"` The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -5247,14 +5000,11 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `assignedTargetingOptionId` (default) The default sorting order is ascending. To specify
-                 * descending order for a field, a suffix "desc" should be added to the field name. Example: `assignedTargetingOptionId desc`.
+                 * Field by which to sort the list. Acceptable values are: * `assignedTargetingOptionId` (default) The default sorting order is ascending. To specify descending order for a field,
+                 * a suffix "desc" should be added to the field name. Example: `assignedTargetingOptionId desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
                  * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
@@ -5278,8 +5028,8 @@ declare namespace gapi.client {
         }
         interface AdvertisersResource {
             /**
-             * Audits an advertiser. Returns the counts of used entities per resource type under the advertiser provided. Used entities count towards their respective
-             * resource limit. See https://support.google.com/displayvideo/answer/6071450.
+             * Audits an advertiser. Returns the counts of used entities per resource type under the advertiser provided. Used entities count towards their respective resource limit. See
+             * https://support.google.com/displayvideo/answer/6071450.
              */
             audit(request?: {
                 /** V1 error format. */
@@ -5303,8 +5053,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. The specific fields to return. If no mask is specified, all fields in the response proto will be filled. Valid values are: ∗
-                 * usedLineItemsCount ∗ usedInsertionOrdersCount ∗ usedCampaignsCount
+                 * Optional. The specific fields to return. If no mask is specified, all fields in the response proto will be filled. Valid values are: * usedLineItemsCount *
+                 * usedInsertionOrdersCount * usedCampaignsCount
                  */
                 readMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -5387,10 +5137,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by assigned targeting option properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗
-                 * Restrictions can be combined by the logical operator `OR`.. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be
-                 * `EQUALS (=)`. ∗ Supported fields: - `targetingType` Examples: ∗ targetingType with value TARGETING_TYPE_CHANNEL
-                 * `targetingType="TARGETING_TYPE_CHANNEL"` The length of this field should be no more than 500 characters.
+                 * Allows filtering by assigned targeting option properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by the
+                 * logical operator `OR`.. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. * Supported fields: - `targetingType` Examples: *
+                 * targetingType with value TARGETING_TYPE_CHANNEL `targetingType="TARGETING_TYPE_CHANNEL"` The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -5398,13 +5147,13 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `targetingType` (default) The default sorting order is ascending. To specify descending order
-                 * for a field, a suffix "desc" should be added to the field name. Example: `targetingType desc`.
+                 * Field by which to sort the list. Acceptable values are: * `targetingType` (default) The default sorting order is ascending. To specify descending order for a field, a suffix
+                 * "desc" should be added to the field name. Example: `targetingType desc`.
                  */
                 orderBy?: string;
                 /**
-                 * Requested page size. The size must be an integer between `1` and `5000`. If unspecified, the default is '5000'. Returns error code `INVALID_ARGUMENT`
-                 * if an invalid value is specified.
+                 * Requested page size. The size must be an integer between `1` and `5000`. If unspecified, the default is '5000'. Returns error code `INVALID_ARGUMENT` if an invalid value is
+                 * specified.
                  */
                 pageSize?: number;
                 /**
@@ -5474,8 +5223,8 @@ declare namespace gapi.client {
             },
             body: Advertiser): Request<Advertiser>;
             /**
-             * Deletes an advertiser. Deleting an advertiser will delete all of its child resources, for example, campaigns, insertion orders and line items. A
-             * deleted advertiser cannot be recovered.
+             * Deletes an advertiser. Deleting an advertiser will delete all of its child resources, for example, campaigns, insertion orders and line items. A deleted advertiser cannot be
+             * recovered.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -5530,10 +5279,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<Advertiser>;
-            /**
-             * Lists advertisers that are accessible to the current user. The order is defined by the order_by parameter. A single partner_id is required.
-             * Cross-partner listing is not supported.
-             */
+            /** Lists advertisers that are accessible to the current user. The order is defined by the order_by parameter. A single partner_id is required. Cross-partner listing is not supported. */
             list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -5546,10 +5292,10 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by advertiser properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions can be
-                 * combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. ∗ A restriction has the form of `{field} {operator}
-                 * {value}`. ∗ The operator must be `EQUALS (=)`. ∗ Supported fields: - `entityStatus` Examples: ∗ All active advertisers under a partner:
-                 * `entityStatus="ENTITY_STATUS_ACTIVE"` The length of this field should be no more than 500 characters.
+                 * Allows filtering by advertiser properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR`
+                 * logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
+                 * Supported fields: - `entityStatus` Examples: * All active advertisers under a partner: `entityStatus="ENTITY_STATUS_ACTIVE"` The length of this field should be no more than 500
+                 * characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -5557,21 +5303,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `displayName` (default) ∗ `entityStatus` The default sorting order is ascending. To specify
-                 * descending order for a field, a suffix "desc" should be added to the field name. For example, `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `displayName` (default) * `entityStatus` The default sorting order is ascending. To specify descending order for a
+                 * field, a suffix "desc" should be added to the field name. For example, `displayName desc`.
                  */
                 orderBy?: string;
                 /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListAdvertisers` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListAdvertisers` method. If
+                 * not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
-                /**
-                 * Required. The ID of the partner that the fetched advertisers should all belong to. The system only supports listing advertisers for one partner at a
-                 * time.
-                 */
+                /** Required. The ID of the partner that the fetched advertisers should all belong to. The system only supports listing advertisers for one partner at a time. */
                 partnerId?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -5699,10 +5442,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by combined audience fields. Supported syntax: ∗ Filter expressions for combined audiences currently can only contain at most one
-                 * restriction. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `CONTAINS (:)`. ∗ Supported fields: - `displayName`
-                 * Examples: ∗ All combined audiences for which the display name contains "Google": `displayName : "Google"`. The length of this field should be no more
-                 * than 500 characters.
+                 * Allows filtering by combined audience fields. Supported syntax: * Filter expressions for combined audiences currently can only contain at most one restriction. * A restriction
+                 * has the form of `{field} {operator} {value}`. * The operator must be `CONTAINS (:)`. * Supported fields: - `displayName` Examples: * All combined audiences for which the display
+                 * name contains "Google": `displayName : "Google"`. The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -5710,18 +5452,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `combinedAudienceId` (default) ∗ `displayName` The default sorting order is ascending. To
-                 * specify descending order for a field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `combinedAudienceId` (default) * `displayName` The default sorting order is ascending. To specify descending order for
+                 * a field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListCombinedAudiences` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListCombinedAudiences`
+                 * method. If not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** The ID of the partner that has access to the fetched combined audiences. */
@@ -5768,10 +5507,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<CustomBiddingAlgorithm>;
-            /**
-             * Lists custom bidding algorithms that are accessible to the current user and can be used in bidding stratgies. The order is defined by the order_by
-             * parameter.
-             */
+            /** Lists custom bidding algorithms that are accessible to the current user and can be used in bidding stratgies. The order is defined by the order_by parameter. */
             list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -5786,14 +5522,13 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by custom bidding algorithm fields. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions can
-                 * be combined by `AND`. A sequence of restrictions ∗ implicitly uses `AND`. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator
-                 * must be `CONTAINS (:)` or `EQUALS (=)`. ∗ The operator must be `CONTAINS (:)` for the following field: - `displayName` ∗ The operator must be `EQUALS
-                 * (=)` for the following field: - `customBiddingAlgorithmType` ∗ For `displayName`, the value is a string. We return all custom bidding algorithms whose
-                 * display_name contains such string. ∗ For `customBiddingAlgorithmType`, the value is a string. We return all algorithms whose
-                 * custom_bidding_algorithm_type is equal to the given type. Examples: ∗ All custom bidding algorithms for which the display name contains "politics":
-                 * `displayName:politics`. ∗ All custom bidding algorithms for which the type is "SCRIPT_BASED": `customBiddingAlgorithmType=SCRIPT_BASED` The length of
-                 * this field should be no more than 500 characters.
+                 * Allows filtering by custom bidding algorithm fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND`. A
+                 * sequence of restrictions * implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `CONTAINS (:)` or `EQUALS (=)`. * The
+                 * operator must be `CONTAINS (:)` for the following field: - `displayName` * The operator must be `EQUALS (=)` for the following field: - `customBiddingAlgorithmType` * For
+                 * `displayName`, the value is a string. We return all custom bidding algorithms whose display_name contains such string. * For `customBiddingAlgorithmType`, the value is a string.
+                 * We return all algorithms whose custom_bidding_algorithm_type is equal to the given type. Examples: * All custom bidding algorithms for which the display name contains
+                 * "politics": `displayName:politics`. * All custom bidding algorithms for which the type is "SCRIPT_BASED": `customBiddingAlgorithmType=SCRIPT_BASED` The length of this field
+                 * should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -5801,18 +5536,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `displayName` (default) The default sorting order is ascending. To specify descending order
-                 * for a field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `displayName` (default) The default sorting order is ascending. To specify descending order for a field, a suffix
+                 * "desc" should be added to the field name. Example: `displayName desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListCustomBiddingAlgorithms` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListCustomBiddingAlgorithms`
+                 * method. If not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** The ID of the DV360 partner that has access to the custom bidding algorithm. */
@@ -5872,9 +5604,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by custom list fields. Supported syntax: ∗ Filter expressions for custom lists currently can only contain at most one restriction. ∗ A
-                 * restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `CONTAINS (:)`. ∗ Supported fields: - `displayName` Examples: ∗ All
-                 * custom lists for which the display name contains "Google": `displayName : "Google"`. The length of this field should be no more than 500 characters.
+                 * Allows filtering by custom list fields. Supported syntax: * Filter expressions for custom lists currently can only contain at most one restriction. * A restriction has the form
+                 * of `{field} {operator} {value}`. * The operator must be `CONTAINS (:)`. * Supported fields: - `displayName` Examples: * All custom lists for which the display name contains
+                 * "Google": `displayName : "Google"`. The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -5882,18 +5614,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `customListId` (default) ∗ `displayName` The default sorting order is ascending. To specify
-                 * descending order for a field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `customListId` (default) * `displayName` The default sorting order is ascending. To specify descending order for a
+                 * field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListCustomLists` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListCustomLists` method. If
+                 * not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -5953,10 +5682,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by first and third party audience fields. Supported syntax: ∗ Filter expressions for first and third party audiences currently can
-                 * only contain at most one restriction. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `CONTAINS (:)`. ∗ Supported
-                 * fields: - `displayName` Examples: ∗ All first and third party audiences for which the display name contains "Google": `displayName : "Google"`. The
-                 * length of this field should be no more than 500 characters.
+                 * Allows filtering by first and third party audience fields. Supported syntax: * Filter expressions for first and third party audiences currently can only contain at most one
+                 * restriction. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `CONTAINS (:)`. * Supported fields: - `displayName` Examples: * All first and
+                 * third party audiences for which the display name contains "Google": `displayName : "Google"`. The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -5964,14 +5692,11 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `firstAndThirdPartyAudienceId` (default) ∗ `displayName` The default sorting order is
-                 * ascending. To specify descending order for a field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `firstAndThirdPartyAudienceId` (default) * `displayName` The default sorting order is ascending. To specify descending
+                 * order for a field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
                  * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
@@ -6132,10 +5857,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by Google audience fields. Supported syntax: ∗ Filter expressions for Google audiences currently can only contain at most one
-                 * restriction. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `CONTAINS (:)`. ∗ Supported fields: - `displayName`
-                 * Examples: ∗ All Google audiences for which the display name contains "Google": `displayName : "Google"`. The length of this field should be no more
-                 * than 500 characters.
+                 * Allows filtering by Google audience fields. Supported syntax: * Filter expressions for Google audiences currently can only contain at most one restriction. * A restriction has
+                 * the form of `{field} {operator} {value}`. * The operator must be `CONTAINS (:)`. * Supported fields: - `displayName` Examples: * All Google audiences for which the display name
+                 * contains "Google": `displayName : "Google"`. The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -6143,18 +5867,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `googleAudienceId` (default) ∗ `displayName` The default sorting order is ascending. To
-                 * specify descending order for a field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `googleAudienceId` (default) * `displayName` The default sorting order is ascending. To specify descending order for a
+                 * field, a suffix "desc" should be added to the field name. Example: `displayName desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListGoogleAudiences` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListGoogleAudiences` method.
+                 * If not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** The ID of the partner that has access to the fetched Google audiences. */
@@ -6171,8 +5892,8 @@ declare namespace gapi.client {
         }
         interface AssignedInventorySourcesResource {
             /**
-             * Bulk edits multiple assignments between inventory sources and a single inventory source group. The operation will delete the assigned inventory sources
-             * provided in BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources and then create the assigned inventory sources provided in
+             * Bulk edits multiple assignments between inventory sources and a single inventory source group. The operation will delete the assigned inventory sources provided in
+             * BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources and then create the assigned inventory sources provided in
              * BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
              */
             bulkEdit(request: {
@@ -6334,8 +6055,8 @@ declare namespace gapi.client {
                 /** OAuth access token. */
                 access_token?: string;
                 /**
-                 * The ID of the advertiser that has access to the assignment. If the parent inventory source group is partner-owned, only advertisers to which the parent
-                 * group is explicitly shared can access the assigned inventory source.
+                 * The ID of the advertiser that has access to the assignment. If the parent inventory source group is partner-owned, only advertisers to which the parent group is explicitly
+                 * shared can access the assigned inventory source.
                  */
                 advertiserId?: string;
                 /** Data format for response. */
@@ -6345,9 +6066,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by assigned inventory source fields. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions
-                 * can be combined by the logical operator `OR`. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `EQUALS (=)`. ∗
-                 * Supported fields: - `assignedInventorySourceId` The length of this field should be no more than 500 characters.
+                 * Allows filtering by assigned inventory source fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by the
+                 * logical operator `OR`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. * Supported fields: - `assignedInventorySourceId` The
+                 * length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** Required. The ID of the inventory source group to which these assignments are assigned. */
@@ -6357,24 +6078,18 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `assignedInventorySourceId` (default) The default sorting order is ascending. To specify
-                 * descending order for a field, a suffix " desc" should be added to the field name. Example: `assignedInventorySourceId desc`.
+                 * Field by which to sort the list. Acceptable values are: * `assignedInventorySourceId` (default) The default sorting order is ascending. To specify descending order for a field,
+                 * a suffix " desc" should be added to the field name. Example: `assignedInventorySourceId desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListAssignedInventorySources` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListAssignedInventorySources`
+                 * method. If not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
-                /**
-                 * The ID of the partner that has access to the assignment. If the parent inventory source group is advertiser-owned, the assignment cannot be accessed
-                 * via a partner.
-                 */
+                /** The ID of the partner that has access to the assignment. If the parent inventory source group is advertiser-owned, the assignment cannot be accessed via a partner. */
                 partnerId?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -6407,8 +6122,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The ID of the partner that owns the inventory source group. Only this partner will have write access to this group. Only advertisers to which this
-                 * group is explicitly shared will have read access to this group.
+                 * The ID of the partner that owns the inventory source group. Only this partner will have write access to this group. Only advertisers to which this group is explicitly shared
+                 * will have read access to this group.
                  */
                 partnerId?: string;
                 /** Returns response with indentations and line breaks. */
@@ -6440,8 +6155,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The ID of the partner that owns the inventory source group. Only this partner will have write access to this group. Only advertisers to which this
-                 * group is explicitly shared will have read access to this group.
+                 * The ID of the partner that owns the inventory source group. Only this partner will have write access to this group. Only advertisers to which this group is explicitly shared
+                 * will have read access to this group.
                  */
                 partnerId?: string;
                 /** Returns response with indentations and line breaks. */
@@ -6492,8 +6207,8 @@ declare namespace gapi.client {
                 /** OAuth access token. */
                 access_token?: string;
                 /**
-                 * The ID of the advertiser that has access to the inventory source group. If an inventory source group is partner-owned, only advertisers to which the
-                 * group is explicitly shared can access the group.
+                 * The ID of the advertiser that has access to the inventory source group. If an inventory source group is partner-owned, only advertisers to which the group is explicitly shared
+                 * can access the group.
                  */
                 advertiserId?: string;
                 /** Data format for response. */
@@ -6526,8 +6241,8 @@ declare namespace gapi.client {
                 /** OAuth access token. */
                 access_token?: string;
                 /**
-                 * The ID of the advertiser that has access to the inventory source group. If an inventory source group is partner-owned, only advertisers to which the
-                 * group is explicitly shared can access the group.
+                 * The ID of the advertiser that has access to the inventory source group. If an inventory source group is partner-owned, only advertisers to which the group is explicitly shared
+                 * can access the group.
                  */
                 advertiserId?: string;
                 /** Data format for response. */
@@ -6537,9 +6252,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by inventory source group properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions
-                 * can be combined by the logical operator `OR`. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `EQUALS (=)`. ∗
-                 * Supported fields: - `inventorySourceGroupId` The length of this field should be no more than 500 characters.
+                 * Allows filtering by inventory source group properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by the
+                 * logical operator `OR`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. * Supported fields: - `inventorySourceGroupId` The
+                 * length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -6547,15 +6262,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `displayName` (default) ∗ `inventorySourceGroupId` The default sorting order is ascending. To
-                 * specify descending order for a field, a suffix "desc" should be added to the field name. For example, `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `displayName` (default) * `inventorySourceGroupId` The default sorting order is ascending. To specify descending order
+                 * for a field, a suffix "desc" should be added to the field name. For example, `displayName desc`.
                  */
                 orderBy?: string;
                 /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListInventorySources` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListInventorySources` method.
+                 * If not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** The ID of the partner that has access to the inventory source group. A partner cannot access advertiser-owned inventory source groups. */
@@ -6671,8 +6386,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<InventorySource>;
             /**
-             * Lists inventory sources that are accessible to the current user. The order is defined by the order_by parameter. If a filter by entity_status is not
-             * specified, inventory sources with entity status `ENTITY_STATUS_ARCHIVED` will not be included in the results.
+             * Lists inventory sources that are accessible to the current user. The order is defined by the order_by parameter. If a filter by entity_status is not specified, inventory sources
+             * with entity status `ENTITY_STATUS_ARCHIVED` will not be included in the results.
              */
             list(request?: {
                 /** V1 error format. */
@@ -6688,12 +6403,11 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by inventory source properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions can be
-                 * combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. ∗ A restriction has the form of `{field} {operator}
-                 * {value}`. ∗ The operator must be `EQUALS (=)`. ∗ Supported fields: - `status.entityStatus` - `commitment` - `deliveryMethod` - `rateDetails.rateType` -
-                 * `exchange` Examples: ∗ All active inventory sources: `status.entityStatus="ENTITY_STATUS_ACTIVE"` ∗ Inventory sources belonging to Google Ad Manager or
-                 * Rubicon exchanges: `exchange="EXCHANGE_GOOGLE_AD_MANAGER" OR exchange="EXCHANGE_RUBICON"` The length of this field should be no more than 500
-                 * characters.
+                 * Allows filtering by inventory source properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR`
+                 * logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. *
+                 * Supported fields: - `status.entityStatus` - `commitment` - `deliveryMethod` - `rateDetails.rateType` - `exchange` Examples: * All active inventory sources:
+                 * `status.entityStatus="ENTITY_STATUS_ACTIVE"` * Inventory sources belonging to Google Ad Manager or Rubicon exchanges: `exchange="EXCHANGE_GOOGLE_AD_MANAGER" OR
+                 * exchange="EXCHANGE_RUBICON"` The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -6701,15 +6415,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `displayName` (default) The default sorting order is ascending. To specify descending order
-                 * for a field, a suffix "desc" should be added to the field name. For example, `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `displayName` (default) The default sorting order is ascending. To specify descending order for a field, a suffix
+                 * "desc" should be added to the field name. For example, `displayName desc`.
                  */
                 orderBy?: string;
                 /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListInventorySources` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListInventorySources` method.
+                 * If not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** The ID of the partner that has access to the inventory source. */
@@ -6726,8 +6440,8 @@ declare namespace gapi.client {
         }
         interface MediaResource {
             /**
-             * Downloads media. Download is supported on the URI `/download/{resource_name=∗∗}?alt=media.` ∗∗Note∗∗: Download requests will not be successful without
-             * including `alt=media` query string.
+             * Downloads media. Download is supported on the URI `/download/{resource_name=**}?alt=media.` **Note**: Download requests will not be successful without including `alt=media` query
+             * string.
              */
             download(request?: {
                 /** V1 error format. */
@@ -6758,8 +6472,8 @@ declare namespace gapi.client {
         }
         interface SitesResource {
             /**
-             * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites
-             * provided in BulkEditSitesRequest.created_sites.
+             * Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites provided in
+             * BulkEditSitesRequest.created_sites.
              */
             bulkEdit(request: {
                 /** V1 error format. */
@@ -6934,9 +6648,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by site fields. Supported syntax: ∗ Filter expressions for site currently can only contain at most one ∗ restriction. ∗ A restriction
-                 * has the form of `{field} {operator} {value}`. ∗ The operator must be `CONTAINS (:)`. ∗ Supported fields: - `urlOrAppId` Examples: ∗ All sites for which
-                 * the URL or app ID contains "google": `urlOrAppId : "google"`
+                 * Allows filtering by site fields. Supported syntax: * Filter expressions for site currently can only contain at most one * restriction. * A restriction has the form of `{field}
+                 * {operator} {value}`. * The operator must be `CONTAINS (:)`. * Supported fields: - `urlOrAppId` Examples: * All sites for which the URL or app ID contains "google": `urlOrAppId :
+                 * "google"`
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -6944,18 +6658,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `urlOrAppId` (default) The default sorting order is ascending. To specify descending order
-                 * for a field, a suffix " desc" should be added to the field name. Example: `urlOrAppId desc`.
+                 * Field by which to sort the list. Acceptable values are: * `urlOrAppId` (default) The default sorting order is ascending. To specify descending order for a field, a suffix "
+                 * desc" should be added to the field name. Example: `urlOrAppId desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListSites` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListSites` method. If not
+                 * specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** The ID of the partner that owns the parent channel. */
@@ -7077,9 +6788,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by channel fields. Supported syntax: ∗ Filter expressions for channel currently can only contain at most one ∗ restriction. ∗ A
-                 * restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `CONTAINS (:)`. ∗ Supported fields: - `displayName` Examples: ∗ All
-                 * channels for which the display name contains "google": `displayName : "google"`. The length of this field should be no more than 500 characters.
+                 * Allows filtering by channel fields. Supported syntax: * Filter expressions for channel currently can only contain at most one * restriction. * A restriction has the form of
+                 * `{field} {operator} {value}`. * The operator must be `CONTAINS (:)`. * Supported fields: - `displayName` Examples: * All channels for which the display name contains "google":
+                 * `displayName : "google"`. The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7087,18 +6798,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `displayName` (default) ∗ `channelId` The default sorting order is ascending. To specify
-                 * descending order for a field, a suffix " desc" should be added to the field name. Example: `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `displayName` (default) * `channelId` The default sorting order is ascending. To specify descending order for a field,
+                 * a suffix " desc" should be added to the field name. Example: `displayName desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListChannels` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListChannels` method. If not
+                 * specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** The ID of the partner that owns the channels. */
@@ -7205,7 +6913,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. Identifies the type of this assigned targeting option. Supported targeting types: ∗ `TARGETING_TYPE_CHANNEL` */
+                /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` */
                 targetingType: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -7235,7 +6943,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. Identifies the type of this assigned targeting option. Supported targeting types: ∗ `TARGETING_TYPE_CHANNEL` */
+                /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` */
                 targetingType: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -7267,7 +6975,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. Identifies the type of this assigned targeting option. Supported targeting types: ∗ `TARGETING_TYPE_CHANNEL` */
+                /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` */
                 targetingType: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -7298,7 +7006,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. Identifies the type of this assigned targeting option. Supported targeting types: ∗ `TARGETING_TYPE_CHANNEL` */
+                /** Required. Identifies the type of this assigned targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` */
                 targetingType: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -7318,10 +7026,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by assigned targeting option properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗
-                 * Restrictions can be combined by the logical operator `OR`. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `EQUALS
-                 * (=)`. ∗ Supported fields: - `assignedTargetingOptionId` Examples: ∗ AssignedTargetingOption with ID 123456 `assignedTargetingOptionId="123456"` The
-                 * length of this field should be no more than 500 characters.
+                 * Allows filtering by assigned targeting option properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by the
+                 * logical operator `OR`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. * Supported fields: - `assignedTargetingOptionId`
+                 * Examples: * AssignedTargetingOption with ID 123456 `assignedTargetingOptionId="123456"` The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7329,14 +7036,11 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `assignedTargetingOptionId` (default) The default sorting order is ascending. To specify
-                 * descending order for a field, a suffix "desc" should be added to the field name. Example: `assignedTargetingOptionId desc`.
+                 * Field by which to sort the list. Acceptable values are: * `assignedTargetingOptionId` (default) The default sorting order is ascending. To specify descending order for a field,
+                 * a suffix "desc" should be added to the field name. Example: `assignedTargetingOptionId desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
                  * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
@@ -7349,7 +7053,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. Identifies the type of assigned targeting options to list. Supported targeting types: ∗ `TARGETING_TYPE_CHANNEL` */
+                /** Required. Identifies the type of assigned targeting options to list. Supported targeting types: * `TARGETING_TYPE_CHANNEL` */
                 targetingType: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -7461,10 +7165,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by partner properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions can be combined
-                 * by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. ∗ A restriction has the form of `{field} {operator} {value}`. ∗
-                 * The operator must be `EQUALS (=)`. ∗ Supported fields: - `entityStatus` Examples: ∗ All active partners: `entityStatus="ENTITY_STATUS_ACTIVE"` The
-                 * length of this field should be no more than 500 characters.
+                 * Allows filtering by partner properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical
+                 * operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `EQUALS (=)`. * Supported
+                 * fields: - `entityStatus` Examples: * All active partners: `entityStatus="ENTITY_STATUS_ACTIVE"` The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7472,15 +7175,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `displayName` The default sorting order is ascending. To specify descending order for a
-                 * field, a suffix "desc" should be added to the field name. For example, `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `displayName` The default sorting order is ascending. To specify descending order for a field, a suffix "desc" should
+                 * be added to the field name. For example, `displayName desc`.
                  */
                 orderBy?: string;
                 /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListPartners` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListPartners` method. If not
+                 * specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -7526,10 +7229,9 @@ declare namespace gapi.client {
         }
         interface SdfdownloadtasksResource {
             /**
-             * Creates an SDF Download Task. Returns an Operation. An SDF Download Task is a long-running, asynchronous operation. The metadata type of this operation
-             * is SdfDownloadTaskMetadata. If the request is successful, the response type of the operation is SdfDownloadTask. The response will not include the
-             * download files, which must be retrieved with media.download. The state of operation can be retrieved with sdfdownloadtask.operations.get. Any errors
-             * can be found in the error.message. Note that error.details is expected to be empty.
+             * Creates an SDF Download Task. Returns an Operation. An SDF Download Task is a long-running, asynchronous operation. The metadata type of this operation is SdfDownloadTaskMetadata.
+             * If the request is successful, the response type of the operation is SdfDownloadTask. The response will not include the download files, which must be retrieved with media.download.
+             * The state of operation can be retrieved with sdfdownloadtask.operations.get. Any errors can be found in the error.message. Note that error.details is expected to be empty.
              */
             create(request: {
                 /** V1 error format. */
@@ -7631,9 +7333,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by targeting option properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions can be
-                 * combined by `OR` logical operators. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be "=" (equal sign). ∗ Supported
-                 * fields: - `targetingOptionId` The length of this field should be no more than 500 characters.
+                 * Allows filtering by targeting option properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `OR` logical
+                 * operators. * A restriction has the form of `{field} {operator} {value}`. * The operator must be "=" (equal sign). * Supported fields: - `targetingOptionId` The length of this
+                 * field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7641,18 +7343,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `targetingOptionId` (default) The default sorting order is ascending. To specify descending
-                 * order for a field, a suffix "desc" should be added to the field name. Example: `targetingOptionId desc`.
+                 * Field by which to sort the list. Acceptable values are: * `targetingOptionId` (default) The default sorting order is ascending. To specify descending order for a field, a suffix
+                 * "desc" should be added to the field name. Example: `targetingOptionId desc`.
                  */
                 orderBy?: string;
-                /**
-                 * Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is
-                 * specified.
-                 */
+                /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListTargetingOptions` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListTargetingOptions` method.
+                 * If not specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -7672,9 +7371,8 @@ declare namespace gapi.client {
         }
         interface UsersResource {
             /**
-             * Bulk edits user roles for a user. The operation will delete the assigned user roles provided in
-             * BulkEditAssignedUserRolesRequest.deletedAssignedUserRoles and then assign the user roles provided in
-             * BulkEditAssignedUserRolesRequest.createdAssignedUserRoles.
+             * Bulk edits user roles for a user. The operation will delete the assigned user roles provided in BulkEditAssignedUserRolesRequest.deletedAssignedUserRoles and then assign the user
+             * roles provided in BulkEditAssignedUserRolesRequest.createdAssignedUserRoles.
              */
             bulkEditAssignedUserRoles(request: {
                 /** V1 error format. */
@@ -7850,17 +7548,15 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Allows filtering by user properties. Supported syntax: ∗ Filter expressions are made up of one or more restrictions. ∗ Restrictions can be combined by
-                 * the logical operator `AND`. ∗ A restriction has the form of `{field} {operator} {value}`. ∗ The operator must be `CONTAINS (:)` or `EQUALS (=)`. ∗ The
-                 * operator must be `CONTAINS (:)` for the following fields: - `displayName` - `email` ∗ The operator must be `EQUALS (=)` for the following fields: -
-                 * `assignedUserRole.userRole` - `assignedUserRole.partnerId` - `assignedUserRole.advertiserId` - `assignedUserRole.entityType`: A synthetic field of
-                 * AssignedUserRole used for filtering. Identifies the type of entity to which the user role is assigned. Valid values are `Partner` and `Advertiser`. -
-                 * `assignedUserRole.parentPartnerId`: A synthetic field of AssignedUserRole used for filtering. Identifies the parent partner of the entity to which the
-                 * user role is assigned." Examples: ∗ The user with displayName containing `foo`: `displayName:"foo"` ∗ The user with email containing `bar`:
-                 * `email:"bar"` ∗ All users with standard user roles: `assignedUserRole.userRole="STANDARD"` ∗ All users with user roles for partner 123:
-                 * `assignedUserRole.partnerId="123"` ∗ All users with user roles for advertiser 123: `assignedUserRole.advertiserId="123"` ∗ All users with partner level
-                 * user roles: `entityType="PARTNER"` ∗ All users with user roles for partner 123 and advertisers under partner 123: `parentPartnerId="123"` The length of
-                 * this field should be no more than 500 characters.
+                 * Allows filtering by user properties. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by the logical operator
+                 * `AND`. * A restriction has the form of `{field} {operator} {value}`. * The operator must be `CONTAINS (:)` or `EQUALS (=)`. * The operator must be `CONTAINS (:)` for the
+                 * following fields: - `displayName` - `email` * The operator must be `EQUALS (=)` for the following fields: - `assignedUserRole.userRole` - `assignedUserRole.partnerId` -
+                 * `assignedUserRole.advertiserId` - `assignedUserRole.entityType`: A synthetic field of AssignedUserRole used for filtering. Identifies the type of entity to which the user role
+                 * is assigned. Valid values are `Partner` and `Advertiser`. - `assignedUserRole.parentPartnerId`: A synthetic field of AssignedUserRole used for filtering. Identifies the parent
+                 * partner of the entity to which the user role is assigned." Examples: * The user with displayName containing `foo`: `displayName:"foo"` * The user with email containing `bar`:
+                 * `email:"bar"` * All users with standard user roles: `assignedUserRole.userRole="STANDARD"` * All users with user roles for partner 123: `assignedUserRole.partnerId="123"` * All
+                 * users with user roles for advertiser 123: `assignedUserRole.advertiserId="123"` * All users with partner level user roles: `entityType="PARTNER"` * All users with user roles for
+                 * partner 123 and advertisers under partner 123: `parentPartnerId="123"` The length of this field should be no more than 500 characters.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -7868,15 +7564,15 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Field by which to sort the list. Acceptable values are: ∗ `displayName` (default) The default sorting order is ascending. To specify descending order
-                 * for a field, a suffix "desc" should be added to the field name. For example, `displayName desc`.
+                 * Field by which to sort the list. Acceptable values are: * `displayName` (default) The default sorting order is ascending. To specify descending order for a field, a suffix
+                 * "desc" should be added to the field name. For example, `displayName desc`.
                  */
                 orderBy?: string;
                 /** Requested page size. Must be between `1` and `100`. If unspecified will default to `100`. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to
-                 * `ListUsers` method. If not specified, the first page of results will be returned.
+                 * A token identifying a page of results the server should return. Typically, this is the value of next_page_token returned from the previous call to `ListUsers` method. If not
+                 * specified, the first page of results will be returned.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */

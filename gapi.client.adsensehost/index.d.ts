@@ -1,6 +1,9 @@
 // Type definitions for non-npm package AdSense Host API v4.1 4.1
 // Project: https://developers.google.com/adsense/host/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -191,10 +194,7 @@ declare namespace gapi.client {
         interface Report {
             /** The averages of the report. This is the same length as any other row in the report; cells corresponding to dimension columns are empty. */
             averages?: string[];
-            /**
-             * The header information of the columns requested in the report. This is a list of headers; one for each dimension in the request, followed by one for
-             * each metric in the request.
-             */
+            /** The header information of the columns requested in the report. This is a list of headers; one for each dimension in the request, followed by one for each metric in the request. */
             headers?: Array<{
                 /** The currency of this column. Only present if the header type is METRIC_CURRENCY. */
                 currency?: string;
@@ -206,14 +206,11 @@ declare namespace gapi.client {
             /** Kind this is, in this case adsensehost#report. */
             kind?: string;
             /**
-             * The output rows of the report. Each row is a list of cells; one for each dimension in the request, followed by one for each metric in the request. The
-             * dimension cells contain strings, and the metric cells contain numbers.
+             * The output rows of the report. Each row is a list of cells; one for each dimension in the request, followed by one for each metric in the request. The dimension cells contain
+             * strings, and the metric cells contain numbers.
              */
             rows?: string[][];
-            /**
-             * The total number of rows matched by the report request. Fewer rows may be returned in the response due to being limited by the row count requested or
-             * the report row limit.
-             */
+            /** The total number of rows matched by the report request. Fewer rows may be returned in the response due to being limited by the row count requested or the report row limit. */
             totalMatchedRows?: string;
             /** The totals of the report. This is the same length as any other row in the report; cells corresponding to dimension columns are empty. */
             totals?: string[];
@@ -274,10 +271,7 @@ declare namespace gapi.client {
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous
-                 * response.
-                 */
+                /** A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response. */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -421,10 +415,7 @@ declare namespace gapi.client {
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous
-                 * response.
-                 */
+                /** A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response. */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -528,8 +519,8 @@ declare namespace gapi.client {
         }
         interface ReportsResource {
             /**
-             * Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format
-             * specify "alt=csv" as a query parameter.
+             * Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query
+             * parameter.
              */
             generate(request?: {
                 /** Hosted account upon which to report. */
@@ -559,8 +550,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no
-                 * prefix is specified, the column is sorted ascending.
+                 * The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the
+                 * column is sorted ascending.
                  */
                 sort?: string | string[];
                 /** Start of the date range to report on in "YYYY-MM-DD" format, inclusive. */
@@ -646,10 +637,7 @@ declare namespace gapi.client {
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous
-                 * response.
-                 */
+                /** A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response. */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -804,10 +792,7 @@ declare namespace gapi.client {
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the
-                 * previous response.
-                 */
+                /** A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response. */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -903,8 +888,8 @@ declare namespace gapi.client {
         }
         interface ReportsResource {
             /**
-             * Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format
-             * specify "alt=csv" as a query parameter.
+             * Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query
+             * parameter.
              */
             generate(request?: {
                 /** Data format for the response. */
@@ -932,8 +917,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no
-                 * prefix is specified, the column is sorted ascending.
+                 * The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the
+                 * column is sorted ascending.
                  */
                 sort?: string | string[];
                 /** Start of the date range to report on in "YYYY-MM-DD" format, inclusive. */
@@ -1020,10 +1005,7 @@ declare namespace gapi.client {
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * A continuation token, used to page through URL channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the
-                 * previous response.
-                 */
+                /** A continuation token, used to page through URL channels. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response. */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;

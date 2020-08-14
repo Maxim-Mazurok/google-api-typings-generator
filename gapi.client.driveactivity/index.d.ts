@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Drive Activity API v2 2.0
 // Project: https://developers.google.com/drive/activity/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -131,10 +134,7 @@ declare namespace gapi.client {
             name?: string;
         }
         interface Drive {
-            /**
-             * The resource name of the shared drive. The format is "COLLECTION_ID/DRIVE_ID". Clients should not assume a specific collection ID for this resource
-             * name.
-             */
+            /** The resource name of the shared drive. The format is "COLLECTION_ID/DRIVE_ID". Clients should not assume a specific collection ID for this resource name. */
             name?: string;
             /** The root of this shared drive. */
             root?: DriveItem;
@@ -147,14 +147,11 @@ declare namespace gapi.client {
             /** All actor(s) responsible for the activity. */
             actors?: Actor[];
             /**
-             * Key information about the primary action for this activity. This is either representative, or the most important, of all actions in the activity,
-             * according to the ConsolidationStrategy in the request.
+             * Key information about the primary action for this activity. This is either representative, or the most important, of all actions in the activity, according to the
+             * ConsolidationStrategy in the request.
              */
             primaryActionDetail?: ActionDetail;
-            /**
-             * All Google Drive objects this activity is about (e.g. file, folder, drive). This represents the state of the target immediately after the actions
-             * occurred.
-             */
+            /** All Google Drive objects this activity is about (e.g. file, folder, drive). This represents the state of the target immediately after the actions occurred. */
             targets?: Target[];
             /** The activity occurred over this time range. */
             timeRange?: TimeRange;
@@ -201,10 +198,7 @@ declare namespace gapi.client {
             title?: string;
         }
         interface DriveReference {
-            /**
-             * The resource name of the shared drive. The format is "COLLECTION_ID/DRIVE_ID". Clients should not assume a specific collection ID for this resource
-             * name.
-             */
+            /** The resource name of the shared drive. The format is "COLLECTION_ID/DRIVE_ID". Clients should not assume a specific collection ID for this resource name. */
             name?: string;
             /** The title of the shared drive. */
             title?: string;
@@ -216,14 +210,11 @@ declare namespace gapi.client {
         interface File {
         }
         interface FileComment {
-            /**
-             * The comment in the discussion thread. This identifier is an opaque string compatible with the Drive API; see
-             * https://developers.google.com/drive/v3/reference/comments/get
-             */
+            /** The comment in the discussion thread. This identifier is an opaque string compatible with the Drive API; see https://developers.google.com/drive/v3/reference/comments/get */
             legacyCommentId?: string;
             /**
-             * The discussion thread to which the comment was added. This identifier is an opaque string compatible with the Drive API and references the first
-             * comment in a discussion; see https://developers.google.com/drive/v3/reference/comments/get
+             * The discussion thread to which the comment was added. This identifier is an opaque string compatible with the Drive API and references the first comment in a discussion; see
+             * https://developers.google.com/drive/v3/reference/comments/get
              */
             legacyDiscussionId?: string;
             /** The link to the discussion thread containing this comment, for example, "https://docs.google.com/DOCUMENT_ID/edit?disco=THREAD_ID". */
@@ -249,10 +240,7 @@ declare namespace gapi.client {
         interface KnownUser {
             /** True if this is the user making the request. */
             isCurrentUser?: boolean;
-            /**
-             * The identifier for this user that can be used with the People API to get more information. The format is "people/ACCOUNT_ID". See
-             * https://developers.google.com/people/.
-             */
+            /** The identifier for this user that can be used with the People API to get more information. The format is "people/ACCOUNT_ID". See https://developers.google.com/people/. */
             personName?: string;
         }
         // tslint:disable-next-line:no-empty-interface
@@ -310,23 +298,22 @@ declare namespace gapi.client {
             /** Details on how to consolidate related actions that make up the activity. If not set, then related actions are not consolidated. */
             consolidationStrategy?: ConsolidationStrategy;
             /**
-             * The filtering for items returned from this query request. The format of the filter string is a sequence of expressions, joined by an optional "AND",
-             * where each expression is of the form "field operator value". Supported fields: - time: Uses numerical operators on date values either in terms of
-             * milliseconds since Jan 1, 1970 or in RFC 3339 format. Examples: - time > 1452409200000 AND time <= 1492812924310 - time >= "2016-01-10T01:02:03-05:00"
-             * - detail.action_detail_case: Uses the "has" operator (:) and either a singular value or a list of allowed action types enclosed in parentheses.
-             * Examples: - detail.action_detail_case: RENAME - detail.action_detail_case:(CREATE EDIT) - -detail.action_detail_case:MOVE
+             * The filtering for items returned from this query request. The format of the filter string is a sequence of expressions, joined by an optional "AND", where each expression is of the
+             * form "field operator value". Supported fields: - time: Uses numerical operators on date values either in terms of milliseconds since Jan 1, 1970 or in RFC 3339 format. Examples: -
+             * time > 1452409200000 AND time <= 1492812924310 - time >= "2016-01-10T01:02:03-05:00" - detail.action_detail_case: Uses the "has" operator (:) and either a singular value or a list
+             * of allowed action types enclosed in parentheses. Examples: - detail.action_detail_case: RENAME - detail.action_detail_case:(CREATE EDIT) - -detail.action_detail_case:MOVE
              */
             filter?: string;
             /** Return activities for this Drive item. The format is "items/ITEM_ID". */
             itemName?: string;
             /**
-             * The miminum number of activities desired in the response; the server will attempt to return at least this quanitity. The server may also return fewer
-             * activities if it has a partial response ready before the request times out. If not set, a default value is used.
+             * The miminum number of activities desired in the response; the server will attempt to return at least this quanitity. The server may also return fewer activities if it has a partial
+             * response ready before the request times out. If not set, a default value is used.
              */
             pageSize?: number;
             /**
-             * The token identifying which page of results to return. Set this to the next_page_token value returned from a previous query to obtain the following
-             * page of results. If not set, the first page of results will be returned.
+             * The token identifying which page of results to return. Set this to the next_page_token value returned from a previous query to obtain the following page of results. If not set, the
+             * first page of results will be returned.
              */
             pageToken?: string;
         }

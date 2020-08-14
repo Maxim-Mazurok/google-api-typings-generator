@@ -1,6 +1,9 @@
 // Type definitions for non-npm package BigQuery Data Transfer API v1 1.0
 // Project: https://cloud.google.com/bigquery/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -31,18 +34,15 @@ declare namespace gapi.client {
             /** Data source client id which should be used to receive refresh token. */
             clientId?: string;
             /**
-             * Specifies whether the data source supports automatic data refresh for the past few days, and how it's supported. For some data sources, data might not
-             * be complete until a few days later, so it's useful to refresh data automatically.
+             * Specifies whether the data source supports automatic data refresh for the past few days, and how it's supported. For some data sources, data might not be complete until a few days
+             * later, so it's useful to refresh data automatically.
              */
             dataRefreshType?: string;
             /** Data source id. */
             dataSourceId?: string;
             /** Default data refresh window on days. Only meaningful when `data_refresh_type` = `SLIDING_WINDOW`. */
             defaultDataRefreshWindowDays?: number;
-            /**
-             * Default data transfer schedule. Examples of valid schedules include: `1st,3rd monday of month 15:30`, `every wed,fri of jan,jun 13:15`, and `first
-             * sunday of quarter 00:00`.
-             */
+            /** Default data transfer schedule. Examples of valid schedules include: `1st,3rd monday of month 15:30`, `every wed,fri of jan,jun 13:15`, and `first sunday of quarter 00:00`. */
             defaultSchedule?: string;
             /** User friendly data source description string. */
             description?: string;
@@ -59,14 +59,11 @@ declare namespace gapi.client {
             /** Data source parameters. */
             parameters?: DataSourceParameter[];
             /**
-             * Api auth scopes for which refresh token needs to be obtained. These are scopes needed by a data source to prepare data and ingest them into BigQuery,
-             * e.g., https://www.googleapis.com/auth/bigquery
+             * Api auth scopes for which refresh token needs to be obtained. These are scopes needed by a data source to prepare data and ingest them into BigQuery, e.g.,
+             * https://www.googleapis.com/auth/bigquery
              */
             scopes?: string[];
-            /**
-             * Specifies whether the data source supports a user defined schedule, or operates on the default schedule. When set to `true`, user can override default
-             * schedule.
-             */
+            /** Specifies whether the data source supports a user defined schedule, or operates on the default schedule. When set to `true`, user can override default schedule. */
             supportsCustomSchedule?: boolean;
             /** Deprecated. This field has no effect. */
             supportsMultipleTransfers?: boolean;
@@ -119,10 +116,7 @@ declare namespace gapi.client {
         interface ListDataSourcesResponse {
             /** List of supported data sources and their transfer settings. */
             dataSources?: DataSource[];
-            /**
-             * Output only. The next-pagination token. For multiple-page list results, this token can be used as the `ListDataSourcesRequest.page_token` to request
-             * the next page of list results.
-             */
+            /** Output only. The next-pagination token. For multiple-page list results, this token can be used as the `ListDataSourcesRequest.page_token` to request the next page of list results. */
             nextPageToken?: string;
         }
         interface ListLocationsResponse {
@@ -133,27 +127,21 @@ declare namespace gapi.client {
         }
         interface ListTransferConfigsResponse {
             /**
-             * Output only. The next-pagination token. For multiple-page list results, this token can be used as the `ListTransferConfigsRequest.page_token` to
-             * request the next page of list results.
+             * Output only. The next-pagination token. For multiple-page list results, this token can be used as the `ListTransferConfigsRequest.page_token` to request the next page of list
+             * results.
              */
             nextPageToken?: string;
             /** Output only. The stored pipeline transfer configurations. */
             transferConfigs?: TransferConfig[];
         }
         interface ListTransferLogsResponse {
-            /**
-             * Output only. The next-pagination token. For multiple-page list results, this token can be used as the `GetTransferRunLogRequest.page_token` to request
-             * the next page of list results.
-             */
+            /** Output only. The next-pagination token. For multiple-page list results, this token can be used as the `GetTransferRunLogRequest.page_token` to request the next page of list results. */
             nextPageToken?: string;
             /** Output only. The stored pipeline transfer messages. */
             transferMessages?: TransferMessage[];
         }
         interface ListTransferRunsResponse {
-            /**
-             * Output only. The next-pagination token. For multiple-page list results, this token can be used as the `ListTransferRunsRequest.page_token` to request
-             * the next page of list results.
-             */
+            /** Output only. The next-pagination token. For multiple-page list results, this token can be used as the `ListTransferRunsRequest.page_token` to request the next page of list results. */
             nextPageToken?: string;
             /** Output only. The stored pipeline transfer runs. */
             transferRuns?: TransferRun[];
@@ -172,19 +160,18 @@ declare namespace gapi.client {
         }
         interface ScheduleOptions {
             /**
-             * If true, automatic scheduling of data transfer runs for this configuration will be disabled. The runs can be started on ad-hoc basis using
-             * StartManualTransferRuns API. When automatic scheduling is disabled, the TransferConfig.schedule field will be ignored.
+             * If true, automatic scheduling of data transfer runs for this configuration will be disabled. The runs can be started on ad-hoc basis using StartManualTransferRuns API. When
+             * automatic scheduling is disabled, the TransferConfig.schedule field will be ignored.
              */
             disableAutoScheduling?: boolean;
             /**
-             * Defines time to stop scheduling transfer runs. A transfer run cannot be scheduled at or after the end time. The end time can be changed at any moment.
-             * The time when a data transfer can be trigerred manually is not limited by this option.
+             * Defines time to stop scheduling transfer runs. A transfer run cannot be scheduled at or after the end time. The end time can be changed at any moment. The time when a data transfer
+             * can be trigerred manually is not limited by this option.
              */
             endTime?: string;
             /**
-             * Specifies time to start scheduling transfer runs. The first run will be scheduled at or after the start time according to a recurrence pattern defined
-             * in the schedule string. The start time can be changed at any moment. The time when a data transfer can be trigerred manually is not limited by this
-             * option.
+             * Specifies time to start scheduling transfer runs. The first run will be scheduled at or after the start time according to a recurrence pattern defined in the schedule string. The
+             * start time can be changed at any moment. The time when a data transfer can be trigerred manually is not limited by this option.
              */
             startTime?: string;
         }
@@ -214,28 +201,27 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
         interface TimeRange {
             /**
-             * End time of the range of transfer runs. For example, `"2017-05-30T00:00:00+00:00"`. The end_time must not be in the future. Creates transfer runs where
-             * run_time is in the range between start_time (inclusive) and end_time (exclusive).
+             * End time of the range of transfer runs. For example, `"2017-05-30T00:00:00+00:00"`. The end_time must not be in the future. Creates transfer runs where run_time is in the range
+             * between start_time (inclusive) and end_time (exclusive).
              */
             endTime?: string;
             /**
-             * Start time of the range of transfer runs. For example, `"2017-05-25T00:00:00+00:00"`. The start_time must be strictly less than the end_time. Creates
-             * transfer runs where run_time is in the range between start_time (inclusive) and end_time (exclusive).
+             * Start time of the range of transfer runs. For example, `"2017-05-25T00:00:00+00:00"`. The start_time must be strictly less than the end_time. Creates transfer runs where run_time is
+             * in the range between start_time (inclusive) and end_time (exclusive).
              */
             startTime?: string;
         }
         interface TransferConfig {
             /**
-             * The number of days to look back to automatically refresh the data. For example, if `data_refresh_window_days = 10`, then every day BigQuery reingests
-             * data for [today-10, today-1], rather than ingesting data for just [today-1]. Only valid if the data source supports the feature. Set the value to 0 to
-             * use the default value.
+             * The number of days to look back to automatically refresh the data. For example, if `data_refresh_window_days = 10`, then every day BigQuery reingests data for [today-10, today-1],
+             * rather than ingesting data for just [today-1]. Only valid if the data source supports the feature. Set the value to 0 to use the default value.
              */
             dataRefreshWindowDays?: number;
             /** Output only. Region in which BigQuery dataset is located. */
@@ -251,10 +237,9 @@ declare namespace gapi.client {
             /** Email notifications will be sent according to these preferences to the email address of the user who owns this transfer config. */
             emailPreferences?: EmailPreferences;
             /**
-             * The resource name of the transfer config. Transfer config names have the form of
-             * `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The name is automatically generated based on the config_id specified in
-             * CreateTransferConfigRequest along with project_id and region. If config_id is not provided, usually a uuid, even though it is not guaranteed or
-             * required, will be generated for config_id.
+             * The resource name of the transfer config. Transfer config names have the form of `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The name is automatically
+             * generated based on the config_id specified in CreateTransferConfigRequest along with project_id and region. If config_id is not provided, usually a uuid, even though it is not
+             * guaranteed or required, will be generated for config_id.
              */
             name?: string;
             /** Output only. Next time when data transfer will run. */
@@ -264,11 +249,10 @@ declare namespace gapi.client {
             /** Data transfer specific parameters. */
             params?: { [P in string]: any };
             /**
-             * Data transfer schedule. If the data source does not support a custom schedule, this should be empty. If it is empty, the default value for the data
-             * source will be used. The specified times are in UTC. Examples of valid format: `1st,3rd monday of month 15:30`, `every wed,fri of jan,jun 13:15`, and
-             * `first sunday of quarter 00:00`. See more explanation about the format here:
-             * https://cloud.google.com/appengine/docs/flexible/python/scheduling-jobs-with-cron-yaml#the_schedule_format NOTE: the granularity should be at least 8
-             * hours, or less frequent.
+             * Data transfer schedule. If the data source does not support a custom schedule, this should be empty. If it is empty, the default value for the data source will be used. The
+             * specified times are in UTC. Examples of valid format: `1st,3rd monday of month 15:30`, `every wed,fri of jan,jun 13:15`, and `first sunday of quarter 00:00`. See more explanation
+             * about the format here: https://cloud.google.com/appengine/docs/flexible/python/scheduling-jobs-with-cron-yaml#the_schedule_format NOTE: the granularity should be at least 8 hours,
+             * or less frequent.
              */
             schedule?: string;
             /** Options customizing the data transfer schedule. */
@@ -293,18 +277,15 @@ declare namespace gapi.client {
             dataSourceId?: string;
             /** Output only. The BigQuery target dataset id. */
             destinationDatasetId?: string;
-            /**
-             * Output only. Email notifications will be sent according to these preferences to the email address of the user who owns the transfer config this run was
-             * derived from.
-             */
+            /** Output only. Email notifications will be sent according to these preferences to the email address of the user who owns the transfer config this run was derived from. */
             emailPreferences?: EmailPreferences;
             /** Output only. Time when transfer run ended. Parameter ignored by server for input requests. */
             endTime?: string;
             /** Status of the transfer run. */
             errorStatus?: Status;
             /**
-             * The resource name of the transfer run. Transfer run names have the form
-             * `projects/{project_id}/locations/{location}/transferConfigs/{config_id}/runs/{run_id}`. The name is ignored when creating a transfer run.
+             * The resource name of the transfer run. Transfer run names have the form `projects/{project_id}/locations/{location}/transferConfigs/{config_id}/runs/{run_id}`. The name is ignored
+             * when creating a transfer run.
              */
             name?: string;
             /** Output only. Pub/Sub topic where a notification will be sent after this transfer run finishes */
@@ -314,9 +295,8 @@ declare namespace gapi.client {
             /** For batch transfer runs, specifies the date and time of the data should be ingested. */
             runTime?: string;
             /**
-             * Output only. Describes the schedule of this transfer run if it was created as part of a regular schedule. For batch transfer runs that are scheduled
-             * manually, this is empty. NOTE: the system might choose to delay the schedule depending on the current load, so `schedule_time` doesn't always match
-             * this.
+             * Output only. Describes the schedule of this transfer run if it was created as part of a regular schedule. For batch transfer runs that are scheduled manually, this is empty. NOTE:
+             * the system might choose to delay the schedule depending on the current load, so `schedule_time` doesn't always match this.
              */
             schedule?: string;
             /** Minimum time after which a transfer run can be started. */
@@ -332,9 +312,8 @@ declare namespace gapi.client {
         }
         interface DataSourcesResource {
             /**
-             * Returns true if valid credentials exist for the given data source and requesting user. Some data sources doesn't support service account, so we need to
-             * talk to them on behalf of the end user. This API just checks whether we have OAuth token for the particular user, which is a pre-requisite before user
-             * can create a transfer config.
+             * Returns true if valid credentials exist for the given data source and requesting user. Some data sources doesn't support service account, so we need to talk to them on behalf of the
+             * end user. This API just checks whether we have OAuth token for the particular user, which is a pre-requisite before user can create a transfer config.
              */
             checkValidCreds(request: {
                 /** V1 error format. */
@@ -349,10 +328,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or
-                 * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
-                 */
+                /** Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -380,10 +356,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or
-                 * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
-                 */
+                /** Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -446,14 +419,11 @@ declare namespace gapi.client {
                 /** Page size. The default page size is the maximum value of 1000 results. */
                 pageSize?: number;
                 /**
-                 * Pagination token, which can be used to request a specific page of `ListDataSourcesRequest` list results. For multiple-page results,
-                 * `ListDataSourcesResponse` outputs a `next_page` token, which can be used as the `page_token` value to request the next page of list results.
+                 * Pagination token, which can be used to request a specific page of `ListDataSourcesRequest` list results. For multiple-page results, `ListDataSourcesResponse` outputs a
+                 * `next_page` token, which can be used as the `page_token` value to request the next page of list results.
                  */
                 pageToken?: string;
-                /**
-                 * Required. The BigQuery project id for which data sources should be returned. Must be in the form: `projects/{project_id}` or
-                 * `projects/{project_id}/locations/{location_id}
-                 */
+                /** Required. The BigQuery project id for which data sources should be returned. Must be in the form: `projects/{project_id}` or `projects/{project_id}/locations/{location_id} */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -467,9 +437,8 @@ declare namespace gapi.client {
         }
         interface DataSourcesResource {
             /**
-             * Returns true if valid credentials exist for the given data source and requesting user. Some data sources doesn't support service account, so we need to
-             * talk to them on behalf of the end user. This API just checks whether we have OAuth token for the particular user, which is a pre-requisite before user
-             * can create a transfer config.
+             * Returns true if valid credentials exist for the given data source and requesting user. Some data sources doesn't support service account, so we need to talk to them on behalf of the
+             * end user. This API just checks whether we have OAuth token for the particular user, which is a pre-requisite before user can create a transfer config.
              */
             checkValidCreds(request: {
                 /** V1 error format. */
@@ -484,10 +453,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or
-                 * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
-                 */
+                /** Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -515,10 +481,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or
-                 * `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
-                 */
+                /** Required. The data source in the form: `projects/{project_id}/dataSources/{data_source_id}` or `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -581,14 +544,11 @@ declare namespace gapi.client {
                 /** Page size. The default page size is the maximum value of 1000 results. */
                 pageSize?: number;
                 /**
-                 * Pagination token, which can be used to request a specific page of `ListDataSourcesRequest` list results. For multiple-page results,
-                 * `ListDataSourcesResponse` outputs a `next_page` token, which can be used as the `page_token` value to request the next page of list results.
+                 * Pagination token, which can be used to request a specific page of `ListDataSourcesRequest` list results. For multiple-page results, `ListDataSourcesResponse` outputs a
+                 * `next_page` token, which can be used as the `page_token` value to request the next page of list results.
                  */
                 pageToken?: string;
-                /**
-                 * Required. The BigQuery project id for which data sources should be returned. Must be in the form: `projects/{project_id}` or
-                 * `projects/{project_id}/locations/{location_id}
-                 */
+                /** Required. The BigQuery project id for which data sources should be returned. Must be in the form: `projects/{project_id}` or `projects/{project_id}/locations/{location_id} */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -622,8 +582,8 @@ declare namespace gapi.client {
                 /** Page size. The default page size is the maximum value of 1000 results. */
                 pageSize?: number;
                 /**
-                 * Pagination token, which can be used to request a specific page of `ListTransferLogsRequest` list results. For multiple-page results,
-                 * `ListTransferLogsResponse` outputs a `next_page` token, which can be used as the `page_token` value to request the next page of list results.
+                 * Pagination token, which can be used to request a specific page of `ListTransferLogsRequest` list results. For multiple-page results, `ListTransferLogsResponse` outputs a
+                 * `next_page` token, which can be used as the `page_token` value to request the next page of list results.
                  */
                 pageToken?: string;
                 /**
@@ -721,8 +681,8 @@ declare namespace gapi.client {
                 /** Page size. The default page size is the maximum value of 1000 results. */
                 pageSize?: number;
                 /**
-                 * Pagination token, which can be used to request a specific page of `ListTransferRunsRequest` list results. For multiple-page results,
-                 * `ListTransferRunsResponse` outputs a `next_page` token, which can be used as the `page_token` value to request the next page of list results.
+                 * Pagination token, which can be used to request a specific page of `ListTransferRunsRequest` list results. For multiple-page results, `ListTransferRunsResponse` outputs a
+                 * `next_page` token, which can be used as the `page_token` value to request the next page of list results.
                  */
                 pageToken?: string;
                 /**
@@ -755,13 +715,12 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * Optional OAuth2 authorization code to use with this transfer configuration. This is required if new credentials are needed, as indicated by
-                 * `CheckValidCreds`. In order to obtain authorization_code, please make a request to
-                 * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= ∗ client_id should be OAuth client_id of BigQuery DTS API for
-                 * the given data source returned by ListDataSources method. ∗ data_source_scopes are the scopes returned by ListDataSources method. ∗ redirect_uri is an
-                 * optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the
-                 * redirect uri. A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the
-                 * page text prompting the user to copy the code and paste it in the application.
+                 * Optional OAuth2 authorization code to use with this transfer configuration. This is required if new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain
+                 * authorization_code, please make a request to https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= * client_id should be OAuth client_id of
+                 * BigQuery DTS API for the given data source returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. * redirect_uri is an
+                 * optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the redirect uri. A special
+                 * value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the page text prompting the user to copy the code and
+                 * paste it in the application.
                  */
                 authorizationCode?: string;
                 /** JSONP */
@@ -773,9 +732,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The BigQuery project id where the transfer configuration should be created. Must be in the format
-                 * projects/{project_id}/locations/{location_id} or projects/{project_id}. If specified location and location of the destination bigquery dataset do not
-                 * match - the request will fail.
+                 * Required. The BigQuery project id where the transfer configuration should be created. Must be in the format projects/{project_id}/locations/{location_id} or
+                 * projects/{project_id}. If specified location and location of the destination bigquery dataset do not match - the request will fail.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -783,8 +741,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional service account name. If this field is set, transfer config will be created with this service account credentials. It requires that requesting
-                 * user calling this API has permissions to act as this service account.
+                 * Optional service account name. If this field is set, transfer config will be created with this service account credentials. It requires that requesting user calling this API has
+                 * permissions to act as this service account.
                  */
                 serviceAccountName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -792,9 +750,9 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the
-                 * version_info claim in the token request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info
-                 * back in the authorization response which be be put in a JWT claim in the token request.
+                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the version_info claim in the token
+                 * request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info back in the authorization response which be be put in a JWT
+                 * claim in the token request.
                  */
                 versionInfo?: string;
                 /** Request body */
@@ -808,13 +766,12 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * Optional OAuth2 authorization code to use with this transfer configuration. This is required if new credentials are needed, as indicated by
-                 * `CheckValidCreds`. In order to obtain authorization_code, please make a request to
-                 * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= ∗ client_id should be OAuth client_id of BigQuery DTS API for
-                 * the given data source returned by ListDataSources method. ∗ data_source_scopes are the scopes returned by ListDataSources method. ∗ redirect_uri is an
-                 * optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the
-                 * redirect uri. A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the
-                 * page text prompting the user to copy the code and paste it in the application.
+                 * Optional OAuth2 authorization code to use with this transfer configuration. This is required if new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain
+                 * authorization_code, please make a request to https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= * client_id should be OAuth client_id of
+                 * BigQuery DTS API for the given data source returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. * redirect_uri is an
+                 * optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the redirect uri. A special
+                 * value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the page text prompting the user to copy the code and
+                 * paste it in the application.
                  */
                 authorizationCode?: string;
                 /** JSONP */
@@ -826,9 +783,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The BigQuery project id where the transfer configuration should be created. Must be in the format
-                 * projects/{project_id}/locations/{location_id} or projects/{project_id}. If specified location and location of the destination bigquery dataset do not
-                 * match - the request will fail.
+                 * Required. The BigQuery project id where the transfer configuration should be created. Must be in the format projects/{project_id}/locations/{location_id} or
+                 * projects/{project_id}. If specified location and location of the destination bigquery dataset do not match - the request will fail.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -836,8 +792,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional service account name. If this field is set, transfer config will be created with this service account credentials. It requires that requesting
-                 * user calling this API has permissions to act as this service account.
+                 * Optional service account name. If this field is set, transfer config will be created with this service account credentials. It requires that requesting user calling this API has
+                 * permissions to act as this service account.
                  */
                 serviceAccountName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -845,9 +801,9 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the
-                 * version_info claim in the token request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info
-                 * back in the authorization response which be be put in a JWT claim in the token request.
+                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the version_info claim in the token
+                 * request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info back in the authorization response which be be put in a JWT
+                 * claim in the token request.
                  */
                 versionInfo?: string;
             },
@@ -933,8 +889,8 @@ declare namespace gapi.client {
                 /** Page size. The default page size is the maximum value of 1000 results. */
                 pageSize?: number;
                 /**
-                 * Pagination token, which can be used to request a specific page of `ListTransfersRequest` list results. For multiple-page results,
-                 * `ListTransfersResponse` outputs a `next_page` token, which can be used as the `page_token` value to request the next page of list results.
+                 * Pagination token, which can be used to request a specific page of `ListTransfersRequest` list results. For multiple-page results, `ListTransfersResponse` outputs a `next_page`
+                 * token, which can be used as the `page_token` value to request the next page of list results.
                  */
                 pageToken?: string;
                 /** Required. The BigQuery project id for which data sources should be returned: `projects/{project_id}` or `projects/{project_id}/locations/{location_id}` */
@@ -957,13 +913,12 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * Optional OAuth2 authorization code to use with this transfer configuration. If it is provided, the transfer configuration will be associated with the
-                 * authorizing user. In order to obtain authorization_code, please make a request to
-                 * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= ∗ client_id should be OAuth client_id of BigQuery DTS API for
-                 * the given data source returned by ListDataSources method. ∗ data_source_scopes are the scopes returned by ListDataSources method. ∗ redirect_uri is an
-                 * optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the
-                 * redirect uri. A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the
-                 * page text prompting the user to copy the code and paste it in the application.
+                 * Optional OAuth2 authorization code to use with this transfer configuration. If it is provided, the transfer configuration will be associated with the authorizing user. In order
+                 * to obtain authorization_code, please make a request to https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= * client_id should be OAuth
+                 * client_id of BigQuery DTS API for the given data source returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. *
+                 * redirect_uri is an optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the redirect
+                 * uri. A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the page text prompting the user to copy
+                 * the code and paste it in the application.
                  */
                 authorizationCode?: string;
                 /** JSONP */
@@ -973,10 +928,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the transfer config. Transfer config names have the form of
-                 * `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The name is automatically generated based on the config_id specified in
-                 * CreateTransferConfigRequest along with project_id and region. If config_id is not provided, usually a uuid, even though it is not guaranteed or
-                 * required, will be generated for config_id.
+                 * The resource name of the transfer config. Transfer config names have the form of `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The name is
+                 * automatically generated based on the config_id specified in CreateTransferConfigRequest along with project_id and region. If config_id is not provided, usually a uuid, even
+                 * though it is not guaranteed or required, will be generated for config_id.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -986,8 +940,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional service account name. If this field is set and "service_account_name" is set in update_mask, transfer config will be updated to use this
-                 * service account credentials. It requires that requesting user calling this API has permissions to act as this service account.
+                 * Optional service account name. If this field is set and "service_account_name" is set in update_mask, transfer config will be updated to use this service account credentials. It
+                 * requires that requesting user calling this API has permissions to act as this service account.
                  */
                 serviceAccountName?: string;
                 /** Required. Required list of fields to be updated in this request. */
@@ -997,9 +951,9 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the
-                 * version_info claim in the token request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info
-                 * back in the authorization response which be be put in a JWT claim in the token request.
+                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the version_info claim in the token
+                 * request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info back in the authorization response which be be put in a JWT
+                 * claim in the token request.
                  */
                 versionInfo?: string;
                 /** Request body */
@@ -1013,13 +967,12 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * Optional OAuth2 authorization code to use with this transfer configuration. If it is provided, the transfer configuration will be associated with the
-                 * authorizing user. In order to obtain authorization_code, please make a request to
-                 * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= ∗ client_id should be OAuth client_id of BigQuery DTS API for
-                 * the given data source returned by ListDataSources method. ∗ data_source_scopes are the scopes returned by ListDataSources method. ∗ redirect_uri is an
-                 * optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the
-                 * redirect uri. A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the
-                 * page text prompting the user to copy the code and paste it in the application.
+                 * Optional OAuth2 authorization code to use with this transfer configuration. If it is provided, the transfer configuration will be associated with the authorizing user. In order
+                 * to obtain authorization_code, please make a request to https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= * client_id should be OAuth
+                 * client_id of BigQuery DTS API for the given data source returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. *
+                 * redirect_uri is an optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the redirect
+                 * uri. A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the page text prompting the user to copy
+                 * the code and paste it in the application.
                  */
                 authorizationCode?: string;
                 /** JSONP */
@@ -1029,10 +982,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the transfer config. Transfer config names have the form of
-                 * `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The name is automatically generated based on the config_id specified in
-                 * CreateTransferConfigRequest along with project_id and region. If config_id is not provided, usually a uuid, even though it is not guaranteed or
-                 * required, will be generated for config_id.
+                 * The resource name of the transfer config. Transfer config names have the form of `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The name is
+                 * automatically generated based on the config_id specified in CreateTransferConfigRequest along with project_id and region. If config_id is not provided, usually a uuid, even
+                 * though it is not guaranteed or required, will be generated for config_id.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1042,8 +994,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional service account name. If this field is set and "service_account_name" is set in update_mask, transfer config will be updated to use this
-                 * service account credentials. It requires that requesting user calling this API has permissions to act as this service account.
+                 * Optional service account name. If this field is set and "service_account_name" is set in update_mask, transfer config will be updated to use this service account credentials. It
+                 * requires that requesting user calling this API has permissions to act as this service account.
                  */
                 serviceAccountName?: string;
                 /** Required. Required list of fields to be updated in this request. */
@@ -1053,16 +1005,16 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the
-                 * version_info claim in the token request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info
-                 * back in the authorization response which be be put in a JWT claim in the token request.
+                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the version_info claim in the token
+                 * request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info back in the authorization response which be be put in a JWT
+                 * claim in the token request.
                  */
                 versionInfo?: string;
             },
             body: TransferConfig): Request<TransferConfig>;
             /**
-             * Creates transfer runs for a time range [start_time, end_time]. For each date - or whatever granularity the data source supports - in the range, one
-             * transfer run is created. Note that runs are created per UTC time in the time range. DEPRECATED: use StartManualTransferRuns instead.
+             * Creates transfer runs for a time range [start_time, end_time]. For each date - or whatever granularity the data source supports - in the range, one transfer run is created. Note
+             * that runs are created per UTC time in the time range. DEPRECATED: use StartManualTransferRuns instead.
              */
             scheduleRuns(request: {
                 /** V1 error format. */
@@ -1126,8 +1078,8 @@ declare namespace gapi.client {
             },
             body: ScheduleTransferRunsRequest): Request<ScheduleTransferRunsResponse>;
             /**
-             * Start manual transfer runs to be executed now with schedule_time equal to current time. The transfer runs can be created for a time range where the
-             * run_time is between start_time (inclusive) and end_time (exclusive), or for a specific run_time.
+             * Start manual transfer runs to be executed now with schedule_time equal to current time. The transfer runs can be created for a time range where the run_time is between start_time
+             * (inclusive) and end_time (exclusive), or for a specific run_time.
              */
             startManualRuns(request: {
                 /** V1 error format. */
@@ -1144,10 +1096,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Transfer configuration name in the form: `projects/{project_id}/transferConfigs/{config_id}` or
-                 * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
-                 */
+                /** Transfer configuration name in the form: `projects/{project_id}/transferConfigs/{config_id}` or `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1175,10 +1124,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Transfer configuration name in the form: `projects/{project_id}/transferConfigs/{config_id}` or
-                 * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
-                 */
+                /** Transfer configuration name in the form: `projects/{project_id}/transferConfigs/{config_id}` or `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1278,8 +1224,8 @@ declare namespace gapi.client {
                 /** Page size. The default page size is the maximum value of 1000 results. */
                 pageSize?: number;
                 /**
-                 * Pagination token, which can be used to request a specific page of `ListTransferLogsRequest` list results. For multiple-page results,
-                 * `ListTransferLogsResponse` outputs a `next_page` token, which can be used as the `page_token` value to request the next page of list results.
+                 * Pagination token, which can be used to request a specific page of `ListTransferLogsRequest` list results. For multiple-page results, `ListTransferLogsResponse` outputs a
+                 * `next_page` token, which can be used as the `page_token` value to request the next page of list results.
                  */
                 pageToken?: string;
                 /**
@@ -1377,8 +1323,8 @@ declare namespace gapi.client {
                 /** Page size. The default page size is the maximum value of 1000 results. */
                 pageSize?: number;
                 /**
-                 * Pagination token, which can be used to request a specific page of `ListTransferRunsRequest` list results. For multiple-page results,
-                 * `ListTransferRunsResponse` outputs a `next_page` token, which can be used as the `page_token` value to request the next page of list results.
+                 * Pagination token, which can be used to request a specific page of `ListTransferRunsRequest` list results. For multiple-page results, `ListTransferRunsResponse` outputs a
+                 * `next_page` token, which can be used as the `page_token` value to request the next page of list results.
                  */
                 pageToken?: string;
                 /**
@@ -1411,13 +1357,12 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * Optional OAuth2 authorization code to use with this transfer configuration. This is required if new credentials are needed, as indicated by
-                 * `CheckValidCreds`. In order to obtain authorization_code, please make a request to
-                 * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= ∗ client_id should be OAuth client_id of BigQuery DTS API for
-                 * the given data source returned by ListDataSources method. ∗ data_source_scopes are the scopes returned by ListDataSources method. ∗ redirect_uri is an
-                 * optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the
-                 * redirect uri. A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the
-                 * page text prompting the user to copy the code and paste it in the application.
+                 * Optional OAuth2 authorization code to use with this transfer configuration. This is required if new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain
+                 * authorization_code, please make a request to https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= * client_id should be OAuth client_id of
+                 * BigQuery DTS API for the given data source returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. * redirect_uri is an
+                 * optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the redirect uri. A special
+                 * value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the page text prompting the user to copy the code and
+                 * paste it in the application.
                  */
                 authorizationCode?: string;
                 /** JSONP */
@@ -1429,9 +1374,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The BigQuery project id where the transfer configuration should be created. Must be in the format
-                 * projects/{project_id}/locations/{location_id} or projects/{project_id}. If specified location and location of the destination bigquery dataset do not
-                 * match - the request will fail.
+                 * Required. The BigQuery project id where the transfer configuration should be created. Must be in the format projects/{project_id}/locations/{location_id} or
+                 * projects/{project_id}. If specified location and location of the destination bigquery dataset do not match - the request will fail.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1439,8 +1383,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional service account name. If this field is set, transfer config will be created with this service account credentials. It requires that requesting
-                 * user calling this API has permissions to act as this service account.
+                 * Optional service account name. If this field is set, transfer config will be created with this service account credentials. It requires that requesting user calling this API has
+                 * permissions to act as this service account.
                  */
                 serviceAccountName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1448,9 +1392,9 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the
-                 * version_info claim in the token request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info
-                 * back in the authorization response which be be put in a JWT claim in the token request.
+                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the version_info claim in the token
+                 * request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info back in the authorization response which be be put in a JWT
+                 * claim in the token request.
                  */
                 versionInfo?: string;
                 /** Request body */
@@ -1464,13 +1408,12 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * Optional OAuth2 authorization code to use with this transfer configuration. This is required if new credentials are needed, as indicated by
-                 * `CheckValidCreds`. In order to obtain authorization_code, please make a request to
-                 * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= ∗ client_id should be OAuth client_id of BigQuery DTS API for
-                 * the given data source returned by ListDataSources method. ∗ data_source_scopes are the scopes returned by ListDataSources method. ∗ redirect_uri is an
-                 * optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the
-                 * redirect uri. A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the
-                 * page text prompting the user to copy the code and paste it in the application.
+                 * Optional OAuth2 authorization code to use with this transfer configuration. This is required if new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain
+                 * authorization_code, please make a request to https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= * client_id should be OAuth client_id of
+                 * BigQuery DTS API for the given data source returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. * redirect_uri is an
+                 * optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the redirect uri. A special
+                 * value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the page text prompting the user to copy the code and
+                 * paste it in the application.
                  */
                 authorizationCode?: string;
                 /** JSONP */
@@ -1482,9 +1425,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The BigQuery project id where the transfer configuration should be created. Must be in the format
-                 * projects/{project_id}/locations/{location_id} or projects/{project_id}. If specified location and location of the destination bigquery dataset do not
-                 * match - the request will fail.
+                 * Required. The BigQuery project id where the transfer configuration should be created. Must be in the format projects/{project_id}/locations/{location_id} or
+                 * projects/{project_id}. If specified location and location of the destination bigquery dataset do not match - the request will fail.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1492,8 +1434,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional service account name. If this field is set, transfer config will be created with this service account credentials. It requires that requesting
-                 * user calling this API has permissions to act as this service account.
+                 * Optional service account name. If this field is set, transfer config will be created with this service account credentials. It requires that requesting user calling this API has
+                 * permissions to act as this service account.
                  */
                 serviceAccountName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1501,9 +1443,9 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the
-                 * version_info claim in the token request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info
-                 * back in the authorization response which be be put in a JWT claim in the token request.
+                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the version_info claim in the token
+                 * request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info back in the authorization response which be be put in a JWT
+                 * claim in the token request.
                  */
                 versionInfo?: string;
             },
@@ -1589,8 +1531,8 @@ declare namespace gapi.client {
                 /** Page size. The default page size is the maximum value of 1000 results. */
                 pageSize?: number;
                 /**
-                 * Pagination token, which can be used to request a specific page of `ListTransfersRequest` list results. For multiple-page results,
-                 * `ListTransfersResponse` outputs a `next_page` token, which can be used as the `page_token` value to request the next page of list results.
+                 * Pagination token, which can be used to request a specific page of `ListTransfersRequest` list results. For multiple-page results, `ListTransfersResponse` outputs a `next_page`
+                 * token, which can be used as the `page_token` value to request the next page of list results.
                  */
                 pageToken?: string;
                 /** Required. The BigQuery project id for which data sources should be returned: `projects/{project_id}` or `projects/{project_id}/locations/{location_id}` */
@@ -1613,13 +1555,12 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * Optional OAuth2 authorization code to use with this transfer configuration. If it is provided, the transfer configuration will be associated with the
-                 * authorizing user. In order to obtain authorization_code, please make a request to
-                 * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= ∗ client_id should be OAuth client_id of BigQuery DTS API for
-                 * the given data source returned by ListDataSources method. ∗ data_source_scopes are the scopes returned by ListDataSources method. ∗ redirect_uri is an
-                 * optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the
-                 * redirect uri. A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the
-                 * page text prompting the user to copy the code and paste it in the application.
+                 * Optional OAuth2 authorization code to use with this transfer configuration. If it is provided, the transfer configuration will be associated with the authorizing user. In order
+                 * to obtain authorization_code, please make a request to https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= * client_id should be OAuth
+                 * client_id of BigQuery DTS API for the given data source returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. *
+                 * redirect_uri is an optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the redirect
+                 * uri. A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the page text prompting the user to copy
+                 * the code and paste it in the application.
                  */
                 authorizationCode?: string;
                 /** JSONP */
@@ -1629,10 +1570,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the transfer config. Transfer config names have the form of
-                 * `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The name is automatically generated based on the config_id specified in
-                 * CreateTransferConfigRequest along with project_id and region. If config_id is not provided, usually a uuid, even though it is not guaranteed or
-                 * required, will be generated for config_id.
+                 * The resource name of the transfer config. Transfer config names have the form of `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The name is
+                 * automatically generated based on the config_id specified in CreateTransferConfigRequest along with project_id and region. If config_id is not provided, usually a uuid, even
+                 * though it is not guaranteed or required, will be generated for config_id.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1642,8 +1582,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional service account name. If this field is set and "service_account_name" is set in update_mask, transfer config will be updated to use this
-                 * service account credentials. It requires that requesting user calling this API has permissions to act as this service account.
+                 * Optional service account name. If this field is set and "service_account_name" is set in update_mask, transfer config will be updated to use this service account credentials. It
+                 * requires that requesting user calling this API has permissions to act as this service account.
                  */
                 serviceAccountName?: string;
                 /** Required. Required list of fields to be updated in this request. */
@@ -1653,9 +1593,9 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the
-                 * version_info claim in the token request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info
-                 * back in the authorization response which be be put in a JWT claim in the token request.
+                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the version_info claim in the token
+                 * request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info back in the authorization response which be be put in a JWT
+                 * claim in the token request.
                  */
                 versionInfo?: string;
                 /** Request body */
@@ -1669,13 +1609,12 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * Optional OAuth2 authorization code to use with this transfer configuration. If it is provided, the transfer configuration will be associated with the
-                 * authorizing user. In order to obtain authorization_code, please make a request to
-                 * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= ∗ client_id should be OAuth client_id of BigQuery DTS API for
-                 * the given data source returned by ListDataSources method. ∗ data_source_scopes are the scopes returned by ListDataSources method. ∗ redirect_uri is an
-                 * optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the
-                 * redirect uri. A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the
-                 * page text prompting the user to copy the code and paste it in the application.
+                 * Optional OAuth2 authorization code to use with this transfer configuration. If it is provided, the transfer configuration will be associated with the authorizing user. In order
+                 * to obtain authorization_code, please make a request to https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri= * client_id should be OAuth
+                 * client_id of BigQuery DTS API for the given data source returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. *
+                 * redirect_uri is an optional parameter. If not specified, then authorization code is posted to the opener of authorization flow window. Otherwise it will be sent to the redirect
+                 * uri. A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code should be returned in the title bar of the browser, with the page text prompting the user to copy
+                 * the code and paste it in the application.
                  */
                 authorizationCode?: string;
                 /** JSONP */
@@ -1685,10 +1624,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the transfer config. Transfer config names have the form of
-                 * `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The name is automatically generated based on the config_id specified in
-                 * CreateTransferConfigRequest along with project_id and region. If config_id is not provided, usually a uuid, even though it is not guaranteed or
-                 * required, will be generated for config_id.
+                 * The resource name of the transfer config. Transfer config names have the form of `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The name is
+                 * automatically generated based on the config_id specified in CreateTransferConfigRequest along with project_id and region. If config_id is not provided, usually a uuid, even
+                 * though it is not guaranteed or required, will be generated for config_id.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1698,8 +1636,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional service account name. If this field is set and "service_account_name" is set in update_mask, transfer config will be updated to use this
-                 * service account credentials. It requires that requesting user calling this API has permissions to act as this service account.
+                 * Optional service account name. If this field is set and "service_account_name" is set in update_mask, transfer config will be updated to use this service account credentials. It
+                 * requires that requesting user calling this API has permissions to act as this service account.
                  */
                 serviceAccountName?: string;
                 /** Required. Required list of fields to be updated in this request. */
@@ -1709,16 +1647,16 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the
-                 * version_info claim in the token request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info
-                 * back in the authorization response which be be put in a JWT claim in the token request.
+                 * Optional version info. If users want to find a very recent access token, that is, immediately after approving access, users have to set the version_info claim in the token
+                 * request. To obtain the version_info, users must use the "none+gsession" response type. which be return a version_info back in the authorization response which be be put in a JWT
+                 * claim in the token request.
                  */
                 versionInfo?: string;
             },
             body: TransferConfig): Request<TransferConfig>;
             /**
-             * Creates transfer runs for a time range [start_time, end_time]. For each date - or whatever granularity the data source supports - in the range, one
-             * transfer run is created. Note that runs are created per UTC time in the time range. DEPRECATED: use StartManualTransferRuns instead.
+             * Creates transfer runs for a time range [start_time, end_time]. For each date - or whatever granularity the data source supports - in the range, one transfer run is created. Note
+             * that runs are created per UTC time in the time range. DEPRECATED: use StartManualTransferRuns instead.
              */
             scheduleRuns(request: {
                 /** V1 error format. */
@@ -1782,8 +1720,8 @@ declare namespace gapi.client {
             },
             body: ScheduleTransferRunsRequest): Request<ScheduleTransferRunsResponse>;
             /**
-             * Start manual transfer runs to be executed now with schedule_time equal to current time. The transfer runs can be created for a time range where the
-             * run_time is between start_time (inclusive) and end_time (exclusive), or for a specific run_time.
+             * Start manual transfer runs to be executed now with schedule_time equal to current time. The transfer runs can be created for a time range where the run_time is between start_time
+             * (inclusive) and end_time (exclusive), or for a specific run_time.
              */
             startManualRuns(request: {
                 /** V1 error format. */
@@ -1800,10 +1738,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Transfer configuration name in the form: `projects/{project_id}/transferConfigs/{config_id}` or
-                 * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
-                 */
+                /** Transfer configuration name in the form: `projects/{project_id}/transferConfigs/{config_id}` or `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1831,10 +1766,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Transfer configuration name in the form: `projects/{project_id}/transferConfigs/{config_id}` or
-                 * `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
-                 */
+                /** Transfer configuration name in the form: `projects/{project_id}/transferConfigs/{config_id}` or `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;

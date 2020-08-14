@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Run Admin API v1 1.0
 // Project: https://cloud.google.com/run/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -25,8 +28,8 @@ declare namespace gapi.client {
             /** The configuration for logging of each type of permission. */
             auditLogConfigs?: AuditLogConfig[];
             /**
-             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
-             * special value that covers all services.
+             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
+             * services.
              */
             service?: string;
         }
@@ -44,27 +47,23 @@ declare namespace gapi.client {
         }
         interface Binding {
             /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the
-             * condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to
-             * one or more of the members in this binding. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
+             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the members in this binding. To learn which
+             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
-             * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
-             * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
-             * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
-             * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
-             * `google.com` or `example.com`.
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is
+             * on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
+             * account. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that
+             * represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `group:{emailid}`: An email address that represents a Google group. For example,
+             * `admins@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. *
+             * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service
+             * account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently
+             * deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in
+             * the binding. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -90,16 +89,15 @@ declare namespace gapi.client {
         }
         interface ConfigMapVolumeSource {
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Mode bits to use on created files by default. Must be a value between
-             * 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect
-             * the file mode, like fsGroup, and the result can be other mode bits set.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644.
+             * Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode
+             * bits set.
              */
             defaultMode?: number;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported If unspecified, each key-value pair in the Data field of the
-             * referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be
-             * projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup
-             * will error unless it is marked optional.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported If unspecified, each key-value pair in the Data field of the referenced Secret will be projected
+             * into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be
+             * present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional.
              */
             items?: KeyToPath[];
             /** Cloud Run fully managed: not supported Cloud Run for Anthos: supported Name of the config. */
@@ -121,36 +119,31 @@ declare namespace gapi.client {
         }
         interface ConfigurationSpec {
             /**
-             * Optional metadata for this Revision, including labels and annotations. Name will be generated by the Configuration. To set minimum instances for this
-             * revision, use the "autoscaling.knative.dev/minScale" annotation key. (Cloud Run for Anthos only). To set maximum instances for this revision, use the
-             * "autoscaling.knative.dev/maxScale" annotation key. To set Cloud SQL connections for the revision, use the "run.googleapis.com/cloudsql-instances"
-             * annotation key. Values should be comma separated.
+             * Optional metadata for this Revision, including labels and annotations. Name will be generated by the Configuration. To set minimum instances for this revision, use the
+             * "autoscaling.knative.dev/minScale" annotation key. (Cloud Run for Anthos only). To set maximum instances for this revision, use the "autoscaling.knative.dev/maxScale" annotation
+             * key. To set Cloud SQL connections for the revision, use the "run.googleapis.com/cloudsql-instances" annotation key. Values should be comma separated.
              */
             template?: RevisionTemplate;
         }
         interface ConfigurationStatus {
             /** Conditions communicates information about ongoing/complete reconciliation processes that bring the "spec" inline with the observed state of the world. */
             conditions?: GoogleCloudRunV1Condition[];
-            /**
-             * LatestCreatedRevisionName is the last revision that was created from this Configuration. It might not be ready yet, for that use
-             * LatestReadyRevisionName.
-             */
+            /** LatestCreatedRevisionName is the last revision that was created from this Configuration. It might not be ready yet, for that use LatestReadyRevisionName. */
             latestCreatedRevisionName?: string;
             /** LatestReadyRevisionName holds the name of the latest Revision stamped out from this Configuration that has had its "Ready" condition become "True". */
             latestReadyRevisionName?: string;
             /**
-             * ObservedGeneration is the 'Generation' of the Configuration that was last processed by the controller. The observed generation is updated even if the
-             * controller failed to process the spec and create the Revision. Clients polling for completed reconciliation should poll until observedGeneration =
-             * metadata.generation, and the Ready condition's status is True or False.
+             * ObservedGeneration is the 'Generation' of the Configuration that was last processed by the controller. The observed generation is updated even if the controller failed to process
+             * the spec and create the Revision. Clients polling for completed reconciliation should poll until observedGeneration = metadata.generation, and the Ready condition's status is True
+             * or False.
              */
             observedGeneration?: number;
         }
         interface Container {
             /**
-             * (Optional) Cloud Run fully managed: supported Cloud Run for Anthos: supported Arguments to the entrypoint. The docker image's CMD is used if this is
-             * not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the
-             * input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded,
-             * regardless of whether the variable exists or not. More info:
+             * (Optional) Cloud Run fully managed: supported Cloud Run for Anthos: supported Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable
+             * references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax
+             * can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. More info:
              * https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
              */
             args?: string[];
@@ -158,10 +151,9 @@ declare namespace gapi.client {
             /** (Optional) Cloud Run fully managed: supported Cloud Run for Anthos: supported List of environment variables to set in the container. */
             env?: EnvVar[];
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported List of sources to populate environment variables in the container.
-             * The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key
-             * exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take
-             * precedence. Cannot be updated.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported List of sources to populate environment variables in the container. The keys defined within a
+             * source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the
+             * last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.
              */
             envFrom?: EnvFromSource[];
             /**
@@ -170,26 +162,25 @@ declare namespace gapi.client {
              */
             image?: string;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Image pull policy. One of Always, Never, IfNotPresent. Defaults to
-             * Always if :latest tag is specified, or IfNotPresent otherwise. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is
+             * specified, or IfNotPresent otherwise. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images
              */
             imagePullPolicy?: string;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Periodic probe of container liveness. Container will be restarted if
-             * the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Periodic probe of container liveness. Container will be restarted if the probe fails. More info:
+             * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
              */
             livenessProbe?: Probe;
             /** (Optional) Name of the container specified as a DNS_LABEL. */
             name?: string;
             /**
-             * (Optional) List of ports to expose from the container. Only a single port can be specified. The specified ports must be listening on all interfaces
-             * (0.0.0.0) within the container to be accessible. If omitted, a port number will be chosen and passed to the container through the PORT environment
-             * variable for the container to listen on.
+             * (Optional) List of ports to expose from the container. Only a single port can be specified. The specified ports must be listening on all interfaces (0.0.0.0) within the container to
+             * be accessible. If omitted, a port number will be chosen and passed to the container through the PORT environment variable for the container to listen on.
              */
             ports?: ContainerPort[];
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Periodic probe of container service readiness. Container will be
-             * removed from service endpoints if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Periodic probe of container service readiness. Container will be removed from service endpoints if
+             * the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
              */
             readinessProbe?: Probe;
             /**
@@ -203,34 +194,29 @@ declare namespace gapi.client {
              */
             securityContext?: SecurityContext;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Path at which the file to which the container's termination message
-             * will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message.
-             * Will be truncated by the node if greater than 4096 bytes. The total message length across all containers will be limited to 12kb. Defaults to
-             * /dev/termination-log.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Path at which the file to which the container's termination message will be written is mounted into
+             * the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Will be truncated by the node if greater than 4096 bytes. The
+             * total message length across all containers will be limited to 12kb. Defaults to /dev/termination-log.
              */
             terminationMessagePath?: string;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Indicate how the termination message should be populated. File will
-             * use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the
-             * last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048
-             * bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Indicate how the termination message should be populated. File will use the contents of
+             * terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination
+             * message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
              */
             terminationMessagePolicy?: string;
             /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Pod volumes to mount into the container's filesystem. */
             volumeMounts?: VolumeMount[];
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Container's working directory. If not specified, the container
-             * runtime's default will be used, which might be configured in the container image.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Container's working directory. If not specified, the container runtime's default will be used,
+             * which might be configured in the container image.
              */
             workingDir?: string;
         }
         interface ContainerPort {
             /** (Optional) Port number the container listens on. This must be a valid port number, 0 < x < 65536. */
             containerPort?: number;
-            /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported If specified, used to specify which protocol to use. Allowed values
-             * are "http1" and "h2c".
-             */
+            /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported If specified, used to specify which protocol to use. Allowed values are "http1" and "h2c". */
             name?: string;
             /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Protocol for port. Must be "TCP". Defaults to "TCP". */
             protocol?: string;
@@ -251,8 +237,8 @@ declare namespace gapi.client {
             /** The mode of the certificate. */
             certificateMode?: string;
             /**
-             * If set, the mapping will override any mapping set before this spec was set. It is recommended that the user leaves this empty to receive an error
-             * warning about a potential conflict and only set it once the respective UI has given such a warning.
+             * If set, the mapping will override any mapping set before this spec was set. It is recommended that the user leaves this empty to receive an error warning about a potential conflict
+             * and only set it once the respective UI has given such a warning.
              */
             forceOverride?: boolean;
             /** The name of the Knative Route that this DomainMapping applies to. The route must exist. */
@@ -264,13 +250,13 @@ declare namespace gapi.client {
             /** The name of the route that the mapping currently points to. */
             mappedRouteName?: string;
             /**
-             * ObservedGeneration is the 'Generation' of the DomainMapping that was last processed by the controller. Clients polling for completed reconciliation
-             * should poll until observedGeneration = metadata.generation and the Ready condition's status is True or False.
+             * ObservedGeneration is the 'Generation' of the DomainMapping that was last processed by the controller. Clients polling for completed reconciliation should poll until
+             * observedGeneration = metadata.generation and the Ready condition's status is True or False.
              */
             observedGeneration?: number;
             /**
-             * The resource records required to configure this domain mapping. These records must be added to the domain's DNS configuration in order to serve the
-             * application via this domain mapping.
+             * The resource records required to configure this domain mapping. These records must be added to the domain's DNS configuration in order to serve the application via this domain
+             * mapping.
              */
             resourceRecords?: ResourceRecord[];
             /** Cloud Run fully managed: not supported Cloud Run on GKE: supported Holds the URL that will serve the traffic of the DomainMapping. +optional */
@@ -279,10 +265,7 @@ declare namespace gapi.client {
         interface EnvFromSource {
             /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported The ConfigMap to select from */
             configMapRef?: ConfigMapEnvSource;
-            /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported An optional identifier to prepend to each key in the ConfigMap. Must
-             * be a C_IDENTIFIER.
-             */
+            /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER. */
             prefix?: string;
             /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported The Secret to select from */
             secretRef?: SecretEnvSource;
@@ -291,15 +274,12 @@ declare namespace gapi.client {
             /** Name of the environment variable. Must be a C_IDENTIFIER. */
             name?: string;
             /**
-             * (Optional) Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any route environment
-             * variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double
-             * $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "".
+             * (Optional) Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any route environment variables. If a variable cannot
+             * be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be
+             * expanded, regardless of whether the variable exists or not. Defaults to "".
              */
             value?: string;
-            /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Source for the environment variable's value. Cannot be used if value
-             * is not empty.
-             */
+            /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Source for the environment variable's value. Cannot be used if value is not empty. */
             valueFrom?: EnvVarSource;
         }
         interface EnvVarSource {
@@ -310,10 +290,9 @@ declare namespace gapi.client {
         }
         interface ExecAction {
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Command is the command line to execute inside the container, the
-             * working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so
-             * traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as
-             * live/healthy and non-zero is unhealthy.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Command is the command line to execute inside the container, the working directory for the command
+             * is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you
+             * need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
              */
             command?: string[];
         }
@@ -339,16 +318,15 @@ declare namespace gapi.client {
             /** Status of the condition, one of True, False, Unknown. */
             status?: string;
             /**
-             * type is used to communicate the status of the reconciliation process. See also:
-             * https://github.com/knative/serving/blob/master/docs/spec/errors.md#error-conditions-and-reporting Types common to all resources include: ∗ "Ready":
-             * True when the Resource is ready.
+             * type is used to communicate the status of the reconciliation process. See also: https://github.com/knative/serving/blob/master/docs/spec/errors.md#error-conditions-and-reporting
+             * Types common to all resources include: * "Ready": True when the Resource is ready.
              */
             type?: string;
         }
         interface HTTPGetAction {
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Host name to connect to, defaults to the pod IP. You probably want to
-             * set "Host" in httpHeaders instead.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders
+             * instead.
              */
             host?: string;
             /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Custom headers to set in the request. HTTP allows repeated headers. */
@@ -368,14 +346,13 @@ declare namespace gapi.client {
             /** Cloud Run fully managed: not supported Cloud Run for Anthos: supported The key to project. */
             key?: string;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Mode bits to use on this file, must be a value between 0 and 0777. If
-             * not specified, the volume defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the
-             * result can be other mode bits set.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Mode bits to use on this file, must be a value between 0 and 0777. If not specified, the volume
+             * defaultMode will be used. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.
              */
             mode?: number;
             /**
-             * Cloud Run fully managed: not supported Cloud Run for Anthos: supported The relative path of the file to map the key to. May not be an absolute path.
-             * May not contain the path element '..'. May not start with the string '..'.
+             * Cloud Run fully managed: not supported Cloud Run for Anthos: supported The relative path of the file to map the key to. May not be an absolute path. May not contain the path element
+             * '..'. May not start with the string '..'.
              */
             path?: string;
         }
@@ -417,15 +394,14 @@ declare namespace gapi.client {
         }
         interface ListMeta {
             /**
-             * continue may be set if the user set a limit on the number of items returned, and indicates that the server has more data available. The value is opaque
-             * and may be used to issue another request to the endpoint that served this list to retrieve the next set of available objects. Continuing a list may not
-             * be possible if the server configuration has changed or more than a few minutes have passed. The resourceVersion field returned when using this continue
-             * value will be identical to the value in the first response.
+             * continue may be set if the user set a limit on the number of items returned, and indicates that the server has more data available. The value is opaque and may be used to issue
+             * another request to the endpoint that served this list to retrieve the next set of available objects. Continuing a list may not be possible if the server configuration has changed or
+             * more than a few minutes have passed. The resourceVersion field returned when using this continue value will be identical to the value in the first response.
              */
             continue?: string;
             /**
-             * String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be
-             * treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info:
+             * String that identifies the server's internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients
+             * and passed unmodified back to the server. Populated by the system. Read-only. More info:
              * https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency +optional
              */
             resourceVersion?: string;
@@ -490,22 +466,13 @@ declare namespace gapi.client {
         interface Namespace {
             /** Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata */
             metadata?: ObjectMeta;
-            /**
-             * Spec defines the behavior of the Namespace. More info:
-             * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-             */
+            /** Spec defines the behavior of the Namespace. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status */
             spec?: NamespaceSpec;
-            /**
-             * Status describes the current status of a Namespace. More info:
-             * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-             */
+            /** Status describes the current status of a Namespace. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status */
             status?: NamespaceStatus;
         }
         interface NamespaceSpec {
-            /**
-             * Finalizers is an opaque list of values that must be empty to permanently remove object from storage. More info:
-             * https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
-             */
+            /** Finalizers is an opaque list of values that must be empty to permanently remove object from storage. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/ */
             finalizers?: string[];
         }
         interface NamespaceStatus {
@@ -514,92 +481,83 @@ declare namespace gapi.client {
         }
         interface ObjectMeta {
             /**
-             * (Optional) Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary
-             * metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
+             * (Optional) Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and
+             * should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
              */
             annotations?: { [P in string]: string };
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported The name of the cluster which the object belongs to. This is used to
-             * distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it
-             * if set in create or update request.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported The name of the cluster which the object belongs to. This is used to distinguish resources with
+             * same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request.
              */
             clusterName?: string;
             /**
-             * (Optional) CreationTimestamp is a timestamp representing the server time when this object was created. It is not guaranteed to be set in happens-before
-             * order across separate operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC. Populated by the system. Read-only.
-             * Null for lists. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+             * (Optional) CreationTimestamp is a timestamp representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate
+             * operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC. Populated by the system. Read-only. Null for lists. More info:
+             * https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
              */
             creationTimestamp?: string;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Number of seconds allowed for this object to gracefully terminate
-             * before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Number of seconds allowed for this object to gracefully terminate before it will be removed from
+             * the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only.
              */
             deletionGracePeriodSeconds?: number;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported DeletionTimestamp is RFC 3339 date and time at which this resource
-             * will be deleted. This field is set by the server when a graceful deletion is requested by the user, and is not directly settable by a client. The
-             * resource is expected to be deleted (no longer visible from resource lists, and not reachable by name) after the time in this field, once the finalizers
-             * list is empty. As long as the finalizers list contains items, deletion is blocked. Once the deletionTimestamp is set, this value may not be unset or be
-             * set further into the future, although it may be shortened or the resource may be deleted prior to this time. For example, a user may request that a pod
-             * is deleted in 30 seconds. The Kubelet will react by sending a graceful termination signal to the containers in the pod. After that 30 seconds, the
-             * Kubelet will send a hard termination signal (SIGKILL) to the container and after cleanup, remove the pod from the API. In the presence of network
-             * partitions, this object may still exist after this timestamp, until an administrator or automated process can determine the resource is fully
-             * terminated. If not set, graceful deletion of the object has not been requested. Populated by the system when a graceful deletion is requested.
-             * Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported DeletionTimestamp is RFC 3339 date and time at which this resource will be deleted. This field is
+             * set by the server when a graceful deletion is requested by the user, and is not directly settable by a client. The resource is expected to be deleted (no longer visible from
+             * resource lists, and not reachable by name) after the time in this field, once the finalizers list is empty. As long as the finalizers list contains items, deletion is blocked. Once
+             * the deletionTimestamp is set, this value may not be unset or be set further into the future, although it may be shortened or the resource may be deleted prior to this time. For
+             * example, a user may request that a pod is deleted in 30 seconds. The Kubelet will react by sending a graceful termination signal to the containers in the pod. After that 30 seconds,
+             * the Kubelet will send a hard termination signal (SIGKILL) to the container and after cleanup, remove the pod from the API. In the presence of network partitions, this object may
+             * still exist after this timestamp, until an administrator or automated process can determine the resource is fully terminated. If not set, graceful deletion of the object has not
+             * been requested. Populated by the system when a graceful deletion is requested. Read-only. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
              */
             deletionTimestamp?: string;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Must be empty before the object is deleted from the registry. Each
-             * entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil,
-             * entries in this list can only be removed. +patchStrategy=merge
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Must be empty before the object is deleted from the registry. Each entry is an identifier for the
+             * responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. +patchStrategy=merge
              */
             finalizers?: string[];
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported GenerateName is an optional prefix, used by the server, to generate a
-             * unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name
-             * passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated
-             * by the length of the suffix required to make the value unique on the server. If this field is specified and the generated name exists, the server will
-             * NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time
-             * allotted, and the client should retry (optionally after the time indicated in the Retry-After header). Applied only if Name is not specified. More
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name
+             * field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix.
+             * The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server. If this field
+             * is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name
+             * could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header). Applied only if Name is not specified. More
              * info: https://git.k8s.io/community/contributors/devel/api-conventions.md#idempotency string generateName = 2;
              */
             generateName?: string;
             /** (Optional) A sequence number representing a specific generation of the desired state. Populated by the system. Read-only. */
             generation?: number;
             /**
-             * (Optional) Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication
-             * controllers and routes. More info: http://kubernetes.io/docs/user-guide/labels
+             * (Optional) Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and routes. More
+             * info: http://kubernetes.io/docs/user-guide/labels
              */
             labels?: { [P in string]: string };
             /**
-             * Name must be unique within a namespace, within a Cloud Run region. Is required when creating resources, although some resources may allow a client to
-             * request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot
-             * be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names +optional
+             * Name must be unique within a namespace, within a Cloud Run region. Is required when creating resources, although some resources may allow a client to request the generation of an
+             * appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info:
+             * http://kubernetes.io/docs/user-guide/identifiers#names +optional
              */
             name?: string;
-            /**
-             * Namespace defines the space within each name must be unique, within a Cloud Run region. In Cloud Run the namespace must be equal to either the project
-             * ID or project number.
-             */
+            /** Namespace defines the space within each name must be unique, within a Cloud Run region. In Cloud Run the namespace must be equal to either the project ID or project number. */
             namespace?: string;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported List of objects that own this object. If ALL objects in the list have
-             * been deleted, this object will be garbage collected.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported List of objects that own this object. If ALL objects in the list have been deleted, this object
+             * will be garbage collected.
              */
             ownerReferences?: OwnerReference[];
             /**
-             * (Optional) An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May
-             * be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as
-             * opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources. Populated by the system.
-             * Read-only. Value must be treated as opaque by clients. More info:
+             * (Optional) An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic
+             * concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They
+             * may only be valid for a particular resource or set of resources. Populated by the system. Read-only. Value must be treated as opaque by clients. More info:
              * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
              */
             resourceVersion?: string;
             /** (Optional) SelfLink is a URL representing this object. Populated by the system. Read-only. string selfLink = 4; */
             selfLink?: string;
             /**
-             * (Optional) UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and
-             * is not allowed to change on PUT operations. Populated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+             * (Optional) UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on
+             * PUT operations. Populated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
              */
             uid?: string;
         }
@@ -607,9 +565,8 @@ declare namespace gapi.client {
             /** API version of the referent. */
             apiVersion?: string;
             /**
-             * If true, AND if the owner has the "foregroundDeletion" finalizer, then the owner cannot be deleted from the key-value store until this reference is
-             * removed. Defaults to false. To set this field, a user needs "delete" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned.
-             * +optional
+             * If true, AND if the owner has the "foregroundDeletion" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To
+             * set this field, a user needs "delete" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned. +optional
              */
             blockOwnerDeletion?: boolean;
             /** If true, this reference points to the managing controller. +optional */
@@ -625,70 +582,61 @@ declare namespace gapi.client {
             /** Specifies cloud audit logging configuration for this policy. */
             auditConfigs?: AuditConfig[];
             /**
-             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the
-             * `bindings` must contain at least one member.
+             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
+             * least one member.
              */
             bindings?: Binding[];
             /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
-             * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
-             * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
-             * the version `3` policy are lost.
+             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
+             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
+             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
+             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
             /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
-             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
-             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
-             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
-             * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
-             * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
+             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
+             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
+             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
+             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
         interface Probe {
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported One and only one of the following should be specified. Exec specifies
-             * the action to take. A field inlined from the Handler message.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported One and only one of the following should be specified. Exec specifies the action to take. A field
+             * inlined from the Handler message.
              */
             exec?: ExecAction;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Minimum consecutive failures for the probe to be considered failed
-             * after having succeeded. Defaults to 3. Minimum value is 1.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults
+             * to 3. Minimum value is 1.
              */
             failureThreshold?: number;
-            /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported HTTPGet specifies the http request to perform. A field inlined from
-             * the Handler message.
-             */
+            /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported HTTPGet specifies the http request to perform. A field inlined from the Handler message. */
             httpGet?: HTTPGetAction;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Number of seconds after the container has started before liveness
-             * probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Number of seconds after the container has started before liveness probes are initiated. More info:
+             * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
              */
             initialDelaySeconds?: number;
-            /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported How often (in seconds) to perform the probe. Default to 10 seconds.
-             * Minimum value is 1.
-             */
+            /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1. */
             periodSeconds?: number;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Minimum consecutive successes for the probe to be considered
-             * successful after having failed. Defaults to 1. Must be 1 for liveness. Minimum value is 1.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Minimum consecutive successes for the probe to be considered successful after having failed.
+             * Defaults to 1. Must be 1 for liveness. Minimum value is 1.
              */
             successThreshold?: number;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported TCPSocket specifies an action involving a TCP port. TCP hooks not yet
-             * supported A field inlined from the Handler message.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported A field inlined
+             * from the Handler message.
              */
             tcpSocket?: TCPSocketAction;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Number of seconds after which the probe times out. Defaults to 1
-             * second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More
+             * info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
              */
             timeoutSeconds?: number;
         }
@@ -702,16 +650,15 @@ declare namespace gapi.client {
         }
         interface ResourceRequirements {
             /**
-             * (Optional) Cloud Run fully managed: Only memory and CPU are supported. Note: The only supported value for CPU is '1'. Cloud Run for Anthos: supported
-             * Limits describes the maximum amount of compute resources allowed. The values of the map is string form of the 'quantity' k8s type:
+             * (Optional) Cloud Run fully managed: Only memory and CPU are supported. Note: The only supported value for CPU is '1'. Cloud Run for Anthos: supported Limits describes the maximum
+             * amount of compute resources allowed. The values of the map is string form of the 'quantity' k8s type:
              * https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
              */
             limits?: { [P in string]: string };
             /**
-             * (Optional) Cloud Run fully managed: Only memory and CPU are supported. Note: The only supported value for CPU is '1'. Cloud Run for Anthos: supported
-             * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is
-             * explicitly specified, otherwise to an implementation-defined value. The values of the map is string form of the 'quantity' k8s type:
-             * https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
+             * (Optional) Cloud Run fully managed: Only memory and CPU are supported. Note: The only supported value for CPU is '1'. Cloud Run for Anthos: supported Requests describes the minimum
+             * amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value.
+             * The values of the map is string form of the 'quantity' k8s type: https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
              */
             requests?: { [P in string]: string };
         }
@@ -729,48 +676,45 @@ declare namespace gapi.client {
         }
         interface RevisionSpec {
             /**
-             * (Optional) ContainerConcurrency specifies the maximum allowed in-flight (concurrent) requests per container instance of the Revision. Cloud Run fully
-             * managed: supported, defaults to 80 Cloud Run for Anthos: supported, defaults to 0, which means concurrency to the application is not limited, and the
-             * system decides the target concurrency for the autoscaler.
+             * (Optional) ContainerConcurrency specifies the maximum allowed in-flight (concurrent) requests per container instance of the Revision. Cloud Run fully managed: supported, defaults to
+             * 80 Cloud Run for Anthos: supported, defaults to 0, which means concurrency to the application is not limited, and the system decides the target concurrency for the autoscaler.
              */
             containerConcurrency?: number;
             /**
-             * Containers holds the single container that defines the unit of execution for this Revision. In the context of a Revision, we disallow a number of
-             * fields on this Container, including: name and lifecycle. In Cloud Run, only a single container may be provided. The runtime contract is documented
-             * here: https://github.com/knative/serving/blob/master/docs/runtime-contract.md
+             * Containers holds the single container that defines the unit of execution for this Revision. In the context of a Revision, we disallow a number of fields on this Container,
+             * including: name and lifecycle. In Cloud Run, only a single container may be provided. The runtime contract is documented here:
+             * https://github.com/knative/serving/blob/master/docs/runtime-contract.md
              */
             containers?: Container[];
             /**
-             * Email address of the IAM service account associated with the revision of the service. The service account represents the identity of the running
-             * revision, and determines what permissions the revision has. If not provided, the revision will use the project's default service account.
+             * Email address of the IAM service account associated with the revision of the service. The service account represents the identity of the running revision, and determines what
+             * permissions the revision has. If not provided, the revision will use the project's default service account.
              */
             serviceAccountName?: string;
             /**
-             * TimeoutSeconds holds the max duration the instance is allowed for responding to a request. Cloud Run fully managed: defaults to 300 seconds (5
-             * minutes). Maximum allowed value is 900 seconds (15 minutes). Cloud Run for Anthos: defaults to 300 seconds (5 minutes). Maximum allowed value is
-             * configurable by the cluster operator.
+             * TimeoutSeconds holds the max duration the instance is allowed for responding to a request. Cloud Run fully managed: defaults to 300 seconds (5 minutes). Maximum allowed value is 900
+             * seconds (15 minutes). Cloud Run for Anthos: defaults to 300 seconds (5 minutes). Maximum allowed value is configurable by the cluster operator.
              */
             timeoutSeconds?: number;
             volumes?: Volume[];
         }
         interface RevisionStatus {
             /**
-             * Conditions communicates information about ongoing/complete reconciliation processes that bring the "spec" inline with the observed state of the world.
-             * As a Revision is being prepared, it will incrementally update conditions. Revision-specific conditions include: ∗ "ResourcesAvailable": True when
-             * underlying resources have been provisioned. ∗ "ContainerHealthy": True when the Revision readiness check completes. ∗ "Active": True when the Revision
-             * may receive traffic.
+             * Conditions communicates information about ongoing/complete reconciliation processes that bring the "spec" inline with the observed state of the world. As a Revision is being
+             * prepared, it will incrementally update conditions. Revision-specific conditions include: * "ResourcesAvailable": True when underlying resources have been provisioned. *
+             * "ContainerHealthy": True when the Revision readiness check completes. * "Active": True when the Revision may receive traffic.
              */
             conditions?: GoogleCloudRunV1Condition[];
             /**
-             * ImageDigest holds the resolved digest for the image specified within .Spec.Container.Image. The digest is resolved during the creation of Revision.
-             * This field holds the digest value regardless of whether a tag or digest was originally specified in the Container object.
+             * ImageDigest holds the resolved digest for the image specified within .Spec.Container.Image. The digest is resolved during the creation of Revision. This field holds the digest value
+             * regardless of whether a tag or digest was originally specified in the Container object.
              */
             imageDigest?: string;
             /** Specifies the generated logging url for this particular revision based on the revision url template specified in the controller's config. +optional */
             logUrl?: string;
             /**
-             * ObservedGeneration is the 'Generation' of the Revision that was last processed by the controller. Clients polling for completed reconciliation should
-             * poll until observedGeneration = metadata.generation, and the Ready condition's status is True or False.
+             * ObservedGeneration is the 'Generation' of the Revision that was last processed by the controller. Clients polling for completed reconciliation should poll until observedGeneration =
+             * metadata.generation, and the Ready condition's status is True or False.
              */
             observedGeneration?: number;
             /** Not currently used by Cloud Run. */
@@ -778,10 +722,9 @@ declare namespace gapi.client {
         }
         interface RevisionTemplate {
             /**
-             * Optional metadata for this Revision, including labels and annotations. Name will be generated by the Configuration. To set minimum instances for this
-             * revision, use the "autoscaling.knative.dev/minScale" annotation key. To set maximum instances for this revision, use the
-             * "autoscaling.knative.dev/maxScale" annotation key. To set Cloud SQL connections for the revision, use the "run.googleapis.com/cloudsql-instances"
-             * annotation key.
+             * Optional metadata for this Revision, including labels and annotations. Name will be generated by the Configuration. To set minimum instances for this revision, use the
+             * "autoscaling.knative.dev/minScale" annotation key. To set maximum instances for this revision, use the "autoscaling.knative.dev/maxScale" annotation key. To set Cloud SQL
+             * connections for the revision, use the "run.googleapis.com/cloudsql-instances" annotation key.
              */
             metadata?: ObjectMeta;
             /** RevisionSpec holds the desired state of the Revision (from the client). */
@@ -800,10 +743,7 @@ declare namespace gapi.client {
             status?: RouteStatus;
         }
         interface RouteSpec {
-            /**
-             * Traffic specifies how to distribute traffic over a collection of Knative Revisions and Configurations. Cloud Run currently supports a single
-             * configurationName.
-             */
+            /** Traffic specifies how to distribute traffic over a collection of Knative Revisions and Configurations. Cloud Run currently supports a single configurationName. */
             traffic?: TrafficTarget[];
         }
         interface RouteStatus {
@@ -812,34 +752,30 @@ declare namespace gapi.client {
             /** Conditions communicates information about ongoing/complete reconciliation processes that bring the "spec" inline with the observed state of the world. */
             conditions?: GoogleCloudRunV1Condition[];
             /**
-             * ObservedGeneration is the 'Generation' of the Route that was last processed by the controller. Clients polling for completed reconciliation should poll
-             * until observedGeneration = metadata.generation and the Ready condition's status is True or False. Note that providing a trafficTarget that only has a
-             * configurationName will result in a Route that does not increment either its metadata.generation or its observedGeneration, as new "latest ready"
-             * revisions from the Configuration are processed without an update to the Route's spec.
+             * ObservedGeneration is the 'Generation' of the Route that was last processed by the controller. Clients polling for completed reconciliation should poll until observedGeneration =
+             * metadata.generation and the Ready condition's status is True or False. Note that providing a trafficTarget that only has a configurationName will result in a Route that does not
+             * increment either its metadata.generation or its observedGeneration, as new "latest ready" revisions from the Configuration are processed without an update to the Route's spec.
              */
             observedGeneration?: number;
             /**
-             * Traffic holds the configured traffic distribution. These entries will always contain RevisionName references. When ConfigurationName appears in the
-             * spec, this will hold the LatestReadyRevisionName that we last observed.
+             * Traffic holds the configured traffic distribution. These entries will always contain RevisionName references. When ConfigurationName appears in the spec, this will hold the
+             * LatestReadyRevisionName that we last observed.
              */
             traffic?: TrafficTarget[];
-            /**
-             * URL holds the url that will distribute traffic over the provided traffic targets. It generally has the form:
-             * https://{route-hash}-{project-hash}-{cluster-level-suffix}.a.run.app
-             */
+            /** URL holds the url that will distribute traffic over the provided traffic targets. It generally has the form: https://{route-hash}-{project-hash}-{cluster-level-suffix}.a.run.app */
             url?: string;
         }
         interface Secret {
             /**
-             * Data contains the secret data. Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64
-             * encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
+             * Data contains the secret data. Each key must consist of alphanumeric characters, '-', '_' or '.'. The serialized form of the secret data is a base64 encoded string, representing the
+             * arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
              */
             data?: { [P in string]: string };
             /** Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata */
             metadata?: ObjectMeta;
             /**
-             * stringData allows specifying non-binary secret data in string form. It is provided as a write-only convenience method. All keys and values are merged
-             * into the data field on write, overwriting any existing values. It is never output when reading from the API. +k8s:conversion-gen=false
+             * stringData allows specifying non-binary secret data in string form. It is provided as a write-only convenience method. All keys and values are merged into the data field on write,
+             * overwriting any existing values. It is never output when reading from the API. +k8s:conversion-gen=false
              */
             stringData?: { [P in string]: string };
             /** Used to facilitate programmatic handling of secret data. */
@@ -865,16 +801,15 @@ declare namespace gapi.client {
         }
         interface SecretVolumeSource {
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Mode bits to use on created files by default. Must be a value between
-             * 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect
-             * the file mode, like fsGroup, and the result can be other mode bits set.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644.
+             * Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode
+             * bits set.
              */
             defaultMode?: number;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported If unspecified, each key-value pair in the Data field of the
-             * referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be
-             * projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup
-             * will error unless it is marked optional.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported If unspecified, each key-value pair in the Data field of the referenced Secret will be projected
+             * into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be
+             * present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional.
              */
             items?: KeyToPath[];
             /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Specify whether the Secret or its keys must be defined. */
@@ -884,9 +819,8 @@ declare namespace gapi.client {
         }
         interface SecurityContext {
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported The UID to run the entrypoint of the container process. Defaults to
-             * user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the
-             * value specified in SecurityContext takes precedence.
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported The UID to run the entrypoint of the container process. Defaults to user specified in image
+             * metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
              */
             runAsUser?: number;
         }
@@ -912,29 +846,29 @@ declare namespace gapi.client {
             /** From RouteStatus. Similar to url, information on where the service is available on HTTP. */
             address?: Addressable;
             /**
-             * Conditions communicates information about ongoing/complete reconciliation processes that bring the "spec" inline with the observed state of the world.
-             * Service-specific conditions include: ∗ "ConfigurationsReady": true when the underlying Configuration is ready. ∗ "RoutesReady": true when the
-             * underlying Route is ready. ∗ "Ready": true when both the underlying Route and Configuration are ready.
+             * Conditions communicates information about ongoing/complete reconciliation processes that bring the "spec" inline with the observed state of the world. Service-specific conditions
+             * include: * "ConfigurationsReady": true when the underlying Configuration is ready. * "RoutesReady": true when the underlying Route is ready. * "Ready": true when both the underlying
+             * Route and Configuration are ready.
              */
             conditions?: GoogleCloudRunV1Condition[];
             /**
-             * From ConfigurationStatus. LatestCreatedRevisionName is the last revision that was created from this Service's Configuration. It might not be ready yet,
-             * for that use LatestReadyRevisionName.
+             * From ConfigurationStatus. LatestCreatedRevisionName is the last revision that was created from this Service's Configuration. It might not be ready yet, for that use
+             * LatestReadyRevisionName.
              */
             latestCreatedRevisionName?: string;
             /**
-             * From ConfigurationStatus. LatestReadyRevisionName holds the name of the latest Revision stamped out from this Service's Configuration that has had its
-             * "Ready" condition become "True".
+             * From ConfigurationStatus. LatestReadyRevisionName holds the name of the latest Revision stamped out from this Service's Configuration that has had its "Ready" condition become
+             * "True".
              */
             latestReadyRevisionName?: string;
             /**
-             * ObservedGeneration is the 'Generation' of the Route that was last processed by the controller. Clients polling for completed reconciliation should poll
-             * until observedGeneration = metadata.generation and the Ready condition's status is True or False.
+             * ObservedGeneration is the 'Generation' of the Route that was last processed by the controller. Clients polling for completed reconciliation should poll until observedGeneration =
+             * metadata.generation and the Ready condition's status is True or False.
              */
             observedGeneration?: number;
             /**
-             * From RouteStatus. Traffic holds the configured traffic distribution. These entries will always contain RevisionName references. When ConfigurationName
-             * appears in the spec, this will hold the LatestReadyRevisionName that we last observed.
+             * From RouteStatus. Traffic holds the configured traffic distribution. These entries will always contain RevisionName references. When ConfigurationName appears in the spec, this will
+             * hold the LatestReadyRevisionName that we last observed.
              */
             traffic?: TrafficTarget[];
             /**
@@ -945,13 +879,13 @@ declare namespace gapi.client {
         }
         interface SetIamPolicyRequest {
             /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy
-             * but certain Cloud Platform services (such as Projects) might reject them.
+             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Cloud Platform
+             * services (such as Projects) might reject them.
              */
             policy?: Policy;
             /**
-             * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the
-             * following default mask is used: `paths: "bindings, etag"`
+             * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
+             * `paths: "bindings, etag"`
              */
             updateMask?: string;
         }
@@ -959,8 +893,8 @@ declare namespace gapi.client {
             /** Suggested HTTP return code for this status, 0 if not set. +optional */
             code?: number;
             /**
-             * Extended data associated with the reason. Each reason may define its own extended details. This field is optional and the data returned is not
-             * guaranteed to conform to any schema except that defined by the reason type. +optional
+             * Extended data associated with the reason. Each reason may define its own extended details. This field is optional and the data returned is not guaranteed to conform to any schema
+             * except that defined by the reason type. +optional
              */
             details?: StatusDetails;
             /** A human-readable description of the status of this operation. +optional */
@@ -968,21 +902,18 @@ declare namespace gapi.client {
             /** Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds +optional */
             metadata?: ListMeta;
             /**
-             * A machine-readable description of why this operation is in the "Failure" status. If this value is empty there is no information available. A Reason
-             * clarifies an HTTP status code but does not override it. +optional
+             * A machine-readable description of why this operation is in the "Failure" status. If this value is empty there is no information available. A Reason clarifies an HTTP status code but
+             * does not override it. +optional
              */
             reason?: string;
-            /**
-             * Status of the operation. One of: "Success" or "Failure". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
-             * +optional
-             */
+            /** Status of the operation. One of: "Success" or "Failure". More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status +optional */
             status?: string;
         }
         interface StatusCause {
             /**
-             * The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes.
-             * Arrays are zero-indexed. Fields may appear more than once in an array of causes due to fields having multiple errors. Optional. Examples: "name" - the
-             * field "name" on the current resource "items[0].name" - the field "name" on the first array entry in "items" +optional
+             * The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed. Fields
+             * may appear more than once in an array of causes due to fields having multiple errors. Optional. Examples: "name" - the field "name" on the current resource "items[0].name" - the
+             * field "name" on the first array entry in "items" +optional
              */
             field?: string;
             /** A human-readable description of the cause of the error. This field may be presented as-is to a reader. +optional */
@@ -1003,30 +934,26 @@ declare namespace gapi.client {
             /** The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described). +optional */
             name?: string;
             /**
-             * If specified, the time in seconds before the operation should be retried. Some errors may indicate the client must take an alternate action - for those
-             * errors this field may indicate how long to wait before taking the alternate action. +optional
+             * If specified, the time in seconds before the operation should be retried. Some errors may indicate the client must take an alternate action - for those errors this field may
+             * indicate how long to wait before taking the alternate action. +optional
              */
             retryAfterSeconds?: number;
-            /**
-             * UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids
-             * +optional
-             */
+            /** UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids +optional */
             uid?: string;
         }
         interface TCPSocketAction {
             /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Optional: Host name to connect to, defaults to the pod IP. */
             host?: string;
             /**
-             * Cloud Run fully managed: not supported Cloud Run for Anthos: supported Number or name of the port to access on the container. Number must be in the
-             * range 1 to 65535. Name must be an IANA_SVC_NAME. This field is currently limited to integer types only because of proto's inability to properly support
-             * the IntOrString golang type.
+             * Cloud Run fully managed: not supported Cloud Run for Anthos: supported Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an
+             * IANA_SVC_NAME. This field is currently limited to integer types only because of proto's inability to properly support the IntOrString golang type.
              */
             port?: number;
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see
-             * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '*' or 'storage.*') are not allowed. For more information see [IAM
+             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
         }
@@ -1036,31 +963,31 @@ declare namespace gapi.client {
         }
         interface TrafficTarget {
             /**
-             * ConfigurationName of a configuration to whose latest revision we will send this portion of traffic. When the "status.latestReadyRevisionName" of the
-             * referenced configuration changes, we will automatically migrate traffic from the prior "latest ready" revision to the new one. This field is never set
-             * in Route's status, only its spec. This is mutually exclusive with RevisionName. Cloud Run currently supports a single ConfigurationName.
+             * ConfigurationName of a configuration to whose latest revision we will send this portion of traffic. When the "status.latestReadyRevisionName" of the referenced configuration
+             * changes, we will automatically migrate traffic from the prior "latest ready" revision to the new one. This field is never set in Route's status, only its spec. This is mutually
+             * exclusive with RevisionName. Cloud Run currently supports a single ConfigurationName.
              */
             configurationName?: string;
             /**
-             * LatestRevision may be optionally provided to indicate that the latest ready Revision of the Configuration should be used for this traffic target. When
-             * provided LatestRevision must be true if RevisionName is empty; it must be false when RevisionName is non-empty. +optional
+             * LatestRevision may be optionally provided to indicate that the latest ready Revision of the Configuration should be used for this traffic target. When provided LatestRevision must
+             * be true if RevisionName is empty; it must be false when RevisionName is non-empty. +optional
              */
             latestRevision?: boolean;
             /**
-             * Percent specifies percent of the traffic to this Revision or Configuration. This defaults to zero if unspecified. Cloud Run currently requires 100
-             * percent for a single ConfigurationName TrafficTarget entry.
+             * Percent specifies percent of the traffic to this Revision or Configuration. This defaults to zero if unspecified. Cloud Run currently requires 100 percent for a single
+             * ConfigurationName TrafficTarget entry.
              */
             percent?: number;
             /**
-             * RevisionName of a specific revision to which to send this portion of traffic. This is mutually exclusive with ConfigurationName. Providing RevisionName
-             * in spec is not currently supported by Cloud Run.
+             * RevisionName of a specific revision to which to send this portion of traffic. This is mutually exclusive with ConfigurationName. Providing RevisionName in spec is not currently
+             * supported by Cloud Run.
              */
             revisionName?: string;
             /** Tag is optionally used to expose a dedicated url for referencing this target exclusively. Not currently supported in Cloud Run. +optional */
             tag?: string;
             /**
-             * Output only. URL displays the URL for accessing tagged traffic targets. URL is displayed in status, and is disallowed on spec. URL must contain a
-             * scheme (e.g. http://) and a hostname, but may not contain anything else (e.g. basic auth, url path, etc. Not currently supported in Cloud Run.
+             * Output only. URL displays the URL for accessing tagged traffic targets. URL is displayed in status, and is disallowed on spec. URL must contain a scheme (e.g. http://) and a
+             * hostname, but may not contain anything else (e.g. basic auth, url path, etc. Not currently supported in Cloud Run.
              */
             url?: string;
         }
@@ -1073,18 +1000,15 @@ declare namespace gapi.client {
             secret?: SecretVolumeSource;
         }
         interface VolumeMount {
-            /**
-             * Cloud Run fully managed: not supported Cloud Run for Anthos: supported Path within the container at which the volume should be mounted. Must not
-             * contain ':'.
-             */
+            /** Cloud Run fully managed: not supported Cloud Run for Anthos: supported Path within the container at which the volume should be mounted. Must not contain ':'. */
             mountPath?: string;
             /** Cloud Run fully managed: not supported Cloud Run for Anthos: supported This must match the Name of a Volume. */
             name?: string;
             /** (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Only true is accepted. Defaults to true. */
             readOnly?: boolean;
             /**
-             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Path within the volume from which the container's volume should be
-             * mounted. Defaults to "" (volume's root).
+             * (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: supported Path within the volume from which the container's volume should be mounted. Defaults to ""
+             * (volume's root).
              */
             subPath?: string;
         }
@@ -1173,8 +1097,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Secret>;
             /**
-             * Rpc to replace a secret. Only the spec and metadata labels and annotations are modifiable. After the Update request, Cloud Run will work to make the
-             * 'status' match the requested 'spec'. May provide metadata.resourceVersion to enforce update from last read for optimistic concurrency control.
+             * Rpc to replace a secret. Only the spec and metadata labels and annotations are modifiable. After the Update request, Cloud Run will work to make the 'status' match the requested
+             * 'spec'. May provide metadata.resourceVersion to enforce update from last read for optimistic concurrency control.
              */
             replaceSecret(request: {
                 /** V1 error format. */
@@ -1403,10 +1327,7 @@ declare namespace gapi.client {
                 continue?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
-                 * used by Cloud Run.
-                 */
+                /** Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently used by Cloud Run. */
                 fieldSelector?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
@@ -1568,10 +1489,7 @@ declare namespace gapi.client {
                 continue?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
-                 * used by Cloud Run.
-                 */
+                /** Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently used by Cloud Run. */
                 fieldSelector?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
@@ -1677,10 +1595,7 @@ declare namespace gapi.client {
                 continue?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
-                 * used by Cloud Run.
-                 */
+                /** Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently used by Cloud Run. */
                 fieldSelector?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
@@ -1750,10 +1665,7 @@ declare namespace gapi.client {
                 continue?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
-                 * used by Cloud Run.
-                 */
+                /** Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently used by Cloud Run. */
                 fieldSelector?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
@@ -1915,10 +1827,7 @@ declare namespace gapi.client {
                 continue?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
-                 * used by Cloud Run.
-                 */
+                /** Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently used by Cloud Run. */
                 fieldSelector?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
@@ -1946,8 +1855,8 @@ declare namespace gapi.client {
                 watch?: boolean;
             }): Request<ListServicesResponse>;
             /**
-             * Replace a service. Only the spec and metadata labels and annotations are modifiable. After the Update request, Cloud Run will work to make the 'status'
-             * match the requested 'spec'. May provide metadata.resourceVersion to enforce update from last read for optimistic concurrency control.
+             * Replace a service. Only the spec and metadata labels and annotations are modifiable. After the Update request, Cloud Run will work to make the 'status' match the requested 'spec'.
+             * May provide metadata.resourceVersion to enforce update from last read for optimistic concurrency control.
              */
             replaceService(request: {
                 /** V1 error format. */
@@ -2121,10 +2030,7 @@ declare namespace gapi.client {
                 continue?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
-                 * used by Cloud Run.
-                 */
+                /** Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently used by Cloud Run. */
                 fieldSelector?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
@@ -2286,10 +2192,7 @@ declare namespace gapi.client {
                 continue?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
-                 * used by Cloud Run.
-                 */
+                /** Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently used by Cloud Run. */
                 fieldSelector?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
@@ -2484,10 +2387,7 @@ declare namespace gapi.client {
                 continue?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
-                 * used by Cloud Run.
-                 */
+                /** Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently used by Cloud Run. */
                 fieldSelector?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
@@ -2557,10 +2457,7 @@ declare namespace gapi.client {
                 continue?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
-                 * used by Cloud Run.
-                 */
+                /** Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently used by Cloud Run. */
                 fieldSelector?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
@@ -2673,8 +2570,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Secret>;
             /**
-             * Rpc to replace a secret. Only the spec and metadata labels and annotations are modifiable. After the Update request, Cloud Run will work to make the
-             * 'status' match the requested 'spec'. May provide metadata.resourceVersion to enforce update from last read for optimistic concurrency control.
+             * Rpc to replace a secret. Only the spec and metadata labels and annotations are modifiable. After the Update request, Cloud Run will work to make the 'status' match the requested
+             * 'spec'. May provide metadata.resourceVersion to enforce update from last read for optimistic concurrency control.
              */
             replaceSecret(request: {
                 /** V1 error format. */
@@ -2869,10 +2766,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-                 * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+                 * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any
+                 * conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support
+                 * conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
                  */
                 "options.requestedPolicyVersion"?: number;
                 /** Returns response with indentations and line breaks. */
@@ -2900,10 +2796,7 @@ declare namespace gapi.client {
                 continue?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
-                /**
-                 * Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
-                 * used by Cloud Run.
-                 */
+                /** Allows to filter resources based on a specific value for a field name. Send this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently used by Cloud Run. */
                 fieldSelector?: string;
                 /** Not currently used by Cloud Run. */
                 includeUninitialized?: boolean;
@@ -2931,8 +2824,8 @@ declare namespace gapi.client {
                 watch?: boolean;
             }): Request<ListServicesResponse>;
             /**
-             * Replace a service. Only the spec and metadata labels and annotations are modifiable. After the Update request, Cloud Run will work to make the 'status'
-             * match the requested 'spec'. May provide metadata.resourceVersion to enforce update from last read for optimistic concurrency control.
+             * Replace a service. Only the spec and metadata labels and annotations are modifiable. After the Update request, Cloud Run will work to make the 'status' match the requested 'spec'.
+             * May provide metadata.resourceVersion to enforce update from last read for optimistic concurrency control.
              */
             replaceService(request: {
                 /** V1 error format. */

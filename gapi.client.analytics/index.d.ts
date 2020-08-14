@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Google Analytics API v3 3.0
 // Project: https://developers.google.com/analytics/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -60,8 +63,8 @@ declare namespace gapi.client {
             /** A list of accounts. */
             items?: Account[];
             /**
-             * The maximum number of entries the response can contain, regardless of the actual number of entries returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of entries the response can contain, regardless of the actual number of entries returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -81,8 +84,8 @@ declare namespace gapi.client {
             /** A list of AccountSummaries. */
             items?: AccountSummary[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -221,8 +224,8 @@ declare namespace gapi.client {
             /** Collection of custom data sources. */
             items?: CustomDataSource[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -273,8 +276,8 @@ declare namespace gapi.client {
             /** Collection of custom dimensions. */
             items?: CustomDimension[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -331,8 +334,8 @@ declare namespace gapi.client {
             /** Collection of custom metrics. */
             items?: CustomMetric[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -370,8 +373,8 @@ declare namespace gapi.client {
             /** A list of entity Google Ads links. */
             items?: EntityAdWordsLink[];
             /**
-             * The maximum number of entries the response can contain, regardless of the actual number of entries returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of entries the response can contain, regardless of the actual number of entries returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -402,8 +405,8 @@ declare namespace gapi.client {
             /** Permissions the user has for this entity. */
             permissions?: {
                 /**
-                 * Effective permissions represent all the permissions that a user has for this entity. These include any implied permissions (e.g., EDIT implies VIEW) or
-                 * inherited permissions from the parent entity. Effective permissions are read-only.
+                 * Effective permissions represent all the permissions that a user has for this entity. These include any implied permissions (e.g., EDIT implies VIEW) or inherited permissions
+                 * from the parent entity. Effective permissions are read-only.
                  */
                 effective?: string[];
                 /** Permissions that a user has been assigned at this very level. Does not include any implied or inherited permissions. Local permissions are modifiable. */
@@ -418,8 +421,8 @@ declare namespace gapi.client {
             /** A list of entity user links. */
             items?: EntityUserLink[];
             /**
-             * The maximum number of entries the response can contain, regardless of the actual number of entries returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of entries the response can contain, regardless of the actual number of entries returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -442,15 +445,11 @@ declare namespace gapi.client {
             description?: string;
             /** If true, the end user will be able to edit the experiment via the Google Analytics user interface. */
             editableInGaUi?: boolean;
-            /**
-             * The ending time of the experiment (the time the status changed from RUNNING to ENDED). This field is present only if the experiment has ended. This
-             * field is read-only.
-             */
+            /** The ending time of the experiment (the time the status changed from RUNNING to ENDED). This field is present only if the experiment has ended. This field is read-only. */
             endTime?: string;
             /**
-             * Boolean specifying whether to distribute traffic evenly across all variations. If the value is False, content experiments follows the default behavior
-             * of adjusting traffic dynamically based on variation performance. Optional -- defaults to False. This field may not be changed for an experiment whose
-             * status is ENDED.
+             * Boolean specifying whether to distribute traffic evenly across all variations. If the value is False, content experiments follows the default behavior of adjusting traffic
+             * dynamically based on variation performance. Optional -- defaults to False. This field may not be changed for an experiment whose status is ENDED.
              */
             equalWeighting?: boolean;
             /** Experiment ID. Required for patch and update. Disallowed for create. */
@@ -460,21 +459,20 @@ declare namespace gapi.client {
             /** Resource type for an Analytics experiment. This field is read-only. */
             kind?: string;
             /**
-             * An integer number in [3, 90]. Specifies the minimum length of the experiment. Can be changed for a running experiment. This field may not be changed
-             * for an experiments whose status is ENDED.
+             * An integer number in [3, 90]. Specifies the minimum length of the experiment. Can be changed for a running experiment. This field may not be changed for an experiments whose status
+             * is ENDED.
              */
             minimumExperimentLengthInDays?: number;
             /** Experiment name. This field may not be changed for an experiment whose status is ENDED. This field is required when creating an experiment. */
             name?: string;
             /**
-             * The metric that the experiment is optimizing. Valid values: "ga:goal(n)Completions", "ga:adsenseAdsClicks", "ga:adsenseAdsViewed", "ga:adsenseRevenue",
-             * "ga:bounces", "ga:pageviews", "ga:sessionDuration", "ga:transactions", "ga:transactionRevenue". This field is required if status is "RUNNING" and
-             * servingFramework is one of "REDIRECT" or "API".
+             * The metric that the experiment is optimizing. Valid values: "ga:goal(n)Completions", "ga:adsenseAdsClicks", "ga:adsenseAdsViewed", "ga:adsenseRevenue", "ga:bounces", "ga:pageviews",
+             * "ga:sessionDuration", "ga:transactions", "ga:transactionRevenue". This field is required if status is "RUNNING" and servingFramework is one of "REDIRECT" or "API".
              */
             objectiveMetric?: string;
             /**
-             * Whether the objectiveMetric should be minimized or maximized. Possible values: "MAXIMUM", "MINIMUM". Optional--defaults to "MAXIMUM". Cannot be
-             * specified without objectiveMetric. Cannot be modified when status is "RUNNING" or "ENDED".
+             * Whether the objectiveMetric should be minimized or maximized. Possible values: "MAXIMUM", "MINIMUM". Optional--defaults to "MAXIMUM". Cannot be specified without objectiveMetric.
+             * Cannot be modified when status is "RUNNING" or "ENDED".
              */
             optimizationType?: string;
             /** Parent link for an experiment. Points to the view (profile) to which this experiment belongs. */
@@ -487,57 +485,47 @@ declare namespace gapi.client {
             /** View (Profile) ID to which this experiment belongs. This field is read-only. */
             profileId?: string;
             /**
-             * Why the experiment ended. Possible values: "STOPPED_BY_USER", "WINNER_FOUND", "EXPERIMENT_EXPIRED", "ENDED_WITH_NO_WINNER", "GOAL_OBJECTIVE_CHANGED".
-             * "ENDED_WITH_NO_WINNER" means that the experiment didn't expire but no winner was projected to be found. If the experiment status is changed via the API
-             * to ENDED this field is set to STOPPED_BY_USER. This field is read-only.
+             * Why the experiment ended. Possible values: "STOPPED_BY_USER", "WINNER_FOUND", "EXPERIMENT_EXPIRED", "ENDED_WITH_NO_WINNER", "GOAL_OBJECTIVE_CHANGED". "ENDED_WITH_NO_WINNER" means
+             * that the experiment didn't expire but no winner was projected to be found. If the experiment status is changed via the API to ENDED this field is set to STOPPED_BY_USER. This field
+             * is read-only.
              */
             reasonExperimentEnded?: string;
-            /**
-             * Boolean specifying whether variations URLS are rewritten to match those of the original. This field may not be changed for an experiments whose status
-             * is ENDED.
-             */
+            /** Boolean specifying whether variations URLS are rewritten to match those of the original. This field may not be changed for an experiments whose status is ENDED. */
             rewriteVariationUrlsAsOriginal?: boolean;
             /** Link for this experiment. This field is read-only. */
             selfLink?: string;
             /**
              * The framework used to serve the experiment variations and evaluate the results. One of:
              * - REDIRECT: Google Analytics redirects traffic to different variation pages, reports the chosen variation and evaluates the results.
-             * - API: Google Analytics chooses and reports the variation to serve and evaluates the results; the caller is responsible for serving the selected
-             * variation.
-             * - EXTERNAL: The variations will be served externally and the chosen variation reported to Google Analytics. The caller is responsible for serving the
-             * selected variation and evaluating the results.
+             * - API: Google Analytics chooses and reports the variation to serve and evaluates the results; the caller is responsible for serving the selected variation.
+             * - EXTERNAL: The variations will be served externally and the chosen variation reported to Google Analytics. The caller is responsible for serving the selected variation and
+             * evaluating the results.
              */
             servingFramework?: string;
             /** The snippet of code to include on the control page(s). This field is read-only. */
             snippet?: string;
-            /**
-             * The starting time of the experiment (the time the status changed from READY_TO_RUN to RUNNING). This field is present only if the experiment has
-             * started. This field is read-only.
-             */
+            /** The starting time of the experiment (the time the status changed from READY_TO_RUN to RUNNING). This field is present only if the experiment has started. This field is read-only. */
             startTime?: string;
             /**
-             * Experiment status. Possible values: "DRAFT", "READY_TO_RUN", "RUNNING", "ENDED". Experiments can be created in the "DRAFT", "READY_TO_RUN" or "RUNNING"
-             * state. This field is required when creating an experiment.
+             * Experiment status. Possible values: "DRAFT", "READY_TO_RUN", "RUNNING", "ENDED". Experiments can be created in the "DRAFT", "READY_TO_RUN" or "RUNNING" state. This field is required
+             * when creating an experiment.
              */
             status?: string;
             /**
-             * A floating-point number in (0, 1]. Specifies the fraction of the traffic that participates in the experiment. Can be changed for a running experiment.
-             * This field may not be changed for an experiments whose status is ENDED.
+             * A floating-point number in (0, 1]. Specifies the fraction of the traffic that participates in the experiment. Can be changed for a running experiment. This field may not be changed
+             * for an experiments whose status is ENDED.
              */
             trafficCoverage?: number;
             /** Time the experiment was last modified. This field is read-only. */
             updated?: string;
             /**
-             * Array of variations. The first variation in the array is the original. The number of variations may not change once an experiment is in the RUNNING
-             * state. At least two variations are required before status can be set to RUNNING.
+             * Array of variations. The first variation in the array is the original. The number of variations may not change once an experiment is in the RUNNING state. At least two variations
+             * are required before status can be set to RUNNING.
              */
             variations?: Array<{
                 /** The name of the variation. This field is required when creating an experiment. This field may not be changed for an experiment whose status is ENDED. */
                 name?: string;
-                /**
-                 * Status of the variation. Possible values: "ACTIVE", "INACTIVE". INACTIVE variations are not served. This field may not be changed for an experiment
-                 * whose status is ENDED.
-                 */
+                /** Status of the variation. Possible values: "ACTIVE", "INACTIVE". INACTIVE variations are not served. This field may not be changed for an experiment whose status is ENDED. */
                 status?: string;
                 /** The URL of the variation. This field may not be changed for an experiment whose status is RUNNING or ENDED. */
                 url?: string;
@@ -548,10 +536,7 @@ declare namespace gapi.client {
             }>;
             /** Web property ID to which this experiment belongs. The web property ID is of the form UA-XXXXX-YY. This field is read-only. */
             webPropertyId?: string;
-            /**
-             * A floating-point number in (0, 1). Specifies the necessary confidence level to choose a winner. This field may not be changed for an experiments whose
-             * status is ENDED.
-             */
+            /** A floating-point number in (0, 1). Specifies the necessary confidence level to choose a winner. This field may not be changed for an experiments whose status is ENDED. */
             winnerConfidenceLevel?: number;
             /** Boolean specifying whether a winner has been found for this experiment. This field is read-only. */
             winnerFound?: boolean;
@@ -560,8 +545,8 @@ declare namespace gapi.client {
             /** A list of experiments. */
             items?: Experiment[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -762,8 +747,8 @@ declare namespace gapi.client {
             /** Kind value for filter expression */
             kind?: string;
             /**
-             * Match type for this filter. Possible values are BEGINS_WITH, EQUAL, ENDS_WITH, CONTAINS, or MATCHES. GEO_DOMAIN, GEO_IP_ADDRESS, PAGE_REQUEST_URI, or
-             * PAGE_HOSTNAME filters can use any match type; all other filters must use MATCHES.
+             * Match type for this filter. Possible values are BEGINS_WITH, EQUAL, ENDS_WITH, CONTAINS, or MATCHES. GEO_DOMAIN, GEO_IP_ADDRESS, PAGE_REQUEST_URI, or PAGE_HOSTNAME filters can use
+             * any match type; all other filters must use MATCHES.
              */
             matchType?: string;
         }
@@ -783,8 +768,8 @@ declare namespace gapi.client {
             /** A list of filters. */
             items?: Filter[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1,000 with
-             * a value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1,000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -805,10 +790,7 @@ declare namespace gapi.client {
             columnHeaders?: Array<{
                 /** Column Type. Either DIMENSION or METRIC. */
                 columnType?: string;
-                /**
-                 * Data type. Dimension column headers have only STRING as the data type. Metric column headers have data types for metric values such as INTEGER, DOUBLE,
-                 * CURRENCY etc.
-                 */
+                /** Data type. Dimension column headers have only STRING as the data type. Metric column headers have data types for metric values such as INTEGER, DOUBLE, CURRENCY etc. */
                 dataType?: string;
                 /** Column name. */
                 name?: string;
@@ -832,8 +814,8 @@ declare namespace gapi.client {
             /** Unique ID for this data response. */
             id?: string;
             /**
-             * The maximum number of rows the response can contain, regardless of the actual number of rows returned. Its value ranges from 1 to 10,000 with a value
-             * of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of rows the response can contain, regardless of the actual number of rows returned. Its value ranges from 1 to 10,000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Resource type. */
@@ -882,10 +864,7 @@ declare namespace gapi.client {
                 /** Start index. */
                 "start-index"?: number;
             };
-            /**
-             * Analytics data rows, where each row contains a list of dimension values followed by the metric values. The order of dimensions and metrics is same as
-             * specified in the request.
-             */
+            /** Analytics data rows, where each row contains a list of dimension values followed by the metric values. The order of dimensions and metrics is same as specified in the request. */
             rows?: string[][];
             /** The number of samples used to calculate the result. */
             sampleSize?: string;
@@ -896,8 +875,8 @@ declare namespace gapi.client {
             /** The total number of rows for the query, regardless of the number of rows in the response. */
             totalResults?: number;
             /**
-             * Total values for the requested metrics over all the results, not just the results returned in this response. The order of the metric totals is same as
-             * the metric order specified in the request.
+             * Total values for the requested metrics over all the results, not just the results returned in this response. The order of the metric totals is same as the metric order specified in
+             * the request.
              */
             totalsForAllResults?: { [P in string]: string };
         }
@@ -992,8 +971,8 @@ declare namespace gapi.client {
             /** A list of goals. */
             items?: Goal[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -1023,9 +1002,9 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface IncludeConditions {
             /**
-             * The look-back window lets you specify a time frame for evaluating the behavior that qualifies users for your audience. For example, if your filters
-             * include users from Central Asia, and Transactions Greater than 2, and you set the look-back window to 14 days, then any user from Central Asia whose
-             * cumulative transactions exceed 2 during the last 14 days is added to the audience.
+             * The look-back window lets you specify a time frame for evaluating the behavior that qualifies users for your audience. For example, if your filters include users from Central Asia,
+             * and Transactions Greater than 2, and you set the look-back window to 14 days, then any user from Central Asia whose cumulative transactions exceed 2 during the last 14 days is added
+             * to the audience.
              */
             daysToLookBack?: number;
             /** Boolean indicating whether this segment is a smart list. https://support.google.com/analytics/answer/4628577 */
@@ -1074,8 +1053,8 @@ declare namespace gapi.client {
             /** Unique ID for this data response. */
             id?: string;
             /**
-             * The maximum number of rows the response can contain, regardless of the actual number of rows returned. Its value ranges from 1 to 10,000 with a value
-             * of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of rows the response can contain, regardless of the actual number of rows returned. Its value ranges from 1 to 10,000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Resource type. */
@@ -1124,10 +1103,7 @@ declare namespace gapi.client {
                 /** Start index. */
                 "start-index"?: number;
             };
-            /**
-             * Analytics data rows, where each row contains a list of dimension values followed by the metric values. The order of dimensions and metrics is same as
-             * specified in the request.
-             */
+            /** Analytics data rows, where each row contains a list of dimension values followed by the metric values. The order of dimensions and metrics is same as specified in the request. */
             rows?: Array<Array<{
                 /** A conversion path dimension value, containing a list of interactions with their attributes. */
                 conversionPathValue?: Array<{
@@ -1148,8 +1124,8 @@ declare namespace gapi.client {
             /** The total number of rows for the query, regardless of the number of rows in the response. */
             totalResults?: number;
             /**
-             * Total values for the requested metrics over all the results, not just the results returned in this response. The order of the metric totals is same as
-             * the metric order specified in the request.
+             * Total values for the requested metrics over all the results, not just the results returned in this response. The order of the metric totals is same as the metric order specified in
+             * the request.
              */
             totalsForAllResults?: { [P in string]: string };
         }
@@ -1169,8 +1145,8 @@ declare namespace gapi.client {
             created?: string;
             /**
              * The currency type associated with this view (profile), defaults to USD. The supported values are:
-             * USD, JPY, EUR, GBP, AUD, KRW, BRL, CNY, DKK, RUB, SEK, NOK, PLN, TRY, TWD, HKD, THB, IDR, ARS, MXN, VND, PHP, INR, CHF, CAD, CZK, NZD, HUF, BGN, LTL,
-             * ZAR, UAH, AED, BOB, CLP, COP, EGP, HRK, ILS, MAD, MYR, PEN, PKR, RON, RSD, SAR, SGD, VEF, LVL
+             * USD, JPY, EUR, GBP, AUD, KRW, BRL, CNY, DKK, RUB, SEK, NOK, PLN, TRY, TWD, HKD, THB, IDR, ARS, MXN, VND, PHP, INR, CHF, CAD, CZK, NZD, HUF, BGN, LTL, ZAR, UAH, AED, BOB, CLP, COP,
+             * EGP, HRK, ILS, MAD, MYR, PEN, PKR, RON, RSD, SAR, SGD, VEF, LVL
              */
             currency?: string;
             /** Default page for this view (profile). */
@@ -1199,8 +1175,8 @@ declare namespace gapi.client {
             /** Permissions the user has for this view (profile). */
             permissions?: {
                 /**
-                 * All the permissions that the user has for this view (profile). These include any implied permissions (e.g., EDIT implies VIEW) or inherited permissions
-                 * from the parent web property.
+                 * All the permissions that the user has for this view (profile). These include any implied permissions (e.g., EDIT implies VIEW) or inherited permissions from the parent web
+                 * property.
                  */
                 effective?: string[];
             };
@@ -1239,10 +1215,10 @@ declare namespace gapi.client {
             /**
              * The rank of this profile filter link relative to the other filters linked to the same profile.
              * For readonly (i.e., list and get) operations, the rank always starts at 1.
-             * For write (i.e., create, update, or delete) operations, you may specify a value between 0 and 255 inclusively, [0, 255]. In order to insert a link at
-             * the end of the list, either don't specify a rank or set a rank to a number greater than the largest rank in the list. In order to insert a link to the
-             * beginning of the list specify a rank that is less than or equal to 1. The new link will move all existing filters with the same or lower rank down the
-             * list. After the link is inserted/updated/deleted all profile filter links will be renumbered starting at 1.
+             * For write (i.e., create, update, or delete) operations, you may specify a value between 0 and 255 inclusively, [0, 255]. In order to insert a link at the end of the list, either
+             * don't specify a rank or set a rank to a number greater than the largest rank in the list. In order to insert a link to the beginning of the list specify a rank that is less than or
+             * equal to 1. The new link will move all existing filters with the same or lower rank down the list. After the link is inserted/updated/deleted all profile filter links will be
+             * renumbered starting at 1.
              */
             rank?: number;
             /** Link for this profile filter link. */
@@ -1252,8 +1228,8 @@ declare namespace gapi.client {
             /** A list of profile filter links. */
             items?: ProfileFilterLink[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1,000 with
-             * a value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1,000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -1289,8 +1265,8 @@ declare namespace gapi.client {
             /** A list of views (profiles). */
             items?: Profile[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -1323,10 +1299,7 @@ declare namespace gapi.client {
             columnHeaders?: Array<{
                 /** Column Type. Either DIMENSION or METRIC. */
                 columnType?: string;
-                /**
-                 * Data type. Dimension column headers have only STRING as the data type. Metric column headers have data types for metric values such as INTEGER, DOUBLE,
-                 * CURRENCY etc.
-                 */
+                /** Data type. Dimension column headers have only STRING as the data type. Metric column headers have data types for metric values such as INTEGER, DOUBLE, CURRENCY etc. */
                 dataType?: string;
                 /** Column name. */
                 name?: string;
@@ -1365,18 +1338,15 @@ declare namespace gapi.client {
                 /** List of dimensions or metrics based on which real time data is sorted. */
                 sort?: string[];
             };
-            /**
-             * Real time data rows, where each row contains a list of dimension values followed by the metric values. The order of dimensions and metrics is same as
-             * specified in the request.
-             */
+            /** Real time data rows, where each row contains a list of dimension values followed by the metric values. The order of dimensions and metrics is same as specified in the request. */
             rows?: string[][];
             /** Link to this page. */
             selfLink?: string;
             /** The total number of rows for the query, regardless of the number of rows in the response. */
             totalResults?: number;
             /**
-             * Total values for the requested metrics over all the results, not just the results returned in this response. The order of the metric totals is same as
-             * the metric order specified in the request.
+             * Total values for the requested metrics over all the results, not just the results returned in this response. The order of the metric totals is same as the metric order specified in
+             * the request.
              */
             totalsForAllResults?: { [P in string]: string };
         }
@@ -1427,8 +1397,8 @@ declare namespace gapi.client {
             /** A list of remarketing audiences. */
             items?: RemarketingAudience[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -1468,8 +1438,8 @@ declare namespace gapi.client {
             /** A list of segments. */
             items?: Segment[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type for segments. */
@@ -1500,8 +1470,8 @@ declare namespace gapi.client {
             /** The dimensions for the unsampled report. */
             dimensions?: string;
             /**
-             * The type of download you need to use for the report data file. Possible values include `GOOGLE_DRIVE` and `GOOGLE_CLOUD_STORAGE`. If the value is
-             * `GOOGLE_DRIVE`, see the `driveDownloadDetails` field. If the value is `GOOGLE_CLOUD_STORAGE`, see the `cloudStorageDownloadDetails` field.
+             * The type of download you need to use for the report data file. Possible values include `GOOGLE_DRIVE` and `GOOGLE_CLOUD_STORAGE`. If the value is `GOOGLE_DRIVE`, see the
+             * `driveDownloadDetails` field. If the value is `GOOGLE_CLOUD_STORAGE`, see the `cloudStorageDownloadDetails` field.
              */
             downloadType?: string;
             /** Download details for a file stored in Google Drive. */
@@ -1540,8 +1510,8 @@ declare namespace gapi.client {
             /** A list of unsampled reports. */
             items?: UnsampledReport[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -1577,8 +1547,8 @@ declare namespace gapi.client {
             /** A list of uploads. */
             items?: Upload[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -1622,8 +1592,8 @@ declare namespace gapi.client {
             /** A list of web properties. */
             items?: Webproperty[];
             /**
-             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a
-             * value of 1000 by default, or otherwise specified by the max-results query parameter.
+             * The maximum number of resources the response can contain, regardless of the actual number of resources returned. Its value ranges from 1 to 1000 with a value of 1000 by default, or
+             * otherwise specified by the max-results query parameter.
              */
             itemsPerPage?: number;
             /** Collection type. */
@@ -1652,8 +1622,7 @@ declare namespace gapi.client {
             /** Time this web property was created. */
             created?: string;
             /**
-             * Set to true to reset the retention period of the user identifier with each new event from that user (thus setting the expiration date to current time
-             * plus retention period).
+             * Set to true to reset the retention period of the user identifier with each new event from that user (thus setting the expiration date to current time plus retention period).
              * Set to false to delete data associated with the user identifier automatically after the rentention period.
              * This property cannot be set on insert.
              */
@@ -1686,10 +1655,7 @@ declare namespace gapi.client {
             };
             /** Permissions the user has for this web property. */
             permissions?: {
-                /**
-                 * All the permissions that the user has for this web property. These include any implied permissions (e.g., EDIT implies VIEW) or inherited permissions
-                 * from the parent account.
-                 */
+                /** All the permissions that the user has for this web property. These include any implied permissions (e.g., EDIT implies VIEW) or inherited permissions from the parent account. */
                 effective?: string[];
             };
             /** View (Profile) count for this web property. */
@@ -1743,8 +1709,8 @@ declare namespace gapi.client {
                 /** A comma-separated list of Analytics dimensions. E.g., 'ga:browser,ga:city'. */
                 dimensions?: string;
                 /**
-                 * End date for fetching Analytics data. Request can should specify an end date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or
-                 * 7daysAgo). The default value is yesterday.
+                 * End date for fetching Analytics data. Request can should specify an end date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default
+                 * value is yesterday.
                  */
                 "end-date": string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1776,8 +1742,8 @@ declare namespace gapi.client {
                 /** A comma-separated list of dimensions or metrics that determine the sort order for Analytics data. */
                 sort?: string;
                 /**
-                 * Start date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or
-                 * 7daysAgo). The default value is 7daysAgo.
+                 * Start date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value
+                 * is 7daysAgo.
                  */
                 "start-date": string;
                 /** An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. */
@@ -1794,8 +1760,8 @@ declare namespace gapi.client {
                 /** A comma-separated list of Multi-Channel Funnels dimensions. E.g., 'mcf:source,mcf:medium'. */
                 dimensions?: string;
                 /**
-                 * End date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or
-                 * 7daysAgo). The default value is 7daysAgo.
+                 * End date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value
+                 * is 7daysAgo.
                  */
                 "end-date": string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1821,8 +1787,8 @@ declare namespace gapi.client {
                 /** A comma-separated list of dimensions or metrics that determine the sort order for the Analytics data. */
                 sort?: string;
                 /**
-                 * Start date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or
-                 * 7daysAgo). The default value is 7daysAgo.
+                 * Start date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value
+                 * is 7daysAgo.
                  */
                 "start-date": string;
                 /** An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. */
@@ -3020,10 +2986,7 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /**
-                 * View (Profile) ID to retrieve goals for. Can either be a specific view (profile) ID or '~all', which refers to all the views (profiles) that user has
-                 * access to.
-                 */
+                /** View (Profile) ID to retrieve goals for. Can either be a specific view (profile) ID or '~all', which refers to all the views (profiles) that user has access to. */
                 profileId: string;
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
@@ -3031,10 +2994,7 @@ declare namespace gapi.client {
                 "start-index"?: number;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
-                /**
-                 * Web property ID to retrieve goals for. Can either be a specific web property ID or '~all', which refers to all the web properties that user has access
-                 * to.
-                 */
+                /** Web property ID to retrieve goals for. Can either be a specific web property ID or '~all', which refers to all the web properties that user has access to. */
                 webPropertyId: string;
             }): Request<Goals>;
             /** Updates an existing goal. This method supports patch semantics. */
@@ -3265,10 +3225,7 @@ declare namespace gapi.client {
                 "start-index"?: number;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
-                /**
-                 * Web property Id for profile filter links for. Can either be a specific web property ID or '~all', which refers to all the web properties that user has
-                 * access to.
-                 */
+                /** Web property Id for profile filter links for. Can either be a specific web property ID or '~all', which refers to all the web properties that user has access to. */
                 webPropertyId: string;
             }): Request<ProfileFilterLinks>;
             /** Update an existing profile filter link. This method supports patch semantics. */
@@ -3469,10 +3426,7 @@ declare namespace gapi.client {
             body: Profile): Request<Profile>;
             /** Lists views (profiles) to which the user has access. */
             list(request?: {
-                /**
-                 * Account ID for the view (profiles) to retrieve. Can either be a specific account ID or '~all', which refers to all the accounts to which the user has
-                 * access.
-                 */
+                /** Account ID for the view (profiles) to retrieve. Can either be a specific account ID or '~all', which refers to all the accounts to which the user has access. */
                 accountId: string;
                 /** Data format for the response. */
                 alt?: string;
@@ -3492,10 +3446,7 @@ declare namespace gapi.client {
                 "start-index"?: number;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
-                /**
-                 * Web property ID for the views (profiles) to retrieve. Can either be a specific web property ID or '~all', which refers to all the web properties to
-                 * which the user has access.
-                 */
+                /** Web property ID for the views (profiles) to retrieve. Can either be a specific web property ID or '~all', which refers to all the web properties to which the user has access. */
                 webPropertyId: string;
             }): Request<Profiles>;
             /** Updates an existing view (profile). This method supports patch semantics. */
@@ -3685,10 +3636,7 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /**
-                 * View (Profile) ID to retrieve the profile-user links for. Can either be a specific profile ID or '~all', which refers to all the profiles that user has
-                 * access to.
-                 */
+                /** View (Profile) ID to retrieve the profile-user links for. Can either be a specific profile ID or '~all', which refers to all the profiles that user has access to. */
                 profileId: string;
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
@@ -3696,10 +3644,7 @@ declare namespace gapi.client {
                 "start-index"?: number;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
-                /**
-                 * Web Property ID which the given view (profile) belongs to. Can either be a specific web property ID or '~all', which refers to all the web properties
-                 * that user has access to.
-                 */
+                /** Web Property ID which the given view (profile) belongs to. Can either be a specific web property ID or '~all', which refers to all the web properties that user has access to. */
                 webPropertyId: string;
             }): Request<EntityUserLinks>;
             /** Updates permissions for an existing user on the given view (profile). */
@@ -4266,10 +4211,7 @@ declare namespace gapi.client {
                 /** ID to retrieve the web property for. */
                 webPropertyId: string;
             }): Request<Webproperty>;
-            /**
-             * Create a new property if the account has fewer than 20 properties. Web properties are visible in the Google Analytics interface only if they have at
-             * least one profile.
-             */
+            /** Create a new property if the account has fewer than 20 properties. Web properties are visible in the Google Analytics interface only if they have at least one profile. */
             insert(request: {
                 /** Account ID to create the web property for. */
                 accountId: string;
@@ -4724,10 +4666,7 @@ declare namespace gapi.client {
                 "start-index"?: number;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
-                /**
-                 * Web Property ID for the webProperty-user links to retrieve. Can either be a specific web property ID or '~all', which refers to all the web properties
-                 * that user has access to.
-                 */
+                /** Web Property ID for the webProperty-user links to retrieve. Can either be a specific web property ID or '~all', which refers to all the web properties that user has access to. */
                 webPropertyId: string;
             }): Request<EntityUserLinks>;
             /** Updates permissions for an existing user on the given web property. */

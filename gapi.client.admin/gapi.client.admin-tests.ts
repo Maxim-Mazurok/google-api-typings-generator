@@ -30,9 +30,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Retrieves a list of activities for a specific customer's account and application such as the Admin console application or the Google Drive application.
-         * For more information, see the guides for administrator and Google Drive activity reports. For more information about the activity report's parameters,
-         * see the activity parameters reference guides.
+         * Retrieves a list of activities for a specific customer's account and application such as the Admin console application or the Google Drive application. For more information, see the
+         * guides for administrator and Google Drive activity reports. For more information about the activity report's parameters, see the activity parameters reference guides.
          */
         await gapi.client.admin.activities.list({
             actorIpAddress: "Test string",
@@ -88,8 +87,8 @@ gapi.load('client', () => {
             type: "Test string",
         });
         /**
-         * Retrieves a report which is a collection of properties and statistics for a specific customer's account. For more information, see the Customers Usage
-         * Report guide. For more information about the customer report's parameters, see the Customers Usage parameters reference guides.
+         * Retrieves a report which is a collection of properties and statistics for a specific customer's account. For more information, see the Customers Usage Report guide. For more information
+         * about the customer report's parameters, see the Customers Usage parameters reference guides.
          */
         await gapi.client.admin.customerUsageReports.get({
             customerId: "Test string",
@@ -98,8 +97,8 @@ gapi.load('client', () => {
             parameters: "Test string",
         });
         /**
-         * Retrieves a report which is a collection of properties and statistics for entities used by users within the account. For more information, see the
-         * Entities Usage Report guide. For more information about the entities report's parameters, see the Entities Usage parameters reference guides.
+         * Retrieves a report which is a collection of properties and statistics for entities used by users within the account. For more information, see the Entities Usage Report guide. For more
+         * information about the entities report's parameters, see the Entities Usage parameters reference guides.
          */
         await gapi.client.admin.entityUsageReports.get({
             customerId: "Test string",
@@ -112,8 +111,8 @@ gapi.load('client', () => {
             parameters: "Test string",
         });
         /**
-         * Retrieves a report which is a collection of properties and statistics for a set of users with the account. For more information, see the User Usage
-         * Report guide. For more information about the user report's parameters, see the Users Usage parameters reference guides.
+         * Retrieves a report which is a collection of properties and statistics for a set of users with the account. For more information, see the User Usage Report guide. For more information
+         * about the user report's parameters, see the Users Usage parameters reference guides.
          */
         await gapi.client.admin.userUsageReport.get({
             customerId: "Test string",

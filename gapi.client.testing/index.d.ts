@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Testing API v1 1.0
 // Project: https://developers.google.com/cloud-test-lab/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -52,9 +55,9 @@ declare namespace gapi.client {
             /** The java package for the application under test. The default value is determined by examining the application's manifest. */
             appPackageId?: string;
             /**
-             * The option of whether running each test within its own invocation of instrumentation with Android Test Orchestrator or not. ∗∗ Orchestrator is only
-             * compatible with AndroidJUnitRunner version 1.0 or higher! ∗∗ Orchestrator offers the following benefits: - No shared state - Crashes are isolated -
-             * Logs are scoped per test See for more information about Android Test Orchestrator. If not set, the test will be run without the orchestrator.
+             * The option of whether running each test within its own invocation of instrumentation with Android Test Orchestrator or not. ** Orchestrator is only compatible with
+             * AndroidJUnitRunner version 1.0 or higher! ** Orchestrator offers the following benefits: - No shared state - Crashes are isolated - Logs are scoped per test See for more information
+             * about Android Test Orchestrator. If not set, the test will be run without the orchestrator.
              */
             orchestratorOption?: string;
             /** The option to run tests in multiple shards in parallel. */
@@ -66,8 +69,8 @@ declare namespace gapi.client {
             /** The InstrumentationTestRunner class. The default value is determined by examining the application's manifest. */
             testRunnerClass?: string;
             /**
-             * Each target must be fully qualified with the package name or class name, in one of these formats: - "package package_name" - "class
-             * package_name.class_name" - "class package_name.class_name#method_name" If empty, all targets in the module will be run.
+             * Each target must be fully qualified with the package name or class name, in one of these formats: - "package package_name" - "class package_name.class_name" - "class
+             * package_name.class_name#method_name" If empty, all targets in the module will be run.
              */
             testTargets?: string[];
         }
@@ -105,9 +108,9 @@ declare namespace gapi.client {
             /** Screen size in the vertical (Y) dimension measured in pixels. */
             screenY?: number;
             /**
-             * The list of supported ABIs for this device. This corresponds to either android.os.Build.SUPPORTED_ABIS (for API level 21 and above) or
-             * android.os.Build.CPU_ABI/CPU_ABI2. The most preferred ABI is the first element in the list. Elements are optionally prefixed by "version_id:" (where
-             * version_id is the id of an AndroidVersion), denoting an ABI that is supported only on a particular version.
+             * The list of supported ABIs for this device. This corresponds to either android.os.Build.SUPPORTED_ABIS (for API level 21 and above) or android.os.Build.CPU_ABI/CPU_ABI2. The most
+             * preferred ABI is the first element in the list. Elements are optionally prefixed by "version_id:" (where version_id is the id of an AndroidVersion), denoting an ABI that is
+             * supported only on a particular version.
              */
             supportedAbis?: string[];
             /** The set of Android versions this device supports. */
@@ -130,16 +133,13 @@ declare namespace gapi.client {
             maxDepth?: number;
             /** The max number of steps Robo can execute. Default is no limit. */
             maxSteps?: number;
-            /**
-             * A set of directives Robo should apply during the crawl. This allows users to customize the crawl. For example, the username and password for a test
-             * account can be provided.
-             */
+            /** A set of directives Robo should apply during the crawl. This allows users to customize the crawl. For example, the username and password for a test account can be provided. */
             roboDirectives?: RoboDirective[];
             /** A JSON file with a sequence of actions Robo should perform as a prologue for the crawl. */
             roboScript?: FileReference;
             /**
-             * The intents used to launch the app for the crawl. If none are provided, then the main launcher activity is launched. If some are provided, then only
-             * those provided are launched (the main launcher activity must be provided explicitly).
+             * The intents used to launch the app for the crawl. If none are provided, then the main launcher activity is launched. If some are provided, then only those provided are launched (the
+             * main launcher activity must be provided explicitly).
              */
             startingIntents?: RoboStartingIntent[];
         }
@@ -157,9 +157,9 @@ declare namespace gapi.client {
             /** The java package for the application under test. The default is determined by examining the application's manifest. */
             appPackageId?: string;
             /**
-             * The list of scenario labels that should be run during the test. The scenario labels should map to labels defined in the application's manifest. For
-             * example, player_experience and com.google.test.loops.player_experience add all of the loops labeled in the manifest with the
-             * com.google.test.loops.player_experience name to the execution. Scenarios can also be specified in the scenarios field.
+             * The list of scenario labels that should be run during the test. The scenario labels should map to labels defined in the application's manifest. For example, player_experience and
+             * com.google.test.loops.player_experience add all of the loops labeled in the manifest with the com.google.test.loops.player_experience name to the execution. Scenarios can also be
+             * specified in the scenarios field.
              */
             scenarioLabels?: string[];
             /** The list of scenarios that should be run during the test. The default is all test loops, derived from the application's manifest. */
@@ -224,10 +224,7 @@ declare namespace gapi.client {
             value?: string;
         }
         interface Date {
-            /**
-             * Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not
-             * significant.
-             */
+            /** Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not significant. */
             day?: number;
             /** Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day. */
             month?: number;
@@ -279,10 +276,7 @@ declare namespace gapi.client {
             value?: string;
         }
         interface FileReference {
-            /**
-             * A path to a file in Google Cloud Storage. Example: gs://build-app-1414623860166/app%40debug-unaligned.apk These paths are expected to be url encoded
-             * (percent encoding)
-             */
+            /** A path to a file in Google Cloud Storage. Example: gs://build-app-1414623860166/app%40debug-unaligned.apk These paths are expected to be url encoded (percent encoding) */
             gcsPath?: string;
         }
         interface GetApkDetailsResponse {
@@ -293,10 +287,7 @@ declare namespace gapi.client {
         interface GoogleAuto {
         }
         interface GoogleCloudStorage {
-            /**
-             * Required. The path to a directory in GCS that will eventually contain the results for this test. The requesting user must have write access on the
-             * bucket in the supplied path.
-             */
+            /** Required. The path to a directory in GCS that will eventually contain the results for this test. The requesting user must have write access on the bucket in the supplied path. */
             gcsPath?: string;
         }
         // tslint:disable-next-line:interface-name
@@ -378,8 +369,8 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface IosTestSetup {
             /**
-             * The network traffic profile used for running the test. Available network profiles can be queried by using the NETWORK_CONFIGURATION environment type
-             * when calling TestEnvironmentDiscoveryService.GetTestEnvironmentCatalog.
+             * The network traffic profile used for running the test. Available network profiles can be queried by using the NETWORK_CONFIGURATION environment type when calling
+             * TestEnvironmentDiscoveryService.GetTestEnvironmentCatalog.
              */
             networkProfile?: string;
         }
@@ -401,23 +392,23 @@ declare namespace gapi.client {
             /** Output only. The bundle id for the application under test. */
             appBundleId?: string;
             /**
-             * The option to test special app entitlements. Setting this would re-sign the app having special entitlements with an explicit application-identifier.
-             * Currently supports testing aps-environment entitlement.
+             * The option to test special app entitlements. Setting this would re-sign the app having special entitlements with an explicit application-identifier. Currently supports testing
+             * aps-environment entitlement.
              */
             testSpecialEntitlements?: boolean;
             /**
-             * Required. The .zip containing the .xctestrun file and the contents of the DerivedData/Build/Products directory. The .xctestrun file in this zip is
-             * ignored if the xctestrun field is specified.
+             * Required. The .zip containing the .xctestrun file and the contents of the DerivedData/Build/Products directory. The .xctestrun file in this zip is ignored if the xctestrun field is
+             * specified.
              */
             testsZip?: FileReference;
             /**
-             * The Xcode version that should be used for the test. Use the TestEnvironmentDiscoveryService to get supported options. Defaults to the latest Xcode
-             * version Firebase Test Lab supports.
+             * The Xcode version that should be used for the test. Use the TestEnvironmentDiscoveryService to get supported options. Defaults to the latest Xcode version Firebase Test Lab
+             * supports.
              */
             xcodeVersion?: string;
             /**
-             * An .xctestrun file that will override the .xctestrun file in the tests zip. Because the .xctestrun file contains environment variables along with test
-             * methods to run and/or ignore, this can be useful for sharding tests. Default is taken from the tests zip.
+             * An .xctestrun file that will override the .xctestrun file in the tests zip. Because the .xctestrun file contains environment variables along with test methods to run and/or ignore,
+             * this can be useful for sharding tests. Default is taken from the tests zip.
              */
             xctestrun?: FileReference;
         }
@@ -436,8 +427,8 @@ declare namespace gapi.client {
         }
         interface ManualSharding {
             /**
-             * Required. Group of packages, classes, and/or test methods to be run for each shard. When any physical devices are selected, the number of
-             * test_targets_for_shard must be >= 1 and <= 50. When no physical devices are selected, the number must be >= 1 and <= 250.
+             * Required. Group of packages, classes, and/or test methods to be run for each shard. When any physical devices are selected, the number of test_targets_for_shard must be >= 1 and <=
+             * 50. When no physical devices are selected, the number must be >= 1 and <= 250.
              */
             testTargetsForShard?: TestTargetsForShard[];
         }
@@ -456,8 +447,8 @@ declare namespace gapi.client {
             /** Required. Opaque Binary Blob (OBB) file(s) to install on the device. */
             obb?: FileReference;
             /**
-             * Required. OBB file name which must conform to the format as specified by Android e.g. [main|patch].0300110.com.example.android.obb which will be
-             * installed into \/Android/obb/\/ on the device.
+             * Required. OBB file name which must conform to the format as specified by Android e.g. [main|patch].0300110.com.example.android.obb which will be installed into \/Android/obb/\/ on
+             * the device.
              */
             obbFileName?: string;
         }
@@ -477,12 +468,11 @@ declare namespace gapi.client {
             /** Required. The source file. */
             content?: FileReference;
             /**
-             * Required. Where to put the content on the device. Must be an absolute, allowlisted path. If the file exists, it will be replaced. The following
-             * device-side directories and any of their subdirectories are allowlisted: ${EXTERNAL_STORAGE}, /sdcard, or /storage ${ANDROID_DATA}/local/tmp, or
-             * /data/local/tmp Specifying a path outside of these directory trees is invalid. The paths /sdcard and /data will be made available and treated as
-             * implicit path substitutions. E.g. if /sdcard on a particular device does not map to external storage, the system will replace it with the external
-             * storage path prefix for that device and copy the file there. It is strongly advised to use the Environment API in app and test code to access files on
-             * the device in a portable way.
+             * Required. Where to put the content on the device. Must be an absolute, allowlisted path. If the file exists, it will be replaced. The following device-side directories and any of
+             * their subdirectories are allowlisted: ${EXTERNAL_STORAGE}, /sdcard, or /storage ${ANDROID_DATA}/local/tmp, or /data/local/tmp Specifying a path outside of these directory trees is
+             * invalid. The paths /sdcard and /data will be made available and treated as implicit path substitutions. E.g. if /sdcard on a particular device does not map to external storage, the
+             * system will replace it with the external storage path prefix for that device and copy the file there. It is strongly advised to use the Environment API in app and test code to
+             * access files on the device in a portable way.
              */
             devicePath?: string;
         }
@@ -493,10 +483,7 @@ declare namespace gapi.client {
             resultsUrl?: string;
             /** Output only. The tool results execution that results are written to. */
             toolResultsExecution?: ToolResultsExecution;
-            /**
-             * The tool results history that contains the tool results execution that results are written to. If not provided, the service will choose an appropriate
-             * value.
-             */
+            /** The tool results history that contains the tool results execution that results are written to. If not provided, the service will choose an appropriate value. */
             toolResultsHistory?: ToolResultsHistory;
         }
         interface RoboDirective {
@@ -505,8 +492,8 @@ declare namespace gapi.client {
             /** The text that Robo is directed to set. If left empty, the directive will be treated as a CLICK on the element matching the resource_name. */
             inputText?: string;
             /**
-             * Required. The android resource name of the target UI element. For example, in Java: R.string.foo in xml: @string/foo Only the "foo" part is needed.
-             * Reference doc: https://developer.android.com/guide/topics/resources/accessing-resources.html
+             * Required. The android resource name of the target UI element. For example, in Java: R.string.foo in xml: @string/foo Only the "foo" part is needed. Reference doc:
+             * https://developer.android.com/guide/topics/resources/accessing-resources.html
              */
             resourceName?: string;
         }
@@ -548,8 +535,8 @@ declare namespace gapi.client {
             /** Output only. If the TestState is ERROR, then this string will contain human-readable details about the error. */
             errorMessage?: string;
             /**
-             * Output only. Human-readable, detailed descriptions of the test's progress. For example: "Provisioning a device", "Starting Test". During the course of
-             * execution new data may be appended to the end of progress_messages.
+             * Output only. Human-readable, detailed descriptions of the test's progress. For example: "Provisioning a device", "Starting Test". During the course of execution new data may be
+             * appended to the end of progress_messages.
              */
             progressMessages?: string[];
         }
@@ -593,8 +580,8 @@ declare namespace gapi.client {
             /** Required. The devices the tests are being executed on. */
             environmentMatrix?: EnvironmentMatrix;
             /**
-             * The number of times a TestExecution should be re-attempted if one or more of its test cases fail for any reason. The maximum number of reruns allowed
-             * is 10. Default is 0, which implies no reruns.
+             * The number of times a TestExecution should be re-attempted if one or more of its test cases fail for any reason. The maximum number of reruns allowed is 10. Default is 0, which
+             * implies no reruns.
              */
             flakyTestAttempts?: number;
             /** Output only. Describes why the matrix is considered invalid. Only useful for matrices in the INVALID state. */
@@ -622,10 +609,9 @@ declare namespace gapi.client {
             /** APKs to install in addition to those being directly tested. Currently capped at 100. */
             additionalApks?: Apk[];
             /**
-             * List of directories on the device to upload to GCS at the end of the test; they must be absolute paths under /sdcard, /storage or /data/local/tmp. Path
-             * names are restricted to characters a-z A-Z 0-9 _ - . + and / Note: The paths /sdcard and /data will be made available and treated as implicit path
-             * substitutions. E.g. if /sdcard on a particular device does not map to external storage, the system will replace it with the external storage path
-             * prefix for that device.
+             * List of directories on the device to upload to GCS at the end of the test; they must be absolute paths under /sdcard, /storage or /data/local/tmp. Path names are restricted to
+             * characters a-z A-Z 0-9 _ - . + and / Note: The paths /sdcard and /data will be made available and treated as implicit path substitutions. E.g. if /sdcard on a particular device does
+             * not map to external storage, the system will replace it with the external storage path prefix for that device.
              */
             directoriesToPull?: string[];
             /** Whether to prevent all runtime permissions to be granted at app install */
@@ -635,13 +621,13 @@ declare namespace gapi.client {
             /** List of files to push to the device before starting the test. */
             filesToPush?: DeviceFile[];
             /**
-             * The network traffic profile used for running the test. Available network profiles can be queried by using the NETWORK_CONFIGURATION environment type
-             * when calling TestEnvironmentDiscoveryService.GetTestEnvironmentCatalog.
+             * The network traffic profile used for running the test. Available network profiles can be queried by using the NETWORK_CONFIGURATION environment type when calling
+             * TestEnvironmentDiscoveryService.GetTestEnvironmentCatalog.
              */
             networkProfile?: string;
             /**
-             * Systrace configuration for the run. If set a systrace will be taken, starting on test start and lasting for the configured duration. The systrace file
-             * thus obtained is put in the results bucket together with the other artifacts from the run.
+             * Systrace configuration for the run. If set a systrace will be taken, starting on test start and lasting for the configured duration. The systrace file thus obtained is put in the
+             * results bucket together with the other artifacts from the run.
              */
             systrace?: SystraceSetup;
         }
@@ -669,8 +655,8 @@ declare namespace gapi.client {
         }
         interface TestTargetsForShard {
             /**
-             * Group of packages, classes, and/or test methods to be run for each shard. The targets need to be specified in AndroidJUnitRunner argument format. For
-             * example, "package com.my.packages" "class com.my.package.MyClass". The number of shard_test_targets must be greater than 0.
+             * Group of packages, classes, and/or test methods to be run for each shard. The targets need to be specified in AndroidJUnitRunner argument format. For example, "package
+             * com.my.packages" "class com.my.package.MyClass". The number of shard_test_targets must be greater than 0.
              */
             testTargets?: string[];
         }
@@ -712,8 +698,8 @@ declare namespace gapi.client {
         }
         interface UniformSharding {
             /**
-             * Required. Total number of shards. When any physical devices are selected, the number must be >= 1 and <= 50. When no physical devices are selected, the
-             * number must be >= 1 and <= 250.
+             * Required. Total number of shards. When any physical devices are selected, the number must be >= 1 and <= 50. When no physical devices are selected, the number must be >= 1 and <=
+             * 250.
              */
             numShards?: number;
         }
@@ -779,9 +765,9 @@ declare namespace gapi.client {
         }
         interface TestMatricesResource {
             /**
-             * Cancels unfinished test executions in a test matrix. This call returns immediately and cancellation proceeds asynchronously. If the matrix is already
-             * final, this operation will have no effect. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized
-             * to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Test Matrix does not exist
+             * Cancels unfinished test executions in a test matrix. This call returns immediately and cancellation proceeds asynchronously. If the matrix is already final, this operation will have
+             * no effect. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is
+             * malformed - NOT_FOUND - if the Test Matrix does not exist
              */
             cancel(request?: {
                 /** V1 error format. */
@@ -812,9 +798,9 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<CancelTestMatrixResponse>;
             /**
-             * Creates and runs a matrix of tests according to the given specifications. Unsupported environments will be returned in the state UNSUPPORTED. Matrices
-             * are limited to at most 200 supported executions. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not
-             * authorized to write to project - INVALID_ARGUMENT - if the request is malformed or if the matrix expands to more than 200 supported executions
+             * Creates and runs a matrix of tests according to the given specifications. Unsupported environments will be returned in the state UNSUPPORTED. Matrices are limited to at most 200
+             * supported executions. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the
+             * request is malformed or if the matrix expands to more than 200 supported executions
              */
             create(request: {
                 /** V1 error format. */
@@ -838,8 +824,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * A string id used to detect duplicated requests. Ids are automatically scoped to a project, so users should ensure the ID is unique per-project. A UUID
-                 * is recommended. Optional, but strongly recommended.
+                 * A string id used to detect duplicated requests. Ids are automatically scoped to a project, so users should ensure the ID is unique per-project. A UUID is recommended. Optional,
+                 * but strongly recommended.
                  */
                 requestId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -871,8 +857,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * A string id used to detect duplicated requests. Ids are automatically scoped to a project, so users should ensure the ID is unique per-project. A UUID
-                 * is recommended. Optional, but strongly recommended.
+                 * A string id used to detect duplicated requests. Ids are automatically scoped to a project, so users should ensure the ID is unique per-project. A UUID is recommended. Optional,
+                 * but strongly recommended.
                  */
                 requestId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -882,8 +868,8 @@ declare namespace gapi.client {
             },
             body: TestMatrix): Request<TestMatrix>;
             /**
-             * Checks the status of a test matrix. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read
-             * project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Test Matrix does not exist
+             * Checks the status of a test matrix. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT -
+             * if the request is malformed - NOT_FOUND - if the Test Matrix does not exist
              */
             get(request?: {
                 /** V1 error format. */
@@ -919,8 +905,8 @@ declare namespace gapi.client {
         }
         interface TestEnvironmentCatalogResource {
             /**
-             * Gets the catalog of supported test environments. May return any of the following canonical error codes: - INVALID_ARGUMENT - if the request is
-             * malformed - NOT_FOUND - if the environment type does not exist - INTERNAL - if an internal error occurred
+             * Gets the catalog of supported test environments. May return any of the following canonical error codes: - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the
+             * environment type does not exist - INTERNAL - if an internal error occurred
              */
             get(request?: {
                 /** V1 error format. */

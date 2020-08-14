@@ -42,8 +42,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables, either manually or by specifying
-         * deleteContents. Immediately after deletion, you can create another dataset with the same name.
+         * Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables, either manually or by specifying deleteContents. Immediately after
+         * deletion, you can create another dataset with the same name.
          */
         await gapi.client.bigquery.datasets.delete({
             datasetId: "Test string",
@@ -103,8 +103,8 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that
-         * are provided in the submitted dataset resource. This method supports patch semantics.
+         * Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted
+         * dataset resource. This method supports patch semantics.
          */
         await gapi.client.bigquery.datasets.patch({
             datasetId: "Test string",
@@ -146,8 +146,8 @@ gapi.load('client', () => {
             selfLink: "Test string",
         });
         /**
-         * Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that
-         * are provided in the submitted dataset resource.
+         * Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted
+         * dataset resource.
          */
         await gapi.client.bigquery.datasets.update({
             datasetId: "Test string",
@@ -189,8 +189,8 @@ gapi.load('client', () => {
             selfLink: "Test string",
         });
         /**
-         * Requests that a job be cancelled. This call will return immediately, and the client will need to poll for the job status to see if the cancel completed
-         * successfully. Cancelled jobs may still incur costs.
+         * Requests that a job be cancelled. This call will return immediately, and the client will need to poll for the job status to see if the cancel completed successfully. Cancelled jobs may
+         * still incur costs.
          */
         await gapi.client.bigquery.jobs.cancel({
             jobId: "Test string",
@@ -198,8 +198,8 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Returns information about a specific job. Job information is available for a six month period after creation. Requires that you're the person who ran
-         * the job, or have the Is Owner project role.
+         * Returns information about a specific job. Job information is available for a six month period after creation. Requires that you're the person who ran the job, or have the Is Owner
+         * project role.
          */
         await gapi.client.bigquery.jobs.get({
             jobId: "Test string",
@@ -700,8 +700,8 @@ gapi.load('client', () => {
             user_email: "Test string",
         });
         /**
-         * Lists all jobs that you started in the specified project. Job information is available for a six month period after creation. The job list is sorted in
-         * reverse chronological order, by job creation time. Requires the Can View project role, or the Is Owner project role if you set the allUsers property.
+         * Lists all jobs that you started in the specified project. Job information is available for a six month period after creation. The job list is sorted in reverse chronological order, by
+         * job creation time. Requires the Can View project role, or the Is Owner project role if you set the allUsers property.
          */
         await gapi.client.bigquery.jobs.list({
             allUsers: true,
@@ -1222,10 +1222,7 @@ gapi.load('client', () => {
             projectId: "Test string",
             tableId: "Test string",
         });
-        /**
-         * Gets the specified table resource by table ID. This method does not return the data in the table, it only returns the table resource, which describes
-         * the structure of this table.
-         */
+        /** Gets the specified table resource by table ID. This method does not return the data in the table, it only returns the table resource, which describes the structure of this table. */
         await gapi.client.bigquery.tables.get({
             datasetId: "Test string",
             projectId: "Test string",
@@ -1440,8 +1437,8 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are
-         * provided in the submitted table resource. This method supports patch semantics.
+         * Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table
+         * resource. This method supports patch semantics.
          */
         await gapi.client.bigquery.tables.patch({
             datasetId: "Test string",
@@ -1635,10 +1632,7 @@ gapi.load('client', () => {
                     }                ],
             },
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
-         * `PERMISSION_DENIED` errors.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
         await gapi.client.bigquery.tables.setIamPolicy({
             resource: "Test string",
         }, {
@@ -1671,9 +1665,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
-         * checking. This operation may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
          */
         await gapi.client.bigquery.tables.testIamPermissions({
             resource: "Test string",
@@ -1682,8 +1675,8 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are
-         * provided in the submitted table resource.
+         * Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table
+         * resource.
          */
         await gapi.client.bigquery.tables.update({
             datasetId: "Test string",

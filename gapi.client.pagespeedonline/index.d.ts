@@ -1,6 +1,9 @@
 // Type definitions for non-npm package PageSpeed Insights API v5 5.0
 // Project: https://developers.google.com/speed/docs/insights/v5/about
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -89,8 +92,8 @@ declare namespace gapi.client {
             /** The audit's id. */
             id?: string;
             /**
-             * A numeric value that has a meaning specific to the audit, e.g. the number of nodes in the DOM or the timestamp of a specific load event. More
-             * information can be found in the audit details, if present.
+             * A numeric value that has a meaning specific to the audit, e.g. the number of nodes in the DOM or the timestamp of a specific load event. More information can be found in the audit
+             * details, if present.
              */
             numericValue?: number;
             /** The score of the audit, can be null. */
@@ -253,10 +256,7 @@ declare namespace gapi.client {
             percentile?: number;
         }
         interface PagespeedapiResource {
-            /**
-             * Runs PageSpeed analysis on the page at the specified URL, and returns PageSpeed scores, a list of suggestions to make that page faster, and other
-             * information.
-             */
+            /** Runs PageSpeed analysis on the page at the specified URL, and returns PageSpeed scores, a list of suggestions to make that page faster, and other information. */
             runpagespeed(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;

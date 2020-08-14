@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Tag Manager API v2 2.0
 // Project: https://developers.google.com/tag-manager
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -28,19 +31,16 @@ declare namespace gapi.client {
             /** GTM Account's API relative path. */
             path?: string;
             /**
-             * Whether the account shares data anonymously with Google and others. This flag enables benchmarking by sharing your data in an anonymous form. Google
-             * will remove all identifiable information about your website, combine the data with hundreds of other anonymous sites and report aggregate trends in the
-             * benchmarking service. @mutable tagmanager.accounts.create @mutable tagmanager.accounts.update
+             * Whether the account shares data anonymously with Google and others. This flag enables benchmarking by sharing your data in an anonymous form. Google will remove all identifiable
+             * information about your website, combine the data with hundreds of other anonymous sites and report aggregate trends in the benchmarking service. @mutable tagmanager.accounts.create
+             * @mutable tagmanager.accounts.update
              */
             shareData?: boolean;
             /** Auto generated link to the tag manager UI */
             tagManagerUrl?: string;
         }
         interface AccountAccess {
-            /**
-             * Whether the user has no access, user access, or admin access to an account. @mutable tagmanager.accounts.permissions.create @mutable
-             * tagmanager.accounts.permissions.update
-             */
+            /** Whether the user has no access, user access, or admin access to an account. @mutable tagmanager.accounts.permissions.create @mutable tagmanager.accounts.permissions.update */
             permission?: string;
         }
         interface BuiltInVariable {
@@ -52,10 +52,7 @@ declare namespace gapi.client {
             name?: string;
             /** GTM BuiltInVariable's API relative path. */
             path?: string;
-            /**
-             * Type of built-in variable. @required.tagmanager.accounts.containers.workspaces.built_in_variable.update @mutable
-             * tagmanager.accounts.containers.workspaces.built_in_variable.update
-             */
+            /** Type of built-in variable. @required.tagmanager.accounts.containers.workspaces.built_in_variable.update @mutable tagmanager.accounts.containers.workspaces.built_in_variable.update */
             type?: string;
             /** GTM Workspace ID. */
             workspaceId?: string;
@@ -69,24 +66,15 @@ declare namespace gapi.client {
             containerId?: string;
             /** The fingerprint of the GTM Client as computed at storage time. This value is recomputed whenever the client is modified. */
             fingerprint?: string;
-            /**
-             * Client display name. @mutable tagmanager.accounts.containers.workspaces.clients.create @mutable
-             * tagmanager.accounts.containers.workspaces.clients.update
-             */
+            /** Client display name. @mutable tagmanager.accounts.containers.workspaces.clients.create @mutable tagmanager.accounts.containers.workspaces.clients.update */
             name?: string;
-            /**
-             * The client's parameters. @mutable tagmanager.accounts.containers.workspaces.clients.create @mutable
-             * tagmanager.accounts.containers.workspaces.clients.update
-             */
+            /** The client's parameters. @mutable tagmanager.accounts.containers.workspaces.clients.create @mutable tagmanager.accounts.containers.workspaces.clients.update */
             parameter?: Parameter[];
             /** Parent folder id. */
             parentFolderId?: string;
             /** GTM client's API relative path. */
             path?: string;
-            /**
-             * Priority determines relative firing order. @mutable tagmanager.accounts.containers.workspaces.clients.create @mutable
-             * tagmanager.accounts.containers.workspaces.clients.update
-             */
+            /** Priority determines relative firing order. @mutable tagmanager.accounts.containers.workspaces.clients.create @mutable tagmanager.accounts.containers.workspaces.clients.update */
             priority?: number;
             /** Auto generated link to the tag manager UI */
             tagManagerUrl?: string;
@@ -97,17 +85,13 @@ declare namespace gapi.client {
         }
         interface Condition {
             /**
-             * A list of named parameters (key/value), depending on the condition's type. Notes: - For binary operators, include parameters named arg0 and arg1 for
-             * specifying the left and right operands, respectively. - At this time, the left operand (arg0) must be a reference to a variable. - For case-insensitive
-             * Regex matching, include a boolean parameter named ignore_case that is set to true. If not specified or set to any other value, the matching will be
-             * case sensitive. - To negate an operator, include a boolean parameter named negate boolean parameter that is set to true. @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * A list of named parameters (key/value), depending on the condition's type. Notes: - For binary operators, include parameters named arg0 and arg1 for specifying the left and right
+             * operands, respectively. - At this time, the left operand (arg0) must be a reference to a variable. - For case-insensitive Regex matching, include a boolean parameter named
+             * ignore_case that is set to true. If not specified or set to any other value, the matching will be case sensitive. - To negate an operator, include a boolean parameter named negate
+             * boolean parameter that is set to true. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             parameter?: Parameter[];
-            /**
-             * The type of operator for this condition. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.update
-             */
+            /** The type of operator for this condition. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update */
             type?: string;
         }
         interface Container {
@@ -129,10 +113,7 @@ declare namespace gapi.client {
             publicId?: string;
             /** Auto generated link to the tag manager UI */
             tagManagerUrl?: string;
-            /**
-             * List of Usage Contexts for the Container. Valid values include: web, android, or ios. @mutable tagmanager.accounts.containers.create @mutable
-             * tagmanager.accounts.containers.update
-             */
+            /** List of Usage Contexts for the Container. Valid values include: web, android, or ios. @mutable tagmanager.accounts.containers.create @mutable tagmanager.accounts.containers.update */
             usageContext?: string[];
         }
         interface ContainerAccess {
@@ -222,10 +203,7 @@ declare namespace gapi.client {
             compilerError?: boolean;
             /** The container version created. */
             containerVersion?: ContainerVersion;
-            /**
-             * Auto generated workspace path created as a result of version creation. This field should only be populated if the created version was not a quick
-             * preview.
-             */
+            /** Auto generated workspace path created as a result of version creation. This field should only be populated if the created version was not a quick preview. */
             newWorkspacePath?: string;
             /** Whether version creation failed when syncing the workspace to the latest container version. */
             syncStatus?: SyncStatus;
@@ -290,8 +268,8 @@ declare namespace gapi.client {
             /** The fingerprint of the GTM environment as computed at storage time. This value is recomputed whenever the environment is modified. */
             fingerprint?: string;
             /**
-             * The environment display name. Can be set or changed only on USER type environments. @mutable tagmanager.accounts.containers.environments.create
-             * @mutable tagmanager.accounts.containers.environments.update
+             * The environment display name. Can be set or changed only on USER type environments. @mutable tagmanager.accounts.containers.environments.create @mutable
+             * tagmanager.accounts.containers.environments.update
              */
             name?: string;
             /** GTM Environment's API relative path. */
@@ -300,10 +278,7 @@ declare namespace gapi.client {
             tagManagerUrl?: string;
             /** The type of this environment. */
             type?: string;
-            /**
-             * Default preview page url for the environment. @mutable tagmanager.accounts.containers.environments.create @mutable
-             * tagmanager.accounts.containers.environments.update
-             */
+            /** Default preview page url for the environment. @mutable tagmanager.accounts.containers.environments.create @mutable tagmanager.accounts.containers.environments.update */
             url?: string;
             /** Represents a link to a quick preview of a workspace. */
             workspaceId?: string;
@@ -317,10 +292,7 @@ declare namespace gapi.client {
             fingerprint?: string;
             /** The Folder ID uniquely identifies the GTM Folder. */
             folderId?: string;
-            /**
-             * Folder display name. @mutable tagmanager.accounts.containers.workspaces.folders.create @mutable
-             * tagmanager.accounts.containers.workspaces.folders.update
-             */
+            /** Folder display name. @mutable tagmanager.accounts.containers.workspaces.folders.create @mutable tagmanager.accounts.containers.workspaces.folders.update */
             name?: string;
             /**
              * User notes on how to apply this folder in the container. @mutable tagmanager.accounts.containers.workspaces.folders.create @mutable
@@ -444,14 +416,11 @@ declare namespace gapi.client {
         }
         interface MergeConflict {
             /**
-             * The base version entity (since the latest sync operation) that has conflicting changes compared to the workspace. If this field is missing, it means
-             * the workspace entity is deleted from the base version.
+             * The base version entity (since the latest sync operation) that has conflicting changes compared to the workspace. If this field is missing, it means the workspace entity is deleted
+             * from the base version.
              */
             entityInBaseVersion?: Entity;
-            /**
-             * The workspace entity that has conflicting changes compared to the base version. If an entity is deleted in a workspace, it will still appear with a
-             * deleted change status.
-             */
+            /** The workspace entity that has conflicting changes compared to the base version. If an entity is deleted in a workspace, it will still appear with a deleted change status. */
             entityInWorkspace?: Entity;
         }
         interface Parameter {
@@ -477,13 +446,13 @@ declare namespace gapi.client {
              */
             map?: Parameter[];
             /**
-             * The parameter type. Valid values are: - boolean: The value represents a boolean, represented as 'true' or 'false' - integer: The value represents a
-             * 64-bit signed integer value, in base 10 - list: A list of parameters should be specified - map: A map of parameters should be specified - template: The
-             * value represents any text; this can include variable references (even variable references that might return non-string types) - trigger_reference: The
-             * value represents a trigger, represented as the trigger id - tag_reference: The value represents a tag, represented as the tag name @mutable
-             * tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update @mutable
-             * tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update
+             * The parameter type. Valid values are: - boolean: The value represents a boolean, represented as 'true' or 'false' - integer: The value represents a 64-bit signed integer value, in
+             * base 10 - list: A list of parameters should be specified - map: A map of parameters should be specified - template: The value represents any text; this can include variable
+             * references (even variable references that might return non-string types) - trigger_reference: The value represents a trigger, represented as the trigger id - tag_reference: The
+             * value represents a tag, represented as the tag name @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable
+             * tagmanager.accounts.containers.workspaces.variables.update @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
+             * tagmanager.accounts.containers.workspaces.triggers.update @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable
+             * tagmanager.accounts.containers.workspaces.tags.update
              */
             type?: string;
             /**
@@ -514,43 +483,43 @@ declare namespace gapi.client {
         }
         interface RevertFolderResponse {
             /**
-             * Folder as it appears in the latest container version since the last workspace synchronization operation. If no folder is present, that means the folder
-             * was deleted in the latest container version.
+             * Folder as it appears in the latest container version since the last workspace synchronization operation. If no folder is present, that means the folder was deleted in the latest
+             * container version.
              */
             folder?: Folder;
         }
         interface RevertTagResponse {
             /**
-             * Tag as it appears in the latest container version since the last workspace synchronization operation. If no tag is present, that means the tag was
-             * deleted in the latest container version.
+             * Tag as it appears in the latest container version since the last workspace synchronization operation. If no tag is present, that means the tag was deleted in the latest container
+             * version.
              */
             tag?: Tag;
         }
         interface RevertTemplateResponse {
             /**
-             * Template as it appears in the latest container version since the last workspace synchronization operation. If no template is present, that means the
-             * template was deleted in the latest container version.
+             * Template as it appears in the latest container version since the last workspace synchronization operation. If no template is present, that means the template was deleted in the
+             * latest container version.
              */
             template?: CustomTemplate;
         }
         interface RevertTriggerResponse {
             /**
-             * Trigger as it appears in the latest container version since the last workspace synchronization operation. If no trigger is present, that means the
-             * trigger was deleted in the latest container version.
+             * Trigger as it appears in the latest container version since the last workspace synchronization operation. If no trigger is present, that means the trigger was deleted in the latest
+             * container version.
              */
             trigger?: Trigger;
         }
         interface RevertVariableResponse {
             /**
-             * Variable as it appears in the latest container version since the last workspace synchronization operation. If no variable is present, that means the
-             * variable was deleted in the latest container version.
+             * Variable as it appears in the latest container version since the last workspace synchronization operation. If no variable is present, that means the variable was deleted in the
+             * latest container version.
              */
             variable?: Variable;
         }
         interface RevertZoneResponse {
             /**
-             * Zone as it appears in the latest container version since the last workspace synchronization operation. If no zone is present, that means the zone was
-             * deleted in the latest container version.
+             * Zone as it appears in the latest container version since the last workspace synchronization operation. If no zone is present, that means the zone was deleted in the latest container
+             * version.
              */
             zone?: Zone;
         }
@@ -567,10 +536,7 @@ declare namespace gapi.client {
             syncError?: boolean;
         }
         interface SyncWorkspaceResponse {
-            /**
-             * The merge conflict after sync. If this field is not empty, the sync is still treated as successful. But a version cannot be created until all conflicts
-             * are resolved.
-             */
+            /** The merge conflict after sync. If this field is not empty, the sync is still treated as successful. But a version cannot be created until all conflicts are resolved. */
             mergeConflict?: MergeConflict[];
             /** Indicates whether synchronization caused a merge conflict or sync error. */
             syncStatus?: SyncStatus;
@@ -579,13 +545,13 @@ declare namespace gapi.client {
             /** GTM Account ID. */
             accountId?: string;
             /**
-             * Blocking rule IDs. If any of the listed rules evaluate to true, the tag will not fire. @mutable tagmanager.accounts.containers.workspaces.tags.create
-             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             * Blocking rule IDs. If any of the listed rules evaluate to true, the tag will not fire. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable
+             * tagmanager.accounts.containers.workspaces.tags.update
              */
             blockingRuleId?: string[];
             /**
-             * Blocking trigger IDs. If any of the listed triggers evaluate to true, the tag will not fire. @mutable
-             * tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update
+             * Blocking trigger IDs. If any of the listed triggers evaluate to true, the tag will not fire. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable
+             * tagmanager.accounts.containers.workspaces.tags.update
              */
             blockingTriggerId?: string[];
             /** GTM Container ID. */
@@ -603,27 +569,23 @@ declare namespace gapi.client {
              */
             firingTriggerId?: string[];
             /**
-             * If set to true, this tag will only fire in the live environment (e.g. not in preview or debug mode). @mutable
-             * tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update
+             * If set to true, this tag will only fire in the live environment (e.g. not in preview or debug mode). @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable
+             * tagmanager.accounts.containers.workspaces.tags.update
              */
             liveOnly?: boolean;
             /**
-             * A map of key-value pairs of tag metadata to be included in the event data for tag monitoring. Notes: - This parameter must be type MAP. - Each
-             * parameter in the map are type TEMPLATE, however cannot contain variable references. @mutable tagmanager.accounts.containers.workspaces.tags.create
-             * @mutable tagmanager.accounts.containers.workspaces.tags.update
+             * A map of key-value pairs of tag metadata to be included in the event data for tag monitoring. Notes: - This parameter must be type MAP. - Each parameter in the map are type
+             * TEMPLATE, however cannot contain variable references. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update
              */
             monitoringMetadata?: Parameter;
             /**
-             * If non-empty, then the tag display name will be included in the monitoring metadata map using the key specified. @mutable
-             * tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update
+             * If non-empty, then the tag display name will be included in the monitoring metadata map using the key specified. @mutable tagmanager.accounts.containers.workspaces.tags.create
+             * @mutable tagmanager.accounts.containers.workspaces.tags.update
              */
             monitoringMetadataTagNameKey?: string;
             /** Tag display name. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update */
             name?: string;
-            /**
-             * User notes on how to apply this tag in the container. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable
-             * tagmanager.accounts.containers.workspaces.tags.update
-             */
+            /** User notes on how to apply this tag in the container. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update */
             notes?: string;
             /** The tag's parameters. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update */
             parameter?: Parameter[];
@@ -637,20 +599,13 @@ declare namespace gapi.client {
              */
             paused?: boolean;
             /**
-             * User defined numeric priority of the tag. Tags are fired asynchronously in order of priority. Tags with higher numeric value fire first. A tag's
-             * priority can be a positive or negative value. The default value is 0. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable
-             * tagmanager.accounts.containers.workspaces.tags.update
+             * User defined numeric priority of the tag. Tags are fired asynchronously in order of priority. Tags with higher numeric value fire first. A tag's priority can be a positive or
+             * negative value. The default value is 0. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update
              */
             priority?: Parameter;
-            /**
-             * The end timestamp in milliseconds to schedule a tag. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable
-             * tagmanager.accounts.containers.workspaces.tags.update
-             */
+            /** The end timestamp in milliseconds to schedule a tag. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update */
             scheduleEndMs?: string;
-            /**
-             * The start timestamp in milliseconds to schedule a tag. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable
-             * tagmanager.accounts.containers.workspaces.tags.update
-             */
+            /** The start timestamp in milliseconds to schedule a tag. @mutable tagmanager.accounts.containers.workspaces.tags.create @mutable tagmanager.accounts.containers.workspaces.tags.update */
             scheduleStartMs?: string;
             /** The list of setup tags. Currently we only allow one. */
             setupTag?: SetupTag[];
@@ -676,27 +631,23 @@ declare namespace gapi.client {
         interface Trigger {
             /** GTM Account ID. */
             accountId?: string;
-            /**
-             * Used in the case of auto event tracking. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.update
-             */
+            /** Used in the case of auto event tracking. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update */
             autoEventFilter?: Condition[];
             /**
-             * Whether or not we should only fire tags if the form submit or link click event is not cancelled by some other event handler (e.g. because of
-             * validation). Only valid for Form Submission and Link Click triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.update
+             * Whether or not we should only fire tags if the form submit or link click event is not cancelled by some other event handler (e.g. because of validation). Only valid for Form
+             * Submission and Link Click triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             checkValidation?: Parameter;
             /** GTM Container ID. */
             containerId?: string;
             /**
-             * A visibility trigger minimum continuous visible time (in milliseconds). Only valid for AMP Visibility trigger. @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * A visibility trigger minimum continuous visible time (in milliseconds). Only valid for AMP Visibility trigger. @mutable tagmanager.accounts.containers.workspaces.triggers.create
+             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             continuousTimeMinMilliseconds?: Parameter;
             /**
-             * Used in the case of custom event, which is fired iff all Conditions are true. @mutable tagmanager.accounts.containers.workspaces.triggers.create
-             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * Used in the case of custom event, which is fired iff all Conditions are true. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
+             * tagmanager.accounts.containers.workspaces.triggers.update
              */
             customEventFilter?: Condition[];
             /**
@@ -712,61 +663,53 @@ declare namespace gapi.client {
             /** The fingerprint of the GTM Trigger as computed at storage time. This value is recomputed whenever the trigger is modified. */
             fingerprint?: string;
             /**
-             * List of integer percentage values for scroll triggers. The trigger will fire when each percentage is reached when the view is scrolled horizontally.
-             * Only valid for AMP scroll triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.update
+             * List of integer percentage values for scroll triggers. The trigger will fire when each percentage is reached when the view is scrolled horizontally. Only valid for AMP scroll
+             * triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             horizontalScrollPercentageList?: Parameter;
             /**
-             * Time between triggering recurring Timer Events (in milliseconds). Only valid for Timer triggers. @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * Time between triggering recurring Timer Events (in milliseconds). Only valid for Timer triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
+             * tagmanager.accounts.containers.workspaces.triggers.update
              */
             interval?: Parameter;
             /**
-             * Time between Timer Events to fire (in seconds). Only valid for AMP Timer trigger. @mutable tagmanager.accounts.containers.workspaces.triggers.create
-             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * Time between Timer Events to fire (in seconds). Only valid for AMP Timer trigger. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
+             * tagmanager.accounts.containers.workspaces.triggers.update
              */
             intervalSeconds?: Parameter;
             /**
-             * Limit of the number of GTM events this Timer Trigger will fire. If no limit is set, we will continue to fire GTM events until the user leaves the page.
-             * Only valid for Timer triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.update
+             * Limit of the number of GTM events this Timer Trigger will fire. If no limit is set, we will continue to fire GTM events until the user leaves the page. Only valid for Timer
+             * triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             limit?: Parameter;
             /**
-             * Max time to fire Timer Events (in seconds). Only valid for AMP Timer trigger. @mutable tagmanager.accounts.containers.workspaces.triggers.create
-             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
-             */
-            maxTimerLengthSeconds?: Parameter;
-            /**
-             * Trigger display name. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
+             * Max time to fire Timer Events (in seconds). Only valid for AMP Timer trigger. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
              * tagmanager.accounts.containers.workspaces.triggers.update
              */
+            maxTimerLengthSeconds?: Parameter;
+            /** Trigger display name. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update */
             name?: string;
             /**
              * User notes on how to apply this trigger in the container. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
              * tagmanager.accounts.containers.workspaces.triggers.update
              */
             notes?: string;
-            /**
-             * Additional parameters. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.update
-             */
+            /** Additional parameters. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update */
             parameter?: Parameter[];
             /** Parent folder id. */
             parentFolderId?: string;
             /** GTM Trigger's API relative path. */
             path?: string;
             /**
-             * A click trigger CSS selector (i.e. "a", "button" etc.). Only valid for AMP Click trigger. @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * A click trigger CSS selector (i.e. "a", "button" etc.). Only valid for AMP Click trigger. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
+             * tagmanager.accounts.containers.workspaces.triggers.update
              */
             selector?: Parameter;
             /** Auto generated link to the tag manager UI */
             tagManagerUrl?: string;
             /**
-             * A visibility trigger minimum total visible time (in milliseconds). Only valid for AMP Visibility trigger. @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * A visibility trigger minimum total visible time (in milliseconds). Only valid for AMP Visibility trigger. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
+             * tagmanager.accounts.containers.workspaces.triggers.update
              */
             totalTimeMinMilliseconds?: Parameter;
             /** The Trigger ID uniquely identifies the GTM Trigger. */
@@ -777,42 +720,40 @@ declare namespace gapi.client {
              */
             type?: string;
             /**
-             * Globally unique id of the trigger that auto-generates this (a Form Submit, Link Click or Timer listener) if any. Used to make incompatible auto-events
-             * work together with trigger filtering based on trigger ids. This value is populated during output generation since the tags implied by triggers don't
-             * exist until then. Only valid for Form Submit, Link Click and Timer triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create
-             * @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * Globally unique id of the trigger that auto-generates this (a Form Submit, Link Click or Timer listener) if any. Used to make incompatible auto-events work together with trigger
+             * filtering based on trigger ids. This value is populated during output generation since the tags implied by triggers don't exist until then. Only valid for Form Submit, Link Click
+             * and Timer triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             uniqueTriggerId?: Parameter;
             /**
-             * List of integer percentage values for scroll triggers. The trigger will fire when each percentage is reached when the view is scrolled vertically. Only
-             * valid for AMP scroll triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.update
+             * List of integer percentage values for scroll triggers. The trigger will fire when each percentage is reached when the view is scrolled vertically. Only valid for AMP scroll
+             * triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             verticalScrollPercentageList?: Parameter;
             /**
-             * A visibility trigger CSS selector (i.e. "#id"). Only valid for AMP Visibility trigger. @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * A visibility trigger CSS selector (i.e. "#id"). Only valid for AMP Visibility trigger. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
+             * tagmanager.accounts.containers.workspaces.triggers.update
              */
             visibilitySelector?: Parameter;
             /**
-             * A visibility trigger maximum percent visibility. Only valid for AMP Visibility trigger. @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * A visibility trigger maximum percent visibility. Only valid for AMP Visibility trigger. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
+             * tagmanager.accounts.containers.workspaces.triggers.update
              */
             visiblePercentageMax?: Parameter;
             /**
-             * A visibility trigger minimum percent visibility. Only valid for AMP Visibility trigger. @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * A visibility trigger minimum percent visibility. Only valid for AMP Visibility trigger. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
+             * tagmanager.accounts.containers.workspaces.triggers.update
              */
             visiblePercentageMin?: Parameter;
             /**
-             * Whether or not we should delay the form submissions or link opening until all of the tags have fired (by preventing the default action and later
-             * simulating the default action). Only valid for Form Submission and Link Click triggers. @mutable
-             * tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * Whether or not we should delay the form submissions or link opening until all of the tags have fired (by preventing the default action and later simulating the default action). Only
+             * valid for Form Submission and Link Click triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable
+             * tagmanager.accounts.containers.workspaces.triggers.update
              */
             waitForTags?: Parameter;
             /**
-             * How long to wait (in milliseconds) for tags to fire when 'waits_for_tags' above evaluates to true. Only valid for Form Submission and Link Click
-             * triggers. @mutable tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
+             * How long to wait (in milliseconds) for tags to fire when 'waits_for_tags' above evaluates to true. Only valid for Form Submission and Link Click triggers. @mutable
+             * tagmanager.accounts.containers.workspaces.triggers.create @mutable tagmanager.accounts.containers.workspaces.triggers.update
              */
             waitForTagsTimeout?: Parameter;
             /** GTM Workspace ID. */
@@ -836,14 +777,13 @@ declare namespace gapi.client {
             /** GTM Container ID. */
             containerId?: string;
             /**
-             * For mobile containers only: A list of trigger IDs for disabling conditional variables; the variable is enabled if one of the enabling trigger is true
-             * while all the disabling trigger are false. Treated as an unordered set. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable
-             * tagmanager.accounts.containers.workspaces.variables.update
+             * For mobile containers only: A list of trigger IDs for disabling conditional variables; the variable is enabled if one of the enabling trigger is true while all the disabling trigger
+             * are false. Treated as an unordered set. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update
              */
             disablingTriggerId?: string[];
             /**
-             * For mobile containers only: A list of trigger IDs for enabling conditional variables; the variable is enabled if one of the enabling triggers is true
-             * while all the disabling triggers are false. Treated as an unordered set. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable
+             * For mobile containers only: A list of trigger IDs for enabling conditional variables; the variable is enabled if one of the enabling triggers is true while all the disabling
+             * triggers are false. Treated as an unordered set. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable
              * tagmanager.accounts.containers.workspaces.variables.update
              */
             enablingTriggerId?: string[];
@@ -851,20 +791,14 @@ declare namespace gapi.client {
             fingerprint?: string;
             /** Option to convert a variable value to other value. */
             formatValue?: VariableFormatValue;
-            /**
-             * Variable display name. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable
-             * tagmanager.accounts.containers.workspaces.variables.update
-             */
+            /** Variable display name. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update */
             name?: string;
             /**
              * User notes on how to apply this variable in the container. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable
              * tagmanager.accounts.containers.workspaces.variables.update
              */
             notes?: string;
-            /**
-             * The variable's parameters. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable
-             * tagmanager.accounts.containers.workspaces.variables.update
-             */
+            /** The variable's parameters. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update */
             parameter?: Parameter[];
             /** Parent folder id. */
             parentFolderId?: string;
@@ -882,10 +816,7 @@ declare namespace gapi.client {
             scheduleStartMs?: string;
             /** Auto generated link to the tag manager UI */
             tagManagerUrl?: string;
-            /**
-             * GTM Variable Type. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable
-             * tagmanager.accounts.containers.workspaces.variables.update
-             */
+            /** GTM Variable Type. @mutable tagmanager.accounts.containers.workspaces.variables.create @mutable tagmanager.accounts.containers.workspaces.variables.update */
             type?: string;
             /** The Variable ID uniquely identifies the GTM Variable. */
             variableId?: string;
@@ -3163,10 +3094,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: Workspace): Request<Workspace>;
-            /**
-             * Creates a Container Version from the entities present in the workspace, deletes the workspace, and sets the base container version to the newly created
-             * version.
-             */
+            /** Creates a Container Version from the entities present in the workspace, deletes the workspace, and sets the base container version to the newly created version. */
             create_version(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;

@@ -29,10 +29,7 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other
-         * properties.
-         */
+        /** Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other properties. */
         await gapi.client.language.documents.analyzeEntities({
         }, {
             document: {
@@ -65,10 +62,7 @@ gapi.load('client', () => {
             },
             encodingType: "Test string",
         });
-        /**
-         * Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other
-         * properties.
-         */
+        /** Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties. */
         await gapi.client.language.documents.analyzeSyntax({
         }, {
             document: {

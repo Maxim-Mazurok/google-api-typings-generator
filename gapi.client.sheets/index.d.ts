@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Google Sheets API v4 4.0
 // Project: https://developers.google.com/sheets/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -126,7 +129,7 @@ declare namespace gapi.client {
              * The fields of CellData that should be updated.
              * At least one field must be specified.
              * The root is the CellData; 'row.values.' should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
             /** The data to append. */
@@ -1043,7 +1046,7 @@ declare namespace gapi.client {
              * The fraction of this color that should be applied to the pixel. That is,
              * the final pixel color is defined by the equation:
              *
-             * pixel color = alpha ∗ (this color) + (1.0 - alpha) ∗ (background color)
+             * pixel color = alpha * (this color) + (1.0 - alpha) * (background color)
              *
              * This means that a value of 1.0 corresponds to a solid color, whereas
              * a value of 0.0 corresponds to a completely transparent color. This
@@ -1579,7 +1582,7 @@ declare namespace gapi.client {
              * at https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html.
              * The replacement string is allowed to refer to capturing groups.
              * For example, if one cell has the contents `"Google Sheets"` and another
-             * has `"Google Docs"`, then searching for `"o.∗ (.∗)"` with a replacement of
+             * has `"Google Docs"`, then searching for `"o.* (.*)"` with a replacement of
              * `"$1 Rocks"` would change the contents of the cells to
              * `"GSheets Rocks"` and `"GDocs Rocks"` respectively.
              */
@@ -1867,7 +1870,7 @@ declare namespace gapi.client {
         interface MoveDimensionRequest {
             /**
              * The zero-based start index of where to move the source data to,
-             * based on the coordinates ∗before∗ the source data is removed
+             * based on the coordinates *before* the source data is removed
              * from the grid.  Existing data will be shifted down or right
              * (depending on the dimension) to make room for the moved dimensions.
              * The source dimensions are removed from the grid, so the
@@ -2223,7 +2226,7 @@ declare namespace gapi.client {
             /**
              * The fields that should be updated.  At least one field must be specified.
              * The root `cell` is implied and should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
             /** The range to repeat the cell in. */
@@ -2686,11 +2689,11 @@ declare namespace gapi.client {
             /**
              * The locale of the spreadsheet in one of the following formats:
              *
-             * ∗ an ISO 639-1 language code such as `en`
+             * * an ISO 639-1 language code such as `en`
              *
-             * ∗ an ISO 639-2 language code such as `fil`, if no 639-1 code exists
+             * * an ISO 639-2 language code such as `fil`, if no 639-1 code exists
              *
-             * ∗ a combination of the ISO language code and country code, such as `en_US`
+             * * a combination of the ISO language code and country code, such as `en_US`
              *
              * Note: when updating this field, not all locales/languages are supported.
              */
@@ -2943,7 +2946,7 @@ declare namespace gapi.client {
             /**
              * The fields that should be updated.  At least one field must be specified.
              * The root `bandedRange` is implied and should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
         }
@@ -2968,7 +2971,7 @@ declare namespace gapi.client {
              * The fields of CellData that should be updated.
              * At least one field must be specified.
              * The root is the CellData; 'row.values.' should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
             /**
@@ -3033,7 +3036,7 @@ declare namespace gapi.client {
             /**
              * The fields that should be updated.  At least one field must be specified.
              * The root `developerMetadata` is implied and should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
         }
@@ -3050,7 +3053,7 @@ declare namespace gapi.client {
             /**
              * The fields that should be updated.  At least one field must be specified.
              * The root `dimensionGroup` is implied and should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
         }
@@ -3058,7 +3061,7 @@ declare namespace gapi.client {
             /**
              * The fields that should be updated.  At least one field must be specified.
              * The root `properties` is implied and should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
             /** Properties to update. */
@@ -3074,7 +3077,7 @@ declare namespace gapi.client {
              * is set, in which case at least one field must
              * be specified.  The root `newPosition.overlayPosition` is implied and
              * should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
             /**
@@ -3096,7 +3099,7 @@ declare namespace gapi.client {
             /**
              * The fields that should be updated.  At least one field must be specified.
              * The root `filter` is implied and should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
             /** The new properties of the filter view. */
@@ -3106,7 +3109,7 @@ declare namespace gapi.client {
             /**
              * The fields that should be updated.  At least one field must be specified.
              * The root `namedRange` is implied and should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
             /** The named range to update with the new properties. */
@@ -3116,7 +3119,7 @@ declare namespace gapi.client {
             /**
              * The fields that should be updated.  At least one field must be specified.
              * The root `protectedRange` is implied and should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
             /** The protected range to update with the new properties. */
@@ -3126,7 +3129,7 @@ declare namespace gapi.client {
             /**
              * The fields that should be updated.  At least one field must be specified.
              * The root `properties` is implied and should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
             /** The properties to update. */
@@ -3135,7 +3138,7 @@ declare namespace gapi.client {
         interface UpdateSlicerSpecRequest {
             /**
              * The fields that should be updated.  At least one field must be specified.
-             * The root `SlicerSpec` is implied and should not be specified. A single "∗"`
+             * The root `SlicerSpec` is implied and should not be specified. A single "*"`
              * can be used as short-hand for listing every field.
              */
             fields?: string;
@@ -3148,7 +3151,7 @@ declare namespace gapi.client {
             /**
              * The fields that should be updated.  At least one field must be specified.
              * The root 'properties' is implied and should not be specified.
-             * A single `"∗"` can be used as short-hand for listing every field.
+             * A single `"*"` can be used as short-hand for listing every field.
              */
             fields?: string;
             /** The properties to update. */
@@ -4316,10 +4319,10 @@ declare namespace gapi.client {
              * By default, data within grids will not be returned.
              * You can include grid data one of two ways:
              *
-             * ∗ Specify a field mask listing your desired fields using the `fields` URL
+             * * Specify a field mask listing your desired fields using the `fields` URL
              * parameter in HTTP
              *
-             * ∗ Set the includeGridData
+             * * Set the includeGridData
              * URL parameter to true.  If a field mask is set, the `includeGridData`
              * parameter is ignored
              *
@@ -4379,10 +4382,10 @@ declare namespace gapi.client {
              * By default, data within grids will not be returned.
              * You can include grid data one of two ways:
              *
-             * ∗ Specify a field mask listing your desired fields using the `fields` URL
+             * * Specify a field mask listing your desired fields using the `fields` URL
              * parameter in HTTP
              *
-             * ∗ Set the includeGridData
+             * * Set the includeGridData
              * parameter to true.  If a field mask is set, the `includeGridData`
              * parameter is ignored
              *

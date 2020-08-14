@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Library Agent API v1 1.0
 // Project: https://cloud.google.com/docs/quota
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -31,16 +34,13 @@ declare namespace gapi.client {
         interface GoogleExampleLibraryagentV1ListBooksResponse {
             /** The list of books. */
             books?: GoogleExampleLibraryagentV1Book[];
-            /**
-             * A token to retrieve next page of results. Pass this value in the ListBooksRequest.page_token field in the subsequent call to `ListBooks` method to
-             * retrieve the next page of results.
-             */
+            /** A token to retrieve next page of results. Pass this value in the ListBooksRequest.page_token field in the subsequent call to `ListBooks` method to retrieve the next page of results. */
             nextPageToken?: string;
         }
         interface GoogleExampleLibraryagentV1ListShelvesResponse {
             /**
-             * A token to retrieve next page of results. Pass this value in the ListShelvesRequest.page_token field in the subsequent call to `ListShelves` method to
-             * retrieve the next page of results.
+             * A token to retrieve next page of results. Pass this value in the ListShelvesRequest.page_token field in the subsequent call to `ListShelves` method to retrieve the next page of
+             * results.
              */
             nextPageToken?: string;
             /** The list of shelves. */
@@ -54,8 +54,8 @@ declare namespace gapi.client {
         }
         interface BooksResource {
             /**
-             * Borrow a book from the library. Returns the book if it is borrowed successfully. Returns NOT_FOUND if the book does not exist in the library. Returns
-             * quota exceeded error if the amount of books borrowed exceeds allocation quota in any dimensions.
+             * Borrow a book from the library. Returns the book if it is borrowed successfully. Returns NOT_FOUND if the book does not exist in the library. Returns quota exceeded error if the
+             * amount of books borrowed exceeds allocation quota in any dimensions.
              */
             borrow(request?: {
                 /** V1 error format. */
@@ -111,8 +111,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleExampleLibraryagentV1Book>;
             /**
-             * Lists books in a shelf. The order is unspecified but deterministic. Newly created books will not necessarily be added to the end of this list. Returns
-             * NOT_FOUND if the shelf does not exist.
+             * Lists books in a shelf. The order is unspecified but deterministic. Newly created books will not necessarily be added to the end of this list. Returns NOT_FOUND if the shelf does
+             * not exist.
              */
             list(request?: {
                 /** V1 error format. */
@@ -132,8 +132,8 @@ declare namespace gapi.client {
                 /** Requested page size. Server may return fewer books than requested. If unspecified, server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListBooksResponse.next_page_token. returned from the
-                 * previous call to `ListBooks` method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListBooksResponse.next_page_token. returned from the previous call to `ListBooks`
+                 * method.
                  */
                 pageToken?: string;
                 /** Required. The name of the shelf whose books we'd like to list. */
@@ -148,8 +148,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleExampleLibraryagentV1ListBooksResponse>;
             /**
-             * Return a book to the library. Returns the book if it is returned to the library successfully. Returns error if the book does not belong to the library
-             * or the users didn't borrow before.
+             * Return a book to the library. Returns the book if it is returned to the library successfully. Returns error if the book does not belong to the library or the users didn't borrow
+             * before.
              */
             return(request?: {
                 /** V1 error format. */
@@ -225,8 +225,8 @@ declare namespace gapi.client {
                 /** Requested page size. Server may return fewer shelves than requested. If unspecified, server will pick an appropriate default. */
                 pageSize?: number;
                 /**
-                 * A token identifying a page of results the server should return. Typically, this is the value of ListShelvesResponse.next_page_token returned from the
-                 * previous call to `ListShelves` method.
+                 * A token identifying a page of results the server should return. Typically, this is the value of ListShelvesResponse.next_page_token returned from the previous call to
+                 * `ListShelves` method.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */

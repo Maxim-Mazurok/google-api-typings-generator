@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Dataflow API v1b3 1.0
 // Project: https://cloud.google.com/dataflow
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -58,14 +61,14 @@ declare namespace gapi.client {
              * but different blocks can be read in parallel.
              *
              * Examples:
-             * ∗ If we are processing record #30 (starting at 1) out of 50 in a perfectly
+             * * If we are processing record #30 (starting at 1) out of 50 in a perfectly
              * splittable 50-record input, this value should be 21 (20 remaining + 1
              * current).
-             * ∗ If we are reading through block 3 in a block-compressed file consisting
+             * * If we are reading through block 3 in a block-compressed file consisting
              * of 5 blocks, this value should be 3 (since blocks 4 and 5 can be
              * processed in parallel by new tasks via dynamic splitting and the current
              * task remains processing block 3).
-             * ∗ If we are reading through the last block in a block-compressed file,
+             * * If we are reading through the last block in a block-compressed file,
              * or reading or processing the last record in a perfectly splittable
              * input, this value should be 1, because apart from the current task, no
              * additional remainder can be split off.
@@ -651,7 +654,7 @@ declare namespace gapi.client {
             /**
              * Starting index of first stored bucket. The non-inclusive upper-bound of
              * the ith bucket is given by:
-             * pow(10,(i-first_bucket_offset)/3) ∗ (1,2,5)[(i-first_bucket_offset)%3]
+             * pow(10,(i-first_bucket_offset)/3) * (1,2,5)[(i-first_bucket_offset)%3]
              */
             firstBucketOffset?: number;
         }
@@ -784,9 +787,9 @@ declare namespace gapi.client {
              * The labels map can contain no more than 64 entries.  Entries of the labels
              * map are UTF8 strings that comply with the following restrictions:
              *
-             * ∗ Keys must conform to regexp:  \p{Ll}\p{Lo}{0,62}
-             * ∗ Values must conform to regexp:  [\p{Ll}\p{Lo}\p{N}_-]{0,63}
-             * ∗ Both keys and values are additionally constrained to be <= 128 bytes in
+             * * Keys must conform to regexp:  \p{Ll}\p{Lo}{0,62}
+             * * Values must conform to regexp:  [\p{Ll}\p{Lo}\p{N}_-]{0,63}
+             * * Both keys and values are additionally constrained to be <= 128 bytes in
              * size.
              */
             labels?: { [P in string]: string };
@@ -1118,7 +1121,7 @@ declare namespace gapi.client {
             currentRssBytes?: string;
             /** Timestamp of the measurement. */
             timestamp?: string;
-            /** Total memory (RSS) usage since start up in GB ∗ ms. */
+            /** Total memory (RSS) usage since start up in GB * ms. */
             totalGbMs?: string;
         }
         interface MetricShortId {
@@ -2634,14 +2637,14 @@ declare namespace gapi.client {
              * The "current" task is adjusted as a result of the split: after a task
              * with range [A, B) sends a stop_position update at C, its range is
              * considered to be [A, C), e.g.:
-             * ∗ Progress should be interpreted relative to the new range, e.g.
+             * * Progress should be interpreted relative to the new range, e.g.
              * "75% completed" means "75% of [A, C) completed"
-             * ∗ The worker should interpret proposed_stop_position relative to the
+             * * The worker should interpret proposed_stop_position relative to the
              * new range, e.g. "split at 68%" should be interpreted as
              * "split at 68% of [A, C)".
-             * ∗ If the worker chooses to split again using stop_position, only
+             * * If the worker chooses to split again using stop_position, only
              * stop_positions in [A, C) will be accepted.
-             * ∗ Etc.
+             * * Etc.
              * dynamic_source_split has similar semantics: e.g., if a task with
              * source S splits using dynamic_source_split into {P, R}
              * (where P and R must be together equivalent to S), then subsequent

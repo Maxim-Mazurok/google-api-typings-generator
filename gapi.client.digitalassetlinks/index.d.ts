@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Digital Asset Links API v1 1.0
 // Project: https://developers.google.com/digital-asset-links/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -183,18 +186,18 @@ declare namespace gapi.client {
              * Example: the asset with the site `https://www.google.com` contains all
              * these URLs:
              *
-             * ∗   `https://www.google.com/`
-             * ∗   `https://www.google.com:443/`
-             * ∗   `https://www.google.com/foo`
-             * ∗   `https://www.google.com/foo?bar`
-             * ∗   `https://www.google.com/foo#bar`
-             * ∗   `https://user@password:www.google.com/`
+             * *   `https://www.google.com/`
+             * *   `https://www.google.com:443/`
+             * *   `https://www.google.com/foo`
+             * *   `https://www.google.com/foo?bar`
+             * *   `https://www.google.com/foo#bar`
+             * *   `https://user@password:www.google.com/`
              *
              * But it does not contain these URLs:
              *
-             * ∗   `http://www.google.com/`       (wrong scheme)
-             * ∗   `https://google.com/`          (hostname does not match)
-             * ∗   `https://www.google.com:444/`  (port does not match)
+             * *   `http://www.google.com/`       (wrong scheme)
+             * *   `https://google.com/`          (hostname does not match)
+             * *   `https://www.google.com:444/`  (port does not match)
              * REQUIRED
              */
             site?: string;
@@ -315,18 +318,18 @@ declare namespace gapi.client {
                  * Example: the asset with the site `https://www.google.com` contains all
                  * these URLs:
                  *
-                 * ∗   `https://www.google.com/`
-                 * ∗   `https://www.google.com:443/`
-                 * ∗   `https://www.google.com/foo`
-                 * ∗   `https://www.google.com/foo?bar`
-                 * ∗   `https://www.google.com/foo#bar`
-                 * ∗   `https://user@password:www.google.com/`
+                 * *   `https://www.google.com/`
+                 * *   `https://www.google.com:443/`
+                 * *   `https://www.google.com/foo`
+                 * *   `https://www.google.com/foo?bar`
+                 * *   `https://www.google.com/foo#bar`
+                 * *   `https://user@password:www.google.com/`
                  *
                  * But it does not contain these URLs:
                  *
-                 * ∗   `http://www.google.com/`       (wrong scheme)
-                 * ∗   `https://google.com/`          (hostname does not match)
-                 * ∗   `https://www.google.com:444/`  (port does not match)
+                 * *   `http://www.google.com/`       (wrong scheme)
+                 * *   `https://google.com/`          (hostname does not match)
+                 * *   `https://www.google.com:444/`  (port does not match)
                  * REQUIRED
                  */
                 "source.web.site"?: string;
@@ -382,18 +385,18 @@ declare namespace gapi.client {
                  * Example: the asset with the site `https://www.google.com` contains all
                  * these URLs:
                  *
-                 * ∗   `https://www.google.com/`
-                 * ∗   `https://www.google.com:443/`
-                 * ∗   `https://www.google.com/foo`
-                 * ∗   `https://www.google.com/foo?bar`
-                 * ∗   `https://www.google.com/foo#bar`
-                 * ∗   `https://user@password:www.google.com/`
+                 * *   `https://www.google.com/`
+                 * *   `https://www.google.com:443/`
+                 * *   `https://www.google.com/foo`
+                 * *   `https://www.google.com/foo?bar`
+                 * *   `https://www.google.com/foo#bar`
+                 * *   `https://user@password:www.google.com/`
                  *
                  * But it does not contain these URLs:
                  *
-                 * ∗   `http://www.google.com/`       (wrong scheme)
-                 * ∗   `https://google.com/`          (hostname does not match)
-                 * ∗   `https://www.google.com:444/`  (port does not match)
+                 * *   `http://www.google.com/`       (wrong scheme)
+                 * *   `https://google.com/`          (hostname does not match)
+                 * *   `https://www.google.com:444/`  (port does not match)
                  * REQUIRED
                  */
                 "target.web.site"?: string;
@@ -450,9 +453,9 @@ declare namespace gapi.client {
                  *
                  * For a query to match a statement, one of the following must be true:
                  *
-                 * ∗    both the query's and the statement's relation strings match exactly,
+                 * *    both the query's and the statement's relation strings match exactly,
                  * or
-                 * ∗    the query's relation string is empty or missing.
+                 * *    the query's relation string is empty or missing.
                  *
                  * Example: A query with relation `delegate_permission/common.handle_all_urls`
                  * matches an asset link with relation
@@ -511,18 +514,18 @@ declare namespace gapi.client {
                  * Example: the asset with the site `https://www.google.com` contains all
                  * these URLs:
                  *
-                 * ∗   `https://www.google.com/`
-                 * ∗   `https://www.google.com:443/`
-                 * ∗   `https://www.google.com/foo`
-                 * ∗   `https://www.google.com/foo?bar`
-                 * ∗   `https://www.google.com/foo#bar`
-                 * ∗   `https://user@password:www.google.com/`
+                 * *   `https://www.google.com/`
+                 * *   `https://www.google.com:443/`
+                 * *   `https://www.google.com/foo`
+                 * *   `https://www.google.com/foo?bar`
+                 * *   `https://www.google.com/foo#bar`
+                 * *   `https://user@password:www.google.com/`
                  *
                  * But it does not contain these URLs:
                  *
-                 * ∗   `http://www.google.com/`       (wrong scheme)
-                 * ∗   `https://google.com/`          (hostname does not match)
-                 * ∗   `https://www.google.com:444/`  (port does not match)
+                 * *   `http://www.google.com/`       (wrong scheme)
+                 * *   `https://google.com/`          (hostname does not match)
+                 * *   `https://www.google.com:444/`  (port does not match)
                  * REQUIRED
                  */
                 "source.web.site"?: string;

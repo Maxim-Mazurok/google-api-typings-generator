@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Access Approval API v1 1.0
 // Project: https://cloud.google.com/access-approval/docs
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -20,41 +23,39 @@ declare namespace gapi.client {
     namespace accessapproval {
         interface AccessApprovalSettings {
             /**
-             * Output only. This field is read only (not settable via UpdateAccessAccessApprovalSettings method). If the field is true, that indicates that at least
-             * one service is enrolled for Access Approval in one or more ancestors of the Project or Folder (this field will always be unset for the organization
-             * since organizations do not have ancestors).
+             * Output only. This field is read only (not settable via UpdateAccessAccessApprovalSettings method). If the field is true, that indicates that at least one service is enrolled for
+             * Access Approval in one or more ancestors of the Project or Folder (this field will always be unset for the organization since organizations do not have ancestors).
              */
             enrolledAncestor?: boolean;
             /**
-             * A list of Google Cloud Services for which the given resource has Access Approval enrolled. Access requests for the resource given by name against any
-             * of these services contained here will be required to have explicit approval. If name refers to an organization, enrollment can be done for individual
-             * services. If name refers to a folder or project, enrollment can only be done on an all or nothing basis. If a cloud_product is repeated in this list,
-             * the first entry will be honored and all following entries will be discarded. A maximum of 10 enrolled services will be enforced, to be expanded as the
-             * set of supported services is expanded.
+             * A list of Google Cloud Services for which the given resource has Access Approval enrolled. Access requests for the resource given by name against any of these services contained
+             * here will be required to have explicit approval. If name refers to an organization, enrollment can be done for individual services. If name refers to a folder or project, enrollment
+             * can only be done on an all or nothing basis. If a cloud_product is repeated in this list, the first entry will be honored and all following entries will be discarded. A maximum of
+             * 10 enrolled services will be enforced, to be expanded as the set of supported services is expanded.
              */
             enrolledServices?: EnrolledService[];
             /**
-             * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings"
-             * 3. "organizations/{organization_id}/accessApprovalSettings"
+             * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings" 3.
+             * "organizations/{organization_id}/accessApprovalSettings"
              */
             name?: string;
             /**
-             * A list of email addresses to which notifications relating to approval requests should be sent. Notifications relating to a resource will be sent to all
-             * emails in the settings of ancestor resources of that resource. A maximum of 50 email addresses are allowed.
+             * A list of email addresses to which notifications relating to approval requests should be sent. Notifications relating to a resource will be sent to all emails in the settings of
+             * ancestor resources of that resource. A maximum of 50 email addresses are allowed.
              */
             notificationEmails?: string[];
         }
         interface AccessLocations {
             /**
-             * The "home office" location of the principal. A two-letter country code (ISO 3166-1 alpha-2), such as "US", "DE" or "GB" or a region code. In some
-             * limited situations Google systems may refer refer to a region code instead of a country code. Possible Region Codes: 1. ASI: Asia 2. EUR: Europe 3.
-             * OCE: Oceania 4. AFR: Africa 5. NAM: North America 6. SAM: South America 7. ANT: Antarctica 8. ANY: Any location
+             * The "home office" location of the principal. A two-letter country code (ISO 3166-1 alpha-2), such as "US", "DE" or "GB" or a region code. In some limited situations Google systems
+             * may refer refer to a region code instead of a country code. Possible Region Codes: 1. ASI: Asia 2. EUR: Europe 3. OCE: Oceania 4. AFR: Africa 5. NAM: North America 6. SAM: South
+             * America 7. ANT: Antarctica 8. ANY: Any location
              */
             principalOfficeCountry?: string;
             /**
-             * Physical location of the principal at the time of the access. A two-letter country code (ISO 3166-1 alpha-2), such as "US", "DE" or "GB" or a region
-             * code. In some limited situations Google systems may refer refer to a region code instead of a country code. Possible Region Codes: 1. ASI: Asia 2. EUR:
-             * Europe 3. OCE: Oceania 4. AFR: Africa 5. NAM: North America 6. SAM: South America 7. ANT: Antarctica 8. ANY: Any location
+             * Physical location of the principal at the time of the access. A two-letter country code (ISO 3166-1 alpha-2), such as "US", "DE" or "GB" or a region code. In some limited situations
+             * Google systems may refer refer to a region code instead of a country code. Possible Region Codes: 1. ASI: Asia 2. EUR: Europe 3. OCE: Oceania 4. AFR: Africa 5. NAM: North America 6.
+             * SAM: South America 7. ANT: Antarctica 8. ANY: Any location
              */
             principalPhysicalLocationCountry?: string;
         }
@@ -78,9 +79,9 @@ declare namespace gapi.client {
             /** The justification for which approval is being requested. */
             requestedReason?: AccessReason;
             /**
-             * The resource for which approval is being requested. The format of the resource name is defined at https://cloud.google.com/apis/design/resource_names.
-             * The resource name here may either be a "full" resource name (e.g. "//library.googleapis.com/shelves/shelf1/books/book2") or a "relative" resource name
-             * (e.g. "shelves/shelf1/books/book2") as described in the resource name specification.
+             * The resource for which approval is being requested. The format of the resource name is defined at https://cloud.google.com/apis/design/resource_names. The resource name here may
+             * either be a "full" resource name (e.g. "//library.googleapis.com/shelves/shelf1/books/book2") or a "relative" resource name (e.g. "shelves/shelf1/books/book2") as described in the
+             * resource name specification.
              */
             requestedResourceName?: string;
             /** Properties related to the resource represented by requested_resource_name. */
@@ -105,8 +106,8 @@ declare namespace gapi.client {
             /** The time at which the approval request was dismissed. */
             dismissTime?: string;
             /**
-             * This field will be true if the ApprovalRequest was implcitly dismissed due to inaction by the access approval approvers (the request is not acted on by
-             * the approvers before the exiration time).
+             * This field will be true if the ApprovalRequest was implcitly dismissed due to inaction by the access approval approvers (the request is not acted on by the approvers before the
+             * exiration time).
              */
             implicit?: boolean;
         }
@@ -115,9 +116,8 @@ declare namespace gapi.client {
         }
         interface EnrolledService {
             /**
-             * The product for which Access Approval will be enrolled. Allowed values are listed below (case-sensitive): 1. all 2. appengine.googleapis.com 3.
-             * bigquery.googleapis.com 4. bigtable.googleapis.com 5. cloudkms.googleapis.com 6. compute.googleapis.com 7. dataflow.googleapis.com 8.
-             * iam.googleapis.com 9. pubsub.googleapis.com 10. storage.googleapis.com
+             * The product for which Access Approval will be enrolled. Allowed values are listed below (case-sensitive): 1. all 2. appengine.googleapis.com 3. bigquery.googleapis.com 4.
+             * bigtable.googleapis.com 5. cloudkms.googleapis.com 6. compute.googleapis.com 7. dataflow.googleapis.com 8. iam.googleapis.com 9. pubsub.googleapis.com 10. storage.googleapis.com
              */
             cloudProduct?: string;
             /** The enrollment level of the service. */
@@ -135,8 +135,8 @@ declare namespace gapi.client {
         }
         interface ApprovalRequestsResource {
             /**
-             * Approves a request and returns the updated ApprovalRequest. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request
-             * exists but is not in a pending state.
+             * Approves a request and returns the updated ApprovalRequest. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a
+             * pending state.
              */
             approve(request: {
                 /** V1 error format. */
@@ -194,9 +194,8 @@ declare namespace gapi.client {
             },
             body: ApproveApprovalRequestMessage): Request<ApprovalRequest>;
             /**
-             * Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does not deny access to the resource if another request has been made and
-             * approved. It is equivalent in effect to ignoring the request altogether. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
-             * if the request exists but is not in a pending state.
+             * Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does not deny access to the resource if another request has been made and approved. It is equivalent in effect
+             * to ignoring the request altogether. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state.
              */
             dismiss(request: {
                 /** V1 error format. */
@@ -281,8 +280,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ApprovalRequest>;
             /**
-             * Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed).
-             * The order is reverse chronological.
+             * Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed). The order is reverse
+             * chronological.
              */
             list(request?: {
                 /** V1 error format. */
@@ -296,9 +295,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter on the type of approval requests to retrieve. Must be one of the following values: 1. [not set]: Requests that are pending or have active
-                 * approvals. 2. ALL: All requests. 3. PENDING: Only pending requests. 4. ACTIVE: Only active (i.e. currently approved) requests. 5. DISMISSED: Only
-                 * dismissed (including expired) requests. 6. HISTORY: Active and dismissed (including expired) requests.
+                 * A filter on the type of approval requests to retrieve. Must be one of the following values: 1. [not set]: Requests that are pending or have active approvals. 2. ALL: All
+                 * requests. 3. PENDING: Only pending requests. 4. ACTIVE: Only active (i.e. currently approved) requests. 5. DISMISSED: Only dismissed (including expired) requests. 6. HISTORY:
+                 * Active and dismissed (including expired) requests.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -323,9 +322,9 @@ declare namespace gapi.client {
         }
         interface FoldersResource {
             /**
-             * Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the project,
-             * folder, or organization, but only if all ancestors also have Access Approval disabled. If Access Approval is enabled at a higher level of the
-             * hierarchy, then Access Approval will still be enabled at this level as the settings are inherited.
+             * Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the project, folder, or organization, but only if
+             * all ancestors also have Access Approval disabled. If Access Approval is enabled at a higher level of the hierarchy, then Access Approval will still be enabled at this level as the
+             * settings are inherited.
              */
             deleteAccessApprovalSettings(request?: {
                 /** V1 error format. */
@@ -395,8 +394,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings"
-                 * 3. "organizations/{organization_id}/accessApprovalSettings"
+                 * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings" 3.
+                 * "organizations/{organization_id}/accessApprovalSettings"
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -406,10 +405,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The update mask applies to the settings. Only the top level fields of AccessApprovalSettings (notification_emails & enrolled_services) are supported.
-                 * For each field, if it is included, the currently stored value will be entirely overwritten with the value of the field passed in this request. For the
-                 * `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If this field is left unset, only
-                 * the notification_emails field will be updated.
+                 * The update mask applies to the settings. Only the top level fields of AccessApprovalSettings (notification_emails & enrolled_services) are supported. For each field, if it is
+                 * included, the currently stored value will be entirely overwritten with the value of the field passed in this request. For the `FieldMask` definition, see
+                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If this field is left unset, only the notification_emails field will be updated.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -433,8 +431,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings"
-                 * 3. "organizations/{organization_id}/accessApprovalSettings"
+                 * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings" 3.
+                 * "organizations/{organization_id}/accessApprovalSettings"
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -444,10 +442,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The update mask applies to the settings. Only the top level fields of AccessApprovalSettings (notification_emails & enrolled_services) are supported.
-                 * For each field, if it is included, the currently stored value will be entirely overwritten with the value of the field passed in this request. For the
-                 * `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If this field is left unset, only
-                 * the notification_emails field will be updated.
+                 * The update mask applies to the settings. Only the top level fields of AccessApprovalSettings (notification_emails & enrolled_services) are supported. For each field, if it is
+                 * included, the currently stored value will be entirely overwritten with the value of the field passed in this request. For the `FieldMask` definition, see
+                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If this field is left unset, only the notification_emails field will be updated.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -460,8 +457,8 @@ declare namespace gapi.client {
         }
         interface ApprovalRequestsResource {
             /**
-             * Approves a request and returns the updated ApprovalRequest. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request
-             * exists but is not in a pending state.
+             * Approves a request and returns the updated ApprovalRequest. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a
+             * pending state.
              */
             approve(request: {
                 /** V1 error format. */
@@ -519,9 +516,8 @@ declare namespace gapi.client {
             },
             body: ApproveApprovalRequestMessage): Request<ApprovalRequest>;
             /**
-             * Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does not deny access to the resource if another request has been made and
-             * approved. It is equivalent in effect to ignoring the request altogether. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
-             * if the request exists but is not in a pending state.
+             * Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does not deny access to the resource if another request has been made and approved. It is equivalent in effect
+             * to ignoring the request altogether. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state.
              */
             dismiss(request: {
                 /** V1 error format. */
@@ -606,8 +602,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ApprovalRequest>;
             /**
-             * Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed).
-             * The order is reverse chronological.
+             * Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed). The order is reverse
+             * chronological.
              */
             list(request?: {
                 /** V1 error format. */
@@ -621,9 +617,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter on the type of approval requests to retrieve. Must be one of the following values: 1. [not set]: Requests that are pending or have active
-                 * approvals. 2. ALL: All requests. 3. PENDING: Only pending requests. 4. ACTIVE: Only active (i.e. currently approved) requests. 5. DISMISSED: Only
-                 * dismissed (including expired) requests. 6. HISTORY: Active and dismissed (including expired) requests.
+                 * A filter on the type of approval requests to retrieve. Must be one of the following values: 1. [not set]: Requests that are pending or have active approvals. 2. ALL: All
+                 * requests. 3. PENDING: Only pending requests. 4. ACTIVE: Only active (i.e. currently approved) requests. 5. DISMISSED: Only dismissed (including expired) requests. 6. HISTORY:
+                 * Active and dismissed (including expired) requests.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -648,9 +644,9 @@ declare namespace gapi.client {
         }
         interface OrganizationsResource {
             /**
-             * Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the project,
-             * folder, or organization, but only if all ancestors also have Access Approval disabled. If Access Approval is enabled at a higher level of the
-             * hierarchy, then Access Approval will still be enabled at this level as the settings are inherited.
+             * Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the project, folder, or organization, but only if
+             * all ancestors also have Access Approval disabled. If Access Approval is enabled at a higher level of the hierarchy, then Access Approval will still be enabled at this level as the
+             * settings are inherited.
              */
             deleteAccessApprovalSettings(request?: {
                 /** V1 error format. */
@@ -720,8 +716,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings"
-                 * 3. "organizations/{organization_id}/accessApprovalSettings"
+                 * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings" 3.
+                 * "organizations/{organization_id}/accessApprovalSettings"
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -731,10 +727,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The update mask applies to the settings. Only the top level fields of AccessApprovalSettings (notification_emails & enrolled_services) are supported.
-                 * For each field, if it is included, the currently stored value will be entirely overwritten with the value of the field passed in this request. For the
-                 * `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If this field is left unset, only
-                 * the notification_emails field will be updated.
+                 * The update mask applies to the settings. Only the top level fields of AccessApprovalSettings (notification_emails & enrolled_services) are supported. For each field, if it is
+                 * included, the currently stored value will be entirely overwritten with the value of the field passed in this request. For the `FieldMask` definition, see
+                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If this field is left unset, only the notification_emails field will be updated.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -758,8 +753,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings"
-                 * 3. "organizations/{organization_id}/accessApprovalSettings"
+                 * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings" 3.
+                 * "organizations/{organization_id}/accessApprovalSettings"
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -769,10 +764,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The update mask applies to the settings. Only the top level fields of AccessApprovalSettings (notification_emails & enrolled_services) are supported.
-                 * For each field, if it is included, the currently stored value will be entirely overwritten with the value of the field passed in this request. For the
-                 * `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If this field is left unset, only
-                 * the notification_emails field will be updated.
+                 * The update mask applies to the settings. Only the top level fields of AccessApprovalSettings (notification_emails & enrolled_services) are supported. For each field, if it is
+                 * included, the currently stored value will be entirely overwritten with the value of the field passed in this request. For the `FieldMask` definition, see
+                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If this field is left unset, only the notification_emails field will be updated.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -785,8 +779,8 @@ declare namespace gapi.client {
         }
         interface ApprovalRequestsResource {
             /**
-             * Approves a request and returns the updated ApprovalRequest. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request
-             * exists but is not in a pending state.
+             * Approves a request and returns the updated ApprovalRequest. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a
+             * pending state.
              */
             approve(request: {
                 /** V1 error format. */
@@ -844,9 +838,8 @@ declare namespace gapi.client {
             },
             body: ApproveApprovalRequestMessage): Request<ApprovalRequest>;
             /**
-             * Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does not deny access to the resource if another request has been made and
-             * approved. It is equivalent in effect to ignoring the request altogether. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
-             * if the request exists but is not in a pending state.
+             * Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does not deny access to the resource if another request has been made and approved. It is equivalent in effect
+             * to ignoring the request altogether. Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the request exists but is not in a pending state.
              */
             dismiss(request: {
                 /** V1 error format. */
@@ -931,8 +924,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ApprovalRequest>;
             /**
-             * Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed).
-             * The order is reverse chronological.
+             * Lists approval requests associated with a project, folder, or organization. Approval requests can be filtered by state (pending, active, dismissed). The order is reverse
+             * chronological.
              */
             list(request?: {
                 /** V1 error format. */
@@ -946,9 +939,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter on the type of approval requests to retrieve. Must be one of the following values: 1. [not set]: Requests that are pending or have active
-                 * approvals. 2. ALL: All requests. 3. PENDING: Only pending requests. 4. ACTIVE: Only active (i.e. currently approved) requests. 5. DISMISSED: Only
-                 * dismissed (including expired) requests. 6. HISTORY: Active and dismissed (including expired) requests.
+                 * A filter on the type of approval requests to retrieve. Must be one of the following values: 1. [not set]: Requests that are pending or have active approvals. 2. ALL: All
+                 * requests. 3. PENDING: Only pending requests. 4. ACTIVE: Only active (i.e. currently approved) requests. 5. DISMISSED: Only dismissed (including expired) requests. 6. HISTORY:
+                 * Active and dismissed (including expired) requests.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -973,9 +966,9 @@ declare namespace gapi.client {
         }
         interface ProjectsResource {
             /**
-             * Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the project,
-             * folder, or organization, but only if all ancestors also have Access Approval disabled. If Access Approval is enabled at a higher level of the
-             * hierarchy, then Access Approval will still be enabled at this level as the settings are inherited.
+             * Deletes the settings associated with a project, folder, or organization. This will have the effect of disabling Access Approval for the project, folder, or organization, but only if
+             * all ancestors also have Access Approval disabled. If Access Approval is enabled at a higher level of the hierarchy, then Access Approval will still be enabled at this level as the
+             * settings are inherited.
              */
             deleteAccessApprovalSettings(request?: {
                 /** V1 error format. */
@@ -1045,8 +1038,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings"
-                 * 3. "organizations/{organization_id}/accessApprovalSettings"
+                 * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings" 3.
+                 * "organizations/{organization_id}/accessApprovalSettings"
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1056,10 +1049,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The update mask applies to the settings. Only the top level fields of AccessApprovalSettings (notification_emails & enrolled_services) are supported.
-                 * For each field, if it is included, the currently stored value will be entirely overwritten with the value of the field passed in this request. For the
-                 * `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If this field is left unset, only
-                 * the notification_emails field will be updated.
+                 * The update mask applies to the settings. Only the top level fields of AccessApprovalSettings (notification_emails & enrolled_services) are supported. For each field, if it is
+                 * included, the currently stored value will be entirely overwritten with the value of the field passed in this request. For the `FieldMask` definition, see
+                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If this field is left unset, only the notification_emails field will be updated.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1083,8 +1075,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings"
-                 * 3. "organizations/{organization_id}/accessApprovalSettings"
+                 * The resource name of the settings. Format is one of: 1. "projects/{project_id}/accessApprovalSettings" 2. "folders/{folder_id}/accessApprovalSettings" 3.
+                 * "organizations/{organization_id}/accessApprovalSettings"
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1094,10 +1086,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The update mask applies to the settings. Only the top level fields of AccessApprovalSettings (notification_emails & enrolled_services) are supported.
-                 * For each field, if it is included, the currently stored value will be entirely overwritten with the value of the field passed in this request. For the
-                 * `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If this field is left unset, only
-                 * the notification_emails field will be updated.
+                 * The update mask applies to the settings. Only the top level fields of AccessApprovalSettings (notification_emails & enrolled_services) are supported. For each field, if it is
+                 * included, the currently stored value will be entirely overwritten with the value of the field passed in this request. For the `FieldMask` definition, see
+                 * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If this field is left unset, only the notification_emails field will be updated.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */

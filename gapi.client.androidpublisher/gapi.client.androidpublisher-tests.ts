@@ -33,8 +33,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
-         * organizations using Managed Play whose application is configured to restrict distribution to the organizations.
+         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to organizations using Managed Play whose
+         * application is configured to restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -81,9 +81,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
+         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout
+         * of 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
             ackBundleInstallationWarning: true,
@@ -326,8 +325,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
-         * organizations using Managed Play whose application is configured to restrict distribution to the organizations.
+         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to organizations using Managed Play whose
+         * application is configured to restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -374,9 +373,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
+         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout
+         * of 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
             ackBundleInstallationWarning: true,
@@ -619,8 +617,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
-         * organizations using Managed Play whose application is configured to restrict distribution to the organizations.
+         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to organizations using Managed Play whose
+         * application is configured to restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -667,9 +665,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
+         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout
+         * of 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
             ackBundleInstallationWarning: true,
@@ -914,8 +911,8 @@ gapi.load('client', () => {
             id: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
-         * organizations using Managed Play whose application is configured to restrict distribution to the organizations.
+         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to organizations using Managed Play whose
+         * application is configured to restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -962,9 +959,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
+         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout
+         * of 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
             ackBundleInstallationWarning: true,
@@ -1207,8 +1203,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
-         * organizations using Managed Play whose application is configured to restrict distribution to the organizations.
+         * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to organizations using Managed Play whose
+         * application is configured to restrict distribution to the organizations.
          */
         await gapi.client.androidpublisher.edits.apks.addexternallyhosted({
             editId: "Test string",
@@ -1255,9 +1251,8 @@ gapi.load('client', () => {
             packageName: "Test string",
         });
         /**
-         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
+         * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout
+         * of 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.edits.bundles.upload({
             ackBundleInstallationWarning: true,
@@ -1604,17 +1599,15 @@ gapi.load('client', () => {
             trialPeriod: "Test string",
         });
         /**
-         * Uploads an APK to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
+         * Uploads an APK to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout of 2
+         * minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.internalappsharingartifacts.uploadapk({
             packageName: "Test string",
         });
         /**
-         * Uploads an app bundle to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before
-         * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
-         * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
+         * Uploads an app bundle to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout
+         * of 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
          */
         await gapi.client.androidpublisher.internalappsharingartifacts.uploadbundle({
             packageName: "Test string",

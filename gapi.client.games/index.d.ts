@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Google Play Game Services v1 1.0
 // Project: https://developers.google.com/games/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -421,9 +424,8 @@ declare namespace gapi.client {
             /** The total number of scores in the leaderboard. */
             numScores?: string;
             /**
-             * The score of the requesting player on the leaderboard. The player's score may appear both here and in the list of scores above. If you are viewing a
-             * public leaderboard and the player is not sharing their gameplay information publicly, the `scoreRank`and `formattedScoreRank` values will not be
-             * present.
+             * The score of the requesting player on the leaderboard. The player's score may appear both here and in the list of scores above. If you are viewing a public leaderboard and the
+             * player is not sharing their gameplay information publicly, the `scoreRank`and `formattedScoreRank` values will not be present.
              */
             playerScore?: LeaderboardEntry;
             /** The pagination token for the previous page of results. */
@@ -460,8 +462,8 @@ declare namespace gapi.client {
                 givenName?: string;
             };
             /**
-             * The player ID that was used for this player the first time they signed into the game in question. This is only populated for calls to player.get for
-             * the requesting player, only if the player ID has subsequently changed, and only to clients that support remapping player IDs.
+             * The player ID that was used for this player the first time they signed into the game in question. This is only populated for calls to player.get for the requesting player, only if
+             * the player ID has subsequently changed, and only to clients that support remapping player IDs.
              */
             originalPlayerId?: string;
             /** The ID of the player. */
@@ -477,8 +479,8 @@ declare namespace gapi.client {
             /** The current steps for an incremental achievement. */
             currentSteps?: number;
             /**
-             * Experience points earned for the achievement. This field is absent for achievements that have not yet been unlocked and 0 for achievements that have
-             * been unlocked by testers but that are unpublished.
+             * Experience points earned for the achievement. This field is absent for achievements that have not yet been unlocked and 0 for achievements that have been unlocked by testers but
+             * that are unpublished.
              */
             experiencePoints?: string;
             /** The current steps for an incremental achievement as a string. */
@@ -501,10 +503,7 @@ declare namespace gapi.client {
         interface PlayerEvent {
             /** The ID of the event definition. */
             definitionId?: string;
-            /**
-             * The current number of times this event has occurred, as a string. The formatting of this string depends on the configuration of your event in the Play
-             * Games Developer Console.
-             */
+            /** The current number of times this event has occurred, as a string. The formatting of this string depends on the configuration of your event in the Play Games Developer Console. */
             formattedNumEvents?: string;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerEvent`. */
             kind?: string;
@@ -613,8 +612,8 @@ declare namespace gapi.client {
             /** Additional information about this score. Values will contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986. */
             scoreTag?: string;
             /**
-             * The scores in time spans that have not been beaten. As an example, the submitted score may be better than the player's `DAILY` score, but not better
-             * than the player's scores for the `WEEKLY` or `ALL_TIME` time spans.
+             * The scores in time spans that have not been beaten. As an example, the submitted score may be better than the player's `DAILY` score, but not better than the player's scores for the
+             * `WEEKLY` or `ALL_TIME` time spans.
              */
             unbeatenScores?: PlayerScore[];
         }
@@ -656,10 +655,7 @@ declare namespace gapi.client {
             coverImage?: SnapshotImage;
             /** The description of this snapshot. */
             description?: string;
-            /**
-             * The ID of the file underlying this snapshot in the Drive API. Only present if the snapshot is a view on a Drive file and the file is owned by the
-             * caller.
-             */
+            /** The ID of the file underlying this snapshot in the Drive API. Only present if the snapshot is a view on a Drive file and the file is owned by the caller. */
             driveId?: string;
             /** The duration associated with this snapshot, in millis. */
             durationMillis?: string;
@@ -701,43 +697,31 @@ declare namespace gapi.client {
         interface StatsResponse {
             /** Average session length in minutes of the player. E.g., 1, 30, 60, ... . Not populated if there is not enough information. */
             avg_session_length_minutes?: number;
-            /**
-             * The probability of the player not returning to play the game in the next day. E.g., 0, 0.1, 0.5, ..., 1.0. Not populated if there is not enough
-             * information.
-             */
+            /** The probability of the player not returning to play the game in the next day. E.g., 0, 0.1, 0.5, ..., 1.0. Not populated if there is not enough information. */
             churn_probability?: number;
             /** Number of days since the player last played this game. E.g., 0, 1, 5, 10, ... . Not populated if there is not enough information. */
             days_since_last_played?: number;
-            /**
-             * The probability of the player going to spend beyond a threshold amount of money. E.g., 0, 0.25, 0.50, 0.75. Not populated if there is not enough
-             * information.
-             */
+            /** The probability of the player going to spend beyond a threshold amount of money. E.g., 0, 0.25, 0.50, 0.75. Not populated if there is not enough information. */
             high_spender_probability?: number;
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#statsResponse`. */
             kind?: string;
             /** Number of in-app purchases made by the player in this game. E.g., 0, 1, 5, 10, ... . Not populated if there is not enough information. */
             num_purchases?: number;
             /**
-             * The approximate number of sessions of the player within the last 28 days, where a session begins when the player is connected to Play Games Services
-             * and ends when they are disconnected. E.g., 0, 1, 5, 10, ... . Not populated if there is not enough information.
+             * The approximate number of sessions of the player within the last 28 days, where a session begins when the player is connected to Play Games Services and ends when they are
+             * disconnected. E.g., 0, 1, 5, 10, ... . Not populated if there is not enough information.
              */
             num_sessions?: number;
             /**
-             * The approximation of the sessions percentile of the player within the last 30 days, where a session begins when the player is connected to Play Games
-             * Services and ends when they are disconnected. E.g., 0, 0.25, 0.5, 0.75. Not populated if there is not enough information.
+             * The approximation of the sessions percentile of the player within the last 30 days, where a session begins when the player is connected to Play Games Services and ends when they are
+             * disconnected. E.g., 0, 0.25, 0.5, 0.75. Not populated if there is not enough information.
              */
             num_sessions_percentile?: number;
             /** The approximate spend percentile of the player in this game. E.g., 0, 0.25, 0.5, 0.75. Not populated if there is not enough information. */
             spend_percentile?: number;
-            /**
-             * The probability of the player going to spend the game in the next seven days. E.g., 0, 0.25, 0.50, 0.75. Not populated if there is not enough
-             * information.
-             */
+            /** The probability of the player going to spend the game in the next seven days. E.g., 0, 0.25, 0.50, 0.75. Not populated if there is not enough information. */
             spend_probability?: number;
-            /**
-             * The predicted amount of money that the player going to spend in the next 28 days. E.g., 1, 30, 60, ... . Not populated if there is not enough
-             * information.
-             */
+            /** The predicted amount of money that the player going to spend in the next 28 days. E.g., 1, 30, 60, ... . Not populated if there is not enough information. */
             total_spend_next_28_days?: number;
         }
         interface AchievementDefinitionsResource {
@@ -758,8 +742,8 @@ declare namespace gapi.client {
                 /** The preferred language to use for strings returned by this method. */
                 language?: string;
                 /**
-                 * The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources
-                 * returned may be less than the specified `maxResults`.
+                 * The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources returned may be less than
+                 * the specified `maxResults`.
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -799,10 +783,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * A randomly generated numeric ID for each request specified by the caller. This number is used at the server to ensure that the request is handled
-                 * correctly across retries.
-                 */
+                /** A randomly generated numeric ID for each request specified by the caller. This number is used at the server to ensure that the request is handled correctly across retries. */
                 requestId?: string;
                 /** The number of steps to increment. */
                 stepsToIncrement: number;
@@ -828,8 +809,8 @@ declare namespace gapi.client {
                 /** The preferred language to use for strings returned by this method. */
                 language?: string;
                 /**
-                 * The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources
-                 * returned may be less than the specified `maxResults`.
+                 * The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources returned may be less than
+                 * the specified `maxResults`.
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -877,8 +858,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<AchievementRevealResponse>;
             /**
-             * Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps
-             * that the player already gained for the achievement, the achievement is not modified.
+             * Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps that the player already
+             * gained for the achievement, the achievement is not modified.
              */
             setStepsAtLeast(request?: {
                 /** V1 error format. */
@@ -990,8 +971,8 @@ declare namespace gapi.client {
         }
         interface ApplicationsResource {
             /**
-             * Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified `platformType`, the
-             * returned response will not include any instance data.
+             * Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified `platformType`, the returned response will not include
+             * any instance data.
              */
             get(request?: {
                 /** V1 error format. */
@@ -1093,10 +1074,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** The preferred language to use for strings returned by this method. */
                 language?: string;
-                /**
-                 * The maximum number of events to return in the response, used for paging. For any response, the actual number of events to return may be less than the
-                 * specified maxResults.
-                 */
+                /** The maximum number of events to return in the response, used for paging. For any response, the actual number of events to return may be less than the specified maxResults. */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1128,8 +1106,8 @@ declare namespace gapi.client {
                 /** The preferred language to use for strings returned by this method. */
                 language?: string;
                 /**
-                 * The maximum number of event definitions to return in the response, used for paging. For any response, the actual number of event definitions to return
-                 * may be less than the specified `maxResults`.
+                 * The maximum number of event definitions to return in the response, used for paging. For any response, the actual number of event definitions to return may be less than the
+                 * specified `maxResults`.
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -1248,10 +1226,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** The preferred language to use for strings returned by this method. */
                 language?: string;
-                /**
-                 * The maximum number of leaderboards to return in the response. For any response, the actual number of leaderboards returned may be less than the
-                 * specified `maxResults`.
-                 */
+                /** The maximum number of leaderboards to return in the response. For any response, the actual number of leaderboards returned may be less than the specified `maxResults`. */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1312,8 +1287,8 @@ declare namespace gapi.client {
                 /** The preferred language to use for strings returned by this method. */
                 language?: string;
                 /**
-                 * The maximum number of category resources to return in the response, used for paging. For any response, the actual number of category resources returned
-                 * may be less than the specified `maxResults`.
+                 * The maximum number of category resources to return in the response, used for paging. For any response, the actual number of category resources returned may be less than the
+                 * specified `maxResults`.
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -1381,8 +1356,8 @@ declare namespace gapi.client {
                 /** The preferred language to use for strings returned by this method. */
                 language?: string;
                 /**
-                 * The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may
-                 * be less than the specified `maxResults`.
+                 * The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may be less than the
+                 * specified `maxResults`.
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -1411,8 +1386,8 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * The revision of the client SDK used by your application. Format: `[PLATFORM_TYPE]:[VERSION_NUMBER]`. Possible values of `PLATFORM_TYPE` are: ∗
-                 * `ANDROID` - Client is running the Android SDK. ∗ `IOS` - Client is running the iOS SDK. ∗ `WEB_APP` - Client is running as a Web App.
+                 * The revision of the client SDK used by your application. Format: `[PLATFORM_TYPE]:[VERSION_NUMBER]`. Possible values of `PLATFORM_TYPE` are: * `ANDROID` - Client is running the
+                 * Android SDK. * `IOS` - Client is running the iOS SDK. * `WEB_APP` - Client is running as a Web App.
                  */
                 clientRevision: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1433,9 +1408,8 @@ declare namespace gapi.client {
         }
         interface ScoresResource {
             /**
-             * Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, `leaderboardId` can be set to
-             * `ALL` to retrieve data for all leaderboards in a given time span. `NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request;
-             * only one parameter may be set to 'ALL'.
+             * Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, `leaderboardId` can be set to `ALL` to retrieve data for all
+             * leaderboards in a given time span. `NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request; only one parameter may be set to 'ALL'.
              */
             get(request?: {
                 /** V1 error format. */
@@ -1457,8 +1431,8 @@ declare namespace gapi.client {
                 /** The ID of the leaderboard. Can be set to 'ALL' to retrieve data for all leaderboards for this application. */
                 leaderboardId: string;
                 /**
-                 * The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than
-                 * the specified `maxResults`.
+                 * The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified
+                 * `maxResults`.
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -1499,8 +1473,8 @@ declare namespace gapi.client {
                 /** The ID of the leaderboard. */
                 leaderboardId: string;
                 /**
-                 * The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than
-                 * the specified `maxResults`.
+                 * The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified
+                 * `maxResults`.
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -1539,8 +1513,8 @@ declare namespace gapi.client {
                 /** The ID of the leaderboard. */
                 leaderboardId: string;
                 /**
-                 * The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than
-                 * the specified `maxResults`.
+                 * The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified
+                 * `maxResults`.
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
@@ -1552,8 +1526,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The preferred number of scores to return above the player's score. More scores may be returned if the player is at the bottom of the leaderboard; fewer
-                 * may be returned if the player is at the top. Must be less than or equal to maxResults.
+                 * The preferred number of scores to return above the player's score. More scores may be returned if the player is at the bottom of the leaderboard; fewer may be returned if the
+                 * player is at the top. Must be less than or equal to maxResults.
                  */
                 resultsAbove?: number;
                 /** True if the top scores should be returned when the player is not in the leaderboard. Defaults to true. */
@@ -1590,15 +1564,12 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * The score you're submitting. The submitted score is ignored if it is worse than a previously submitted score, where worse depends on the leaderboard
-                 * sort order. The meaning of the score value depends on the leaderboard format type. For fixed-point, the score represents the raw value. For time, the
-                 * score represents elapsed time in milliseconds. For currency, the score represents a value in micro units.
+                 * The score you're submitting. The submitted score is ignored if it is worse than a previously submitted score, where worse depends on the leaderboard sort order. The meaning of
+                 * the score value depends on the leaderboard format type. For fixed-point, the score represents the raw value. For time, the score represents elapsed time in milliseconds. For
+                 * currency, the score represents a value in micro units.
                  */
                 score: string;
-                /**
-                 * Additional information about the score you're submitting. Values must contain no more than 64 URI-safe characters as defined by section 2.3 of RFC
-                 * 3986.
-                 */
+                /** Additional information about the score you're submitting. Values must contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986. */
                 scoreTag?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -1709,8 +1680,8 @@ declare namespace gapi.client {
                 /** The preferred language to use for strings returned by this method. */
                 language?: string;
                 /**
-                 * The maximum number of snapshot resources to return in the response, used for paging. For any response, the actual number of snapshot resources returned
-                 * may be less than the specified `maxResults`.
+                 * The maximum number of snapshot resources to return in the response, used for paging. For any response, the actual number of snapshot resources returned may be less than the
+                 * specified `maxResults`.
                  */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */

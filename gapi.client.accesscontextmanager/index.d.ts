@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Access Context Manager API v1 1.0
 // Project: https://cloud.google.com/access-context-manager/docs/reference/rest/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -35,25 +38,21 @@ declare namespace gapi.client {
         }
         interface AccessPolicy {
             /**
-             * Output only. An opaque identifier for the current version of the `AccessPolicy`. This will always be a strongly validated etag, meaning that two Access
-             * Polices will be identical if and only if their etags are identical. Clients should not expect this to be in any specific format.
+             * Output only. An opaque identifier for the current version of the `AccessPolicy`. This will always be a strongly validated etag, meaning that two Access Polices will be identical if
+             * and only if their etags are identical. Clients should not expect this to be in any specific format.
              */
             etag?: string;
             /** Output only. Resource name of the `AccessPolicy`. Format: `accessPolicies/{policy_id}` */
             name?: string;
-            /**
-             * Required. The parent of this `AccessPolicy` in the Cloud Resource Hierarchy. Currently immutable once created. Format:
-             * `organizations/{organization_id}`
-             */
+            /** Required. The parent of this `AccessPolicy` in the Cloud Resource Hierarchy. Currently immutable once created. Format: `organizations/{organization_id}` */
             parent?: string;
             /** Required. Human readable title. Does not affect behavior. */
             title?: string;
         }
         interface BasicLevel {
             /**
-             * How the `conditions` list should be combined to determine if a request is granted this `AccessLevel`. If AND is used, each `Condition` in `conditions`
-             * must be satisfied for the `AccessLevel` to be applied. If OR is used, at least one `Condition` in `conditions` must be satisfied for the `AccessLevel`
-             * to be applied. Default behavior is AND.
+             * How the `conditions` list should be combined to determine if a request is granted this `AccessLevel`. If AND is used, each `Condition` in `conditions` must be satisfied for the
+             * `AccessLevel` to be applied. If OR is used, at least one `Condition` in `conditions` must be satisfied for the `AccessLevel` to be applied. Default behavior is AND.
              */
             combiningFunction?: string;
             /** Required. A list of requirements for the `AccessLevel` to be granted. */
@@ -64,9 +63,9 @@ declare namespace gapi.client {
         }
         interface CommitServicePerimetersRequest {
             /**
-             * Optional. The etag for the version of the Access Policy that this commit operation is to be performed on. If, at the time of commit, the etag for the
-             * Access Policy stored in Access Context Manager is different from the specified etag, then the commit operation will not be performed and the call will
-             * fail. This field is not required. If etag is not provided, the operation will be performed as if a valid etag is provided.
+             * Optional. The etag for the version of the Access Policy that this commit operation is to be performed on. If, at the time of commit, the etag for the Access Policy stored in Access
+             * Context Manager is different from the specified etag, then the commit operation will not be performed and the call will fail. This field is not required. If etag is not provided,
+             * the operation will be performed as if a valid etag is provided.
              */
             etag?: string;
         }
@@ -78,27 +77,26 @@ declare namespace gapi.client {
             /** Device specific restrictions, all restrictions must hold for the Condition to be true. If not specified, all devices are allowed. */
             devicePolicy?: DevicePolicy;
             /**
-             * CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for a CIDR IP address block, the specified IP address portion must be properly
-             * truncated (i.e. all the host bits must be zero) or the input is considered malformed. For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is
-             * not. Similarly, for IPv6, "2001:db8::/32" is accepted whereas "2001:db8::1/32" is not. The originating IP of a request must be in one of the listed
-             * subnets in order for this Condition to be true. If empty, all IP addresses are allowed.
+             * CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for a CIDR IP address block, the specified IP address portion must be properly truncated (i.e. all the host
+             * bits must be zero) or the input is considered malformed. For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is not. Similarly, for IPv6, "2001:db8::/32" is accepted whereas
+             * "2001:db8::1/32" is not. The originating IP of a request must be in one of the listed subnets in order for this Condition to be true. If empty, all IP addresses are allowed.
              */
             ipSubnetworks?: string[];
             /**
-             * The request must be made by one of the provided user or service accounts. Groups are not supported. Syntax: `user:{emailid}` `serviceAccount:{emailid}`
-             * If not specified, a request may come from any user.
+             * The request must be made by one of the provided user or service accounts. Groups are not supported. Syntax: `user:{emailid}` `serviceAccount:{emailid}` If not specified, a request
+             * may come from any user.
              */
             members?: string[];
             /**
-             * Whether to negate the Condition. If true, the Condition becomes a NAND over its non-empty fields, each field must be false for the Condition overall to
-             * be satisfied. Defaults to false.
+             * Whether to negate the Condition. If true, the Condition becomes a NAND over its non-empty fields, each field must be false for the Condition overall to be satisfied. Defaults to
+             * false.
              */
             negate?: boolean;
             /** The request must originate from one of the provided countries/regions. Must be valid ISO 3166-1 alpha-2 codes. */
             regions?: string[];
             /**
-             * A list of other access levels defined in the same `Policy`, referenced by resource name. Referencing an `AccessLevel` which does not exist is an error.
-             * All access levels listed must be granted for the Condition to be true. Example: "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
+             * A list of other access levels defined in the same `Policy`, referenced by resource name. Referencing an `AccessLevel` which does not exist is an error. All access levels listed must
+             * be granted for the Condition to be true. Example: "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
              */
             requiredAccessLevels?: string[];
         }
@@ -158,42 +156,35 @@ declare namespace gapi.client {
             servicePerimeters?: ServicePerimeter[];
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
         interface OsConstraint {
-            /**
-             * The minimum allowed OS version. If not set, any version of this OS satisfies the constraint. Format: `"major.minor.patch"`. Examples: `"10.5.301"`,
-             * `"9.2.1"`.
-             */
+            /** The minimum allowed OS version. If not set, any version of this OS satisfies the constraint. Format: `"major.minor.patch"`. Examples: `"10.5.301"`, `"9.2.1"`. */
             minimumVersion?: string;
             /** Required. The allowed OS type. */
             osType?: string;
             /**
-             * Only allows requests from devices with a verified Chrome OS. Verifications includes requirements that the device is enterprise-managed, conformant to
-             * domain policies, and the caller has permission to call the API targeted by the request.
+             * Only allows requests from devices with a verified Chrome OS. Verifications includes requirements that the device is enterprise-managed, conformant to domain policies, and the caller
+             * has permission to call the API targeted by the request.
              */
             requireVerifiedChromeOs?: boolean;
         }
@@ -201,9 +192,9 @@ declare namespace gapi.client {
             /** Required. The desired Access Levels that should replace all existing Access Levels in the Access Policy. */
             accessLevels?: AccessLevel[];
             /**
-             * Optional. The etag for the version of the Access Policy that this replace operation is to be performed on. If, at the time of replace, the etag for the
-             * Access Policy stored in Access Context Manager is different from the specified etag, then the replace operation will not be performed and the call will
-             * fail. This field is not required. If etag is not provided, the operation will be performed as if a valid etag is provided.
+             * Optional. The etag for the version of the Access Policy that this replace operation is to be performed on. If, at the time of replace, the etag for the Access Policy stored in
+             * Access Context Manager is different from the specified etag, then the replace operation will not be performed and the call will fail. This field is not required. If etag is not
+             * provided, the operation will be performed as if a valid etag is provided.
              */
             etag?: string;
         }
@@ -213,9 +204,9 @@ declare namespace gapi.client {
         }
         interface ReplaceServicePerimetersRequest {
             /**
-             * Optional. The etag for the version of the Access Policy that this replace operation is to be performed on. If, at the time of replace, the etag for the
-             * Access Policy stored in Access Context Manager is different from the specified etag, then the replace operation will not be performed and the call will
-             * fail. This field is not required. If etag is not provided, the operation will be performed as if a valid etag is provided.
+             * Optional. The etag for the version of the Access Policy that this replace operation is to be performed on. If, at the time of replace, the etag for the Access Policy stored in
+             * Access Context Manager is different from the specified etag, then the replace operation will not be performed and the call will fail. This field is not required. If etag is not
+             * provided, the operation will be performed as if a valid etag is provided.
              */
             etag?: string;
             /** Required. The desired Service Perimeters that should replace all existing Service Perimeters in the Access Policy. */
@@ -234,45 +225,39 @@ declare namespace gapi.client {
              */
             name?: string;
             /**
-             * Perimeter type indicator. A single project is allowed to be a member of single regular perimeter, but multiple service perimeter bridges. A project
-             * cannot be a included in a perimeter bridge without being included in regular perimeter. For perimeter bridges, the restricted service list as well as
-             * access level lists must be empty.
+             * Perimeter type indicator. A single project is allowed to be a member of single regular perimeter, but multiple service perimeter bridges. A project cannot be a included in a
+             * perimeter bridge without being included in regular perimeter. For perimeter bridges, the restricted service list as well as access level lists must be empty.
              */
             perimeterType?: string;
             /**
-             * Proposed (or dry run) ServicePerimeter configuration. This configuration allows to specify and test ServicePerimeter configuration without enforcing
-             * actual access restrictions. Only allowed to be set when the "use_explicit_dry_run_spec" flag is set.
+             * Proposed (or dry run) ServicePerimeter configuration. This configuration allows to specify and test ServicePerimeter configuration without enforcing actual access restrictions. Only
+             * allowed to be set when the "use_explicit_dry_run_spec" flag is set.
              */
             spec?: ServicePerimeterConfig;
-            /**
-             * Current ServicePerimeter configuration. Specifies sets of resources, restricted services and access levels that determine perimeter content and
-             * boundaries.
-             */
+            /** Current ServicePerimeter configuration. Specifies sets of resources, restricted services and access levels that determine perimeter content and boundaries. */
             status?: ServicePerimeterConfig;
             /** Human readable title. Must be unique within the Policy. */
             title?: string;
             /**
-             * Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists for all Service Perimeters, and that spec is identical to the status for
-             * those Service Perimeters. When this flag is set, it inhibits the generation of the implicit spec, thereby allowing the user to explicitly provide a
-             * configuration ("spec") to use in a dry-run version of the Service Perimeter. This allows the user to test changes to the enforced config ("status")
-             * without actually enforcing them. This testing is done through analyzing the differences between currently enforced and suggested restrictions.
-             * use_explicit_dry_run_spec must bet set to True if any of the fields in the spec are set to non-default values.
+             * Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists for all Service Perimeters, and that spec is identical to the status for those Service Perimeters. When
+             * this flag is set, it inhibits the generation of the implicit spec, thereby allowing the user to explicitly provide a configuration ("spec") to use in a dry-run version of the
+             * Service Perimeter. This allows the user to test changes to the enforced config ("status") without actually enforcing them. This testing is done through analyzing the differences
+             * between currently enforced and suggested restrictions. use_explicit_dry_run_spec must bet set to True if any of the fields in the spec are set to non-default values.
              */
             useExplicitDryRunSpec?: boolean;
         }
         interface ServicePerimeterConfig {
             /**
-             * A list of `AccessLevel` resource names that allow resources within the `ServicePerimeter` to be accessed from the internet. `AccessLevels` listed must
-             * be in the same policy as this `ServicePerimeter`. Referencing a nonexistent `AccessLevel` is a syntax error. If no `AccessLevel` names are listed,
-             * resources within the perimeter can only be accessed via Google Cloud calls with request origins within the perimeter. Example:
-             * `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`. For Service Perimeter Bridge, must be empty.
+             * A list of `AccessLevel` resource names that allow resources within the `ServicePerimeter` to be accessed from the internet. `AccessLevels` listed must be in the same policy as this
+             * `ServicePerimeter`. Referencing a nonexistent `AccessLevel` is a syntax error. If no `AccessLevel` names are listed, resources within the perimeter can only be accessed via Google
+             * Cloud calls with request origins within the perimeter. Example: `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`. For Service Perimeter Bridge, must be empty.
              */
             accessLevels?: string[];
             /** A list of Google Cloud resources that are inside of the service perimeter. Currently only projects are allowed. Format: `projects/{project_number}` */
             resources?: string[];
             /**
-             * Google Cloud services that are subject to the Service Perimeter restrictions. For example, if `storage.googleapis.com` is specified, access to the
-             * storage buckets inside the perimeter must meet the perimeter's access restrictions.
+             * Google Cloud services that are subject to the Service Perimeter restrictions. For example, if `storage.googleapis.com` is specified, access to the storage buckets inside the
+             * perimeter must meet the perimeter's access restrictions.
              */
             restrictedServices?: string[];
             /** Configuration for APIs allowed within Perimeter. */
@@ -284,15 +269,15 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
         interface VpcAccessibleServices {
             /**
-             * The list of APIs usable within the Service Perimeter. Must be empty unless 'enable_restriction' is True. You can specify a list of individual services,
-             * as well as include the 'RESTRICTED-SERVICES' value, which automatically includes all of the services protected by the perimeter.
+             * The list of APIs usable within the Service Perimeter. Must be empty unless 'enable_restriction' is True. You can specify a list of individual services, as well as include the
+             * 'RESTRICTED-SERVICES' value, which automatically includes all of the services protected by the perimeter.
              */
             allowedServices?: string[];
             /** Whether to restrict API calls within the Service Perimeter to the list of APIs specified in 'allowed_services'. */
@@ -300,8 +285,8 @@ declare namespace gapi.client {
         }
         interface AccessLevelsResource {
             /**
-             * Create an Access Level. The longrunning operation from this RPC will have a successful status once the Access Level has propagated to long-lasting
-             * storage. Access Levels containing errors will result in an error response for the first error encountered.
+             * Create an Access Level. The longrunning operation from this RPC will have a successful status once the Access Level has propagated to long-lasting storage. Access Levels containing
+             * errors will result in an error response for the first error encountered.
              */
             create(request: {
                 /** V1 error format. */
@@ -358,10 +343,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: AccessLevel): Request<Operation>;
-            /**
-             * Delete an Access Level by resource name. The longrunning operation from this RPC will have a successful status once the Access Level has been removed
-             * from long-lasting storage.
-             */
+            /** Delete an Access Level by resource name. The longrunning operation from this RPC will have a successful status once the Access Level has been removed from long-lasting storage. */
             delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -395,9 +377,9 @@ declare namespace gapi.client {
                 /** OAuth access token. */
                 access_token?: string;
                 /**
-                 * Whether to return `BasicLevels` in the Cloud Common Expression Language rather than as `BasicLevels`. Defaults to AS_DEFINED, where Access Levels are
-                 * returned as `BasicLevels` or `CustomLevels` based on how they were created. If set to CEL, all Access Levels are returned as `CustomLevels`. In the CEL
-                 * case, `BasicLevels` are translated to equivalent `CustomLevels`.
+                 * Whether to return `BasicLevels` in the Cloud Common Expression Language rather than as `BasicLevels`. Defaults to AS_DEFINED, where Access Levels are returned as `BasicLevels`
+                 * or `CustomLevels` based on how they were created. If set to CEL, all Access Levels are returned as `CustomLevels`. In the CEL case, `BasicLevels` are translated to equivalent
+                 * `CustomLevels`.
                  */
                 accessLevelFormat?: string;
                 /** Data format for response. */
@@ -428,8 +410,8 @@ declare namespace gapi.client {
                 /** OAuth access token. */
                 access_token?: string;
                 /**
-                 * Whether to return `BasicLevels` in the Cloud Common Expression language, as `CustomLevels`, rather than as `BasicLevels`. Defaults to returning
-                 * `AccessLevels` in the format they were defined.
+                 * Whether to return `BasicLevels` in the Cloud Common Expression language, as `CustomLevels`, rather than as `BasicLevels`. Defaults to returning `AccessLevels` in the format they
+                 * were defined.
                  */
                 accessLevelFormat?: string;
                 /** Data format for response. */
@@ -458,8 +440,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListAccessLevelsResponse>;
             /**
-             * Update an Access Level. The longrunning operation from this RPC will have a successful status once the changes to the Access Level have propagated to
-             * long-lasting storage. Access Levels containing errors will result in an error response for the first error encountered.
+             * Update an Access Level. The longrunning operation from this RPC will have a successful status once the changes to the Access Level have propagated to long-lasting storage. Access
+             * Levels containing errors will result in an error response for the first error encountered.
              */
             patch(request: {
                 /** V1 error format. */
@@ -527,10 +509,10 @@ declare namespace gapi.client {
             },
             body: AccessLevel): Request<Operation>;
             /**
-             * Replace all existing Access Levels in an Access Policy with the Access Levels provided. This is done atomically. The longrunning operation from this
-             * RPC will have a successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result in an error
-             * response for the first error encountered. Replacement will be cancelled on error, existing Access Levels will not be affected. Operation.response field
-             * will contain ReplaceAccessLevelsResponse. Removing Access Levels contained in existing Service Perimeters will result in error.
+             * Replace all existing Access Levels in an Access Policy with the Access Levels provided. This is done atomically. The longrunning operation from this RPC will have a successful
+             * status once all replacements have propagated to long-lasting storage. Replacements containing errors will result in an error response for the first error encountered. Replacement
+             * will be cancelled on error, existing Access Levels will not be affected. Operation.response field will contain ReplaceAccessLevelsResponse. Removing Access Levels contained in
+             * existing Service Perimeters will result in error.
              */
             replaceAll(request: {
                 /** V1 error format. */
@@ -590,12 +572,11 @@ declare namespace gapi.client {
         }
         interface ServicePerimetersResource {
             /**
-             * Commit the dry-run spec for all the Service Perimeters in an Access Policy. A commit operation on a Service Perimeter involves copying its `spec` field
-             * to that Service Perimeter's `status` field. Only Service Perimeters with `use_explicit_dry_run_spec` field set to true are affected by a commit
-             * operation. The longrunning operation from this RPC will have a successful status once the dry-run specs for all the Service Perimeters have been
-             * committed. If a commit fails, it will cause the longrunning operation to return an error response and the entire commit operation will be cancelled.
-             * When successful, Operation.response field will contain CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will be cleared after a
-             * successful commit operation.
+             * Commit the dry-run spec for all the Service Perimeters in an Access Policy. A commit operation on a Service Perimeter involves copying its `spec` field to that Service Perimeter's
+             * `status` field. Only Service Perimeters with `use_explicit_dry_run_spec` field set to true are affected by a commit operation. The longrunning operation from this RPC will have a
+             * successful status once the dry-run specs for all the Service Perimeters have been committed. If a commit fails, it will cause the longrunning operation to return an error response
+             * and the entire commit operation will be cancelled. When successful, Operation.response field will contain CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will
+             * be cleared after a successful commit operation.
              */
             commit(request: {
                 /** V1 error format. */
@@ -612,10 +593,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. Resource name for the parent Access Policy which owns all Service Perimeters in scope for the commit operation. Format:
-                 * `accessPolicies/{policy_id}`
-                 */
+                /** Required. Resource name for the parent Access Policy which owns all Service Perimeters in scope for the commit operation. Format: `accessPolicies/{policy_id}` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -643,10 +621,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. Resource name for the parent Access Policy which owns all Service Perimeters in scope for the commit operation. Format:
-                 * `accessPolicies/{policy_id}`
-                 */
+                /** Required. Resource name for the parent Access Policy which owns all Service Perimeters in scope for the commit operation. Format: `accessPolicies/{policy_id}` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -659,8 +634,8 @@ declare namespace gapi.client {
             },
             body: CommitServicePerimetersRequest): Request<Operation>;
             /**
-             * Create a Service Perimeter. The longrunning operation from this RPC will have a successful status once the Service Perimeter has propagated to
-             * long-lasting storage. Service Perimeters containing errors will result in an error response for the first error encountered.
+             * Create a Service Perimeter. The longrunning operation from this RPC will have a successful status once the Service Perimeter has propagated to long-lasting storage. Service
+             * Perimeters containing errors will result in an error response for the first error encountered.
              */
             create(request: {
                 /** V1 error format. */
@@ -718,8 +693,8 @@ declare namespace gapi.client {
             },
             body: ServicePerimeter): Request<Operation>;
             /**
-             * Delete a Service Perimeter by resource name. The longrunning operation from this RPC will have a successful status once the Service Perimeter has been
-             * removed from long-lasting storage.
+             * Delete a Service Perimeter by resource name. The longrunning operation from this RPC will have a successful status once the Service Perimeter has been removed from long-lasting
+             * storage.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -806,8 +781,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListServicePerimetersResponse>;
             /**
-             * Update a Service Perimeter. The longrunning operation from this RPC will have a successful status once the changes to the Service Perimeter have
-             * propagated to long-lasting storage. Service Perimeter containing errors will result in an error response for the first error encountered.
+             * Update a Service Perimeter. The longrunning operation from this RPC will have a successful status once the changes to the Service Perimeter have propagated to long-lasting storage.
+             * Service Perimeter containing errors will result in an error response for the first error encountered.
              */
             patch(request: {
                 /** V1 error format. */
@@ -875,10 +850,9 @@ declare namespace gapi.client {
             },
             body: ServicePerimeter): Request<Operation>;
             /**
-             * Replace all existing Service Perimeters in an Access Policy with the Service Perimeters provided. This is done atomically. The longrunning operation
-             * from this RPC will have a successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result
-             * in an error response for the first error encountered. Replacement will be cancelled on error, existing Service Perimeters will not be affected.
-             * Operation.response field will contain ReplaceServicePerimetersResponse.
+             * Replace all existing Service Perimeters in an Access Policy with the Service Perimeters provided. This is done atomically. The longrunning operation from this RPC will have a
+             * successful status once all replacements have propagated to long-lasting storage. Replacements containing errors will result in an error response for the first error encountered.
+             * Replacement will be cancelled on error, existing Service Perimeters will not be affected. Operation.response field will contain ReplaceServicePerimetersResponse.
              */
             replaceAll(request: {
                 /** V1 error format. */
@@ -938,8 +912,8 @@ declare namespace gapi.client {
         }
         interface AccessPoliciesResource {
             /**
-             * Create an `AccessPolicy`. Fails if this organization already has a `AccessPolicy`. The longrunning Operation will have a successful status once the
-             * `AccessPolicy` has propagated to long-lasting storage. Syntactic and basic semantic errors will be returned in `metadata` as a BadRequest proto.
+             * Create an `AccessPolicy`. Fails if this organization already has a `AccessPolicy`. The longrunning Operation will have a successful status once the `AccessPolicy` has propagated to
+             * long-lasting storage. Syntactic and basic semantic errors will be returned in `metadata` as a BadRequest proto.
              */
             create(request: {
                 /** V1 error format. */
@@ -992,10 +966,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: AccessPolicy): Request<Operation>;
-            /**
-             * Delete an AccessPolicy by resource name. The longrunning Operation will have a successful status once the AccessPolicy has been removed from
-             * long-lasting storage.
-             */
+            /** Delete an AccessPolicy by resource name. The longrunning Operation will have a successful status once the AccessPolicy has been removed from long-lasting storage. */
             delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1081,8 +1052,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListAccessPoliciesResponse>;
             /**
-             * Update an AccessPolicy. The longrunning Operation from this RPC will have a successful status once the changes to the AccessPolicy have propagated to
-             * long-lasting storage. Syntactic and basic semantic errors will be returned in `metadata` as a BadRequest proto.
+             * Update an AccessPolicy. The longrunning Operation from this RPC will have a successful status once the changes to the AccessPolicy have propagated to long-lasting storage. Syntactic
+             * and basic semantic errors will be returned in `metadata` as a BadRequest proto.
              */
             patch(request: {
                 /** V1 error format. */
@@ -1148,10 +1119,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request: {
                 /** V1 error format. */
@@ -1209,8 +1180,8 @@ declare namespace gapi.client {
             },
             body: CancelOperationRequest): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1238,10 +1209,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1269,11 +1237,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Enterprise Apps Reseller API v1 1.0
 // Project: https://developers.google.com/google-apps/reseller/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -28,8 +31,8 @@ declare namespace gapi.client {
             /** The customer contact's name. This is required. */
             contactName?: string;
             /**
-             * For countryCode information, see the ISO 3166 country code elements. Verify that country is approved for resale of Google products. This property is
-             * required when creating a new customer.
+             * For countryCode information, see the ISO 3166 country code elements. Verify that country is approved for resale of Google products. This property is required when creating a new
+             * customer.
              */
             countryCode?: string;
             /** Identifies the resource as a customer address. Value: customers#address */
@@ -45,17 +48,15 @@ declare namespace gapi.client {
         }
         interface ChangePlanRequest {
             /**
-             * Google-issued code (100 char max) for discounted pricing on subscription plans. Deal code must be included in changePlan request in order to receive
-             * discounted rate. This property is optional. If a deal code has already been added to a subscription, this property may be left empty and the existing
-             * discounted rate will still apply (if not empty, only provide the deal code that is already present on the subscription). If a deal code has never been
-             * added to a subscription and this property is left blank, regular pricing will apply.
+             * Google-issued code (100 char max) for discounted pricing on subscription plans. Deal code must be included in changePlan request in order to receive discounted rate. This property
+             * is optional. If a deal code has already been added to a subscription, this property may be left empty and the existing discounted rate will still apply (if not empty, only provide
+             * the deal code that is already present on the subscription). If a deal code has never been added to a subscription and this property is left blank, regular pricing will apply.
              */
             dealCode?: string;
             /** Identifies the resource as a subscription change plan request. Value: subscriptions#changePlanRequest */
             kind?: string;
             /**
-             * The planName property is required. This is the name of the subscription's payment plan. For more information about the Google payment plans, see API
-             * concepts.
+             * The planName property is required. This is the name of the subscription's payment plan. For more information about the Google payment plans, see API concepts.
              *
              * Possible values are:
              * - ANNUAL_MONTHLY_PAY - The annual commitment plan with monthly payments  Caution: ANNUAL_MONTHLY_PAY is returned as ANNUAL in all API responses.
@@ -65,8 +66,8 @@ declare namespace gapi.client {
              */
             planName?: string;
             /**
-             * This is an optional property. This purchase order (PO) information is for resellers to use for their company tracking usage. If a purchaseOrderId value
-             * is given it appears in the API responses and shows up in the invoice. The property accepts up to 80 plain text characters.
+             * This is an optional property. This purchase order (PO) information is for resellers to use for their company tracking usage. If a purchaseOrderId value is given it appears in the
+             * API responses and shows up in the invoice. The property accepts up to 80 plain text characters.
              */
             purchaseOrderId?: string;
             /** This is a required property. The seats property is the number of user seat licenses. */
@@ -74,34 +75,31 @@ declare namespace gapi.client {
         }
         interface Customer {
             /**
-             * Like the "Customer email" in the reseller tools, this email is the secondary contact used if something happens to the customer's service such as
-             * service outage or a security issue. This property is required when creating a new customer and should not use the same domain as customerDomain.
+             * Like the "Customer email" in the reseller tools, this email is the secondary contact used if something happens to the customer's service such as service outage or a security issue.
+             * This property is required when creating a new customer and should not use the same domain as customerDomain.
              */
             alternateEmail?: string;
-            /**
-             * The customer's primary domain name string. customerDomain is required when creating a new customer. Do not include the www prefix in the domain when
-             * adding a customer.
-             */
+            /** The customer's primary domain name string. customerDomain is required when creating a new customer. Do not include the www prefix in the domain when adding a customer. */
             customerDomain?: string;
             /** Whether the customer's primary domain has been verified. */
             customerDomainVerified?: boolean;
             /**
-             * This property will always be returned in a response as the unique identifier generated by Google. In a request, this property can be either the primary
-             * domain or the unique identifier generated by Google.
+             * This property will always be returned in a response as the unique identifier generated by Google. In a request, this property can be either the primary domain or the unique
+             * identifier generated by Google.
              */
             customerId?: string;
             /** Identifies the resource as a customer. Value: reseller#customer */
             kind?: string;
             /**
-             * Customer contact phone number. Must start with "+" followed by the country code. The rest of the number can be contiguous numbers or respect the phone
-             * local format conventions, but it must be a real phone number and not, for example, "123". This field is silently ignored if invalid.
+             * Customer contact phone number. Must start with "+" followed by the country code. The rest of the number can be contiguous numbers or respect the phone local format conventions, but
+             * it must be a real phone number and not, for example, "123". This field is silently ignored if invalid.
              */
             phoneNumber?: string;
             /** A customer's address information. Each field has a limit of 255 charcters. */
             postalAddress?: Address;
             /**
-             * URL to customer's Admin console dashboard. The read-only URL is generated by the API service. This is used if your client application requires the
-             * customer to complete a task in the Admin console.
+             * URL to customer's Admin console dashboard. The read-only URL is generated by the API service. This is used if your client application requires the customer to complete a task in the
+             * Admin console.
              */
             resourceUiUrl?: string;
         }
@@ -109,8 +107,8 @@ declare namespace gapi.client {
             /** Identifies the resource as a subscription renewal setting. Value: subscriptions#renewalSettings */
             kind?: string;
             /**
-             * Renewal settings for the annual commitment plan. For more detailed information, see renewal options in the administrator help center. When renewing a
-             * subscription, the renewalType is a required property.
+             * Renewal settings for the annual commitment plan. For more detailed information, see renewal options in the administrator help center. When renewing a subscription, the renewalType
+             * is a required property.
              */
             renewalType?: string;
         }
@@ -128,21 +126,20 @@ declare namespace gapi.client {
             /** Identifies the resource as a subscription seat setting. Value: subscriptions#seats */
             kind?: string;
             /**
-             * Read-only field containing the current number of users that are assigned a license for the product defined in skuId. This field's value is equivalent
-             * to the numerical count of users returned by the Enterprise License Manager API method: listForProductAndSku
+             * Read-only field containing the current number of users that are assigned a license for the product defined in skuId. This field's value is equivalent to the numerical count of users
+             * returned by the Enterprise License Manager API method: listForProductAndSku
              */
             licensedNumberOfSeats?: number;
             /**
-             * This is a required property and is exclusive to subscriptions with FLEXIBLE or TRIAL plans. This property sets the maximum number of licensed users
-             * allowed on a subscription. This quantity can be increased up to the maximum limit defined in the reseller's contract. The minimum quantity is the
-             * current number of users in the customer account. Note: G Suite subscriptions automatically assign a license to every user.
+             * This is a required property and is exclusive to subscriptions with FLEXIBLE or TRIAL plans. This property sets the maximum number of licensed users allowed on a subscription. This
+             * quantity can be increased up to the maximum limit defined in the reseller's contract. The minimum quantity is the current number of users in the customer account. Note: G Suite
+             * subscriptions automatically assign a license to every user.
              */
             maximumNumberOfSeats?: number;
             /**
-             * This is a required property and is exclusive to subscriptions with ANNUAL_MONTHLY_PAY and ANNUAL_YEARLY_PAY plans. This property sets the maximum
-             * number of licenses assignable to users on a subscription. The reseller can add more licenses, but once set, the numberOfSeats cannot be reduced until
-             * renewal. The reseller is invoiced based on the numberOfSeats value regardless of how many of these user licenses are assigned. Note: G Suite
-             * subscriptions automatically assign a license to every user.
+             * This is a required property and is exclusive to subscriptions with ANNUAL_MONTHLY_PAY and ANNUAL_YEARLY_PAY plans. This property sets the maximum number of licenses assignable to
+             * users on a subscription. The reseller can add more licenses, but once set, the numberOfSeats cannot be reduced until renewal. The reseller is invoiced based on the numberOfSeats
+             * value regardless of how many of these user licenses are assigned. Note: G Suite subscriptions automatically assign a license to every user.
              */
             numberOfSeats?: number;
         }
@@ -154,25 +151,25 @@ declare namespace gapi.client {
             /** Primary domain name of the customer */
             customerDomain?: string;
             /**
-             * This property will always be returned in a response as the unique identifier generated by Google. In a request, this property can be either the primary
-             * domain or the unique identifier generated by Google.
+             * This property will always be returned in a response as the unique identifier generated by Google. In a request, this property can be either the primary domain or the unique
+             * identifier generated by Google.
              */
             customerId?: string;
             /**
-             * Google-issued code (100 char max) for discounted pricing on subscription plans. Deal code must be included in insert requests in order to receive
-             * discounted rate. This property is optional, regular pricing applies if left empty.
+             * Google-issued code (100 char max) for discounted pricing on subscription plans. Deal code must be included in insert requests in order to receive discounted rate. This property is
+             * optional, regular pricing applies if left empty.
              */
             dealCode?: string;
             /** Identifies the resource as a Subscription. Value: reseller#subscription */
             kind?: string;
             /**
-             * The plan property is required. In this version of the API, the G Suite plans are the flexible plan, annual commitment plan, and the 30-day free trial
-             * plan. For more information about the API"s payment plans, see the API concepts.
+             * The plan property is required. In this version of the API, the G Suite plans are the flexible plan, annual commitment plan, and the 30-day free trial plan. For more information
+             * about the API"s payment plans, see the API concepts.
              */
             plan?: {
                 /**
-                 * In this version of the API, annual commitment plan's interval is one year.  Note: When billingMethod value is OFFLINE, the subscription property object
-                 * plan.commitmentInterval is omitted in all API responses.
+                 * In this version of the API, annual commitment plan's interval is one year.  Note: When billingMethod value is OFFLINE, the subscription property object plan.commitmentInterval
+                 * is omitted in all API responses.
                  */
                 commitmentInterval?: {
                     /** An annual commitment plan's interval's endTime in milliseconds using the UNIX Epoch format. See an example Epoch converter. */
@@ -187,55 +184,53 @@ declare namespace gapi.client {
                  */
                 isCommitmentPlan?: boolean;
                 /**
-                 * The planName property is required. This is the name of the subscription's plan. For more information about the Google payment plans, see the API
-                 * concepts.
+                 * The planName property is required. This is the name of the subscription's plan. For more information about the Google payment plans, see the API concepts.
                  *
                  * Possible values are:
                  * - ANNUAL_MONTHLY_PAY — The annual commitment plan with monthly payments.  Caution: ANNUAL_MONTHLY_PAY is returned as ANNUAL in all API responses.
                  * - ANNUAL_YEARLY_PAY — The annual commitment plan with yearly payments
                  * - FLEXIBLE — The flexible plan
-                 * - TRIAL — The 30-day free trial plan. A subscription in trial will be suspended after the 30th free day if no payment plan is assigned. Calling
-                 * changePlan will assign a payment plan to a trial but will not activate the plan. A trial will automatically begin its assigned payment plan after its
-                 * 30th free day or immediately after calling startPaidService.
+                 * - TRIAL — The 30-day free trial plan. A subscription in trial will be suspended after the 30th free day if no payment plan is assigned. Calling changePlan will assign a payment
+                 * plan to a trial but will not activate the plan. A trial will automatically begin its assigned payment plan after its 30th free day or immediately after calling startPaidService.
+                 *
                  * - FREE — The free plan is exclusive to the Cloud Identity SKU and does not incur any billing.
                  */
                 planName?: string;
             };
             /**
-             * This is an optional property. This purchase order (PO) information is for resellers to use for their company tracking usage. If a purchaseOrderId value
-             * is given it appears in the API responses and shows up in the invoice. The property accepts up to 80 plain text characters.
+             * This is an optional property. This purchase order (PO) information is for resellers to use for their company tracking usage. If a purchaseOrderId value is given it appears in the
+             * API responses and shows up in the invoice. The property accepts up to 80 plain text characters.
              */
             purchaseOrderId?: string;
             /** Renewal settings for the annual commitment plan. For more detailed information, see renewal options in the administrator help center. */
             renewalSettings?: RenewalSettings;
             /**
-             * URL to customer's Subscriptions page in the Admin console. The read-only URL is generated by the API service. This is used if your client application
-             * requires the customer to complete a task using the Subscriptions page in the Admin console.
+             * URL to customer's Subscriptions page in the Admin console. The read-only URL is generated by the API service. This is used if your client application requires the customer to
+             * complete a task using the Subscriptions page in the Admin console.
              */
             resourceUiUrl?: string;
             /** This is a required property. The number and limit of user seat licenses in the plan. */
             seats?: Seats;
             /**
-             * A required property. The skuId is a unique system identifier for a product's SKU assigned to a customer in the subscription. For products and SKUs
-             * available in this version of the API, see  Product and SKU IDs.
+             * A required property. The skuId is a unique system identifier for a product's SKU assigned to a customer in the subscription. For products and SKUs available in this version of the
+             * API, see  Product and SKU IDs.
              */
             skuId?: string;
             /**
-             * Read-only external display name for a product's SKU assigned to a customer in the subscription. SKU names are subject to change at Google's discretion.
-             * For products and SKUs available in this version of the API, see  Product and SKU IDs.
+             * Read-only external display name for a product's SKU assigned to a customer in the subscription. SKU names are subject to change at Google's discretion. For products and SKUs
+             * available in this version of the API, see  Product and SKU IDs.
              */
             skuName?: string;
             /** This is an optional property. */
             status?: string;
             /**
-             * The subscriptionId is the subscription identifier and is unique for each customer. This is a required property. Since a subscriptionId changes when a
-             * subscription is updated, we recommend not using this ID as a key for persistent data. Use the subscriptionId as described in retrieve all reseller
-             * subscriptions.
+             * The subscriptionId is the subscription identifier and is unique for each customer. This is a required property. Since a subscriptionId changes when a subscription is updated, we
+             * recommend not using this ID as a key for persistent data. Use the subscriptionId as described in retrieve all reseller subscriptions.
              */
             subscriptionId?: string;
             /**
-             * Read-only field containing an enumerable of all the current suspension reasons for a subscription. It is possible for a subscription to have many
-             * concurrent, overlapping suspension reasons. A subscription's STATUS is SUSPENDED until all pending suspensions are removed.
+             * Read-only field containing an enumerable of all the current suspension reasons for a subscription. It is possible for a subscription to have many concurrent, overlapping suspension
+             * reasons. A subscription's STATUS is SUSPENDED until all pending suspensions are removed.
              *
              * Possible options include:
              * - PENDING_TOS_ACCEPTANCE - The customer has not logged in and accepted the G Suite Resold Terms of Services.
@@ -248,8 +243,8 @@ declare namespace gapi.client {
             /** Read-only transfer related information for the subscription. For more information, see retrieve transferable subscriptions for a customer. */
             transferInfo?: {
                 /**
-                 * When inserting a subscription, this is the minimum number of seats listed in the transfer order for this product. For example, if the customer has 20
-                 * users, the reseller cannot place a transfer order of 15 seats. The minimum is 20 seats.
+                 * When inserting a subscription, this is the minimum number of seats listed in the transfer order for this product. For example, if the customer has 20 users, the reseller cannot
+                 * place a transfer order of 15 seats. The minimum is 20 seats.
                  */
                 minimumTransferableSeats?: number;
                 /** The time when transfer token or intent to transfer will expire. The time is in milliseconds using UNIX Epoch format. */
@@ -281,8 +276,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -303,9 +298,9 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another
-                 * reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer.
-                 * For more information, see the administrator help center.
+                 * The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's
+                 * subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator
+                 * help center.
                  */
                 customerAuthToken?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -327,9 +322,9 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another
-                 * reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer.
-                 * For more information, see the administrator help center.
+                 * The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's
+                 * subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator
+                 * help center.
                  */
                 customerAuthToken?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -351,8 +346,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -374,8 +369,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -397,8 +392,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -420,8 +415,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -502,8 +497,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -517,24 +512,20 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a
-                 * subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all
-                 * reseller subscriptions method.
+                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we
+                 * recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.
                  */
                 subscriptionId: string;
                 /** Deprecated. Please use quotaUser instead. */
                 userIp?: string;
             }): Request<Subscription>;
-            /**
-             * Update a subscription plan. Use this method to update a plan for a 30-day trial or a flexible plan subscription to an annual commitment plan with
-             * monthly or yearly payments.
-             */
+            /** Update a subscription plan. Use this method to update a plan for a 30-day trial or a flexible plan subscription to an annual commitment plan with monthly or yearly payments. */
             changePlan(request: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -548,9 +539,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a
-                 * subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all
-                 * reseller subscriptions method.
+                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we
+                 * recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.
                  */
                 subscriptionId: string;
                 /** Deprecated. Please use quotaUser instead. */
@@ -562,8 +552,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -577,9 +567,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a
-                 * subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all
-                 * reseller subscriptions method.
+                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we
+                 * recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.
                  */
                 subscriptionId: string;
                 /** Deprecated. Please use quotaUser instead. */
@@ -591,8 +580,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -606,9 +595,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a
-                 * subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all
-                 * reseller subscriptions method.
+                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we
+                 * recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.
                  */
                 subscriptionId: string;
                 /** Deprecated. Please use quotaUser instead. */
@@ -620,8 +608,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -635,9 +623,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a
-                 * subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all
-                 * reseller subscriptions method.
+                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we
+                 * recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.
                  */
                 subscriptionId: string;
                 /** Deprecated. Please use quotaUser instead. */
@@ -649,8 +636,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -664,9 +651,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a
-                 * subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all
-                 * reseller subscriptions method.
+                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we
+                 * recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.
                  */
                 subscriptionId: string;
                 /** Deprecated. Please use quotaUser instead. */
@@ -678,8 +664,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -693,9 +679,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a
-                 * subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all
-                 * reseller subscriptions method.
+                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we
+                 * recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.
                  */
                 subscriptionId: string;
                 /** Deprecated. Please use quotaUser instead. */
@@ -707,8 +692,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** The deletionType query string enables the cancellation, downgrade, or suspension of a subscription. */
@@ -724,9 +709,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a
-                 * subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all
-                 * reseller subscriptions method.
+                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we
+                 * recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.
                  */
                 subscriptionId: string;
                 /** Deprecated. Please use quotaUser instead. */
@@ -737,8 +721,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -752,9 +736,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a
-                 * subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all
-                 * reseller subscriptions method.
+                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we
+                 * recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.
                  */
                 subscriptionId: string;
                 /** Deprecated. Please use quotaUser instead. */
@@ -765,14 +748,14 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another
-                 * reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer.
-                 * For more information, see the administrator help center.
+                 * The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's
+                 * subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator
+                 * help center.
                  */
                 customerAuthToken?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -794,14 +777,14 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another
-                 * reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer.
-                 * For more information, see the administrator help center.
+                 * The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's
+                 * subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator
+                 * help center.
                  */
                 customerAuthToken?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -818,29 +801,26 @@ declare namespace gapi.client {
                 userIp?: string;
             },
             body: Subscription): Request<Subscription>;
-            /**
-             * List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's
-             * transferable subscriptions.
-             */
+            /** List of subscriptions managed by the reseller. The list can be all subscriptions, all of a customer's subscriptions, or all of a customer's transferable subscriptions. */
             list(request?: {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another
-                 * reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer.
-                 * For more information, see the administrator help center.
+                 * The customerAuthToken query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's
+                 * subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator
+                 * help center.
                  */
                 customerAuthToken?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId?: string;
                 /**
-                 * When retrieving all of your subscriptions and filtering for specific customers, you can enter a prefix for a customer name. Using an example customer
-                 * group that includes exam.com, example20.com and example.com:
-                 * - exa -- Returns all customer names that start with 'exa' which could include exam.com, example20.com, and example.com. A name prefix is similar to
-                 * using a regular expression's asterisk, exa∗.
+                 * When retrieving all of your subscriptions and filtering for specific customers, you can enter a prefix for a customer name. Using an example customer group that includes
+                 * exam.com, example20.com and example.com:
+                 * - exa -- Returns all customer names that start with 'exa' which could include exam.com, example20.com, and example.com. A name prefix is similar to using a regular expression's
+                 * asterisk, exa*.
                  * - example -- Returns example20.com and example.com.
                  */
                 customerNamePrefix?: string;
@@ -848,10 +828,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * When retrieving a large list, the maxResults is the maximum number of results per page. The nextPageToken value takes you to the next page. The default
-                 * is 20.
-                 */
+                /** When retrieving a large list, the maxResults is the maximum number of results per page. The nextPageToken value takes you to the next page. The default is 20. */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -869,8 +846,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -884,9 +861,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a
-                 * subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all
-                 * reseller subscriptions method.
+                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we
+                 * recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.
                  */
                 subscriptionId: string;
                 /** Deprecated. Please use quotaUser instead. */
@@ -897,8 +873,8 @@ declare namespace gapi.client {
                 /** Data format for the response. */
                 alt?: string;
                 /**
-                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a
-                 * key for persistent data. If the domain name for a customerId is changed, the Google system automatically updates.
+                 * Either the customer's primary domain name or the customer's unique identifier. If using the domain name, we do not recommend using a customerId as a key for persistent data. If
+                 * the domain name for a customerId is changed, the Google system automatically updates.
                  */
                 customerId: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -912,9 +888,8 @@ declare namespace gapi.client {
                 /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a
-                 * subscription is updated, we recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all
-                 * reseller subscriptions method.
+                 * This is a required property. The subscriptionId is the subscription identifier and is unique for each customer. Since a subscriptionId changes when a subscription is updated, we
+                 * recommend to not use this ID as a key for persistent data. And the subscriptionId can be found using the retrieve all reseller subscriptions method.
                  */
                 subscriptionId: string;
                 /** Deprecated. Please use quotaUser instead. */

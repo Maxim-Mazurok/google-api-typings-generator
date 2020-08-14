@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Speech-to-Text API v1 1.0
 // Project: https://cloud.google.com/speech-to-text/docs/quickstart-protocol
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -219,7 +222,7 @@ declare namespace gapi.client {
             /**
              * If set to `true`, the server will attempt to filter out
              * profanities, replacing all but the initial character in each filtered word
-             * with asterisks, e.g. "f∗∗∗". If set to `false` or omitted, profanities
+             * with asterisks, e.g. "f***". If set to `false` or omitted, profanities
              * won't be filtered out.
              */
             profanityFilter?: boolean;
@@ -462,7 +465,7 @@ declare namespace gapi.client {
              * NOTE: the `name` binding allows API services to override the binding
              * to use different resource name schemes, such as `users/∗/operations`. To
              * override the binding, API services can add a binding such as
-             * `"/v1/{name=users/∗}/operations"` to their service configuration.
+             * `"/v1/{name=users/*}/operations"` to their service configuration.
              * For backwards compatibility, the default name includes the operations
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.
@@ -539,7 +542,7 @@ declare namespace gapi.client {
              * NOTE: the `name` binding allows API services to override the binding
              * to use different resource name schemes, such as `users/∗/operations`. To
              * override the binding, API services can add a binding such as
-             * `"/v1/{name=users/∗}/operations"` to their service configuration.
+             * `"/v1/{name=users/*}/operations"` to their service configuration.
              * For backwards compatibility, the default name includes the operations
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.

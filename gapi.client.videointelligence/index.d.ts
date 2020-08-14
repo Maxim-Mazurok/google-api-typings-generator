@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Video Intelligence API v1 1.0
 // Project: https://cloud.google.com/video-intelligence/docs/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -28,22 +31,21 @@ declare namespace gapi.client {
             /** The video data bytes. If unset, the input video(s) should be specified via the `input_uri`. If set, `input_uri` must be unset. */
             inputContent?: string;
             /**
-             * Input video location. Currently, only [Cloud Storage](https://cloud.google.com/storage/) URIs are supported. URIs must be specified in the following
-             * format: `gs://bucket-id/object-id` (other URI formats return google.rpc.Code.INVALID_ARGUMENT). For more information, see [Request
-             * URIs](https://cloud.google.com/storage/docs/request-endpoints). To identify multiple videos, a video URI may include wildcards in the `object-id`.
-             * Supported wildcards: '∗' to match 0 or more characters; '?' to match 1 character. If unset, the input video should be embedded in the request as
-             * `input_content`. If set, `input_content` must be unset.
+             * Input video location. Currently, only [Cloud Storage](https://cloud.google.com/storage/) URIs are supported. URIs must be specified in the following format:
+             * `gs://bucket-id/object-id` (other URI formats return google.rpc.Code.INVALID_ARGUMENT). For more information, see [Request
+             * URIs](https://cloud.google.com/storage/docs/request-endpoints). To identify multiple videos, a video URI may include wildcards in the `object-id`. Supported wildcards: '*' to match
+             * 0 or more characters; '?' to match 1 character. If unset, the input video should be embedded in the request as `input_content`. If set, `input_content` must be unset.
              */
             inputUri?: string;
             /**
-             * Optional. Cloud region where annotation should take place. Supported cloud regions are: `us-east1`, `us-west1`, `europe-west1`, `asia-east1`. If no
-             * region is specified, the region will be determined based on video file location.
+             * Optional. Cloud region where annotation should take place. Supported cloud regions are: `us-east1`, `us-west1`, `europe-west1`, `asia-east1`. If no region is specified, the region
+             * will be determined based on video file location.
              */
             locationId?: string;
             /**
-             * Optional. Location where the output (in JSON format) should be stored. Currently, only [Cloud Storage](https://cloud.google.com/storage/) URIs are
-             * supported. These must be specified in the following format: `gs://bucket-id/object-id` (other URI formats return google.rpc.Code.INVALID_ARGUMENT). For
-             * more information, see [Request URIs](https://cloud.google.com/storage/docs/request-endpoints).
+             * Optional. Location where the output (in JSON format) should be stored. Currently, only [Cloud Storage](https://cloud.google.com/storage/) URIs are supported. These must be specified
+             * in the following format: `gs://bucket-id/object-id` (other URI formats return google.rpc.Code.INVALID_ARGUMENT). For more information, see [Request
+             * URIs](https://cloud.google.com/storage/docs/request-endpoints).
              */
             outputUri?: string;
             /** Additional video context and/or feature-specific parameters. */
@@ -95,8 +97,8 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1_LabelAnnotation {
             /**
-             * Common categories for the detected entity. For example, when the label is `Terrier`, the category is likely `dog`. And in some cases there might be
-             * more than one categories e.g., `Terrier` could also be a `pet`.
+             * Common categories for the detected entity. For example, when the label is `Terrier`, the category is likely `dog`. And in some cases there might be more than one categories e.g.,
+             * `Terrier` could also be a `pet`.
              */
             categoryEntities?: GoogleCloudVideointelligenceV1_Entity[];
             /** Detected entity. */
@@ -110,27 +112,24 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1_LabelDetectionConfig {
             /**
-             * The confidence threshold we perform filtering on the labels from frame-level detection. If not set, it is set to 0.4 by default. The valid range for
-             * this threshold is [0.1, 0.9]. Any value set outside of this range will be clipped. Note: For best results, follow the default threshold. We will update
-             * the default threshold everytime when we release a new model.
+             * The confidence threshold we perform filtering on the labels from frame-level detection. If not set, it is set to 0.4 by default. The valid range for this threshold is [0.1, 0.9].
+             * Any value set outside of this range will be clipped. Note: For best results, follow the default threshold. We will update the default threshold everytime when we release a new
+             * model.
              */
             frameConfidenceThreshold?: number;
-            /**
-             * What labels should be detected with LABEL_DETECTION, in addition to video-level labels or segment-level labels. If unspecified, defaults to
-             * `SHOT_MODE`.
-             */
+            /** What labels should be detected with LABEL_DETECTION, in addition to video-level labels or segment-level labels. If unspecified, defaults to `SHOT_MODE`. */
             labelDetectionMode?: string;
             /** Model to use for label detection. Supported values: "builtin/stable" (the default if unset) and "builtin/latest". */
             model?: string;
             /**
-             * Whether the video has been shot from a stationary (i.e., non-moving) camera. When set to true, might improve detection accuracy for moving objects.
-             * Should be used with `SHOT_AND_FRAME_MODE` enabled.
+             * Whether the video has been shot from a stationary (i.e., non-moving) camera. When set to true, might improve detection accuracy for moving objects. Should be used with
+             * `SHOT_AND_FRAME_MODE` enabled.
              */
             stationaryCamera?: boolean;
             /**
-             * The confidence threshold we perform filtering on the labels from video-level and shot-level detections. If not set, it's set to 0.3 by default. The
-             * valid range for this threshold is [0.1, 0.9]. Any value set outside of this range will be clipped. Note: For best results, follow the default
-             * threshold. We will update the default threshold everytime when we release a new model.
+             * The confidence threshold we perform filtering on the labels from video-level and shot-level detections. If not set, it's set to 0.3 by default. The valid range for this threshold is
+             * [0.1, 0.9]. Any value set outside of this range will be clipped. Note: For best results, follow the default threshold. We will update the default threshold everytime when we release
+             * a new model.
              */
             videoConfidenceThreshold?: number;
         }
@@ -180,16 +179,15 @@ declare namespace gapi.client {
             /** Entity to specify the object category that this track is labeled as. */
             entity?: GoogleCloudVideointelligenceV1_Entity;
             /**
-             * Information corresponding to all frames where this object track appears. Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame
-             * messages in frames. Streaming mode: it can only be one ObjectTrackingFrame message in frames.
+             * Information corresponding to all frames where this object track appears. Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame messages in frames. Streaming mode:
+             * it can only be one ObjectTrackingFrame message in frames.
              */
             frames?: GoogleCloudVideointelligenceV1_ObjectTrackingFrame[];
             /** Non-streaming batch mode ONLY. Each object track corresponds to one video segment where it appears. */
             segment?: GoogleCloudVideointelligenceV1_VideoSegment;
             /**
-             * Streaming mode ONLY. In streaming mode, we do not know the end time of a tracked object before it is completed. Hence, there is no VideoSegment info
-             * returned. Instead, we provide a unique identifiable integer track_id so that the customers can correlate the results of the ongoing
-             * ObjectTrackAnnotation of the same track_id over time.
+             * Streaming mode ONLY. In streaming mode, we do not know the end time of a tracked object before it is completed. Hence, there is no VideoSegment info returned. Instead, we provide a
+             * unique identifiable integer track_id so that the customers can correlate the results of the ongoing ObjectTrackAnnotation of the same track_id over time.
              */
             trackId?: string;
             /** Feature version. */
@@ -211,78 +209,74 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1_SpeechContext {
             /**
-             * Optional. A list of strings containing words and phrases "hints" so that the speech recognition is more likely to recognize them. This can be used to
-             * improve the accuracy for specific words and phrases, for example, if specific commands are typically spoken by the user. This can also be used to add
-             * additional words to the vocabulary of the recognizer. See [usage limits](https://cloud.google.com/speech/limits#content).
+             * Optional. A list of strings containing words and phrases "hints" so that the speech recognition is more likely to recognize them. This can be used to improve the accuracy for
+             * specific words and phrases, for example, if specific commands are typically spoken by the user. This can also be used to add additional words to the vocabulary of the recognizer.
+             * See [usage limits](https://cloud.google.com/speech/limits#content).
              */
             phrases?: string[];
         }
         interface GoogleCloudVideointelligenceV1_SpeechRecognitionAlternative {
             /**
-             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are
-             * correct. This field is set only for the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always
-             * provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
+             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct. This field is set only for
+             * the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always provided. The default of 0.0 is a sentinel value indicating
+             * `confidence` was not set.
              */
             confidence?: number;
             /** Transcript text representing the words that the user spoke. */
             transcript?: string;
             /**
-             * Output only. A list of word-specific information for each recognized word. Note: When `enable_speaker_diarization` is set to true, you will see all the
-             * words from the beginning of the audio.
+             * Output only. A list of word-specific information for each recognized word. Note: When `enable_speaker_diarization` is set to true, you will see all the words from the beginning of
+             * the audio.
              */
             words?: GoogleCloudVideointelligenceV1_WordInfo[];
         }
         interface GoogleCloudVideointelligenceV1_SpeechTranscription {
             /**
-             * May contain one or more recognition hypotheses (up to the maximum specified in `max_alternatives`). These alternatives are ordered in terms of
-             * accuracy, with the top (first) alternative being the most probable, as ranked by the recognizer.
+             * May contain one or more recognition hypotheses (up to the maximum specified in `max_alternatives`). These alternatives are ordered in terms of accuracy, with the top (first)
+             * alternative being the most probable, as ranked by the recognizer.
              */
             alternatives?: GoogleCloudVideointelligenceV1_SpeechRecognitionAlternative[];
             /**
-             * Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the language in this result. This language code was detected to
-             * have the most likelihood of being spoken in the audio.
+             * Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the language in this result. This language code was detected to have the most likelihood of
+             * being spoken in the audio.
              */
             languageCode?: string;
         }
         interface GoogleCloudVideointelligenceV1_SpeechTranscriptionConfig {
             /** Optional. For file formats, such as MXF or MKV, supporting multiple audio tracks, specify up to two tracks. Default: track 0. */
             audioTracks?: number[];
-            /**
-             * Optional. If set, specifies the estimated number of speakers in the conversation. If not set, defaults to '2'. Ignored unless
-             * enable_speaker_diarization is set to true.
-             */
+            /** Optional. If set, specifies the estimated number of speakers in the conversation. If not set, defaults to '2'. Ignored unless enable_speaker_diarization is set to true. */
             diarizationSpeakerCount?: number;
             /**
-             * Optional. If 'true', adds punctuation to recognition result hypotheses. This feature is only available in select languages. Setting this for requests
-             * in other languages has no effect at all. The default 'false' value does not add punctuation to result hypotheses. NOTE: "This is currently offered as
-             * an experimental service, complimentary to all users. In the future this may be exclusively available as a premium feature."
+             * Optional. If 'true', adds punctuation to recognition result hypotheses. This feature is only available in select languages. Setting this for requests in other languages has no
+             * effect at all. The default 'false' value does not add punctuation to result hypotheses. NOTE: "This is currently offered as an experimental service, complimentary to all users. In
+             * the future this may be exclusively available as a premium feature."
              */
             enableAutomaticPunctuation?: boolean;
             /**
-             * Optional. If 'true', enables speaker detection for each recognized word in the top alternative of the recognition result using a speaker_tag provided
-             * in the WordInfo. Note: When this is true, we send all the words from the beginning of the audio for the top alternative in every consecutive response.
-             * This is done in order to improve our speaker tags as our models learn to identify the speakers in the conversation over time.
+             * Optional. If 'true', enables speaker detection for each recognized word in the top alternative of the recognition result using a speaker_tag provided in the WordInfo. Note: When
+             * this is true, we send all the words from the beginning of the audio for the top alternative in every consecutive response. This is done in order to improve our speaker tags as our
+             * models learn to identify the speakers in the conversation over time.
              */
             enableSpeakerDiarization?: boolean;
             /**
-             * Optional. If `true`, the top result includes a list of words and the confidence for those words. If `false`, no word-level confidence information is
-             * returned. The default is `false`.
+             * Optional. If `true`, the top result includes a list of words and the confidence for those words. If `false`, no word-level confidence information is returned. The default is
+             * `false`.
              */
             enableWordConfidence?: boolean;
             /**
-             * Optional. If set to `true`, the server will attempt to filter out profanities, replacing all but the initial character in each filtered word with
-             * asterisks, e.g. "f∗∗∗". If set to `false` or omitted, profanities won't be filtered out.
+             * Optional. If set to `true`, the server will attempt to filter out profanities, replacing all but the initial character in each filtered word with asterisks, e.g. "f***". If set to
+             * `false` or omitted, profanities won't be filtered out.
              */
             filterProfanity?: boolean;
             /**
-             * Required. ∗Required∗ The language of the supplied audio as a [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag. Example: "en-US". See
-             * [Language Support](https://cloud.google.com/speech/docs/languages) for a list of the currently supported language codes.
+             * Required. *Required* The language of the supplied audio as a [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag. Example: "en-US". See [Language
+             * Support](https://cloud.google.com/speech/docs/languages) for a list of the currently supported language codes.
              */
             languageCode?: string;
             /**
-             * Optional. Maximum number of recognition hypotheses to be returned. Specifically, the maximum number of `SpeechRecognitionAlternative` messages within
-             * each `SpeechTranscription`. The server may return fewer than `max_alternatives`. Valid values are `0`-`30`. A value of `0` or `1` will return a maximum
-             * of one. If omitted, will return a maximum of one.
+             * Optional. Maximum number of recognition hypotheses to be returned. Specifically, the maximum number of `SpeechRecognitionAlternative` messages within each `SpeechTranscription`. The
+             * server may return fewer than `max_alternatives`. Valid values are `0`-`30`. A value of `0` or `1` will return a maximum of one. If omitted, will return a maximum of one.
              */
             maxAlternatives?: number;
             /** Optional. A means to provide context to assist the speech recognition. */
@@ -298,8 +292,8 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1_TextDetectionConfig {
             /**
-             * Language hint can be specified if the language to be detected is known a priori. It can increase the accuracy of the detection. Language hint must be
-             * language code in BCP-47 format. Automatic language detection is performed if no hint is provided.
+             * Language hint can be specified if the language to be detected is known a priori. It can increase the accuracy of the detection. Language hint must be language code in BCP-47 format.
+             * Automatic language detection is performed if no hint is provided.
              */
             languageHints?: string[];
             /** Model to use for text detection. Supported values: "builtin/stable" (the default if unset) and "builtin/latest". */
@@ -371,9 +365,9 @@ declare namespace gapi.client {
             /** Topical label annotations on video level or user-specified segment level. There is exactly one element for each unique label. */
             segmentLabelAnnotations?: GoogleCloudVideointelligenceV1_LabelAnnotation[];
             /**
-             * Presence label annotations on video level or user-specified segment level. There is exactly one element for each unique label. Compared to the existing
-             * topical `segment_label_annotations`, this field presents more fine-grained, segment-level labels detected in video content and is made available only
-             * when the client sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+             * Presence label annotations on video level or user-specified segment level. There is exactly one element for each unique label. Compared to the existing topical
+             * `segment_label_annotations`, this field presents more fine-grained, segment-level labels detected in video content and is made available only when the client sets
+             * `LabelDetectionConfig.model` to "builtin/latest" in the request.
              */
             segmentPresenceLabelAnnotations?: GoogleCloudVideointelligenceV1_LabelAnnotation[];
             /** Shot annotations. Each shot is represented as a video segment. */
@@ -381,9 +375,8 @@ declare namespace gapi.client {
             /** Topical label annotations on shot level. There is exactly one element for each unique label. */
             shotLabelAnnotations?: GoogleCloudVideointelligenceV1_LabelAnnotation[];
             /**
-             * Presence label annotations on shot level. There is exactly one element for each unique label. Compared to the existing topical
-             * `shot_label_annotations`, this field presents more fine-grained, shot-level labels detected in video content and is made available only when the client
-             * sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+             * Presence label annotations on shot level. There is exactly one element for each unique label. Compared to the existing topical `shot_label_annotations`, this field presents more
+             * fine-grained, shot-level labels detected in video content and is made available only when the client sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
              */
             shotPresenceLabelAnnotations?: GoogleCloudVideointelligenceV1_LabelAnnotation[];
             /** Speech transcription. */
@@ -398,10 +391,7 @@ declare namespace gapi.client {
             labelDetectionConfig?: GoogleCloudVideointelligenceV1_LabelDetectionConfig;
             /** Config for OBJECT_TRACKING. */
             objectTrackingConfig?: GoogleCloudVideointelligenceV1_ObjectTrackingConfig;
-            /**
-             * Video segments to annotate. The segments may overlap and are not required to be contiguous or span the whole video. If unspecified, each video is
-             * treated as a single segment.
-             */
+            /** Video segments to annotate. The segments may overlap and are not required to be contiguous or span the whole video. If unspecified, each video is treated as a single segment. */
             segments?: GoogleCloudVideointelligenceV1_VideoSegment[];
             /** Config for SHOT_CHANGE_DETECTION. */
             shotChangeDetectionConfig?: GoogleCloudVideointelligenceV1_ShotChangeDetectionConfig;
@@ -418,24 +408,24 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1_WordInfo {
             /**
-             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are
-             * correct. This field is set only for the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always
-             * provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
+             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct. This field is set only for
+             * the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always provided. The default of 0.0 is a sentinel value indicating
+             * `confidence` was not set.
              */
             confidence?: number;
             /**
-             * Time offset relative to the beginning of the audio, and corresponding to the end of the spoken word. This field is only set if
-             * `enable_word_time_offsets=true` and only in the top hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
+             * Time offset relative to the beginning of the audio, and corresponding to the end of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top
+             * hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
              */
             endTime?: string;
             /**
-             * Output only. A distinct integer value is assigned for every speaker within the audio. This field specifies which one of those speakers was detected to
-             * have spoken this word. Value ranges from 1 up to diarization_speaker_count, and is only set if speaker diarization is enabled.
+             * Output only. A distinct integer value is assigned for every speaker within the audio. This field specifies which one of those speakers was detected to have spoken this word. Value
+             * ranges from 1 up to diarization_speaker_count, and is only set if speaker diarization is enabled.
              */
             speakerTag?: number;
             /**
-             * Time offset relative to the beginning of the audio, and corresponding to the start of the spoken word. This field is only set if
-             * `enable_word_time_offsets=true` and only in the top hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
+             * Time offset relative to the beginning of the audio, and corresponding to the start of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top
+             * hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
              */
             startTime?: string;
             /** The word corresponding to this set of information. */
@@ -487,8 +477,8 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1beta2_LabelAnnotation {
             /**
-             * Common categories for the detected entity. For example, when the label is `Terrier`, the category is likely `dog`. And in some cases there might be
-             * more than one categories e.g., `Terrier` could also be a `pet`.
+             * Common categories for the detected entity. For example, when the label is `Terrier`, the category is likely `dog`. And in some cases there might be more than one categories e.g.,
+             * `Terrier` could also be a `pet`.
              */
             categoryEntities?: GoogleCloudVideointelligenceV1beta2_Entity[];
             /** Detected entity. */
@@ -546,16 +536,15 @@ declare namespace gapi.client {
             /** Entity to specify the object category that this track is labeled as. */
             entity?: GoogleCloudVideointelligenceV1beta2_Entity;
             /**
-             * Information corresponding to all frames where this object track appears. Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame
-             * messages in frames. Streaming mode: it can only be one ObjectTrackingFrame message in frames.
+             * Information corresponding to all frames where this object track appears. Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame messages in frames. Streaming mode:
+             * it can only be one ObjectTrackingFrame message in frames.
              */
             frames?: GoogleCloudVideointelligenceV1beta2_ObjectTrackingFrame[];
             /** Non-streaming batch mode ONLY. Each object track corresponds to one video segment where it appears. */
             segment?: GoogleCloudVideointelligenceV1beta2_VideoSegment;
             /**
-             * Streaming mode ONLY. In streaming mode, we do not know the end time of a tracked object before it is completed. Hence, there is no VideoSegment info
-             * returned. Instead, we provide a unique identifiable integer track_id so that the customers can correlate the results of the ongoing
-             * ObjectTrackAnnotation of the same track_id over time.
+             * Streaming mode ONLY. In streaming mode, we do not know the end time of a tracked object before it is completed. Hence, there is no VideoSegment info returned. Instead, we provide a
+             * unique identifiable integer track_id so that the customers can correlate the results of the ongoing ObjectTrackAnnotation of the same track_id over time.
              */
             trackId?: string;
             /** Feature version. */
@@ -569,28 +558,28 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1beta2_SpeechRecognitionAlternative {
             /**
-             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are
-             * correct. This field is set only for the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always
-             * provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
+             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct. This field is set only for
+             * the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always provided. The default of 0.0 is a sentinel value indicating
+             * `confidence` was not set.
              */
             confidence?: number;
             /** Transcript text representing the words that the user spoke. */
             transcript?: string;
             /**
-             * Output only. A list of word-specific information for each recognized word. Note: When `enable_speaker_diarization` is set to true, you will see all the
-             * words from the beginning of the audio.
+             * Output only. A list of word-specific information for each recognized word. Note: When `enable_speaker_diarization` is set to true, you will see all the words from the beginning of
+             * the audio.
              */
             words?: GoogleCloudVideointelligenceV1beta2_WordInfo[];
         }
         interface GoogleCloudVideointelligenceV1beta2_SpeechTranscription {
             /**
-             * May contain one or more recognition hypotheses (up to the maximum specified in `max_alternatives`). These alternatives are ordered in terms of
-             * accuracy, with the top (first) alternative being the most probable, as ranked by the recognizer.
+             * May contain one or more recognition hypotheses (up to the maximum specified in `max_alternatives`). These alternatives are ordered in terms of accuracy, with the top (first)
+             * alternative being the most probable, as ranked by the recognizer.
              */
             alternatives?: GoogleCloudVideointelligenceV1beta2_SpeechRecognitionAlternative[];
             /**
-             * Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the language in this result. This language code was detected to
-             * have the most likelihood of being spoken in the audio.
+             * Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the language in this result. This language code was detected to have the most likelihood of
+             * being spoken in the audio.
              */
             languageCode?: string;
         }
@@ -668,9 +657,9 @@ declare namespace gapi.client {
             /** Topical label annotations on video level or user-specified segment level. There is exactly one element for each unique label. */
             segmentLabelAnnotations?: GoogleCloudVideointelligenceV1beta2_LabelAnnotation[];
             /**
-             * Presence label annotations on video level or user-specified segment level. There is exactly one element for each unique label. Compared to the existing
-             * topical `segment_label_annotations`, this field presents more fine-grained, segment-level labels detected in video content and is made available only
-             * when the client sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+             * Presence label annotations on video level or user-specified segment level. There is exactly one element for each unique label. Compared to the existing topical
+             * `segment_label_annotations`, this field presents more fine-grained, segment-level labels detected in video content and is made available only when the client sets
+             * `LabelDetectionConfig.model` to "builtin/latest" in the request.
              */
             segmentPresenceLabelAnnotations?: GoogleCloudVideointelligenceV1beta2_LabelAnnotation[];
             /** Shot annotations. Each shot is represented as a video segment. */
@@ -678,9 +667,8 @@ declare namespace gapi.client {
             /** Topical label annotations on shot level. There is exactly one element for each unique label. */
             shotLabelAnnotations?: GoogleCloudVideointelligenceV1beta2_LabelAnnotation[];
             /**
-             * Presence label annotations on shot level. There is exactly one element for each unique label. Compared to the existing topical
-             * `shot_label_annotations`, this field presents more fine-grained, shot-level labels detected in video content and is made available only when the client
-             * sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+             * Presence label annotations on shot level. There is exactly one element for each unique label. Compared to the existing topical `shot_label_annotations`, this field presents more
+             * fine-grained, shot-level labels detected in video content and is made available only when the client sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
              */
             shotPresenceLabelAnnotations?: GoogleCloudVideointelligenceV1beta2_LabelAnnotation[];
             /** Speech transcription. */
@@ -696,24 +684,24 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1beta2_WordInfo {
             /**
-             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are
-             * correct. This field is set only for the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always
-             * provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
+             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct. This field is set only for
+             * the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always provided. The default of 0.0 is a sentinel value indicating
+             * `confidence` was not set.
              */
             confidence?: number;
             /**
-             * Time offset relative to the beginning of the audio, and corresponding to the end of the spoken word. This field is only set if
-             * `enable_word_time_offsets=true` and only in the top hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
+             * Time offset relative to the beginning of the audio, and corresponding to the end of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top
+             * hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
              */
             endTime?: string;
             /**
-             * Output only. A distinct integer value is assigned for every speaker within the audio. This field specifies which one of those speakers was detected to
-             * have spoken this word. Value ranges from 1 up to diarization_speaker_count, and is only set if speaker diarization is enabled.
+             * Output only. A distinct integer value is assigned for every speaker within the audio. This field specifies which one of those speakers was detected to have spoken this word. Value
+             * ranges from 1 up to diarization_speaker_count, and is only set if speaker diarization is enabled.
              */
             speakerTag?: number;
             /**
-             * Time offset relative to the beginning of the audio, and corresponding to the start of the spoken word. This field is only set if
-             * `enable_word_time_offsets=true` and only in the top hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
+             * Time offset relative to the beginning of the audio, and corresponding to the start of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top
+             * hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
              */
             startTime?: string;
             /** The word corresponding to this set of information. */
@@ -765,8 +753,8 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1p1beta1_LabelAnnotation {
             /**
-             * Common categories for the detected entity. For example, when the label is `Terrier`, the category is likely `dog`. And in some cases there might be
-             * more than one categories e.g., `Terrier` could also be a `pet`.
+             * Common categories for the detected entity. For example, when the label is `Terrier`, the category is likely `dog`. And in some cases there might be more than one categories e.g.,
+             * `Terrier` could also be a `pet`.
              */
             categoryEntities?: GoogleCloudVideointelligenceV1p1beta1_Entity[];
             /** Detected entity. */
@@ -824,16 +812,15 @@ declare namespace gapi.client {
             /** Entity to specify the object category that this track is labeled as. */
             entity?: GoogleCloudVideointelligenceV1p1beta1_Entity;
             /**
-             * Information corresponding to all frames where this object track appears. Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame
-             * messages in frames. Streaming mode: it can only be one ObjectTrackingFrame message in frames.
+             * Information corresponding to all frames where this object track appears. Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame messages in frames. Streaming mode:
+             * it can only be one ObjectTrackingFrame message in frames.
              */
             frames?: GoogleCloudVideointelligenceV1p1beta1_ObjectTrackingFrame[];
             /** Non-streaming batch mode ONLY. Each object track corresponds to one video segment where it appears. */
             segment?: GoogleCloudVideointelligenceV1p1beta1_VideoSegment;
             /**
-             * Streaming mode ONLY. In streaming mode, we do not know the end time of a tracked object before it is completed. Hence, there is no VideoSegment info
-             * returned. Instead, we provide a unique identifiable integer track_id so that the customers can correlate the results of the ongoing
-             * ObjectTrackAnnotation of the same track_id over time.
+             * Streaming mode ONLY. In streaming mode, we do not know the end time of a tracked object before it is completed. Hence, there is no VideoSegment info returned. Instead, we provide a
+             * unique identifiable integer track_id so that the customers can correlate the results of the ongoing ObjectTrackAnnotation of the same track_id over time.
              */
             trackId?: string;
             /** Feature version. */
@@ -847,28 +834,28 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1p1beta1_SpeechRecognitionAlternative {
             /**
-             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are
-             * correct. This field is set only for the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always
-             * provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
+             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct. This field is set only for
+             * the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always provided. The default of 0.0 is a sentinel value indicating
+             * `confidence` was not set.
              */
             confidence?: number;
             /** Transcript text representing the words that the user spoke. */
             transcript?: string;
             /**
-             * Output only. A list of word-specific information for each recognized word. Note: When `enable_speaker_diarization` is set to true, you will see all the
-             * words from the beginning of the audio.
+             * Output only. A list of word-specific information for each recognized word. Note: When `enable_speaker_diarization` is set to true, you will see all the words from the beginning of
+             * the audio.
              */
             words?: GoogleCloudVideointelligenceV1p1beta1_WordInfo[];
         }
         interface GoogleCloudVideointelligenceV1p1beta1_SpeechTranscription {
             /**
-             * May contain one or more recognition hypotheses (up to the maximum specified in `max_alternatives`). These alternatives are ordered in terms of
-             * accuracy, with the top (first) alternative being the most probable, as ranked by the recognizer.
+             * May contain one or more recognition hypotheses (up to the maximum specified in `max_alternatives`). These alternatives are ordered in terms of accuracy, with the top (first)
+             * alternative being the most probable, as ranked by the recognizer.
              */
             alternatives?: GoogleCloudVideointelligenceV1p1beta1_SpeechRecognitionAlternative[];
             /**
-             * Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the language in this result. This language code was detected to
-             * have the most likelihood of being spoken in the audio.
+             * Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the language in this result. This language code was detected to have the most likelihood of
+             * being spoken in the audio.
              */
             languageCode?: string;
         }
@@ -946,9 +933,9 @@ declare namespace gapi.client {
             /** Topical label annotations on video level or user-specified segment level. There is exactly one element for each unique label. */
             segmentLabelAnnotations?: GoogleCloudVideointelligenceV1p1beta1_LabelAnnotation[];
             /**
-             * Presence label annotations on video level or user-specified segment level. There is exactly one element for each unique label. Compared to the existing
-             * topical `segment_label_annotations`, this field presents more fine-grained, segment-level labels detected in video content and is made available only
-             * when the client sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+             * Presence label annotations on video level or user-specified segment level. There is exactly one element for each unique label. Compared to the existing topical
+             * `segment_label_annotations`, this field presents more fine-grained, segment-level labels detected in video content and is made available only when the client sets
+             * `LabelDetectionConfig.model` to "builtin/latest" in the request.
              */
             segmentPresenceLabelAnnotations?: GoogleCloudVideointelligenceV1p1beta1_LabelAnnotation[];
             /** Shot annotations. Each shot is represented as a video segment. */
@@ -956,9 +943,8 @@ declare namespace gapi.client {
             /** Topical label annotations on shot level. There is exactly one element for each unique label. */
             shotLabelAnnotations?: GoogleCloudVideointelligenceV1p1beta1_LabelAnnotation[];
             /**
-             * Presence label annotations on shot level. There is exactly one element for each unique label. Compared to the existing topical
-             * `shot_label_annotations`, this field presents more fine-grained, shot-level labels detected in video content and is made available only when the client
-             * sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+             * Presence label annotations on shot level. There is exactly one element for each unique label. Compared to the existing topical `shot_label_annotations`, this field presents more
+             * fine-grained, shot-level labels detected in video content and is made available only when the client sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
              */
             shotPresenceLabelAnnotations?: GoogleCloudVideointelligenceV1p1beta1_LabelAnnotation[];
             /** Speech transcription. */
@@ -974,24 +960,24 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1p1beta1_WordInfo {
             /**
-             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are
-             * correct. This field is set only for the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always
-             * provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
+             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct. This field is set only for
+             * the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always provided. The default of 0.0 is a sentinel value indicating
+             * `confidence` was not set.
              */
             confidence?: number;
             /**
-             * Time offset relative to the beginning of the audio, and corresponding to the end of the spoken word. This field is only set if
-             * `enable_word_time_offsets=true` and only in the top hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
+             * Time offset relative to the beginning of the audio, and corresponding to the end of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top
+             * hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
              */
             endTime?: string;
             /**
-             * Output only. A distinct integer value is assigned for every speaker within the audio. This field specifies which one of those speakers was detected to
-             * have spoken this word. Value ranges from 1 up to diarization_speaker_count, and is only set if speaker diarization is enabled.
+             * Output only. A distinct integer value is assigned for every speaker within the audio. This field specifies which one of those speakers was detected to have spoken this word. Value
+             * ranges from 1 up to diarization_speaker_count, and is only set if speaker diarization is enabled.
              */
             speakerTag?: number;
             /**
-             * Time offset relative to the beginning of the audio, and corresponding to the start of the spoken word. This field is only set if
-             * `enable_word_time_offsets=true` and only in the top hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
+             * Time offset relative to the beginning of the audio, and corresponding to the start of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top
+             * hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
              */
             startTime?: string;
             /** The word corresponding to this set of information. */
@@ -1043,8 +1029,8 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1p2beta1_LabelAnnotation {
             /**
-             * Common categories for the detected entity. For example, when the label is `Terrier`, the category is likely `dog`. And in some cases there might be
-             * more than one categories e.g., `Terrier` could also be a `pet`.
+             * Common categories for the detected entity. For example, when the label is `Terrier`, the category is likely `dog`. And in some cases there might be more than one categories e.g.,
+             * `Terrier` could also be a `pet`.
              */
             categoryEntities?: GoogleCloudVideointelligenceV1p2beta1_Entity[];
             /** Detected entity. */
@@ -1102,16 +1088,15 @@ declare namespace gapi.client {
             /** Entity to specify the object category that this track is labeled as. */
             entity?: GoogleCloudVideointelligenceV1p2beta1_Entity;
             /**
-             * Information corresponding to all frames where this object track appears. Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame
-             * messages in frames. Streaming mode: it can only be one ObjectTrackingFrame message in frames.
+             * Information corresponding to all frames where this object track appears. Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame messages in frames. Streaming mode:
+             * it can only be one ObjectTrackingFrame message in frames.
              */
             frames?: GoogleCloudVideointelligenceV1p2beta1_ObjectTrackingFrame[];
             /** Non-streaming batch mode ONLY. Each object track corresponds to one video segment where it appears. */
             segment?: GoogleCloudVideointelligenceV1p2beta1_VideoSegment;
             /**
-             * Streaming mode ONLY. In streaming mode, we do not know the end time of a tracked object before it is completed. Hence, there is no VideoSegment info
-             * returned. Instead, we provide a unique identifiable integer track_id so that the customers can correlate the results of the ongoing
-             * ObjectTrackAnnotation of the same track_id over time.
+             * Streaming mode ONLY. In streaming mode, we do not know the end time of a tracked object before it is completed. Hence, there is no VideoSegment info returned. Instead, we provide a
+             * unique identifiable integer track_id so that the customers can correlate the results of the ongoing ObjectTrackAnnotation of the same track_id over time.
              */
             trackId?: string;
             /** Feature version. */
@@ -1125,28 +1110,28 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1p2beta1_SpeechRecognitionAlternative {
             /**
-             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are
-             * correct. This field is set only for the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always
-             * provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
+             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct. This field is set only for
+             * the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always provided. The default of 0.0 is a sentinel value indicating
+             * `confidence` was not set.
              */
             confidence?: number;
             /** Transcript text representing the words that the user spoke. */
             transcript?: string;
             /**
-             * Output only. A list of word-specific information for each recognized word. Note: When `enable_speaker_diarization` is set to true, you will see all the
-             * words from the beginning of the audio.
+             * Output only. A list of word-specific information for each recognized word. Note: When `enable_speaker_diarization` is set to true, you will see all the words from the beginning of
+             * the audio.
              */
             words?: GoogleCloudVideointelligenceV1p2beta1_WordInfo[];
         }
         interface GoogleCloudVideointelligenceV1p2beta1_SpeechTranscription {
             /**
-             * May contain one or more recognition hypotheses (up to the maximum specified in `max_alternatives`). These alternatives are ordered in terms of
-             * accuracy, with the top (first) alternative being the most probable, as ranked by the recognizer.
+             * May contain one or more recognition hypotheses (up to the maximum specified in `max_alternatives`). These alternatives are ordered in terms of accuracy, with the top (first)
+             * alternative being the most probable, as ranked by the recognizer.
              */
             alternatives?: GoogleCloudVideointelligenceV1p2beta1_SpeechRecognitionAlternative[];
             /**
-             * Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the language in this result. This language code was detected to
-             * have the most likelihood of being spoken in the audio.
+             * Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the language in this result. This language code was detected to have the most likelihood of
+             * being spoken in the audio.
              */
             languageCode?: string;
         }
@@ -1224,9 +1209,9 @@ declare namespace gapi.client {
             /** Topical label annotations on video level or user-specified segment level. There is exactly one element for each unique label. */
             segmentLabelAnnotations?: GoogleCloudVideointelligenceV1p2beta1_LabelAnnotation[];
             /**
-             * Presence label annotations on video level or user-specified segment level. There is exactly one element for each unique label. Compared to the existing
-             * topical `segment_label_annotations`, this field presents more fine-grained, segment-level labels detected in video content and is made available only
-             * when the client sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+             * Presence label annotations on video level or user-specified segment level. There is exactly one element for each unique label. Compared to the existing topical
+             * `segment_label_annotations`, this field presents more fine-grained, segment-level labels detected in video content and is made available only when the client sets
+             * `LabelDetectionConfig.model` to "builtin/latest" in the request.
              */
             segmentPresenceLabelAnnotations?: GoogleCloudVideointelligenceV1p2beta1_LabelAnnotation[];
             /** Shot annotations. Each shot is represented as a video segment. */
@@ -1234,9 +1219,8 @@ declare namespace gapi.client {
             /** Topical label annotations on shot level. There is exactly one element for each unique label. */
             shotLabelAnnotations?: GoogleCloudVideointelligenceV1p2beta1_LabelAnnotation[];
             /**
-             * Presence label annotations on shot level. There is exactly one element for each unique label. Compared to the existing topical
-             * `shot_label_annotations`, this field presents more fine-grained, shot-level labels detected in video content and is made available only when the client
-             * sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+             * Presence label annotations on shot level. There is exactly one element for each unique label. Compared to the existing topical `shot_label_annotations`, this field presents more
+             * fine-grained, shot-level labels detected in video content and is made available only when the client sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
              */
             shotPresenceLabelAnnotations?: GoogleCloudVideointelligenceV1p2beta1_LabelAnnotation[];
             /** Speech transcription. */
@@ -1252,24 +1236,24 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1p2beta1_WordInfo {
             /**
-             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are
-             * correct. This field is set only for the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always
-             * provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
+             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct. This field is set only for
+             * the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always provided. The default of 0.0 is a sentinel value indicating
+             * `confidence` was not set.
              */
             confidence?: number;
             /**
-             * Time offset relative to the beginning of the audio, and corresponding to the end of the spoken word. This field is only set if
-             * `enable_word_time_offsets=true` and only in the top hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
+             * Time offset relative to the beginning of the audio, and corresponding to the end of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top
+             * hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
              */
             endTime?: string;
             /**
-             * Output only. A distinct integer value is assigned for every speaker within the audio. This field specifies which one of those speakers was detected to
-             * have spoken this word. Value ranges from 1 up to diarization_speaker_count, and is only set if speaker diarization is enabled.
+             * Output only. A distinct integer value is assigned for every speaker within the audio. This field specifies which one of those speakers was detected to have spoken this word. Value
+             * ranges from 1 up to diarization_speaker_count, and is only set if speaker diarization is enabled.
              */
             speakerTag?: number;
             /**
-             * Time offset relative to the beginning of the audio, and corresponding to the start of the spoken word. This field is only set if
-             * `enable_word_time_offsets=true` and only in the top hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
+             * Time offset relative to the beginning of the audio, and corresponding to the start of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top
+             * hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
              */
             startTime?: string;
             /** The word corresponding to this set of information. */
@@ -1289,8 +1273,8 @@ declare namespace gapi.client {
             /** The celebrity name. */
             displayName?: string;
             /**
-             * The resource name of the celebrity. Have the format `video-intelligence/kg-mid` indicates a celebrity from preloaded gallery. kg-mid is the id in
-             * Google knowledge graph, which is unique for the celebrity.
+             * The resource name of the celebrity. Have the format `video-intelligence/kg-mid` indicates a celebrity from preloaded gallery. kg-mid is the id in Google knowledge graph, which is
+             * unique for the celebrity.
              */
             name?: string;
         }
@@ -1352,8 +1336,8 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1p3beta1_LabelAnnotation {
             /**
-             * Common categories for the detected entity. For example, when the label is `Terrier`, the category is likely `dog`. And in some cases there might be
-             * more than one categories e.g., `Terrier` could also be a `pet`.
+             * Common categories for the detected entity. For example, when the label is `Terrier`, the category is likely `dog`. And in some cases there might be more than one categories e.g.,
+             * `Terrier` could also be a `pet`.
              */
             categoryEntities?: GoogleCloudVideointelligenceV1p3beta1_Entity[];
             /** Detected entity. */
@@ -1411,16 +1395,15 @@ declare namespace gapi.client {
             /** Entity to specify the object category that this track is labeled as. */
             entity?: GoogleCloudVideointelligenceV1p3beta1_Entity;
             /**
-             * Information corresponding to all frames where this object track appears. Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame
-             * messages in frames. Streaming mode: it can only be one ObjectTrackingFrame message in frames.
+             * Information corresponding to all frames where this object track appears. Non-streaming batch mode: it may be one or multiple ObjectTrackingFrame messages in frames. Streaming mode:
+             * it can only be one ObjectTrackingFrame message in frames.
              */
             frames?: GoogleCloudVideointelligenceV1p3beta1_ObjectTrackingFrame[];
             /** Non-streaming batch mode ONLY. Each object track corresponds to one video segment where it appears. */
             segment?: GoogleCloudVideointelligenceV1p3beta1_VideoSegment;
             /**
-             * Streaming mode ONLY. In streaming mode, we do not know the end time of a tracked object before it is completed. Hence, there is no VideoSegment info
-             * returned. Instead, we provide a unique identifiable integer track_id so that the customers can correlate the results of the ongoing
-             * ObjectTrackAnnotation of the same track_id over time.
+             * Streaming mode ONLY. In streaming mode, we do not know the end time of a tracked object before it is completed. Hence, there is no VideoSegment info returned. Instead, we provide a
+             * unique identifiable integer track_id so that the customers can correlate the results of the ongoing ObjectTrackAnnotation of the same track_id over time.
              */
             trackId?: string;
             /** Feature version. */
@@ -1446,28 +1429,28 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1p3beta1_SpeechRecognitionAlternative {
             /**
-             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are
-             * correct. This field is set only for the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always
-             * provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
+             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct. This field is set only for
+             * the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always provided. The default of 0.0 is a sentinel value indicating
+             * `confidence` was not set.
              */
             confidence?: number;
             /** Transcript text representing the words that the user spoke. */
             transcript?: string;
             /**
-             * Output only. A list of word-specific information for each recognized word. Note: When `enable_speaker_diarization` is set to true, you will see all the
-             * words from the beginning of the audio.
+             * Output only. A list of word-specific information for each recognized word. Note: When `enable_speaker_diarization` is set to true, you will see all the words from the beginning of
+             * the audio.
              */
             words?: GoogleCloudVideointelligenceV1p3beta1_WordInfo[];
         }
         interface GoogleCloudVideointelligenceV1p3beta1_SpeechTranscription {
             /**
-             * May contain one or more recognition hypotheses (up to the maximum specified in `max_alternatives`). These alternatives are ordered in terms of
-             * accuracy, with the top (first) alternative being the most probable, as ranked by the recognizer.
+             * May contain one or more recognition hypotheses (up to the maximum specified in `max_alternatives`). These alternatives are ordered in terms of accuracy, with the top (first)
+             * alternative being the most probable, as ranked by the recognizer.
              */
             alternatives?: GoogleCloudVideointelligenceV1p3beta1_SpeechRecognitionAlternative[];
             /**
-             * Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the language in this result. This language code was detected to
-             * have the most likelihood of being spoken in the audio.
+             * Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the language in this result. This language code was detected to have the most likelihood of
+             * being spoken in the audio.
              */
             languageCode?: string;
         }
@@ -1475,8 +1458,8 @@ declare namespace gapi.client {
             /** Streaming annotation results. */
             annotationResults?: GoogleCloudVideointelligenceV1p3beta1_StreamingVideoAnnotationResults;
             /**
-             * Google Cloud Storage URI that stores annotation results of one streaming session in JSON format. It is the annotation_result_storage_directory from the
-             * request followed by '/cloud_project_number-session_id'.
+             * Google Cloud Storage URI that stores annotation results of one streaming session in JSON format. It is the annotation_result_storage_directory from the request followed by
+             * '/cloud_project_number-session_id'.
              */
             annotationResultsUri?: string;
             /** If set, returns a google.rpc.Status message that specifies the error for the operation. */
@@ -1572,9 +1555,9 @@ declare namespace gapi.client {
             /** Topical label annotations on video level or user-specified segment level. There is exactly one element for each unique label. */
             segmentLabelAnnotations?: GoogleCloudVideointelligenceV1p3beta1_LabelAnnotation[];
             /**
-             * Presence label annotations on video level or user-specified segment level. There is exactly one element for each unique label. Compared to the existing
-             * topical `segment_label_annotations`, this field presents more fine-grained, segment-level labels detected in video content and is made available only
-             * when the client sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+             * Presence label annotations on video level or user-specified segment level. There is exactly one element for each unique label. Compared to the existing topical
+             * `segment_label_annotations`, this field presents more fine-grained, segment-level labels detected in video content and is made available only when the client sets
+             * `LabelDetectionConfig.model` to "builtin/latest" in the request.
              */
             segmentPresenceLabelAnnotations?: GoogleCloudVideointelligenceV1p3beta1_LabelAnnotation[];
             /** Shot annotations. Each shot is represented as a video segment. */
@@ -1582,9 +1565,8 @@ declare namespace gapi.client {
             /** Topical label annotations on shot level. There is exactly one element for each unique label. */
             shotLabelAnnotations?: GoogleCloudVideointelligenceV1p3beta1_LabelAnnotation[];
             /**
-             * Presence label annotations on shot level. There is exactly one element for each unique label. Compared to the existing topical
-             * `shot_label_annotations`, this field presents more fine-grained, shot-level labels detected in video content and is made available only when the client
-             * sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+             * Presence label annotations on shot level. There is exactly one element for each unique label. Compared to the existing topical `shot_label_annotations`, this field presents more
+             * fine-grained, shot-level labels detected in video content and is made available only when the client sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
              */
             shotPresenceLabelAnnotations?: GoogleCloudVideointelligenceV1p3beta1_LabelAnnotation[];
             /** Speech transcription. */
@@ -1600,24 +1582,24 @@ declare namespace gapi.client {
         }
         interface GoogleCloudVideointelligenceV1p3beta1_WordInfo {
             /**
-             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are
-             * correct. This field is set only for the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always
-             * provided. The default of 0.0 is a sentinel value indicating `confidence` was not set.
+             * Output only. The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct. This field is set only for
+             * the top alternative. This field is not guaranteed to be accurate and users should not rely on it to be always provided. The default of 0.0 is a sentinel value indicating
+             * `confidence` was not set.
              */
             confidence?: number;
             /**
-             * Time offset relative to the beginning of the audio, and corresponding to the end of the spoken word. This field is only set if
-             * `enable_word_time_offsets=true` and only in the top hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
+             * Time offset relative to the beginning of the audio, and corresponding to the end of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top
+             * hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
              */
             endTime?: string;
             /**
-             * Output only. A distinct integer value is assigned for every speaker within the audio. This field specifies which one of those speakers was detected to
-             * have spoken this word. Value ranges from 1 up to diarization_speaker_count, and is only set if speaker diarization is enabled.
+             * Output only. A distinct integer value is assigned for every speaker within the audio. This field specifies which one of those speakers was detected to have spoken this word. Value
+             * ranges from 1 up to diarization_speaker_count, and is only set if speaker diarization is enabled.
              */
             speakerTag?: number;
             /**
-             * Time offset relative to the beginning of the audio, and corresponding to the start of the spoken word. This field is only set if
-             * `enable_word_time_offsets=true` and only in the top hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
+             * Time offset relative to the beginning of the audio, and corresponding to the start of the spoken word. This field is only set if `enable_word_time_offsets=true` and only in the top
+             * hypothesis. This is an experimental feature and the accuracy of the time offset can vary.
              */
             startTime?: string;
             /** The word corresponding to this set of information. */
@@ -1633,28 +1615,24 @@ declare namespace gapi.client {
             operations?: GoogleLongrunning_Operation[];
         }
         interface GoogleLongrunning_Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: GoogleRpc_Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -1667,17 +1645,17 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request?: {
                 /** V1 error format. */
@@ -1706,8 +1684,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1735,10 +1713,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1776,10 +1751,7 @@ declare namespace gapi.client {
             projects: ProjectsResource;
         }
         interface OperationsResource {
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1812,10 +1784,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request: {
                 /** V1 error format. */
@@ -1873,8 +1845,8 @@ declare namespace gapi.client {
             },
             body: GoogleLongrunning_CancelOperationRequest): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1902,10 +1874,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1933,11 +1902,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleLongrunning_Operation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1981,8 +1949,8 @@ declare namespace gapi.client {
         }
         interface VideosResource {
             /**
-             * Performs asynchronous video annotation. Progress and results can be retrieved through the `google.longrunning.Operations` interface.
-             * `Operation.metadata` contains `AnnotateVideoProgress` (progress). `Operation.response` contains `AnnotateVideoResponse` (results).
+             * Performs asynchronous video annotation. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains
+             * `AnnotateVideoProgress` (progress). `Operation.response` contains `AnnotateVideoResponse` (results).
              */
             annotate(request: {
                 /** V1 error format. */

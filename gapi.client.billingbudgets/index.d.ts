@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Billing Budget API v1beta1 1.0
 // Project: https://cloud.google.com/billing/docs/how-to/budget-api-overview
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -20,16 +23,15 @@ declare namespace gapi.client {
     namespace billingbudgets {
         interface GoogleCloudBillingBudgetsV1beta1AllUpdatesRule {
             /**
-             * Optional. Targets to send notifications to when a threshold is exceeded. This is in addition to default recipients who have billing account roles. The
-             * value is the full REST resource name of a monitoring notification channel with the form `projects/{project_id}/notificationChannels/{channel_id}`. A
-             * maximum of 5 channels are allowed. See https://cloud.google.com/billing/docs/how-to/budgets-notification-recipients for more details.
+             * Optional. Targets to send notifications to when a threshold is exceeded. This is in addition to default recipients who have billing account roles. The value is the full REST
+             * resource name of a monitoring notification channel with the form `projects/{project_id}/notificationChannels/{channel_id}`. A maximum of 5 channels are allowed. See
+             * https://cloud.google.com/billing/docs/how-to/budgets-notification-recipients for more details.
              */
             monitoringNotificationChannels?: string[];
             /**
-             * Optional. The name of the Pub/Sub topic where budget related messages will be published, in the form `projects/{project_id}/topics/{topic_id}`. Updates
-             * are sent at regular intervals to the topic. The topic needs to be created before the budget is created; see
-             * https://cloud.google.com/billing/docs/how-to/budgets#manage-notifications for more details. Caller is expected to have `pubsub.topics.setIamPolicy`
-             * permission on the topic when it's set for a budget, otherwise, the API call will fail with PERMISSION_DENIED. See
+             * Optional. The name of the Pub/Sub topic where budget related messages will be published, in the form `projects/{project_id}/topics/{topic_id}`. Updates are sent at regular intervals
+             * to the topic. The topic needs to be created before the budget is created; see https://cloud.google.com/billing/docs/how-to/budgets#manage-notifications for more details. Caller is
+             * expected to have `pubsub.topics.setIamPolicy` permission on the topic when it's set for a budget, otherwise, the API call will fail with PERMISSION_DENIED. See
              * https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications for more details on Pub/Sub roles and permissions.
              */
             pubsubTopic?: string;
@@ -48,15 +50,9 @@ declare namespace gapi.client {
             budgetFilter?: GoogleCloudBillingBudgetsV1beta1Filter;
             /** User data for display name in UI. Validation: <= 60 chars. */
             displayName?: string;
-            /**
-             * Optional. Etag to validate that the object is unchanged for a read-modify-write operation. An empty etag will cause an update to overwrite other
-             * changes.
-             */
+            /** Optional. Etag to validate that the object is unchanged for a read-modify-write operation. An empty etag will cause an update to overwrite other changes. */
             etag?: string;
-            /**
-             * Output only. Resource name of the budget. The resource name implies the scope of a budget. Values are of the form
-             * `billingAccounts/{billingAccountId}/budgets/{budgetId}`.
-             */
+            /** Output only. Resource name of the budget. The resource name implies the scope of a budget. Values are of the form `billingAccounts/{billingAccountId}/budgets/{budgetId}`. */
             name?: string;
             /** Optional. Rules that trigger alerts (notifications of thresholds being crossed) when spend exceeds the specified percentages of the budget. */
             thresholdRules?: GoogleCloudBillingBudgetsV1beta1ThresholdRule[];
@@ -64,10 +60,7 @@ declare namespace gapi.client {
         interface GoogleCloudBillingBudgetsV1beta1BudgetAmount {
             /** Use the last period's actual spend as the budget for the present period. */
             lastPeriodAmount?: any;
-            /**
-             * A specified amount to use as the budget. `currency_code` is optional. If specified, it must match the currency of the billing account. The
-             * `currency_code` is provided on output.
-             */
+            /** A specified amount to use as the budget. `currency_code` is optional. If specified, it must match the currency of the billing account. The `currency_code` is provided on output. */
             specifiedAmount?: GoogleTypeMoney;
         }
         interface GoogleCloudBillingBudgetsV1beta1CreateBudgetRequest {
@@ -78,26 +71,24 @@ declare namespace gapi.client {
             /** Optional. If not set, default behavior is `INCLUDE_ALL_CREDITS`. */
             creditTypesTreatment?: string;
             /**
-             * Optional. A single label and value pair specifying that usage from only this set of labeled resources should be included in the budget. Currently,
-             * multiple entries or multiple values per entry are not allowed. If omitted, the report will include all labeled and unlabeled usage.
+             * Optional. A single label and value pair specifying that usage from only this set of labeled resources should be included in the budget. Currently, multiple entries or multiple
+             * values per entry are not allowed. If omitted, the report will include all labeled and unlabeled usage.
              */
             labels?: { [P in string]: any[] };
             /**
-             * Optional. A set of projects of the form `projects/{project}`, specifying that usage from only this set of projects should be included in the budget. If
-             * omitted, the report will include all usage for the billing account, regardless of which project the usage occurred on. Only zero or one project can be
-             * specified currently.
+             * Optional. A set of projects of the form `projects/{project}`, specifying that usage from only this set of projects should be included in the budget. If omitted, the report will
+             * include all usage for the billing account, regardless of which project the usage occurred on. Only zero or one project can be specified currently.
              */
             projects?: string[];
             /**
-             * Optional. A set of services of the form `services/{service_id}`, specifying that usage from only this set of services should be included in the budget.
-             * If omitted, the report will include usage for all the services. The service names are available through the Catalog API:
-             * https://cloud.google.com/billing/v1/how-tos/catalog-api.
+             * Optional. A set of services of the form `services/{service_id}`, specifying that usage from only this set of services should be included in the budget. If omitted, the report will
+             * include usage for all the services. The service names are available through the Catalog API: https://cloud.google.com/billing/v1/how-tos/catalog-api.
              */
             services?: string[];
             /**
-             * Optional. A set of subaccounts of the form `billingAccounts/{account_id}`, specifying that usage from only this set of subaccounts should be included
-             * in the budget. If a subaccount is set to the name of the parent account, usage from the parent account will be included. If omitted, the report will
-             * include usage from the parent account and all subaccounts, if they exist.
+             * Optional. A set of subaccounts of the form `billingAccounts/{account_id}`, specifying that usage from only this set of subaccounts should be included in the budget. If a subaccount
+             * is set to the name of the parent account, usage from the parent account will be included. If omitted, the report will include usage from the parent account and all subaccounts, if
+             * they exist.
              */
             subaccounts?: string[];
         }
@@ -120,9 +111,8 @@ declare namespace gapi.client {
             /** Required. The updated budget object. The budget to update is specified by the budget name in the budget. */
             budget?: GoogleCloudBillingBudgetsV1beta1Budget;
             /**
-             * Optional. Indicates which fields in the provided budget to update. Read-only fields (such as `name`) cannot be changed. If this is not provided, then
-             * only fields with non-default values from the request are updated. See https://developers.google.com/protocol-buffers/docs/proto3#default for more
-             * details about default values.
+             * Optional. Indicates which fields in the provided budget to update. Read-only fields (such as `name`) cannot be changed. If this is not provided, then only fields with non-default
+             * values from the request are updated. See https://developers.google.com/protocol-buffers/docs/proto3#default for more details about default values.
              */
             updateMask?: string;
         }
@@ -133,9 +123,9 @@ declare namespace gapi.client {
             /** The 3-letter currency code defined in ISO 4217. */
             currencyCode?: string;
             /**
-             * Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be
-             * positive or zero. If `units` is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example
-             * $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+             * Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be positive or zero. If `units`
+             * is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example $-1.75 is represented as `units`=-1 and
+             * `nanos`=-750,000,000.
              */
             nanos?: number;
             /** The whole units of the amount. For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar. */
@@ -226,8 +216,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Returns a budget. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. When reading from the API, you
-             * will not see these fields in the return value, though they may have been set in the Cloud Console.
+             * Returns a budget. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. When reading from the API, you will not see these fields in
+             * the return value, though they may have been set in the Cloud Console.
              */
             get(request?: {
                 /** V1 error format. */
@@ -256,8 +246,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudBillingBudgetsV1beta1Budget>;
             /**
-             * Returns a list of budgets for a billing account. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API.
-             * When reading from the API, you will not see these fields in the return value, though they may have been set in the Cloud Console.
+             * Returns a list of budgets for a billing account. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. When reading from the API, you
+             * will not see these fields in the return value, though they may have been set in the Cloud Console.
              */
             list(request?: {
                 /** V1 error format. */
@@ -277,8 +267,8 @@ declare namespace gapi.client {
                 /** Optional. The maximum number of budgets to return per page. The default and maximum value are 100. */
                 pageSize?: number;
                 /**
-                 * Optional. The value returned by the last `ListBudgetsResponse` which indicates that this is a continuation of a prior `ListBudgets` call, and that the
-                 * system should return the next page of data.
+                 * Optional. The value returned by the last `ListBudgetsResponse` which indicates that this is a continuation of a prior `ListBudgets` call, and that the system should return the
+                 * next page of data.
                  */
                 pageToken?: string;
                 /** Required. Name of billing account to list budgets under. Values are of the form `billingAccounts/{billingAccountId}`. */
@@ -293,8 +283,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudBillingBudgetsV1beta1ListBudgetsResponse>;
             /**
-             * Updates a budget and returns the updated budget. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API.
-             * Budget fields that are not exposed in this API will not be changed by this method.
+             * Updates a budget and returns the updated budget. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. Budget fields that are not
+             * exposed in this API will not be changed by this method.
              */
             patch(request: {
                 /** V1 error format. */
@@ -309,10 +299,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Output only. Resource name of the budget. The resource name implies the scope of a budget. Values are of the form
-                 * `billingAccounts/{billingAccountId}/budgets/{budgetId}`.
-                 */
+                /** Output only. Resource name of the budget. The resource name implies the scope of a budget. Values are of the form `billingAccounts/{billingAccountId}/budgets/{budgetId}`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -340,10 +327,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Output only. Resource name of the budget. The resource name implies the scope of a budget. Values are of the form
-                 * `billingAccounts/{billingAccountId}/budgets/{budgetId}`.
-                 */
+                /** Output only. Resource name of the budget. The resource name implies the scope of a budget. Values are of the form `billingAccounts/{billingAccountId}/budgets/{budgetId}`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;

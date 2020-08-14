@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Service Directory API v1beta1 1.0
 // Project: https://cloud.google.com/service-directory
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -20,27 +23,23 @@ declare namespace gapi.client {
     namespace servicedirectory {
         interface Binding {
             /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the
-             * condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to
-             * one or more of the members in this binding. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
+             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the members in this binding. To learn which
+             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
-             * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
-             * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
-             * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
-             * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
-             * `google.com` or `example.com`.
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is
+             * on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
+             * account. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that
+             * represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `group:{emailid}`: An email address that represents a Google group. For example,
+             * `admins@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. *
+             * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service
+             * account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently
+             * deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in
+             * the binding. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -50,17 +49,14 @@ declare namespace gapi.client {
         interface Empty {
         }
         interface Endpoint {
-            /**
-             * Optional. An IPv4 or IPv6 address. Service Directory will reject bad addresses like: "8.8.8" "8.8.8.8:53" "test:bad:address" "[::1]" "[::1]:8080"
-             * Limited to 45 characters.
-             */
+            /** Optional. An IPv4 or IPv6 address. Service Directory will reject bad addresses like: "8.8.8" "8.8.8.8:53" "test:bad:address" "[::1]" "[::1]:8080" Limited to 45 characters. */
             address?: string;
             /**
-             * Optional. Metadata for the endpoint. This data can be consumed by service clients. The entire metadata dictionary may contain up to 512 characters,
-             * spread accoss all key-value pairs. Metadata that goes beyond any these limits will be rejected.
+             * Optional. Metadata for the endpoint. This data can be consumed by service clients. The entire metadata dictionary may contain up to 512 characters, spread accoss all key-value
+             * pairs. Metadata that goes beyond any these limits will be rejected.
              */
             metadata?: { [P in string]: string };
-            /** Immutable. The resource name for the endpoint in the format 'projects/∗/locations/∗/namespaces/∗/services/∗/endpoints/∗'. */
+            /** Immutable. The resource name for the endpoint in the format 'projects/∗/locations/∗/namespaces/∗/services/∗/endpoints/*'. */
             name?: string;
             /** Optional. Service Directory will reject values outside of [0, 65535]. */
             port?: number;
@@ -81,10 +77,9 @@ declare namespace gapi.client {
         }
         interface GetPolicyOptions {
             /**
-             * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-             * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-             * unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Optional. The policy format version to be returned. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional
+             * bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset. To learn which resources support conditions in their
+             * IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             requestedPolicyVersion?: number;
         }
@@ -126,52 +121,48 @@ declare namespace gapi.client {
         }
         interface Namespace {
             /**
-             * Optional. Resource labels associated with this Namespace. No more than 64 user labels can be associated with a given resource. Label keys and values
-             * can be no longer than 63 characters.
+             * Optional. Resource labels associated with this Namespace. No more than 64 user labels can be associated with a given resource. Label keys and values can be no longer than 63
+             * characters.
              */
             labels?: { [P in string]: string };
-            /** Immutable. The resource name for the namespace in the format 'projects/∗/locations/∗/namespaces/∗'. */
+            /** Immutable. The resource name for the namespace in the format 'projects/∗/locations/∗/namespaces/*'. */
             name?: string;
         }
         interface Policy {
             /**
-             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the
-             * `bindings` must contain at least one member.
+             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
+             * least one member.
              */
             bindings?: Binding[];
             /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
-             * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
-             * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
-             * the version `3` policy are lost.
+             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
+             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
+             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
+             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
             /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
-             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
-             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
-             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
-             * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
-             * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
+             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
+             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
+             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
+             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
         interface ResolveServiceRequest {
             /**
-             * Optional. The filter applied to the endpoints of the resolved service. General filter string syntax: () can be "name" or "metadata." for map field. can
-             * be "<, >, <=, >=, !=, =, :". Of which ":" means HAS and is roughly the same as "=". must be the same data type as the field. can be "AND, OR, NOT".
-             * Examples of valid filters: ∗ "metadata.owner" returns Endpoints that have a label with the key "owner", this is the same as "metadata:owner" ∗
-             * "metadata.protocol=gRPC" returns Endpoints that have key/value "protocol=gRPC" ∗ "metadata.owner!=sd AND metadata.foo=bar" returns Endpoints that have
-             * "owner" field in metadata with a value that is not "sd" AND have the key/value foo=bar.
+             * Optional. The filter applied to the endpoints of the resolved service. General filter string syntax: () can be "name" or "metadata." for map field. can be "<, >, <=, >=, !=, =, :".
+             * Of which ":" means HAS and is roughly the same as "=". must be the same data type as the field. can be "AND, OR, NOT". Examples of valid filters: * "metadata.owner" returns
+             * Endpoints that have a label with the key "owner", this is the same as "metadata:owner" * "metadata.protocol=gRPC" returns Endpoints that have key/value "protocol=gRPC" *
+             * "metadata.owner!=sd AND metadata.foo=bar" returns Endpoints that have "owner" field in metadata with a value that is not "sd" AND have the key/value foo=bar.
              */
             endpointFilter?: string;
             /**
-             * Optional. The maximum number of endpoints to return. Defaults to 25. Maximum is 100. If a value less than one is specified, the Default is used. If a
-             * value greater than the Maximum is specified, the Maximum is used.
+             * Optional. The maximum number of endpoints to return. Defaults to 25. Maximum is 100. If a value less than one is specified, the Default is used. If a value greater than the Maximum
+             * is specified, the Maximum is used.
              */
             maxEndpoints?: number;
         }
@@ -179,30 +170,27 @@ declare namespace gapi.client {
             service?: Service;
         }
         interface Service {
-            /**
-             * Output only. Endpoints associated with this service. Returned on LookupService.Resolve. Control plane clients should use
-             * RegistrationService.ListEndpoints.
-             */
+            /** Output only. Endpoints associated with this service. Returned on LookupService.Resolve. Control plane clients should use RegistrationService.ListEndpoints. */
             endpoints?: Endpoint[];
             /**
-             * Optional. Metadata for the service. This data can be consumed by service clients. The entire metadata dictionary may contain up to 2000 characters,
-             * spread across all key-value pairs. Metadata that goes beyond any these limits will be rejected.
+             * Optional. Metadata for the service. This data can be consumed by service clients. The entire metadata dictionary may contain up to 2000 characters, spread across all key-value
+             * pairs. Metadata that goes beyond any these limits will be rejected.
              */
             metadata?: { [P in string]: string };
-            /** Immutable. The resource name for the service in the format 'projects/∗/locations/∗/namespaces/∗/services/∗'. */
+            /** Immutable. The resource name for the service in the format 'projects/∗/locations/∗/namespaces/∗/services/*'. */
             name?: string;
         }
         interface SetIamPolicyRequest {
             /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy
-             * but certain Cloud Platform services (such as Projects) might reject them.
+             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Cloud Platform
+             * services (such as Projects) might reject them.
              */
             policy?: Policy;
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see
-             * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '*' or 'storage.*') are not allowed. For more information see [IAM
+             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
         }
@@ -222,9 +210,9 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * Required. The Resource ID must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the
-                 * regular expression `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be
-                 * a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+                 * Required. The Resource ID must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression
+                 * `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except
+                 * the last character, which cannot be a dash.
                  */
                 endpointId?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -256,9 +244,9 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * Required. The Resource ID must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the
-                 * regular expression `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be
-                 * a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+                 * Required. The Resource ID must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression
+                 * `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except
+                 * the last character, which cannot be a dash.
                  */
                 endpointId?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -346,15 +334,14 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. The filter to list result by. General filter string syntax: () can be "name", "address", "port" or "metadata." for map field. can be "<, >,
-                 * <=, >=, !=, =, :". Of which ":" means HAS, and is roughly the same as "=". must be the same data type as field. can be "AND, OR, NOT". Examples of
-                 * valid filters: ∗ "metadata.owner" returns Endpoints that have a label with the key "owner" this is the same as "metadata:owner". ∗
-                 * "metadata.protocol=gRPC" returns Endpoints that have key/value "protocol=gRPC". ∗ "address=192.108.1.105" returns Endpoints that have this address. ∗
-                 * "port>8080" returns Endpoints that have port number larger than 8080. ∗
-                 * "name>projects/my-project/locations/us-east/namespaces/my-namespace/services/my-service/endpoints/endpoint-c" returns Endpoints that have name that is
-                 * alphabetically later than the string, so "endpoint-e" will be returned but "endpoint-a" will not be. ∗ "metadata.owner!=sd AND metadata.foo=bar"
-                 * returns Endpoints that have "owner" in label key but value is not "sd" AND have key/value foo=bar. ∗ "doesnotexist.foo=bar" returns an empty list. Note
-                 * that Endpoint doesn't have a field called "doesnotexist". Since the filter does not match any Endpoints, it returns no results.
+                 * Optional. The filter to list result by. General filter string syntax: () can be "name", "address", "port" or "metadata." for map field. can be "<, >, <=, >=, !=, =, :". Of which
+                 * ":" means HAS, and is roughly the same as "=". must be the same data type as field. can be "AND, OR, NOT". Examples of valid filters: * "metadata.owner" returns Endpoints that
+                 * have a label with the key "owner" this is the same as "metadata:owner". * "metadata.protocol=gRPC" returns Endpoints that have key/value "protocol=gRPC". *
+                 * "address=192.108.1.105" returns Endpoints that have this address. * "port>8080" returns Endpoints that have port number larger than 8080. *
+                 * "name>projects/my-project/locations/us-east/namespaces/my-namespace/services/my-service/endpoints/endpoint-c" returns Endpoints that have name that is alphabetically later than
+                 * the string, so "endpoint-e" will be returned but "endpoint-a" will not be. * "metadata.owner!=sd AND metadata.foo=bar" returns Endpoints that have "owner" in label key but value
+                 * is not "sd" AND have key/value foo=bar. * "doesnotexist.foo=bar" returns an empty list. Note that Endpoint doesn't have a field called "doesnotexist". Since the filter does not
+                 * match any Endpoints, it returns no results.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -392,7 +379,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the endpoint in the format 'projects/∗/locations/∗/namespaces/∗/services/∗/endpoints/∗'. */
+                /** Immutable. The resource name for the endpoint in the format 'projects/∗/locations/∗/namespaces/∗/services/∗/endpoints/*'. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -422,7 +409,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the endpoint in the format 'projects/∗/locations/∗/namespaces/∗/services/∗/endpoints/∗'. */
+                /** Immutable. The resource name for the endpoint in the format 'projects/∗/locations/∗/namespaces/∗/services/∗/endpoints/*'. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -463,9 +450,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. The Resource ID must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the
-                 * regular expression `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be
-                 * a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+                 * Required. The Resource ID must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression
+                 * `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except
+                 * the last character, which cannot be a dash.
                  */
                 serviceId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -497,9 +484,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. The Resource ID must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the
-                 * regular expression `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be
-                 * a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+                 * Required. The Resource ID must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression
+                 * `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except
+                 * the last character, which cannot be a dash.
                  */
                 serviceId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -603,13 +590,12 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. The filter to list result by. General filter string syntax: () can be "name", or "metadata." for map field. can be "<, >, <=, >=, !=, =, :".
-                 * Of which ":" means HAS, and is roughly the same as "=". must be the same data type as field. can be "AND, OR, NOT". Examples of valid filters: ∗
-                 * "metadata.owner" returns Services that have a label with the key "owner" this is the same as "metadata:owner". ∗ "metadata.protocol=gRPC" returns
-                 * Services that have key/value "protocol=gRPC". ∗ "name>projects/my-project/locations/us-east/namespaces/my-namespace/services/service-c" returns
-                 * Services that have name that is alphabetically later than the string, so "service-e" will be returned but "service-a" will not be. ∗
-                 * "metadata.owner!=sd AND metadata.foo=bar" returns Services that have "owner" in label key but value is not "sd" AND have key/value foo=bar. ∗
-                 * "doesnotexist.foo=bar" returns an empty list. Note that Service doesn't have a field called "doesnotexist". Since the filter does not match any
+                 * Optional. The filter to list result by. General filter string syntax: () can be "name", or "metadata." for map field. can be "<, >, <=, >=, !=, =, :". Of which ":" means HAS,
+                 * and is roughly the same as "=". must be the same data type as field. can be "AND, OR, NOT". Examples of valid filters: * "metadata.owner" returns Services that have a label with
+                 * the key "owner" this is the same as "metadata:owner". * "metadata.protocol=gRPC" returns Services that have key/value "protocol=gRPC". *
+                 * "name>projects/my-project/locations/us-east/namespaces/my-namespace/services/service-c" returns Services that have name that is alphabetically later than the string, so
+                 * "service-e" will be returned but "service-a" will not be. * "metadata.owner!=sd AND metadata.foo=bar" returns Services that have "owner" in label key but value is not "sd" AND
+                 * have key/value foo=bar. * "doesnotexist.foo=bar" returns an empty list. Note that Service doesn't have a field called "doesnotexist". Since the filter does not match any
                  * Services, it returns no results.
                  */
                 filter?: string;
@@ -648,7 +634,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the service in the format 'projects/∗/locations/∗/namespaces/∗/services/∗'. */
+                /** Immutable. The resource name for the service in the format 'projects/∗/locations/∗/namespaces/∗/services/*'. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -678,7 +664,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the service in the format 'projects/∗/locations/∗/namespaces/∗/services/∗'. */
+                /** Immutable. The resource name for the service in the format 'projects/∗/locations/∗/namespaces/∗/services/*'. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -824,9 +810,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The Resource ID must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the
-                 * regular expression `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be
-                 * a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+                 * Required. The Resource ID must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression
+                 * `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except
+                 * the last character, which cannot be a dash.
                  */
                 namespaceId?: string;
                 /** OAuth 2.0 token for the current user. */
@@ -858,9 +844,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The Resource ID must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the
-                 * regular expression `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be
-                 * a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
+                 * Required. The Resource ID must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression
+                 * `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except
+                 * the last character, which cannot be a dash.
                  */
                 namespaceId?: string;
                 /** OAuth 2.0 token for the current user. */
@@ -972,13 +958,13 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. The filter to list result by. General filter string syntax: () can be "name", or "labels." for map field. can be "<, >, <=, >=, !=, =, :". Of
-                 * which ":" means HAS, and is roughly the same as "=". must be the same data type as field. can be "AND, OR, NOT". Examples of valid filters: ∗
-                 * "labels.owner" returns Namespaces that have a label with the key "owner" this is the same as "labels:owner". ∗ "labels.protocol=gRPC" returns
-                 * Namespaces that have key/value "protocol=gRPC". ∗ "name>projects/my-project/locations/us-east/namespaces/namespace-c" returns Namespaces that have name
-                 * that is alphabetically later than the string, so "namespace-e" will be returned but "namespace-a" will not be. ∗ "labels.owner!=sd AND labels.foo=bar"
-                 * returns Namespaces that have "owner" in label key but value is not "sd" AND have key/value foo=bar. ∗ "doesnotexist.foo=bar" returns an empty list.
-                 * Note that Namespace doesn't have a field called "doesnotexist". Since the filter does not match any Namespaces, it returns no results.
+                 * Optional. The filter to list result by. General filter string syntax: () can be "name", or "labels." for map field. can be "<, >, <=, >=, !=, =, :". Of which ":" means HAS, and
+                 * is roughly the same as "=". must be the same data type as field. can be "AND, OR, NOT". Examples of valid filters: * "labels.owner" returns Namespaces that have a label with the
+                 * key "owner" this is the same as "labels:owner". * "labels.protocol=gRPC" returns Namespaces that have key/value "protocol=gRPC". *
+                 * "name>projects/my-project/locations/us-east/namespaces/namespace-c" returns Namespaces that have name that is alphabetically later than the string, so "namespace-e" will be
+                 * returned but "namespace-a" will not be. * "labels.owner!=sd AND labels.foo=bar" returns Namespaces that have "owner" in label key but value is not "sd" AND have key/value
+                 * foo=bar. * "doesnotexist.foo=bar" returns an empty list. Note that Namespace doesn't have a field called "doesnotexist". Since the filter does not match any Namespaces, it
+                 * returns no results.
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -986,8 +972,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The order to list result by. General order by string syntax: () (,) allows values {"name"} ascending or descending order by . If this is left
-                 * blank, "asc" is used. Note that an empty order_by string result in default order, which is order by name in ascending order.
+                 * Optional. The order to list result by. General order by string syntax: () (,) allows values {"name"} ascending or descending order by . If this is left blank, "asc" is used.
+                 * Note that an empty order_by string result in default order, which is order by name in ascending order.
                  */
                 orderBy?: string;
                 /** Optional. The maximum number of items to return. */
@@ -1019,7 +1005,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the namespace in the format 'projects/∗/locations/∗/namespaces/∗'. */
+                /** Immutable. The resource name for the namespace in the format 'projects/∗/locations/∗/namespaces/*'. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1049,7 +1035,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the namespace in the format 'projects/∗/locations/∗/namespaces/∗'. */
+                /** Immutable. The resource name for the namespace in the format 'projects/∗/locations/∗/namespaces/*'. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;

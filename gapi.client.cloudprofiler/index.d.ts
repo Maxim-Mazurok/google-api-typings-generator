@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Stackdriver Profiler API v2 2.0
 // Project: https://cloud.google.com/profiler/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -26,18 +29,17 @@ declare namespace gapi.client {
         }
         interface Deployment {
             /**
-             * Labels identify the deployment within the user universe and same target. Validation regex for label names: `^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$`.
-             * Value for an individual label must be <= 512 bytes, the total size of all label names and values must be <= 1024 bytes. Label named "language" can be
-             * used to record the programming language of the profiled deployment. The standard choices for the value include "java", "go", "python", "ruby",
-             * "nodejs", "php", "dotnet". For deployments running on Google Cloud Platform, "zone" or "region" label should be present describing the deployment
-             * location. An example of a zone is "us-central1-a", an example of a region is "us-central1" or "us-central".
+             * Labels identify the deployment within the user universe and same target. Validation regex for label names: `^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$`. Value for an individual label must
+             * be <= 512 bytes, the total size of all label names and values must be <= 1024 bytes. Label named "language" can be used to record the programming language of the profiled
+             * deployment. The standard choices for the value include "java", "go", "python", "ruby", "nodejs", "php", "dotnet". For deployments running on Google Cloud Platform, "zone" or
+             * "region" label should be present describing the deployment location. An example of a zone is "us-central1-a", an example of a region is "us-central1" or "us-central".
              */
             labels?: { [P in string]: string };
             /** Project ID is the ID of a cloud project. Validation regex: `^a-z{4,61}[a-z0-9]$`. */
             projectId?: string;
             /**
-             * Target is the service name used to group related deployments: ∗ Service name for GAE Flex / Standard. ∗ Cluster and container name for GKE. ∗
-             * User-specified string for direct GCE profiling (e.g. Java). ∗ Job name for Dataflow. Validation regex: `^[a-z]([-a-z0-9_.]{0,253}[a-z0-9])?$`.
+             * Target is the service name used to group related deployments: * Service name for GAE Flex / Standard. * Cluster and container name for GKE. * User-specified string for direct GCE
+             * profiling (e.g. Java). * Job name for Dataflow. Validation regex: `^[a-z]([-a-z0-9_.]{0,253}[a-z0-9])?$`.
              */
             target?: string;
         }
@@ -45,14 +47,14 @@ declare namespace gapi.client {
             /** Deployment this profile corresponds to. */
             deployment?: Deployment;
             /**
-             * Duration of the profiling session. Input (for the offline mode) or output (for the online mode). The field represents requested profiling duration. It
-             * may slightly differ from the effective profiling duration, which is recorded in the profile data, in case the profiling can't be stopped immediately
-             * (e.g. in case stopping the profiling is handled asynchronously).
+             * Duration of the profiling session. Input (for the offline mode) or output (for the online mode). The field represents requested profiling duration. It may slightly differ from the
+             * effective profiling duration, which is recorded in the profile data, in case the profiling can't be stopped immediately (e.g. in case stopping the profiling is handled
+             * asynchronously).
              */
             duration?: string;
             /**
-             * Input only. Labels associated to this specific profile. These labels will get merged with the deployment labels for the final data set. See
-             * documentation on deployment labels for validation rules and limits.
+             * Input only. Labels associated to this specific profile. These labels will get merged with the deployment labels for the final data set. See documentation on deployment labels for
+             * validation rules and limits.
              */
             labels?: { [P in string]: string };
             /** Output only. Opaque, server-assigned, unique ID for this profile. */
@@ -64,11 +66,10 @@ declare namespace gapi.client {
         }
         interface ProfilesResource {
             /**
-             * CreateProfile creates a new profile resource in the online mode. The server ensures that the new profiles are created at a constant rate per
-             * deployment, so the creation request may hang for some time until the next profile session is available. The request may fail with ABORTED error if the
-             * creation is not available within ~1m, the response will indicate the duration of the backoff the client should take before attempting creating a
-             * profile again. The backoff duration is returned in google.rpc.RetryInfo extension on the response status. To a gRPC client, the extension will be
-             * return as a binary-serialized proto in the trailing metadata item named "google.rpc.retryinfo-bin".
+             * CreateProfile creates a new profile resource in the online mode. The server ensures that the new profiles are created at a constant rate per deployment, so the creation request may
+             * hang for some time until the next profile session is available. The request may fail with ABORTED error if the creation is not available within ~1m, the response will indicate the
+             * duration of the backoff the client should take before attempting creating a profile again. The backoff duration is returned in google.rpc.RetryInfo extension on the response status.
+             * To a gRPC client, the extension will be return as a binary-serialized proto in the trailing metadata item named "google.rpc.retryinfo-bin".
              */
             create(request: {
                 /** V1 error format. */
@@ -125,10 +126,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: CreateProfileRequest): Request<Profile>;
-            /**
-             * CreateOfflineProfile creates a new profile resource in the offline mode. The client provides the profile to create along with the profile bytes, the
-             * server records it.
-             */
+            /** CreateOfflineProfile creates a new profile resource in the offline mode. The client provides the profile to create along with the profile bytes, the server records it. */
             createOffline(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -185,8 +183,8 @@ declare namespace gapi.client {
             },
             body: Profile): Request<Profile>;
             /**
-             * UpdateProfile updates the profile bytes and labels on the profile resource created in the online mode. Updating the bytes for profiles created in the
-             * offline mode is currently not supported: the profile content must be provided at the time of the profile creation.
+             * UpdateProfile updates the profile bytes and labels on the profile resource created in the online mode. Updating the bytes for profiles created in the offline mode is currently not
+             * supported: the profile content must be provided at the time of the profile creation.
              */
             patch(request: {
                 /** V1 error format. */
@@ -210,8 +208,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Field mask used to specify the fields to be overwritten. Currently only profile_bytes and labels fields are supported by UpdateProfile, so only those
-                 * fields can be specified in the mask. When no mask is provided, all fields are overwritten.
+                 * Field mask used to specify the fields to be overwritten. Currently only profile_bytes and labels fields are supported by UpdateProfile, so only those fields can be specified in
+                 * the mask. When no mask is provided, all fields are overwritten.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -243,8 +241,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Field mask used to specify the fields to be overwritten. Currently only profile_bytes and labels fields are supported by UpdateProfile, so only those
-                 * fields can be specified in the mask. When no mask is provided, all fields are overwritten.
+                 * Field mask used to specify the fields to be overwritten. Currently only profile_bytes and labels fields are supported by UpdateProfile, so only those fields can be specified in
+                 * the mask. When no mask is provided, all fields are overwritten.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */

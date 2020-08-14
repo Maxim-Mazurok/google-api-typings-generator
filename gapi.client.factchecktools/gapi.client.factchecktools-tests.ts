@@ -90,8 +90,8 @@ gapi.load('client', () => {
             url: "Test string",
         });
         /**
-         * Update for all `ClaimReview` markup on a page Note that this is a full update. To retain the existing `ClaimReview` markup on a page, first perform a
-         * Get operation, then modify the returned markup, and finally call Update with the entire `ClaimReview` markup as the body.
+         * Update for all `ClaimReview` markup on a page Note that this is a full update. To retain the existing `ClaimReview` markup on a page, first perform a Get operation, then modify the
+         * returned markup, and finally call Update with the entire `ClaimReview` markup as the body.
          */
         await gapi.client.factchecktools.pages.update({
             name: "Test string",

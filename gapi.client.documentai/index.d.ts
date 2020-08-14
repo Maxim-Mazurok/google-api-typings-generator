@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Document AI API v1beta2 1.0
 // Project: https://cloud.google.com/document-ai/docs/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -1002,7 +1005,7 @@ declare namespace gapi.client {
              * The fraction of this color that should be applied to the pixel. That is,
              * the final pixel color is defined by the equation:
              *
-             * pixel color = alpha ∗ (this color) + (1.0 - alpha) ∗ (background color)
+             * pixel color = alpha * (this color) + (1.0 - alpha) * (background color)
              *
              * This means that a value of 1.0 corresponds to a solid color, whereas
              * a value of 0.0 corresponds to a completely transparent color. This

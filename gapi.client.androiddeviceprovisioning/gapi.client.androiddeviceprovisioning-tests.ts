@@ -61,8 +61,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Applies a Configuration to the device to register the device for zero-touch enrollment. After applying a configuration to a device, the device
-         * automatically provisions itself on first boot, or next factory reset.
+         * Applies a Configuration to the device to register the device for zero-touch enrollment. After applying a configuration to a device, the device automatically provisions itself on first
+         * boot, or next factory reset.
          */
         await gapi.client.androiddeviceprovisioning.customers.devices.applyConfiguration({
             parent: "Test string",
@@ -105,8 +105,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Unclaims a device from a customer and removes it from zero-touch enrollment. After removing a device, a customer must contact their reseller to
-         * register the device into zero-touch enrollment again.
+         * Unclaims a device from a customer and removes it from zero-touch enrollment. After removing a device, a customer must contact their reseller to register the device into zero-touch
+         * enrollment again.
          */
         await gapi.client.androiddeviceprovisioning.customers.devices.unclaim({
             parent: "Test string",
@@ -126,10 +126,7 @@ gapi.load('client', () => {
         await gapi.client.androiddeviceprovisioning.customers.dpcs.list({
             parent: "Test string",
         });
-        /**
-         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
+        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
         await gapi.client.androiddeviceprovisioning.operations.get({
             name: "Test string",
         });

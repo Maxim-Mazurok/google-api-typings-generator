@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Service Networking API v1 1.0
 // Project: https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -23,8 +26,8 @@ declare namespace gapi.client {
         }
         interface AddDnsRecordSetRequest {
             /**
-             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network}
-             * {project} is the project number, as in '12345' {network} is the network name.
+             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network} {project} is the project number, as in
+             * '12345' {network} is the network name.
              */
             consumerNetwork?: string;
             /** Required. The DNS record set to add. */
@@ -37,16 +40,15 @@ declare namespace gapi.client {
         }
         interface AddDnsZoneRequest {
             /**
-             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network}
-             * {project} is the project number, as in '12345' {network} is the network name.
+             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network} {project} is the project number, as in
+             * '12345' {network} is the network name.
              */
             consumerNetwork?: string;
             /** Required. The DNS name suffix for the zones e.g. `example.com`. */
             dnsSuffix?: string;
             /**
-             * Required. The name for both the private zone in the shared producer host project and the peering zone in the consumer project. Must be unique within
-             * both projects. The name must be 1-63 characters long, must begin with a letter, end with a letter or digit, and only contain lowercase letters, digits
-             * or dashes.
+             * Required. The name for both the private zone in the shared producer host project and the peering zone in the consumer project. Must be unique within both projects. The name must be
+             * 1-63 characters long, must begin with a letter, end with a letter or digit, and only contain lowercase letters, digits or dashes.
              */
             name?: string;
         }
@@ -61,8 +63,8 @@ declare namespace gapi.client {
         }
         interface AddRolesRequest {
             /**
-             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network}
-             * {project} is a project number, as in '12345' {network} is a network name.
+             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network} {project} is a project number, as in
+             * '12345' {network} is a network name.
              */
             consumerNetwork?: string;
             /** Required. List of policy bindings to add to shared VPC host project. */
@@ -74,22 +76,21 @@ declare namespace gapi.client {
         }
         interface AddSubnetworkRequest {
             /**
-             * Required. A resource that represents the service consumer, such as `projects/123456`. The project number can be different from the value in the
-             * consumer network parameter. For example, the network might be part of a Shared VPC network. In those cases, Service Networking validates that this
-             * resource belongs to that Shared VPC.
+             * Required. A resource that represents the service consumer, such as `projects/123456`. The project number can be different from the value in the consumer network parameter. For
+             * example, the network might be part of a Shared VPC network. In those cases, Service Networking validates that this resource belongs to that Shared VPC.
              */
             consumer?: string;
             /**
-             * Required. The name of the service consumer's VPC network. The network must have an existing private connection that was provisioned through the
-             * connections.create method. The name must be in the following format: `projects/{project}/global/networks/{network}`, where {project} is a project
-             * number, such as `12345`. {network} is the name of a VPC network in the project.
+             * Required. The name of the service consumer's VPC network. The network must have an existing private connection that was provisioned through the connections.create method. The name
+             * must be in the following format: `projects/{project}/global/networks/{network}`, where {project} is a project number, such as `12345`. {network} is the name of a VPC network in the
+             * project.
              */
             consumerNetwork?: string;
             /** Optional. Description of the subnet. */
             description?: string;
             /**
-             * Required. The prefix length of the subnet's IP address range. Use CIDR range notation, such as `30` to provision a subnet with an `x.x.x.x/30` CIDR
-             * range. The IP address range is drawn from a pool of available ranges in the service consumer's allocated range.
+             * Required. The prefix length of the subnet's IP address range. Use CIDR range notation, such as `30` to provision a subnet with an `x.x.x.x/30` CIDR range. The IP address range is
+             * drawn from a pool of available ranges in the service consumer's allocated range.
              */
             ipPrefixLength?: number;
             /**
@@ -100,15 +101,11 @@ declare namespace gapi.client {
             /** Required. The name of a [region](/compute/docs/regions-zones) for the subnet, such `europe-west1`. */
             region?: string;
             /**
-             * Optional. The starting address of a range. The address must be a valid IPv4 address in the x.x.x.x format. This value combined with the IP prefix range
-             * is the CIDR range for the subnet. The range must be within the allocated range that is assigned to the private connection. If the CIDR range isn't
-             * available, the call fails.
+             * Optional. The starting address of a range. The address must be a valid IPv4 address in the x.x.x.x format. This value combined with the IP prefix range is the CIDR range for the
+             * subnet. The range must be within the allocated range that is assigned to the private connection. If the CIDR range isn't available, the call fails.
              */
             requestedAddress?: string;
-            /**
-             * Required. A name for the new subnet. For information about the naming requirements, see [subnetwork](/compute/docs/reference/rest/v1/subnetworks) in
-             * the Compute API documentation.
-             */
+            /** Required. A name for the new subnet. For information about the naming requirements, see [subnetwork](/compute/docs/reference/rest/v1/subnetworks) in the Compute API documentation. */
             subnetwork?: string;
             /** A list of members that are granted the `compute.networkUser` role on the subnet. */
             subnetworkUsers?: string[];
@@ -127,20 +124,19 @@ declare namespace gapi.client {
             /** The source syntax of the service. */
             syntax?: string;
             /**
-             * A version string for this interface. If specified, must have the form `major-version.minor-version`, as in `1.10`. If the minor version is omitted, it
-             * defaults to zero. If the entire version field is empty, the major version is derived from the package name, as outlined below. If the field is not
-             * empty, the version in the package name will be verified to be consistent with what is provided here. The versioning schema uses [semantic
-             * versioning](http://semver.org) where the major version number indicates a breaking change and the minor version an additive, non-breaking change. Both
-             * version numbers are signals to users what to expect from different versions, and should be carefully chosen based on the product plan. The major
-             * version is also reflected in the package name of the interface, which must end in `v`, as in `google.feature.v1`. For major versions 0 and 1, the
-             * suffix can be omitted. Zero major versions must only be used for experimental, non-GA interfaces.
+             * A version string for this interface. If specified, must have the form `major-version.minor-version`, as in `1.10`. If the minor version is omitted, it defaults to zero. If the
+             * entire version field is empty, the major version is derived from the package name, as outlined below. If the field is not empty, the version in the package name will be verified to
+             * be consistent with what is provided here. The versioning schema uses [semantic versioning](http://semver.org) where the major version number indicates a breaking change and the
+             * minor version an additive, non-breaking change. Both version numbers are signals to users what to expect from different versions, and should be carefully chosen based on the product
+             * plan. The major version is also reflected in the package name of the interface, which must end in `v`, as in `google.feature.v1`. For major versions 0 and 1, the suffix can be
+             * omitted. Zero major versions must only be used for experimental, non-GA interfaces.
              */
             version?: string;
         }
         interface Authentication {
             /** Defines a set of authentication providers that a service supports. */
             providers?: AuthProvider[];
-            /** A list of authentication rules that apply to individual API methods. ∗∗NOTE:∗∗ All service configuration rules follow "last one wins" order. */
+            /** A list of authentication rules that apply to individual API methods. **NOTE:** All service configuration rules follow "last one wins" order. */
             rules?: AuthenticationRule[];
         }
         interface AuthenticationRule {
@@ -155,11 +151,10 @@ declare namespace gapi.client {
         }
         interface AuthProvider {
             /**
-             * The list of JWT [audiences](https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3). that are allowed to access. A JWT containing
-             * any of these audiences will be accepted. When this setting is absent, JWTs with audiences: - "https://[service.name]/[google.protobuf.Api.name]" -
-             * "https://[service.name]/" will be accepted. For example, if no audiences are in the setting, LibraryService API will accept JWTs with the following
-             * audiences: - https://library-example.googleapis.com/google.example.library.v1.LibraryService - https://library-example.googleapis.com/ Example:
-             * audiences: bookstore_android.apps.googleusercontent.com, bookstore_web.apps.googleusercontent.com
+             * The list of JWT [audiences](https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3). that are allowed to access. A JWT containing any of these audiences will
+             * be accepted. When this setting is absent, JWTs with audiences: - "https://[service.name]/[google.protobuf.Api.name]" - "https://[service.name]/" will be accepted. For example, if no
+             * audiences are in the setting, LibraryService API will accept JWTs with the following audiences: - https://library-example.googleapis.com/google.example.library.v1.LibraryService -
+             * https://library-example.googleapis.com/ Example: audiences: bookstore_android.apps.googleusercontent.com, bookstore_web.apps.googleusercontent.com
              */
             audiences?: string;
             /** Redirect URL if JWT token is required but not present or is expired. Implement authorizationUrl of securityDefinitions in OpenAPI spec. */
@@ -167,61 +162,55 @@ declare namespace gapi.client {
             /** The unique identifier of the auth provider. It will be referred to by `AuthRequirement.provider_id`. Example: "bookstore_auth". */
             id?: string;
             /**
-             * Identifies the principal that issued the JWT. See https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.1 Usually a URL or an
-             * email address. Example: https://securetoken.google.com Example: 1234567-compute@developer.gserviceaccount.com
+             * Identifies the principal that issued the JWT. See https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.1 Usually a URL or an email address. Example:
+             * https://securetoken.google.com Example: 1234567-compute@developer.gserviceaccount.com
              */
             issuer?: string;
             /**
-             * URL of the provider's public key set to validate signature of the JWT. See [OpenID
-             * Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata). Optional if the key set document: - can be retrieved from
-             * [OpenID Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html of the issuer. - can be inferred from the email domain of the issuer
-             * (e.g. a Google service account). Example: https://www.googleapis.com/oauth2/v1/certs
+             * URL of the provider's public key set to validate signature of the JWT. See [OpenID Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata). Optional
+             * if the key set document: - can be retrieved from [OpenID Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html of the issuer. - can be inferred from the email domain
+             * of the issuer (e.g. a Google service account). Example: https://www.googleapis.com/oauth2/v1/certs
              */
             jwksUri?: string;
             /**
-             * Defines the locations to extract the JWT. JWT locations can be either from HTTP headers or URL query parameters. The rule is that the first match wins.
-             * The checking order is: checking all headers first, then URL query parameters. If not specified, default to use following 3 locations: 1) Authorization:
-             * Bearer 2) x-goog-iap-jwt-assertion 3) access_token query parameter Default locations can be specified as followings: jwt_locations: - header:
-             * Authorization value_prefix: "Bearer " - header: x-goog-iap-jwt-assertion - query: access_token
+             * Defines the locations to extract the JWT. JWT locations can be either from HTTP headers or URL query parameters. The rule is that the first match wins. The checking order is:
+             * checking all headers first, then URL query parameters. If not specified, default to use following 3 locations: 1) Authorization: Bearer 2) x-goog-iap-jwt-assertion 3) access_token
+             * query parameter Default locations can be specified as followings: jwt_locations: - header: Authorization value_prefix: "Bearer " - header: x-goog-iap-jwt-assertion - query:
+             * access_token
              */
             jwtLocations?: JwtLocation[];
         }
         interface AuthRequirement {
             /**
              * NOTE: This will be deprecated soon, once AuthProvider.audiences is implemented and accepted in all the runtime components. The list of JWT
-             * [audiences](https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3). that are allowed to access. A JWT containing any of these
-             * audiences will be accepted. When this setting is absent, only JWTs with audience "https://Service_name/API_name" will be accepted. For example, if no
-             * audiences are in the setting, LibraryService API will only accept JWTs with the following audience
-             * "https://library-example.googleapis.com/google.example.library.v1.LibraryService". Example: audiences: bookstore_android.apps.googleusercontent.com,
-             * bookstore_web.apps.googleusercontent.com
+             * [audiences](https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3). that are allowed to access. A JWT containing any of these audiences will be accepted. When
+             * this setting is absent, only JWTs with audience "https://Service_name/API_name" will be accepted. For example, if no audiences are in the setting, LibraryService API will only
+             * accept JWTs with the following audience "https://library-example.googleapis.com/google.example.library.v1.LibraryService". Example: audiences:
+             * bookstore_android.apps.googleusercontent.com, bookstore_web.apps.googleusercontent.com
              */
             audiences?: string;
             /** id from authentication provider. Example: provider_id: bookstore_auth */
             providerId?: string;
         }
         interface Backend {
-            /** A list of API backend rules that apply to individual API methods. ∗∗NOTE:∗∗ All service configuration rules follow "last one wins" order. */
+            /** A list of API backend rules that apply to individual API methods. **NOTE:** All service configuration rules follow "last one wins" order. */
             rules?: BackendRule[];
         }
         interface BackendRule {
             /**
-             * The address of the API backend. The scheme is used to determine the backend protocol and security. The following schemes are accepted: SCHEME PROTOCOL
-             * SECURITY http:// HTTP None https:// HTTP TLS grpc:// gRPC None grpcs:// gRPC TLS It is recommended to explicitly include a scheme. Leaving out the
-             * scheme may cause constrasting behaviors across platforms. If the port is unspecified, the default is: - 80 for schemes without TLS - 443 for schemes
-             * with TLS For HTTP backends, use protocol to specify the protocol version.
+             * The address of the API backend. The scheme is used to determine the backend protocol and security. The following schemes are accepted: SCHEME PROTOCOL SECURITY http:// HTTP None
+             * https:// HTTP TLS grpc:// gRPC None grpcs:// gRPC TLS It is recommended to explicitly include a scheme. Leaving out the scheme may cause constrasting behaviors across platforms. If
+             * the port is unspecified, the default is: - 80 for schemes without TLS - 443 for schemes with TLS For HTTP backends, use protocol to specify the protocol version.
              */
             address?: string;
             /** The number of seconds to wait for a response from a request. The default varies based on the request protocol and deployment environment. */
             deadline?: number;
             /**
-             * When disable_auth is true, a JWT ID token won't be generated and the original "Authorization" HTTP header will be preserved. If the header is used to
-             * carry the original token and is expected by the backend, this field must be set to true to preserve the header.
+             * When disable_auth is true, a JWT ID token won't be generated and the original "Authorization" HTTP header will be preserved. If the header is used to carry the original token and is
+             * expected by the backend, this field must be set to true to preserve the header.
              */
             disableAuth?: boolean;
-            /**
-             * The JWT audience is used when generating a JWT ID token for the backend. This ID token will be added in the HTTP "authorization" header, and sent to
-             * the backend.
-             */
+            /** The JWT audience is used when generating a JWT ID token for the backend. This ID token will be added in the HTTP "authorization" header, and sent to the backend. */
             jwtAudience?: string;
             /** Minimum deadline in seconds needed for this method. Calls having deadline value lower than this will be rejected. */
             minDeadline?: number;
@@ -229,11 +218,10 @@ declare namespace gapi.client {
             operationDeadline?: number;
             pathTranslation?: string;
             /**
-             * The protocol used for sending a request to the backend. The supported values are "http/1.1" and "h2". The default value is inferred from the scheme in
-             * the address field: SCHEME PROTOCOL http:// http/1.1 https:// http/1.1 grpc:// h2 grpcs:// h2 For secure HTTP backends (https://) that support HTTP/2,
-             * set this field to "h2" for improved performance. Configuring this field to non-default values is only supported for secure HTTP backends. This field
-             * will be ignored for all other backends. See https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids
-             * for more details on the supported values.
+             * The protocol used for sending a request to the backend. The supported values are "http/1.1" and "h2". The default value is inferred from the scheme in the address field: SCHEME
+             * PROTOCOL http:// http/1.1 https:// http/1.1 grpc:// h2 grpcs:// h2 For secure HTTP backends (https://) that support HTTP/2, set this field to "h2" for improved performance.
+             * Configuring this field to non-default values is only supported for secure HTTP backends. This field will be ignored for all other backends. See
+             * https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids for more details on the supported values.
              */
             protocol?: string;
             /** Selects the methods to which this rule applies. Refer to selector for syntax details. */
@@ -241,8 +229,8 @@ declare namespace gapi.client {
         }
         interface Billing {
             /**
-             * Billing configurations for sending metrics to the consumer project. There can be multiple consumer destinations per service, each one must have a
-             * different monitored resource type. A metric can be used in at most one consumer destination.
+             * Billing configurations for sending metrics to the consumer project. There can be multiple consumer destinations per service, each one must have a different monitored resource type.
+             * A metric can be used in at most one consumer destination.
              */
             consumerDestinations?: BillingDestination[];
         }
@@ -257,18 +245,16 @@ declare namespace gapi.client {
         }
         interface Connection {
             /**
-             * The name of service consumer's VPC network that's connected with service producer network, in the following format:
-             * `projects/{project}/global/networks/{network}`. `{project}` is a project number, such as in `12345` that includes the VPC service consumer's VPC
-             * network. `{network}` is the name of the service consumer's VPC network.
+             * The name of service consumer's VPC network that's connected with service producer network, in the following format: `projects/{project}/global/networks/{network}`. `{project}` is a
+             * project number, such as in `12345` that includes the VPC service consumer's VPC network. `{network}` is the name of the service consumer's VPC network.
              */
             network?: string;
             /** Output only. The name of the VPC Network Peering connection that was created by the service producer. */
             peering?: string;
             /**
-             * The name of one or more allocated IP address ranges for this service producer of type `PEERING`. Note that invoking CreateConnection method with a
-             * different range when connection is already established will not modify already provisioned service producer subnetworks. If CreateConnection method is
-             * invoked repeatedly to reconnect when peering connection had been disconnected on the consumer side, leaving this field empty will restore previously
-             * allocated IP ranges.
+             * The name of one or more allocated IP address ranges for this service producer of type `PEERING`. Note that invoking CreateConnection method with a different range when connection is
+             * already established will not modify already provisioned service producer subnetworks. If CreateConnection method is invoked repeatedly to reconnect when peering connection had been
+             * disconnected on the consumer side, leaving this field empty will restore previously allocated IP ranges.
              */
             reservedPeeringRanges?: string[];
             /** Output only. The name of the peering service that's associated with this connection, in the following format: `services/{service name}`. */
@@ -276,13 +262,13 @@ declare namespace gapi.client {
         }
         interface ConsumerProject {
             /**
-             * Required. Project number of the consumer that is launching the service instance. It can own the network that is peered with Google or, be a service
-             * project in an XPN where the host project has the network.
+             * Required. Project number of the consumer that is launching the service instance. It can own the network that is peered with Google or, be a service project in an XPN where the host
+             * project has the network.
              */
             projectNum?: string;
         }
         interface Context {
-            /** A list of RPC context rules that apply to individual API methods. ∗∗NOTE:∗∗ All service configuration rules follow "last one wins" order. */
+            /** A list of RPC context rules that apply to individual API methods. **NOTE:** All service configuration rules follow "last one wins" order. */
             rules?: ContextRule[];
         }
         interface ContextRule {
@@ -302,7 +288,7 @@ declare namespace gapi.client {
             environment?: string;
         }
         interface CustomError {
-            /** The list of custom error rules that apply to individual API messages. ∗∗NOTE:∗∗ All service configuration rules follow "last one wins" order. */
+            /** The list of custom error rules that apply to individual API messages. **NOTE:** All service configuration rules follow "last one wins" order. */
             rules?: CustomErrorRule[];
             /** The list of custom error detail types, e.g. 'google.foo.v1.CustomError'. */
             types?: string[];
@@ -321,8 +307,8 @@ declare namespace gapi.client {
         }
         interface DisableVpcServiceControlsRequest {
             /**
-             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network}
-             * {project} is a project number, as in '12345' {network} is network name.
+             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network} {project} is a project number, as in
+             * '12345' {network} is network name.
              */
             consumerNetwork?: string;
         }
@@ -340,8 +326,8 @@ declare namespace gapi.client {
             /** The DNS name suffix of this zone e.g. `example.com.`. */
             dnsSuffix?: string;
             /**
-             * User assigned name for this resource. Must be unique within the project. The name must be 1-63 characters long, must begin with a letter, end with a
-             * letter or digit, and only contain lowercase letters, digits or dashes.
+             * User assigned name for this resource. Must be unique within the project. The name must be 1-63 characters long, must begin with a letter, end with a letter or digit, and only
+             * contain lowercase letters, digits or dashes.
              */
             name?: string;
         }
@@ -349,18 +335,17 @@ declare namespace gapi.client {
             /** The URL to the root of documentation. */
             documentationRootUrl?: string;
             /**
-             * Declares a single overview page. For example: documentation: summary: ... overview: (== include overview.md ==) This is a shortcut for the following
-             * declaration (using pages style): documentation: summary: ... pages: - name: Overview content: (== include overview.md ==) Note: you cannot specify both
-             * `overview` field and `pages` field.
+             * Declares a single overview page. For example: documentation: summary: ... overview: (== include overview.md ==) This is a shortcut for the following declaration (using pages style):
+             * documentation: summary: ... pages: - name: Overview content: (== include overview.md ==) Note: you cannot specify both `overview` field and `pages` field.
              */
             overview?: string;
             /** The top level pages for the documentation set. */
             pages?: Page[];
-            /** A list of documentation rules that apply to individual API elements. ∗∗NOTE:∗∗ All service configuration rules follow "last one wins" order. */
+            /** A list of documentation rules that apply to individual API elements. **NOTE:** All service configuration rules follow "last one wins" order. */
             rules?: DocumentationRule[];
             /**
-             * Specifies the service root url if the default one (the service name from the yaml file) is not suitable. This can be seen in any fully specified
-             * service urls as well as sections that show a base that other urls are relative to.
+             * Specifies the service root url if the default one (the service name from the yaml file) is not suitable. This can be seen in any fully specified service urls as well as sections
+             * that show a base that other urls are relative to.
              */
             serviceRootUrl?: string;
             /** A short summary of what the service does. Can only be provided by plain text. */
@@ -372,9 +357,9 @@ declare namespace gapi.client {
             /** Description of the selected API(s). */
             description?: string;
             /**
-             * The selector is a comma-separated list of patterns. Each pattern is a qualified name of the element which may end in "∗", indicating a wildcard.
-             * Wildcards are only allowed at the end and for a whole component of the qualified name, i.e. "foo.∗" is ok, but not "foo.b∗" or "foo.∗.bar". A wildcard
-             * will match one or more components. To specify a default for all applicable elements, the whole pattern "∗" is used.
+             * The selector is a comma-separated list of patterns. Each pattern is a qualified name of the element which may end in "*", indicating a wildcard. Wildcards are only allowed at the
+             * end and for a whole component of the qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match one or more components. To specify a default for all
+             * applicable elements, the whole pattern "*" is used.
              */
             selector?: string;
         }
@@ -383,29 +368,27 @@ declare namespace gapi.client {
         }
         interface EnableVpcServiceControlsRequest {
             /**
-             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network}
-             * {project} is a project number, as in '12345' {network} is network name.
+             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network} {project} is a project number, as in
+             * '12345' {network} is network name.
              */
             consumerNetwork?: string;
         }
         interface Endpoint {
             /**
-             * DEPRECATED: This field is no longer supported. Instead of using aliases, please specify multiple google.api.Endpoint for each of the intended aliases.
-             * Additional names that this endpoint will be hosted on.
+             * DEPRECATED: This field is no longer supported. Instead of using aliases, please specify multiple google.api.Endpoint for each of the intended aliases. Additional names that this
+             * endpoint will be hosted on.
              */
             aliases?: string[];
             /**
-             * Allowing [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), aka cross-domain traffic, would allow the backends served from this
-             * endpoint to receive and respond to HTTP OPTIONS requests. The response will be used by the browser to determine whether the subsequent cross-origin
-             * request is allowed to proceed.
+             * Allowing [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), aka cross-domain traffic, would allow the backends served from this endpoint to receive and respond to
+             * HTTP OPTIONS requests. The response will be used by the browser to determine whether the subsequent cross-origin request is allowed to proceed.
              */
             allowCors?: boolean;
             /** The canonical name of this endpoint. */
             name?: string;
             /**
-             * The specification of an Internet routable address of API frontend that will handle requests to this [API
-             * Endpoint](https://cloud.google.com/apis/design/glossary). It should be either a valid IPv4 address or a fully-qualified domain name. For example,
-             * "8.8.8.8" or "myservice.appspot.com".
+             * The specification of an Internet routable address of API frontend that will handle requests to this [API Endpoint](https://cloud.google.com/apis/design/glossary). It should be
+             * either a valid IPv4 address or a fully-qualified domain name. For example, "8.8.8.8" or "myservice.appspot.com".
              */
             target?: string;
         }
@@ -463,29 +446,26 @@ declare namespace gapi.client {
         }
         interface Http {
             /**
-             * When set to true, URL path parameters will be fully URI-decoded except in cases of single segment matches in reserved expansion, where "%2F" will be
-             * left encoded. The default behavior is to not decode RFC 6570 reserved characters in multi segment matches.
+             * When set to true, URL path parameters will be fully URI-decoded except in cases of single segment matches in reserved expansion, where "%2F" will be left encoded. The default
+             * behavior is to not decode RFC 6570 reserved characters in multi segment matches.
              */
             fullyDecodeReservedExpansion?: boolean;
-            /** A list of HTTP configuration rules that apply to individual API methods. ∗∗NOTE:∗∗ All service configuration rules follow "last one wins" order. */
+            /** A list of HTTP configuration rules that apply to individual API methods. **NOTE:** All service configuration rules follow "last one wins" order. */
             rules?: HttpRule[];
         }
         interface HttpRule {
-            /**
-             * Additional HTTP bindings for the selector. Nested bindings must not contain an `additional_bindings` field themselves (that is, the nesting may only be
-             * one level deep).
-             */
+            /** Additional HTTP bindings for the selector. Nested bindings must not contain an `additional_bindings` field themselves (that is, the nesting may only be one level deep). */
             additionalBindings?: HttpRule[];
             /** When this flag is set to true, HTTP requests will be allowed to invoke a half-duplex streaming method. */
             allowHalfDuplex?: boolean;
             /**
-             * The name of the request field whose value is mapped to the HTTP request body, or `∗` for mapping all request fields not captured by the path pattern to
-             * the HTTP body, or omitted for not having any HTTP request body. NOTE: the referred field must be present at the top-level of the request message type.
+             * The name of the request field whose value is mapped to the HTTP request body, or `*` for mapping all request fields not captured by the path pattern to the HTTP body, or omitted for
+             * not having any HTTP request body. NOTE: the referred field must be present at the top-level of the request message type.
              */
             body?: string;
             /**
-             * The custom pattern is used for specifying an HTTP method that is not included in the `pattern` field, such as HEAD, or "∗" to leave the HTTP method
-             * unspecified for this rule. The wild-card rule is useful for services that provide content to Web (HTML) clients.
+             * The custom pattern is used for specifying an HTTP method that is not included in the `pattern` field, such as HEAD, or "*" to leave the HTTP method unspecified for this rule. The
+             * wild-card rule is useful for services that provide content to Web (HTML) clients.
              */
             custom?: CustomHttpPattern;
             /** Maps to HTTP DELETE. Used for deleting a resource. */
@@ -499,8 +479,8 @@ declare namespace gapi.client {
             /** Maps to HTTP PUT. Used for replacing a resource. */
             put?: string;
             /**
-             * Optional. The name of the response field whose value is mapped to the HTTP response body. When omitted, the entire response message will be used as the
-             * HTTP response body. NOTE: The referred field must be present at the top-level of the response message type.
+             * Optional. The name of the response field whose value is mapped to the HTTP response body. When omitted, the entire response message will be used as the HTTP response body. NOTE: The
+             * referred field must be present at the top-level of the response message type.
              */
             responseBody?: string;
             /** Selects a method to which this rule applies. Refer to selector for syntax details. */
@@ -512,9 +492,9 @@ declare namespace gapi.client {
             /** Specifies URL query parameter name to extract JWT token. */
             query?: string;
             /**
-             * The value prefix. The value format is "value_prefix{token}" Only applies to "in" header type. Must be empty for "in" query type. If not empty, the
-             * header value has to match (case sensitive) this prefix. If not matched, JWT will not be extracted. If matched, JWT will be extracted after the prefix
-             * is removed. For example, for "Authorization: Bearer {JWT}", value_prefix="Bearer " with a space at the end.
+             * The value prefix. The value format is "value_prefix{token}" Only applies to "in" header type. Must be empty for "in" query type. If not empty, the header value has to match (case
+             * sensitive) this prefix. If not matched, JWT will not be extracted. If matched, JWT will be extracted after the prefix is removed. For example, for "Authorization: Bearer {JWT}",
+             * value_prefix="Bearer " with a space at the end.
              */
             valuePrefix?: string;
         }
@@ -544,27 +524,27 @@ declare namespace gapi.client {
             /** The set of labels that are available to describe a specific log entry. Runtime requests that contain labels not specified here are considered invalid. */
             labels?: LabelDescriptor[];
             /**
-             * The name of the log. It must be less than 512 characters long and can include the following characters: upper- and lower-case alphanumeric characters
-             * [A-Za-z0-9], and punctuation characters including slash, underscore, hyphen, period [/_-.].
+             * The name of the log. It must be less than 512 characters long and can include the following characters: upper- and lower-case alphanumeric characters [A-Za-z0-9], and punctuation
+             * characters including slash, underscore, hyphen, period [/_-.].
              */
             name?: string;
         }
         interface Logging {
             /**
-             * Logging configurations for sending logs to the consumer project. There can be multiple consumer destinations, each one must have a different monitored
-             * resource type. A log can be used in at most one consumer destination.
+             * Logging configurations for sending logs to the consumer project. There can be multiple consumer destinations, each one must have a different monitored resource type. A log can be
+             * used in at most one consumer destination.
              */
             consumerDestinations?: LoggingDestination[];
             /**
-             * Logging configurations for sending logs to the producer project. There can be multiple producer destinations, each one must have a different monitored
-             * resource type. A log can be used in at most one producer destination.
+             * Logging configurations for sending logs to the producer project. There can be multiple producer destinations, each one must have a different monitored resource type. A log can be
+             * used in at most one producer destination.
              */
             producerDestinations?: LoggingDestination[];
         }
         interface LoggingDestination {
             /**
-             * Names of the logs to be sent to this destination. Each name must be defined in the Service.logs section. If the log name is not a domain scoped name,
-             * it will be automatically prefixed with the service name followed by "/".
+             * Names of the logs to be sent to this destination. Each name must be defined in the Service.logs section. If the log name is not a domain scoped name, it will be automatically
+             * prefixed with the service name followed by "/".
              */
             logs?: string[];
             /** The monitored resource type. The type must be defined in the Service.monitored_resources section. */
@@ -590,14 +570,13 @@ declare namespace gapi.client {
             /** A detailed description of the metric, which can be used in documentation. */
             description?: string;
             /**
-             * A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example "Request count". This
-             * field is optional but it is recommended to be set for any metrics associated with user-visible concepts, such as Quota.
+             * A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example "Request count". This field is optional but it is
+             * recommended to be set for any metrics associated with user-visible concepts, such as Quota.
              */
             displayName?: string;
             /**
-             * The set of labels that can be used to describe a specific instance of this metric type. For example, the
-             * `appengine.googleapis.com/http/server/response_latencies` metric type has a label for the HTTP response code, `response_code`, so you can look at
-             * latencies for successful responses or just for responses that failed.
+             * The set of labels that can be used to describe a specific instance of this metric type. For example, the `appengine.googleapis.com/http/server/response_latencies` metric type has a
+             * label for the HTTP response code, `response_code`, so you can look at latencies for successful responses or just for responses that failed.
              */
             labels?: LabelDescriptor[];
             /** Optional. The launch stage of the metric definition. */
@@ -607,66 +586,59 @@ declare namespace gapi.client {
             /** Whether the metric records instantaneous values, changes to a value, etc. Some combinations of `metric_kind` and `value_type` might not be supported. */
             metricKind?: string;
             /**
-             * Read-only. If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with
-             * this metric type can only be associated with one of the monitored resource types listed here.
+             * Read-only. If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with this metric type can only be
+             * associated with one of the monitored resource types listed here.
              */
             monitoredResourceTypes?: string[];
             /** The resource name of the metric descriptor. */
             name?: string;
             /**
-             * The metric type, including its DNS name prefix. The type is not URL-encoded. All user-defined metric types have the DNS name `custom.googleapis.com` or
-             * `external.googleapis.com`. Metric types should use a natural hierarchical grouping. For example: "custom.googleapis.com/invoice/paid/amount"
-             * "external.googleapis.com/prometheus/up" "appengine.googleapis.com/http/server/response_latencies"
+             * The metric type, including its DNS name prefix. The type is not URL-encoded. All user-defined metric types have the DNS name `custom.googleapis.com` or `external.googleapis.com`.
+             * Metric types should use a natural hierarchical grouping. For example: "custom.googleapis.com/invoice/paid/amount" "external.googleapis.com/prometheus/up"
+             * "appengine.googleapis.com/http/server/response_latencies"
              */
             type?: string;
             /**
-             * The units in which the metric value is reported. It is only applicable if the `value_type` is `INT64`, `DOUBLE`, or `DISTRIBUTION`. The `unit` defines
-             * the representation of the stored metric values. Different systems may scale the values to be more easily displayed (so a value of `0.02KBy` _might_ be
-             * displayed as `20By`, and a value of `3523KBy` _might_ be displayed as `3.5MBy`). However, if the `unit` is `KBy`, then the value of the metric is
-             * always in thousands of bytes, no matter how it may be displayed.. If you want a custom metric to record the exact number of CPU-seconds used by a job,
-             * you can create an `INT64 CUMULATIVE` metric whose `unit` is `s{CPU}` (or equivalently `1s{CPU}` or just `s`). If the job uses 12,005 CPU-seconds, then
-             * the value is written as `12005`. Alternatively, if you want a custom metric to record data in a more granular way, you can create a `DOUBLE CUMULATIVE`
-             * metric whose `unit` is `ks{CPU}`, and then write the value `12.005` (which is `12005/1000`), or use `Kis{CPU}` and write `11.723` (which is
-             * `12005/1024`). The supported units are a subset of [The Unified Code for Units of Measure](http://unitsofmeasure.org/ucum.html) standard: ∗∗Basic units
-             * (UNIT)∗∗ ∗ `bit` bit ∗ `By` byte ∗ `s` second ∗ `min` minute ∗ `h` hour ∗ `d` day ∗ `1` dimensionless ∗∗Prefixes (PREFIX)∗∗ ∗ `k` kilo (10^3) ∗ `M`
-             * mega (10^6) ∗ `G` giga (10^9) ∗ `T` tera (10^12) ∗ `P` peta (10^15) ∗ `E` exa (10^18) ∗ `Z` zetta (10^21) ∗ `Y` yotta (10^24) ∗ `m` milli (10^-3) ∗ `u`
-             * micro (10^-6) ∗ `n` nano (10^-9) ∗ `p` pico (10^-12) ∗ `f` femto (10^-15) ∗ `a` atto (10^-18) ∗ `z` zepto (10^-21) ∗ `y` yocto (10^-24) ∗ `Ki` kibi
-             * (2^10) ∗ `Mi` mebi (2^20) ∗ `Gi` gibi (2^30) ∗ `Ti` tebi (2^40) ∗ `Pi` pebi (2^50) ∗∗Grammar∗∗ The grammar also includes these connectors: ∗ `/`
-             * division or ratio (as an infix operator). For examples, `kBy/{email}` or `MiBy/10ms` (although you should almost never have `/s` in a metric `unit`;
-             * rates should always be computed at query time from the underlying cumulative or delta value). ∗ `.` multiplication or composition (as an infix
-             * operator). For examples, `GBy.d` or `k{watt}.h`. The grammar for a unit is as follows: Expression = Component { "." Component } { "/" Component } ;
-             * Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ] | Annotation | "1" ; Annotation = "{" NAME "}" ; Notes: ∗ `Annotation` is just a comment if it
-             * follows a `UNIT`. If the annotation is used alone, then the unit is equivalent to `1`. For examples, `{request}/s == 1/s`, `By{transmitted}/s == By/s`.
-             * ∗ `NAME` is a sequence of non-blank printable ASCII characters not containing `{` or `}`. ∗ `1` represents a unitary [dimensionless
-             * unit](https://en.wikipedia.org/wiki/Dimensionless_quantity) of 1, such as in `1/s`. It is typically used when none of the basic units are appropriate.
-             * For example, "new users per day" can be represented as `1/d` or `{new-users}/d` (and a metric value `5` would mean "5 new users). Alternatively,
-             * "thousands of page views per day" would be represented as `1000/d` or `k1/d` or `k{page_views}/d` (and a metric value of `5.3` would mean "5300 page
-             * views per day"). ∗ `%` represents dimensionless value of 1/100, and annotates values giving a percentage (so the metric values are typically in the
-             * range of 0..100, and a metric value `3` means "3 percent"). ∗ `10^2.%` indicates a metric contains a ratio, typically in the range 0..1, that will be
-             * multiplied by 100 and displayed as a percentage (so a metric value `0.03` means "3 percent").
+             * The units in which the metric value is reported. It is only applicable if the `value_type` is `INT64`, `DOUBLE`, or `DISTRIBUTION`. The `unit` defines the representation of the
+             * stored metric values. Different systems may scale the values to be more easily displayed (so a value of `0.02KBy` _might_ be displayed as `20By`, and a value of `3523KBy` _might_ be
+             * displayed as `3.5MBy`). However, if the `unit` is `KBy`, then the value of the metric is always in thousands of bytes, no matter how it may be displayed.. If you want a custom
+             * metric to record the exact number of CPU-seconds used by a job, you can create an `INT64 CUMULATIVE` metric whose `unit` is `s{CPU}` (or equivalently `1s{CPU}` or just `s`). If the
+             * job uses 12,005 CPU-seconds, then the value is written as `12005`. Alternatively, if you want a custom metric to record data in a more granular way, you can create a `DOUBLE
+             * CUMULATIVE` metric whose `unit` is `ks{CPU}`, and then write the value `12.005` (which is `12005/1000`), or use `Kis{CPU}` and write `11.723` (which is `12005/1024`). The supported
+             * units are a subset of [The Unified Code for Units of Measure](http://unitsofmeasure.org/ucum.html) standard: **Basic units (UNIT)** * `bit` bit * `By` byte * `s` second * `min`
+             * minute * `h` hour * `d` day * `1` dimensionless **Prefixes (PREFIX)** * `k` kilo (10^3) * `M` mega (10^6) * `G` giga (10^9) * `T` tera (10^12) * `P` peta (10^15) * `E` exa (10^18) *
+             * `Z` zetta (10^21) * `Y` yotta (10^24) * `m` milli (10^-3) * `u` micro (10^-6) * `n` nano (10^-9) * `p` pico (10^-12) * `f` femto (10^-15) * `a` atto (10^-18) * `z` zepto (10^-21) *
+             * `y` yocto (10^-24) * `Ki` kibi (2^10) * `Mi` mebi (2^20) * `Gi` gibi (2^30) * `Ti` tebi (2^40) * `Pi` pebi (2^50) **Grammar** The grammar also includes these connectors: * `/`
+             * division or ratio (as an infix operator). For examples, `kBy/{email}` or `MiBy/10ms` (although you should almost never have `/s` in a metric `unit`; rates should always be computed
+             * at query time from the underlying cumulative or delta value). * `.` multiplication or composition (as an infix operator). For examples, `GBy.d` or `k{watt}.h`. The grammar for a
+             * unit is as follows: Expression = Component { "." Component } { "/" Component } ; Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ] | Annotation | "1" ; Annotation = "{" NAME "}"
+             * ; Notes: * `Annotation` is just a comment if it follows a `UNIT`. If the annotation is used alone, then the unit is equivalent to `1`. For examples, `{request}/s == 1/s`,
+             * `By{transmitted}/s == By/s`. * `NAME` is a sequence of non-blank printable ASCII characters not containing `{` or `}`. * `1` represents a unitary [dimensionless
+             * unit](https://en.wikipedia.org/wiki/Dimensionless_quantity) of 1, such as in `1/s`. It is typically used when none of the basic units are appropriate. For example, "new users per
+             * day" can be represented as `1/d` or `{new-users}/d` (and a metric value `5` would mean "5 new users). Alternatively, "thousands of page views per day" would be represented as
+             * `1000/d` or `k1/d` or `k{page_views}/d` (and a metric value of `5.3` would mean "5300 page views per day"). * `%` represents dimensionless value of 1/100, and annotates values
+             * giving a percentage (so the metric values are typically in the range of 0..100, and a metric value `3` means "3 percent"). * `10^2.%` indicates a metric contains a ratio, typically
+             * in the range 0..1, that will be multiplied by 100 and displayed as a percentage (so a metric value `0.03` means "3 percent").
              */
             unit?: string;
             /** Whether the measurement is an integer, a floating-point number, etc. Some combinations of `metric_kind` and `value_type` might not be supported. */
             valueType?: string;
         }
         interface MetricDescriptorMetadata {
-            /**
-             * The delay of data points caused by ingestion. Data points older than this age are guaranteed to be ingested and available to be read, excluding data
-             * loss due to errors.
-             */
+            /** The delay of data points caused by ingestion. Data points older than this age are guaranteed to be ingested and available to be read, excluding data loss due to errors. */
             ingestDelay?: string;
             /** Deprecated. Must use the MetricDescriptor.launch_stage instead. */
             launchStage?: string;
             /**
-             * The sampling period of metric data points. For metrics which are written periodically, consecutive data points are stored at this time interval,
-             * excluding data loss due to errors. Metrics with a higher granularity have a smaller sampling period.
+             * The sampling period of metric data points. For metrics which are written periodically, consecutive data points are stored at this time interval, excluding data loss due to errors.
+             * Metrics with a higher granularity have a smaller sampling period.
              */
             samplePeriod?: string;
         }
         interface MetricRule {
             /**
-             * Metrics to update when the selected methods are called, and the associated cost applied to each metric. The key of the map is the metric name, and the
-             * values are the amount increased for the metric against which the quota limits are defined. The value must not be negative.
+             * Metrics to update when the selected methods are called, and the associated cost applied to each metric. The key of the map is the metric name, and the values are the amount
+             * increased for the metric against which the quota limits are defined. The value must not be negative.
              */
             metricCosts?: { [P in string]: string };
             /** Selects the methods to which this rule applies. Refer to selector for syntax details. */
@@ -682,21 +654,21 @@ declare namespace gapi.client {
             /** Optional. A detailed description of the monitored resource type that might be used in documentation. */
             description?: string;
             /**
-             * Optional. A concise name for the monitored resource type that might be displayed in user interfaces. It should be a Title Cased Noun Phrase, without
-             * any article or other determiners. For example, `"Google Cloud SQL Database"`.
+             * Optional. A concise name for the monitored resource type that might be displayed in user interfaces. It should be a Title Cased Noun Phrase, without any article or other
+             * determiners. For example, `"Google Cloud SQL Database"`.
              */
             displayName?: string;
             /**
-             * Required. A set of labels used to describe instances of this monitored resource type. For example, an individual Google Cloud SQL database is
-             * identified by values for the labels `"database_id"` and `"zone"`.
+             * Required. A set of labels used to describe instances of this monitored resource type. For example, an individual Google Cloud SQL database is identified by values for the labels
+             * `"database_id"` and `"zone"`.
              */
             labels?: LabelDescriptor[];
             /** Optional. The launch stage of the monitored resource definition. */
             launchStage?: string;
             /**
-             * Optional. The resource name of the monitored resource descriptor: `"projects/{project_id}/monitoredResourceDescriptors/{type}"` where {type} is the
-             * value of the `type` field in this object and {project_id} is a project ID that provides API-specific context for accessing the type. APIs that do not
-             * use project information can use the resource name format `"monitoredResourceDescriptors/{type}"`.
+             * Optional. The resource name of the monitored resource descriptor: `"projects/{project_id}/monitoredResourceDescriptors/{type}"` where {type} is the value of the `type` field in this
+             * object and {project_id} is a project ID that provides API-specific context for accessing the type. APIs that do not use project information can use the resource name format
+             * `"monitoredResourceDescriptors/{type}"`.
              */
             name?: string;
             /** Required. The monitored resource type. For example, the type `"cloudsql_database"` represents databases in Google Cloud SQL. */
@@ -704,15 +676,15 @@ declare namespace gapi.client {
         }
         interface Monitoring {
             /**
-             * Monitoring configurations for sending metrics to the consumer project. There can be multiple consumer destinations. A monitored resource type may
-             * appear in multiple monitoring destinations if different aggregations are needed for different sets of metrics associated with that monitored resource
-             * type. A monitored resource and metric pair may only be used once in the Monitoring configuration.
+             * Monitoring configurations for sending metrics to the consumer project. There can be multiple consumer destinations. A monitored resource type may appear in multiple monitoring
+             * destinations if different aggregations are needed for different sets of metrics associated with that monitored resource type. A monitored resource and metric pair may only be used
+             * once in the Monitoring configuration.
              */
             consumerDestinations?: MonitoringDestination[];
             /**
-             * Monitoring configurations for sending metrics to the producer project. There can be multiple producer destinations. A monitored resource type may
-             * appear in multiple monitoring destinations if different aggregations are needed for different sets of metrics associated with that monitored resource
-             * type. A monitored resource and metric pair may only be used once in the Monitoring configuration.
+             * Monitoring configurations for sending metrics to the producer project. There can be multiple producer destinations. A monitored resource type may appear in multiple monitoring
+             * destinations if different aggregations are needed for different sets of metrics associated with that monitored resource type. A monitored resource and metric pair may only be used
+             * once in the Monitoring configuration.
              */
             producerDestinations?: MonitoringDestination[];
         }
@@ -724,46 +696,42 @@ declare namespace gapi.client {
         }
         interface OAuthRequirements {
             /**
-             * The list of publicly documented OAuth scopes that are allowed access. An OAuth token containing any of these scopes will be accepted. Example:
-             * canonical_scopes: https://www.googleapis.com/auth/calendar, https://www.googleapis.com/auth/calendar.read
+             * The list of publicly documented OAuth scopes that are allowed access. An OAuth token containing any of these scopes will be accepted. Example: canonical_scopes:
+             * https://www.googleapis.com/auth/calendar, https://www.googleapis.com/auth/calendar.read
              */
             canonicalScopes?: string;
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
         interface Option {
             /**
-             * The option's name. For protobuf built-in options (options defined in descriptor.proto), this is the short name. For example, `"map_entry"`. For custom
-             * options, it should be the fully-qualified name. For example, `"google.api.http"`.
+             * The option's name. For protobuf built-in options (options defined in descriptor.proto), this is the short name. For example, `"map_entry"`. For custom options, it should be the
+             * fully-qualified name. For example, `"google.api.http"`.
              */
             name?: string;
             /**
-             * The option's value packed in an Any message. If the value is a primitive, the corresponding wrapper type defined in google/protobuf/wrappers.proto
-             * should be used. If the value is an enum, it should be stored as an int32 value using the google.protobuf.Int32Value type.
+             * The option's value packed in an Any message. If the value is a primitive, the corresponding wrapper type defined in google/protobuf/wrappers.proto should be used. If the value is an
+             * enum, it should be stored as an int32 value using the google.protobuf.Int32Value type.
              */
             value?: { [P in string]: any };
         }
@@ -771,10 +739,9 @@ declare namespace gapi.client {
             /** The Markdown content of the page. You can use (== include {path} ==) to include content from a Markdown file. */
             content?: string;
             /**
-             * The name of the page. It will be used as an identity of the page to generate URI of the page, text of the link to this page in navigation, etc. The
-             * full page name (start from the root page name to this page concatenated with `.`) can be used as reference to the page in your documentation. For
-             * example: pages: - name: Tutorial content: (== include tutorial.md ==) subpages: - name: Java content: (== include tutorial_java.md ==) You can
-             * reference `Java` page using Markdown reference link syntax: `Java`.
+             * The name of the page. It will be used as an identity of the page to generate URI of the page, text of the link to this page in navigation, etc. The full page name (start from the
+             * root page name to this page concatenated with `.`) can be used as reference to the page in your documentation. For example: pages: - name: Tutorial content: (== include tutorial.md
+             * ==) subpages: - name: Java content: (== include tutorial_java.md ==) You can reference `Java` page using Markdown reference link syntax: `Java`.
              */
             name?: string;
             /** Subpages of this page. The order of subpages specified here will be honored in the generated docset. */
@@ -787,8 +754,8 @@ declare namespace gapi.client {
              */
             member?: string;
             /**
-             * Required. Role to apply. Only whitelisted roles can be used at the specified granularity. The role must be one of the following: -
-             * 'roles/container.hostServiceAgentUser' applied on the shared VPC host project - 'roles/compute.securityAdmin' applied on the shared VPC host project
+             * Required. Role to apply. Only whitelisted roles can be used at the specified granularity. The role must be one of the following: - 'roles/container.hostServiceAgentUser' applied on
+             * the shared VPC host project - 'roles/compute.securityAdmin' applied on the shared VPC host project
              */
             role?: string;
         }
@@ -800,55 +767,53 @@ declare namespace gapi.client {
         }
         interface QuotaLimit {
             /**
-             * Default number of tokens that can be consumed during the specified duration. This is the number of tokens assigned when a client application developer
-             * activates the service for his/her project. Specifying a value of 0 will block all requests. This can be used if you are provisioning quota to selected
-             * consumers and blocking others. Similarly, a value of -1 will indicate an unlimited quota. No other negative values are allowed. Used by group-based
-             * quotas only.
+             * Default number of tokens that can be consumed during the specified duration. This is the number of tokens assigned when a client application developer activates the service for
+             * his/her project. Specifying a value of 0 will block all requests. This can be used if you are provisioning quota to selected consumers and blocking others. Similarly, a value of -1
+             * will indicate an unlimited quota. No other negative values are allowed. Used by group-based quotas only.
              */
             defaultLimit?: string;
             /**
-             * Optional. User-visible, extended description for this quota limit. Should be used only when more context is needed to understand this limit than
-             * provided by the limit's display name (see: `display_name`).
+             * Optional. User-visible, extended description for this quota limit. Should be used only when more context is needed to understand this limit than provided by the limit's display name
+             * (see: `display_name`).
              */
             description?: string;
             /**
-             * User-visible display name for this limit. Optional. If not set, the UI will provide a default display name based on the quota configuration. This field
-             * can be used to override the default display name generated from the configuration.
+             * User-visible display name for this limit. Optional. If not set, the UI will provide a default display name based on the quota configuration. This field can be used to override the
+             * default display name generated from the configuration.
              */
             displayName?: string;
             /** Duration of this limit in textual notation. Must be "100s" or "1d". Used by group-based quotas only. */
             duration?: string;
             /**
-             * Free tier value displayed in the Developers Console for this limit. The free tier is the number of tokens that will be subtracted from the billed
-             * amount when billing is enabled. This field can only be set on a limit with duration "1d", in a billable group; it is invalid on any other limit. If
-             * this field is not set, it defaults to 0, indicating that there is no free tier for this service. Used by group-based quotas only.
+             * Free tier value displayed in the Developers Console for this limit. The free tier is the number of tokens that will be subtracted from the billed amount when billing is enabled.
+             * This field can only be set on a limit with duration "1d", in a billable group; it is invalid on any other limit. If this field is not set, it defaults to 0, indicating that there is
+             * no free tier for this service. Used by group-based quotas only.
              */
             freeTier?: string;
             /**
-             * Maximum number of tokens that can be consumed during the specified duration. Client application developers can override the default limit up to this
-             * maximum. If specified, this value cannot be set to a value less than the default limit. If not specified, it is set to the default limit. To allow
-             * clients to apply overrides with no upper bound, set this to -1, indicating unlimited maximum quota. Used by group-based quotas only.
+             * Maximum number of tokens that can be consumed during the specified duration. Client application developers can override the default limit up to this maximum. If specified, this
+             * value cannot be set to a value less than the default limit. If not specified, it is set to the default limit. To allow clients to apply overrides with no upper bound, set this to
+             * -1, indicating unlimited maximum quota. Used by group-based quotas only.
              */
             maxLimit?: string;
             /**
-             * The name of the metric this quota limit applies to. The quota limits with the same metric will be checked together during runtime. The metric must be
-             * defined within the service config.
+             * The name of the metric this quota limit applies to. The quota limits with the same metric will be checked together during runtime. The metric must be defined within the service
+             * config.
              */
             metric?: string;
             /**
-             * Name of the quota limit. The name must be provided, and it must be unique within the service. The name can only include alphanumeric characters as well
-             * as '-'. The maximum length of the limit name is 64 characters.
+             * Name of the quota limit. The name must be provided, and it must be unique within the service. The name can only include alphanumeric characters as well as '-'. The maximum length of
+             * the limit name is 64 characters.
              */
             name?: string;
             /**
-             * Specify the unit of the quota limit. It uses the same syntax as Metric.unit. The supported unit kinds are determined by the quota backend system. Here
-             * are some examples: ∗ "1/min/{project}" for quota per minute per project. Note: the order of unit components is insignificant. The "1" at the beginning
-             * is required to follow the metric unit syntax.
+             * Specify the unit of the quota limit. It uses the same syntax as Metric.unit. The supported unit kinds are determined by the quota backend system. Here are some examples: *
+             * "1/min/{project}" for quota per minute per project. Note: the order of unit components is insignificant. The "1" at the beginning is required to follow the metric unit syntax.
              */
             unit?: string;
             /**
-             * Tiered limit values. You must specify this as a key:value pair, with an integer value that is the maximum number of requests allowed for the specified
-             * unit. Currently only STANDARD is supported.
+             * Tiered limit values. You must specify this as a key:value pair, with an integer value that is the maximum number of requests allowed for the specified unit. Currently only STANDARD
+             * is supported.
              */
             values?: { [P in string]: string };
         }
@@ -860,13 +825,13 @@ declare namespace gapi.client {
         }
         interface RangeReservation {
             /**
-             * Required. The size of the desired subnet. Use usual CIDR range notation. For example, '30' to find unused x.x.x.x/30 CIDR range. The goal is to
-             * determine if one of the allocated ranges has enough free space for a subnet of the requested size.
+             * Required. The size of the desired subnet. Use usual CIDR range notation. For example, '30' to find unused x.x.x.x/30 CIDR range. The goal is to determine if one of the allocated
+             * ranges has enough free space for a subnet of the requested size.
              */
             ipPrefixLength?: number;
             /**
-             * Optional. DO NOT USE - Under development. The size of the desired secondary ranges for the subnet. Use usual CIDR range notation. For example, '30' to
-             * find unused x.x.x.x/30 CIDR range. The goal is to determine that the allocated ranges have enough free space for all the requested secondary ranges.
+             * Optional. DO NOT USE - Under development. The size of the desired secondary ranges for the subnet. Use usual CIDR range notation. For example, '30' to find unused x.x.x.x/30 CIDR
+             * range. The goal is to determine that the allocated ranges have enough free space for all the requested secondary ranges.
              */
             secondaryRangeIpPrefixLengths?: number[];
         }
@@ -875,8 +840,8 @@ declare namespace gapi.client {
         }
         interface RemoveDnsRecordSetRequest {
             /**
-             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network}
-             * {project} is the project number, as in '12345' {network} is the network name.
+             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network} {project} is the project number, as in
+             * '12345' {network} is the network name.
              */
             consumerNetwork?: string;
             /** Required. The DNS record set to remove. */
@@ -892,8 +857,8 @@ declare namespace gapi.client {
         }
         interface RemoveDnsZoneRequest {
             /**
-             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network}
-             * {project} is the project number, as in '12345' {network} is the network name.
+             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network} {project} is the project number, as in
+             * '12345' {network} is the network name.
              */
             consumerNetwork?: string;
             /** Required. The name for both the private zone in the shared producer host project and the peering zone in the consumer project. */
@@ -907,34 +872,27 @@ declare namespace gapi.client {
             destRange?: string;
             /** Route name. See https://cloud.google.com/vpc/docs/routes */
             name?: string;
-            /**
-             * Fully-qualified URL of the VPC network in the producer host tenant project that this route applies to. For example:
-             * `projects/123456/global/networks/host-network`
-             */
+            /** Fully-qualified URL of the VPC network in the producer host tenant project that this route applies to. For example: `projects/123456/global/networks/host-network` */
             network?: string;
-            /**
-             * Fully-qualified URL of the gateway that should handle matching packets that this route applies to. For example:
-             * `projects/123456/global/gateways/default-internet-gateway`
-             */
+            /** Fully-qualified URL of the gateway that should handle matching packets that this route applies to. For example: `projects/123456/global/gateways/default-internet-gateway` */
             nextHopGateway?: string;
         }
         interface SearchRangeRequest {
             /**
-             * Required. The prefix length of the IP range. Use usual CIDR range notation. For example, '30' to find unused x.x.x.x/30 CIDR range. Actual range will
-             * be determined using allocated range for the consumer peered network and returned in the result.
+             * Required. The prefix length of the IP range. Use usual CIDR range notation. For example, '30' to find unused x.x.x.x/30 CIDR range. Actual range will be determined using allocated
+             * range for the consumer peered network and returned in the result.
              */
             ipPrefixLength?: number;
             /**
-             * Network name in the consumer project. This network must have been already peered with a shared VPC network using CreateConnection method. Must be in a
-             * form 'projects/{project}/global/networks/{network}'. {project} is a project number, as in '12345' {network} is network name.
+             * Network name in the consumer project. This network must have been already peered with a shared VPC network using CreateConnection method. Must be in a form
+             * 'projects/{project}/global/networks/{network}'. {project} is a project number, as in '12345' {network} is network name.
              */
             network?: string;
         }
         interface Service {
             /**
-             * A list of API interfaces exported by this service. Only the `name` field of the google.protobuf.Api needs to be provided by the configuration author,
-             * as the remaining fields will be derived from the IDL during the normalization process. It is an error to specify an API interface here which cannot be
-             * resolved against the associated IDL files.
+             * A list of API interfaces exported by this service. Only the `name` field of the google.protobuf.Api needs to be provided by the configuration author, as the remaining fields will be
+             * derived from the IDL during the normalization process. It is an error to specify an API interface here which cannot be resolved against the associated IDL files.
              */
             apis?: Api[];
             /** Auth configuration. */
@@ -944,8 +902,8 @@ declare namespace gapi.client {
             /** Billing configuration. */
             billing?: Billing;
             /**
-             * The semantic version of the service configuration. The config version affects the interpretation of the service configuration. For example, certain
-             * features are enabled by default for certain config versions. The latest config version is `3`.
+             * The semantic version of the service configuration. The config version affects the interpretation of the service configuration. For example, certain features are enabled by default
+             * for certain config versions. The latest config version is `3`.
              */
             configVersion?: number;
             /** Context configuration. */
@@ -956,21 +914,18 @@ declare namespace gapi.client {
             customError?: CustomError;
             /** Additional API documentation. */
             documentation?: Documentation;
-            /**
-             * Configuration for network endpoints. If this is empty, then an endpoint with the same name as the service is automatically generated to service all
-             * defined APIs.
-             */
+            /** Configuration for network endpoints. If this is empty, then an endpoint with the same name as the service is automatically generated to service all defined APIs. */
             endpoints?: Endpoint[];
             /**
-             * A list of all enum types included in this API service. Enums referenced directly or indirectly by the `apis` are automatically included. Enums which
-             * are not referenced but shall be included should be listed here by name. Example: enums: - name: google.someapi.v1.SomeEnum
+             * A list of all enum types included in this API service. Enums referenced directly or indirectly by the `apis` are automatically included. Enums which are not referenced but shall be
+             * included should be listed here by name. Example: enums: - name: google.someapi.v1.SomeEnum
              */
             enums?: Enum[];
             /** HTTP configuration. */
             http?: Http;
             /**
-             * A unique ID for a specific instance of this message, typically assigned by the client for tracking purpose. Must be no longer than 63 characters and
-             * only lower case letters, digits, '.', '_' and '-' are allowed. If empty, the server may choose to generate one instead.
+             * A unique ID for a specific instance of this message, typically assigned by the client for tracking purpose. Must be no longer than 63 characters and only lower case letters, digits,
+             * '.', '_' and '-' are allowed. If empty, the server may choose to generate one instead.
              */
             id?: string;
             /** Logging configuration. */
@@ -984,8 +939,8 @@ declare namespace gapi.client {
             /** Monitoring configuration. */
             monitoring?: Monitoring;
             /**
-             * The service name, which is a DNS-like logical identifier for the service, such as `calendar.googleapis.com`. The service name typically goes through
-             * DNS verification to make sure the owner of the service also owns the DNS name.
+             * The service name, which is a DNS-like logical identifier for the service, such as `calendar.googleapis.com`. The service name typically goes through DNS verification to make sure
+             * the owner of the service also owns the DNS name.
              */
             name?: string;
             /** The Google project that owns this service. */
@@ -997,17 +952,15 @@ declare namespace gapi.client {
             /** System parameter configuration. */
             systemParameters?: SystemParameters;
             /**
-             * A list of all proto message types included in this API service. It serves similar purpose as [google.api.Service.types], except that these types are
-             * not needed by user-defined APIs. Therefore, they will not show up in the generated discovery doc. This field should only be used to define system APIs
-             * in ESF.
+             * A list of all proto message types included in this API service. It serves similar purpose as [google.api.Service.types], except that these types are not needed by user-defined APIs.
+             * Therefore, they will not show up in the generated discovery doc. This field should only be used to define system APIs in ESF.
              */
             systemTypes?: Type[];
             /** The product title for this service. */
             title?: string;
             /**
-             * A list of all proto message types included in this API service. Types referenced directly or indirectly by the `apis` are automatically included.
-             * Messages which are not referenced but shall be included, such as types used by the `google.protobuf.Any` type, should be listed here by name. Example:
-             * types: - name: google.protobuf.Int32
+             * A list of all proto message types included in this API service. Types referenced directly or indirectly by the `apis` are automatically included. Messages which are not referenced
+             * but shall be included, such as types used by the `google.protobuf.Any` type, should be listed here by name. Example: types: - name: google.protobuf.Int32
              */
             types?: Type[];
             /** Configuration controlling usage of this service. */
@@ -1035,8 +988,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -1060,20 +1013,19 @@ declare namespace gapi.client {
         }
         interface SystemParameterRule {
             /**
-             * Define parameters. Multiple names may be defined for a parameter. For a given method call, only one of them should be used. If multiple names are used
-             * the behavior is implementation-dependent. If none of the specified names are present the behavior is parameter-dependent.
+             * Define parameters. Multiple names may be defined for a parameter. For a given method call, only one of them should be used. If multiple names are used the behavior is
+             * implementation-dependent. If none of the specified names are present the behavior is parameter-dependent.
              */
             parameters?: SystemParameter[];
-            /** Selects the methods to which this rule applies. Use '∗' to indicate all methods in all APIs. Refer to selector for syntax details. */
+            /** Selects the methods to which this rule applies. Use '*' to indicate all methods in all APIs. Refer to selector for syntax details. */
             selector?: string;
         }
         interface SystemParameters {
             /**
-             * Define system parameters. The parameters defined here will override the default parameters implemented by the system. If this field is missing from the
-             * service config, default system parameters will be used. Default system parameters and names is implementation-dependent. Example: define api key for
-             * all methods system_parameters rules: - selector: "∗" parameters: - name: api_key url_query_parameter: api_key Example: define 2 api key names for a
-             * specific method. system_parameters rules: - selector: "/ListShelves" parameters: - name: api_key http_header: Api-Key1 - name: api_key http_header:
-             * Api-Key2 ∗∗NOTE:∗∗ All service configuration rules follow "last one wins" order.
+             * Define system parameters. The parameters defined here will override the default parameters implemented by the system. If this field is missing from the service config, default
+             * system parameters will be used. Default system parameters and names is implementation-dependent. Example: define api key for all methods system_parameters rules: - selector: "*"
+             * parameters: - name: api_key url_query_parameter: api_key Example: define 2 api key names for a specific method. system_parameters rules: - selector: "/ListShelves" parameters: -
+             * name: api_key http_header: Api-Key1 - name: api_key http_header: Api-Key2 **NOTE:** All service configuration rules follow "last one wins" order.
              */
             rules?: SystemParameterRule[];
         }
@@ -1096,8 +1048,8 @@ declare namespace gapi.client {
         }
         interface UpdateDnsRecordSetRequest {
             /**
-             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network}
-             * {project} is the project number, as in '12345' {network} is the network name.
+             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network} {project} is the project number, as in
+             * '12345' {network} is the network name.
              */
             consumerNetwork?: string;
             /** Required. The existing DNS record set to update. */
@@ -1109,17 +1061,14 @@ declare namespace gapi.client {
         }
         interface Usage {
             /**
-             * The full resource name of a channel used for sending notifications to the service producer. Google Service Management currently only supports [Google
-             * Cloud Pub/Sub](https://cloud.google.com/pubsub) as a notification channel. To use Google Cloud Pub/Sub as the channel, this must be the name of a Cloud
-             * Pub/Sub topic that uses the Cloud Pub/Sub topic name format documented in https://cloud.google.com/pubsub/docs/overview.
+             * The full resource name of a channel used for sending notifications to the service producer. Google Service Management currently only supports [Google Cloud
+             * Pub/Sub](https://cloud.google.com/pubsub) as a notification channel. To use Google Cloud Pub/Sub as the channel, this must be the name of a Cloud Pub/Sub topic that uses the Cloud
+             * Pub/Sub topic name format documented in https://cloud.google.com/pubsub/docs/overview.
              */
             producerNotificationChannel?: string;
-            /**
-             * Requirements that must be satisfied before a consumer project can use the service. Each requirement is of the form /; for example
-             * 'serviceusage.googleapis.com/billing-enabled'.
-             */
+            /** Requirements that must be satisfied before a consumer project can use the service. Each requirement is of the form /; for example 'serviceusage.googleapis.com/billing-enabled'. */
             requirements?: string[];
-            /** A list of usage rules that apply to individual API methods. ∗∗NOTE:∗∗ All service configuration rules follow "last one wins" order. */
+            /** A list of usage rules that apply to individual API methods. **NOTE:** All service configuration rules follow "last one wins" order. */
             rules?: UsageRule[];
             /** The configuration of a per-product per-project service identity. */
             serviceIdentity?: ServiceIdentity;
@@ -1127,18 +1076,18 @@ declare namespace gapi.client {
         interface UsageRule {
             /** If true, the selected method allows unregistered calls, e.g. calls that don't identify any user or application. */
             allowUnregisteredCalls?: boolean;
-            /** Selects the methods to which this rule applies. Use '∗' to indicate all methods in all APIs. Refer to selector for syntax details. */
+            /** Selects the methods to which this rule applies. Use '*' to indicate all methods in all APIs. Refer to selector for syntax details. */
             selector?: string;
             /**
-             * If true, the selected method should skip service control and the control plane features, such as quota and billing, will not be available. This flag is
-             * used by Google Cloud Endpoints to bypass checks for internal methods, such as service health check methods.
+             * If true, the selected method should skip service control and the control plane features, such as quota and billing, will not be available. This flag is used by Google Cloud
+             * Endpoints to bypass checks for internal methods, such as service health check methods.
              */
             skipServiceControl?: boolean;
         }
         interface ValidateConsumerConfigRequest {
             /**
-             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network}
-             * {project} is a project number, as in '12345' {network} is network name.
+             * Required. The network that the consumer is using to connect with services. Must be in the form of projects/{project}/global/networks/{network} {project} is a project number, as in
+             * '12345' {network} is network name.
              */
             consumerNetwork?: string;
             /** NETWORK_NOT_IN_CONSUMERS_PROJECT, NETWORK_NOT_IN_CONSUMERS_HOST_PROJECT, and HOST_PROJECT_NOT_FOUND are done when consumer_project is provided. */
@@ -1146,9 +1095,9 @@ declare namespace gapi.client {
             /** RANGES_EXHAUSTED, RANGES_EXHAUSTED, and RANGES_DELETED_LATER are done when range_reservation is provided. */
             rangeReservation?: RangeReservation;
             /**
-             * The validations will be performed in the order listed in the ValidationError enum. The first failure will return. If a validation is not requested,
-             * then the next one will be performed. SERVICE_NETWORKING_NOT_ENABLED and NETWORK_NOT_PEERED checks are performed for all requests where validation is
-             * requested. NETWORK_NOT_FOUND and NETWORK_DISCONNECTED checks are done for requests that have validate_network set to true.
+             * The validations will be performed in the order listed in the ValidationError enum. The first failure will return. If a validation is not requested, then the next one will be
+             * performed. SERVICE_NETWORKING_NOT_ENABLED and NETWORK_NOT_PEERED checks are performed for all requests where validation is requested. NETWORK_NOT_FOUND and NETWORK_DISCONNECTED
+             * checks are done for requests that have validate_network set to true.
              */
             validateNetwork?: boolean;
         }
@@ -1158,10 +1107,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
+             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
              */
             cancel(request: {
                 /** V1 error format. */
@@ -1219,8 +1168,8 @@ declare namespace gapi.client {
             },
             body: CancelOperationRequest): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -1248,10 +1197,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1279,11 +1225,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<Operation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1320,10 +1265,9 @@ declare namespace gapi.client {
         }
         interface ConnectionsResource {
             /**
-             * Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The
-             * administrator of the service consumer's VPC network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning
-             * subnetworks in the service producer's VPC network. This connection is used for all supported services in the service producer's organization, so it
-             * only needs to be invoked once.
+             * Creates a private connection that establishes a VPC Network Peering connection to a VPC network in the service producer's organization. The administrator of the service consumer's
+             * VPC network invokes this method. The administrator must assign one or more allocated IP ranges for provisioning subnetworks in the service producer's VPC network. This connection is
+             * used for all supported services in the service producer's organization, so it only needs to be invoked once.
              */
             create(request: {
                 /** V1 error format. */
@@ -1341,8 +1285,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this
-                 * value is `services/servicenetworking.googleapis.com`.
+                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1372,8 +1316,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this
-                 * value is `services/servicenetworking.googleapis.com`.
+                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1401,16 +1345,16 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The name of service consumer's VPC network that's connected with service producer network through a private connection. The network name must be in the
-                 * following format: `projects/{project}/global/networks/{network}`. {project} is a project number, such as in `12345` that includes the VPC service
-                 * consumer's VPC network. {network} is the name of the service consumer's VPC network.
+                 * The name of service consumer's VPC network that's connected with service producer network through a private connection. The network name must be in the following format:
+                 * `projects/{project}/global/networks/{network}`. {project} is a project number, such as in `12345` that includes the VPC service consumer's VPC network. {network} is the name of
+                 * the service consumer's VPC network.
                  */
                 network?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this
-                 * value is `services/servicenetworking.googleapis.com`. If you specify `services/-` as the parameter value, all configured peering services are listed.
+                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`. If you specify `services/-` as the parameter value, all configured peering services are listed.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1439,9 +1383,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The private service connection that connects to a service producer organization. The name includes both the private service name and the VPC network
-                 * peering name in the format of `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google services that support this functionality,
-                 * this is `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
+                 * The private service connection that connects to a service producer organization. The name includes both the private service name and the VPC network peering name in the format
+                 * of `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google services that support this functionality, this is
+                 * `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1450,7 +1394,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** The update mask. If this is omitted, it defaults to "∗". You can only update the listed peering ranges. */
+                /** The update mask. If this is omitted, it defaults to "*". You can only update the listed peering ranges. */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -1475,9 +1419,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The private service connection that connects to a service producer organization. The name includes both the private service name and the VPC network
-                 * peering name in the format of `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google services that support this functionality,
-                 * this is `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
+                 * The private service connection that connects to a service producer organization. The name includes both the private service name and the VPC network peering name in the format
+                 * of `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google services that support this functionality, this is
+                 * `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1486,7 +1430,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** The update mask. If this is omitted, it defaults to "∗". You can only update the listed peering ranges. */
+                /** The update mask. If this is omitted, it defaults to "*". You can only update the listed peering ranges. */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -1513,8 +1457,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality,
-                 * this value is `services/servicenetworking.googleapis.com`.
+                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1544,8 +1488,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality,
-                 * this value is `services/servicenetworking.googleapis.com`.
+                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1575,8 +1519,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality,
-                 * this value is `services/servicenetworking.googleapis.com`.
+                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1606,8 +1550,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality,
-                 * this value is `services/servicenetworking.googleapis.com`.
+                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1637,8 +1581,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality,
-                 * this value is `services/servicenetworking.googleapis.com`.
+                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1668,8 +1612,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality,
-                 * this value is `services/servicenetworking.googleapis.com`.
+                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1701,8 +1645,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality,
-                 * this value is `services/servicenetworking.googleapis.com`.
+                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1732,8 +1676,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality,
-                 * this value is `services/servicenetworking.googleapis.com`.
+                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1746,10 +1690,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: AddDnsZoneRequest): Request<Operation>;
-            /**
-             * Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer
-             * project.
-             */
+            /** Service producers can use this method to remove private DNS zones in the shared producer host project and matching peering zones in the consumer project. */
             remove(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1766,8 +1707,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality,
-                 * this value is `services/servicenetworking.googleapis.com`.
+                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1797,8 +1738,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality,
-                 * this value is `services/servicenetworking.googleapis.com`.
+                 * Required. The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1814,8 +1755,8 @@ declare namespace gapi.client {
         }
         interface RolesResource {
             /**
-             * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be
-             * selected from within a whitelisted set of roles. Each role is applied at only the granularity specified in the whitelist.
+             * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within a whitelisted
+             * set of roles. Each role is applied at only the granularity specified in the whitelist.
              */
             add(request: {
                 /** V1 error format. */
@@ -1832,10 +1773,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. This is in a form services/{service} where {service} is the name of the private access management service. For example
-                 * 'service-peering.example.com'.
-                 */
+                /** Required. This is in a form services/{service} where {service} is the name of the private access management service. For example 'service-peering.example.com'. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1863,10 +1801,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. This is in a form services/{service} where {service} is the name of the private access management service. For example
-                 * 'service-peering.example.com'.
-                 */
+                /** Required. This is in a form services/{service} where {service} is the name of the private access management service. For example 'service-peering.example.com'. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1881,10 +1816,9 @@ declare namespace gapi.client {
         }
         interface ServicesResource {
             /**
-             * For service producers, provisions a new subnet in a peered service's shared VPC network in the requested region and with the requested size that's
-             * expressed as a CIDR range (number of leading bits of ipV4 network mask). The method checks against the assigned allocated ranges to find a
-             * non-conflicting IP address range. The method will reuse a subnet if subsequent calls contain the same subnet name, region, and prefix length. This
-             * method will make producer's tenant project to be a shared VPC service project as needed.
+             * For service producers, provisions a new subnet in a peered service's shared VPC network in the requested region and with the requested size that's expressed as a CIDR range (number
+             * of leading bits of ipV4 network mask). The method checks against the assigned allocated ranges to find a non-conflicting IP address range. The method will reuse a subnet if
+             * subsequent calls contain the same subnet name, region, and prefix length. This method will make producer's tenant project to be a shared VPC service project as needed.
              */
             addSubnetwork(request: {
                 /** V1 error format. */
@@ -1902,10 +1836,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. A tenant project in the service producer organization, in the following format: services/{service}/{collection-id}/{resource-id}.
-                 * {collection-id} is the cloud resource collection type that represents the tenant project. Only `projects` are supported. {resource-id} is the tenant
-                 * project numeric id, such as `123456`. {service} the name of the peering service, such as `service-peering.example.com`. This service must already be
-                 * enabled in the service consumer's project.
+                 * Required. A tenant project in the service producer organization, in the following format: services/{service}/{collection-id}/{resource-id}. {collection-id} is the cloud resource
+                 * collection type that represents the tenant project. Only `projects` are supported. {resource-id} is the tenant project numeric id, such as `123456`. {service} the name of the
+                 * peering service, such as `service-peering.example.com`. This service must already be enabled in the service consumer's project.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1935,10 +1868,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. A tenant project in the service producer organization, in the following format: services/{service}/{collection-id}/{resource-id}.
-                 * {collection-id} is the cloud resource collection type that represents the tenant project. Only `projects` are supported. {resource-id} is the tenant
-                 * project numeric id, such as `123456`. {service} the name of the peering service, such as `service-peering.example.com`. This service must already be
-                 * enabled in the service consumer's project.
+                 * Required. A tenant project in the service producer organization, in the following format: services/{service}/{collection-id}/{resource-id}. {collection-id} is the cloud resource
+                 * collection type that represents the tenant project. Only `projects` are supported. {resource-id} is the tenant project numeric id, such as `123456`. {service} the name of the
+                 * peering service, such as `service-peering.example.com`. This service must already be enabled in the service consumer's project.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1968,8 +1900,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this
-                 * value is `services/servicenetworking.googleapis.com`.
+                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1999,8 +1931,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this
-                 * value is `services/servicenetworking.googleapis.com`.
+                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2030,8 +1962,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this
-                 * value is `services/servicenetworking.googleapis.com`.
+                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2061,8 +1993,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this
-                 * value is `services/servicenetworking.googleapis.com`.
+                 * The service that is managing peering connectivity for a service producer's organization. For Google services that support this functionality, this value is
+                 * `services/servicenetworking.googleapis.com`.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2076,9 +2008,9 @@ declare namespace gapi.client {
             },
             body: EnableVpcServiceControlsRequest): Request<Operation>;
             /**
-             * Service producers can use this method to find a currently unused range within consumer allocated ranges. This returned range is not reserved, and not
-             * guaranteed to remain unused. It will validate previously provided allocated ranges, find non-conflicting sub-range of requested size (expressed in
-             * number of leading bits of ipv4 network mask, as in CIDR range notation).
+             * Service producers can use this method to find a currently unused range within consumer allocated ranges. This returned range is not reserved, and not guaranteed to remain unused. It
+             * will validate previously provided allocated ranges, find non-conflicting sub-range of requested size (expressed in number of leading bits of ipv4 network mask, as in CIDR range
+             * notation).
              */
             searchRange(request: {
                 /** V1 error format. */
@@ -2136,8 +2068,8 @@ declare namespace gapi.client {
             },
             body: SearchRangeRequest): Request<Operation>;
             /**
-             * Service producers use this method to validate if the consumer provided network, project and requested range are valid. This allows them to use a
-             * fail-fast mechanism for consumer requests, and not have to wait for AddSubnetwork operation completion to determine if user request is invalid.
+             * Service producers use this method to validate if the consumer provided network, project and requested range are valid. This allows them to use a fail-fast mechanism for consumer
+             * requests, and not have to wait for AddSubnetwork operation completion to determine if user request is invalid.
              */
             validate(request: {
                 /** V1 error format. */
@@ -2154,10 +2086,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. This is in a form services/{service} where {service} is the name of the private access management service. For example
-                 * 'service-peering.example.com'.
-                 */
+                /** Required. This is in a form services/{service} where {service} is the name of the private access management service. For example 'service-peering.example.com'. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -2185,10 +2114,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * Required. This is in a form services/{service} where {service} is the name of the private access management service. For example
-                 * 'service-peering.example.com'.
-                 */
+                /** Required. This is in a form services/{service} where {service} is the name of the private access management service. For example 'service-peering.example.com'. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;

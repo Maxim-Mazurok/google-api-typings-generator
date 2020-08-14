@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Domains RDAP API v1 1.0
 // Project: https://developers.google.com/domains/rdap/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -50,8 +53,8 @@ declare namespace gapi.client {
             /** Title of a notice. Example: "Terms of Service". */
             title?: string;
             /**
-             * Type values defined in [section 10.2.1 of RFC 7483](https://tools.ietf.org/html/rfc7483#section-10.2.1) specific to a whole response: "result set
-             * truncated due to authorization", "result set truncated due to excessive load", "result set truncated due to unexplainable reasons".
+             * Type values defined in [section 10.2.1 of RFC 7483](https://tools.ietf.org/html/rfc7483#section-10.2.1) specific to a whole response: "result set truncated due to authorization",
+             * "result set truncated due to excessive load", "result set truncated due to unexplainable reasons".
              */
             type?: string;
         }

@@ -44,31 +44,26 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Uploads media for indexing. The upload endpoint supports direct and resumable upload protocols and is intended for large items that can not be [inlined
-         * during index requests](https://developers.google.com/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent). To index large
-         * content: 1. Call indexing.datasources.items.upload with the resource name to begin an upload session and retrieve the UploadItemRef. 1. Call
-         * media.upload to upload the content using the same resource name from step 1. 1. Call indexing.datasources.items.index to index the item. Populate the
-         * [ItemContent](/cloud-search/docs/reference/rest/v1/indexing.datasources.items#ItemContent) with the UploadItemRef from step 1. For additional
-         * information, see [Create a content connector using the REST API](https://developers.google.com/cloud-search/docs/guides/content-connector#rest).
-         * ∗∗Note:∗∗ This API requires a service account to execute.
+         * Uploads media for indexing. The upload endpoint supports direct and resumable upload protocols and is intended for large items that can not be [inlined during index
+         * requests](https://developers.google.com/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent). To index large content: 1. Call indexing.datasources.items.upload
+         * with the resource name to begin an upload session and retrieve the UploadItemRef. 1. Call media.upload to upload the content using the same resource name from step 1. 1. Call
+         * indexing.datasources.items.index to index the item. Populate the [ItemContent](/cloud-search/docs/reference/rest/v1/indexing.datasources.items#ItemContent) with the UploadItemRef from
+         * step 1. For additional information, see [Create a content connector using the REST API](https://developers.google.com/cloud-search/docs/guides/content-connector#rest). **Note:** This
+         * API requires a service account to execute.
          */
         await gapi.client.cloudsearch.media.upload({
             resourceName: "Test string",
         }, {
             resourceName: "Test string",
         });
-        /**
-         * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-         * service.
-         */
+        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
         await gapi.client.cloudsearch.operations.get({
             name: "Test string",
         });
         /**
-         * The Cloud Search Query API provides the search method, which returns the most relevant results from a user query. The results can come from G Suite
-         * Apps, such as Gmail or Google Drive, or they can come from data that you have indexed from a third party. ∗∗Note:∗∗ This API requires a standard end
-         * user account to execute. A service account can't perform Query API requests directly; to use a service account to perform queries, set up [G Suite
-         * domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+         * The Cloud Search Query API provides the search method, which returns the most relevant results from a user query. The results can come from G Suite Apps, such as Gmail or Google Drive,
+         * or they can come from data that you have indexed from a third party. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API
+         * requests directly; to use a service account to perform queries, set up [G Suite domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
          */
         await gapi.client.cloudsearch.query.search({
         }, {
@@ -132,9 +127,8 @@ gapi.load('client', () => {
             start: 42,
         });
         /**
-         * Returns list of sources that user can use for Search and Suggest APIs. ∗∗Note:∗∗ This API requires a standard end user account to execute. A service
-         * account can't perform Query API requests directly; to use a service account to perform queries, set up [G Suite domain-wide delegation of
-         * authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+         * Returns list of sources that user can use for Search and Suggest APIs. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API
+         * requests directly; to use a service account to perform queries, set up [G Suite domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
          */
         await gapi.client.cloudsearch.query.sources.list({
             pageToken: "Test string",
@@ -144,9 +138,8 @@ gapi.load('client', () => {
             "requestOptions.timeZone": "Test string",
         });
         /**
-         * Provides suggestions for autocompleting the query. ∗∗Note:∗∗ This API requires a standard end user account to execute. A service account can't perform
-         * Query API requests directly; to use a service account to perform queries, set up [G Suite domain-wide delegation of
-         * authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+         * Provides suggestions for autocompleting the query. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API requests directly; to
+         * use a service account to perform queries, set up [G Suite domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
          */
         await gapi.client.cloudsearch.query.suggest({
         }, {
@@ -193,9 +186,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Returns list of sources that user can use for Search and Suggest APIs. ∗∗Note:∗∗ This API requires a standard end user account to execute. A service
-         * account can't perform Query API requests directly; to use a service account to perform queries, set up [G Suite domain-wide delegation of
-         * authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+         * Returns list of sources that user can use for Search and Suggest APIs. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API
+         * requests directly; to use a service account to perform queries, set up [G Suite domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
          */
         await gapi.client.cloudsearch.query.sources.list({
             pageToken: "Test string",
@@ -205,8 +197,8 @@ gapi.load('client', () => {
             "requestOptions.timeZone": "Test string",
         });
         /**
-         * Gets indexed item statistics aggreggated across all data sources. This API only returns statistics for previous dates; it doesn't return statistics for
-         * the current day. ∗∗Note:∗∗ This API requires a standard end user account to execute.
+         * Gets indexed item statistics aggreggated across all data sources. This API only returns statistics for previous dates; it doesn't return statistics for the current day. **Note:** This
+         * API requires a standard end user account to execute.
          */
         await gapi.client.cloudsearch.stats.getIndex({
             "fromDate.day": 42,
@@ -216,7 +208,7 @@ gapi.load('client', () => {
             "toDate.month": 42,
             "toDate.year": 42,
         });
-        /** Get the query statistics for customer. ∗∗Note:∗∗ This API requires a standard end user account to execute. */
+        /** Get the query statistics for customer. **Note:** This API requires a standard end user account to execute. */
         await gapi.client.cloudsearch.stats.getQuery({
             "fromDate.day": 42,
             "fromDate.month": 42,
@@ -225,10 +217,7 @@ gapi.load('client', () => {
             "toDate.month": 42,
             "toDate.year": 42,
         });
-        /**
-         * Get the # of search sessions, % of successful sessions with a click query statistics for customer. ∗∗Note:∗∗ This API requires a standard end user
-         * account to execute.
-         */
+        /** Get the # of search sessions, % of successful sessions with a click query statistics for customer. **Note:** This API requires a standard end user account to execute. */
         await gapi.client.cloudsearch.stats.getSession({
             "fromDate.day": 42,
             "fromDate.month": 42,
@@ -237,7 +226,7 @@ gapi.load('client', () => {
             "toDate.month": 42,
             "toDate.year": 42,
         });
-        /** Get the users statistics for customer. ∗∗Note:∗∗ This API requires a standard end user account to execute. */
+        /** Get the users statistics for customer. **Note:** This API requires a standard end user account to execute. */
         await gapi.client.cloudsearch.stats.getUser({
             "fromDate.day": 42,
             "fromDate.month": 42,

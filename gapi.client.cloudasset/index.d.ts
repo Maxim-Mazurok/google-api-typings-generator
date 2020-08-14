@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Asset API v1 1.0
 // Project: https://cloud.google.com/asset-inventory/docs/quickstart
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -24,22 +27,18 @@ declare namespace gapi.client {
             /** Please also refer to the [access policy user guide](https://cloud.google.com/access-context-manager/docs/overview#access-policies). */
             accessPolicy?: GoogleIdentityAccesscontextmanagerV1AccessPolicy;
             /**
-             * The ancestry path of an asset in Google Cloud [resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
-             * represented as a list of relative resource names. An ancestry path starts with the closest ancestor in the hierarchy and ends at root. If the asset is
-             * a project, folder, or organization, the ancestry path starts from the asset itself. Example: `["projects/123456789", "folders/5432",
-             * "organizations/1234"]`
+             * The ancestry path of an asset in Google Cloud [resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy), represented as a list of
+             * relative resource names. An ancestry path starts with the closest ancestor in the hierarchy and ends at root. If the asset is a project, folder, or organization, the ancestry path
+             * starts from the asset itself. Example: `["projects/123456789", "folders/5432", "organizations/1234"]`
              */
             ancestors?: string[];
-            /**
-             * The type of the asset. Example: `compute.googleapis.com/Disk` See [Supported asset
-             * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types) for more information.
-             */
+            /** The type of the asset. Example: `compute.googleapis.com/Disk` See [Supported asset types](https://cloud.google.com/asset-inventory/docs/supported-asset-types) for more information. */
             assetType?: string;
             /**
-             * A representation of the Cloud IAM policy set on a Google Cloud resource. There can be a maximum of one Cloud IAM policy set on any given resource. In
-             * addition, Cloud IAM policies inherit their granted access scope from any policies set on parent resources in the resource hierarchy. Therefore, the
-             * effectively policy is the union of both the policy set on this resource and each policy set on all of the resource's ancestry resource levels in the
-             * hierarchy. See [this topic](https://cloud.google.com/iam/docs/policies#inheritance) for more information.
+             * A representation of the Cloud IAM policy set on a Google Cloud resource. There can be a maximum of one Cloud IAM policy set on any given resource. In addition, Cloud IAM policies
+             * inherit their granted access scope from any policies set on parent resources in the resource hierarchy. Therefore, the effectively policy is the union of both the policy set on this
+             * resource and each policy set on all of the resource's ancestry resource levels in the hierarchy. See [this topic](https://cloud.google.com/iam/docs/policies#inheritance) for more
+             * information.
              */
             iamPolicy?: Policy;
             /**
@@ -48,8 +47,8 @@ declare namespace gapi.client {
              */
             name?: string;
             /**
-             * A representation of an [organization policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview#organization_policy). There
-             * can be more than one organization policy with different constraints set on a given resource.
+             * A representation of an [organization policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview#organization_policy). There can be more than one
+             * organization policy with different constraints set on a given resource.
              */
             orgPolicy?: GoogleCloudOrgpolicyV1Policy[];
             /** A representation of the resource. */
@@ -63,8 +62,8 @@ declare namespace gapi.client {
             /** The configuration for logging of each type of permission. */
             auditLogConfigs?: AuditLogConfig[];
             /**
-             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
-             * special value that covers all services.
+             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
+             * services.
              */
             service?: string;
         }
@@ -80,44 +79,37 @@ declare namespace gapi.client {
         }
         interface BigQueryDestination {
             /**
-             * Required. The BigQuery dataset in format "projects/projectId/datasets/datasetId", to which the snapshot result should be exported. If this dataset does
-             * not exist, the export call returns an INVALID_ARGUMENT error.
+             * Required. The BigQuery dataset in format "projects/projectId/datasets/datasetId", to which the snapshot result should be exported. If this dataset does not exist, the export call
+             * returns an INVALID_ARGUMENT error.
              */
             dataset?: string;
             /**
-             * If the destination table already exists and this flag is `TRUE`, the table will be overwritten by the contents of assets snapshot. If the flag is
-             * `FALSE` or unset and the destination table already exists, the export call returns an INVALID_ARGUMEMT error.
+             * If the destination table already exists and this flag is `TRUE`, the table will be overwritten by the contents of assets snapshot. If the flag is `FALSE` or unset and the
+             * destination table already exists, the export call returns an INVALID_ARGUMEMT error.
              */
             force?: boolean;
-            /**
-             * Required. The BigQuery table to which the snapshot result should be written. If this table does not exist, a new table with the given name will be
-             * created.
-             */
+            /** Required. The BigQuery table to which the snapshot result should be written. If this table does not exist, a new table with the given name will be created. */
             table?: string;
         }
         interface Binding {
             /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the
-             * condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to
-             * one or more of the members in this binding. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
+             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the members in this binding. To learn which
+             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
-             * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
-             * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
-             * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
-             * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
-             * `google.com` or `example.com`.
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is
+             * on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
+             * account. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that
+             * represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `group:{emailid}`: An email address that represents a Google group. For example,
+             * `admins@example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. *
+             * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service
+             * account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently
+             * deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in
+             * the binding. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -125,8 +117,8 @@ declare namespace gapi.client {
         }
         interface CreateFeedRequest {
             /**
-             * Required. The feed details. The field `name` must be empty and it will be generated in the format of: projects/project_number/feeds/feed_id
-             * folders/folder_number/feeds/feed_id organizations/organization_number/feeds/feed_id
+             * Required. The feed details. The field `name` must be empty and it will be generated in the format of: projects/project_number/feeds/feed_id folders/folder_number/feeds/feed_id
+             * organizations/organization_number/feeds/feed_id
              */
             feed?: Feed;
             /** Required. This is the client-assigned asset feed identifier and it needs to be unique under a specific parent project/folder/organization. */
@@ -137,21 +129,19 @@ declare namespace gapi.client {
         }
         interface Explanation {
             /**
-             * The map from roles to their included permissions that match the permission query (i.e., a query containing `policy.role.permissions:`). Example: if
-             * query `policy.role.permissions:compute.disk.get` matches a policy binding that contains owner role, the matched_permissions will be `{"roles/owner":
-             * ["compute.disk.get"]}`. The roles can also be found in the returned `policy` bindings. Note that the map is populated only for requests with permission
-             * queries.
+             * The map from roles to their included permissions that match the permission query (i.e., a query containing `policy.role.permissions:`). Example: if query
+             * `policy.role.permissions:compute.disk.get` matches a policy binding that contains owner role, the matched_permissions will be `{"roles/owner": ["compute.disk.get"]}`. The roles can
+             * also be found in the returned `policy` bindings. Note that the map is populated only for requests with permission queries.
              */
             matchedPermissions?: { [P in string]: Permissions };
         }
         interface ExportAssetsRequest {
             /**
-             * A list of asset types to take a snapshot for. For example: "compute.googleapis.com/Disk". Regular expressions are also supported. For example: ∗
-             * "compute.googleapis.com.∗" snapshots resources whose asset type starts with "compute.googleapis.com". ∗ ".∗Instance" snapshots resources whose asset
-             * type ends with "Instance". ∗ ".∗Instance.∗" snapshots resources whose asset type contains "Instance". See
-             * [RE2](https://github.com/google/re2/wiki/Syntax) for all supported regular expression syntax. If the regular expression does not match any supported
-             * asset type, an INVALID_ARGUMENT error will be returned. If specified, only matching assets will be returned, otherwise, it will snapshot all asset
-             * types. See [Introduction to Cloud Asset Inventory](https://cloud.google.com/asset-inventory/docs/overview) for all supported asset types.
+             * A list of asset types to take a snapshot for. For example: "compute.googleapis.com/Disk". Regular expressions are also supported. For example: * "compute.googleapis.com.*" snapshots
+             * resources whose asset type starts with "compute.googleapis.com". * ".*Instance" snapshots resources whose asset type ends with "Instance". * ".*Instance.*" snapshots resources whose
+             * asset type contains "Instance". See [RE2](https://github.com/google/re2/wiki/Syntax) for all supported regular expression syntax. If the regular expression does not match any
+             * supported asset type, an INVALID_ARGUMENT error will be returned. If specified, only matching assets will be returned, otherwise, it will snapshot all asset types. See [Introduction
+             * to Cloud Asset Inventory](https://cloud.google.com/asset-inventory/docs/overview) for all supported asset types.
              */
             assetTypes?: string[];
             /** Asset content type. If not specified, no content but the asset name will be returned. */
@@ -159,9 +149,8 @@ declare namespace gapi.client {
             /** Required. Output configuration indicating where the results will be output to. */
             outputConfig?: OutputConfig;
             /**
-             * Timestamp to take an asset snapshot. This can only be set to a timestamp between the current time and the current time minus 35 days (inclusive). If
-             * not specified, the current time will be used. Due to delays in resource data collection and indexing, there is a volatile window during which running
-             * the same query may get different results.
+             * Timestamp to take an asset snapshot. This can only be set to a timestamp between the current time and the current time minus 35 days (inclusive). If not specified, the current time
+             * will be used. Due to delays in resource data collection and indexing, there is a volatile window during which running the same query may get different results.
              */
             readTime?: string;
         }
@@ -177,23 +166,22 @@ declare namespace gapi.client {
         }
         interface Feed {
             /**
-             * A list of the full names of the assets to receive updates. You must specify either or both of asset_names and asset_types. Only asset updates matching
-             * specified asset_names or asset_types are exported to the feed. Example:
-             * `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`. See [Resource
+             * A list of the full names of the assets to receive updates. You must specify either or both of asset_names and asset_types. Only asset updates matching specified asset_names or
+             * asset_types are exported to the feed. Example: `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`. See [Resource
              * Names](https://cloud.google.com/apis/design/resource_names#full_resource_name) for more info.
              */
             assetNames?: string[];
             /**
-             * A list of types of the assets to receive updates. You must specify either or both of asset_names and asset_types. Only asset updates matching specified
-             * asset_names or asset_types are exported to the feed. Example: `"compute.googleapis.com/Disk"` See [this
-             * topic](https://cloud.google.com/asset-inventory/docs/supported-asset-types) for a list of all supported asset types.
+             * A list of types of the assets to receive updates. You must specify either or both of asset_names and asset_types. Only asset updates matching specified asset_names or asset_types
+             * are exported to the feed. Example: `"compute.googleapis.com/Disk"` See [this topic](https://cloud.google.com/asset-inventory/docs/supported-asset-types) for a list of all supported
+             * asset types.
              */
             assetTypes?: string[];
             /**
-             * A condition which determines whether an asset update should be published. If specified, an asset will be returned only when the expression evaluates to
-             * true. When set, `expression` field in the `Expr` must be a valid [CEL expression] (https://github.com/google/cel-spec) on a TemporalAsset with name
-             * `temporal_asset`. Example: a Feed with expression ("temporal_asset.deleted == true") will only publish Asset deletions. Other fields of `Expr` are
-             * optional. See our [user guide](https://cloud.google.com/asset-inventory/docs/monitoring-asset-changes#feed_with_condition) for detailed instructions.
+             * A condition which determines whether an asset update should be published. If specified, an asset will be returned only when the expression evaluates to true. When set, `expression`
+             * field in the `Expr` must be a valid [CEL expression] (https://github.com/google/cel-spec) on a TemporalAsset with name `temporal_asset`. Example: a Feed with expression
+             * ("temporal_asset.deleted == true") will only publish Asset deletions. Other fields of `Expr` are optional. See our [user
+             * guide](https://cloud.google.com/asset-inventory/docs/monitoring-asset-changes#feed_with_condition) for detailed instructions.
              */
             condition?: Expr;
             /** Asset content type. If not specified, no content but the asset name and type will be returned. */
@@ -201,9 +189,8 @@ declare namespace gapi.client {
             /** Required. Feed output configuration defining where the asset updates are published to. */
             feedOutputConfig?: FeedOutputConfig;
             /**
-             * Required. The format will be projects/{project_number}/feeds/{client-assigned_feed_identifier} or
-             * folders/{folder_number}/feeds/{client-assigned_feed_identifier} or organizations/{organization_number}/feeds/{client-assigned_feed_identifier} The
-             * client-assigned feed identifier must be unique within the parent project/folder/organization.
+             * Required. The format will be projects/{project_number}/feeds/{client-assigned_feed_identifier} or folders/{folder_number}/feeds/{client-assigned_feed_identifier} or
+             * organizations/{organization_number}/feeds/{client-assigned_feed_identifier} The client-assigned feed identifier must be unique within the parent project/folder/organization.
              */
             name?: string;
         }
@@ -218,26 +205,23 @@ declare namespace gapi.client {
              */
             uri?: string;
             /**
-             * The uri prefix of all generated Cloud Storage objects. Example: "gs://bucket_name/object_name_prefix". Each object uri is in format:
-             * "gs://bucket_name/object_name_prefix// and only contains assets for that type. starts from 0. Example:
-             * "gs://bucket_name/object_name_prefix/compute.googleapis.com/Disk/0" is the first shard of output objects containing all compute.googleapis.com/Disk
-             * assets. An INVALID_ARGUMENT error will be returned if file with the same name "gs://bucket_name/object_name_prefix" already exists.
+             * The uri prefix of all generated Cloud Storage objects. Example: "gs://bucket_name/object_name_prefix". Each object uri is in format: "gs://bucket_name/object_name_prefix// and only
+             * contains assets for that type. starts from 0. Example: "gs://bucket_name/object_name_prefix/compute.googleapis.com/Disk/0" is the first shard of output objects containing all
+             * compute.googleapis.com/Disk assets. An INVALID_ARGUMENT error will be returned if file with the same name "gs://bucket_name/object_name_prefix" already exists.
              */
             uriPrefix?: string;
         }
         interface GoogleCloudOrgpolicyV1BooleanPolicy {
             /**
-             * If `true`, then the `Policy` is enforced. If `false`, then any configuration is acceptable. Suppose you have a `Constraint`
-             * `constraints/compute.disableSerialPortAccess` with `constraint_default` set to `ALLOW`. A `Policy` for that `Constraint` exhibits the following
-             * behavior: - If the `Policy` at this resource has enforced set to `false`, serial port connection attempts will be allowed. - If the `Policy` at this
-             * resource has enforced set to `true`, serial port connection attempts will be refused. - If the `Policy` at this resource is `RestoreDefault`, serial
-             * port connection attempts will be allowed. - If no `Policy` is set at this resource or anywhere higher in the resource hierarchy, serial port connection
-             * attempts will be allowed. - If no `Policy` is set at this resource, but one exists higher in the resource hierarchy, the behavior is as if the`Policy`
-             * were set at this resource. The following examples demonstrate the different possible layerings: Example 1 (nearest `Constraint` wins):
-             * `organizations/foo` has a `Policy` with: {enforced: false} `projects/bar` has no `Policy` set. The constraint at `projects/bar` and `organizations/foo`
-             * will not be enforced. Example 2 (enforcement gets replaced): `organizations/foo` has a `Policy` with: {enforced: false} `projects/bar` has a `Policy`
-             * with: {enforced: true} The constraint at `organizations/foo` is not enforced. The constraint at `projects/bar` is enforced. Example 3 (RestoreDefault):
-             * `organizations/foo` has a `Policy` with: {enforced: true} `projects/bar` has a `Policy` with: {RestoreDefault: {}} The constraint at
+             * If `true`, then the `Policy` is enforced. If `false`, then any configuration is acceptable. Suppose you have a `Constraint` `constraints/compute.disableSerialPortAccess` with
+             * `constraint_default` set to `ALLOW`. A `Policy` for that `Constraint` exhibits the following behavior: - If the `Policy` at this resource has enforced set to `false`, serial port
+             * connection attempts will be allowed. - If the `Policy` at this resource has enforced set to `true`, serial port connection attempts will be refused. - If the `Policy` at this
+             * resource is `RestoreDefault`, serial port connection attempts will be allowed. - If no `Policy` is set at this resource or anywhere higher in the resource hierarchy, serial port
+             * connection attempts will be allowed. - If no `Policy` is set at this resource, but one exists higher in the resource hierarchy, the behavior is as if the`Policy` were set at this
+             * resource. The following examples demonstrate the different possible layerings: Example 1 (nearest `Constraint` wins): `organizations/foo` has a `Policy` with: {enforced: false}
+             * `projects/bar` has no `Policy` set. The constraint at `projects/bar` and `organizations/foo` will not be enforced. Example 2 (enforcement gets replaced): `organizations/foo` has a
+             * `Policy` with: {enforced: false} `projects/bar` has a `Policy` with: {enforced: true} The constraint at `organizations/foo` is not enforced. The constraint at `projects/bar` is
+             * enforced. Example 3 (RestoreDefault): `organizations/foo` has a `Policy` with: {enforced: true} `projects/bar` has a `Policy` with: {RestoreDefault: {}} The constraint at
              * `organizations/foo` is enforced. The constraint at `projects/bar` is not enforced, because `constraint_default` for the `Constraint` is `ALLOW`.
              */
             enforced?: boolean;
@@ -250,40 +234,35 @@ declare namespace gapi.client {
             /** List of values denied at this resource. Can only be set if `all_values` is set to `ALL_VALUES_UNSPECIFIED`. */
             deniedValues?: string[];
             /**
-             * Determines the inheritance behavior for this `Policy`. By default, a `ListPolicy` set at a resource supersedes any `Policy` set anywhere up the
-             * resource hierarchy. However, if `inherit_from_parent` is set to `true`, then the values from the effective `Policy` of the parent resource are
-             * inherited, meaning the values set in this `Policy` are added to the values inherited up the hierarchy. Setting `Policy` hierarchies that inherit both
-             * allowed values and denied values isn't recommended in most circumstances to keep the configuration simple and understandable. However, it is possible
-             * to set a `Policy` with `allowed_values` set that inherits a `Policy` with `denied_values` set. In this case, the values that are allowed must be in
-             * `allowed_values` and not present in `denied_values`. For example, suppose you have a `Constraint` `constraints/serviceuser.services`, which has a
-             * `constraint_type` of `list_constraint`, and with `constraint_default` set to `ALLOW`. Suppose that at the Organization level, a `Policy` is applied
-             * that restricts the allowed API activations to {`E1`, `E2`}. Then, if a `Policy` is applied to a project below the Organization that has
-             * `inherit_from_parent` set to `false` and field all_values set to DENY, then an attempt to activate any API will be denied. The following examples
-             * demonstrate different possible layerings for `projects/bar` parented by `organizations/foo`: Example 1 (no inherited values): `organizations/foo` has a
-             * `Policy` with values: {allowed_values: "E1" allowed_values:"E2"} `projects/bar` has `inherit_from_parent` `false` and values: {allowed_values: "E3"
-             * allowed_values: "E4"} The accepted values at `organizations/foo` are `E1`, `E2`. The accepted values at `projects/bar` are `E3`, and `E4`. Example 2
-             * (inherited values): `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values:"E2"} `projects/bar` has a `Policy` with
-             * values: {value: "E3" value: "E4" inherit_from_parent: true} The accepted values at `organizations/foo` are `E1`, `E2`. The accepted values at
-             * `projects/bar` are `E1`, `E2`, `E3`, and `E4`. Example 3 (inheriting both allowed and denied values): `organizations/foo` has a `Policy` with values:
-             * {allowed_values: "E1" allowed_values: "E2"} `projects/bar` has a `Policy` with: {denied_values: "E1"} The accepted values at `organizations/foo` are
-             * `E1`, `E2`. The value accepted at `projects/bar` is `E2`. Example 4 (RestoreDefault): `organizations/foo` has a `Policy` with values: {allowed_values:
-             * "E1" allowed_values:"E2"} `projects/bar` has a `Policy` with values: {RestoreDefault: {}} The accepted values at `organizations/foo` are `E1`, `E2`.
-             * The accepted values at `projects/bar` are either all or none depending on the value of `constraint_default` (if `ALLOW`, all; if `DENY`, none). Example
-             * 5 (no policy inherits parent policy): `organizations/foo` has no `Policy` set. `projects/bar` has no `Policy` set. The accepted values at both levels
-             * are either all or none depending on the value of `constraint_default` (if `ALLOW`, all; if `DENY`, none). Example 6 (ListConstraint allowing all):
-             * `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values: "E2"} `projects/bar` has a `Policy` with: {all: ALLOW} The
-             * accepted values at `organizations/foo` are `E1`, E2`. Any value is accepted at `projects/bar`. Example 7 (ListConstraint allowing none):
-             * `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values: "E2"} `projects/bar` has a `Policy` with: {all: DENY} The
-             * accepted values at `organizations/foo` are `E1`, E2`. No value is accepted at `projects/bar`. Example 10 (allowed and denied subtrees of Resource
-             * Manager hierarchy): Given the following resource hierarchy O1->{F1, F2}; F1->{P1}; F2->{P2, P3}, `organizations/foo` has a `Policy` with values:
-             * {allowed_values: "under:organizations/O1"} `projects/bar` has a `Policy` with: {allowed_values: "under:projects/P3"} {denied_values:
-             * "under:folders/F2"} The accepted values at `organizations/foo` are `organizations/O1`, `folders/F1`, `folders/F2`, `projects/P1`, `projects/P2`,
-             * `projects/P3`. The accepted values at `projects/bar` are `organizations/O1`, `folders/F1`, `projects/P1`.
+             * Determines the inheritance behavior for this `Policy`. By default, a `ListPolicy` set at a resource supersedes any `Policy` set anywhere up the resource hierarchy. However, if
+             * `inherit_from_parent` is set to `true`, then the values from the effective `Policy` of the parent resource are inherited, meaning the values set in this `Policy` are added to the
+             * values inherited up the hierarchy. Setting `Policy` hierarchies that inherit both allowed values and denied values isn't recommended in most circumstances to keep the configuration
+             * simple and understandable. However, it is possible to set a `Policy` with `allowed_values` set that inherits a `Policy` with `denied_values` set. In this case, the values that are
+             * allowed must be in `allowed_values` and not present in `denied_values`. For example, suppose you have a `Constraint` `constraints/serviceuser.services`, which has a
+             * `constraint_type` of `list_constraint`, and with `constraint_default` set to `ALLOW`. Suppose that at the Organization level, a `Policy` is applied that restricts the allowed API
+             * activations to {`E1`, `E2`}. Then, if a `Policy` is applied to a project below the Organization that has `inherit_from_parent` set to `false` and field all_values set to DENY, then
+             * an attempt to activate any API will be denied. The following examples demonstrate different possible layerings for `projects/bar` parented by `organizations/foo`: Example 1 (no
+             * inherited values): `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values:"E2"} `projects/bar` has `inherit_from_parent` `false` and values:
+             * {allowed_values: "E3" allowed_values: "E4"} The accepted values at `organizations/foo` are `E1`, `E2`. The accepted values at `projects/bar` are `E3`, and `E4`. Example 2 (inherited
+             * values): `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values:"E2"} `projects/bar` has a `Policy` with values: {value: "E3" value: "E4"
+             * inherit_from_parent: true} The accepted values at `organizations/foo` are `E1`, `E2`. The accepted values at `projects/bar` are `E1`, `E2`, `E3`, and `E4`. Example 3 (inheriting
+             * both allowed and denied values): `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values: "E2"} `projects/bar` has a `Policy` with: {denied_values:
+             * "E1"} The accepted values at `organizations/foo` are `E1`, `E2`. The value accepted at `projects/bar` is `E2`. Example 4 (RestoreDefault): `organizations/foo` has a `Policy` with
+             * values: {allowed_values: "E1" allowed_values:"E2"} `projects/bar` has a `Policy` with values: {RestoreDefault: {}} The accepted values at `organizations/foo` are `E1`, `E2`. The
+             * accepted values at `projects/bar` are either all or none depending on the value of `constraint_default` (if `ALLOW`, all; if `DENY`, none). Example 5 (no policy inherits parent
+             * policy): `organizations/foo` has no `Policy` set. `projects/bar` has no `Policy` set. The accepted values at both levels are either all or none depending on the value of
+             * `constraint_default` (if `ALLOW`, all; if `DENY`, none). Example 6 (ListConstraint allowing all): `organizations/foo` has a `Policy` with values: {allowed_values: "E1"
+             * allowed_values: "E2"} `projects/bar` has a `Policy` with: {all: ALLOW} The accepted values at `organizations/foo` are `E1`, E2`. Any value is accepted at `projects/bar`. Example 7
+             * (ListConstraint allowing none): `organizations/foo` has a `Policy` with values: {allowed_values: "E1" allowed_values: "E2"} `projects/bar` has a `Policy` with: {all: DENY} The
+             * accepted values at `organizations/foo` are `E1`, E2`. No value is accepted at `projects/bar`. Example 10 (allowed and denied subtrees of Resource Manager hierarchy): Given the
+             * following resource hierarchy O1->{F1, F2}; F1->{P1}; F2->{P2, P3}, `organizations/foo` has a `Policy` with values: {allowed_values: "under:organizations/O1"} `projects/bar` has a
+             * `Policy` with: {allowed_values: "under:projects/P3"} {denied_values: "under:folders/F2"} The accepted values at `organizations/foo` are `organizations/O1`, `folders/F1`,
+             * `folders/F2`, `projects/P1`, `projects/P2`, `projects/P3`. The accepted values at `projects/bar` are `organizations/O1`, `folders/F1`, `projects/P1`.
              */
             inheritFromParent?: boolean;
             /**
-             * Optional. The Google Cloud Console will try to default to a configuration that matches the value specified in this `Policy`. If `suggested_value` is
-             * not set, it will inherit the value specified higher in the hierarchy, unless `inherit_from_parent` is `false`.
+             * Optional. The Google Cloud Console will try to default to a configuration that matches the value specified in this `Policy`. If `suggested_value` is not set, it will inherit the
+             * value specified higher in the hierarchy, unless `inherit_from_parent` is `false`.
              */
             suggestedValue?: string;
         }
@@ -296,11 +275,10 @@ declare namespace gapi.client {
              */
             constraint?: string;
             /**
-             * An opaque tag indicating the current version of the `Policy`, used for concurrency control. When the `Policy` is returned from either a `GetPolicy` or
-             * a `ListOrgPolicy` request, this `etag` indicates the version of the current `Policy` to use when executing a read-modify-write loop. When the `Policy`
-             * is returned from a `GetEffectivePolicy` request, the `etag` will be unset. When the `Policy` is used in a `SetOrgPolicy` method, use the `etag` value
-             * that was returned from a `GetOrgPolicy` request as part of a read-modify-write loop for concurrency control. Not setting the `etag`in a `SetOrgPolicy`
-             * request will result in an unconditional write of the `Policy`.
+             * An opaque tag indicating the current version of the `Policy`, used for concurrency control. When the `Policy` is returned from either a `GetPolicy` or a `ListOrgPolicy` request,
+             * this `etag` indicates the version of the current `Policy` to use when executing a read-modify-write loop. When the `Policy` is returned from a `GetEffectivePolicy` request, the
+             * `etag` will be unset. When the `Policy` is used in a `SetOrgPolicy` method, use the `etag` value that was returned from a `GetOrgPolicy` request as part of a read-modify-write loop
+             * for concurrency control. Not setting the `etag`in a `SetOrgPolicy` request will result in an unconditional write of the `Policy`.
              */
             etag?: string;
             /** List of values either allowed or disallowed. */
@@ -308,8 +286,8 @@ declare namespace gapi.client {
             /** Restores the default behavior of the constraint; independent of `Constraint` type. */
             restoreDefault?: any;
             /**
-             * The time stamp the `Policy` was previously updated. This is set by the server, not specified by the caller, and represents the last time a call to
-             * `SetOrgPolicy` was made for that `Policy`. Any value set by the client will be ignored.
+             * The time stamp the `Policy` was previously updated. This is set by the server, not specified by the caller, and represents the last time a call to `SetOrgPolicy` was made for that
+             * `Policy`. Any value set by the client will be ignored.
              */
             updateTime?: string;
             /** Version of the `Policy`. Default version is 0; */
@@ -335,25 +313,21 @@ declare namespace gapi.client {
         }
         interface GoogleIdentityAccesscontextmanagerV1AccessPolicy {
             /**
-             * Output only. An opaque identifier for the current version of the `AccessPolicy`. This will always be a strongly validated etag, meaning that two Access
-             * Polices will be identical if and only if their etags are identical. Clients should not expect this to be in any specific format.
+             * Output only. An opaque identifier for the current version of the `AccessPolicy`. This will always be a strongly validated etag, meaning that two Access Polices will be identical if
+             * and only if their etags are identical. Clients should not expect this to be in any specific format.
              */
             etag?: string;
             /** Output only. Resource name of the `AccessPolicy`. Format: `accessPolicies/{policy_id}` */
             name?: string;
-            /**
-             * Required. The parent of this `AccessPolicy` in the Cloud Resource Hierarchy. Currently immutable once created. Format:
-             * `organizations/{organization_id}`
-             */
+            /** Required. The parent of this `AccessPolicy` in the Cloud Resource Hierarchy. Currently immutable once created. Format: `organizations/{organization_id}` */
             parent?: string;
             /** Required. Human readable title. Does not affect behavior. */
             title?: string;
         }
         interface GoogleIdentityAccesscontextmanagerV1BasicLevel {
             /**
-             * How the `conditions` list should be combined to determine if a request is granted this `AccessLevel`. If AND is used, each `Condition` in `conditions`
-             * must be satisfied for the `AccessLevel` to be applied. If OR is used, at least one `Condition` in `conditions` must be satisfied for the `AccessLevel`
-             * to be applied. Default behavior is AND.
+             * How the `conditions` list should be combined to determine if a request is granted this `AccessLevel`. If AND is used, each `Condition` in `conditions` must be satisfied for the
+             * `AccessLevel` to be applied. If OR is used, at least one `Condition` in `conditions` must be satisfied for the `AccessLevel` to be applied. Default behavior is AND.
              */
             combiningFunction?: string;
             /** Required. A list of requirements for the `AccessLevel` to be granted. */
@@ -363,27 +337,26 @@ declare namespace gapi.client {
             /** Device specific restrictions, all restrictions must hold for the Condition to be true. If not specified, all devices are allowed. */
             devicePolicy?: GoogleIdentityAccesscontextmanagerV1DevicePolicy;
             /**
-             * CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for a CIDR IP address block, the specified IP address portion must be properly
-             * truncated (i.e. all the host bits must be zero) or the input is considered malformed. For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is
-             * not. Similarly, for IPv6, "2001:db8::/32" is accepted whereas "2001:db8::1/32" is not. The originating IP of a request must be in one of the listed
-             * subnets in order for this Condition to be true. If empty, all IP addresses are allowed.
+             * CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for a CIDR IP address block, the specified IP address portion must be properly truncated (i.e. all the host
+             * bits must be zero) or the input is considered malformed. For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is not. Similarly, for IPv6, "2001:db8::/32" is accepted whereas
+             * "2001:db8::1/32" is not. The originating IP of a request must be in one of the listed subnets in order for this Condition to be true. If empty, all IP addresses are allowed.
              */
             ipSubnetworks?: string[];
             /**
-             * The request must be made by one of the provided user or service accounts. Groups are not supported. Syntax: `user:{emailid}` `serviceAccount:{emailid}`
-             * If not specified, a request may come from any user.
+             * The request must be made by one of the provided user or service accounts. Groups are not supported. Syntax: `user:{emailid}` `serviceAccount:{emailid}` If not specified, a request
+             * may come from any user.
              */
             members?: string[];
             /**
-             * Whether to negate the Condition. If true, the Condition becomes a NAND over its non-empty fields, each field must be false for the Condition overall to
-             * be satisfied. Defaults to false.
+             * Whether to negate the Condition. If true, the Condition becomes a NAND over its non-empty fields, each field must be false for the Condition overall to be satisfied. Defaults to
+             * false.
              */
             negate?: boolean;
             /** The request must originate from one of the provided countries/regions. Must be valid ISO 3166-1 alpha-2 codes. */
             regions?: string[];
             /**
-             * A list of other access levels defined in the same `Policy`, referenced by resource name. Referencing an `AccessLevel` which does not exist is an error.
-             * All access levels listed must be granted for the Condition to be true. Example: "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
+             * A list of other access levels defined in the same `Policy`, referenced by resource name. Referencing an `AccessLevel` which does not exist is an error. All access levels listed must
+             * be granted for the Condition to be true. Example: "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
              */
             requiredAccessLevels?: string[];
         }
@@ -406,16 +379,13 @@ declare namespace gapi.client {
             requireScreenlock?: boolean;
         }
         interface GoogleIdentityAccesscontextmanagerV1OsConstraint {
-            /**
-             * The minimum allowed OS version. If not set, any version of this OS satisfies the constraint. Format: `"major.minor.patch"`. Examples: `"10.5.301"`,
-             * `"9.2.1"`.
-             */
+            /** The minimum allowed OS version. If not set, any version of this OS satisfies the constraint. Format: `"major.minor.patch"`. Examples: `"10.5.301"`, `"9.2.1"`. */
             minimumVersion?: string;
             /** Required. The allowed OS type. */
             osType?: string;
             /**
-             * Only allows requests from devices with a verified Chrome OS. Verifications includes requirements that the device is enterprise-managed, conformant to
-             * domain policies, and the caller has permission to call the API targeted by the request.
+             * Only allows requests from devices with a verified Chrome OS. Verifications includes requirements that the device is enterprise-managed, conformant to domain policies, and the caller
+             * has permission to call the API targeted by the request.
              */
             requireVerifiedChromeOs?: boolean;
         }
@@ -428,45 +398,39 @@ declare namespace gapi.client {
              */
             name?: string;
             /**
-             * Perimeter type indicator. A single project is allowed to be a member of single regular perimeter, but multiple service perimeter bridges. A project
-             * cannot be a included in a perimeter bridge without being included in regular perimeter. For perimeter bridges, the restricted service list as well as
-             * access level lists must be empty.
+             * Perimeter type indicator. A single project is allowed to be a member of single regular perimeter, but multiple service perimeter bridges. A project cannot be a included in a
+             * perimeter bridge without being included in regular perimeter. For perimeter bridges, the restricted service list as well as access level lists must be empty.
              */
             perimeterType?: string;
             /**
-             * Proposed (or dry run) ServicePerimeter configuration. This configuration allows to specify and test ServicePerimeter configuration without enforcing
-             * actual access restrictions. Only allowed to be set when the "use_explicit_dry_run_spec" flag is set.
+             * Proposed (or dry run) ServicePerimeter configuration. This configuration allows to specify and test ServicePerimeter configuration without enforcing actual access restrictions. Only
+             * allowed to be set when the "use_explicit_dry_run_spec" flag is set.
              */
             spec?: GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig;
-            /**
-             * Current ServicePerimeter configuration. Specifies sets of resources, restricted services and access levels that determine perimeter content and
-             * boundaries.
-             */
+            /** Current ServicePerimeter configuration. Specifies sets of resources, restricted services and access levels that determine perimeter content and boundaries. */
             status?: GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig;
             /** Human readable title. Must be unique within the Policy. */
             title?: string;
             /**
-             * Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists for all Service Perimeters, and that spec is identical to the status for
-             * those Service Perimeters. When this flag is set, it inhibits the generation of the implicit spec, thereby allowing the user to explicitly provide a
-             * configuration ("spec") to use in a dry-run version of the Service Perimeter. This allows the user to test changes to the enforced config ("status")
-             * without actually enforcing them. This testing is done through analyzing the differences between currently enforced and suggested restrictions.
-             * use_explicit_dry_run_spec must bet set to True if any of the fields in the spec are set to non-default values.
+             * Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists for all Service Perimeters, and that spec is identical to the status for those Service Perimeters. When
+             * this flag is set, it inhibits the generation of the implicit spec, thereby allowing the user to explicitly provide a configuration ("spec") to use in a dry-run version of the
+             * Service Perimeter. This allows the user to test changes to the enforced config ("status") without actually enforcing them. This testing is done through analyzing the differences
+             * between currently enforced and suggested restrictions. use_explicit_dry_run_spec must bet set to True if any of the fields in the spec are set to non-default values.
              */
             useExplicitDryRunSpec?: boolean;
         }
         interface GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig {
             /**
-             * A list of `AccessLevel` resource names that allow resources within the `ServicePerimeter` to be accessed from the internet. `AccessLevels` listed must
-             * be in the same policy as this `ServicePerimeter`. Referencing a nonexistent `AccessLevel` is a syntax error. If no `AccessLevel` names are listed,
-             * resources within the perimeter can only be accessed via Google Cloud calls with request origins within the perimeter. Example:
-             * `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`. For Service Perimeter Bridge, must be empty.
+             * A list of `AccessLevel` resource names that allow resources within the `ServicePerimeter` to be accessed from the internet. `AccessLevels` listed must be in the same policy as this
+             * `ServicePerimeter`. Referencing a nonexistent `AccessLevel` is a syntax error. If no `AccessLevel` names are listed, resources within the perimeter can only be accessed via Google
+             * Cloud calls with request origins within the perimeter. Example: `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`. For Service Perimeter Bridge, must be empty.
              */
             accessLevels?: string[];
             /** A list of Google Cloud resources that are inside of the service perimeter. Currently only projects are allowed. Format: `projects/{project_number}` */
             resources?: string[];
             /**
-             * Google Cloud services that are subject to the Service Perimeter restrictions. For example, if `storage.googleapis.com` is specified, access to the
-             * storage buckets inside the perimeter must meet the perimeter's access restrictions.
+             * Google Cloud services that are subject to the Service Perimeter restrictions. For example, if `storage.googleapis.com` is specified, access to the storage buckets inside the
+             * perimeter must meet the perimeter's access restrictions.
              */
             restrictedServices?: string[];
             /** Configuration for APIs allowed within Perimeter. */
@@ -474,8 +438,8 @@ declare namespace gapi.client {
         }
         interface GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices {
             /**
-             * The list of APIs usable within the Service Perimeter. Must be empty unless 'enable_restriction' is True. You can specify a list of individual services,
-             * as well as include the 'RESTRICTED-SERVICES' value, which automatically includes all of the services protected by the perimeter.
+             * The list of APIs usable within the Service Perimeter. Must be empty unless 'enable_restriction' is True. You can specify a list of individual services, as well as include the
+             * 'RESTRICTED-SERVICES' value, which automatically includes all of the services protected by the perimeter.
              */
             allowedServices?: string[];
             /** Whether to restrict API calls within the Service Perimeter to the list of APIs specified in 'allowed_services'. */
@@ -486,24 +450,22 @@ declare namespace gapi.client {
             /** Explanation about the IAM policy search result. It contains additional information to explain why the search result matches the query. */
             explanation?: Explanation;
             /**
-             * The IAM policy directly set on the given resource. Note that the original IAM policy can contain multiple bindings. This only contains the bindings
-             * that match the given query. For queries that don't contain a constrain on policies (e.g., an empty query), this contains all the bindings. To search
-             * against the `policy` bindings: ∗ use a field query: - query by the policy contained members. Example: `policy:amy@gmail.com` - query by the policy
-             * contained roles. Example: `policy:roles/compute.admin` - query by the policy contained roles' included permissions. Example:
-             * `policy.role.permissions:compute.instances.create`
+             * The IAM policy directly set on the given resource. Note that the original IAM policy can contain multiple bindings. This only contains the bindings that match the given query. For
+             * queries that don't contain a constrain on policies (e.g., an empty query), this contains all the bindings. To search against the `policy` bindings: * use a field query: - query by
+             * the policy contained members. Example: `policy:amy@gmail.com` - query by the policy contained roles. Example: `policy:roles/compute.admin` - query by the policy contained roles'
+             * included permissions. Example: `policy.role.permissions:compute.instances.create`
              */
             policy?: Policy;
             /**
-             * The project that the associated GCP resource belongs to, in the form of projects/{PROJECT_NUMBER}. If an IAM policy is set on a resource (like VM
-             * instance, Cloud Storage bucket), the project field will indicate the project that contains the resource. If an IAM policy is set on a folder or
-             * orgnization, the project field will be empty. To search against the `project`: ∗ specify the `scope` field as this project in your search request.
+             * The project that the associated GCP resource belongs to, in the form of projects/{PROJECT_NUMBER}. If an IAM policy is set on a resource (like VM instance, Cloud Storage bucket),
+             * the project field will indicate the project that contains the resource. If an IAM policy is set on a folder or orgnization, the project field will be empty. To search against the
+             * `project`: * specify the `scope` field as this project in your search request.
              */
             project?: string;
             /**
-             * The full resource name of the resource associated with this IAM policy. Example:
-             * `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`. See [Cloud Asset Inventory Resource Name
-             * Format](https://cloud.google.com/asset-inventory/docs/resource-name-format) for more information. To search against the `resource`: ∗ use a field
-             * query. Example: `resource:organizations/123`
+             * The full resource name of the resource associated with this IAM policy. Example: `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`. See [Cloud Asset
+             * Inventory Resource Name Format](https://cloud.google.com/asset-inventory/docs/resource-name-format) for more information. To search against the `resource`: * use a field query.
+             * Example: `resource:organizations/123`
              */
             resource?: string;
         }
@@ -512,28 +474,24 @@ declare namespace gapi.client {
             feeds?: Feed[];
         }
         interface Operation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -551,28 +509,25 @@ declare namespace gapi.client {
             /** Specifies cloud audit logging configuration for this policy. */
             auditConfigs?: AuditConfig[];
             /**
-             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the
-             * `bindings` must contain at least one member.
+             * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
+             * least one member.
              */
             bindings?: Binding[];
             /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
-             * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
-             * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
-             * the version `3` policy are lost.
+             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
+             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
+             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
+             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
             /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
-             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
-             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
-             * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
-             * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
-             * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
-             * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
+             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
+             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
+             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
+             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
+             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
@@ -584,22 +539,21 @@ declare namespace gapi.client {
             /** The content of the resource, in which some sensitive fields are removed and may not be present. */
             data?: { [P in string]: any };
             /**
-             * The URL of the discovery document containing the resource's JSON schema. Example: `https://www.googleapis.com/discovery/v1/apis/compute/v1/rest` This
-             * value is unspecified for resources that do not have an API based on a discovery document, such as Cloud Bigtable.
+             * The URL of the discovery document containing the resource's JSON schema. Example: `https://www.googleapis.com/discovery/v1/apis/compute/v1/rest` This value is unspecified for
+             * resources that do not have an API based on a discovery document, such as Cloud Bigtable.
              */
             discoveryDocumentUri?: string;
             /**
-             * The JSON schema name listed in the discovery document. Example: `Project` This value is unspecified for resources that do not have an API based on a
-             * discovery document, such as Cloud Bigtable.
+             * The JSON schema name listed in the discovery document. Example: `Project` This value is unspecified for resources that do not have an API based on a discovery document, such as
+             * Cloud Bigtable.
              */
             discoveryName?: string;
             /** The location of the resource in Google Cloud, such as its zone and region. For more information, see https://cloud.google.com/about/locations/. */
             location?: string;
             /**
-             * The full name of the immediate parent of this resource. See [Resource Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
-             * for more information. For Google Cloud assets, this value is the parent resource defined in the [Cloud IAM policy
-             * hierarchy](https://cloud.google.com/iam/docs/overview#policy_hierarchy). Example: `//cloudresourcemanager.googleapis.com/projects/my_project_123` For
-             * third-party assets, this field may be set differently.
+             * The full name of the immediate parent of this resource. See [Resource Names](https://cloud.google.com/apis/design/resource_names#full_resource_name) for more information. For Google
+             * Cloud assets, this value is the parent resource defined in the [Cloud IAM policy hierarchy](https://cloud.google.com/iam/docs/overview#policy_hierarchy). Example:
+             * `//cloudresourcemanager.googleapis.com/projects/my_project_123` For third-party assets, this field may be set differently.
              */
             parent?: string;
             /**
@@ -612,73 +566,63 @@ declare namespace gapi.client {
         }
         interface ResourceSearchResult {
             /**
-             * The additional searchable attributes of this resource. The attributes may vary from one resource type to another. Examples: `projectId` for Project,
-             * `dnsName` for DNS ManagedZone. This field contains a subset of the resource metadata fields that are returned by the List or Get APIs provided by the
-             * corresponding GCP service (e.g., Compute Engine). see [API references and supported searchable
-             * attributes](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types) for more information. You can search values of
-             * these fields through free text search. However, you should not consume the field programically as the field names and values may change as the GCP
-             * service updates to a new incompatible API version. To search against the `additional_attributes`: ∗ use a free text query to match the attributes
-             * values. Example: to search `additional_attributes = { dnsName: "foobar" }`, you can issue a query `foobar`.
+             * The additional searchable attributes of this resource. The attributes may vary from one resource type to another. Examples: `projectId` for Project, `dnsName` for DNS ManagedZone.
+             * This field contains a subset of the resource metadata fields that are returned by the List or Get APIs provided by the corresponding GCP service (e.g., Compute Engine). see [API
+             * references and supported searchable attributes](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types) for more information. You can search
+             * values of these fields through free text search. However, you should not consume the field programically as the field names and values may change as the GCP service updates to a new
+             * incompatible API version. To search against the `additional_attributes`: * use a free text query to match the attributes values. Example: to search `additional_attributes = {
+             * dnsName: "foobar" }`, you can issue a query `foobar`.
              */
             additionalAttributes?: { [P in string]: any };
-            /**
-             * The type of this resource. Example: `compute.googleapis.com/Disk`. To search against the `asset_type`: ∗ specify the `asset_type` field in your search
-             * request.
-             */
+            /** The type of this resource. Example: `compute.googleapis.com/Disk`. To search against the `asset_type`: * specify the `asset_type` field in your search request. */
             assetType?: string;
             /**
-             * One or more paragraphs of text description of this resource. Maximum length could be up to 1M bytes. To search against the `description`: ∗ use a field
-             * query. Example: `description:"∗important instance∗"` ∗ use a free text query. Example: `"∗important instance∗"`
+             * One or more paragraphs of text description of this resource. Maximum length could be up to 1M bytes. To search against the `description`: * use a field query. Example:
+             * `description:"*important instance*"` * use a free text query. Example: `"*important instance*"`
              */
             description?: string;
-            /**
-             * The display name of this resource. To search against the `display_name`: ∗ use a field query. Example: `displayName:"My Instance"` ∗ use a free text
-             * query. Example: `"My Instance"`
-             */
+            /** The display name of this resource. To search against the `display_name`: * use a field query. Example: `displayName:"My Instance"` * use a free text query. Example: `"My Instance"` */
             displayName?: string;
             /**
              * Labels associated with this resource. See [Labelling and grouping GCP
-             * resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources) for more information. To search
-             * against the `labels`: ∗ use a field query: - query on any label's key or value. Example: `labels:prod` - query by a given label. Example:
-             * `labels.env:prod` - query by a given label's existence. Example: `labels.env:∗` ∗ use a free text query. Example: `prod`
+             * resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources) for more information. To search against the `labels`: * use a
+             * field query: - query on any label's key or value. Example: `labels:prod` - query by a given label. Example: `labels.env:prod` - query by a given label's existence. Example:
+             * `labels.env:*` * use a free text query. Example: `prod`
              */
             labels?: { [P in string]: string };
             /**
-             * Location can be `global`, regional like `us-east1`, or zonal like `us-west1-b`. To search against the `location`: ∗ use a field query. Example:
-             * `location:us-west∗` ∗ use a free text query. Example: `us-west∗`
+             * Location can be `global`, regional like `us-east1`, or zonal like `us-west1-b`. To search against the `location`: * use a field query. Example: `location:us-west*` * use a free text
+             * query. Example: `us-west*`
              */
             location?: string;
             /**
-             * The full resource name of this resource. Example: `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`. See [Cloud Asset
-             * Inventory Resource Name Format](https://cloud.google.com/asset-inventory/docs/resource-name-format) for more information. To search against the `name`:
-             * ∗ use a field query. Example: `name:instance1` ∗ use a free text query. Example: `instance1`
+             * The full resource name of this resource. Example: `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`. See [Cloud Asset Inventory Resource Name
+             * Format](https://cloud.google.com/asset-inventory/docs/resource-name-format) for more information. To search against the `name`: * use a field query. Example: `name:instance1` * use
+             * a free text query. Example: `instance1`
              */
             name?: string;
             /**
              * Network tags associated with this resource. Like labels, network tags are a type of annotations used to group GCP resources. See [Labelling GCP
-             * resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources) for more information. To search
-             * against the `network_tags`: ∗ use a field query. Example: `networkTags:internal` ∗ use a free text query. Example: `internal`
+             * resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources) for more information. To search against the `network_tags`: * use
+             * a field query. Example: `networkTags:internal` * use a free text query. Example: `internal`
              */
             networkTags?: string[];
             /**
-             * The project that this resource belongs to, in the form of projects/{PROJECT_NUMBER}. To search against the `project`: ∗ specify the `scope` field as
-             * this project in your search request.
+             * The project that this resource belongs to, in the form of projects/{PROJECT_NUMBER}. To search against the `project`: * specify the `scope` field as this project in your search
+             * request.
              */
             project?: string;
         }
         interface SearchAllIamPoliciesResponse {
-            /**
-             * Set if there are more results than those appearing in this response; to get the next set of results, call this method again, using this value as the
-             * `page_token`.
-             */
+            /** Set if there are more results than those appearing in this response; to get the next set of results, call this method again, using this value as the `page_token`. */
             nextPageToken?: string;
             /** A list of IamPolicy that match the search query. Related information such as the associated resource is returned along with the policy. */
             results?: IamPolicySearchResult[];
         }
         interface SearchAllResourcesResponse {
             /**
-             * If there are more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method
-             * again using the value of `next_page_token` as `page_token`.
+             * If there are more results than those appearing in this response, then `next_page_token` is included. To get the next set of results, call this method again using the value of
+             * `next_page_token` as `page_token`.
              */
             nextPageToken?: string;
             /** A list of Resources that match the search query. It contains the resource standard metadata information. */
@@ -690,8 +634,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -715,14 +659,11 @@ declare namespace gapi.client {
         }
         interface UpdateFeedRequest {
             /**
-             * Required. The new values of feed details. It must match an existing feed and the field `name` must be in the format of:
-             * projects/project_number/feeds/feed_id or folders/folder_number/feeds/feed_id or organizations/organization_number/feeds/feed_id.
+             * Required. The new values of feed details. It must match an existing feed and the field `name` must be in the format of: projects/project_number/feeds/feed_id or
+             * folders/folder_number/feeds/feed_id or organizations/organization_number/feeds/feed_id.
              */
             feed?: Feed;
-            /**
-             * Required. Only updates the `feed` fields indicated by this mask. The field mask must not be empty, and it must not contain fields that are immutable or
-             * only set by the server.
-             */
+            /** Required. Only updates the `feed` fields indicated by this mask. The field mask must not be empty, and it must not contain fields that are immutable or only set by the server. */
             updateMask?: string;
         }
         interface FeedsResource {
@@ -743,9 +684,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the project/folder/organization where this feed should be created in. It can only be an organization number (such as
-                 * "organizations/123"), a folder number (such as "folders/123"), a project ID (such as "projects/my-project-id")", or a project number (such as
-                 * "projects/12345").
+                 * Required. The name of the project/folder/organization where this feed should be created in. It can only be an organization number (such as "organizations/123"), a folder number
+                 * (such as "folders/123"), a project ID (such as "projects/my-project-id")", or a project number (such as "projects/12345").
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -775,9 +715,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The name of the project/folder/organization where this feed should be created in. It can only be an organization number (such as
-                 * "organizations/123"), a folder number (such as "folders/123"), a project ID (such as "projects/my-project-id")", or a project number (such as
-                 * "projects/12345").
+                 * Required. The name of the project/folder/organization where this feed should be created in. It can only be an organization number (such as "organizations/123"), a folder number
+                 * (such as "folders/123"), a project ID (such as "projects/my-project-id")", or a project number (such as "projects/12345").
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -867,8 +806,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The parent project/folder/organization whose feeds are to be listed. It can only be using project/folder/organization number (such as
-                 * "folders/12345")", or a project ID (such as "projects/my-project-id").
+                 * Required. The parent project/folder/organization whose feeds are to be listed. It can only be using project/folder/organization number (such as "folders/12345")", or a project
+                 * ID (such as "projects/my-project-id").
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -895,9 +834,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The format will be projects/{project_number}/feeds/{client-assigned_feed_identifier} or
-                 * folders/{folder_number}/feeds/{client-assigned_feed_identifier} or organizations/{organization_number}/feeds/{client-assigned_feed_identifier} The
-                 * client-assigned feed identifier must be unique within the parent project/folder/organization.
+                 * Required. The format will be projects/{project_number}/feeds/{client-assigned_feed_identifier} or folders/{folder_number}/feeds/{client-assigned_feed_identifier} or
+                 * organizations/{organization_number}/feeds/{client-assigned_feed_identifier} The client-assigned feed identifier must be unique within the parent project/folder/organization.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -927,9 +865,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The format will be projects/{project_number}/feeds/{client-assigned_feed_identifier} or
-                 * folders/{folder_number}/feeds/{client-assigned_feed_identifier} or organizations/{organization_number}/feeds/{client-assigned_feed_identifier} The
-                 * client-assigned feed identifier must be unique within the parent project/folder/organization.
+                 * Required. The format will be projects/{project_number}/feeds/{client-assigned_feed_identifier} or folders/{folder_number}/feeds/{client-assigned_feed_identifier} or
+                 * organizations/{organization_number}/feeds/{client-assigned_feed_identifier} The client-assigned feed identifier must be unique within the parent project/folder/organization.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -946,10 +883,7 @@ declare namespace gapi.client {
             body: UpdateFeedRequest): Request<Feed>;
         }
         interface OperationsResource {
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -979,9 +913,9 @@ declare namespace gapi.client {
         }
         interface V1Resource {
             /**
-             * Batch gets the update history of assets that overlap a time window. For IAM_POLICY content, this API outputs history when the asset and its attached
-             * IAM POLICY both exist. This can create gaps in the output history. Otherwise, this API outputs history with asset in both non-delete or deleted status.
-             * If a specified asset does not exist, this API returns an INVALID_ARGUMENT error.
+             * Batch gets the update history of assets that overlap a time window. For IAM_POLICY content, this API outputs history when the asset and its attached IAM POLICY both exist. This can
+             * create gaps in the output history. Otherwise, this API outputs history with asset in both non-delete or deleted status. If a specified asset does not exist, this API returns an
+             * INVALID_ARGUMENT error.
              */
             batchGetAssetsHistory(request?: {
                 /** V1 error format. */
@@ -992,8 +926,8 @@ declare namespace gapi.client {
                 alt?: string;
                 /**
                  * A list of the full names of the assets. See: https://cloud.google.com/asset-inventory/docs/resource-name-format Example:
-                 * `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`. The request becomes a no-op if the asset name list is empty, and
-                 * the max size of the asset name list is 100 in one request.
+                 * `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`. The request becomes a no-op if the asset name list is empty, and the max size of the asset
+                 * name list is 100 in one request.
                  */
                 assetNames?: string | string[];
                 /** JSONP */
@@ -1007,8 +941,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The relative name of the root asset. It can only be an organization number (such as "organizations/123"), a project ID (such as
-                 * "projects/my-project-id")", or a project number (such as "projects/12345").
+                 * Required. The relative name of the root asset. It can only be an organization number (such as "organizations/123"), a project ID (such as "projects/my-project-id")", or a
+                 * project number (such as "projects/12345").
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1025,11 +959,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<BatchGetAssetsHistoryResponse>;
             /**
-             * Exports assets with time and resource types to a given Cloud Storage location/BigQuery table. For Cloud Storage location destinations, the output
-             * format is newline-delimited JSON. Each line represents a google.cloud.asset.v1.Asset in the JSON format; for BigQuery table destinations, the output
-             * table stores the fields in asset proto as columns. This API implements the google.longrunning.Operation API , which allows you to keep track of the
-             * export. We recommend intervals of at least 2 seconds with exponential retry to poll the export operation result. For regular-size resource parent, the
-             * export operation usually finishes within 5 minutes.
+             * Exports assets with time and resource types to a given Cloud Storage location/BigQuery table. For Cloud Storage location destinations, the output format is newline-delimited JSON.
+             * Each line represents a google.cloud.asset.v1.Asset in the JSON format; for BigQuery table destinations, the output table stores the fields in asset proto as columns. This API
+             * implements the google.longrunning.Operation API , which allows you to keep track of the export. We recommend intervals of at least 2 seconds with exponential retry to poll the
+             * export operation result. For regular-size resource parent, the export operation usually finishes within 5 minutes.
              */
             exportAssets(request: {
                 /** V1 error format. */
@@ -1047,8 +980,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The relative name of the root asset. This can only be an organization number (such as "organizations/123"), a project ID (such as
-                 * "projects/my-project-id"), or a project number (such as "projects/12345"), or a folder number (such as "folders/123").
+                 * Required. The relative name of the root asset. This can only be an organization number (such as "organizations/123"), a project ID (such as "projects/my-project-id"), or a
+                 * project number (such as "projects/12345"), or a folder number (such as "folders/123").
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1078,8 +1011,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The relative name of the root asset. This can only be an organization number (such as "organizations/123"), a project ID (such as
-                 * "projects/my-project-id"), or a project number (such as "projects/12345"), or a folder number (such as "folders/123").
+                 * Required. The relative name of the root asset. This can only be an organization number (such as "organizations/123"), a project ID (such as "projects/my-project-id"), or a
+                 * project number (such as "projects/12345"), or a folder number (such as "folders/123").
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1093,8 +1026,8 @@ declare namespace gapi.client {
             },
             body: ExportAssetsRequest): Request<Operation>;
             /**
-             * Searches all IAM policies within the specified scope, such as a project, folder, or organization. The caller must be granted the
-             * `cloudasset.assets.searchAllIamPolicies` permission on the desired scope, otherwise the request will be rejected.
+             * Searches all IAM policies within the specified scope, such as a project, folder, or organization. The caller must be granted the `cloudasset.assets.searchAllIamPolicies` permission
+             * on the desired scope, otherwise the request will be rejected.
              */
             searchAllIamPolicies(request?: {
                 /** V1 error format. */
@@ -1112,38 +1045,35 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. The page size for search result pagination. Page size is capped at 500 even if a larger value is given. If set to zero, server will pick an
-                 * appropriate default. Returned results may be fewer than requested. When this happens, there could be more results as long as `next_page_token` is
-                 * returned.
+                 * Optional. The page size for search result pagination. Page size is capped at 500 even if a larger value is given. If set to zero, server will pick an appropriate default.
+                 * Returned results may be fewer than requested. When this happens, there could be more results as long as `next_page_token` is returned.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, retrieve the next batch of results from the preceding call to this method. `page_token` must be the value of `next_page_token`
-                 * from the previous response. The values of all other method parameters must be identical to those in the previous call.
+                 * Optional. If present, retrieve the next batch of results from the preceding call to this method. `page_token` must be the value of `next_page_token` from the previous response.
+                 * The values of all other method parameters must be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * Optional. The query statement. See [how to construct a
-                 * query](https://cloud.google.com/asset-inventory/docs/searching-iam-policies#how_to_construct_a_query) for more information. If not specified or empty,
-                 * it will search all the IAM policies within the specified `scope`. Examples: ∗ `policy:amy@gmail.com` to find IAM policy bindings that specify user
-                 * "amy@gmail.com". ∗ `policy:roles/compute.admin` to find IAM policy bindings that specify the Compute Admin role. ∗
-                 * `policy.role.permissions:storage.buckets.update` to find IAM policy bindings that specify a role containing "storage.buckets.update" permission. Note
-                 * that if callers don't have `iam.roles.get` access to a role's included permissions, policy bindings that specify this role will be dropped from the
-                 * search results. ∗ `resource:organizations/123456` to find IAM policy bindings that are set on "organizations/123456". ∗ `Important` to find IAM policy
-                 * bindings that contain "Important" as a word in any of the searchable fields (except for the included permissions). ∗ `∗por∗` to find IAM policy
-                 * bindings that contain "por" as a substring in any of the searchable fields (except for the included permissions). ∗ `resource:(instance1 OR instance2)
+                 * Optional. The query statement. See [how to construct a query](https://cloud.google.com/asset-inventory/docs/searching-iam-policies#how_to_construct_a_query) for more
+                 * information. If not specified or empty, it will search all the IAM policies within the specified `scope`. Examples: * `policy:amy@gmail.com` to find IAM policy bindings that
+                 * specify user "amy@gmail.com". * `policy:roles/compute.admin` to find IAM policy bindings that specify the Compute Admin role. * `policy.role.permissions:storage.buckets.update`
+                 * to find IAM policy bindings that specify a role containing "storage.buckets.update" permission. Note that if callers don't have `iam.roles.get` access to a role's included
+                 * permissions, policy bindings that specify this role will be dropped from the search results. * `resource:organizations/123456` to find IAM policy bindings that are set on
+                 * "organizations/123456". * `Important` to find IAM policy bindings that contain "Important" as a word in any of the searchable fields (except for the included permissions). *
+                 * `*por*` to find IAM policy bindings that contain "por" as a substring in any of the searchable fields (except for the included permissions). * `resource:(instance1 OR instance2)
                  * policy:amy` to find IAM policy bindings that are set on resources "instance1" or "instance2" and also specify user "amy".
                  */
                 query?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A scope can be a project, a folder, or an organization. The search is limited to the IAM policies within the `scope`. The caller must be
-                 * granted the [`cloudasset.assets.searchAllIamPolicies`](http://cloud.google.com/asset-inventory/docs/access-control#required_permissions) permission on
-                 * the desired scope. The allowed values are: ∗ projects/{PROJECT_ID} (e.g., "projects/foo-bar") ∗ projects/{PROJECT_NUMBER} (e.g., "projects/12345678") ∗
-                 * folders/{FOLDER_NUMBER} (e.g., "folders/1234567") ∗ organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/123456")
+                 * Required. A scope can be a project, a folder, or an organization. The search is limited to the IAM policies within the `scope`. The caller must be granted the
+                 * [`cloudasset.assets.searchAllIamPolicies`](http://cloud.google.com/asset-inventory/docs/access-control#required_permissions) permission on the desired scope. The allowed values
+                 * are: * projects/{PROJECT_ID} (e.g., "projects/foo-bar") * projects/{PROJECT_NUMBER} (e.g., "projects/12345678") * folders/{FOLDER_NUMBER} (e.g., "folders/1234567") *
+                 * organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/123456")
                  */
                 scope: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1152,8 +1082,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<SearchAllIamPoliciesResponse>;
             /**
-             * Searches all Cloud resources within the specified scope, such as a project, folder, or organization. The caller must be granted the
-             * `cloudasset.assets.searchAllResources` permission on the desired scope, otherwise the request will be rejected.
+             * Searches all Cloud resources within the specified scope, such as a project, folder, or organization. The caller must be granted the `cloudasset.assets.searchAllResources` permission
+             * on the desired scope, otherwise the request will be rejected.
              */
             searchAllResources(request?: {
                 /** V1 error format. */
@@ -1176,48 +1106,43 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Optional. A comma separated list of fields specifying the sorting order of the results. The default order is ascending. Add " DESC" after the field
-                 * name to indicate descending order. Redundant space characters are ignored. Example: "location DESC, name". Only string fields in the response are
-                 * sortable, including `name`, `displayName`, `description`, `location`. All the other fields such as repeated fields (e.g., `networkTags`), map fields
-                 * (e.g., `labels`) and struct fields (e.g., `additionalAttributes`) are not supported.
+                 * Optional. A comma separated list of fields specifying the sorting order of the results. The default order is ascending. Add " DESC" after the field name to indicate descending
+                 * order. Redundant space characters are ignored. Example: "location DESC, name". Only string fields in the response are sortable, including `name`, `displayName`, `description`,
+                 * `location`. All the other fields such as repeated fields (e.g., `networkTags`), map fields (e.g., `labels`) and struct fields (e.g., `additionalAttributes`) are not supported.
                  */
                 orderBy?: string;
                 /**
-                 * Optional. The page size for search result pagination. Page size is capped at 500 even if a larger value is given. If set to zero, server will pick an
-                 * appropriate default. Returned results may be fewer than requested. When this happens, there could be more results as long as `next_page_token` is
-                 * returned.
+                 * Optional. The page size for search result pagination. Page size is capped at 500 even if a larger value is given. If set to zero, server will pick an appropriate default.
+                 * Returned results may be fewer than requested. When this happens, there could be more results as long as `next_page_token` is returned.
                  */
                 pageSize?: number;
                 /**
-                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. `page_token` must be the value of
-                 * `next_page_token` from the previous response. The values of all other method parameters, must be identical to those in the previous call.
+                 * Optional. If present, then retrieve the next batch of results from the preceding call to this method. `page_token` must be the value of `next_page_token` from the previous
+                 * response. The values of all other method parameters, must be identical to those in the previous call.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
                 /**
-                 * Optional. The query statement. See [how to construct a
-                 * query](http://cloud.google.com/asset-inventory/docs/searching-resources#how_to_construct_a_query) for more information. If not specified or empty, it
-                 * will search all the resources within the specified `scope`. Note that the query string is compared against each Cloud IAM policy binding, including its
-                 * members, roles, and Cloud IAM conditions. The returned Cloud IAM policies will only contain the bindings that match your query. To learn more about the
-                 * IAM policy structure, see [IAM policy doc](https://cloud.google.com/iam/docs/policies#structure). Examples: ∗ `name:Important` to find Cloud resources
-                 * whose name contains "Important" as a word. ∗ `displayName:Impor∗` to find Cloud resources whose display name contains "Impor" as a prefix. ∗
-                 * `description:∗por∗` to find Cloud resources whose description contains "por" as a substring. ∗ `location:us-west∗` to find Cloud resources whose
-                 * location is prefixed with "us-west". ∗ `labels:prod` to find Cloud resources whose labels contain "prod" as a key or value. ∗ `labels.env:prod` to find
-                 * Cloud resources that have a label "env" and its value is "prod". ∗ `labels.env:∗` to find Cloud resources that have a label "env". ∗ `Important` to
-                 * find Cloud resources that contain "Important" as a word in any of the searchable fields. ∗ `Impor∗` to find Cloud resources that contain "Impor" as a
-                 * prefix in any of the searchable fields. ∗ `∗por∗` to find Cloud resources that contain "por" as a substring in any of the searchable fields. ∗
-                 * `Important location:(us-west1 OR global)` to find Cloud resources that contain "Important" as a word in any of the searchable fields and are also
-                 * located in the "us-west1" region or the "global" location.
+                 * Optional. The query statement. See [how to construct a query](http://cloud.google.com/asset-inventory/docs/searching-resources#how_to_construct_a_query) for more information. If
+                 * not specified or empty, it will search all the resources within the specified `scope`. Note that the query string is compared against each Cloud IAM policy binding, including
+                 * its members, roles, and Cloud IAM conditions. The returned Cloud IAM policies will only contain the bindings that match your query. To learn more about the IAM policy structure,
+                 * see [IAM policy doc](https://cloud.google.com/iam/docs/policies#structure). Examples: * `name:Important` to find Cloud resources whose name contains "Important" as a word. *
+                 * `displayName:Impor*` to find Cloud resources whose display name contains "Impor" as a prefix. * `description:*por*` to find Cloud resources whose description contains "por" as a
+                 * substring. * `location:us-west*` to find Cloud resources whose location is prefixed with "us-west". * `labels:prod` to find Cloud resources whose labels contain "prod" as a key
+                 * or value. * `labels.env:prod` to find Cloud resources that have a label "env" and its value is "prod". * `labels.env:*` to find Cloud resources that have a label "env". *
+                 * `Important` to find Cloud resources that contain "Important" as a word in any of the searchable fields. * `Impor*` to find Cloud resources that contain "Impor" as a prefix in
+                 * any of the searchable fields. * `*por*` to find Cloud resources that contain "por" as a substring in any of the searchable fields. * `Important location:(us-west1 OR global)` to
+                 * find Cloud resources that contain "Important" as a word in any of the searchable fields and are also located in the "us-west1" region or the "global" location.
                  */
                 query?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. A scope can be a project, a folder, or an organization. The search is limited to the resources within the `scope`. The caller must be granted
-                 * the [`cloudasset.assets.searchAllResources`](http://cloud.google.com/asset-inventory/docs/access-control#required_permissions) permission on the
-                 * desired scope. The allowed values are: ∗ projects/{PROJECT_ID} (e.g., "projects/foo-bar") ∗ projects/{PROJECT_NUMBER} (e.g., "projects/12345678") ∗
-                 * folders/{FOLDER_NUMBER} (e.g., "folders/1234567") ∗ organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/123456")
+                 * Required. A scope can be a project, a folder, or an organization. The search is limited to the resources within the `scope`. The caller must be granted the
+                 * [`cloudasset.assets.searchAllResources`](http://cloud.google.com/asset-inventory/docs/access-control#required_permissions) permission on the desired scope. The allowed values
+                 * are: * projects/{PROJECT_ID} (e.g., "projects/foo-bar") * projects/{PROJECT_NUMBER} (e.g., "projects/12345678") * folders/{FOLDER_NUMBER} (e.g., "folders/1234567") *
+                 * organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/123456")
                  */
                 scope: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Dataproc API v1 1.0
 // Project: https://cloud.google.com/dataproc/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -25,9 +28,9 @@ declare namespace gapi.client {
              * Full URL, partial URI, or short name of the accelerator type resource to expose to this instance. See Compute Engine AcceleratorTypes
              * (https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes).Examples:
              * https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80
-             * projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80 nvidia-tesla-k80Auto Zone Exception: If you are using the Dataproc Auto Zone
-             * Placement (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short
-             * name of the accelerator type resource, for example, nvidia-tesla-k80.
+             * projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80 nvidia-tesla-k80Auto Zone Exception: If you are using the Dataproc Auto Zone Placement
+             * (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the accelerator type resource, for
+             * example, nvidia-tesla-k80.
              */
             acceleratorTypeUri?: string;
         }
@@ -42,15 +45,14 @@ declare namespace gapi.client {
         interface AutoscalingPolicy {
             basicAlgorithm?: BasicAutoscalingAlgorithm;
             /**
-             * Required. The policy id.The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). Cannot begin or end with
-             * underscore or hyphen. Must consist of between 3 and 50 characters.
+             * Required. The policy id.The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). Cannot begin or end with underscore or hyphen. Must consist of
+             * between 3 and 50 characters.
              */
             id?: string;
             /**
-             * Output only. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For
-             * projects.regions.autoscalingPolicies, the resource name of the policy has the following format:
-             * projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies, the resource name of the policy has
-             * the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
+             * Output only. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies, the
+             * resource name of the policy has the following format: projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies, the resource
+             * name of the policy has the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
              */
             name?: string;
             /** Optional. Describes how the autoscaler will operate for secondary workers. */
@@ -59,69 +61,59 @@ declare namespace gapi.client {
             workerConfig?: InstanceGroupAutoscalingPolicyConfig;
         }
         interface BasicAutoscalingAlgorithm {
-            /**
-             * Optional. Duration between scaling events. A scaling period starts after the update operation from the previous event has completed.Bounds: 2m, 1d.
-             * Default: 2m.
-             */
+            /** Optional. Duration between scaling events. A scaling period starts after the update operation from the previous event has completed.Bounds: 2m, 1d. Default: 2m. */
             cooldownPeriod?: string;
             /** Required. YARN autoscaling configuration. */
             yarnConfig?: BasicYarnAutoscalingConfig;
         }
         interface BasicYarnAutoscalingConfig {
             /**
-             * Required. Timeout for YARN graceful decommissioning of Node Managers. Specifies the duration to wait for jobs to complete before forcefully removing
-             * workers (and potentially interrupting jobs). Only applicable to downscaling operations.Bounds: 0s, 1d.
+             * Required. Timeout for YARN graceful decommissioning of Node Managers. Specifies the duration to wait for jobs to complete before forcefully removing workers (and potentially
+             * interrupting jobs). Only applicable to downscaling operations.Bounds: 0s, 1d.
              */
             gracefulDecommissionTimeout?: string;
             /**
-             * Required. Fraction of average YARN pending memory in the last cooldown period for which to remove workers. A scale-down factor of 1 will result in
-             * scaling down so that there is no available memory remaining after the update (more aggressive scaling). A scale-down factor of 0 disables removing
-             * workers, which can be beneficial for autoscaling a single job. See How autoscaling works
-             * (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/autoscaling#how_autoscaling_works) for more information.Bounds: 0.0, 1.0.
+             * Required. Fraction of average YARN pending memory in the last cooldown period for which to remove workers. A scale-down factor of 1 will result in scaling down so that there is no
+             * available memory remaining after the update (more aggressive scaling). A scale-down factor of 0 disables removing workers, which can be beneficial for autoscaling a single job. See
+             * How autoscaling works (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/autoscaling#how_autoscaling_works) for more information.Bounds: 0.0, 1.0.
              */
             scaleDownFactor?: number;
             /**
-             * Optional. Minimum scale-down threshold as a fraction of total cluster size before scaling occurs. For example, in a 20-worker cluster, a threshold of
-             * 0.1 means the autoscaler must recommend at least a 2 worker scale-down for the cluster to scale. A threshold of 0 means the autoscaler will scale down
-             * on any recommended change.Bounds: 0.0, 1.0. Default: 0.0.
+             * Optional. Minimum scale-down threshold as a fraction of total cluster size before scaling occurs. For example, in a 20-worker cluster, a threshold of 0.1 means the autoscaler must
+             * recommend at least a 2 worker scale-down for the cluster to scale. A threshold of 0 means the autoscaler will scale down on any recommended change.Bounds: 0.0, 1.0. Default: 0.0.
              */
             scaleDownMinWorkerFraction?: number;
             /**
-             * Required. Fraction of average YARN pending memory in the last cooldown period for which to add workers. A scale-up factor of 1.0 will result in scaling
-             * up so that there is no pending memory remaining after the update (more aggressive scaling). A scale-up factor closer to 0 will result in a smaller
-             * magnitude of scaling up (less aggressive scaling). See How autoscaling works
-             * (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/autoscaling#how_autoscaling_works) for more information.Bounds: 0.0, 1.0.
+             * Required. Fraction of average YARN pending memory in the last cooldown period for which to add workers. A scale-up factor of 1.0 will result in scaling up so that there is no
+             * pending memory remaining after the update (more aggressive scaling). A scale-up factor closer to 0 will result in a smaller magnitude of scaling up (less aggressive scaling). See
+             * How autoscaling works (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/autoscaling#how_autoscaling_works) for more information.Bounds: 0.0, 1.0.
              */
             scaleUpFactor?: number;
             /**
-             * Optional. Minimum scale-up threshold as a fraction of total cluster size before scaling occurs. For example, in a 20-worker cluster, a threshold of 0.1
-             * means the autoscaler must recommend at least a 2-worker scale-up for the cluster to scale. A threshold of 0 means the autoscaler will scale up on any
-             * recommended change.Bounds: 0.0, 1.0. Default: 0.0.
+             * Optional. Minimum scale-up threshold as a fraction of total cluster size before scaling occurs. For example, in a 20-worker cluster, a threshold of 0.1 means the autoscaler must
+             * recommend at least a 2-worker scale-up for the cluster to scale. A threshold of 0 means the autoscaler will scale up on any recommended change.Bounds: 0.0, 1.0. Default: 0.0.
              */
             scaleUpMinWorkerFraction?: number;
         }
         interface Binding {
             /**
-             * The condition that is associated with this binding.If the condition evaluates to true, then this binding applies to the current request.If the
-             * condition evaluates to false, then this binding does not apply to the current request. However, a different role binding might grant the same role to
-             * one or more of the members in this binding.To learn which resources support conditions in their IAM policies, see the IAM documentation
-             * (https://cloud.google.com/iam/help/conditions/resource-policies).
+             * The condition that is associated with this binding.If the condition evaluates to true, then this binding applies to the current request.If the condition evaluates to false, then
+             * this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the members in this binding.To learn which
+             * resources support conditions in their IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. members can have the following values: allUsers: A special identifier that
-             * represents anyone who is on the internet; with or without a Google account. allAuthenticatedUsers: A special identifier that represents anyone who is
-             * authenticated with a Google account or a service account. user:{emailid}: An email address that represents a specific Google account. For example,
-             * alice@example.com . serviceAccount:{emailid}: An email address that represents a service account. For example,
-             * my-other-app@appspot.gserviceaccount.com. group:{emailid}: An email address that represents a Google group. For example, admins@example.com.
+             * Specifies the identities requesting access for a Cloud Platform resource. members can have the following values: allUsers: A special identifier that represents anyone who is on the
+             * internet; with or without a Google account. allAuthenticatedUsers: A special identifier that represents anyone who is authenticated with a Google account or a service account.
+             * user:{emailid}: An email address that represents a specific Google account. For example, alice@example.com . serviceAccount:{emailid}: An email address that represents a service
+             * account. For example, my-other-app@appspot.gserviceaccount.com. group:{emailid}: An email address that represents a Google group. For example, admins@example.com.
              * deleted:user:{emailid}?uid={uniqueid}: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
-             * alice@example.com?uid=123456789012345678901. If the user is recovered, this value reverts to user:{emailid} and the recovered user retains the role in
-             * the binding. deleted:serviceAccount:{emailid}?uid={uniqueid}: An email address (plus unique identifier) representing a service account that has been
-             * recently deleted. For example, my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901. If the service account is undeleted, this value
-             * reverts to serviceAccount:{emailid} and the undeleted service account retains the role in the binding. deleted:group:{emailid}?uid={uniqueid}: An email
-             * address (plus unique identifier) representing a Google group that has been recently deleted. For example, admins@example.com?uid=123456789012345678901.
-             * If the group is recovered, this value reverts to group:{emailid} and the recovered group retains the role in the binding. domain:{domain}: The G Suite
-             * domain (primary) that represents all the users of that domain. For example, google.com or example.com.
+             * alice@example.com?uid=123456789012345678901. If the user is recovered, this value reverts to user:{emailid} and the recovered user retains the role in the binding.
+             * deleted:serviceAccount:{emailid}?uid={uniqueid}: An email address (plus unique identifier) representing a service account that has been recently deleted. For example,
+             * my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901. If the service account is undeleted, this value reverts to serviceAccount:{emailid} and the undeleted service
+             * account retains the role in the binding. deleted:group:{emailid}?uid={uniqueid}: An email address (plus unique identifier) representing a Google group that has been recently
+             * deleted. For example, admins@example.com?uid=123456789012345678901. If the group is recovered, this value reverts to group:{emailid} and the recovered group retains the role in the
+             * binding. domain:{domain}: The G Suite domain (primary) that represents all the users of that domain. For example, google.com or example.com.
              */
             members?: string[];
             /** Role that is assigned to members. For example, roles/viewer, roles/editor, or roles/owner. */
@@ -138,15 +130,12 @@ declare namespace gapi.client {
             /** Required. The cluster config. Note that Dataproc may set default values, and values may change when clusters are updated. */
             config?: ClusterConfig;
             /**
-             * Optional. The labels to associate with this cluster. Label keys must contain 1 to 63 characters, and must conform to RFC 1035
-             * (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035
-             * (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a cluster.
+             * Optional. The labels to associate with this cluster. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values
+             * may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a
+             * cluster.
              */
             labels?: { [P in string]: string };
-            /**
-             * Output only. Contains cluster daemon metrics such as HDFS and YARN stats.Beta Feature: This report is available for testing purposes only. It may be
-             * changed before final release.
-             */
+            /** Output only. Contains cluster daemon metrics such as HDFS and YARN stats.Beta Feature: This report is available for testing purposes only. It may be changed before final release. */
             metrics?: ClusterMetrics;
             /** Required. The Google Cloud Platform project ID that the cluster belongs to. */
             projectId?: string;
@@ -159,10 +148,9 @@ declare namespace gapi.client {
             /** Optional. Autoscaling config for the policy associated with the cluster. Cluster does not autoscale if this field is unset. */
             autoscalingConfig?: AutoscalingConfig;
             /**
-             * Optional. A Cloud Storage bucket used to stage job dependencies, config files, and job driver console output. If you do not specify a staging bucket,
-             * Cloud Dataproc will determine a Cloud Storage location (US, ASIA, or EU) for your cluster's staging bucket according to the Compute Engine zone where
-             * your cluster is deployed, and then create and manage this project-level, per-location bucket (see Dataproc staging bucket
-             * (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
+             * Optional. A Cloud Storage bucket used to stage job dependencies, config files, and job driver console output. If you do not specify a staging bucket, Cloud Dataproc will determine a
+             * Cloud Storage location (US, ASIA, or EU) for your cluster's staging bucket according to the Compute Engine zone where your cluster is deployed, and then create and manage this
+             * project-level, per-location bucket (see Dataproc staging bucket (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
              */
             configBucket?: string;
             /** Optional. Encryption settings for the cluster. */
@@ -172,10 +160,9 @@ declare namespace gapi.client {
             /** Optional. The shared Compute Engine config settings for all instances in a cluster. */
             gceClusterConfig?: GceClusterConfig;
             /**
-             * Optional. Commands to execute on each node after config is completed. By default, executables are run on master and all worker nodes. You can test a
-             * node's role metadata to run an executable on a master or worker node, as shown below using curl (you can also use wget): ROLE=$(curl -H
-             * Metadata-Flavor:Google http://metadata/computeMetadata/v1/instance/attributes/dataproc-role) if [[ "${ROLE}" == 'Master' ]]; then ... master specific
-             * actions ... else ... worker specific actions ... fi
+             * Optional. Commands to execute on each node after config is completed. By default, executables are run on master and all worker nodes. You can test a node's role metadata to run an
+             * executable on a master or worker node, as shown below using curl (you can also use wget): ROLE=$(curl -H Metadata-Flavor:Google
+             * http://metadata/computeMetadata/v1/instance/attributes/dataproc-role) if [[ "${ROLE}" == 'Master' ]]; then ... master specific actions ... else ... worker specific actions ... fi
              */
             initializationActions?: NodeInitializationAction[];
             /** Optional. Lifecycle setting for the cluster. */
@@ -189,10 +176,9 @@ declare namespace gapi.client {
             /** Optional. The config settings for software inside the cluster. */
             softwareConfig?: SoftwareConfig;
             /**
-             * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs data, such as Spark and MapReduce history files. If you do not specify a temp
-             * bucket, Dataproc will determine a Cloud Storage location (US, ASIA, or EU) for your cluster's temp bucket according to the Compute Engine zone where
-             * your cluster is deployed, and then create and manage this project-level, per-location bucket. The default bucket has a TTL of 90 days, but you can use
-             * any TTL (or none) if you specify a bucket.
+             * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs data, such as Spark and MapReduce history files. If you do not specify a temp bucket, Dataproc will
+             * determine a Cloud Storage location (US, ASIA, or EU) for your cluster's temp bucket according to the Compute Engine zone where your cluster is deployed, and then create and manage
+             * this project-level, per-location bucket. The default bucket has a TTL of 90 days, but you can use any TTL (or none) if you specify a bucket.
              */
             tempBucket?: string;
             /** Optional. The Compute Engine config settings for worker instances in a cluster. */
@@ -244,8 +230,8 @@ declare namespace gapi.client {
             /** Required. The cluster labels. Cluster must have all labels to match. */
             clusterLabels?: { [P in string]: string };
             /**
-             * Optional. The zone where workflow process executes. This parameter does not affect the selection of the cluster.If unspecified, the zone of the first
-             * cluster matching the selector is used.
+             * Optional. The zone where workflow process executes. This parameter does not affect the selection of the cluster.If unspecified, the zone of the first cluster matching the selector
+             * is used.
              */
             zone?: string;
         }
@@ -269,15 +255,12 @@ declare namespace gapi.client {
         interface DiskConfig {
             /** Optional. Size in GB of the boot disk (default is 500GB). */
             bootDiskSizeGb?: number;
-            /**
-             * Optional. Type of the boot disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid State Drive) or "pd-standard" (Persistent
-             * Disk Hard Disk Drive).
-             */
+            /** Optional. Type of the boot disk (default is "pd-standard"). Valid values: "pd-ssd" (Persistent Disk Solid State Drive) or "pd-standard" (Persistent Disk Hard Disk Drive). */
             bootDiskType?: string;
             /**
              * Optional. Number of attached SSDs, from 0 to 4 (default is 0). If SSDs are not attached, the boot disk is used to store runtime logs and HDFS
-             * (https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data. If one or more SSDs are attached, this runtime bulk data is spread across them, and
-             * the boot disk contains only basic config and installed binaries.
+             * (https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data. If one or more SSDs are attached, this runtime bulk data is spread across them, and the boot disk contains only
+             * basic config and installed binaries.
              */
             numLocalSsds?: number;
         }
@@ -306,9 +289,9 @@ declare namespace gapi.client {
         }
         interface GceClusterConfig {
             /**
-             * Optional. If true, all instances in the cluster will only have internal IP addresses. By default, clusters are not restricted to internal IP addresses,
-             * and will have ephemeral external IP addresses assigned to each instance. This internal_ip_only restriction can only be enabled for subnetwork enabled
-             * networks, and all off-cluster dependencies must be configured to be accessible without external IP addresses.
+             * Optional. If true, all instances in the cluster will only have internal IP addresses. By default, clusters are not restricted to internal IP addresses, and will have ephemeral
+             * external IP addresses assigned to each instance. This internal_ip_only restriction can only be enabled for subnetwork enabled networks, and all off-cluster dependencies must be
+             * configured to be accessible without external IP addresses.
              */
             internalIpOnly?: boolean;
             /**
@@ -317,43 +300,38 @@ declare namespace gapi.client {
              */
             metadata?: { [P in string]: string };
             /**
-             * Optional. The Compute Engine network to be used for machine communications. Cannot be specified with subnetwork_uri. If neither network_uri nor
-             * subnetwork_uri is specified, the "default" network of the project is used, if it exists. Cannot be a "Custom Subnet Network" (see Using Subnetworks
-             * (https://cloud.google.com/compute/docs/subnetworks) for more information).A full URL, partial URI, or short name are valid. Examples:
-             * https://www.googleapis.com/compute/v1/projects/[project_id]/regions/global/default projects/[project_id]/regions/global/default default
+             * Optional. The Compute Engine network to be used for machine communications. Cannot be specified with subnetwork_uri. If neither network_uri nor subnetwork_uri is specified, the
+             * "default" network of the project is used, if it exists. Cannot be a "Custom Subnet Network" (see Using Subnetworks (https://cloud.google.com/compute/docs/subnetworks) for more
+             * information).A full URL, partial URI, or short name are valid. Examples: https://www.googleapis.com/compute/v1/projects/[project_id]/regions/global/default
+             * projects/[project_id]/regions/global/default default
              */
             networkUri?: string;
             /** Optional. Reservation Affinity for consuming Zonal reservation. */
             reservationAffinity?: ReservationAffinity;
             /**
-             * Optional. The Dataproc service account
-             * (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/service-accounts#service_accounts_in_dataproc) (also see VM Data Plane identity
-             * (https://cloud.google.com/dataproc/docs/concepts/iam/dataproc-principals#vm_service_account_data_plane_identity)) used by Dataproc cluster VM instances
-             * to access Google Cloud Platform services.If not specified, the Compute Engine default service account
-             * (https://cloud.google.com/compute/docs/access/service-accounts#default_service_account) is used.
+             * Optional. The Dataproc service account (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/service-accounts#service_accounts_in_dataproc) (also see VM Data Plane
+             * identity (https://cloud.google.com/dataproc/docs/concepts/iam/dataproc-principals#vm_service_account_data_plane_identity)) used by Dataproc cluster VM instances to access Google
+             * Cloud Platform services.If not specified, the Compute Engine default service account (https://cloud.google.com/compute/docs/access/service-accounts#default_service_account) is used.
              */
             serviceAccount?: string;
             /**
              * Optional. The URIs of service account scopes to be included in Compute Engine instances. The following base set of scopes is always included:
-             * https://www.googleapis.com/auth/cloud.useraccounts.readonly https://www.googleapis.com/auth/devstorage.read_write
-             * https://www.googleapis.com/auth/logging.writeIf no scopes are specified, the following defaults are also provided:
-             * https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/bigtable.admin.table https://www.googleapis.com/auth/bigtable.data
-             * https://www.googleapis.com/auth/devstorage.full_control
+             * https://www.googleapis.com/auth/cloud.useraccounts.readonly https://www.googleapis.com/auth/devstorage.read_write https://www.googleapis.com/auth/logging.writeIf no scopes are
+             * specified, the following defaults are also provided: https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/bigtable.admin.table
+             * https://www.googleapis.com/auth/bigtable.data https://www.googleapis.com/auth/devstorage.full_control
              */
             serviceAccountScopes?: string[];
             /**
-             * Optional. The Compute Engine subnetwork to be used for machine communications. Cannot be specified with network_uri.A full URL, partial URI, or short
-             * name are valid. Examples: https://www.googleapis.com/compute/v1/projects/[project_id]/regions/us-east1/subnetworks/sub0
-             * projects/[project_id]/regions/us-east1/subnetworks/sub0 sub0
+             * Optional. The Compute Engine subnetwork to be used for machine communications. Cannot be specified with network_uri.A full URL, partial URI, or short name are valid. Examples:
+             * https://www.googleapis.com/compute/v1/projects/[project_id]/regions/us-east1/subnetworks/sub0 projects/[project_id]/regions/us-east1/subnetworks/sub0 sub0
              */
             subnetworkUri?: string;
             /** The Compute Engine tags to add to all instances (see Tagging instances (https://cloud.google.com/compute/docs/label-or-tag-resources#tags)). */
             tags?: string[];
             /**
-             * Optional. The zone where the Compute Engine cluster will be located. On a create request, it is required in the "global" region. If omitted in a
-             * non-global Dataproc region, the service will pick a zone in the corresponding Compute Engine region. On a get request, zone will always be present.A
-             * full URL, partial URI, or short name are valid. Examples: https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]
-             * projects/[project_id]/zones/[zone] us-central1-f
+             * Optional. The zone where the Compute Engine cluster will be located. On a create request, it is required in the "global" region. If omitted in a non-global Dataproc region, the
+             * service will pick a zone in the corresponding Compute Engine region. On a get request, zone will always be present.A full URL, partial URI, or short name are valid. Examples:
+             * https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone] projects/[project_id]/zones/[zone] us-central1-f
              */
             zoneUri?: string;
         }
@@ -363,28 +341,21 @@ declare namespace gapi.client {
         }
         interface GetPolicyOptions {
             /**
-             * Optional. The policy format version to be returned.Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected.Requests for
-             * policies with any conditional bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field
-             * unset.To learn which resources support conditions in their IAM policies, see the IAM documentation
-             * (https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Optional. The policy format version to be returned.Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected.Requests for policies with any conditional
+             * bindings must specify version 3. Policies without any conditional bindings may specify any valid value or leave the field unset.To learn which resources support conditions in their
+             * IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             requestedPolicyVersion?: number;
         }
         interface HadoopJob {
-            /**
-             * Optional. HCFS URIs of archives to be extracted in the working directory of Hadoop drivers and tasks. Supported file types: .jar, .tar, .tar.gz, .tgz,
-             * or .zip.
-             */
+            /** Optional. HCFS URIs of archives to be extracted in the working directory of Hadoop drivers and tasks. Supported file types: .jar, .tar, .tar.gz, .tgz, or .zip. */
             archiveUris?: string[];
             /**
-             * Optional. The arguments to pass to the driver. Do not include arguments, such as -libjars or -Dfoo=bar, that can be set as job properties, since a
-             * collision may occur that causes an incorrect job submission.
+             * Optional. The arguments to pass to the driver. Do not include arguments, such as -libjars or -Dfoo=bar, that can be set as job properties, since a collision may occur that causes an
+             * incorrect job submission.
              */
             args?: string[];
-            /**
-             * Optional. HCFS (Hadoop Compatible Filesystem) URIs of files to be copied to the working directory of Hadoop drivers and distributed tasks. Useful for
-             * naively parallel tasks.
-             */
+            /** Optional. HCFS (Hadoop Compatible Filesystem) URIs of files to be copied to the working directory of Hadoop drivers and distributed tasks. Useful for naively parallel tasks. */
             fileUris?: string[];
             /** Optional. Jar file URIs to add to the CLASSPATHs of the Hadoop driver and tasks. */
             jarFileUris?: string[];
@@ -393,27 +364,24 @@ declare namespace gapi.client {
             /** The name of the driver's main class. The jar file containing the class must be in the default CLASSPATH or specified in jar_file_uris. */
             mainClass?: string;
             /**
-             * The HCFS URI of the jar file containing the main class. Examples: 'gs://foo-bucket/analytics-binaries/extract-useful-metrics-mr.jar'
-             * 'hdfs:/tmp/test-samples/custom-wordcount.jar' 'file:///home/usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar'
+             * The HCFS URI of the jar file containing the main class. Examples: 'gs://foo-bucket/analytics-binaries/extract-useful-metrics-mr.jar' 'hdfs:/tmp/test-samples/custom-wordcount.jar'
+             * 'file:///home/usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar'
              */
             mainJarFileUri?: string;
             /**
-             * Optional. A mapping of property names to values, used to configure Hadoop. Properties that conflict with values set by the Dataproc API may be
-             * overwritten. Can include properties set in /etc/hadoop/conf/∗-site and classes in user code.
+             * Optional. A mapping of property names to values, used to configure Hadoop. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties
+             * set in /etc/hadoop/conf/*-site and classes in user code.
              */
             properties?: { [P in string]: string };
         }
         interface HiveJob {
-            /**
-             * Optional. Whether to continue executing queries if a query fails. The default value is false. Setting to true can be useful when executing independent
-             * parallel queries.
-             */
+            /** Optional. Whether to continue executing queries if a query fails. The default value is false. Setting to true can be useful when executing independent parallel queries. */
             continueOnFailure?: boolean;
             /** Optional. HCFS URIs of jar files to add to the CLASSPATH of the Hive server and Hadoop MapReduce (MR) tasks. Can contain Hive SerDes and UDFs. */
             jarFileUris?: string[];
             /**
-             * Optional. A mapping of property names and values, used to configure Hive. Properties that conflict with values set by the Dataproc API may be
-             * overwritten. Can include properties set in /etc/hadoop/conf/∗-site.xml, /etc/hive/conf/hive-site.xml, and classes in user code.
+             * Optional. A mapping of property names and values, used to configure Hive. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set
+             * in /etc/hadoop/conf/*-site.xml, /etc/hive/conf/hive-site.xml, and classes in user code.
              */
             properties?: { [P in string]: string };
             /** The HCFS URI of the script that contains Hive queries. */
@@ -426,24 +394,19 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface InstanceGroupAutoscalingPolicyConfig {
             /**
-             * Required. Maximum number of instances for this group. Required for primary workers. Note that by default, clusters will not use secondary workers.
-             * Required for secondary workers if the minimum secondary instances is set.Primary workers - Bounds: [min_instances, ). Secondary workers - Bounds:
-             * [min_instances, ). Default: 0.
+             * Required. Maximum number of instances for this group. Required for primary workers. Note that by default, clusters will not use secondary workers. Required for secondary workers if
+             * the minimum secondary instances is set.Primary workers - Bounds: [min_instances, ). Secondary workers - Bounds: [min_instances, ). Default: 0.
              */
             maxInstances?: number;
-            /**
-             * Optional. Minimum number of instances for this group.Primary workers - Bounds: 2, max_instances. Default: 2. Secondary workers - Bounds: 0,
-             * max_instances. Default: 0.
-             */
+            /** Optional. Minimum number of instances for this group.Primary workers - Bounds: 2, max_instances. Default: 2. Secondary workers - Bounds: 0, max_instances. Default: 0. */
             minInstances?: number;
             /**
-             * Optional. Weight for the instance group, which is used to determine the fraction of total workers in the cluster from this instance group. For example,
-             * if primary workers have weight 2, and secondary workers have weight 1, the cluster will have approximately 2 primary workers for each secondary
-             * worker.The cluster may not reach the specified balance if constrained by min/max bounds or other autoscaling settings. For example, if max_instances
-             * for secondary workers is 0, then only primary workers will be added. The cluster can also be out of balance when created.If weight is not set on any
-             * instance group, the cluster will default to equal weight for all groups: the cluster will attempt to maintain an equal number of workers in each group
-             * within the configured size bounds for each group. If weight is set for one group only, the cluster will default to zero weight on the unset group. For
-             * example if weight is set only on primary workers, the cluster will use primary workers only and no secondary workers.
+             * Optional. Weight for the instance group, which is used to determine the fraction of total workers in the cluster from this instance group. For example, if primary workers have
+             * weight 2, and secondary workers have weight 1, the cluster will have approximately 2 primary workers for each secondary worker.The cluster may not reach the specified balance if
+             * constrained by min/max bounds or other autoscaling settings. For example, if max_instances for secondary workers is 0, then only primary workers will be added. The cluster can also
+             * be out of balance when created.If weight is not set on any instance group, the cluster will default to equal weight for all groups: the cluster will attempt to maintain an equal
+             * number of workers in each group within the configured size bounds for each group. If weight is set for one group only, the cluster will default to zero weight on the unset group.
+             * For example if weight is set only on primary workers, the cluster will use primary workers only and no secondary workers.
              */
             weight?: number;
         }
@@ -455,11 +418,9 @@ declare namespace gapi.client {
             diskConfig?: DiskConfig;
             /**
              * Optional. The Compute Engine image resource used for cluster instances.The URI can represent an image or image family.Image examples:
-             * https://www.googleapis.com/compute/beta/projects/[project_id]/global/images/[image-id] projects/[project_id]/global/images/[image-id] image-idImage
-             * family examples. Dataproc will use the most recent image from the family:
-             * https://www.googleapis.com/compute/beta/projects/[project_id]/global/images/family/[custom-image-family-name]
-             * projects/[project_id]/global/images/family/[custom-image-family-name]If the URI is unspecified, it will be inferred from SoftwareConfig.image_version
-             * or the system default.
+             * https://www.googleapis.com/compute/beta/projects/[project_id]/global/images/[image-id] projects/[project_id]/global/images/[image-id] image-idImage family examples. Dataproc will
+             * use the most recent image from the family: https://www.googleapis.com/compute/beta/projects/[project_id]/global/images/family/[custom-image-family-name]
+             * projects/[project_id]/global/images/family/[custom-image-family-name]If the URI is unspecified, it will be inferred from SoftwareConfig.image_version or the system default.
              */
             imageUri?: string;
             /** Output only. The list of instance names. Dataproc derives the names from cluster_name, num_instances, and the instance group. */
@@ -470,24 +431,21 @@ declare namespace gapi.client {
             isPreemptible?: boolean;
             /**
              * Optional. The Compute Engine machine type used for cluster instances.A full URL, partial URI, or short name are valid. Examples:
-             * https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2
-             * projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2 n1-standard-2Auto Zone Exception: If you are using the Dataproc Auto Zone Placement
-             * (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the
-             * machine type resource, for example, n1-standard-2.
+             * https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2 projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2
+             * n1-standard-2Auto Zone Exception: If you are using the Dataproc Auto Zone Placement
+             * (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the machine type resource, for
+             * example, n1-standard-2.
              */
             machineTypeUri?: string;
             /** Output only. The config for Compute Engine Instance Group Manager that manages this group. This is only used for preemptible instance groups. */
             managedGroupConfig?: ManagedGroupConfig;
-            /**
-             * Optional. Specifies the minimum cpu platform for the Instance Group. See Dataproc -> Minimum CPU Platform
-             * (https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
-             */
+            /** Optional. Specifies the minimum cpu platform for the Instance Group. See Dataproc -> Minimum CPU Platform (https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu). */
             minCpuPlatform?: string;
             /** Optional. The number of VM instances in the instance group. For master instance groups, must be set to 1. */
             numInstances?: number;
             /**
-             * Optional. Specifies the preemptibility of the instance group.The default value for master and worker groups is NON_PREEMPTIBLE. This default cannot be
-             * changed.The default value for secondary instances is PREEMPTIBLE.
+             * Optional. Specifies the preemptibility of the instance group.The default value for master and worker groups is NON_PREEMPTIBLE. This default cannot be changed.The default value for
+             * secondary instances is PREEMPTIBLE.
              */
             preemptibility?: string;
         }
@@ -503,26 +461,26 @@ declare namespace gapi.client {
             /** Optional. Map from parameter names to values that should be used for those parameters. Values may not exceed 100 characters. */
             parameters?: { [P in string]: string };
             /**
-             * Optional. A tag that prevents multiple concurrent workflow instances with the same tag from running. This mitigates risk of concurrent instances
-             * started due to retries.It is recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The tag must
-             * contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
+             * Optional. A tag that prevents multiple concurrent workflow instances with the same tag from running. This mitigates risk of concurrent instances started due to retries.It is
+             * recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The tag must contain only letters (a-z, A-Z), numbers (0-9), underscores
+             * (_), and hyphens (-). The maximum length is 40 characters.
              */
             requestId?: string;
             /**
-             * Optional. The version of workflow template to instantiate. If specified, the workflow will be instantiated only if the current version of the workflow
-             * template has the supplied version.This option cannot be used to instantiate a previous version of workflow template.
+             * Optional. The version of workflow template to instantiate. If specified, the workflow will be instantiated only if the current version of the workflow template has the supplied
+             * version.This option cannot be used to instantiate a previous version of workflow template.
              */
             version?: number;
         }
         interface Job {
             /**
-             * Output only. Indicates whether the job is completed. If the value is false, the job is still in progress. If true, the job is completed, and
-             * status.state field will indicate if it was successful, failed, or cancelled.
+             * Output only. Indicates whether the job is completed. If the value is false, the job is still in progress. If true, the job is completed, and status.state field will indicate if it
+             * was successful, failed, or cancelled.
              */
             done?: boolean;
             /**
-             * Output only. If present, the location of miscellaneous control files which may be used as part of job setup and handling. If not present, control files
-             * may be placed in the same location as driver_output_uri.
+             * Output only. If present, the location of miscellaneous control files which may be used as part of job setup and handling. If not present, control files may be placed in the same
+             * location as driver_output_uri.
              */
             driverControlFilesUri?: string;
             /** Output only. A URI pointing to the location of the stdout of the job's driver program. */
@@ -531,15 +489,11 @@ declare namespace gapi.client {
             hadoopJob?: HadoopJob;
             /** Optional. Job is a Hive job. */
             hiveJob?: HiveJob;
-            /**
-             * Output only. A UUID that uniquely identifies a job within the project over time. This is in contrast to a user-settable reference.job_id that may be
-             * reused over time.
-             */
+            /** Output only. A UUID that uniquely identifies a job within the project over time. This is in contrast to a user-settable reference.job_id that may be reused over time. */
             jobUuid?: string;
             /**
-             * Optional. The labels to associate with this job. Label keys must contain 1 to 63 characters, and must conform to RFC 1035
-             * (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035
-             * (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a job.
+             * Optional. The labels to associate with this job. Label keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). Label values may be
+             * empty, but, if present, must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be associated with a job.
              */
             labels?: { [P in string]: string };
             /** Optional. Job is a Pig job. */
@@ -551,8 +505,8 @@ declare namespace gapi.client {
             /** Optional. Job is a PySpark job. */
             pysparkJob?: PySparkJob;
             /**
-             * Optional. The fully qualified reference to the job, which can be used to obtain the equivalent REST path of the job resource. If this property is not
-             * specified when a job is created, the server generates a job_id.
+             * Optional. The fully qualified reference to the job, which can be used to obtain the equivalent REST path of the job resource. If this property is not specified when a job is
+             * created, the server generates a job_id.
              */
             reference?: JobReference;
             /** Optional. Job scheduling configuration. */
@@ -567,10 +521,7 @@ declare namespace gapi.client {
             status?: JobStatus;
             /** Output only. The previous job status. */
             statusHistory?: JobStatus[];
-            /**
-             * Output only. The collection of YARN applications spun up by this job.Beta Feature: This report is available for testing purposes only. It may be
-             * changed before final release.
-             */
+            /** Output only. The collection of YARN applications spun up by this job.Beta Feature: This report is available for testing purposes only. It may be changed before final release. */
             yarnApplications?: YarnApplication[];
         }
         interface JobMetadata {
@@ -591,8 +542,8 @@ declare namespace gapi.client {
         }
         interface JobReference {
             /**
-             * Optional. The job ID, which must be unique within the project.The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or hyphens
-             * (-). The maximum length is 100 characters.If not specified by the caller, the job ID will be provided by the server.
+             * Optional. The job ID, which must be unique within the project.The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or hyphens (-). The maximum length is 100
+             * characters.If not specified by the caller, the job ID will be provided by the server.
              */
             jobId?: string;
             /** Optional. The ID of the Google Cloud Platform project that the job belongs to. If specified, must match the request project ID. */
@@ -600,8 +551,8 @@ declare namespace gapi.client {
         }
         interface JobScheduling {
             /**
-             * Optional. Maximum number of times per hour a driver may be restarted as a result of driver terminating with non-zero code before job is reported
-             * failed.A job may be reported as thrashing if driver exits with non-zero code 4 times within 10 minute window.Maximum value is 10.
+             * Optional. Maximum number of times per hour a driver may be restarted as a result of driver terminating with non-zero code before job is reported failed.A job may be reported as
+             * thrashing if driver exits with non-zero code 4 times within 10 minute window.Maximum value is 10.
              */
             maxFailuresPerHour?: number;
         }
@@ -623,22 +574,19 @@ declare namespace gapi.client {
             /** Optional. The remote realm the Dataproc on-cluster KDC will trust, should the user enable cross realm trust. */
             crossRealmTrustRealm?: string;
             /**
-             * Optional. The Cloud Storage URI of a KMS encrypted file containing the shared password between the on-cluster Kerberos realm and the remote trusted
-             * realm, in a cross realm trust relationship.
+             * Optional. The Cloud Storage URI of a KMS encrypted file containing the shared password between the on-cluster Kerberos realm and the remote trusted realm, in a cross realm trust
+             * relationship.
              */
             crossRealmTrustSharedPasswordUri?: string;
             /** Optional. Flag to indicate whether to Kerberize the cluster (default: false). Set this field to true to enable Kerberos on a cluster. */
             enableKerberos?: boolean;
             /** Optional. The Cloud Storage URI of a KMS encrypted file containing the master key of the KDC database. */
             kdcDbKeyUri?: string;
-            /**
-             * Optional. The Cloud Storage URI of a KMS encrypted file containing the password to the user provided key. For the self-signed certificate, this
-             * password is generated by Dataproc.
-             */
+            /** Optional. The Cloud Storage URI of a KMS encrypted file containing the password to the user provided key. For the self-signed certificate, this password is generated by Dataproc. */
             keyPasswordUri?: string;
             /**
-             * Optional. The Cloud Storage URI of a KMS encrypted file containing the password to the user provided keystore. For the self-signed certificate, this
-             * password is generated by Dataproc.
+             * Optional. The Cloud Storage URI of a KMS encrypted file containing the password to the user provided keystore. For the self-signed certificate, this password is generated by
+             * Dataproc.
              */
             keystorePasswordUri?: string;
             /** Optional. The Cloud Storage URI of the keystore file used for SSL encryption. If not provided, Dataproc will provide a self-signed certificate. */
@@ -652,33 +600,29 @@ declare namespace gapi.client {
             /** Optional. The lifetime of the ticket granting ticket, in hours. If not specified, or user specifies 0, then default value 10 will be used. */
             tgtLifetimeHours?: number;
             /**
-             * Optional. The Cloud Storage URI of a KMS encrypted file containing the password to the user provided truststore. For the self-signed certificate, this
-             * password is generated by Dataproc.
+             * Optional. The Cloud Storage URI of a KMS encrypted file containing the password to the user provided truststore. For the self-signed certificate, this password is generated by
+             * Dataproc.
              */
             truststorePasswordUri?: string;
             /** Optional. The Cloud Storage URI of the truststore file used for SSL encryption. If not provided, Dataproc will provide a self-signed certificate. */
             truststoreUri?: string;
         }
         interface LifecycleConfig {
-            /**
-             * Optional. The time when cluster will be auto-deleted (see JSON representation of Timestamp
-             * (https://developers.google.com/protocol-buffers/docs/proto3#json)).
-             */
+            /** Optional. The time when cluster will be auto-deleted (see JSON representation of Timestamp (https://developers.google.com/protocol-buffers/docs/proto3#json)). */
             autoDeleteTime?: string;
             /**
-             * Optional. The lifetime duration of cluster. The cluster will be auto-deleted at the end of this period. Minimum value is 10 minutes; maximum value is
-             * 14 days (see JSON representation of Duration (https://developers.google.com/protocol-buffers/docs/proto3#json)).
+             * Optional. The lifetime duration of cluster. The cluster will be auto-deleted at the end of this period. Minimum value is 10 minutes; maximum value is 14 days (see JSON
+             * representation of Duration (https://developers.google.com/protocol-buffers/docs/proto3#json)).
              */
             autoDeleteTtl?: string;
             /**
-             * Optional. The duration to keep the cluster alive while idling (when no jobs are running). Passing this threshold will cause the cluster to be deleted.
-             * Minimum value is 10 minutes; maximum value is 14 days (see JSON representation of Duration
-             * (https://developers.google.com/protocol-buffers/docs/proto3#json).
+             * Optional. The duration to keep the cluster alive while idling (when no jobs are running). Passing this threshold will cause the cluster to be deleted. Minimum value is 10 minutes;
+             * maximum value is 14 days (see JSON representation of Duration (https://developers.google.com/protocol-buffers/docs/proto3#json).
              */
             idleDeleteTtl?: string;
             /**
-             * Output only. The time when cluster became idle (most recent job finished) and became eligible for deletion due to idleness (see JSON representation of
-             * Timestamp (https://developers.google.com/protocol-buffers/docs/proto3#json)).
+             * Output only. The time when cluster became idle (most recent job finished) and became eligible for deletion due to idleness (see JSON representation of Timestamp
+             * (https://developers.google.com/protocol-buffers/docs/proto3#json)).
              */
             idleStartTime?: string;
         }
@@ -692,8 +636,8 @@ declare namespace gapi.client {
             /** Output only. The clusters in the project. */
             clusters?: Cluster[];
             /**
-             * Output only. This token is included in the response if there are more results to fetch. To fetch additional results, provide this value as the
-             * page_token in a subsequent ListClustersRequest.
+             * Output only. This token is included in the response if there are more results to fetch. To fetch additional results, provide this value as the page_token in a subsequent
+             * ListClustersRequest.
              */
             nextPageToken?: string;
         }
@@ -701,8 +645,8 @@ declare namespace gapi.client {
             /** Output only. Jobs list. */
             jobs?: Job[];
             /**
-             * Optional. This token is included in the response if there are more results to fetch. To fetch additional results, provide this value as the page_token
-             * in a subsequent ListJobsRequest.
+             * Optional. This token is included in the response if there are more results to fetch. To fetch additional results, provide this value as the page_token in a subsequent
+             * ListJobsRequest.
              */
             nextPageToken?: string;
         }
@@ -714,32 +658,29 @@ declare namespace gapi.client {
         }
         interface ListWorkflowTemplatesResponse {
             /**
-             * Output only. This token is included in the response if there are more results to fetch. To fetch additional results, provide this value as the
-             * page_token in a subsequent ListWorkflowTemplatesRequest.
+             * Output only. This token is included in the response if there are more results to fetch. To fetch additional results, provide this value as the page_token in a subsequent
+             * ListWorkflowTemplatesRequest.
              */
             nextPageToken?: string;
             /** Output only. WorkflowTemplates list. */
             templates?: WorkflowTemplate[];
         }
         interface LoggingConfig {
-            /**
-             * The per-package log levels for the driver. This may include "root" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO',
-             * 'org.apache = DEBUG'
-             */
+            /** The per-package log levels for the driver. This may include "root" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG' */
             driverLogLevels?: { [P in string]: string };
         }
         interface ManagedCluster {
             /**
-             * Required. The cluster name prefix. A unique cluster name will be formed by appending a random suffix.The name must contain only lower-case letters
-             * (a-z), numbers (0-9), and hyphens (-). Must begin with a letter. Cannot begin or end with hyphen. Must consist of between 2 and 35 characters.
+             * Required. The cluster name prefix. A unique cluster name will be formed by appending a random suffix.The name must contain only lower-case letters (a-z), numbers (0-9), and hyphens
+             * (-). Must begin with a letter. Cannot begin or end with hyphen. Must consist of between 2 and 35 characters.
              */
             clusterName?: string;
             /** Required. The cluster configuration. */
             config?: ClusterConfig;
             /**
-             * Optional. The labels to associate with this cluster.Label keys must be between 1 and 63 characters long, and must conform to the following PCRE regular
-             * expression: \p{Ll}\p{Lo}{0,62}Label values must be between 1 and 63 characters long, and must conform to the following PCRE regular expression:
-             * \p{Ll}\p{Lo}\p{N}_-{0,63}No more than 32 labels can be associated with a given cluster.
+             * Optional. The labels to associate with this cluster.Label keys must be between 1 and 63 characters long, and must conform to the following PCRE regular expression:
+             * \p{Ll}\p{Lo}{0,62}Label values must be between 1 and 63 characters long, and must conform to the following PCRE regular expression: \p{Ll}\p{Lo}\p{N}_-{0,63}No more than 32 labels
+             * can be associated with a given cluster.
              */
             labels?: { [P in string]: string };
         }
@@ -754,8 +695,8 @@ declare namespace gapi.client {
             executableFile?: string;
             /**
              * Optional. Amount of time executable has to complete. Default is 10 minutes (see JSON representation of Duration
-             * (https://developers.google.com/protocol-buffers/docs/proto3#json)).Cluster creation fails with an explanatory error message (the name of the executable
-             * that caused the error and the exceeded timeout period) if the executable is not completed at end of the timeout period.
+             * (https://developers.google.com/protocol-buffers/docs/proto3#json)).Cluster creation fails with an explanatory error message (the name of the executable that caused the error and the
+             * exceeded timeout period) if the executable is not completed at end of the timeout period.
              */
             executionTimeout?: string;
         }
@@ -765,20 +706,19 @@ declare namespace gapi.client {
             /** The error result of the operation in case of failure or cancellation. */
             error?: Status;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should
-             * be a resource name ending with operations/{unique_id}.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the name should be a resource name ending
+             * with operations/{unique_id}.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is
-             * google.protobuf.Empty. If the original method is standard Get/Create/Update, the response should be the resource. For other methods, the response
-             * should have the type XxxResponse, where Xxx is the original method name. For example, if the original method name is TakeSnapshot(), the inferred
-             * response type is TakeSnapshotResponse.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is google.protobuf.Empty. If the original
+             * method is standard Get/Create/Update, the response should be the resource. For other methods, the response should have the type XxxResponse, where Xxx is the original method name.
+             * For example, if the original method name is TakeSnapshot(), the inferred response type is TakeSnapshotResponse.
              */
             response?: { [P in string]: any };
         }
@@ -788,9 +728,9 @@ declare namespace gapi.client {
             /** Optional. Job is a Hive job. */
             hiveJob?: HiveJob;
             /**
-             * Optional. The labels to associate with this job.Label keys must be between 1 and 63 characters long, and must conform to the following regular
-             * expression: \p{Ll}\p{Lo}{0,62}Label values must be between 1 and 63 characters long, and must conform to the following regular expression:
-             * \p{Ll}\p{Lo}\p{N}_-{0,63}No more than 32 labels can be associated with a given job.
+             * Optional. The labels to associate with this job.Label keys must be between 1 and 63 characters long, and must conform to the following regular expression: \p{Ll}\p{Lo}{0,62}Label
+             * values must be between 1 and 63 characters long, and must conform to the following regular expression: \p{Ll}\p{Lo}\p{N}_-{0,63}No more than 32 labels can be associated with a given
+             * job.
              */
             labels?: { [P in string]: string };
             /** Optional. Job is a Pig job. */
@@ -810,9 +750,9 @@ declare namespace gapi.client {
             /** Optional. Job is a SparkSql job. */
             sparkSqlJob?: SparkSqlJob;
             /**
-             * Required. The step id. The id must be unique among all jobs within the template.The step id is used as prefix for job id, as job
-             * goog-dataproc-workflow-step-id label, and in prerequisiteStepIds field from other steps.The id must contain only letters (a-z, A-Z), numbers (0-9),
-             * underscores (_), and hyphens (-). Cannot begin or end with underscore or hyphen. Must consist of between 3 and 50 characters.
+             * Required. The step id. The id must be unique among all jobs within the template.The step id is used as prefix for job id, as job goog-dataproc-workflow-step-id label, and in
+             * prerequisiteStepIds field from other steps.The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). Cannot begin or end with underscore or
+             * hyphen. Must consist of between 3 and 50 characters.
              */
             stepId?: string;
         }
@@ -823,18 +763,15 @@ declare namespace gapi.client {
             values?: ValueValidation;
         }
         interface PigJob {
-            /**
-             * Optional. Whether to continue executing queries if a query fails. The default value is false. Setting to true can be useful when executing independent
-             * parallel queries.
-             */
+            /** Optional. Whether to continue executing queries if a query fails. The default value is false. Setting to true can be useful when executing independent parallel queries. */
             continueOnFailure?: boolean;
             /** Optional. HCFS URIs of jar files to add to the CLASSPATH of the Pig Client and Hadoop MapReduce (MR) tasks. Can contain Pig UDFs. */
             jarFileUris?: string[];
             /** Optional. The runtime log config for job execution. */
             loggingConfig?: LoggingConfig;
             /**
-             * Optional. A mapping of property names to values, used to configure Pig. Properties that conflict with values set by the Dataproc API may be
-             * overwritten. Can include properties set in /etc/hadoop/conf/∗-site.xml, /etc/pig/conf/pig.properties, and classes in user code.
+             * Optional. A mapping of property names to values, used to configure Pig. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set
+             * in /etc/hadoop/conf/*-site.xml, /etc/pig/conf/pig.properties, and classes in user code.
              */
             properties?: { [P in string]: string };
             /** The HCFS URI of the script that contains the Pig queries. */
@@ -846,45 +783,40 @@ declare namespace gapi.client {
         }
         interface Policy {
             /**
-             * Associates a list of members to a role. Optionally, may specify a condition that determines how and when the bindings are applied. Each of the bindings
-             * must contain at least one member.
+             * Associates a list of members to a role. Optionally, may specify a condition that determines how and when the bindings are applied. Each of the bindings must contain at least one
+             * member.
              */
             bindings?: Binding[];
             /**
-             * etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
-             * suggested that systems make use of the etag in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An etag is
-             * returned in the response to getIamPolicy, and systems are expected to put that etag in the request to setIamPolicy to ensure that their change will be
-             * applied to the same version of the policy.Important: If you use IAM Conditions, you must include the etag field whenever you call setIamPolicy. If you
-             * omit this field, then IAM allows you to overwrite a version 3 policy with a version 1 policy, and all of the conditions in the version 3 policy are
-             * lost.
+             * etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make use
+             * of the etag in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An etag is returned in the response to getIamPolicy, and systems are expected
+             * to put that etag in the request to setIamPolicy to ensure that their change will be applied to the same version of the policy.Important: If you use IAM Conditions, you must include
+             * the etag field whenever you call setIamPolicy. If you omit this field, then IAM allows you to overwrite a version 3 policy with a version 1 policy, and all of the conditions in the
+             * version 3 policy are lost.
              */
             etag?: string;
             /**
-             * Specifies the format of the policy.Valid values are 0, 1, and 3. Requests that specify an invalid value are rejected.Any operation that affects
-             * conditional role bindings must specify version 3. This requirement applies to the following operations: Getting a policy that includes a conditional
-             * role binding Adding a conditional role binding to a policy Changing a conditional role binding in a policy Removing any role binding, with or without a
-             * condition, from a policy that includes conditionsImportant: If you use IAM Conditions, you must include the etag field whenever you call setIamPolicy.
-             * If you omit this field, then IAM allows you to overwrite a version 3 policy with a version 1 policy, and all of the conditions in the version 3 policy
-             * are lost.If a policy does not include any conditions, operations on that policy may specify any valid version or leave the field unset.To learn which
-             * resources support conditions in their IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies).
+             * Specifies the format of the policy.Valid values are 0, 1, and 3. Requests that specify an invalid value are rejected.Any operation that affects conditional role bindings must
+             * specify version 3. This requirement applies to the following operations: Getting a policy that includes a conditional role binding Adding a conditional role binding to a policy
+             * Changing a conditional role binding in a policy Removing any role binding, with or without a condition, from a policy that includes conditionsImportant: If you use IAM Conditions,
+             * you must include the etag field whenever you call setIamPolicy. If you omit this field, then IAM allows you to overwrite a version 3 policy with a version 1 policy, and all of the
+             * conditions in the version 3 policy are lost.If a policy does not include any conditions, operations on that policy may specify any valid version or leave the field unset.To learn
+             * which resources support conditions in their IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies).
              */
             version?: number;
         }
         interface PrestoJob {
             /** Optional. Presto client tags to attach to this query */
             clientTags?: string[];
-            /**
-             * Optional. Whether to continue executing queries if a query fails. The default value is false. Setting to true can be useful when executing independent
-             * parallel queries.
-             */
+            /** Optional. Whether to continue executing queries if a query fails. The default value is false. Setting to true can be useful when executing independent parallel queries. */
             continueOnFailure?: boolean;
             /** Optional. The runtime log config for job execution. */
             loggingConfig?: LoggingConfig;
             /** Optional. The format in which query output will be displayed. See the Presto documentation for supported output formats */
             outputFormat?: string;
             /**
-             * Optional. A mapping of property names to values. Used to set Presto session properties (https://prestodb.io/docs/current/sql/set-session.html)
-             * Equivalent to using the --session flag in the Presto CLI
+             * Optional. A mapping of property names to values. Used to set Presto session properties (https://prestodb.io/docs/current/sql/set-session.html) Equivalent to using the --session flag
+             * in the Presto CLI
              */
             properties?: { [P in string]: string };
             /** The HCFS URI of the script that contains SQL queries. */
@@ -896,8 +828,8 @@ declare namespace gapi.client {
             /** Optional. HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip. */
             archiveUris?: string[];
             /**
-             * Optional. The arguments to pass to the driver. Do not include arguments, such as --conf, that can be set as job properties, since a collision may occur
-             * that causes an incorrect job submission.
+             * Optional. The arguments to pass to the driver. Do not include arguments, such as --conf, that can be set as job properties, since a collision may occur that causes an incorrect job
+             * submission.
              */
             args?: string[];
             /** Optional. HCFS URIs of files to be placed in the working directory of each executor. Useful for naively parallel tasks. */
@@ -909,8 +841,8 @@ declare namespace gapi.client {
             /** Required. The HCFS URI of the main Python file to use as the driver. Must be a .py file. */
             mainPythonFileUri?: string;
             /**
-             * Optional. A mapping of property names to values, used to configure PySpark. Properties that conflict with values set by the Dataproc API may be
-             * overwritten. Can include properties set in /etc/spark/conf/spark-defaults.conf and classes in user code.
+             * Optional. A mapping of property names to values, used to configure PySpark. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties
+             * set in /etc/spark/conf/spark-defaults.conf and classes in user code.
              */
             properties?: { [P in string]: string };
             /** Optional. HCFS file URIs of Python files to pass to the PySpark framework. Supported file types: .py, .egg, and .zip. */
@@ -918,17 +850,13 @@ declare namespace gapi.client {
         }
         interface QueryList {
             /**
-             * Required. The queries to execute. You do not need to terminate a query with a semicolon. Multiple queries can be specified in one string by separating
-             * each with a semicolon. Here is an example of an Cloud Dataproc API snippet that uses a QueryList to specify a HiveJob: "hiveJob": { "queryList": {
-             * "queries": [ "query1", "query2", "query3;query4", ] } }
+             * Required. The queries to execute. You do not need to terminate a query with a semicolon. Multiple queries can be specified in one string by separating each with a semicolon. Here is
+             * an example of an Cloud Dataproc API snippet that uses a QueryList to specify a HiveJob: "hiveJob": { "queryList": { "queries": [ "query1", "query2", "query3;query4", ] } }
              */
             queries?: string[];
         }
         interface RegexValidation {
-            /**
-             * Required. RE2 regular expressions used to validate the parameter's value. The value must match the regex in its entirety (substring matches are not
-             * sufficient).
-             */
+            /** Required. RE2 regular expressions used to validate the parameter's value. The value must match the regex in its entirety (substring matches are not sufficient). */
             regexes?: string[];
         }
         interface ReservationAffinity {
@@ -945,26 +873,24 @@ declare namespace gapi.client {
         }
         interface SetIamPolicyRequest {
             /**
-             * REQUIRED: The complete policy to be applied to the resource. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy
-             * but certain Cloud Platform services (such as Projects) might reject them.
+             * REQUIRED: The complete policy to be applied to the resource. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Cloud Platform
+             * services (such as Projects) might reject them.
              */
             policy?: Policy;
         }
         interface SoftwareConfig {
             /**
              * Optional. The version of software inside the cluster. It must be one of the supported Dataproc Versions
-             * (https://cloud.google.com/dataproc/docs/concepts/versioning/dataproc-versions#supported_dataproc_versions), such as "1.2" (including a subminor
-             * version, such as "1.2.29"), or the "preview" version (https://cloud.google.com/dataproc/docs/concepts/versioning/dataproc-versions#other_versions). If
-             * unspecified, it defaults to the latest Debian version.
+             * (https://cloud.google.com/dataproc/docs/concepts/versioning/dataproc-versions#supported_dataproc_versions), such as "1.2" (including a subminor version, such as "1.2.29"), or the
+             * "preview" version (https://cloud.google.com/dataproc/docs/concepts/versioning/dataproc-versions#other_versions). If unspecified, it defaults to the latest Debian version.
              */
             imageVersion?: string;
             /** Optional. The set of components to activate on the cluster. */
             optionalComponents?: string[];
             /**
-             * Optional. The properties to set on daemon config files.Property keys are specified in prefix:property format, for example core:hadoop.tmp.dir. The
-             * following are supported prefixes and their mappings: capacity-scheduler: capacity-scheduler.xml core: core-site.xml distcp: distcp-default.xml hdfs:
-             * hdfs-site.xml hive: hive-site.xml mapred: mapred-site.xml pig: pig.properties spark: spark-defaults.conf yarn: yarn-site.xmlFor more information, see
-             * Cluster properties (https://cloud.google.com/dataproc/docs/concepts/cluster-properties).
+             * Optional. The properties to set on daemon config files.Property keys are specified in prefix:property format, for example core:hadoop.tmp.dir. The following are supported prefixes
+             * and their mappings: capacity-scheduler: capacity-scheduler.xml core: core-site.xml distcp: distcp-default.xml hdfs: hdfs-site.xml hive: hive-site.xml mapred: mapred-site.xml pig:
+             * pig.properties spark: spark-defaults.conf yarn: yarn-site.xmlFor more information, see Cluster properties (https://cloud.google.com/dataproc/docs/concepts/cluster-properties).
              */
             properties?: { [P in string]: string };
         }
@@ -972,8 +898,8 @@ declare namespace gapi.client {
             /** Optional. HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip. */
             archiveUris?: string[];
             /**
-             * Optional. The arguments to pass to the driver. Do not include arguments, such as --conf, that can be set as job properties, since a collision may occur
-             * that causes an incorrect job submission.
+             * Optional. The arguments to pass to the driver. Do not include arguments, such as --conf, that can be set as job properties, since a collision may occur that causes an incorrect job
+             * submission.
              */
             args?: string[];
             /** Optional. HCFS URIs of files to be placed in the working directory of each executor. Useful for naively parallel tasks. */
@@ -987,8 +913,8 @@ declare namespace gapi.client {
             /** The HCFS URI of the jar file that contains the main class. */
             mainJarFileUri?: string;
             /**
-             * Optional. A mapping of property names to values, used to configure Spark. Properties that conflict with values set by the Dataproc API may be
-             * overwritten. Can include properties set in /etc/spark/conf/spark-defaults.conf and classes in user code.
+             * Optional. A mapping of property names to values, used to configure Spark. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set
+             * in /etc/spark/conf/spark-defaults.conf and classes in user code.
              */
             properties?: { [P in string]: string };
         }
@@ -996,8 +922,8 @@ declare namespace gapi.client {
             /** Optional. HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip. */
             archiveUris?: string[];
             /**
-             * Optional. The arguments to pass to the driver. Do not include arguments, such as --conf, that can be set as job properties, since a collision may occur
-             * that causes an incorrect job submission.
+             * Optional. The arguments to pass to the driver. Do not include arguments, such as --conf, that can be set as job properties, since a collision may occur that causes an incorrect job
+             * submission.
              */
             args?: string[];
             /** Optional. HCFS URIs of files to be placed in the working directory of each executor. Useful for naively parallel tasks. */
@@ -1007,8 +933,8 @@ declare namespace gapi.client {
             /** Required. The HCFS URI of the main R file to use as the driver. Must be a .R file. */
             mainRFileUri?: string;
             /**
-             * Optional. A mapping of property names to values, used to configure SparkR. Properties that conflict with values set by the Dataproc API may be
-             * overwritten. Can include properties set in /etc/spark/conf/spark-defaults.conf and classes in user code.
+             * Optional. A mapping of property names to values, used to configure SparkR. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties
+             * set in /etc/spark/conf/spark-defaults.conf and classes in user code.
              */
             properties?: { [P in string]: string };
         }
@@ -1017,10 +943,7 @@ declare namespace gapi.client {
             jarFileUris?: string[];
             /** Optional. The runtime log config for job execution. */
             loggingConfig?: LoggingConfig;
-            /**
-             * Optional. A mapping of property names to values, used to configure Spark SQL's SparkConf. Properties that conflict with values set by the Dataproc API
-             * may be overwritten.
-             */
+            /** Optional. A mapping of property names to values, used to configure Spark SQL's SparkConf. Properties that conflict with values set by the Dataproc API may be overwritten. */
             properties?: { [P in string]: string };
             /** The HCFS URI of the script that contains SQL queries. */
             queryFileUri?: string;
@@ -1035,8 +958,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -1044,10 +967,9 @@ declare namespace gapi.client {
             /** Required. The job resource. */
             job?: Job;
             /**
-             * Optional. A unique id used to identify the request. If the server receives two SubmitJobRequest requests with the same id, then the second request will
-             * be ignored and the first Job created and stored in the backend is returned.It is recommended to always set this value to a UUID
-             * (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
-             * (-). The maximum length is 40 characters.
+             * Optional. A unique id used to identify the request. If the server receives two SubmitJobRequest requests with the same id, then the second request will be ignored and the first Job
+             * created and stored in the backend is returned.It is recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain
+             * only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
              */
             requestId?: string;
         }
@@ -1055,23 +977,21 @@ declare namespace gapi.client {
             /** Optional. Brief description of the parameter. Must not exceed 1024 characters. */
             description?: string;
             /**
-             * Required. Paths to all fields that the parameter replaces. A field is allowed to appear in at most one parameter's list of field paths.A field path is
-             * similar in syntax to a google.protobuf.FieldMask. For example, a field path that references the zone field of a workflow template's cluster selector
-             * would be specified as placement.clusterSelector.zone.Also, field paths can reference fields using the following syntax: Values in maps can be
-             * referenced by key: labels'key' placement.clusterSelector.clusterLabels'key' placement.managedCluster.labels'key'
-             * placement.clusterSelector.clusterLabels'key' jobs'step-id'.labels'key' Jobs in the jobs list can be referenced by step-id:
-             * jobs'step-id'.hadoopJob.mainJarFileUri jobs'step-id'.hiveJob.queryFileUri jobs'step-id'.pySparkJob.mainPythonFileUri
-             * jobs'step-id'.hadoopJob.jarFileUris0 jobs'step-id'.hadoopJob.archiveUris0 jobs'step-id'.hadoopJob.fileUris0 jobs'step-id'.pySparkJob.pythonFileUris0
-             * Items in repeated fields can be referenced by a zero-based index: jobs'step-id'.sparkJob.args0 Other examples: jobs'step-id'.hadoopJob.properties'key'
-             * jobs'step-id'.hadoopJob.args0 jobs'step-id'.hiveJob.scriptVariables'key' jobs'step-id'.hadoopJob.mainJarFileUri placement.clusterSelector.zoneIt may
-             * not be possible to parameterize maps and repeated fields in their entirety since only individual map values and individual items in repeated fields can
-             * be referenced. For example, the following field paths are invalid: placement.clusterSelector.clusterLabels jobs'step-id'.sparkJob.args
+             * Required. Paths to all fields that the parameter replaces. A field is allowed to appear in at most one parameter's list of field paths.A field path is similar in syntax to a
+             * google.protobuf.FieldMask. For example, a field path that references the zone field of a workflow template's cluster selector would be specified as
+             * placement.clusterSelector.zone.Also, field paths can reference fields using the following syntax: Values in maps can be referenced by key: labels'key'
+             * placement.clusterSelector.clusterLabels'key' placement.managedCluster.labels'key' placement.clusterSelector.clusterLabels'key' jobs'step-id'.labels'key' Jobs in the jobs list can be
+             * referenced by step-id: jobs'step-id'.hadoopJob.mainJarFileUri jobs'step-id'.hiveJob.queryFileUri jobs'step-id'.pySparkJob.mainPythonFileUri jobs'step-id'.hadoopJob.jarFileUris0
+             * jobs'step-id'.hadoopJob.archiveUris0 jobs'step-id'.hadoopJob.fileUris0 jobs'step-id'.pySparkJob.pythonFileUris0 Items in repeated fields can be referenced by a zero-based index:
+             * jobs'step-id'.sparkJob.args0 Other examples: jobs'step-id'.hadoopJob.properties'key' jobs'step-id'.hadoopJob.args0 jobs'step-id'.hiveJob.scriptVariables'key'
+             * jobs'step-id'.hadoopJob.mainJarFileUri placement.clusterSelector.zoneIt may not be possible to parameterize maps and repeated fields in their entirety since only individual map
+             * values and individual items in repeated fields can be referenced. For example, the following field paths are invalid: placement.clusterSelector.clusterLabels
+             * jobs'step-id'.sparkJob.args
              */
             fields?: string[];
             /**
-             * Required. Parameter name. The parameter name is used as the key, and paired with the parameter value, which are passed to the template when the
-             * template is instantiated. The name must contain only capital letters (A-Z), numbers (0-9), and underscores (_), and must not start with a number. The
-             * maximum length is 40 characters.
+             * Required. Parameter name. The parameter name is used as the key, and paired with the parameter value, which are passed to the template when the template is instantiated. The name
+             * must contain only capital letters (A-Z), numbers (0-9), and underscores (_), and must not start with a number. The maximum length is 40 characters.
              */
             name?: string;
             /** Optional. Validation rules to be applied to this parameter's value. */
@@ -1079,8 +999,8 @@ declare namespace gapi.client {
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the resource. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see IAM
-             * Overview (https://cloud.google.com/iam/docs/overview#permissions).
+             * The set of permissions to check for the resource. Permissions with wildcards (such as '*' or 'storage.*') are not allowed. For more information see IAM Overview
+             * (https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
         }
@@ -1116,10 +1036,9 @@ declare namespace gapi.client {
             /** Output only. The workflow state. */
             state?: string;
             /**
-             * Output only. The resource name of the workflow template as described in https://cloud.google.com/apis/design/resource_names. For
-             * projects.regions.workflowTemplates, the resource name of the template has the following format:
-             * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates, the resource name of the template has
-             * the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+             * Output only. The resource name of the workflow template as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates, the resource
+             * name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates, the resource name of
+             * the template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
              */
             template?: string;
             /** Output only. The version of template at the time of workflow instantiation. */
@@ -1144,17 +1063,15 @@ declare namespace gapi.client {
             /** Required. The Directed Acyclic Graph of Jobs to submit. */
             jobs?: OrderedJob[];
             /**
-             * Optional. The labels to associate with this template. These labels will be propagated to all jobs and clusters created by the workflow instance.Label
-             * keys must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).Label values may be empty, but, if present,
-             * must contain 1 to 63 characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).No more than 32 labels can be associated with a
-             * template.
+             * Optional. The labels to associate with this template. These labels will be propagated to all jobs and clusters created by the workflow instance.Label keys must contain 1 to 63
+             * characters, and must conform to RFC 1035 (https://www.ietf.org/rfc/rfc1035.txt).Label values may be empty, but, if present, must contain 1 to 63 characters, and must conform to RFC
+             * 1035 (https://www.ietf.org/rfc/rfc1035.txt).No more than 32 labels can be associated with a template.
              */
             labels?: { [P in string]: string };
             /**
-             * Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-             * projects.regions.workflowTemplates, the resource name of the template has the following format:
-             * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates, the resource name of the template has
-             * the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+             * Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates, the resource
+             * name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates, the resource name of
+             * the template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
              */
             name?: string;
             /** Optional. Template parameters whose values are substituted into the template. Values for parameters must be provided when the template is instantiated. */
@@ -1164,10 +1081,9 @@ declare namespace gapi.client {
             /** Output only. The time template was last updated. */
             updateTime?: string;
             /**
-             * Optional. Used to perform a consistent read-modify-write.This field should be left blank for a CreateWorkflowTemplate request. It is required for an
-             * UpdateWorkflowTemplate request, and must match the current server version. A typical update template flow would fetch the current template with a
-             * GetWorkflowTemplate request, which will return the current template with the version field filled in with the current server version. The user updates
-             * other fields in the template, then returns it as part of the UpdateWorkflowTemplate request.
+             * Optional. Used to perform a consistent read-modify-write.This field should be left blank for a CreateWorkflowTemplate request. It is required for an UpdateWorkflowTemplate request,
+             * and must match the current server version. A typical update template flow would fetch the current template with a GetWorkflowTemplate request, which will return the current template
+             * with the version field filled in with the current server version. The user updates other fields in the template, then returns it as part of the UpdateWorkflowTemplate request.
              */
             version?: number;
         }
@@ -1185,8 +1101,8 @@ declare namespace gapi.client {
             /** Required. The application state. */
             state?: string;
             /**
-             * Optional. The HTTP URL of the ApplicationMaster, HistoryServer, or TimelineServer that provides application-specific information. The URL uses the
-             * internal hostname, and requires a proxy server for resolution and, possibly, access.
+             * Optional. The HTTP URL of the ApplicationMaster, HistoryServer, or TimelineServer that provides application-specific information. The URL uses the internal hostname, and requires a
+             * proxy server for resolution and, possibly, access.
              */
             trackingUrl?: string;
         }
@@ -1208,9 +1124,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The "resource name" of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies.create, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
-                 * projects.locations.autoscalingPolicies.create, the resource name of the location has the following format: projects/{project_id}/locations/{location}
+                 * Required. The "resource name" of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies.create,
+                 * the resource name of the region has the following format: projects/{project_id}/regions/{region} For projects.locations.autoscalingPolicies.create, the resource name of the
+                 * location has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1240,9 +1156,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The "resource name" of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies.create, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
-                 * projects.locations.autoscalingPolicies.create, the resource name of the location has the following format: projects/{project_id}/locations/{location}
+                 * Required. The "resource name" of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies.create,
+                 * the resource name of the region has the following format: projects/{project_id}/regions/{region} For projects.locations.autoscalingPolicies.create, the resource name of the
+                 * location has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1270,10 +1186,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies.delete, the resource name of the policy has the following format:
-                 * projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies.delete, the resource name of the
-                 * policy has the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
+                 * Required. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies.delete,
+                 * the resource name of the policy has the following format: projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+                 * projects.locations.autoscalingPolicies.delete, the resource name of the policy has the following format:
+                 * projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1302,10 +1218,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies.get, the resource name of the policy has the following format:
-                 * projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies.get, the resource name of the policy
-                 * has the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
+                 * Required. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies.get, the
+                 * resource name of the policy has the following format: projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies.get, the
+                 * resource name of the policy has the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1368,9 +1283,9 @@ declare namespace gapi.client {
                 /** Optional. The page token, returned by a previous call, to request the next page of results. */
                 pageToken?: string;
                 /**
-                 * Required. The "resource name" of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies.list, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
-                 * projects.locations.autoscalingPolicies.list, the resource name of the location has the following format: projects/{project_id}/locations/{location}
+                 * Required. The "resource name" of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies.list, the
+                 * resource name of the region has the following format: projects/{project_id}/regions/{region} For projects.locations.autoscalingPolicies.list, the resource name of the location
+                 * has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1382,10 +1297,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListAutoscalingPoliciesResponse>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED
-             * errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1414,9 +1326,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking.
-             * This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -1460,10 +1371,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies, the resource name of the policy has the following format:
-                 * projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies, the resource name of the policy has
-                 * the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
+                 * Output only. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies, the
+                 * resource name of the policy has the following format: projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies, the
+                 * resource name of the policy has the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1493,10 +1403,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies, the resource name of the policy has the following format:
-                 * projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies, the resource name of the policy has
-                 * the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
+                 * Output only. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies, the
+                 * resource name of the policy has the following format: projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies, the
+                 * resource name of the policy has the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1530,9 +1439,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates,create, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
-                 * projects.locations.workflowTemplates.create, the resource name of the location has the following format: projects/{project_id}/locations/{location}
+                 * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates,create, the
+                 * resource name of the region has the following format: projects/{project_id}/regions/{region} For projects.locations.workflowTemplates.create, the resource name of the location
+                 * has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1562,9 +1471,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates,create, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
-                 * projects.locations.workflowTemplates.create, the resource name of the location has the following format: projects/{project_id}/locations/{location}
+                 * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates,create, the
+                 * resource name of the region has the following format: projects/{project_id}/regions/{region} For projects.locations.workflowTemplates.create, the resource name of the location
+                 * has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1592,10 +1501,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates.delete, the resource name of the template has the following format:
-                 * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates.instantiate, the resource name of the
-                 * template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates.delete, the
+                 * resource name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+                 * projects.locations.workflowTemplates.instantiate, the resource name of the template has the following format:
+                 * projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1608,10 +1517,7 @@ declare namespace gapi.client {
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
-                /**
-                 * Optional. The version of workflow template to delete. If specified, will only delete the template if the current server version matches specified
-                 * version.
-                 */
+                /** Optional. The version of workflow template to delete. If specified, will only delete the template if the current server version matches specified version. */
                 version?: number;
             }): Request<{}>;
             /** Retrieves the latest workflow template.Can retrieve previously instantiated template by specifying optional version parameter. */
@@ -1629,10 +1535,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates.get, the resource name of the template has the following format:
-                 * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates.get, the resource name of the template
-                 * has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates.get, the
+                 * resource name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates.get, the
+                 * resource name of the template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1645,10 +1550,7 @@ declare namespace gapi.client {
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
-                /**
-                 * Optional. The version of workflow template to retrieve. Only previously instantiated versions can be retrieved.If unspecified, retrieves the current
-                 * version.
-                 */
+                /** Optional. The version of workflow template to retrieve. Only previously instantiated versions can be retrieved.If unspecified, retrieves the current version. */
                 version?: number;
             }): Request<WorkflowTemplate>;
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
@@ -1680,12 +1582,10 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /**
-             * Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation
-             * will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be
-             * cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata
-             * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata
-             * (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be
-             * Empty.
+             * Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire
+             * workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The
+             * Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata
+             * (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty.
              */
             instantiate(request: {
                 /** V1 error format. */
@@ -1701,10 +1601,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates.instantiate, the resource name of the template has the following format:
-                 * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates.instantiate, the resource name of the
-                 * template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates.instantiate,
+                 * the resource name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+                 * projects.locations.workflowTemplates.instantiate, the resource name of the template has the following format:
+                 * projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1734,10 +1634,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates.instantiate, the resource name of the template has the following format:
-                 * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates.instantiate, the resource name of the
-                 * template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates.instantiate,
+                 * the resource name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+                 * projects.locations.workflowTemplates.instantiate, the resource name of the template has the following format:
+                 * projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1753,13 +1653,11 @@ declare namespace gapi.client {
             },
             body: InstantiateWorkflowTemplateRequest): Request<Operation>;
             /**
-             * Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate,
-             * DeleteWorkflowTemplate.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when
-             * entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and
-             * workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata
+             * Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The
+             * returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be
+             * aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata
              * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata
-             * (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be
-             * Empty.
+             * (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty.
              */
             instantiateInline(request: {
                 /** V1 error format. */
@@ -1778,9 +1676,8 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates,instantiateinline, the resource name of the region has the following format: projects/{project_id}/regions/{region}
-                 * For projects.locations.workflowTemplates.instantiateinline, the resource name of the location has the following format:
-                 * projects/{project_id}/locations/{location}
+                 * projects.regions.workflowTemplates,instantiateinline, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
+                 * projects.locations.workflowTemplates.instantiateinline, the resource name of the location has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1788,9 +1685,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. A tag that prevents multiple concurrent workflow instances with the same tag from running. This mitigates risk of concurrent instances
-                 * started due to retries.It is recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The tag must
-                 * contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
+                 * Optional. A tag that prevents multiple concurrent workflow instances with the same tag from running. This mitigates risk of concurrent instances started due to retries.It is
+                 * recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The tag must contain only letters (a-z, A-Z), numbers (0-9),
+                 * underscores (_), and hyphens (-). The maximum length is 40 characters.
                  */
                 requestId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1817,9 +1714,8 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates,instantiateinline, the resource name of the region has the following format: projects/{project_id}/regions/{region}
-                 * For projects.locations.workflowTemplates.instantiateinline, the resource name of the location has the following format:
-                 * projects/{project_id}/locations/{location}
+                 * projects.regions.workflowTemplates,instantiateinline, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
+                 * projects.locations.workflowTemplates.instantiateinline, the resource name of the location has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1827,9 +1723,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. A tag that prevents multiple concurrent workflow instances with the same tag from running. This mitigates risk of concurrent instances
-                 * started due to retries.It is recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The tag must
-                 * contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
+                 * Optional. A tag that prevents multiple concurrent workflow instances with the same tag from running. This mitigates risk of concurrent instances started due to retries.It is
+                 * recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The tag must contain only letters (a-z, A-Z), numbers (0-9),
+                 * underscores (_), and hyphens (-). The maximum length is 40 characters.
                  */
                 requestId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1859,9 +1755,9 @@ declare namespace gapi.client {
                 /** Optional. The page token, returned by a previous call, to request the next page of results. */
                 pageToken?: string;
                 /**
-                 * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates,list, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
-                 * projects.locations.workflowTemplates.list, the resource name of the location has the following format: projects/{project_id}/locations/{location}
+                 * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates,list, the
+                 * resource name of the region has the following format: projects/{project_id}/regions/{region} For projects.locations.workflowTemplates.list, the resource name of the location has
+                 * the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -1873,10 +1769,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListWorkflowTemplatesResponse>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED
-             * errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1905,9 +1798,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking.
-             * This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -1951,10 +1843,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates, the resource name of the template has the following format:
-                 * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates, the resource name of the template has
-                 * the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+                 * Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates, the
+                 * resource name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates, the
+                 * resource name of the template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1984,10 +1875,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates, the resource name of the template has the following format:
-                 * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates, the resource name of the template has
-                 * the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+                 * Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates, the
+                 * resource name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates, the
+                 * resource name of the template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2025,9 +1915,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The "resource name" of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies.create, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
-                 * projects.locations.autoscalingPolicies.create, the resource name of the location has the following format: projects/{project_id}/locations/{location}
+                 * Required. The "resource name" of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies.create,
+                 * the resource name of the region has the following format: projects/{project_id}/regions/{region} For projects.locations.autoscalingPolicies.create, the resource name of the
+                 * location has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2057,9 +1947,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The "resource name" of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies.create, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
-                 * projects.locations.autoscalingPolicies.create, the resource name of the location has the following format: projects/{project_id}/locations/{location}
+                 * Required. The "resource name" of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies.create,
+                 * the resource name of the region has the following format: projects/{project_id}/regions/{region} For projects.locations.autoscalingPolicies.create, the resource name of the
+                 * location has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2087,10 +1977,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies.delete, the resource name of the policy has the following format:
-                 * projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies.delete, the resource name of the
-                 * policy has the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
+                 * Required. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies.delete,
+                 * the resource name of the policy has the following format: projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+                 * projects.locations.autoscalingPolicies.delete, the resource name of the policy has the following format:
+                 * projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2119,10 +2009,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies.get, the resource name of the policy has the following format:
-                 * projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies.get, the resource name of the policy
-                 * has the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
+                 * Required. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies.get, the
+                 * resource name of the policy has the following format: projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies.get, the
+                 * resource name of the policy has the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2185,9 +2074,9 @@ declare namespace gapi.client {
                 /** Optional. The page token, returned by a previous call, to request the next page of results. */
                 pageToken?: string;
                 /**
-                 * Required. The "resource name" of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies.list, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
-                 * projects.locations.autoscalingPolicies.list, the resource name of the location has the following format: projects/{project_id}/locations/{location}
+                 * Required. The "resource name" of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies.list, the
+                 * resource name of the region has the following format: projects/{project_id}/regions/{region} For projects.locations.autoscalingPolicies.list, the resource name of the location
+                 * has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -2199,10 +2088,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListAutoscalingPoliciesResponse>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED
-             * errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2231,9 +2117,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking.
-             * This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -2277,10 +2162,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies, the resource name of the policy has the following format:
-                 * projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies, the resource name of the policy has
-                 * the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
+                 * Output only. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies, the
+                 * resource name of the policy has the following format: projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies, the
+                 * resource name of the policy has the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2310,10 +2194,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.autoscalingPolicies, the resource name of the policy has the following format:
-                 * projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies, the resource name of the policy has
-                 * the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
+                 * Output only. The "resource name" of the autoscaling policy, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.autoscalingPolicies, the
+                 * resource name of the policy has the following format: projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For projects.locations.autoscalingPolicies, the
+                 * resource name of the policy has the following format: projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2358,10 +2241,10 @@ declare namespace gapi.client {
                 /** Required. The Dataproc region in which to handle the request. */
                 region: string;
                 /**
-                 * Optional. A unique id used to identify the request. If the server receives two CreateClusterRequest requests with the same id, then the second request
-                 * will be ignored and the first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to
-                 * a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
-                 * hyphens (-). The maximum length is 40 characters.
+                 * Optional. A unique id used to identify the request. If the server receives two CreateClusterRequest requests with the same id, then the second request will be ignored and the
+                 * first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to a UUID
+                 * (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is
+                 * 40 characters.
                  */
                 requestId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2395,10 +2278,10 @@ declare namespace gapi.client {
                 /** Required. The Dataproc region in which to handle the request. */
                 region: string;
                 /**
-                 * Optional. A unique id used to identify the request. If the server receives two CreateClusterRequest requests with the same id, then the second request
-                 * will be ignored and the first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to
-                 * a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
-                 * hyphens (-). The maximum length is 40 characters.
+                 * Optional. A unique id used to identify the request. If the server receives two CreateClusterRequest requests with the same id, then the second request will be ignored and the
+                 * first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to a UUID
+                 * (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is
+                 * 40 characters.
                  */
                 requestId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2439,10 +2322,10 @@ declare namespace gapi.client {
                 /** Required. The Dataproc region in which to handle the request. */
                 region: string;
                 /**
-                 * Optional. A unique id used to identify the request. If the server receives two DeleteClusterRequest requests with the same id, then the second request
-                 * will be ignored and the first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to
-                 * a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
-                 * hyphens (-). The maximum length is 40 characters.
+                 * Optional. A unique id used to identify the request. If the server receives two DeleteClusterRequest requests with the same id, then the second request will be ignored and the
+                 * first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to a UUID
+                 * (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is
+                 * 40 characters.
                  */
                 requestId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2452,9 +2335,8 @@ declare namespace gapi.client {
             }): Request<Operation>;
             /**
              * Gets cluster diagnostic information. The returned Operation.metadata will be ClusterOperationMetadata
-             * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). After the operation completes,
-             * Operation.response contains DiagnoseClusterResults
-             * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#diagnoseclusterresults).
+             * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). After the operation completes, Operation.response contains
+             * DiagnoseClusterResults (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#diagnoseclusterresults).
              */
             diagnose(request: {
                 /** V1 error format. */
@@ -2591,12 +2473,11 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. A filter constraining the clusters to list. Filters are case-sensitive and have the following syntax:field = value AND field = value ...where
-                 * field is one of status.state, clusterName, or labels.[KEY], and [KEY] is a label key. value can be ∗ to match all values. status.state can be one of
-                 * the following: ACTIVE, INACTIVE, CREATING, RUNNING, ERROR, DELETING, or UPDATING. ACTIVE contains the CREATING, UPDATING, and RUNNING states. INACTIVE
-                 * contains the DELETING and ERROR states. clusterName is the name of the cluster provided at creation time. Only the logical AND operator is supported;
-                 * space-separated items are treated as having an implicit AND operator.Example filter:status.state = ACTIVE AND clusterName = mycluster AND labels.env =
-                 * staging AND labels.starred = ∗
+                 * Optional. A filter constraining the clusters to list. Filters are case-sensitive and have the following syntax:field = value AND field = value ...where field is one of
+                 * status.state, clusterName, or labels.[KEY], and [KEY] is a label key. value can be * to match all values. status.state can be one of the following: ACTIVE, INACTIVE, CREATING,
+                 * RUNNING, ERROR, DELETING, or UPDATING. ACTIVE contains the CREATING, UPDATING, and RUNNING states. INACTIVE contains the DELETING and ERROR states. clusterName is the name of
+                 * the cluster provided at creation time. Only the logical AND operator is supported; space-separated items are treated as having an implicit AND operator.Example
+                 * filter:status.state = ACTIVE AND clusterName = mycluster AND labels.env = staging AND labels.starred = *
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2638,10 +2519,10 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. Timeout for graceful YARN decomissioning. Graceful decommissioning allows removing nodes from the cluster without interrupting jobs in
-                 * progress. Timeout specifies how long to wait for jobs in progress to finish before forcefully removing nodes (and potentially interrupting jobs).
-                 * Default timeout is 0 (for forceful decommission), and the maximum allowed timeout is 1 day. (see JSON representation of Duration
-                 * (https://developers.google.com/protocol-buffers/docs/proto3#json)).Only supported on Dataproc image versions 1.2 and higher.
+                 * Optional. Timeout for graceful YARN decomissioning. Graceful decommissioning allows removing nodes from the cluster without interrupting jobs in progress. Timeout specifies how
+                 * long to wait for jobs in progress to finish before forcefully removing nodes (and potentially interrupting jobs). Default timeout is 0 (for forceful decommission), and the
+                 * maximum allowed timeout is 1 day. (see JSON representation of Duration (https://developers.google.com/protocol-buffers/docs/proto3#json)).Only supported on Dataproc image
+                 * versions 1.2 and higher.
                  */
                 gracefulDecommissionTimeout?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2657,19 +2538,18 @@ declare namespace gapi.client {
                 /** Required. The Dataproc region in which to handle the request. */
                 region: string;
                 /**
-                 * Optional. A unique id used to identify the request. If the server receives two UpdateClusterRequest requests with the same id, then the second request
-                 * will be ignored and the first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to
-                 * a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
-                 * hyphens (-). The maximum length is 40 characters.
+                 * Optional. A unique id used to identify the request. If the server receives two UpdateClusterRequest requests with the same id, then the second request will be ignored and the
+                 * first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to a UUID
+                 * (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is
+                 * 40 characters.
                  */
                 requestId?: string;
                 /**
-                 * Required. Specifies the path, relative to Cluster, of the field to update. For example, to change the number of workers in a cluster to 5, the
-                 * update_mask parameter would be specified as config.worker_config.num_instances, and the PATCH request body would specify the new value, as follows: {
-                 * "config":{ "workerConfig":{ "numInstances":"5" } } } Similarly, to change the number of preemptible workers in a cluster to 5, the update_mask
-                 * parameter would be config.secondary_worker_config.num_instances, and the PATCH request body would be set as follows: { "config":{
-                 * "secondaryWorkerConfig":{ "numInstances":"5" } } } ∗Note:∗ Currently, only the following fields can be updated: ∗Mask∗ ∗Purpose∗ ∗labels∗ Update labels
-                 * ∗config.worker_config.num_instances∗ Resize primary worker group ∗config.secondary_worker_config.num_instances∗ Resize secondary worker group
+                 * Required. Specifies the path, relative to Cluster, of the field to update. For example, to change the number of workers in a cluster to 5, the update_mask parameter would be
+                 * specified as config.worker_config.num_instances, and the PATCH request body would specify the new value, as follows: { "config":{ "workerConfig":{ "numInstances":"5" } } }
+                 * Similarly, to change the number of preemptible workers in a cluster to 5, the update_mask parameter would be config.secondary_worker_config.num_instances, and the PATCH request
+                 * body would be set as follows: { "config":{ "secondaryWorkerConfig":{ "numInstances":"5" } } } *Note:* Currently, only the following fields can be updated: *Mask* *Purpose*
+                 * *labels* Update labels *config.worker_config.num_instances* Resize primary worker group *config.secondary_worker_config.num_instances* Resize secondary worker group
                  * config.autoscaling_config.policy_uri Use, stop using, or change autoscaling policies
                  */
                 updateMask?: string;
@@ -2694,10 +2574,10 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. Timeout for graceful YARN decomissioning. Graceful decommissioning allows removing nodes from the cluster without interrupting jobs in
-                 * progress. Timeout specifies how long to wait for jobs in progress to finish before forcefully removing nodes (and potentially interrupting jobs).
-                 * Default timeout is 0 (for forceful decommission), and the maximum allowed timeout is 1 day. (see JSON representation of Duration
-                 * (https://developers.google.com/protocol-buffers/docs/proto3#json)).Only supported on Dataproc image versions 1.2 and higher.
+                 * Optional. Timeout for graceful YARN decomissioning. Graceful decommissioning allows removing nodes from the cluster without interrupting jobs in progress. Timeout specifies how
+                 * long to wait for jobs in progress to finish before forcefully removing nodes (and potentially interrupting jobs). Default timeout is 0 (for forceful decommission), and the
+                 * maximum allowed timeout is 1 day. (see JSON representation of Duration (https://developers.google.com/protocol-buffers/docs/proto3#json)).Only supported on Dataproc image
+                 * versions 1.2 and higher.
                  */
                 gracefulDecommissionTimeout?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2713,19 +2593,18 @@ declare namespace gapi.client {
                 /** Required. The Dataproc region in which to handle the request. */
                 region: string;
                 /**
-                 * Optional. A unique id used to identify the request. If the server receives two UpdateClusterRequest requests with the same id, then the second request
-                 * will be ignored and the first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to
-                 * a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
-                 * hyphens (-). The maximum length is 40 characters.
+                 * Optional. A unique id used to identify the request. If the server receives two UpdateClusterRequest requests with the same id, then the second request will be ignored and the
+                 * first google.longrunning.Operation created and stored in the backend is returned.It is recommended to always set this value to a UUID
+                 * (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is
+                 * 40 characters.
                  */
                 requestId?: string;
                 /**
-                 * Required. Specifies the path, relative to Cluster, of the field to update. For example, to change the number of workers in a cluster to 5, the
-                 * update_mask parameter would be specified as config.worker_config.num_instances, and the PATCH request body would specify the new value, as follows: {
-                 * "config":{ "workerConfig":{ "numInstances":"5" } } } Similarly, to change the number of preemptible workers in a cluster to 5, the update_mask
-                 * parameter would be config.secondary_worker_config.num_instances, and the PATCH request body would be set as follows: { "config":{
-                 * "secondaryWorkerConfig":{ "numInstances":"5" } } } ∗Note:∗ Currently, only the following fields can be updated: ∗Mask∗ ∗Purpose∗ ∗labels∗ Update labels
-                 * ∗config.worker_config.num_instances∗ Resize primary worker group ∗config.secondary_worker_config.num_instances∗ Resize secondary worker group
+                 * Required. Specifies the path, relative to Cluster, of the field to update. For example, to change the number of workers in a cluster to 5, the update_mask parameter would be
+                 * specified as config.worker_config.num_instances, and the PATCH request body would specify the new value, as follows: { "config":{ "workerConfig":{ "numInstances":"5" } } }
+                 * Similarly, to change the number of preemptible workers in a cluster to 5, the update_mask parameter would be config.secondary_worker_config.num_instances, and the PATCH request
+                 * body would be set as follows: { "config":{ "secondaryWorkerConfig":{ "numInstances":"5" } } } *Note:* Currently, only the following fields can be updated: *Mask* *Purpose*
+                 * *labels* Update labels *config.worker_config.num_instances* Resize primary worker group *config.secondary_worker_config.num_instances* Resize secondary worker group
                  * config.autoscaling_config.policy_uri Use, stop using, or change autoscaling policies
                  */
                 updateMask?: string;
@@ -2735,10 +2614,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: Cluster): Request<Operation>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED
-             * errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2767,9 +2643,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking.
-             * This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -2973,10 +2848,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. A filter constraining the jobs to list. Filters are case-sensitive and have the following syntax:field = value AND field = value ...where
-                 * field is status.state or labels.[KEY], and [KEY] is a label key. value can be ∗ to match all values. status.state can be either ACTIVE or NON_ACTIVE.
-                 * Only the logical AND operator is supported; space-separated items are treated as having an implicit AND operator.Example filter:status.state = ACTIVE
-                 * AND labels.env = staging AND labels.starred = ∗
+                 * Optional. A filter constraining the jobs to list. Filters are case-sensitive and have the following syntax:field = value AND field = value ...where field is status.state or
+                 * labels.[KEY], and [KEY] is a label key. value can be * to match all values. status.state can be either ACTIVE or NON_ACTIVE. Only the logical AND operator is supported;
+                 * space-separated items are treated as having an implicit AND operator.Example filter:status.state = ACTIVE AND labels.env = staging AND labels.starred = *
                  */
                 filter?: string;
                 /** Optional. Specifies enumerated categories of jobs to list. (default = match ALL jobs).If filter is provided, jobStateMatcher will be ignored. */
@@ -3029,8 +2903,8 @@ declare namespace gapi.client {
                 /** Required. The Dataproc region in which to handle the request. */
                 region: string;
                 /**
-                 * Required. Specifies the path, relative to Job, of the field to update. For example, to update the labels of a Job the update_mask parameter would be
-                 * specified as labels, and the PATCH request body would specify the new value. ∗Note:∗ Currently, labels is the only field that can be updated.
+                 * Required. Specifies the path, relative to Job, of the field to update. For example, to update the labels of a Job the update_mask parameter would be specified as labels, and the
+                 * PATCH request body would specify the new value. *Note:* Currently, labels is the only field that can be updated.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3066,8 +2940,8 @@ declare namespace gapi.client {
                 /** Required. The Dataproc region in which to handle the request. */
                 region: string;
                 /**
-                 * Required. Specifies the path, relative to Job, of the field to update. For example, to update the labels of a Job the update_mask parameter would be
-                 * specified as labels, and the PATCH request body would specify the new value. ∗Note:∗ Currently, labels is the only field that can be updated.
+                 * Required. Specifies the path, relative to Job, of the field to update. For example, to update the labels of a Job the update_mask parameter would be specified as labels, and the
+                 * PATCH request body would specify the new value. *Note:* Currently, labels is the only field that can be updated.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3076,10 +2950,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: Job): Request<Job>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED
-             * errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3228,9 +3099,8 @@ declare namespace gapi.client {
             },
             body: SubmitJobRequest): Request<Operation>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking.
-             * This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -3262,10 +3132,10 @@ declare namespace gapi.client {
         }
         interface OperationsResource {
             /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If
-             * the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check
-             * whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted;
-             * instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
+             * this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
+             * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
+             * google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
              */
             cancel(request?: {
                 /** V1 error format. */
@@ -3294,8 +3164,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the
-             * operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
+             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
+             * support this method, it returns google.rpc.Code.UNIMPLEMENTED.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -3323,10 +3193,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<{}>;
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3382,11 +3249,10 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
-             * binding allows API services to override the binding to use different resource name schemes, such as users/∗/operations. To override the binding, API
-             * services can add a binding such as "/v1/{name=users/∗}/operations" to their service configuration. For backwards compatibility, the default name
-             * includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection
-             * id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name binding allows API services to
+             * override the binding to use different resource name schemes, such as users/∗/operations. To override the binding, API services can add a binding such as
+             * "/v1/{name=users/*}/operations" to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -3420,10 +3286,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListOperationsResponse>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED
-             * errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3452,9 +3315,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking.
-             * This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -3502,9 +3364,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates,create, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
-                 * projects.locations.workflowTemplates.create, the resource name of the location has the following format: projects/{project_id}/locations/{location}
+                 * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates,create, the
+                 * resource name of the region has the following format: projects/{project_id}/regions/{region} For projects.locations.workflowTemplates.create, the resource name of the location
+                 * has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3534,9 +3396,9 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates,create, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
-                 * projects.locations.workflowTemplates.create, the resource name of the location has the following format: projects/{project_id}/locations/{location}
+                 * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates,create, the
+                 * resource name of the region has the following format: projects/{project_id}/regions/{region} For projects.locations.workflowTemplates.create, the resource name of the location
+                 * has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3564,10 +3426,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates.delete, the resource name of the template has the following format:
-                 * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates.instantiate, the resource name of the
-                 * template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates.delete, the
+                 * resource name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+                 * projects.locations.workflowTemplates.instantiate, the resource name of the template has the following format:
+                 * projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3580,10 +3442,7 @@ declare namespace gapi.client {
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
-                /**
-                 * Optional. The version of workflow template to delete. If specified, will only delete the template if the current server version matches specified
-                 * version.
-                 */
+                /** Optional. The version of workflow template to delete. If specified, will only delete the template if the current server version matches specified version. */
                 version?: number;
             }): Request<{}>;
             /** Retrieves the latest workflow template.Can retrieve previously instantiated template by specifying optional version parameter. */
@@ -3601,10 +3460,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates.get, the resource name of the template has the following format:
-                 * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates.get, the resource name of the template
-                 * has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates.get, the
+                 * resource name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates.get, the
+                 * resource name of the template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3617,10 +3475,7 @@ declare namespace gapi.client {
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
-                /**
-                 * Optional. The version of workflow template to retrieve. Only previously instantiated versions can be retrieved.If unspecified, retrieves the current
-                 * version.
-                 */
+                /** Optional. The version of workflow template to retrieve. Only previously instantiated versions can be retrieved.If unspecified, retrieves the current version. */
                 version?: number;
             }): Request<WorkflowTemplate>;
             /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
@@ -3652,12 +3507,10 @@ declare namespace gapi.client {
             },
             body: GetIamPolicyRequest): Request<Policy>;
             /**
-             * Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation
-             * will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be
-             * cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata
-             * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata
-             * (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be
-             * Empty.
+             * Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire
+             * workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The
+             * Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata
+             * (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty.
              */
             instantiate(request: {
                 /** V1 error format. */
@@ -3673,10 +3526,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates.instantiate, the resource name of the template has the following format:
-                 * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates.instantiate, the resource name of the
-                 * template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates.instantiate,
+                 * the resource name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+                 * projects.locations.workflowTemplates.instantiate, the resource name of the template has the following format:
+                 * projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3706,10 +3559,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates.instantiate, the resource name of the template has the following format:
-                 * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates.instantiate, the resource name of the
-                 * template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+                 * Required. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates.instantiate,
+                 * the resource name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+                 * projects.locations.workflowTemplates.instantiate, the resource name of the template has the following format:
+                 * projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3725,13 +3578,11 @@ declare namespace gapi.client {
             },
             body: InstantiateWorkflowTemplateRequest): Request<Operation>;
             /**
-             * Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate,
-             * DeleteWorkflowTemplate.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when
-             * entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and
-             * workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata
+             * Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The
+             * returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be
+             * aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata
              * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata
-             * (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be
-             * Empty.
+             * (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty.
              */
             instantiateInline(request: {
                 /** V1 error format. */
@@ -3750,9 +3601,8 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates,instantiateinline, the resource name of the region has the following format: projects/{project_id}/regions/{region}
-                 * For projects.locations.workflowTemplates.instantiateinline, the resource name of the location has the following format:
-                 * projects/{project_id}/locations/{location}
+                 * projects.regions.workflowTemplates,instantiateinline, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
+                 * projects.locations.workflowTemplates.instantiateinline, the resource name of the location has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3760,9 +3610,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. A tag that prevents multiple concurrent workflow instances with the same tag from running. This mitigates risk of concurrent instances
-                 * started due to retries.It is recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The tag must
-                 * contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
+                 * Optional. A tag that prevents multiple concurrent workflow instances with the same tag from running. This mitigates risk of concurrent instances started due to retries.It is
+                 * recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The tag must contain only letters (a-z, A-Z), numbers (0-9),
+                 * underscores (_), and hyphens (-). The maximum length is 40 characters.
                  */
                 requestId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3789,9 +3639,8 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates,instantiateinline, the resource name of the region has the following format: projects/{project_id}/regions/{region}
-                 * For projects.locations.workflowTemplates.instantiateinline, the resource name of the location has the following format:
-                 * projects/{project_id}/locations/{location}
+                 * projects.regions.workflowTemplates,instantiateinline, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
+                 * projects.locations.workflowTemplates.instantiateinline, the resource name of the location has the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3799,9 +3648,9 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. A tag that prevents multiple concurrent workflow instances with the same tag from running. This mitigates risk of concurrent instances
-                 * started due to retries.It is recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The tag must
-                 * contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
+                 * Optional. A tag that prevents multiple concurrent workflow instances with the same tag from running. This mitigates risk of concurrent instances started due to retries.It is
+                 * recommended to always set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The tag must contain only letters (a-z, A-Z), numbers (0-9),
+                 * underscores (_), and hyphens (-). The maximum length is 40 characters.
                  */
                 requestId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3831,9 +3680,9 @@ declare namespace gapi.client {
                 /** Optional. The page token, returned by a previous call, to request the next page of results. */
                 pageToken?: string;
                 /**
-                 * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates,list, the resource name of the region has the following format: projects/{project_id}/regions/{region} For
-                 * projects.locations.workflowTemplates.list, the resource name of the location has the following format: projects/{project_id}/locations/{location}
+                 * Required. The resource name of the region or location, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates,list, the
+                 * resource name of the region has the following format: projects/{project_id}/regions/{region} For projects.locations.workflowTemplates.list, the resource name of the location has
+                 * the following format: projects/{project_id}/locations/{location}
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3845,10 +3694,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<ListWorkflowTemplatesResponse>;
-            /**
-             * Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED
-             * errors.
-             */
+            /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
             setIamPolicy(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -3877,9 +3723,8 @@ declare namespace gapi.client {
             },
             body: SetIamPolicyRequest): Request<Policy>;
             /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
-             * NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking.
-             * This operation may "fail open" without warning.
+             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This
+             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
              */
             testIamPermissions(request: {
                 /** V1 error format. */
@@ -3923,10 +3768,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates, the resource name of the template has the following format:
-                 * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates, the resource name of the template has
-                 * the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+                 * Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates, the
+                 * resource name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates, the
+                 * resource name of the template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3956,10 +3800,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For
-                 * projects.regions.workflowTemplates, the resource name of the template has the following format:
-                 * projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates, the resource name of the template has
-                 * the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
+                 * Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. For projects.regions.workflowTemplates, the
+                 * resource name of the template has the following format: projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For projects.locations.workflowTemplates, the
+                 * resource name of the template has the following format: projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */

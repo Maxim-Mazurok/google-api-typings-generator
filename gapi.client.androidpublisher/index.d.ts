@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Google Play Android Developer API v3 3.0
 // Project: https://developers.google.com/android-publisher
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -134,8 +137,8 @@ declare namespace gapi.client {
         }
         interface ExpansionFile {
             /**
-             * If set, this field indicates that this APK has an expansion file uploaded to it: this APK does not reference another APK's expansion file. The field's
-             * value is the size of the uploaded expansion file in bytes.
+             * If set, this field indicates that this APK has an expansion file uploaded to it: this APK does not reference another APK's expansion file. The field's value is the size of the
+             * uploaded expansion file in bytes.
              */
             fileSize?: string;
             /** If set, this APK's expansion file references another APK's expansion file. The file_size field will not be set. */
@@ -210,8 +213,8 @@ declare namespace gapi.client {
             /** Default price. Cannot be zero, as in-app products are never free. Always in the developer's Checkout merchant currency. */
             defaultPrice?: Price;
             /**
-             * Grace period of the subscription, specified in ISO 8601 format. Allows developers to give their subscribers a grace period when the payment for the new
-             * recurrence period is declined. Acceptable values are P0D (zero days), P3D (three days), P7D (seven days), P14D (14 days), and P30D (30 days).
+             * Grace period of the subscription, specified in ISO 8601 format. Allows developers to give their subscribers a grace period when the payment for the new recurrence period is
+             * declined. Acceptable values are P0D (zero days), P3D (three days), P7D (seven days), P14D (14 days), and P30D (30 days).
              */
             gracePeriod?: string;
             /** List of localized title and description data. Map key is the language of the localized data, as defined by BCP-47, e.g. "en-US". */
@@ -226,10 +229,7 @@ declare namespace gapi.client {
             sku?: string;
             /** The status of the product, e.g. whether it's active. */
             status?: string;
-            /**
-             * Subscription period, specified in ISO 8601 format. Acceptable values are P1W (one week), P1M (one month), P3M (three months), P6M (six months), and P1Y
-             * (one year).
-             */
+            /** Subscription period, specified in ISO 8601 format. Acceptable values are P1W (one week), P1M (one month), P3M (three months), P6M (six months), and P1Y (one year). */
             subscriptionPeriod?: string;
             /** Trial period, specified in ISO 8601 format. Acceptable values are anything between P7D (seven days) and P999D (999 days). */
             trialPeriod?: string;
@@ -266,20 +266,17 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface IntroductoryPriceInfo {
             /**
-             * Introductory price of the subscription, not including tax. The currency is the same as price_currency_code. Price is expressed in micro-units, where
-             * 1,000,000 micro-units represents one unit of the currency. For example, if the subscription price is €1.99, price_amount_micros is 1990000.
+             * Introductory price of the subscription, not including tax. The currency is the same as price_currency_code. Price is expressed in micro-units, where 1,000,000 micro-units represents
+             * one unit of the currency. For example, if the subscription price is €1.99, price_amount_micros is 1990000.
              */
             introductoryPriceAmountMicros?: string;
-            /**
-             * ISO 4217 currency code for the introductory subscription price. For example, if the price is specified in British pounds sterling, price_currency_code
-             * is "GBP".
-             */
+            /** ISO 4217 currency code for the introductory subscription price. For example, if the price is specified in British pounds sterling, price_currency_code is "GBP". */
             introductoryPriceCurrencyCode?: string;
             /** The number of billing period to offer introductory pricing. */
             introductoryPriceCycles?: number;
             /**
-             * Introductory price period, specified in ISO 8601 format. Common values are (but not limited to) "P1W" (one week), "P1M" (one month), "P3M" (three
-             * months), "P6M" (six months), and "P1Y" (one year).
+             * Introductory price period, specified in ISO 8601 format. Common values are (but not limited to) "P1W" (one week), "P1M" (one month), "P3M" (three months), "P6M" (six months), and
+             * "P1Y" (one year).
              */
             introductoryPricePeriod?: string;
         }
@@ -351,9 +348,8 @@ declare namespace gapi.client {
             /** The purchase token generated to identify this purchase. */
             purchaseToken?: string;
             /**
-             * The type of purchase of the inapp product. This field is only set if this purchase was not made using the standard in-app billing flow. Possible values
-             * are: 0. Test (i.e. purchased from a license testing account) 1. Promo (i.e. purchased using a promo code) 2. Rewarded (i.e. from watching a video ad
-             * instead of paying)
+             * The type of purchase of the inapp product. This field is only set if this purchase was not made using the standard in-app billing flow. Possible values are: 0. Test (i.e. purchased
+             * from a license testing account) 1. Promo (i.e. purchased using a promo code) 2. Rewarded (i.e. from watching a video ad instead of paying)
              */
             purchaseType?: number;
             /** The quantity associated with the purchase of the inapp product. */
@@ -395,33 +391,26 @@ declare namespace gapi.client {
         }
         interface SubscriptionCancelSurveyResult {
             /**
-             * The cancellation reason the user chose in the survey. Possible values are: 0. Other 1. I don't use this service enough 2. Technical issues 3.
-             * Cost-related reasons 4. I found a better app
+             * The cancellation reason the user chose in the survey. Possible values are: 0. Other 1. I don't use this service enough 2. Technical issues 3. Cost-related reasons 4. I found a
+             * better app
              */
             cancelSurveyReason?: number;
             /** The customized input cancel reason from the user. Only present when cancelReason is 0. */
             userInputCancelReason?: string;
         }
         interface SubscriptionDeferralInfo {
-            /**
-             * The desired next expiry time to assign to the subscription, in milliseconds since the Epoch. The given time must be later/greater than the current
-             * expiry time for the subscription.
-             */
+            /** The desired next expiry time to assign to the subscription, in milliseconds since the Epoch. The given time must be later/greater than the current expiry time for the subscription. */
             desiredExpiryTimeMillis?: string;
-            /**
-             * The expected expiry time for the subscription. If the current expiry time for the subscription is not the value specified here, the deferral will not
-             * occur.
-             */
+            /** The expected expiry time for the subscription. If the current expiry time for the subscription is not the value specified here, the deferral will not occur. */
             expectedExpiryTimeMillis?: string;
         }
         interface SubscriptionPriceChange {
             /** The new price the subscription will renew with if the price change is accepted by the user. */
             newPrice?: Price;
             /**
-             * The current state of the price change. Possible values are: 0. Outstanding: State for a pending price change waiting for the user to agree. In this
-             * state, you can optionally seek confirmation from the user using the In-App API. 1. Accepted: State for an accepted price change that the subscription
-             * will renew with unless it's canceled. The price change takes effect on a future date when the subscription renews. Note that the change might not occur
-             * when the subscription is renewed next.
+             * The current state of the price change. Possible values are: 0. Outstanding: State for a pending price change waiting for the user to agree. In this state, you can optionally seek
+             * confirmation from the user using the In-App API. 1. Accepted: State for an accepted price change that the subscription will renew with unless it's canceled. The price change takes
+             * effect on a future date when the subscription renews. Note that the change might not occur when the subscription is renewed next.
              */
             state?: number;
         }
@@ -430,15 +419,11 @@ declare namespace gapi.client {
             acknowledgementState?: number;
             /** Whether the subscription will automatically be renewed when it reaches its current expiry time. */
             autoRenewing?: boolean;
-            /**
-             * Time at which the subscription will be automatically resumed, in milliseconds since the Epoch. Only present if the user has requested to pause the
-             * subscription.
-             */
+            /** Time at which the subscription will be automatically resumed, in milliseconds since the Epoch. Only present if the user has requested to pause the subscription. */
             autoResumeTimeMillis?: string;
             /**
-             * The reason why a subscription was canceled or is not auto-renewing. Possible values are: 0. User canceled the subscription 1. Subscription was canceled
-             * by the system, for example because of a billing problem 2. Subscription was replaced with a new subscription 3. Subscription was canceled by the
-             * developer
+             * The reason why a subscription was canceled or is not auto-renewing. Possible values are: 0. User canceled the subscription 1. Subscription was canceled by the system, for example
+             * because of a billing problem 2. Subscription was replaced with a new subscription 3. Subscription was canceled by the developer
              */
             cancelReason?: number;
             /** Information provided by the user when they complete the subscription cancellation flow (cancellation reason survey). */
@@ -458,24 +443,23 @@ declare namespace gapi.client {
             /** The given name of the user when the subscription was purchased. Only present for purchases made with 'Subscribe with Google'. */
             givenName?: string;
             /**
-             * Introductory price information of the subscription. This is only present when the subscription was purchased with an introductory price. This field
-             * does not indicate the subscription is currently in introductory price period.
+             * Introductory price information of the subscription. This is only present when the subscription was purchased with an introductory price. This field does not indicate the
+             * subscription is currently in introductory price period.
              */
             introductoryPriceInfo?: IntroductoryPriceInfo;
             /** This kind represents a subscriptionPurchase object in the androidpublisher service. */
             kind?: string;
             /**
-             * The purchase token of the originating purchase if this subscription is one of the following: 0. Re-signup of a canceled but non-lapsed subscription 1.
-             * Upgrade/downgrade from a previous subscription For example, suppose a user originally signs up and you receive purchase token X, then the user cancels
-             * and goes through the resignup flow (before their subscription lapses) and you receive purchase token Y, and finally the user upgrades their
-             * subscription and you receive purchase token Z. If you call this API with purchase token Z, this field will be set to Y. If you call this API with
-             * purchase token Y, this field will be set to X. If you call this API with purchase token X, this field will not be set.
+             * The purchase token of the originating purchase if this subscription is one of the following: 0. Re-signup of a canceled but non-lapsed subscription 1. Upgrade/downgrade from a
+             * previous subscription For example, suppose a user originally signs up and you receive purchase token X, then the user cancels and goes through the resignup flow (before their
+             * subscription lapses) and you receive purchase token Y, and finally the user upgrades their subscription and you receive purchase token Z. If you call this API with purchase token Z,
+             * this field will be set to Y. If you call this API with purchase token Y, this field will be set to X. If you call this API with purchase token X, this field will not be set.
              */
             linkedPurchaseToken?: string;
             /**
-             * An obfuscated version of the id that is uniquely associated with the user's account in your app. Present for the following purchases: ∗ If account
-             * linking happened as part of the subscription purchase flow. ∗ It was specified using
-             * https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedaccountid when the purchase was made.
+             * An obfuscated version of the id that is uniquely associated with the user's account in your app. Present for the following purchases: * If account linking happened as part of the
+             * subscription purchase flow. * It was specified using https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedaccountid when the
+             * purchase was made.
              */
             obfuscatedExternalAccountId?: string;
             /**
@@ -488,13 +472,13 @@ declare namespace gapi.client {
             /** The payment state of the subscription. Possible values are: 0. Payment pending 1. Payment received 2. Free trial 3. Pending deferred upgrade/downgrade */
             paymentState?: number;
             /**
-             * Price of the subscription, not including tax. Price is expressed in micro-units, where 1,000,000 micro-units represents one unit of the currency. For
-             * example, if the subscription price is €1.99, price_amount_micros is 1990000.
+             * Price of the subscription, not including tax. Price is expressed in micro-units, where 1,000,000 micro-units represents one unit of the currency. For example, if the subscription
+             * price is €1.99, price_amount_micros is 1990000.
              */
             priceAmountMicros?: string;
             /**
-             * The latest price change information available. This is present only when there is an upcoming price change for the subscription yet to be applied. Once
-             * the subscription renews with the new price or the subscription is canceled, no price change information will be returned.
+             * The latest price change information available. This is present only when there is an upcoming price change for the subscription yet to be applied. Once the subscription renews with
+             * the new price or the subscription is canceled, no price change information will be returned.
              */
             priceChange?: SubscriptionPriceChange;
             /** ISO 4217 currency code for the subscription price. For example, if the price is specified in British pounds sterling, price_currency_code is "GBP". */
@@ -506,13 +490,13 @@ declare namespace gapi.client {
             /** The promotion code applied on this purchase. This field is only set if a vanity code promotion is applied when the subscription was purchased. */
             promotionCode?: string;
             /**
-             * The type of promotion applied on this purchase. This field is only set if a promotion is applied when the subscription was purchased. Possible values
-             * are: 0. One time code 1. Vanity code
+             * The type of promotion applied on this purchase. This field is only set if a promotion is applied when the subscription was purchased. Possible values are: 0. One time code 1. Vanity
+             * code
              */
             promotionType?: number;
             /**
-             * The type of purchase of the subscription. This field is only set if this purchase was not made using the standard in-app billing flow. Possible values
-             * are: 0. Test (i.e. purchased from a license testing account) 1. Promo (i.e. purchased using a promo code)
+             * The type of purchase of the subscription. This field is only set if this purchase was not made using the standard in-app billing flow. Possible values are: 0. Test (i.e. purchased
+             * from a license testing account) 1. Promo (i.e. purchased using a promo code)
              */
             purchaseType?: number;
             /** Time at which the subscription was granted, in milliseconds since the Epoch. */
@@ -561,14 +545,13 @@ declare namespace gapi.client {
             /** Restricts a release to a specific set of countries. */
             countryTargeting?: CountryTargeting;
             /**
-             * In-app update priority of the release. All newly added APKs in the release will be considered at this priority. Can take values in the range [0, 5],
-             * with 5 the highest priority. Defaults to 0. in_app_update_priority can not be updated once the release is rolled out. See
-             * https://developer.android.com/guide/playcore/in-app-updates.
+             * In-app update priority of the release. All newly added APKs in the release will be considered at this priority. Can take values in the range [0, 5], with 5 the highest priority.
+             * Defaults to 0. in_app_update_priority can not be updated once the release is rolled out. See https://developer.android.com/guide/playcore/in-app-updates.
              */
             inAppUpdatePriority?: number;
             /**
-             * The release name. Not required to be unique. If not set, the name is generated from the APK's version_name. If the release contains multiple APKs, the
-             * name is generated from the date.
+             * The release name. Not required to be unique. If not set, the name is generated from the APK's version_name. If the release contains multiple APKs, the name is generated from the
+             * date.
              */
             name?: string;
             /** A description of what is new in this release. */
@@ -601,16 +584,13 @@ declare namespace gapi.client {
             lastModified?: Timestamp;
             /** Untranslated text of the review, where the review was translated. If the review was not translated this is left blank. */
             originalText?: string;
-            /**
-             * Language code for the reviewer. This is taken from the device settings so is not guaranteed to match the language the review is written in. May be
-             * absent.
-             */
+            /** Language code for the reviewer. This is taken from the device settings so is not guaranteed to match the language the review is written in. May be absent. */
             reviewerLanguage?: string;
             /** The star rating associated with the review, from 1 to 5. */
             starRating?: number;
             /**
-             * The content of the comment, i.e. review body. In some cases users have been able to write a review with separate title and body; in those cases the
-             * title and body are concatenated and separated by a tab character.
+             * The content of the comment, i.e. review body. In some cases users have been able to write a review with separate title and body; in those cases the title and body are concatenated
+             * and separated by a tab character.
              */
             text?: string;
             /** Number of users who have given this review a thumbs down. */
@@ -637,15 +617,9 @@ declare namespace gapi.client {
             orderId?: string;
             /** The time at which the purchase was made, in milliseconds since the epoch (Jan 1, 1970). */
             purchaseTimeMillis?: string;
-            /**
-             * The token which uniquely identifies a one-time purchase or subscription. To uniquely identify subscription renewals use order_id (available starting
-             * from version 3 of the API).
-             */
+            /** The token which uniquely identifies a one-time purchase or subscription. To uniquely identify subscription renewals use order_id (available starting from version 3 of the API). */
             purchaseToken?: string;
-            /**
-             * The reason why the purchase was voided, possible values are: 0. Other 1. Remorse 2. Not_received 3. Defective 4. Accidental_purchase 5. Fraud 6.
-             * Friendly_fraud 7. Chargeback
-             */
+            /** The reason why the purchase was voided, possible values are: 0. Other 1. Remorse 2. Not_received 3. Defective 4. Accidental_purchase 5. Fraud 6. Friendly_fraud 7. Chargeback */
             voidedReason?: number;
             /** The initiator of voided purchase, possible values are: 0. User 1. Developer 2. Google */
             voidedSource?: number;
@@ -661,8 +635,8 @@ declare namespace gapi.client {
         }
         interface ApksResource {
             /**
-             * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to
-             * organizations using Managed Play whose application is configured to restrict distribution to the organizations.
+             * Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to organizations using Managed Play
+             * whose application is configured to restrict distribution to the organizations.
              */
             addexternallyhosted(request: {
                 /** V1 error format. */
@@ -813,19 +787,15 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<BundlesListResponse>;
             /**
-             * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before
-             * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
-             * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
+             * Uploads a new Android App Bundle to this edit. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a
+             * timeout of 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
              */
             upload(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
                 /** OAuth access token. */
                 access_token?: string;
-                /**
-                 * Must be set to true if the bundle installation may trigger a warning on user devices (for example, if installation size may be over a threshold,
-                 * typically 100 MB).
-                 */
+                /** Must be set to true if the bundle installation may trigger a warning on user devices (for example, if installation size may be over a threshold, typically 100 MB). */
                 ackBundleInstallationWarning?: boolean;
                 /** Data format for response. */
                 alt?: string;
@@ -1296,10 +1266,7 @@ declare namespace gapi.client {
                 imageType: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Language localization code (a BCP-47 language tag; for example, "de-AT" for Austrian German). Providing a language that is not supported by the App is
-                 * a no-op.
-                 */
+                /** Language localization code (a BCP-47 language tag; for example, "de-AT" for Austrian German). Providing a language that is not supported by the App is a no-op. */
                 language: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1365,10 +1332,7 @@ declare namespace gapi.client {
                 imageType: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Language localization code (a BCP-47 language tag; for example, "de-AT" for Austrian German). Providing a language that is not supported by the App is
-                 * a no-op.
-                 */
+                /** Language localization code (a BCP-47 language tag; for example, "de-AT" for Austrian German). Providing a language that is not supported by the App is a no-op. */
                 language: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2237,8 +2201,8 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the
-                 * target currency based on the default price. Defaults to false.
+                 * If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on
+                 * the default price. Defaults to false.
                  */
                 autoConvertMissingPrices?: boolean;
                 /** JSONP */
@@ -2270,8 +2234,8 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the
-                 * target currency based on the default price. Defaults to false.
+                 * If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on
+                 * the default price. Defaults to false.
                  */
                 autoConvertMissingPrices?: boolean;
                 /** JSONP */
@@ -2336,8 +2300,8 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the
-                 * target currency based on the default price. Defaults to false.
+                 * If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on
+                 * the default price. Defaults to false.
                  */
                 autoConvertMissingPrices?: boolean;
                 /** JSONP */
@@ -2371,8 +2335,8 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the
-                 * target currency based on the default price. Defaults to false.
+                 * If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on
+                 * the default price. Defaults to false.
                  */
                 autoConvertMissingPrices?: boolean;
                 /** JSONP */
@@ -2406,8 +2370,8 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the
-                 * target currency based on the default price. Defaults to false.
+                 * If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on
+                 * the default price. Defaults to false.
                  */
                 autoConvertMissingPrices?: boolean;
                 /** JSONP */
@@ -2441,8 +2405,8 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the
-                 * target currency based on the default price. Defaults to false.
+                 * If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on
+                 * the default price. Defaults to false.
                  */
                 autoConvertMissingPrices?: boolean;
                 /** JSONP */
@@ -2471,9 +2435,8 @@ declare namespace gapi.client {
         // tslint:disable-next-line:interface-name
         interface InternalappsharingartifactsResource {
             /**
-             * Uploads an APK to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before
-             * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
-             * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
+             * Uploads an APK to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout of
+             * 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
              */
             uploadapk(request?: {
                 /** V1 error format. */
@@ -2502,9 +2465,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<InternalAppSharingArtifact>;
             /**
-             * Uploads an app bundle to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before
-             * calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts and
-             * Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
+             * Uploads an app bundle to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a
+             * timeout of 2 minutes is recommended). See [Timeouts and Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors) for an example in java.
              */
             uploadbundle(request?: {
                 /** V1 error format. */
@@ -2559,8 +2521,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Whether to revoke the purchased item. If set to true, access to the subscription or in-app item will be terminated immediately. If the item is a
-                 * recurring subscription, all future payments will also be terminated. Consumed in-app items need to be handled by developer's app. (optional).
+                 * Whether to revoke the purchased item. If set to true, access to the subscription or in-app item will be terminated immediately. If the item is a recurring subscription, all
+                 * future payments will also be terminated. Consumed in-app items need to be handled by developer's app. (optional).
                  */
                 revoke?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -2932,9 +2894,9 @@ declare namespace gapi.client {
                 /** JSONP */
                 callback?: string;
                 /**
-                 * The time, in milliseconds since the Epoch, of the newest voided purchase that you want to see in the response. The value of this parameter cannot be
-                 * greater than the current time and is ignored if a pagination token is set. Default value is current time. Note: This filter is applied on the time at
-                 * which the record is seen as voided by our systems and not the actual voided time returned in the response.
+                 * The time, in milliseconds since the Epoch, of the newest voided purchase that you want to see in the response. The value of this parameter cannot be greater than the current
+                 * time and is ignored if a pagination token is set. Default value is current time. Note: This filter is applied on the time at which the record is seen as voided by our systems
+                 * and not the actual voided time returned in the response.
                  */
                 endTime?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -2954,19 +2916,18 @@ declare namespace gapi.client {
                 /** Defines the index of the first element to return. This can only be used if indexed paging is enabled. */
                 startIndex?: number;
                 /**
-                 * The time, in milliseconds since the Epoch, of the oldest voided purchase that you want to see in the response. The value of this parameter cannot be
-                 * older than 30 days and is ignored if a pagination token is set. Default value is current time minus 30 days. Note: This filter is applied on the time
-                 * at which the record is seen as voided by our systems and not the actual voided time returned in the response.
+                 * The time, in milliseconds since the Epoch, of the oldest voided purchase that you want to see in the response. The value of this parameter cannot be older than 30 days and is
+                 * ignored if a pagination token is set. Default value is current time minus 30 days. Note: This filter is applied on the time at which the record is seen as voided by our systems
+                 * and not the actual voided time returned in the response.
                  */
                 startTime?: string;
                 /** Defines the token of the page to return, usually taken from TokenPagination. This can only be used if token paging is enabled. */
                 token?: string;
                 /**
-                 * The type of voided purchases that you want to see in the response. Possible values are: 0. Only voided in-app product purchases will be returned in the
-                 * response. This is the default value. 1. Both voided in-app purchases and voided subscription purchases will be returned in the response. Note: Before
-                 * requesting to receive voided subscription purchases, you must switch to use orderId in the response which uniquely identifies one-time purchases and
-                 * subscriptions. Otherwise, you will receive multiple subscription orders with the same PurchaseToken, because subscription renewal orders share the same
-                 * PurchaseToken.
+                 * The type of voided purchases that you want to see in the response. Possible values are: 0. Only voided in-app product purchases will be returned in the response. This is the
+                 * default value. 1. Both voided in-app purchases and voided subscription purchases will be returned in the response. Note: Before requesting to receive voided subscription
+                 * purchases, you must switch to use orderId in the response which uniquely identifies one-time purchases and subscriptions. Otherwise, you will receive multiple subscription
+                 * orders with the same PurchaseToken, because subscription renewal orders share the same PurchaseToken.
                  */
                 type?: number;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */

@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Network Management API v1 1.0
 // Project: https://cloud.google.com/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -64,29 +67,29 @@ declare namespace gapi.client {
              * Specifies the identities requesting access for a Cloud Platform resource.
              * `members` can have the following values:
              *
-             * ∗ `allUsers`: A special identifier that represents anyone who is
+             * * `allUsers`: A special identifier that represents anyone who is
              * on the internet; with or without a Google account.
              *
-             * ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
+             * * `allAuthenticatedUsers`: A special identifier that represents anyone
              * who is authenticated with a Google account or a service account.
              *
-             * ∗ `user:{emailid}`: An email address that represents a specific Google
+             * * `user:{emailid}`: An email address that represents a specific Google
              * account. For example, `alice@example.com` .
              *
              *
-             * ∗ `serviceAccount:{emailid}`: An email address that represents a service
+             * * `serviceAccount:{emailid}`: An email address that represents a service
              * account. For example, `my-other-app@appspot.gserviceaccount.com`.
              *
-             * ∗ `group:{emailid}`: An email address that represents a Google group.
+             * * `group:{emailid}`: An email address that represents a Google group.
              * For example, `admins@example.com`.
              *
-             * ∗ `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+             * * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
              * identifier) representing a user that has been recently deleted. For
              * example, `alice@example.com?uid=123456789012345678901`. If the user is
              * recovered, this value reverts to `user:{emailid}` and the recovered user
              * retains the role in the binding.
              *
-             * ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
+             * * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
              * unique identifier) representing a service account that has been recently
              * deleted. For example,
              * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`.
@@ -94,14 +97,14 @@ declare namespace gapi.client {
              * `serviceAccount:{emailid}` and the undeleted service account retains the
              * role in the binding.
              *
-             * ∗ `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
+             * * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
              * identifier) representing a Google group that has been recently
              * deleted. For example, `admins@example.com?uid=123456789012345678901`. If
              * the group is recovered, this value reverts to `group:{emailid}` and the
              * recovered group retains the role in the binding.
              *
              *
-             * ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the
+             * * `domain:{domain}`: The G Suite domain (primary) that represents all the
              * users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
@@ -492,7 +495,7 @@ declare namespace gapi.client {
              * systems are expected to put that etag in the request to `setIamPolicy` to
              * ensure that their change will be applied to the same version of the policy.
              *
-             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
+             * **Important:** If you use IAM Conditions, you must include the `etag` field
              * whenever you call `setIamPolicy`. If you omit this field, then IAM allows
              * you to overwrite a version `3` policy with a version `1` policy, and all of
              * the conditions in the version `3` policy are lost.
@@ -507,13 +510,13 @@ declare namespace gapi.client {
              * Any operation that affects conditional role bindings must specify version
              * `3`. This requirement applies to the following operations:
              *
-             * ∗ Getting a policy that includes a conditional role binding
-             * ∗ Adding a conditional role binding to a policy
-             * ∗ Changing a conditional role binding in a policy
-             * ∗ Removing any role binding, with or without a condition, from a policy
+             * * Getting a policy that includes a conditional role binding
+             * * Adding a conditional role binding to a policy
+             * * Changing a conditional role binding in a policy
+             * * Removing any role binding, with or without a condition, from a policy
              * that includes conditions
              *
-             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
+             * **Important:** If you use IAM Conditions, you must include the `etag` field
              * whenever you call `setIamPolicy`. If you omit this field, then IAM allows
              * you to overwrite a version `3` policy with a version `1` policy, and all of
              * the conditions in the version `3` policy are lost.
@@ -644,7 +647,7 @@ declare namespace gapi.client {
         interface TestIamPermissionsRequest {
             /**
              * The set of permissions to check for the `resource`. Permissions with
-             * wildcards (such as '∗' or 'storage.∗') are not allowed. For more
+             * wildcards (such as '*' or 'storage.*') are not allowed. For more
              * information see
              * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
@@ -757,11 +760,11 @@ declare namespace gapi.client {
                  * Required. The logical name of the Connectivity Test in your project
                  * with the following restrictions:
                  *
-                 * ∗ Must contain only lowercase letters, numbers, and hyphens.
-                 * ∗ Must start with a letter.
-                 * ∗ Must be between 1-40 characters.
-                 * ∗ Must end with a number or a letter.
-                 * ∗ Must be unique within the customer project
+                 * * Must contain only lowercase letters, numbers, and hyphens.
+                 * * Must start with a letter.
+                 * * Must be between 1-40 characters.
+                 * * Must end with a number or a letter.
+                 * * Must be unique within the customer project
                  */
                 testId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -799,11 +802,11 @@ declare namespace gapi.client {
                  * Required. The logical name of the Connectivity Test in your project
                  * with the following restrictions:
                  *
-                 * ∗ Must contain only lowercase letters, numbers, and hyphens.
-                 * ∗ Must start with a letter.
-                 * ∗ Must be between 1-40 characters.
-                 * ∗ Must end with a number or a letter.
-                 * ∗ Must be unique within the customer project
+                 * * Must contain only lowercase letters, numbers, and hyphens.
+                 * * Must start with a letter.
+                 * * Must be between 1-40 characters.
+                 * * Must end with a number or a letter.
+                 * * Must be unique within the customer project
                  */
                 testId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -949,7 +952,7 @@ declare namespace gapi.client {
                  *
                  * - Filter by labels:
                  * - Resources that have a key called `foo`
-                 * labels.foo:∗
+                 * labels.foo:*
                  * - Resources that have a key called `foo` whose value is `bar`
                  * labels.foo = bar
                  */
@@ -1354,7 +1357,7 @@ declare namespace gapi.client {
              * NOTE: the `name` binding allows API services to override the binding
              * to use different resource name schemes, such as `users/∗/operations`. To
              * override the binding, API services can add a binding such as
-             * `"/v1/{name=users/∗}/operations"` to their service configuration.
+             * `"/v1/{name=users/*}/operations"` to their service configuration.
              * For backwards compatibility, the default name includes the operations
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.

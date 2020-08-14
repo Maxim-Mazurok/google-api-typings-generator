@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Recommendations AI v1beta1 1.0
 // Project: https://cloud.google.com/recommendations-ai/docs
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -54,10 +57,7 @@ declare namespace gapi.client {
             dataSchema?: string;
             /** Required. The BigQuery data set to copy the data from. */
             datasetId?: string;
-            /**
-             * Optional. Intermediate Cloud Storage directory used for the import. Can be specified if one wants to have the BigQuery export to a specific Cloud
-             * Storage directory.
-             */
+            /** Optional. Intermediate Cloud Storage directory used for the import. Can be specified if one wants to have the BigQuery export to a specific Cloud Storage directory. */
             gcsStagingDir?: string;
             /** Optional. The project id (can be project # or id) that the BigQuery source is in. If not specified, inherits the project id from the parent request. */
             projectId?: string;
@@ -80,40 +80,38 @@ declare namespace gapi.client {
         }
         interface GoogleCloudRecommendationengineV1beta1CatalogItem {
             /**
-             * Required. Catalog item categories. This field is repeated for supporting one catalog item belonging to several parallel category hierarchies. For
-             * example, if a shoes product belongs to both ["Shoes & Accessories" -> "Shoes"] and ["Sports & Fitness" -> "Athletic Clothing" -> "Shoes"], it could be
-             * represented as: "categoryHierarchies": [ { "categories": ["Shoes & Accessories", "Shoes"]}, { "categories": ["Sports & Fitness", "Athletic Clothing",
-             * "Shoes"] } ]
+             * Required. Catalog item categories. This field is repeated for supporting one catalog item belonging to several parallel category hierarchies. For example, if a shoes product belongs
+             * to both ["Shoes & Accessories" -> "Shoes"] and ["Sports & Fitness" -> "Athletic Clothing" -> "Shoes"], it could be represented as: "categoryHierarchies": [ { "categories": ["Shoes &
+             * Accessories", "Shoes"]}, { "categories": ["Sports & Fitness", "Athletic Clothing", "Shoes"] } ]
              */
             categoryHierarchies?: GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy[];
             /** Optional. Catalog item description. UTF-8 encoded string with a length limit of 5 KiB. */
             description?: string;
             /**
-             * Required. Catalog item identifier. UTF-8 encoded string with a length limit of 128 bytes. This id must be unique among all catalog items within the
-             * same catalog. It should also be used when logging user events in order for the user events to be joined with the Catalog.
+             * Required. Catalog item identifier. UTF-8 encoded string with a length limit of 128 bytes. This id must be unique among all catalog items within the same catalog. It should also be
+             * used when logging user events in order for the user events to be joined with the Catalog.
              */
             id?: string;
             /**
-             * Optional. Highly encouraged. Extra catalog item attributes to be included in the recommendation model. For example, for retail products, this could
-             * include the store name, vendor, style, color, etc. These are very strong signals for recommendation model, thus we highly recommend providing the item
-             * attributes here.
+             * Optional. Highly encouraged. Extra catalog item attributes to be included in the recommendation model. For example, for retail products, this could include the store name, vendor,
+             * style, color, etc. These are very strong signals for recommendation model, thus we highly recommend providing the item attributes here.
              */
             itemAttributes?: GoogleCloudRecommendationengineV1beta1FeatureMap;
             /**
-             * Optional. Variant group identifier for prediction results. UTF-8 encoded string with a length limit of 128 bytes. This field must be enabled before it
-             * can be used. [Learn more](/recommendations-ai/docs/catalog#item-group-id).
+             * Optional. Variant group identifier for prediction results. UTF-8 encoded string with a length limit of 128 bytes. This field must be enabled before it can be used. [Learn
+             * more](/recommendations-ai/docs/catalog#item-group-id).
              */
             itemGroupId?: string;
             /**
-             * Optional. Deprecated. The model automatically detects the text language. Your catalog can include text in different languages, but duplicating catalog
-             * items to provide text in multiple languages can result in degraded model performance.
+             * Optional. Deprecated. The model automatically detects the text language. Your catalog can include text in different languages, but duplicating catalog items to provide text in
+             * multiple languages can result in degraded model performance.
              */
             languageCode?: string;
             /** Optional. Metadata specific to retail products. */
             productMetadata?: GoogleCloudRecommendationengineV1beta1ProductCatalogItem;
             /**
-             * Optional. Filtering tags associated with the catalog item. Each tag should be a UTF-8 encoded string with a length limit of 1 KiB. This tag can be used
-             * for filtering recommendation results by passing the tag as part of the predict request filter.
+             * Optional. Filtering tags associated with the catalog item. Each tag should be a UTF-8 encoded string with a length limit of 1 KiB. This tag can be used for filtering recommendation
+             * results by passing the tag as part of the predict request filter.
              */
             tags?: string[];
             /** Required. Catalog item title. UTF-8 encoded string with a length limit of 1 KiB. */
@@ -121,21 +119,15 @@ declare namespace gapi.client {
         }
         interface GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy {
             /**
-             * Required. Catalog item categories. Each category should be a UTF-8 encoded string with a length limit of 2 KiB. Note that the order in the list denotes
-             * the specificity (from least to most specific).
+             * Required. Catalog item categories. Each category should be a UTF-8 encoded string with a length limit of 2 KiB. Note that the order in the list denotes the specificity (from least
+             * to most specific).
              */
             categories?: string[];
         }
         interface GoogleCloudRecommendationengineV1beta1CatalogItemLevelConfig {
-            /**
-             * Optional. Level of the catalog at which events are uploaded. See https://cloud.google.com/recommendations-ai/docs/catalog#catalog-levels for more
-             * details.
-             */
+            /** Optional. Level of the catalog at which events are uploaded. See https://cloud.google.com/recommendations-ai/docs/catalog#catalog-levels for more details. */
             eventItemLevel?: string;
-            /**
-             * Optional. Level of the catalog at which predictions are made. See https://cloud.google.com/recommendations-ai/docs/catalog#catalog-levels for more
-             * details.
-             */
+            /** Optional. Level of the catalog at which predictions are made. See https://cloud.google.com/recommendations-ai/docs/catalog#catalog-levels for more details. */
             predictItemLevel?: string;
         }
         interface GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest {
@@ -144,48 +136,42 @@ declare namespace gapi.client {
         }
         interface GoogleCloudRecommendationengineV1beta1EventDetail {
             /**
-             * Optional. Extra user event features to include in the recommendation model. For product recommendation, an example of extra user information is
-             * traffic_channel, i.e. how user arrives at the site. Users can arrive at the site by coming to the site directly, or coming through Google search, and
-             * etc.
+             * Optional. Extra user event features to include in the recommendation model. For product recommendation, an example of extra user information is traffic_channel, i.e. how user
+             * arrives at the site. Users can arrive at the site by coming to the site directly, or coming through Google search, and etc.
              */
             eventAttributes?: GoogleCloudRecommendationengineV1beta1FeatureMap;
             /**
-             * Optional. A list of identifiers for the independent experiment groups this user event belongs to. This is used to distinguish between user events
-             * associated with different experiment setups (e.g. using Recommendation Engine system, using different recommendation models).
+             * Optional. A list of identifiers for the independent experiment groups this user event belongs to. This is used to distinguish between user events associated with different
+             * experiment setups (e.g. using Recommendation Engine system, using different recommendation models).
              */
             experimentIds?: string[];
             /**
-             * Optional. A unique id of a web page view. This should be kept the same for all user events triggered from the same pageview. For example, an item
-             * detail page view could trigger multiple events as the user is browsing the page. The `pageViewId` property should be kept the same for all these events
-             * so that they can be grouped together properly. This `pageViewId` will be automatically generated if using the JavaScript pixel.
+             * Optional. A unique id of a web page view. This should be kept the same for all user events triggered from the same pageview. For example, an item detail page view could trigger
+             * multiple events as the user is browsing the page. The `pageViewId` property should be kept the same for all these events so that they can be grouped together properly. This
+             * `pageViewId` will be automatically generated if using the JavaScript pixel.
              */
             pageViewId?: string;
             /**
-             * Optional. Recommendation token included in the recommendation prediction response. This field enables accurate attribution of recommendation model
-             * performance. This token enables us to accurately attribute page view or purchase back to the event and the particular predict response containing this
-             * clicked/purchased item. If user clicks on product K in the recommendation results, pass the `PredictResponse.recommendationToken` property as a url
-             * parameter to product K's page. When recording events on product K's page, log the PredictResponse.recommendation_token to this field. Optional, but
-             * highly encouraged for user events that are the result of a recommendation prediction query.
+             * Optional. Recommendation token included in the recommendation prediction response. This field enables accurate attribution of recommendation model performance. This token enables us
+             * to accurately attribute page view or purchase back to the event and the particular predict response containing this clicked/purchased item. If user clicks on product K in the
+             * recommendation results, pass the `PredictResponse.recommendationToken` property as a url parameter to product K's page. When recording events on product K's page, log the
+             * PredictResponse.recommendation_token to this field. Optional, but highly encouraged for user events that are the result of a recommendation prediction query.
              */
             recommendationToken?: string;
             /** Optional. The referrer url of the current page. When using the JavaScript pixel, this value is filled in automatically. */
             referrerUri?: string;
-            /**
-             * Optional. Complete url (window.location.href) of the user's current page. When using the JavaScript pixel, this value is filled in automatically.
-             * Maximum length 5KB.
-             */
+            /** Optional. Complete url (window.location.href) of the user's current page. When using the JavaScript pixel, this value is filled in automatically. Maximum length 5KB. */
             uri?: string;
         }
         interface GoogleCloudRecommendationengineV1beta1FeatureMap {
             /**
-             * Categorical features that can take on one of a limited number of possible values. Some examples would be the brand/maker of a product, or country of a
-             * customer. Feature names and values must be UTF-8 encoded strings. For example: `{ "colors": {"value": ["yellow", "green"]}, "sizes": {"value":["S",
-             * "M"]}`
+             * Categorical features that can take on one of a limited number of possible values. Some examples would be the brand/maker of a product, or country of a customer. Feature names and
+             * values must be UTF-8 encoded strings. For example: `{ "colors": {"value": ["yellow", "green"]}, "sizes": {"value":["S", "M"]}`
              */
             categoricalFeatures?: { [P in string]: GoogleCloudRecommendationengineV1beta1FeatureMapStringList };
             /**
-             * Numerical features. Some examples would be the height/weight of a product, or age of a customer. Feature names must be UTF-8 encoded strings. For
-             * example: `{ "lengths_cm": {"value":[2.3, 15.4]}, "heights_cm": {"value":[8.1, 6.4]} }`
+             * Numerical features. Some examples would be the height/weight of a product, or age of a customer. Feature names must be UTF-8 encoded strings. For example: `{ "lengths_cm":
+             * {"value":[2.3, 15.4]}, "heights_cm": {"value":[8.1, 6.4]} }`
              */
             numericalFeatures?: { [P in string]: GoogleCloudRecommendationengineV1beta1FeatureMapFloatList };
         }
@@ -199,10 +185,9 @@ declare namespace gapi.client {
         }
         interface GoogleCloudRecommendationengineV1beta1GcsSource {
             /**
-             * Required. Google Cloud Storage URIs to input files. URI can be up to 2000 characters long. URIs can match the full object path (for example,
-             * gs://bucket/directory/object.json) or a pattern matching one or more files, such as gs://bucket/directory/∗.json. A request can contain at most 100
-             * files, and each file can be up to 2 GB. See [Importing catalog information](/recommendations-ai/docs/upload-catalog) for the expected file format and
-             * setup instructions.
+             * Required. Google Cloud Storage URIs to input files. URI can be up to 2000 characters long. URIs can match the full object path (for example, gs://bucket/directory/object.json) or a
+             * pattern matching one or more files, such as gs://bucket/directory/*.json. A request can contain at most 100 files, and each file can be up to 2 GB. See [Importing catalog
+             * information](/recommendations-ai/docs/upload-catalog) for the expected file format and setup instructions.
              */
             inputUris?: string[];
             /**
@@ -228,8 +213,8 @@ declare namespace gapi.client {
             /** Required. The desired input location of the data. */
             inputConfig?: GoogleCloudRecommendationengineV1beta1InputConfig;
             /**
-             * Optional. Unique identifier provided by client, within the ancestor dataset scope. Ensures idempotency and used for request deduplication.
-             * Server-generated if unspecified. Up to 128 characters long. This is returned as google.longrunning.Operation.name in the response.
+             * Optional. Unique identifier provided by client, within the ancestor dataset scope. Ensures idempotency and used for request deduplication. Server-generated if unspecified. Up to 128
+             * characters long. This is returned as google.longrunning.Operation.name in the response.
              */
             requestId?: string;
             /** Optional. Indicates which fields in the provided imported 'items' to update. If not set, will by default update all fields. */
@@ -243,8 +228,8 @@ declare namespace gapi.client {
         }
         interface GoogleCloudRecommendationengineV1beta1ImportErrorsConfig {
             /**
-             * Google Cloud Storage path for import errors. This must be an empty, existing Cloud Storage bucket. Import errors will be written to a file in this
-             * bucket, one per line, as a JSON-encoded `google.rpc.Status` message.
+             * Google Cloud Storage path for import errors. This must be an empty, existing Cloud Storage bucket. Import errors will be written to a file in this bucket, one per line, as a
+             * JSON-encoded `google.rpc.Status` message.
              */
             gcsPrefix?: string;
         }
@@ -268,9 +253,9 @@ declare namespace gapi.client {
             /** Required. The desired input location of the data. */
             inputConfig?: GoogleCloudRecommendationengineV1beta1InputConfig;
             /**
-             * Optional. Unique identifier provided by client, within the ancestor dataset scope. Ensures idempotency for expensive long running operations.
-             * Server-generated if unspecified. Up to 128 characters long. This is returned as google.longrunning.Operation.name in the response. Note that this field
-             * must not be set if the desired input config is catalog_inline_source.
+             * Optional. Unique identifier provided by client, within the ancestor dataset scope. Ensures idempotency for expensive long running operations. Server-generated if unspecified. Up to
+             * 128 characters long. This is returned as google.longrunning.Operation.name in the response. Note that this field must not be set if the desired input config is
+             * catalog_inline_source.
              */
             requestId?: string;
         }
@@ -322,44 +307,40 @@ declare namespace gapi.client {
         }
         interface GoogleCloudRecommendationengineV1beta1PredictRequest {
             /**
-             * Optional. Use dryRun mode for this prediction query. If set to true, a dummy model will be used that returns arbitrary catalog items. Note that the
-             * dryRun mode should only be used for testing the API, or if the model is not ready.
+             * Optional. Use dryRun mode for this prediction query. If set to true, a dummy model will be used that returns arbitrary catalog items. Note that the dryRun mode should only be used
+             * for testing the API, or if the model is not ready.
              */
             dryRun?: boolean;
             /**
-             * Optional. Filter for restricting prediction results. Accepts values for tags and the `filterOutOfStockItems` flag. ∗ Tag expressions. Restricts
-             * predictions to items that match all of the specified tags. Boolean operators `OR` and `NOT` are supported if the expression is enclosed in parentheses,
-             * and must be separated from the tag values by a space. `-"tagA"` is also supported and is equivalent to `NOT "tagA"`. Tag values must be double quoted
-             * UTF-8 encoded strings with a size limit of 1 KiB. ∗ filterOutOfStockItems. Restricts predictions to items that do not have a stockState value of
-             * OUT_OF_STOCK. Examples: ∗ tag=("Red" OR "Blue") tag="New-Arrival" tag=(NOT "promotional") ∗ filterOutOfStockItems tag=(-"promotional") ∗
-             * filterOutOfStockItems If your filter blocks all prediction results, nothing will be returned. If you want generic (unfiltered) popular items to be
-             * returned instead, set `strictFiltering` to false in `PredictRequest.params`.
+             * Optional. Filter for restricting prediction results. Accepts values for tags and the `filterOutOfStockItems` flag. * Tag expressions. Restricts predictions to items that match all
+             * of the specified tags. Boolean operators `OR` and `NOT` are supported if the expression is enclosed in parentheses, and must be separated from the tag values by a space. `-"tagA"`
+             * is also supported and is equivalent to `NOT "tagA"`. Tag values must be double quoted UTF-8 encoded strings with a size limit of 1 KiB. * filterOutOfStockItems. Restricts
+             * predictions to items that do not have a stockState value of OUT_OF_STOCK. Examples: * tag=("Red" OR "Blue") tag="New-Arrival" tag=(NOT "promotional") * filterOutOfStockItems
+             * tag=(-"promotional") * filterOutOfStockItems If your filter blocks all prediction results, nothing will be returned. If you want generic (unfiltered) popular items to be returned
+             * instead, set `strictFiltering` to false in `PredictRequest.params`.
              */
             filter?: string;
             /**
-             * Optional. The labels for the predict request. ∗ Label keys can contain lowercase letters, digits and hyphens, must start with a letter, and must end
-             * with a letter or digit. ∗ Non-zero label values can contain lowercase letters, digits and hyphens, must start with a letter, and must end with a letter
-             * or digit. ∗ No more than 64 labels can be associated with a given request. See https://goo.gl/xmQnxf for more information on and examples of labels.
+             * Optional. The labels for the predict request. * Label keys can contain lowercase letters, digits and hyphens, must start with a letter, and must end with a letter or digit. *
+             * Non-zero label values can contain lowercase letters, digits and hyphens, must start with a letter, and must end with a letter or digit. * No more than 64 labels can be associated
+             * with a given request. See https://goo.gl/xmQnxf for more information on and examples of labels.
              */
             labels?: { [P in string]: string };
-            /**
-             * Optional. Maximum number of results to return per page. Set this property to the number of prediction results required. If zero, the service will
-             * choose a reasonable default.
-             */
+            /** Optional. Maximum number of results to return per page. Set this property to the number of prediction results required. If zero, the service will choose a reasonable default. */
             pageSize?: number;
             /** Optional. The previous PredictResponse.next_page_token. */
             pageToken?: string;
             /**
-             * Optional. Additional domain specific parameters for the predictions. Allowed values: ∗ `returnCatalogItem`: Boolean. If set to true, the associated
-             * catalogItem object will be returned in the `PredictResponse.PredictionResult.itemMetadata` object in the method response. ∗ `returnItemScore`: Boolean.
-             * If set to true, the prediction 'score' corresponding to each returned item will be set in the `metadata` field in the prediction response. The given
-             * 'score' indicates the probability of an item being clicked/purchased given the user's context and history. ∗ `strictFiltering`: Boolean. True by
-             * default. If set to false, the service will return generic (unfiltered) popular items instead of empty if your filter blocks all prediction results.
+             * Optional. Additional domain specific parameters for the predictions. Allowed values: * `returnCatalogItem`: Boolean. If set to true, the associated catalogItem object will be
+             * returned in the `PredictResponse.PredictionResult.itemMetadata` object in the method response. * `returnItemScore`: Boolean. If set to true, the prediction 'score' corresponding to
+             * each returned item will be set in the `metadata` field in the prediction response. The given 'score' indicates the probability of an item being clicked/purchased given the user's
+             * context and history. * `strictFiltering`: Boolean. True by default. If set to false, the service will return generic (unfiltered) popular items instead of empty if your filter
+             * blocks all prediction results.
              */
             params?: { [P in string]: any };
             /**
-             * Required. Context about the user, what they are looking at and what action they took to trigger the predict request. Note that this user event detail
-             * won't be ingested to userEvent logs. Thus, a separate userEvent write request is required for event logging.
+             * Required. Context about the user, what they are looking at and what action they took to trigger the predict request. Note that this user event detail won't be ingested to userEvent
+             * logs. Thus, a separate userEvent write request is required for event logging.
              */
             userEvent?: GoogleCloudRecommendationengineV1beta1UserEvent;
         }
@@ -373,8 +354,8 @@ declare namespace gapi.client {
             /** If empty, the list is complete. If nonempty, the token to pass to the next request's PredictRequest.page_token. */
             nextPageToken?: string;
             /**
-             * A unique recommendation token. This should be included in the user event logs resulting from this recommendation, which enables accurate attribution of
-             * recommendation model performance.
+             * A unique recommendation token. This should be included in the user event logs resulting from this recommendation, which enables accurate attribution of recommendation model
+             * performance.
              */
             recommendationToken?: string;
             /** A list of recommended items. The order represents the ranking (from the most relevant item to the least). */
@@ -384,9 +365,8 @@ declare namespace gapi.client {
             /** ID of the recommended catalog item */
             id?: string;
             /**
-             * Additional item metadata / annotations. Possible values: ∗ `catalogItem`: JSON representation of the catalogItem. Will be set if `returnCatalogItem` is
-             * set to true in `PredictRequest.params`. ∗ `score`: Prediction score in double value. Will be set if `returnItemScore` is set to true in
-             * `PredictRequest.params`.
+             * Additional item metadata / annotations. Possible values: * `catalogItem`: JSON representation of the catalogItem. Will be set if `returnCatalogItem` is set to true in
+             * `PredictRequest.params`. * `score`: Prediction score in double value. Will be set if `returnItemScore` is set to true in `PredictRequest.params`.
              */
             itemMetadata?: { [P in string]: any };
         }
@@ -396,8 +376,8 @@ declare namespace gapi.client {
             /** Optional. Canonical URL directly linking to the item detail page with a length limit of 5 KiB.. */
             canonicalProductUri?: string;
             /**
-             * Optional. A map to pass the costs associated with the product. For example: {"manufacturing": 45.5} The profit of selling this item is computed like
-             * so: ∗ If 'exactPrice' is provided, profit = displayPrice - sum(costs) ∗ If 'priceRange' is provided, profit = minPrice - sum(costs)
+             * Optional. A map to pass the costs associated with the product. For example: {"manufacturing": 45.5} The profit of selling this item is computed like so: * If 'exactPrice' is
+             * provided, profit = displayPrice - sum(costs) * If 'priceRange' is provided, profit = minPrice - sum(costs)
              */
             costs?: { [P in string]: number };
             /** Optional. Only required if the price is set. Currency code for price/costs. Use three-character ISO-4217 code. */
@@ -425,9 +405,9 @@ declare namespace gapi.client {
         }
         interface GoogleCloudRecommendationengineV1beta1ProductDetail {
             /**
-             * Optional. Quantity of the products in stock when a user event happens. Optional. If provided, this overrides the available quantity in Catalog for this
-             * event. and can only be set if `stock_status` is set to `IN_STOCK`. Note that if an item is out of stock, you must set the `stock_state` field to be
-             * `OUT_OF_STOCK`. Leaving this field unspecified / as zero is not sufficient to mark the item out of stock.
+             * Optional. Quantity of the products in stock when a user event happens. Optional. If provided, this overrides the available quantity in Catalog for this event. and can only be set if
+             * `stock_status` is set to `IN_STOCK`. Note that if an item is out of stock, you must set the `stock_state` field to be `OUT_OF_STOCK`. Leaving this field unspecified / as zero is not
+             * sufficient to mark the item out of stock.
              */
             availableQuantity?: number;
             /** Optional. Currency code for price/costs. Use three-character ISO-4217 code. Required only if originalPrice or displayPrice is set. */
@@ -441,8 +421,8 @@ declare namespace gapi.client {
             /** Optional. Original price of the product. If provided, this will override the original price in Catalog for this product. */
             originalPrice?: number;
             /**
-             * Optional. Quantity of the product associated with the user event. For example, this field will be 2 if two products are added to the shopping cart for
-             * `add-to-cart` event. Required for `add-to-cart`, `add-to-list`, `remove-from-cart`, `checkout-start`, `purchase-complete`, `refund` event types.
+             * Optional. Quantity of the product associated with the user event. For example, this field will be 2 if two products are added to the shopping cart for `add-to-cart` event. Required
+             * for `add-to-cart`, `add-to-list`, `remove-from-cart`, `checkout-start`, `purchase-complete`, `refund` event types.
              */
             quantity?: number;
             /** Optional. Item stock state. If provided, this overrides the stock state in Catalog for items in this event. */
@@ -450,34 +430,29 @@ declare namespace gapi.client {
         }
         interface GoogleCloudRecommendationengineV1beta1ProductEventDetail {
             /**
-             * Optional. The id or name of the associated shopping cart. This id is used to associate multiple items added or present in the cart before purchase.
-             * This can only be set for `add-to-cart`, `remove-from-cart`, `checkout-start`, `purchase-complete`, or `shopping-cart-page-view` events.
+             * Optional. The id or name of the associated shopping cart. This id is used to associate multiple items added or present in the cart before purchase. This can only be set for
+             * `add-to-cart`, `remove-from-cart`, `checkout-start`, `purchase-complete`, or `shopping-cart-page-view` events.
              */
             cartId?: string;
-            /**
-             * Required for `add-to-list` and `remove-from-list` events. The id or name of the list that the item is being added to or removed from. Other event types
-             * should not set this field.
-             */
+            /** Required for `add-to-list` and `remove-from-list` events. The id or name of the list that the item is being added to or removed from. Other event types should not set this field. */
             listId?: string;
             /**
-             * Required for `category-page-view` events. Other event types should not set this field. The categories associated with a category page. Category pages
-             * include special pages such as sales or promotions. For instance, a special sale page may have the category hierarchy: categories : ["Sales", "2017
-             * Black Friday Deals"].
+             * Required for `category-page-view` events. Other event types should not set this field. The categories associated with a category page. Category pages include special pages such as
+             * sales or promotions. For instance, a special sale page may have the category hierarchy: categories : ["Sales", "2017 Black Friday Deals"].
              */
             pageCategories?: GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy[];
             /**
-             * The main product details related to the event. This field is required for the following event types: ∗ `add-to-cart` ∗ `add-to-list` ∗ `checkout-start`
-             * ∗ `detail-page-view` ∗ `purchase-complete` ∗ `refund` ∗ `remove-from-cart` ∗ `remove-from-list` This field is optional for the following event types: ∗
-             * `page-visit` ∗ `shopping-cart-page-view` - note that 'product_details' should be set for this unless the shopping cart is empty. ∗ `search` (highly
-             * encouraged) In a `search` event, this field represents the products returned to the end user on the current page (the end user may have not finished
-             * broswing the whole page yet). When a new page is returned to the end user, after pagination/filtering/ordering even for the same query, a new SEARCH
-             * event with different product_details is desired. The end user may have not finished broswing the whole page yet. This field is not allowed for the
-             * following event types: ∗ `category-page-view` ∗ `home-page-view`
+             * The main product details related to the event. This field is required for the following event types: * `add-to-cart` * `add-to-list` * `checkout-start` * `detail-page-view` *
+             * `purchase-complete` * `refund` * `remove-from-cart` * `remove-from-list` This field is optional for the following event types: * `page-visit` * `shopping-cart-page-view` - note that
+             * 'product_details' should be set for this unless the shopping cart is empty. * `search` (highly encouraged) In a `search` event, this field represents the products returned to the
+             * end user on the current page (the end user may have not finished broswing the whole page yet). When a new page is returned to the end user, after pagination/filtering/ordering even
+             * for the same query, a new SEARCH event with different product_details is desired. The end user may have not finished broswing the whole page yet. This field is not allowed for the
+             * following event types: * `category-page-view` * `home-page-view`
              */
             productDetails?: GoogleCloudRecommendationengineV1beta1ProductDetail[];
             /**
-             * Optional. A transaction represents the entire purchase transaction. Required for `purchase-complete` events. Optional for `checkout-start` events.
-             * Other event types should not set this field.
+             * Optional. A transaction represents the entire purchase transaction. Required for `purchase-complete` events. Optional for `checkout-start` events. Other event types should not set
+             * this field.
              */
             purchaseTransaction?: GoogleCloudRecommendationengineV1beta1PurchaseTransaction;
             /** Required for `search` events. Other event types should not set this field. The user's search query as UTF-8 encoded text with a length limit of 5 KiB. */
@@ -485,10 +460,9 @@ declare namespace gapi.client {
         }
         interface GoogleCloudRecommendationengineV1beta1PurchaseTransaction {
             /**
-             * Optional. All the costs associated with the product. These can be manufacturing costs, shipping expenses not borne by the end user, or any other costs.
-             * Total product cost such that profit = revenue - (sum(taxes) + sum(costs)) If product_cost is not set, then profit = revenue - tax - shipping -
-             * sum(CatalogItem.costs). If CatalogItem.cost is not specified for one of the items, CatalogItem.cost based profit ∗cannot∗ be calculated for this
-             * Transaction.
+             * Optional. All the costs associated with the product. These can be manufacturing costs, shipping expenses not borne by the end user, or any other costs. Total product cost such that
+             * profit = revenue - (sum(taxes) + sum(costs)) If product_cost is not set, then profit = revenue - tax - shipping - sum(CatalogItem.costs). If CatalogItem.cost is not specified for
+             * one of the items, CatalogItem.cost based profit *cannot* be calculated for this Transaction.
              */
             costs?: { [P in string]: number };
             /** Required. Currency code. Use three-character ISO-4217 code. This field is not required if the event type is `refund`. */
@@ -496,8 +470,8 @@ declare namespace gapi.client {
             /** Optional. The transaction ID with a length limit of 128 bytes. */
             id?: string;
             /**
-             * Required. Total revenue or grand total associated with the transaction. This value include shipping, tax, or other adjustments to total revenue that
-             * you want to include as part of your revenue calculations. This field is not required if the event type is `refund`.
+             * Required. Total revenue or grand total associated with the transaction. This value include shipping, tax, or other adjustments to total revenue that you want to include as part of
+             * your revenue calculations. This field is not required if the event type is `refund`.
              */
             revenue?: number;
             /** Optional. All the taxes associated with the transaction. */
@@ -511,18 +485,14 @@ declare namespace gapi.client {
         }
         interface GoogleCloudRecommendationengineV1beta1PurgeUserEventsRequest {
             /**
-             * Required. The filter string to specify the events to be deleted. Empty string filter is not allowed. The eligible fields for filtering are: ∗
-             * `eventType`: UserEvent.eventType field of type string. ∗ `eventTime`: in ISO 8601 "zulu" format. ∗ `visitorId`: field of type string. Specifying this
-             * will delete all events associated with a visitor. ∗ `userId`: field of type string. Specifying this will delete all events associated with a user.
-             * Examples: ∗ Deleting all events in a time range: `eventTime > "2012-04-23T18:25:43.511Z" eventTime < "2012-04-23T18:30:43.511Z"` ∗ Deleting specific
-             * eventType in time range: `eventTime > "2012-04-23T18:25:43.511Z" eventType = "detail-page-view"` ∗ Deleting all events for a specific visitor:
-             * `visitorId = "visitor1024"` The filtering fields are assumed to have an implicit AND.
+             * Required. The filter string to specify the events to be deleted. Empty string filter is not allowed. The eligible fields for filtering are: * `eventType`: UserEvent.eventType field
+             * of type string. * `eventTime`: in ISO 8601 "zulu" format. * `visitorId`: field of type string. Specifying this will delete all events associated with a visitor. * `userId`: field of
+             * type string. Specifying this will delete all events associated with a user. Examples: * Deleting all events in a time range: `eventTime > "2012-04-23T18:25:43.511Z" eventTime <
+             * "2012-04-23T18:30:43.511Z"` * Deleting specific eventType in time range: `eventTime > "2012-04-23T18:25:43.511Z" eventType = "detail-page-view"` * Deleting all events for a specific
+             * visitor: `visitorId = "visitor1024"` The filtering fields are assumed to have an implicit AND.
              */
             filter?: string;
-            /**
-             * Optional. The default value is false. Override this flag to true to actually perform the purge. If the field is not set to true, a sampling of events
-             * to be deleted will be returned.
-             */
+            /** Optional. The default value is false. Override this flag to true to actually perform the purge. If the field is not set to true, a sampling of events to be deleted will be returned. */
             force?: boolean;
         }
         interface GoogleCloudRecommendationengineV1beta1PurgeUserEventsResponse {
@@ -538,24 +508,23 @@ declare namespace gapi.client {
         interface GoogleCloudRecommendationengineV1beta1UserEvent {
             /** Optional. User event detailed information common across different recommendation types. */
             eventDetail?: GoogleCloudRecommendationengineV1beta1EventDetail;
-            /** Optional. This field should ∗not∗ be set when using JavaScript pixel or the Recommendations AI Tag. Defaults to `EVENT_SOURCE_UNSPECIFIED`. */
+            /** Optional. This field should *not* be set when using JavaScript pixel or the Recommendations AI Tag. Defaults to `EVENT_SOURCE_UNSPECIFIED`. */
             eventSource?: string;
             /** Optional. Only required for ImportUserEvents method. Timestamp of user event created. */
             eventTime?: string;
             /**
-             * Required. User event type. Allowed values are: ∗ `add-to-cart` Products being added to cart. ∗ `add-to-list` Items being added to a list (shopping
-             * list, favorites etc). ∗ `category-page-view` Special pages such as sale or promotion pages viewed. ∗ `checkout-start` User starting a checkout process.
-             * ∗ `detail-page-view` Products detail page viewed. ∗ `home-page-view` Homepage viewed. ∗ `page-visit` Generic page visits not included in the event
-             * types above. ∗ `purchase-complete` User finishing a purchase. ∗ `refund` Purchased items being refunded or returned. ∗ `remove-from-cart` Products
-             * being removed from cart. ∗ `remove-from-list` Items being removed from a list. ∗ `search` Product search. ∗ `shopping-cart-page-view` User viewing a
-             * shopping cart. ∗ `impression` List of items displayed. Used by Google Tag Manager.
+             * Required. User event type. Allowed values are: * `add-to-cart` Products being added to cart. * `add-to-list` Items being added to a list (shopping list, favorites etc). *
+             * `category-page-view` Special pages such as sale or promotion pages viewed. * `checkout-start` User starting a checkout process. * `detail-page-view` Products detail page viewed. *
+             * `home-page-view` Homepage viewed. * `page-visit` Generic page visits not included in the event types above. * `purchase-complete` User finishing a purchase. * `refund` Purchased
+             * items being refunded or returned. * `remove-from-cart` Products being removed from cart. * `remove-from-list` Items being removed from a list. * `search` Product search. *
+             * `shopping-cart-page-view` User viewing a shopping cart. * `impression` List of items displayed. Used by Google Tag Manager.
              */
             eventType?: string;
             /**
-             * Optional. Retail product specific user event metadata. This field is required for the following event types: ∗ `add-to-cart` ∗ `add-to-list` ∗
-             * `category-page-view` ∗ `checkout-start` ∗ `detail-page-view` ∗ `purchase-complete` ∗ `refund` ∗ `remove-from-cart` ∗ `remove-from-list` ∗ `search` This
-             * field is optional for the following event types: ∗ `page-visit` ∗ `shopping-cart-page-view` - note that 'product_event_detail' should be set for this
-             * unless the shopping cart is empty. This field is not allowed for the following event types: ∗ `home-page-view`
+             * Optional. Retail product specific user event metadata. This field is required for the following event types: * `add-to-cart` * `add-to-list` * `category-page-view` *
+             * `checkout-start` * `detail-page-view` * `purchase-complete` * `refund` * `remove-from-cart` * `remove-from-list` * `search` This field is optional for the following event types: *
+             * `page-visit` * `shopping-cart-page-view` - note that 'product_event_detail' should be set for this unless the shopping cart is empty. This field is not allowed for the following
+             * event types: * `home-page-view`
              */
             productEventDetail?: GoogleCloudRecommendationengineV1beta1ProductEventDetail;
             /** Required. User information. */
@@ -573,27 +542,26 @@ declare namespace gapi.client {
         }
         interface GoogleCloudRecommendationengineV1beta1UserInfo {
             /**
-             * Optional. Indicates if the request is made directly from the end user in which case the user_agent and ip_address fields can be populated from the HTTP
-             * request. This should ∗not∗ be set when using the javascript pixel. This flag should be set only if the API request is made directly from the end user
-             * such as a mobile app (and not if a gateway or a server is processing and pushing the user events).
+             * Optional. Indicates if the request is made directly from the end user in which case the user_agent and ip_address fields can be populated from the HTTP request. This should *not* be
+             * set when using the javascript pixel. This flag should be set only if the API request is made directly from the end user such as a mobile app (and not if a gateway or a server is
+             * processing and pushing the user events).
              */
             directUserRequest?: boolean;
             /**
-             * Optional. IP address of the user. This could be either IPv4 (e.g. 104.133.9.80) or IPv6 (e.g. 2001:0db8:85a3:0000:0000:8a2e:0370:7334). This should
-             * ∗not∗ be set when using the javascript pixel or if `direct_user_request` is set. Used to extract location information for personalization.
+             * Optional. IP address of the user. This could be either IPv4 (e.g. 104.133.9.80) or IPv6 (e.g. 2001:0db8:85a3:0000:0000:8a2e:0370:7334). This should *not* be set when using the
+             * javascript pixel or if `direct_user_request` is set. Used to extract location information for personalization.
              */
             ipAddress?: string;
             /**
-             * Optional. User agent as included in the HTTP header. UTF-8 encoded string with a length limit of 1 KiB. This should ∗not∗ be set when using the
-             * JavaScript pixel or if `directUserRequest` is set.
+             * Optional. User agent as included in the HTTP header. UTF-8 encoded string with a length limit of 1 KiB. This should *not* be set when using the JavaScript pixel or if
+             * `directUserRequest` is set.
              */
             userAgent?: string;
             /** Optional. Unique identifier for logged-in user with a length limit of 128 bytes. Required only for logged-in users. */
             userId?: string;
             /**
-             * Required. A unique identifier for tracking visitors with a length limit of 128 bytes. For example, this could be implemented with a http cookie, which
-             * should be able to uniquely identify a visitor on a single device. This unique identifier should not change if the visitor log in/out of the website.
-             * Maximum length 128 bytes. Cannot be empty.
+             * Required. A unique identifier for tracking visitors with a length limit of 128 bytes. For example, this could be implemented with a http cookie, which should be able to uniquely
+             * identify a visitor on a single device. This unique identifier should not change if the visitor log in/out of the website. Maximum length 128 bytes. Cannot be empty.
              */
             visitorId?: string;
         }
@@ -604,28 +572,24 @@ declare namespace gapi.client {
             operations?: GoogleLongrunningOperation[];
         }
         interface GoogleLongrunningOperation {
-            /**
-             * If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is
-             * available.
-             */
+            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
             done?: boolean;
             /** The error result of the operation in case of failure or cancellation. */
             error?: GoogleRpcStatus;
             /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some
-             * services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any.
+             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
+             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
              */
             metadata?: { [P in string]: any };
             /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name`
-             * should be a resource name ending with `operations/{unique_id}`.
+             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
+             * with `operations/{unique_id}`.
              */
             name?: string;
             /**
-             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is
-             * `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the
-             * response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the
-             * inferred response type is `TakeSnapshotResponse`.
+             * The normal response of the operation in case of success. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the
+             * original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the
+             * original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
              */
             response?: { [P in string]: any };
         }
@@ -638,8 +602,8 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
@@ -755,8 +719,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudRecommendationengineV1beta1CatalogItem>;
             /**
-             * Bulk import of multiple catalog items. Request processing may be synchronous. No partial updating supported. Non-existing items will be created.
-             * Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully updated.
+             * Bulk import of multiple catalog items. Request processing may be synchronous. No partial updating supported. Non-existing items will be created. Operation.response is of type
+             * ImportResponse. Note that it is possible for a subset of the items to be successfully updated.
              */
             import(request: {
                 /** V1 error format. */
@@ -774,8 +738,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. "projects/1234/locations/global/catalogs/default_catalog" If no updateMask is specified, requires catalogItems.create permission. If
-                 * updateMask is specified, requires catalogItems.update permission.
+                 * Required. "projects/1234/locations/global/catalogs/default_catalog" If no updateMask is specified, requires catalogItems.create permission. If updateMask is specified, requires
+                 * catalogItems.update permission.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -805,8 +769,8 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. "projects/1234/locations/global/catalogs/default_catalog" If no updateMask is specified, requires catalogItems.create permission. If
-                 * updateMask is specified, requires catalogItems.update permission.
+                 * Required. "projects/1234/locations/global/catalogs/default_catalog" If no updateMask is specified, requires catalogItems.create permission. If updateMask is specified, requires
+                 * catalogItems.update permission.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -914,10 +878,7 @@ declare namespace gapi.client {
             body: GoogleCloudRecommendationengineV1beta1CatalogItem): Request<GoogleCloudRecommendationengineV1beta1CatalogItem>;
         }
         interface OperationsResource {
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -945,11 +906,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleLongrunningOperation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -986,8 +946,8 @@ declare namespace gapi.client {
         }
         interface PlacementsResource {
             /**
-             * Makes a recommendation prediction. If using API Key based authentication, the API Key must be registered using the PredictionApiKeyRegistry service.
-             * [Learn more](/recommendations-ai/docs/setting-up#register-key).
+             * Makes a recommendation prediction. If using API Key based authentication, the API Key must be registered using the PredictionApiKeyRegistry service. [Learn
+             * more](/recommendations-ai/docs/setting-up#register-key).
              */
             predict(request: {
                 /** V1 error format. */
@@ -1003,16 +963,15 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. Full resource name of the format: {name=projects/∗/locations/global/catalogs/default_catalog/eventStores/default_event_store/placements/∗}
-                 * The id of the recommendation engine placement. This id is used to identify the set of models that will be used to make the prediction. We currently
-                 * support three placements with the following IDs by default: ∗ `shopping_cart`: Predicts items frequently bought together with one or more catalog items
-                 * in the same shopping session. Commonly displayed after `add-to-cart` events, on product detail pages, or on the shopping cart page. ∗ `home_page`:
-                 * Predicts the next product that a user will most likely engage with or purchase based on the shopping or viewing history of the specified `userId` or
-                 * `visitorId`. For example - Recommendations for you. ∗ `product_detail`: Predicts the next product that a user will most likely engage with or purchase.
-                 * The prediction is based on the shopping or viewing history of the specified `userId` or `visitorId` and its relevance to a specified `CatalogItem`.
-                 * Typically used on product detail pages. For example - More items like this. ∗ `recently_viewed_default`: Returns up to 75 items recently viewed by the
-                 * specified `userId` or `visitorId`, most recent ones first. Returns nothing if neither of them has viewed any items yet. For example - Recently viewed.
-                 * The full list of available placements can be seen at https://console.cloud.google.com/recommendation/datafeeds/default_catalog/dashboard
+                 * Required. Full resource name of the format: {name=projects/∗/locations/global/catalogs/default_catalog/eventStores/default_event_store/placements/*} The id of the recommendation
+                 * engine placement. This id is used to identify the set of models that will be used to make the prediction. We currently support three placements with the following IDs by
+                 * default: * `shopping_cart`: Predicts items frequently bought together with one or more catalog items in the same shopping session. Commonly displayed after `add-to-cart` events,
+                 * on product detail pages, or on the shopping cart page. * `home_page`: Predicts the next product that a user will most likely engage with or purchase based on the shopping or
+                 * viewing history of the specified `userId` or `visitorId`. For example - Recommendations for you. * `product_detail`: Predicts the next product that a user will most likely
+                 * engage with or purchase. The prediction is based on the shopping or viewing history of the specified `userId` or `visitorId` and its relevance to a specified `CatalogItem`.
+                 * Typically used on product detail pages. For example - More items like this. * `recently_viewed_default`: Returns up to 75 items recently viewed by the specified `userId` or
+                 * `visitorId`, most recent ones first. Returns nothing if neither of them has viewed any items yet. For example - Recently viewed. The full list of available placements can be
+                 * seen at https://console.cloud.google.com/recommendation/datafeeds/default_catalog/dashboard
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1042,16 +1001,15 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. Full resource name of the format: {name=projects/∗/locations/global/catalogs/default_catalog/eventStores/default_event_store/placements/∗}
-                 * The id of the recommendation engine placement. This id is used to identify the set of models that will be used to make the prediction. We currently
-                 * support three placements with the following IDs by default: ∗ `shopping_cart`: Predicts items frequently bought together with one or more catalog items
-                 * in the same shopping session. Commonly displayed after `add-to-cart` events, on product detail pages, or on the shopping cart page. ∗ `home_page`:
-                 * Predicts the next product that a user will most likely engage with or purchase based on the shopping or viewing history of the specified `userId` or
-                 * `visitorId`. For example - Recommendations for you. ∗ `product_detail`: Predicts the next product that a user will most likely engage with or purchase.
-                 * The prediction is based on the shopping or viewing history of the specified `userId` or `visitorId` and its relevance to a specified `CatalogItem`.
-                 * Typically used on product detail pages. For example - More items like this. ∗ `recently_viewed_default`: Returns up to 75 items recently viewed by the
-                 * specified `userId` or `visitorId`, most recent ones first. Returns nothing if neither of them has viewed any items yet. For example - Recently viewed.
-                 * The full list of available placements can be seen at https://console.cloud.google.com/recommendation/datafeeds/default_catalog/dashboard
+                 * Required. Full resource name of the format: {name=projects/∗/locations/global/catalogs/default_catalog/eventStores/default_event_store/placements/*} The id of the recommendation
+                 * engine placement. This id is used to identify the set of models that will be used to make the prediction. We currently support three placements with the following IDs by
+                 * default: * `shopping_cart`: Predicts items frequently bought together with one or more catalog items in the same shopping session. Commonly displayed after `add-to-cart` events,
+                 * on product detail pages, or on the shopping cart page. * `home_page`: Predicts the next product that a user will most likely engage with or purchase based on the shopping or
+                 * viewing history of the specified `userId` or `visitorId`. For example - Recommendations for you. * `product_detail`: Predicts the next product that a user will most likely
+                 * engage with or purchase. The prediction is based on the shopping or viewing history of the specified `userId` or `visitorId` and its relevance to a specified `CatalogItem`.
+                 * Typically used on product detail pages. For example - More items like this. * `recently_viewed_default`: Returns up to 75 items recently viewed by the specified `userId` or
+                 * `visitorId`, most recent ones first. Returns nothing if neither of them has viewed any items yet. For example - Recently viewed. The full list of available placements can be
+                 * seen at https://console.cloud.google.com/recommendation/datafeeds/default_catalog/dashboard
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1188,8 +1146,8 @@ declare namespace gapi.client {
         }
         interface UserEventsResource {
             /**
-             * Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a 3rd party domain. This method is
-             * used only by the Recommendations AI JavaScript pixel. Users should not call this method directly.
+             * Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a 3rd party domain. This method is used only by the Recommendations
+             * AI JavaScript pixel. Users should not call this method directly.
              */
             collect(request?: {
                 /** V1 error format. */
@@ -1200,10 +1158,7 @@ declare namespace gapi.client {
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /**
-                 * Optional. The event timestamp in milliseconds. This prevents browser caching of otherwise identical get requests. The name is abbreviated to reduce the
-                 * payload bytes.
-                 */
+                /** Optional. The event timestamp in milliseconds. This prevents browser caching of otherwise identical get requests. The name is abbreviated to reduce the payload bytes. */
                 ets?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -1222,17 +1177,16 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * Optional. The url including cgi-parameters but excluding the hash fragment. The URL must be truncated to 1.5K bytes to conservatively be under the 2K
-                 * bytes. This is often more useful than the referer url, because many browsers only send the domain for 3rd party requests.
+                 * Optional. The url including cgi-parameters but excluding the hash fragment. The URL must be truncated to 1.5K bytes to conservatively be under the 2K bytes. This is often more
+                 * useful than the referer url, because many browsers only send the domain for 3rd party requests.
                  */
                 uri?: string;
                 /** Required. URL encoded UserEvent proto. */
                 userEvent?: string;
             }): Request<GoogleApiHttpBody>;
             /**
-             * Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical
-             * user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted.
-             * Operation.metadata is of type ImportMetadata.
+             * Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events.
+             * Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata.
              */
             import(request: {
                 /** V1 error format. */
@@ -1290,10 +1244,9 @@ declare namespace gapi.client {
             },
             body: GoogleCloudRecommendationengineV1beta1ImportUserEventsRequest): Request<GoogleLongrunningOperation>;
             /**
-             * Gets a list of user events within a time range, with potential filtering. The method does not list unjoined user events. Unjoined user event
-             * definition: when a user event is ingested from Recommendations AI User Event APIs, the catalog item included in the user event is connected with the
-             * current catalog. If a catalog item of the ingested event is not in the current catalog, it could lead to degraded model quality. This is called an
-             * unjoined event.
+             * Gets a list of user events within a time range, with potential filtering. The method does not list unjoined user events. Unjoined user event definition: when a user event is
+             * ingested from Recommendations AI User Event APIs, the catalog item included in the user event is connected with the current catalog. If a catalog item of the ingested event is not
+             * in the current catalog, it could lead to degraded model quality. This is called an unjoined event.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1307,16 +1260,14 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Optional. Filtering expression to specify restrictions over returned events. This is a sequence of terms, where each term applies some kind of a
-                 * restriction to the returned user events. Use this expression to restrict results to a specific time range, or filter events by eventType. eg: eventTime
-                 * > "2012-04-23T18:25:43.511Z" eventsMissingCatalogItems eventTime<"2012-04-23T18:25:43.511Z" eventType=search We expect only 3 types of fields: ∗
-                 * eventTime: this can be specified a maximum of 2 times, once with a less than operator and once with a greater than operator. The eventTime restrict
-                 * should result in one contiguous valid eventTime range. ∗ eventType: only 1 eventType restriction can be specified. ∗ eventsMissingCatalogItems:
-                 * specififying this will restrict results to events for which catalog items were not found in the catalog. The default behavior is to return only those
-                 * events for which catalog items were found. Some examples of valid filters expressions: ∗ Example 1: eventTime > "2012-04-23T18:25:43.511Z" eventTime <
-                 * "2012-04-23T18:30:43.511Z" ∗ Example 2: eventTime > "2012-04-23T18:25:43.511Z" eventType = detail-page-view ∗ Example 3: eventsMissingCatalogItems
-                 * eventType = search eventTime < "2018-04-23T18:30:43.511Z" ∗ Example 4: eventTime > "2012-04-23T18:25:43.511Z" ∗ Example 5: eventType = search ∗ Example
-                 * 6: eventsMissingCatalogItems
+                 * Optional. Filtering expression to specify restrictions over returned events. This is a sequence of terms, where each term applies some kind of a restriction to the returned user
+                 * events. Use this expression to restrict results to a specific time range, or filter events by eventType. eg: eventTime > "2012-04-23T18:25:43.511Z" eventsMissingCatalogItems
+                 * eventTime<"2012-04-23T18:25:43.511Z" eventType=search We expect only 3 types of fields: * eventTime: this can be specified a maximum of 2 times, once with a less than operator
+                 * and once with a greater than operator. The eventTime restrict should result in one contiguous valid eventTime range. * eventType: only 1 eventType restriction can be specified.
+                 * * eventsMissingCatalogItems: specififying this will restrict results to events for which catalog items were not found in the catalog. The default behavior is to return only
+                 * those events for which catalog items were found. Some examples of valid filters expressions: * Example 1: eventTime > "2012-04-23T18:25:43.511Z" eventTime <
+                 * "2012-04-23T18:30:43.511Z" * Example 2: eventTime > "2012-04-23T18:25:43.511Z" eventType = detail-page-view * Example 3: eventsMissingCatalogItems eventType = search eventTime <
+                 * "2018-04-23T18:30:43.511Z" * Example 4: eventTime > "2012-04-23T18:25:43.511Z" * Example 5: eventType = search * Example 6: eventsMissingCatalogItems
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -1339,8 +1290,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudRecommendationengineV1beta1ListUserEventsResponse>;
             /**
-             * Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could
-             * take hours or days to complete. To test a filter, use the list command first.
+             * Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete.
+             * To test a filter, use the list command first.
              */
             purge(request: {
                 /** V1 error format. */
@@ -1404,10 +1355,9 @@ declare namespace gapi.client {
             },
             body: GoogleCloudRecommendationengineV1beta1PurgeUserEventsRequest): Request<GoogleLongrunningOperation>;
             /**
-             * Triggers a user event rejoin operation with latest catalog data. Events will not be annotated with detailed catalog information if catalog item is
-             * missing at the time the user event is ingested, and these events are stored as unjoined events with a limited usage on training and serving. This API
-             * can be used to trigger a 'join' operation on specified events with latest version of catalog items. It can also be used to correct events joined with
-             * wrong catalog items.
+             * Triggers a user event rejoin operation with latest catalog data. Events will not be annotated with detailed catalog information if catalog item is missing at the time the user event
+             * is ingested, and these events are stored as unjoined events with a limited usage on training and serving. This API can be used to trigger a 'join' operation on specified events with
+             * latest version of catalog items. It can also be used to correct events joined with wrong catalog items.
              */
             rejoin(request: {
                 /** V1 error format. */
@@ -1528,10 +1478,7 @@ declare namespace gapi.client {
             userEvents: UserEventsResource;
         }
         interface OperationsResource {
-            /**
-             * Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API
-             * service.
-             */
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1559,11 +1506,10 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleLongrunningOperation>;
             /**
-             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
-             * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
-             * operations collection id.
+             * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
+             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+             * ensure the name binding is the parent resource, without the operations collection id.
              */
             list(request?: {
                 /** V1 error format. */
@@ -1653,8 +1599,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Indicates which fields in the provided 'catalog' to update. If not set, will only update the catalog_item_level_config field. Currently only
-                 * fields that can be updated are catalog_item_level_config.
+                 * Optional. Indicates which fields in the provided 'catalog' to update. If not set, will only update the catalog_item_level_config field. Currently only fields that can be updated
+                 * are catalog_item_level_config.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1686,8 +1632,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. Indicates which fields in the provided 'catalog' to update. If not set, will only update the catalog_item_level_config field. Currently only
-                 * fields that can be updated are catalog_item_level_config.
+                 * Optional. Indicates which fields in the provided 'catalog' to update. If not set, will only update the catalog_item_level_config field. Currently only fields that can be updated
+                 * are catalog_item_level_config.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */

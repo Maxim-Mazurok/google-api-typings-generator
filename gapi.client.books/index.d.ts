@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Books API v1 1.0
 // Project: https://code.google.com/apis/books/docs/v1/getting_started.html
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -204,13 +207,13 @@ declare namespace gapi.client {
             id?: string;
             /** Resource Type */
             kind?: string;
-            /** The Layer id for this data. ∗ */
+            /** The Layer id for this data. * */
             layerId?: string;
-            /** URL for this resource. ∗ */
+            /** URL for this resource. * */
             selfLink?: string;
             /** Timestamp for the last time this data was updated. (RFC 3339 UTC date-time format). */
             updated?: string;
-            /** The volume id for this data. ∗ */
+            /** The volume id for this data. * */
             volumeId?: string;
         }
         interface Dictlayerdata {
@@ -320,10 +323,7 @@ declare namespace gapi.client {
             message?: string;
             /** Client nonce for verification. Download access and client-validation only. */
             nonce?: string;
-            /**
-             * Error/warning reason code. Additional codes may be added in the future. 0 OK 100 ACCESS_DENIED_PUBLISHER_LIMIT 101 ACCESS_DENIED_LIMIT 200
-             * WARNING_USED_LAST_ACCESS
-             */
+            /** Error/warning reason code. Additional codes may be added in the future. 0 OK 100 ACCESS_DENIED_PUBLISHER_LIMIT 101 ACCESS_DENIED_LIMIT 200 WARNING_USED_LAST_ACCESS */
             reasonCode?: string;
             /** Whether this volume has any download access restrictions. */
             restricted?: boolean;
@@ -364,13 +364,13 @@ declare namespace gapi.client {
             id?: string;
             /** Resource Type */
             kind?: string;
-            /** The Layer id for this data. ∗ */
+            /** The Layer id for this data. * */
             layerId?: string;
-            /** URL for this resource. ∗ */
+            /** URL for this resource. * */
             selfLink?: string;
             /** Timestamp for the last time this data was updated. (RFC 3339 UTC date-time format). */
             updated?: string;
-            /** The volume id for this data. ∗ */
+            /** The volume id for this data. * */
             volumeId?: string;
         }
         interface Geolayerdata {
@@ -411,8 +411,8 @@ declare namespace gapi.client {
                     };
                 };
                 /**
-                 * The Zoom level to use for the map. Zoom levels between 0 (the lowest zoom level, in which the entire world can be seen on one map) to 21+ (down to
-                 * individual buildings). See: https: //developers.google.com/maps/documentation/staticmaps/#Zoomlevels
+                 * The Zoom level to use for the map. Zoom levels between 0 (the lowest zoom level, in which the entire world can be seen on one map) to 21+ (down to individual buildings). See:
+                 * https: //developers.google.com/maps/documentation/staticmaps/#Zoomlevels
                  */
                 zoom?: number;
             };
@@ -450,8 +450,8 @@ declare namespace gapi.client {
             /** Timestamp for the last time an item in this layer was updated. (RFC 3339 UTC date-time format). */
             updated?: string;
             /**
-             * The current version of this layer's volume annotations. Note that this version applies only to the data in the books.layers.volumeAnnotations.∗
-             * responses. The actual annotation data is versioned separately.
+             * The current version of this layer's volume annotations. Note that this version applies only to the data in the books.layers.volumeAnnotations.* responses. The actual annotation data
+             * is versioned separately.
              */
             volumeAnnotationsVersion?: string;
             /** The volume id this resource is for. */
@@ -628,13 +628,13 @@ declare namespace gapi.client {
         }
         interface Volume {
             /**
-             * Any information about a volume related to reading or obtaining that volume text. This information can depend on country (books may be public domain in
-             * one country but not in another, e.g.).
+             * Any information about a volume related to reading or obtaining that volume text. This information can depend on country (books may be public domain in one country but not in
+             * another, e.g.).
              */
             accessInfo?: {
                 /**
-                 * Combines the access and viewability of this volume into a single status field for this user. Values can be FULL_PURCHASED, FULL_PUBLIC_DOMAIN, SAMPLE
-                 * or NONE. (In LITE projection.)
+                 * Combines the access and viewability of this volume into a single status field for this user. Values can be FULL_PURCHASED, FULL_PUBLIC_DOMAIN, SAMPLE or NONE. (In LITE
+                 * projection.)
                  */
                 accessViewStatus?: string;
                 /** The two-letter ISO_3166-1 country code for which this access information is valid. (In LITE projection.) */
@@ -655,8 +655,8 @@ declare namespace gapi.client {
                     isAvailable?: boolean;
                 };
                 /**
-                 * Whether this volume requires that the client explicitly request offline download license rather than have it done automatically when loading the
-                 * content, if the client supports it.
+                 * Whether this volume requires that the client explicitly request offline download license rather than have it done automatically when loading the content, if the client supports
+                 * it.
                  */
                 explicitOfflineLicenseManagement?: boolean;
                 /** Information about pdf content. (In LITE projection.) */
@@ -675,9 +675,9 @@ declare namespace gapi.client {
                 /** Whether text-to-speech is permitted for this volume. Values can be ALLOWED, ALLOWED_FOR_ACCESSIBILITY, or NOT_ALLOWED. */
                 textToSpeechPermission?: string;
                 /**
-                 * The read access of a volume. Possible values are PARTIAL, ALL_PAGES, NO_PAGES or UNKNOWN. This value depends on the country listed above. A value of
-                 * PARTIAL means that the publisher has allowed some portion of the volume to be viewed publicly, without purchase. This can apply to eBooks as well as
-                 * non-eBooks. Public domain books will always have a value of ALL_PAGES.
+                 * The read access of a volume. Possible values are PARTIAL, ALL_PAGES, NO_PAGES or UNKNOWN. This value depends on the country listed above. A value of PARTIAL means that the
+                 * publisher has allowed some portion of the volume to be viewed publicly, without purchase. This can apply to eBooks as well as non-eBooks. Public domain books will always have a
+                 * value of ALL_PAGES.
                  */
                 viewability?: string;
                 /** For ordered but not yet processed orders, we give a URL that can be used to go to the appropriate Google Wallet page. */
@@ -698,8 +698,8 @@ declare namespace gapi.client {
                     /** The layer id of this layer (e.g. "geo"). */
                     layerId?: string;
                     /**
-                     * The current version of this layer's volume annotations. Note that this version applies only to the data in the books.layers.volumeAnnotations.∗
-                     * responses. The actual annotation data is versioned separately.
+                     * The current version of this layer's volume annotations. Note that this version applies only to the data in the books.layers.volumeAnnotations.* responses. The actual
+                     * annotation data is versioned separately.
                      */
                     volumeAnnotationsVersion?: string;
                 }>;
@@ -710,8 +710,8 @@ declare namespace gapi.client {
                 explanation?: string;
             };
             /**
-             * Any information about a volume related to the eBookstore and/or purchaseability. This information can depend on the country where the request
-             * originates from (i.e. books may not be for sale in certain countries).
+             * Any information about a volume related to the eBookstore and/or purchaseability. This information can depend on the country where the request originates from (i.e. books may not be
+             * for sale in certain countries).
              */
             saleInfo?: {
                 /** URL to purchase this volume on the Google Books site. (In LITE projection) */
@@ -751,10 +751,7 @@ declare namespace gapi.client {
                 }>;
                 /** The date on which this book is available for sale. */
                 onSaleDate?: string;
-                /**
-                 * The actual selling price of the book. This is the same as the suggested retail or list price unless there are offers or discounts on this volume. (In
-                 * LITE projection.)
-                 */
+                /** The actual selling price of the book. This is the same as the suggested retail or list price unless there are offers or discounts on this volume. (In LITE projection.) */
                 retailPrice?: {
                     /** Amount in the currency listed below. (In LITE projection.) */
                     amount?: number;
@@ -762,8 +759,8 @@ declare namespace gapi.client {
                     currencyCode?: string;
                 };
                 /**
-                 * Whether or not this book is available for sale or offered for free in the Google eBookstore for the country listed above. Possible values are FOR_SALE,
-                 * FOR_RENTAL_ONLY, FOR_SALE_AND_RENTAL, FREE, NOT_FOR_SALE, or FOR_PREORDER.
+                 * Whether or not this book is available for sale or offered for free in the Google eBookstore for the country listed above. Possible values are FOR_SALE, FOR_RENTAL_ONLY,
+                 * FOR_SALE_AND_RENTAL, FREE, NOT_FOR_SALE, or FOR_PREORDER.
                  */
                 saleability?: string;
             };
@@ -776,10 +773,7 @@ declare namespace gapi.client {
             selfLink?: string;
             /** User specific information related to this volume. (e.g. page this user last read or whether they purchased this book) */
             userInfo?: {
-                /**
-                 * Timestamp when this volume was acquired by the user. (RFC 3339 UTC date-time format) Acquiring includes purchase, user upload, receiving family
-                 * sharing, etc.
-                 */
+                /** Timestamp when this volume was acquired by the user. (RFC 3339 UTC date-time format) Acquiring includes purchase, user upload, receiving family sharing, etc. */
                 acquiredTime?: string;
                 /** How this volume was acquired. */
                 acquisitionType?: number;
@@ -797,8 +791,8 @@ declare namespace gapi.client {
                     /** The role of the user in the family. */
                     familyRole?: string;
                     /**
-                     * Whether or not this volume can be shared with the family by the user. This includes sharing eligibility of both the volume and the user. If the value
-                     * is true, the user can initiate a family sharing action.
+                     * Whether or not this volume can be shared with the family by the user. This includes sharing eligibility of both the volume and the user. If the value is true, the user can
+                     * initiate a family sharing action.
                      */
                     isSharingAllowed?: boolean;
                     /** Whether or not sharing this volume is temporarily disabled due to issues with the Family Wallet. */
@@ -831,10 +825,7 @@ declare namespace gapi.client {
                 rentalState?: string;
                 /** This user's review of this volume, if one exists. */
                 review?: Review;
-                /**
-                 * Timestamp when this volume was last modified by a user action, such as a reading position update, volume purchase or writing a review. (RFC 3339 UTC
-                 * date-time format).
-                 */
+                /** Timestamp when this volume was last modified by a user action, such as a reading position update, volume purchase or writing a review. (RFC 3339 UTC date-time format). */
                 updated?: string;
                 userUploadedVolumeInfo?: {
                     processingState?: string;
@@ -856,10 +847,7 @@ declare namespace gapi.client {
                 comicsContent?: boolean;
                 /** An identifier for the version of the volume content (text & images). (In LITE projection) */
                 contentVersion?: string;
-                /**
-                 * A synopsis of the volume. The text of the description is formatted in HTML and includes simple formatting elements, such as b, i, and br tags. (In LITE
-                 * projection.)
-                 */
+                /** A synopsis of the volume. The text of the description is formatted in HTML and includes simple formatting elements, such as b, i, and br tags. (In LITE projection.) */
                 description?: string;
                 /** Physical dimensions of this volume. */
                 dimensions?: {
@@ -990,8 +978,8 @@ declare namespace gapi.client {
             /** The total number of volume annotations found. */
             totalItems?: number;
             /**
-             * The version string for all of the volume annotations in this layer (not just the ones in this response). Note: the version string doesn't apply to the
-             * annotation data, just the information in this response (e.g. the location of annotations in the book).
+             * The version string for all of the volume annotations in this layer (not just the ones in this response). Note: the version string doesn't apply to the annotation data, just the
+             * information in this response (e.g. the location of annotations in the book).
              */
             version?: string;
         }
@@ -1761,10 +1749,7 @@ declare namespace gapi.client {
                 /** The volume(s) to request download restrictions for. */
                 volumeIds?: string | string[];
             }): Request<Volumes>;
-            /**
-             * Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects
-             * will retain the existing value.
-             */
+            /** Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects will retain the existing value. */
             updateUserSettings(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;

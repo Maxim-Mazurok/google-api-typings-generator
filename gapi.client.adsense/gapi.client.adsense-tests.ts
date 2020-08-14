@@ -134,10 +134,7 @@ gapi.load('client', () => {
         await gapi.client.adsense.accounts.payments.list({
             accountId: "Test string",
         });
-        /**
-         * Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format
-         * specify "alt=csv" as a query parameter.
-         */
+        /** Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter. */
         await gapi.client.adsense.accounts.reports.generate({
             accountId: "Test string",
             currency: "Test string",
@@ -289,10 +286,7 @@ gapi.load('client', () => {
         await gapi.client.adsense.accounts.payments.list({
             accountId: "Test string",
         });
-        /**
-         * Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format
-         * specify "alt=csv" as a query parameter.
-         */
+        /** Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter. */
         await gapi.client.adsense.accounts.reports.generate({
             accountId: "Test string",
             currency: "Test string",
@@ -419,10 +413,7 @@ gapi.load('client', () => {
         });
         /** List the payments for this AdSense account. */
         await gapi.client.adsense.payments.list();
-        /**
-         * Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format
-         * specify "alt=csv" as a query parameter.
-         */
+        /** Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter. */
         await gapi.client.adsense.reports.generate({
             accountId: "Test string",
             currency: "Test string",

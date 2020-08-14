@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Semantic Tile API v1 1.0
 // Project: https://developers.google.com/maps/contact-sales/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -22,34 +25,30 @@ declare namespace gapi.client {
             /** True if the polygon is not entirely internal to the feature that it belongs to: that is, some of the edges are bordering another feature. */
             hasExternalEdges?: boolean;
             /**
-             * When has_external_edges is true, the polygon has some edges that border another feature. This field indicates the internal edges that do not border
-             * another feature. Each value is an index into the vertices array, and denotes the start vertex of the internal edge (the next vertex in the boundary
-             * loop is the end of the edge). If the selected vertex is the last vertex in the boundary loop, then the edge between that vertex and the starting vertex
-             * of the loop is internal. This field may be used for styling. For example, building parapets could be placed only on the external edges of a building
-             * polygon, or water could be lighter colored near the external edges of a body of water. If has_external_edges is false, all edges are internal and this
-             * field will be empty.
+             * When has_external_edges is true, the polygon has some edges that border another feature. This field indicates the internal edges that do not border another feature. Each value is an
+             * index into the vertices array, and denotes the start vertex of the internal edge (the next vertex in the boundary loop is the end of the edge). If the selected vertex is the last
+             * vertex in the boundary loop, then the edge between that vertex and the starting vertex of the loop is internal. This field may be used for styling. For example, building parapets
+             * could be placed only on the external edges of a building polygon, or water could be lighter colored near the external edges of a body of water. If has_external_edges is false, all
+             * edges are internal and this field will be empty.
              */
             internalEdges?: number[];
             /**
-             * Identifies the boundary loops of the polygon. Only set for INDEXED_TRIANGLE polygons. Each value is an index into the vertices array indicating the
-             * beginning of a loop. For instance, values of [2, 5] would indicate loop_data contained 3 loops with indices 0-1, 2-4, and 5-end. This may be used in
-             * conjunction with the internal_edges field for styling polygon boundaries. Note that an edge may be on a polygon boundary but still internal to the
-             * feature. For example, a feature split across multiple tiles will have an internal polygon boundary edge along the edge of the tile.
+             * Identifies the boundary loops of the polygon. Only set for INDEXED_TRIANGLE polygons. Each value is an index into the vertices array indicating the beginning of a loop. For
+             * instance, values of [2, 5] would indicate loop_data contained 3 loops with indices 0-1, 2-4, and 5-end. This may be used in conjunction with the internal_edges field for styling
+             * polygon boundaries. Note that an edge may be on a polygon boundary but still internal to the feature. For example, a feature split across multiple tiles will have an internal
+             * polygon boundary edge along the edge of the tile.
              */
             loopBreaks?: number[];
-            /**
-             * When the polygon encoding is of type INDEXED_TRIANGLES, this contains the indices of the triangle vertices in the vertex_offsets field. There are 3
-             * vertex indices per triangle.
-             */
+            /** When the polygon encoding is of type INDEXED_TRIANGLES, this contains the indices of the triangle vertices in the vertex_offsets field. There are 3 vertex indices per triangle. */
             triangleIndices?: number[];
             /** The polygon encoding type used for this area. */
             type?: string;
             /** The vertices present in the polygon defining the area. */
             vertexOffsets?: Vertex2DList;
             /**
-             * The z-ordering of this area. Areas with a lower z-order should be rendered beneath areas with a higher z-order. This z-ordering does not imply anything
-             * about the altitude of the line relative to the ground, but it can be used to prevent z-fighting during rendering on the client. This z-ordering can
-             * only be used to compare areas, and cannot be compared with the z_order field in the Line message. The z-order may be negative or zero.
+             * The z-ordering of this area. Areas with a lower z-order should be rendered beneath areas with a higher z-order. This z-ordering does not imply anything about the altitude of the
+             * line relative to the ground, but it can be used to prevent z-fighting during rendering on the client. This z-ordering can only be used to compare areas, and cannot be compared with
+             * the z_order field in the Line message. The z-order may be negative or zero.
              */
             zOrder?: number;
         }
@@ -59,8 +58,8 @@ declare namespace gapi.client {
             /** The z-value in local tile coordinates where the extruded area ends. */
             maxZ?: number;
             /**
-             * The z-value in local tile coordinates where the extruded area begins. This is non-zero for extruded areas that begin off the ground. For example, a
-             * building with a skybridge may have an extruded area component with a non-zero min_z.
+             * The z-value in local tile coordinates where the extruded area begins. This is non-zero for extruded areas that begin off the ground. For example, a building with a skybridge may
+             * have an extruded area component with a non-zero min_z.
              */
             minZ?: number;
         }
@@ -84,8 +83,8 @@ declare namespace gapi.client {
             /** Features present on this map tile. */
             features?: Feature[];
             /**
-             * Resource name of the tile. The tile resource name is prefixed by its collection ID `tiles/` followed by the resource ID, which encodes the tile's
-             * global x and y coordinates and zoom level as `@,,z`. For example, `tiles/@1,2,3z`.
+             * Resource name of the tile. The tile resource name is prefixed by its collection ID `tiles/` followed by the resource ID, which encodes the tile's global x and y coordinates and zoom
+             * level as `@,,z`. For example, `tiles/@1,2,3z`.
              */
             name?: string;
             /** Data providers for the data contained in this tile. */
@@ -93,9 +92,9 @@ declare namespace gapi.client {
             /** Tile response status code to support tile caching. */
             status?: string;
             /**
-             * An opaque value, usually less than 30 characters, that contains version info about this tile and the data that was used to generate it. The client
-             * should store this value in its tile cache and pass it back to the API in the client_tile_version_id field of subsequent tile requests in order to
-             * enable the API to detect when the new tile would be the same as the one the client already has in its cache. Also see STATUS_OK_DATA_UNCHANGED.
+             * An opaque value, usually less than 30 characters, that contains version info about this tile and the data that was used to generate it. The client should store this value in its
+             * tile cache and pass it back to the API in the client_tile_version_id field of subsequent tile requests in order to enable the API to detect when the new tile would be the same as
+             * the one the client already has in its cache. Also see STATUS_OK_DATA_UNCHANGED.
              */
             versionId?: string;
         }
@@ -103,8 +102,8 @@ declare namespace gapi.client {
             /** A multiplier applied to the altitude fields below to extract the actual altitudes in meters from the elevation grid. */
             altitudeMultiplier?: number;
             /**
-             * Rows of points containing altitude data making up the elevation grid. Each row is the same length. Rows are ordered from north to south. E.g: rows[0]
-             * is the north-most row, and rows[n] is the south-most row.
+             * Rows of points containing altitude data making up the elevation grid. Each row is the same length. Rows are ordered from north to south. E.g: rows[0] is the north-most row, and
+             * rows[n] is the south-most row.
              */
             rows?: Row[];
         }
@@ -122,10 +121,9 @@ declare namespace gapi.client {
             /** The vertices present in the polyline. */
             vertexOffsets?: Vertex2DList;
             /**
-             * The z-order of the line. Lines with a lower z-order should be rendered beneath lines with a higher z-order. This z-ordering does not imply anything
-             * about the altitude of the area relative to the ground, but it can be used to prevent z-fighting during rendering on the client. In general, larger and
-             * more important road features will have a higher z-order line associated with them. This z-ordering can only be used to compare lines, and cannot be
-             * compared with the z_order field in the Area message. The z-order may be negative or zero.
+             * The z-order of the line. Lines with a lower z-order should be rendered beneath lines with a higher z-order. This z-ordering does not imply anything about the altitude of the area
+             * relative to the ground, but it can be used to prevent z-fighting during rendering on the client. In general, larger and more important road features will have a higher z-order line
+             * associated with them. This z-ordering can only be used to compare lines, and cannot be compared with the z_order field in the Area message. The z-order may be negative or zero.
              */
             zOrder?: number;
         }
@@ -151,10 +149,9 @@ declare namespace gapi.client {
         }
         interface Row {
             /**
-             * The difference between each successive pair of altitudes, from west to east. The first, westmost point, is just the altitude rather than a diff. The
-             * units are specified by the altitude_multiplier parameter above; the value in meters is given by altitude_multiplier ∗ altitude_diffs[n]. The altitude
-             * row (in metres above sea level) can be reconstructed with: a[0] = altitude_diffs[0] ∗ altitude_multiplier when n > 0, a[n] = a[n-1] +
-             * altitude_diffs[n-1] ∗ altitude_multiplier.
+             * The difference between each successive pair of altitudes, from west to east. The first, westmost point, is just the altitude rather than a diff. The units are specified by the
+             * altitude_multiplier parameter above; the value in meters is given by altitude_multiplier * altitude_diffs[n]. The altitude row (in metres above sea level) can be reconstructed with:
+             * a[0] = altitude_diffs[0] * altitude_multiplier when n > 0, a[n] = a[n-1] + altitude_diffs[n-1] * altitude_multiplier.
              */
             altitudeDiffs?: number[];
         }
@@ -164,16 +161,14 @@ declare namespace gapi.client {
             /** The number of columns included in the encoded elevation data (i.e. the horizontal resolution of the grid). */
             columnCount?: number;
             /**
-             * A stream of elements each representing a point on the tile running across each row from left to right, top to bottom. There will be precisely
-             * horizontal_resolution ∗ vertical_resolution elements in the stream. The elements are not the heights, rather the second order derivative of the values
-             * one would expect in a stream of height data. Each element is a varint with the following encoding:
-             * ------------------------------------------------------------------------| | Head Nibble |
-             * ------------------------------------------------------------------------| | Bit 0 | Bit 1 | Bits 2-3 | | Terminator| Sign (1=neg) | Least significant 2
-             * bits of absolute error | ------------------------------------------------------------------------| | Tail Nibble #1 |
-             * ------------------------------------------------------------------------| | Bit 0 | Bit 1-3 | | Terminator| Least significant 3 bits of absolute error
-             * | ------------------------------------------------------------------------| | ... | Tail Nibble #n |
-             * ------------------------------------------------------------------------| | Bit 0 | Bit 1-3 | | Terminator| Least significant 3 bits of absolute error
-             * | ------------------------------------------------------------------------|
+             * A stream of elements each representing a point on the tile running across each row from left to right, top to bottom. There will be precisely horizontal_resolution *
+             * vertical_resolution elements in the stream. The elements are not the heights, rather the second order derivative of the values one would expect in a stream of height data. Each
+             * element is a varint with the following encoding: ------------------------------------------------------------------------| | Head Nibble |
+             * ------------------------------------------------------------------------| | Bit 0 | Bit 1 | Bits 2-3 | | Terminator| Sign (1=neg) | Least significant 2 bits of absolute error |
+             * ------------------------------------------------------------------------| | Tail Nibble #1 | ------------------------------------------------------------------------| | Bit 0 | Bit
+             * 1-3 | | Terminator| Least significant 3 bits of absolute error | ------------------------------------------------------------------------| | ... | Tail Nibble #n |
+             * ------------------------------------------------------------------------| | Bit 0 | Bit 1-3 | | Terminator| Least significant 3 bits of absolute error |
+             * ------------------------------------------------------------------------|
              */
             encodedData?: string;
             /** The number of rows included in the encoded elevation data (i.e. the vertical resolution of the grid). */
@@ -189,8 +184,8 @@ declare namespace gapi.client {
             /** Terrain elevation data encoded as a FirstDerivativeElevationGrid. */
             firstDerivative?: FirstDerivativeElevationGrid;
             /**
-             * Resource name of the tile. The tile resource name is prefixed by its collection ID `terrain/` followed by the resource ID, which encodes the tile's
-             * global x and y coordinates and zoom level as `@,,z`. For example, `terrain/@1,2,3z`.
+             * Resource name of the tile. The tile resource name is prefixed by its collection ID `terrain/` followed by the resource ID, which encodes the tile's global x and y coordinates and
+             * zoom level as `@,,z`. For example, `terrain/@1,2,3z`.
              */
             name?: string;
             /** Terrain elevation data encoded as a SecondDerivativeElevationGrid. . */
@@ -246,40 +241,32 @@ declare namespace gapi.client {
                 /** Platform where the application is running. */
                 "clientInfo.platform"?: string;
                 /**
-                 * Required. A client-generated user ID. The ID should be generated and persisted during the first user session or whenever a pre-existing ID is not
-                 * found. The exact format is up to the client. This must be non-empty in a GetFeatureTileRequest (whether via the header or
-                 * GetFeatureTileRequest.client_info).
+                 * Required. A client-generated user ID. The ID should be generated and persisted during the first user session or whenever a pre-existing ID is not found. The exact format is up
+                 * to the client. This must be non-empty in a GetFeatureTileRequest (whether via the header or GetFeatureTileRequest.client_info).
                  */
                 "clientInfo.userId"?: string;
                 /**
-                 * Optional version id identifying the tile that is already in the client's cache. This field should be populated with the most recent version_id value
-                 * returned by the API for the requested tile. If the version id is empty the server always returns a newly rendered tile. If it is provided the server
-                 * checks if the tile contents would be identical to one that's already on the client, and if so, returns a stripped-down response tile with
-                 * STATUS_OK_DATA_UNCHANGED instead.
+                 * Optional version id identifying the tile that is already in the client's cache. This field should be populated with the most recent version_id value returned by the API for the
+                 * requested tile. If the version id is empty the server always returns a newly rendered tile. If it is provided the server checks if the tile contents would be identical to one
+                 * that's already on the client, and if so, returns a stripped-down response tile with STATUS_OK_DATA_UNCHANGED instead.
                  */
                 clientTileVersionId?: string;
                 /**
-                 * Flag indicating whether detailed highway types should be returned. If this is set, the CONTROLLED_ACCESS_HIGHWAY type may be returned. If not, then
-                 * these highways will have the generic HIGHWAY type. This exists for backwards compatibility reasons.
+                 * Flag indicating whether detailed highway types should be returned. If this is set, the CONTROLLED_ACCESS_HIGHWAY type may be returned. If not, then these highways will have the
+                 * generic HIGHWAY type. This exists for backwards compatibility reasons.
                  */
                 enableDetailedHighwayTypes?: boolean;
                 /** Flag indicating whether human-readable names should be returned for features. If this is set, the display_name field on the feature will be filled out. */
                 enableFeatureNames?: boolean;
-                /**
-                 * Flag indicating whether 3D building models should be enabled. If this is set structures will be returned as 3D modeled volumes rather than 2.5D
-                 * extruded areas where possible.
-                 */
+                /** Flag indicating whether 3D building models should be enabled. If this is set structures will be returned as 3D modeled volumes rather than 2.5D extruded areas where possible. */
                 enableModeledVolumes?: boolean;
                 /** Flag indicating whether political features should be returned. */
                 enablePoliticalFeatures?: boolean;
-                /**
-                 * Flag indicating whether the returned tile will contain road features that are marked private. Private roads are indicated by the
-                 * Feature.segment_info.road_info.is_private field.
-                 */
+                /** Flag indicating whether the returned tile will contain road features that are marked private. Private roads are indicated by the Feature.segment_info.road_info.is_private field. */
                 enablePrivateRoads?: boolean;
                 /**
-                 * Flag indicating whether unclipped buildings should be returned. If this is set, building render ops will extend beyond the tile boundary. Buildings
-                 * will only be returned on the tile that contains their centroid.
+                 * Flag indicating whether unclipped buildings should be returned. If this is set, building render ops will extend beyond the tile boundary. Buildings will only be returned on the
+                 * tile that contains their centroid.
                  */
                 enableUnclippedBuildings?: boolean;
                 /** Selector specifying which fields to include in a partial response. */
@@ -287,13 +274,13 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The BCP-47 language code corresponding to the language in which the name was requested, such as "en-US" or "sr-Latn". For more information,
-                 * see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+                 * Required. The BCP-47 language code corresponding to the language in which the name was requested, such as "en-US" or "sr-Latn". For more information, see
+                 * http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
                  */
                 languageCode?: string;
                 /**
-                 * Required. Resource name of the tile. The tile resource name is prefixed by its collection ID `tiles/` followed by the resource ID, which encodes the
-                 * tile's global x and y coordinates and zoom level as `@,,z`. For example, `tiles/@1,2,3z`.
+                 * Required. Resource name of the tile. The tile resource name is prefixed by its collection ID `tiles/` followed by the resource ID, which encodes the tile's global x and y
+                 * coordinates and zoom level as `@,,z`. For example, `tiles/@1,2,3z`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -303,8 +290,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Required. The Unicode country/region code (CLDR) of the location from which the request is coming from, such as "US" and "419". For more information,
-                 * see http://www.unicode.org/reports/tr35/#unicode_region_subtag.
+                 * Required. The Unicode country/region code (CLDR) of the location from which the request is coming from, such as "US" and "419". For more information, see
+                 * http://www.unicode.org/reports/tr35/#unicode_region_subtag.
                  */
                 regionCode?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -339,9 +326,8 @@ declare namespace gapi.client {
                 /** Platform where the application is running. */
                 "clientInfo.platform"?: string;
                 /**
-                 * Required. A client-generated user ID. The ID should be generated and persisted during the first user session or whenever a pre-existing ID is not
-                 * found. The exact format is up to the client. This must be non-empty in a GetFeatureTileRequest (whether via the header or
-                 * GetFeatureTileRequest.client_info).
+                 * Required. A client-generated user ID. The ID should be generated and persisted during the first user session or whenever a pre-existing ID is not found. The exact format is up
+                 * to the client. This must be non-empty in a GetFeatureTileRequest (whether via the header or GetFeatureTileRequest.client_info).
                  */
                 "clientInfo.userId"?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -349,22 +335,20 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The maximum allowed resolution for the returned elevation heightmap. Possible values: between 1 and 1024 (and not less than
-                 * min_elevation_resolution_cells). Over-sized heightmaps will be non-uniformly down-sampled such that each edge is no longer than this value.
-                 * Non-uniformity is chosen to maximise the amount of preserved data. For example: Original resolution: 100px (width) ∗ 30px (height)
-                 * max_elevation_resolution: 30 New resolution: 30px (width) ∗ 30px (height)
+                 * The maximum allowed resolution for the returned elevation heightmap. Possible values: between 1 and 1024 (and not less than min_elevation_resolution_cells). Over-sized
+                 * heightmaps will be non-uniformly down-sampled such that each edge is no longer than this value. Non-uniformity is chosen to maximise the amount of preserved data. For example:
+                 * Original resolution: 100px (width) * 30px (height) max_elevation_resolution: 30 New resolution: 30px (width) * 30px (height)
                  */
                 maxElevationResolutionCells?: number;
                 /**
-                 * The minimum allowed resolution for the returned elevation heightmap. Possible values: between 0 and 1024 (and not more than
-                 * max_elevation_resolution_cells). Zero is supported for backward compatibility. Under-sized heightmaps will be non-uniformly up-sampled such that each
-                 * edge is no shorter than this value. Non-uniformity is chosen to maximise the amount of preserved data. For example: Original resolution: 30px (width) ∗
-                 * 10px (height) min_elevation_resolution: 30 New resolution: 30px (width) ∗ 30px (height)
+                 * The minimum allowed resolution for the returned elevation heightmap. Possible values: between 0 and 1024 (and not more than max_elevation_resolution_cells). Zero is supported
+                 * for backward compatibility. Under-sized heightmaps will be non-uniformly up-sampled such that each edge is no shorter than this value. Non-uniformity is chosen to maximise the
+                 * amount of preserved data. For example: Original resolution: 30px (width) * 10px (height) min_elevation_resolution: 30 New resolution: 30px (width) * 30px (height)
                  */
                 minElevationResolutionCells?: number;
                 /**
-                 * Required. Resource name of the tile. The tile resource name is prefixed by its collection ID `terraintiles/` followed by the resource ID, which encodes
-                 * the tile's global x and y coordinates and zoom level as `@,,z`. For example, `terraintiles/@1,2,3z`.
+                 * Required. Resource name of the tile. The tile resource name is prefixed by its collection ID `terraintiles/` followed by the resource ID, which encodes the tile's global x and y
+                 * coordinates and zoom level as `@,,z`. For example, `terraintiles/@1,2,3z`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */

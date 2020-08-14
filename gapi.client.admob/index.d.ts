@@ -1,6 +1,9 @@
 // Type definitions for non-npm package AdMob API v1 1.0
 // Project: https://developers.google.com/admob/api/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -19,10 +22,7 @@ declare namespace gapi.client {
 
     namespace admob {
         interface Date {
-            /**
-             * Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not
-             * significant.
-             */
+            /** Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if specifying a year by itself or a year and month where the day is not significant. */
             day?: number;
             /** Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day. */
             month?: number;
@@ -67,14 +67,11 @@ declare namespace gapi.client {
         }
         interface LocalizationSettings {
             /**
-             * Currency code of the earning related metrics, which is the 3-letter code defined in ISO 4217. The daily average rate is used for the currency
-             * conversion. Defaults to the account currency code if unspecified.
+             * Currency code of the earning related metrics, which is the 3-letter code defined in ISO 4217. The daily average rate is used for the currency conversion. Defaults to the account
+             * currency code if unspecified.
              */
             currencyCode?: string;
-            /**
-             * Language used for any localized text, such as some dimension value display labels. The language tag defined in the IETF BCP47. Defaults to 'en-US' if
-             * unspecified.
-             */
+            /** Language used for any localized text, such as some dimension value display labels. The language tag defined in the IETF BCP47. Defaults to 'en-US' if unspecified. */
             languageCode?: string;
         }
         interface MediationReportSpec {
@@ -83,27 +80,27 @@ declare namespace gapi.client {
             /** Describes which report rows to match based on their dimension values. */
             dimensionFilters?: MediationReportSpecDimensionFilter[];
             /**
-             * List of dimensions of the report. The value combination of these dimensions determines the row of the report. If no dimensions are specified, the
-             * report returns a single row of requested metrics for the entire account.
+             * List of dimensions of the report. The value combination of these dimensions determines the row of the report. If no dimensions are specified, the report returns a single row of
+             * requested metrics for the entire account.
              */
             dimensions?: string[];
             /** Localization settings of the report. */
             localizationSettings?: LocalizationSettings;
             /**
-             * Maximum number of report data rows to return. If the value is not set, the API returns as many rows as possible, up to 100000. Acceptable values are
-             * 1-100000, inclusive. Any other values are treated as 100000.
+             * Maximum number of report data rows to return. If the value is not set, the API returns as many rows as possible, up to 100000. Acceptable values are 1-100000, inclusive. Any other
+             * values are treated as 100000.
              */
             maxReportRows?: number;
             /** List of metrics of the report. A report must specify at least one metric. */
             metrics?: string[];
             /**
-             * Describes the sorting of report rows. The order of the condition in the list defines its precedence; the earlier the condition, the higher its
-             * precedence. If no sort conditions are specified, the row ordering is undefined.
+             * Describes the sorting of report rows. The order of the condition in the list defines its precedence; the earlier the condition, the higher its precedence. If no sort conditions are
+             * specified, the row ordering is undefined.
              */
             sortConditions?: MediationReportSpecSortCondition[];
             /**
-             * A report time zone. Accepts an IANA TZ name values, such as "America/Los_Angeles." If no time zone is defined, the account default takes effect. Check
-             * default value by the get account action. ∗∗Warning:∗∗ The "America/Los_Angeles" is the only supported value at the moment.
+             * A report time zone. Accepts an IANA TZ name values, such as "America/Los_Angeles." If no time zone is defined, the account default takes effect. Check default value by the get
+             * account action. **Warning:** The "America/Los_Angeles" is the only supported value at the moment.
              */
             timeZone?: string;
         }
@@ -127,27 +124,27 @@ declare namespace gapi.client {
             /** Describes which report rows to match based on their dimension values. */
             dimensionFilters?: NetworkReportSpecDimensionFilter[];
             /**
-             * List of dimensions of the report. The value combination of these dimensions determines the row of the report. If no dimensions are specified, the
-             * report returns a single row of requested metrics for the entire account.
+             * List of dimensions of the report. The value combination of these dimensions determines the row of the report. If no dimensions are specified, the report returns a single row of
+             * requested metrics for the entire account.
              */
             dimensions?: string[];
             /** Localization settings of the report. */
             localizationSettings?: LocalizationSettings;
             /**
-             * Maximum number of report data rows to return. If the value is not set, the API returns as many rows as possible, up to 100000. Acceptable values are
-             * 1-100000, inclusive. Any other values are treated as 100000.
+             * Maximum number of report data rows to return. If the value is not set, the API returns as many rows as possible, up to 100000. Acceptable values are 1-100000, inclusive. Any other
+             * values are treated as 100000.
              */
             maxReportRows?: number;
             /** List of metrics of the report. A report must specify at least one metric. */
             metrics?: string[];
             /**
-             * Describes the sorting of report rows. The order of the condition in the list defines its precedence; the earlier the condition, the higher its
-             * precedence. If no sort conditions are specified, the row ordering is undefined.
+             * Describes the sorting of report rows. The order of the condition in the list defines its precedence; the earlier the condition, the higher its precedence. If no sort conditions are
+             * specified, the row ordering is undefined.
              */
             sortConditions?: NetworkReportSpecSortCondition[];
             /**
-             * A report time zone. Accepts an IANA TZ name values, such as "America/Los_Angeles." If no time zone is defined, the account default takes effect. Check
-             * default value by the get account action. ∗∗Warning:∗∗ The "America/Los_Angeles" is the only supported value at the moment.
+             * A report time zone. Accepts an IANA TZ name values, such as "America/Los_Angeles." If no time zone is defined, the account default takes effect. Check default value by the get
+             * account action. **Warning:** The "America/Los_Angeles" is the only supported value at the moment.
              */
             timeZone?: string;
         }
@@ -166,25 +163,19 @@ declare namespace gapi.client {
             order?: string;
         }
         interface PublisherAccount {
-            /**
-             * Currency code of the earning-related metrics, which is the 3-letter code defined in ISO 4217. The daily average rate is used for the currency
-             * conversion.
-             */
+            /** Currency code of the earning-related metrics, which is the 3-letter code defined in ISO 4217. The daily average rate is used for the currency conversion. */
             currencyCode?: string;
             /** Resource name of this account. Format is accounts/{publisher_id}. */
             name?: string;
             /** The unique ID by which this publisher account can be identified in the API requests (for example, pub-1234567890). */
             publisherId?: string;
-            /**
-             * The time zone that is used in reports that are generated for this account. The value is a time-zone ID as specified by the CLDR project, for example,
-             * "America/Los_Angeles".
-             */
+            /** The time zone that is used in reports that are generated for this account. The value is a time-zone ID as specified by the CLDR project, for example, "America/Los_Angeles". */
             reportingTimeZone?: string;
         }
         interface ReportFooter {
             /**
-             * Total number of rows that matched the request. Warning: This count does NOT always match the number of rows in the response. Do not make that
-             * assumption when processing the response.
+             * Total number of rows that matched the request. Warning: This count does NOT always match the number of rows in the response. Do not make that assumption when processing the
+             * response.
              */
             matchingRowCount?: string;
             /** Warnings associated with generation of the report. */
@@ -216,8 +207,8 @@ declare namespace gapi.client {
             /** Metric integer value. */
             integerValue?: string;
             /**
-             * Amount in micros. One million is equivalent to one unit. Currency value is in the unit (USD, EUR or other) specified by the request. For example, $6.50
-             * whould be represented as 6500000 micros.
+             * Amount in micros. One million is equivalent to one unit. Currency value is in the unit (USD, EUR or other) specified by the request. For example, $6.50 whould be represented as
+             * 6500000 micros.
              */
             microsValue?: string;
         }
@@ -394,8 +385,8 @@ declare namespace gapi.client {
                 /** Maximum number of accounts to return. */
                 pageSize?: number;
                 /**
-                 * The value returned by the last `ListPublisherAccountsResponse`; indicates that this is a continuation of a prior `ListPublisherAccounts` call, and that
-                 * the system should return the next page of data.
+                 * The value returned by the last `ListPublisherAccountsResponse`; indicates that this is a continuation of a prior `ListPublisherAccounts` call, and that the system should return
+                 * the next page of data.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */

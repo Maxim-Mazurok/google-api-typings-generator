@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Google+ API v1 1.0
 // Project: https://developers.google.com/+/api/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -45,10 +48,7 @@ declare namespace gapi.client {
                 id?: string;
                 /** The image representation of the actor. */
                 image?: {
-                    /**
-                     * The URL of the actor's profile photo. To resize the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of
-                     * each side.
-                     */
+                    /** The URL of the actor's profile photo. To resize the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of each side. */
                     url?: string;
                 };
                 /** An object representation of the individual components of name. */
@@ -84,10 +84,7 @@ declare namespace gapi.client {
             location?: Place;
             /** The object of this activity. */
             object?: {
-                /**
-                 * If this activity's object is itself another activity, such as when a person reshares an activity, this property specifies the original activity's
-                 * actor.
-                 */
+                /** If this activity's object is itself another activity, such as when a person reshares an activity, this property specifies the original activity's actor. */
                 actor?: {
                     /** Actor info specific to particular clients. */
                     clientSpecificActorInfo?: {
@@ -191,8 +188,8 @@ declare namespace gapi.client {
                  */
                 objectType?: string;
                 /**
-                 * The content (text) as provided by the author, which is stored without any HTML formatting. When creating or updating an activity, this value must be
-                 * supplied as plain text in the request.
+                 * The content (text) as provided by the author, which is stored without any HTML formatting. When creating or updating an activity, this value must be supplied as plain text in
+                 * the request.
                  */
                 originalContent?: string;
                 /** People who +1'd this activity. */
@@ -282,10 +279,7 @@ declare namespace gapi.client {
                 id?: string;
                 /** The image representation of this actor. */
                 image?: {
-                    /**
-                     * The URL of the actor's profile photo. To resize the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of
-                     * each side.
-                     */
+                    /** The URL of the actor's profile photo. To resize the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of each side. */
                     url?: string;
                 };
                 /** A link to the Person resource for this actor. */
@@ -318,10 +312,7 @@ declare namespace gapi.client {
                  * - "comment" - A comment in reply to an activity.
                  */
                 objectType?: string;
-                /**
-                 * The content (text) as provided by the author, stored without any HTML formatting. When creating or updating a comment, this value must be supplied as
-                 * plain text in the request.
-                 */
+                /** The content (text) as provided by the author, stored without any HTML formatting. When creating or updating a comment, this value must be supplied as plain text in the request. */
                 originalContent?: string;
             };
             /** People who +1'd this comment. */
@@ -362,10 +353,7 @@ declare namespace gapi.client {
         interface PeopleFeed {
             /** ETag of this response for caching purposes. */
             etag?: string;
-            /**
-             * The people in this page of results. Each item includes the id, displayName, image, and url for the person. To retrieve additional profile data, see the
-             * people.get method.
-             */
+            /** The people in this page of results. Each item includes the id, displayName, image, and url for the person. To retrieve additional profile data, see the people.get method. */
             items?: Person[];
             /** Identifies this resource as a collection of people. Value: "plus#peopleFeed". */
             kind?: string;
@@ -375,19 +363,13 @@ declare namespace gapi.client {
             selfLink?: string;
             /** The title of this collection of people. */
             title?: string;
-            /**
-             * The total number of people available in this list. The number of people in a response might be smaller due to paging. This might not be set for all
-             * collections.
-             */
+            /** The total number of people available in this list. The number of people in a response might be smaller due to paging. This might not be set for all collections. */
             totalItems?: number;
         }
         interface Person {
             /** A short biography for this person. */
             aboutMe?: string;
-            /**
-             * The age range of the person. Valid ranges are 17 or younger, 18 to 20, and 21 or older. Age is determined from the user's birthday using Western age
-             * reckoning.
-             */
+            /** The age range of the person. Valid ranges are 17 or younger, 18 to 20, and 21 or older. Age is determined from the user's birthday using Western age reckoning. */
             ageRange?: {
                 /**
                  * The age range's upper bound, if any. Possible values include, but are not limited to, the following:
@@ -436,15 +418,11 @@ declare namespace gapi.client {
             currentLocation?: string;
             /** The name of this person, which is suitable for display. */
             displayName?: string;
-            /**
-             * The hosted domain name for the user's Google Apps account. For instance, example.com. The plus.profile.emails.read or email scope is needed to get this
-             * domain name.
-             */
+            /** The hosted domain name for the user's Google Apps account. For instance, example.com. The plus.profile.emails.read or email scope is needed to get this domain name. */
             domain?: string;
             /**
-             * A list of email addresses that this person has, including their Google account email address, and the public verified email addresses on their Google+
-             * profile. The plus.profile.emails.read scope is needed to retrieve these email addresses, or the email scope can be used to retrieve just the Google
-             * account email address.
+             * A list of email addresses that this person has, including their Google account email address, and the public verified email addresses on their Google+ profile. The
+             * plus.profile.emails.read scope is needed to retrieve these email addresses, or the email scope can be used to retrieve just the Google account email address.
              */
             emails?: Array<{
                 /**
@@ -473,10 +451,7 @@ declare namespace gapi.client {
             image?: {
                 /** Whether the person's profile photo is the default one */
                 isDefault?: boolean;
-                /**
-                 * The URL of the person's profile photo. To resize the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels
-                 * of each side.
-                 */
+                /** The URL of the person's profile photo. To resize the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of each side. */
                 url?: string;
             };
             /** Whether this user has signed up for Google+. */
@@ -647,16 +622,13 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * The maximum number of activities to include in the response, which is used for paging. For any response, the actual number returned might be less than
-                 * the specified maxResults.
-                 */
+                /** The maximum number of activities to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults. */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of
-                 * "nextPageToken" from the previous response.
+                 * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous
+                 * response.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -678,18 +650,15 @@ declare namespace gapi.client {
                 key?: string;
                 /** Specify the preferred language to search with. See search language codes for available values. */
                 language?: string;
-                /**
-                 * The maximum number of activities to include in the response, which is used for paging. For any response, the actual number returned might be less than
-                 * the specified maxResults.
-                 */
+                /** The maximum number of activities to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults. */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /** Specifies how to order search results. */
                 orderBy?: string;
                 /**
-                 * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of
-                 * "nextPageToken" from the previous response. This token can be of any length.
+                 * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous
+                 * response. This token can be of any length.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -732,16 +701,13 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * The maximum number of comments to include in the response, which is used for paging. For any response, the actual number returned might be less than
-                 * the specified maxResults.
-                 */
+                /** The maximum number of comments to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults. */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of
-                 * "nextPageToken" from the previous response.
+                 * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous
+                 * response.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -784,18 +750,15 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the
-                 * specified maxResults.
-                 */
+                /** The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults. */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /** The order to return people in. */
                 orderBy?: string;
                 /**
-                 * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of
-                 * "nextPageToken" from the previous response.
+                 * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous
+                 * response.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -819,16 +782,13 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the
-                 * specified maxResults.
-                 */
+                /** The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults. */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of
-                 * "nextPageToken" from the previous response.
+                 * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous
+                 * response.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -848,16 +808,13 @@ declare namespace gapi.client {
                 key?: string;
                 /** Specify the preferred language to search with. See search language codes for available values. */
                 language?: string;
-                /**
-                 * The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the
-                 * specified maxResults.
-                 */
+                /** The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults. */
                 maxResults?: number;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of
-                 * "nextPageToken" from the previous response. This token can be of any length.
+                 * The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous
+                 * response. This token can be of any length.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */

@@ -197,10 +197,7 @@ gapi.load('client', () => {
             project: "Test string",
             zone: "Test string",
         });
-        /**
-         * Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge
-         * patch format and processing rules.
-         */
+        /** Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.autoscalers.patch({
             autoscaler: "Test string",
             project: "Test string",
@@ -354,10 +351,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
         });
-        /**
-         * Updates the specified BackendBucket resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch
-         * format and processing rules.
-         */
+        /** Updates the specified BackendBucket resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.backendBuckets.patch({
             backendBucket: "Test string",
             project: "Test string",
@@ -446,10 +440,7 @@ gapi.load('client', () => {
         }, {
             group: "Test string",
         });
-        /**
-         * Creates a BackendService resource in the specified project using the data included in the request. For more information, see  Backend services
-         * overview.
-         */
+        /** Creates a BackendService resource in the specified project using the data included in the request. For more information, see  Backend services overview. */
         await gapi.client.compute.backendServices.insert({
             project: "Test string",
             requestId: "Test string",
@@ -572,8 +563,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Patches the specified BackendService resource with the data included in the request. For more information, see  Backend services overview. This method
-         * supports PATCH semantics and uses the JSON merge patch format and processing rules.
+         * Patches the specified BackendService resource with the data included in the request. For more information, see  Backend services overview. This method supports PATCH semantics and uses
+         * the JSON merge patch format and processing rules.
          */
         await gapi.client.compute.backendServices.patch({
             backendService: "Test string",
@@ -876,8 +867,8 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Deletes the specified persistent disk. Deleting a disk removes its data permanently and is irreversible. However, deleting a disk does not delete any
-         * snapshots previously made from the disk. You must separately delete snapshots.
+         * Deletes the specified persistent disk. Deleting a disk removes its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the
+         * disk. You must separately delete snapshots.
          */
         await gapi.client.compute.disks.delete({
             disk: "Test string",
@@ -899,9 +890,8 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Creates a persistent disk in the specified project using the data in the request. You can create a disk from a source (sourceImage, sourceSnapshot, or
-         * sourceDisk) or create an empty 500 GB data disk by omitting all properties. You can also create a disk that is larger than the default size by
-         * specifying the sizeGb property.
+         * Creates a persistent disk in the specified project using the data in the request. You can create a disk from a source (sourceImage, sourceSnapshot, or sourceDisk) or create an empty 500
+         * GB data disk by omitting all properties. You can also create a disk that is larger than the default size by specifying the sizeGb property.
          */
         await gapi.client.compute.disks.insert({
             project: "Test string",
@@ -1249,10 +1239,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
         });
-        /**
-         * Updates the specified firewall rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format
-         * and processing rules.
-         */
+        /** Updates the specified firewall rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.firewalls.patch({
             firewall: "Test string",
             project: "Test string",
@@ -1298,8 +1285,8 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Updates the specified firewall rule with the data included in the request. Note that all fields will be updated if using PUT, even fields that are not
-         * specified. To update individual fields, please use PATCH instead.
+         * Updates the specified firewall rule with the data included in the request. Note that all fields will be updated if using PUT, even fields that are not specified. To update individual
+         * fields, please use PATCH instead.
          */
         await gapi.client.compute.firewalls.update({
             firewall: "Test string",
@@ -1418,8 +1405,8 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format
-         * and processing rules. Currently, you can only patch the network_tier field.
+         * Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. Currently,
+         * you can only patch the network_tier field.
          */
         await gapi.client.compute.forwardingRules.patch({
             forwardingRule: "Test string",
@@ -1574,8 +1561,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format
-         * and processing rules. Currently, you can only patch the network_tier field.
+         * Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. Currently,
+         * you can only patch the network_tier field.
          */
         await gapi.client.compute.globalForwardingRules.patch({
             forwardingRule: "Test string",
@@ -1748,15 +1735,12 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified
-         * Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the
-         * current state of the operation, which might be `DONE` or still in progress.
+         * Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs
+         * from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress.
          *
          * This method is called on a best-effort basis. Specifically:
-         * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero
-         * seconds.
-         * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
-         * operation is not `DONE`.
+         * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds.
+         * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`.
          */
         await gapi.client.compute.globalOperations.wait({
             operation: "Test string",
@@ -1858,8 +1842,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON
-         * merge patch format and processing rules.
+         * Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing
+         * rules.
          */
         await gapi.client.compute.healthChecks.patch({
             healthCheck: "Test string",
@@ -2035,8 +2019,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Updates a HttpHealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the
-         * JSON merge patch format and processing rules.
+         * Updates a HttpHealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and
+         * processing rules.
          */
         await gapi.client.compute.httpHealthChecks.patch({
             httpHealthCheck: "Test string",
@@ -2116,8 +2100,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Updates a HttpsHealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the
-         * JSON merge patch format and processing rules.
+         * Updates a HttpsHealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and
+         * processing rules.
          */
         await gapi.client.compute.httpsHealthChecks.patch({
             httpsHealthCheck: "Test string",
@@ -2291,9 +2275,9 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Retrieves the list of custom images available to the specified project. Custom images are images you create that belong to your project. This method
-         * does not get any images that belong to other projects, including publicly-available images, like Debian 8. If you want to get a list of
-         * publicly-available images, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud.
+         * Retrieves the list of custom images available to the specified project. Custom images are images you create that belong to your project. This method does not get any images that belong
+         * to other projects, including publicly-available images, like Debian 8. If you want to get a list of publicly-available images, use this method to make a request to the respective image
+         * project, such as debian-cloud or windows-cloud.
          */
         await gapi.client.compute.images.list({
             filter: "Test string",
@@ -2410,13 +2394,13 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Flags the specified instances to be removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove
-         * the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by
-         * the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed
-         * from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method.
+         * Flags the specified instances to be removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools
+         * that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as
+         * DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the
+         * listmanagedinstances method.
          *
-         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has
-         * elapsed before the VM instance is removed or deleted.
+         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is
+         * removed or deleted.
          *
          * You can specify a maximum of 1000 instances with this method per request.
          */
@@ -2450,9 +2434,9 @@ gapi.load('client', () => {
             mostDisruptiveAllowedAction: "Test string",
         });
         /**
-         * Creates instances with per-instance configs in this managed instance group. Instances are created using the current instance template. The create
-         * instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must separately
-         * verify the status of the creating or actions with the listmanagedinstances method.
+         * Creates instances with per-instance configs in this managed instance group. Instances are created using the current instance template. The create instances operation is marked DONE if
+         * the createInstances request is successful. The underlying actions take additional time. You must separately verify the status of the creating or actions with the listmanagedinstances
+         * method.
          */
         await gapi.client.compute.instanceGroupManagers.createInstances({
             instanceGroupManager: "Test string",
@@ -2478,8 +2462,8 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Deletes the specified managed instance group and all of the instances in that group. Note that the instance group must not belong to a backend service.
-         * Read  Deleting an instance group for more information.
+         * Deletes the specified managed instance group and all of the instances in that group. Note that the instance group must not belong to a backend service. Read  Deleting an instance group
+         * for more information.
          */
         await gapi.client.compute.instanceGroupManagers.delete({
             instanceGroupManager: "Test string",
@@ -2488,13 +2472,12 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Flags the specified instances in the managed instance group for immediate deletion. The instances are also removed from any target pools of which they
-         * were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. This operation is marked as
-         * DONE when the action is scheduled even if the instances are still being deleted. You must separately verify the status of the deleting action with the
-         * listmanagedinstances method.
+         * Flags the specified instances in the managed instance group for immediate deletion. The instances are also removed from any target pools of which they were a member. This method reduces
+         * the targetSize of the managed instance group by the number of instances that you delete. This operation is marked as DONE when the action is scheduled even if the instances are still
+         * being deleted. You must separately verify the status of the deleting action with the listmanagedinstances method.
          *
-         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has
-         * elapsed before the VM instance is removed or deleted.
+         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is
+         * removed or deleted.
          *
          * You can specify a maximum of 1000 instances with this method per request.
          */
@@ -2523,9 +2506,9 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created
-         * using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been
-         * created. You must separately verify the status of the individual instances with the listmanagedinstances method.
+         * Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance
+         * template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the
+         * individual instances with the listmanagedinstances method.
          *
          * A managed instance group can have up to 1000 VM instances per group. Please contact Cloud Support if you need an increase in this limit.
          */
@@ -2644,9 +2627,9 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Lists all of the instances in the managed instance group. Each instance in the list has a currentAction, which indicates the action that the managed
-         * instance group is performing on the instance. For example, if the group is still creating an instance, the currentAction is CREATING. If a previous
-         * action failed, the list displays the errors for that failed action. The orderBy query parameter is not supported.
+         * Lists all of the instances in the managed instance group. Each instance in the list has a currentAction, which indicates the action that the managed instance group is performing on the
+         * instance. For example, if the group is still creating an instance, the currentAction is CREATING. If a previous action failed, the list displays the errors for that failed action. The
+         * orderBy query parameter is not supported.
          */
         await gapi.client.compute.instanceGroupManagers.listManagedInstances({
             filter: "Test string",
@@ -2668,9 +2651,9 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even
-         * if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the
-         * listManagedInstances method. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+         * Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even if the instances in the group are
+         * still in the process of being patched. You must separately verify the status of the individual instances with the listManagedInstances method. This method supports PATCH semantics and
+         * uses the JSON merge patch format and processing rules.
          */
         await gapi.client.compute.instanceGroupManagers.patch({
             instanceGroupManager: "Test string",
@@ -2768,10 +2751,7 @@ gapi.load('client', () => {
                 }            ],
             zone: "Test string",
         });
-        /**
-         * Inserts or patches per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform
-         * insert or patch.
-         */
+        /** Inserts or patches per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. */
         await gapi.client.compute.instanceGroupManagers.patchPerInstanceConfigs({
             instanceGroupManager: "Test string",
             project: "Test string",
@@ -2796,12 +2776,12 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current
-         * instance template for the managed instance group. This operation is marked as DONE when the flag is set even if the instances have not yet been
-         * recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.
+         * Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current instance template for the managed
+         * instance group. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of the recreating action
+         * with the listmanagedinstances method.
          *
-         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has
-         * elapsed before the VM instance is removed or deleted.
+         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is
+         * removed or deleted.
          *
          * You can specify a maximum of 1000 instances with this method per request.
          */
@@ -2815,20 +2795,19 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Resizes the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the
-         * size, the group deletes instances. The resize operation is marked DONE when the resize actions are scheduled even if the group has not yet added or
-         * deleted any instances. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method.
+         * Resizes the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the size, the group deletes instances.
+         * The resize operation is marked DONE when the resize actions are scheduled even if the group has not yet added or deleted any instances. You must separately verify the status of the
+         * creating or deleting actions with the listmanagedinstances method.
          *
-         * When resizing down, the instance group arbitrarily chooses the order in which VMs are deleted. The group takes into account some VM attributes when
-         * making the selection including:
+         * When resizing down, the instance group arbitrarily chooses the order in which VMs are deleted. The group takes into account some VM attributes when making the selection including:
          *
-         * + The status of the VM instance. + The health of the VM instance. + The instance template version the VM is based on. + For regional managed instance
-         * groups, the location of the VM instance.
+         * + The status of the VM instance. + The health of the VM instance. + The instance template version the VM is based on. + For regional managed instance groups, the location of the VM
+         * instance.
          *
          * This list is subject to change.
          *
-         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has
-         * elapsed before the VM instance is removed or deleted.
+         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is
+         * removed or deleted.
          */
         await gapi.client.compute.instanceGroupManagers.resize({
             instanceGroupManager: "Test string",
@@ -2837,10 +2816,7 @@ gapi.load('client', () => {
             size: 42,
             zone: "Test string",
         });
-        /**
-         * Specifies the instance template to use when creating new instances in this group. The templates for existing instances in the group do not change
-         * unless you recreate them.
-         */
+        /** Specifies the instance template to use when creating new instances in this group. The templates for existing instances in the group do not change unless you recreate them. */
         await gapi.client.compute.instanceGroupManagers.setInstanceTemplate({
             instanceGroupManager: "Test string",
             project: "Test string",
@@ -2850,9 +2826,9 @@ gapi.load('client', () => {
             instanceTemplate: "Test string",
         });
         /**
-         * Modifies the target pools to which all instances in this managed instance group are assigned. The target pools automatically apply to all of the
-         * instances in the managed instance group. This operation is marked DONE when you make the request even if the instances have not yet been added to their
-         * target pools. The change might take some time to apply to all of the instances in the group depending on the size of the group.
+         * Modifies the target pools to which all instances in this managed instance group are assigned. The target pools automatically apply to all of the instances in the managed instance group.
+         * This operation is marked DONE when you make the request even if the instances have not yet been added to their target pools. The change might take some time to apply to all of the
+         * instances in the group depending on the size of the group.
          */
         await gapi.client.compute.instanceGroupManagers.setTargetPools({
             instanceGroupManager: "Test string",
@@ -2864,10 +2840,7 @@ gapi.load('client', () => {
             targetPools: [
                 "Test string"            ],
         });
-        /**
-         * Inserts or updates per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform
-         * insert or patch.
-         */
+        /** Inserts or updates per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. */
         await gapi.client.compute.instanceGroupManagers.updatePerInstanceConfigs({
             instanceGroupManager: "Test string",
             project: "Test string",
@@ -2891,10 +2864,7 @@ gapi.load('client', () => {
                     status: "Test string",
                 }            ],
         });
-        /**
-         * Adds a list of instances to the specified instance group. All of the instances in the instance group must be in the same network/subnetwork. Read
-         * Adding instances for more information.
-         */
+        /** Adds a list of instances to the specified instance group. All of the instances in the instance group must be in the same network/subnetwork. Read  Adding instances for more information. */
         await gapi.client.compute.instanceGroups.addInstances({
             instanceGroup: "Test string",
             project: "Test string",
@@ -2916,8 +2886,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Deletes the specified instance group. The instances in the group are not deleted. Note that instance group must not belong to a backend service. Read
-         * Deleting an instance group for more information.
+         * Deletes the specified instance group. The instances in the group are not deleted. Note that instance group must not belong to a backend service. Read  Deleting an instance group for
+         * more information.
          */
         await gapi.client.compute.instanceGroups.delete({
             instanceGroup: "Test string",
@@ -2979,8 +2949,8 @@ gapi.load('client', () => {
         /**
          * Removes one or more instances from the specified instance group, but does not delete those instances.
          *
-         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration
-         * before the VM instance is removed or deleted.
+         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration before the VM instance is removed or
+         * deleted.
          */
         await gapi.client.compute.instanceGroups.removeInstances({
             instanceGroup: "Test string",
@@ -3023,10 +2993,7 @@ gapi.load('client', () => {
             setPublicPtr: true,
             type: "Test string",
         });
-        /**
-         * Adds existing resource policies to an instance. You can only add one policy right now which will be applied to this instance for scheduling live
-         * migrations.
-         */
+        /** Adds existing resource policies to an instance. You can only add one policy right now which will be applied to this instance for scheduling live migrations. */
         await gapi.client.compute.instances.addResourcePolicies({
             instance: "Test string",
             project: "Test string",
@@ -3046,8 +3013,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Attaches an existing Disk resource to an instance. You must first create the disk before you can attach it. It is not possible to create and attach a
-         * disk at the same time. For more information, read Adding a persistent disk to your instance.
+         * Attaches an existing Disk resource to an instance. You must first create the disk before you can attach it. It is not possible to create and attach a disk at the same time. For more
+         * information, read Adding a persistent disk to your instance.
          */
         await gapi.client.compute.instances.attachDisk({
             forceAttach: true,
@@ -3376,8 +3343,8 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Retrieves a list of resources that refer to the VM instance specified in the request. For example, if the VM instance is part of a managed instance
-         * group, the referrers list includes the managed instance group. For more information, read Viewing Referrers to VM Instances.
+         * Retrieves a list of resources that refer to the VM instance specified in the request. For example, if the VM instance is part of a managed instance group, the referrers list includes
+         * the managed instance group. For more information, read Viewing Referrers to VM Instances.
          */
         await gapi.client.compute.instances.listReferrers({
             filter: "Test string",
@@ -3561,10 +3528,7 @@ gapi.load('client', () => {
                 }            ],
             kind: "Test string",
         });
-        /**
-         * Changes the minimum CPU platform that this instance should use. This method can only be called on a stopped instance. For more information, read
-         * Specifying a Minimum CPU Platform.
-         */
+        /** Changes the minimum CPU platform that this instance should use. This method can only be called on a stopped instance. For more information, read Specifying a Minimum CPU Platform. */
         await gapi.client.compute.instances.setMinCpuPlatform({
             instance: "Test string",
             project: "Test string",
@@ -3574,8 +3538,8 @@ gapi.load('client', () => {
             minCpuPlatform: "Test string",
         });
         /**
-         * Sets an instance's scheduling options. You can only call this method on a stopped instance, that is, a VM instance that is in a `TERMINATED` state. See
-         * Instance Life Cycle for more information on the possible instance states.
+         * Sets an instance's scheduling options. You can only call this method on a stopped instance, that is, a VM instance that is in a `TERMINATED` state. See Instance Life Cycle for more
+         * information on the possible instance states.
          */
         await gapi.client.compute.instances.setScheduling({
             instance: "Test string",
@@ -3607,8 +3571,8 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Sets the Shielded Instance integrity policy for an instance. You can only use this method on a running instance. This method supports PATCH semantics
-         * and uses the JSON merge patch format and processing rules.
+         * Sets the Shielded Instance integrity policy for an instance. You can only use this method on a running instance. This method supports PATCH semantics and uses the JSON merge patch
+         * format and processing rules.
          */
         await gapi.client.compute.instances.setShieldedInstanceIntegrityPolicy({
             instance: "Test string",
@@ -3661,9 +3625,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Stops a running instance, shutting it down cleanly, and allows you to restart the instance at a later time. Stopped instances do not incur VM usage
-         * charges while they are stopped. However, resources that the VM is using, such as persistent disks and static IP addresses, will continue to be charged
-         * until they are deleted. For more information, see Stopping an instance.
+         * Stops a running instance, shutting it down cleanly, and allows you to restart the instance at a later time. Stopped instances do not incur VM usage charges while they are stopped.
+         * However, resources that the VM is using, such as persistent disks and static IP addresses, will continue to be charged until they are deleted. For more information, see Stopping an
+         * instance.
          */
         await gapi.client.compute.instances.stop({
             instance: "Test string",
@@ -3681,8 +3645,8 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See  Updating a
-         * running instance for a list of updatable instance properties.
+         * Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See  Updating a running instance for a list of
+         * updatable instance properties.
          */
         await gapi.client.compute.instances.update({
             instance: "Test string",
@@ -3868,8 +3832,8 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Updates the specified access config from an instance's network interface with the data included in the request. This method supports PATCH semantics
-         * and uses the JSON merge patch format and processing rules.
+         * Updates the specified access config from an instance's network interface with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format
+         * and processing rules.
          */
         await gapi.client.compute.instances.updateAccessConfig({
             instance: "Test string",
@@ -3887,8 +3851,8 @@ gapi.load('client', () => {
             type: "Test string",
         });
         /**
-         * Updates the Display config for a VM instance. You can only use this method on a stopped VM instance. This method supports PATCH semantics and uses the
-         * JSON merge patch format and processing rules.
+         * Updates the Display config for a VM instance. You can only use this method on a stopped VM instance. This method supports PATCH semantics and uses the JSON merge patch format and
+         * processing rules.
          */
         await gapi.client.compute.instances.updateDisplayDevice({
             instance: "Test string",
@@ -3930,8 +3894,8 @@ gapi.load('client', () => {
             subnetwork: "Test string",
         });
         /**
-         * Updates the Shielded Instance config for an instance. You can only use this method on a stopped instance. This method supports PATCH semantics and uses
-         * the JSON merge patch format and processing rules.
+         * Updates the Shielded Instance config for an instance. You can only use this method on a stopped instance. This method supports PATCH semantics and uses the JSON merge patch format and
+         * processing rules.
          */
         await gapi.client.compute.instances.updateShieldedInstanceConfig({
             instance: "Test string",
@@ -3944,8 +3908,8 @@ gapi.load('client', () => {
             enableVtpm: true,
         });
         /**
-         * Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that
-         * are already in use by a managed instance group.
+         * Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that are already in use by a managed
+         * instance group.
          */
         await gapi.client.compute.instanceTemplates.delete({
             instanceTemplate: "Test string",
@@ -3964,8 +3928,8 @@ gapi.load('client', () => {
             resource: "Test string",
         });
         /**
-         * Creates an instance template in the specified project using the data that is included in the request. If you are creating a new template to update an
-         * existing instance group, your new instance template must use the same network or, if applicable, the same subnetwork as the original template.
+         * Creates an instance template in the specified project using the data that is included in the request. If you are creating a new template to update an existing instance group, your new
+         * instance template must use the same network or, if applicable, the same subnetwork as the original template.
          */
         await gapi.client.compute.instanceTemplates.insert({
             project: "Test string",
@@ -4320,10 +4284,7 @@ gapi.load('client', () => {
             project: "Test string",
             region: "Test string",
         });
-        /**
-         * Updates the specified interconnect attachment with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch
-         * format and processing rules.
-         */
+        /** Updates the specified interconnect attachment with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.interconnectAttachments.patch({
             interconnectAttachment: "Test string",
             project: "Test string",
@@ -4444,10 +4405,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
         });
-        /**
-         * Updates the specified interconnect with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and
-         * processing rules.
-         */
+        /** Updates the specified interconnect with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.interconnects.patch({
             interconnect: "Test string",
             project: "Test string",
@@ -4494,17 +4452,14 @@ gapi.load('client', () => {
             state: "Test string",
         });
         /**
-         * Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code.  Caution This resource
-         * is intended for use only by third-party partners who are creating Cloud Marketplace images.
+         * Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code.  Caution This resource is intended for use only by
+         * third-party partners who are creating Cloud Marketplace images.
          */
         await gapi.client.compute.licenseCodes.get({
             licenseCode: "Test string",
             project: "Test string",
         });
-        /**
-         * Returns permissions that a caller has on the specified resource.  Caution This resource is intended for use only by third-party partners who are
-         * creating Cloud Marketplace images.
-         */
+        /** Returns permissions that a caller has on the specified resource.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. */
         await gapi.client.compute.licenseCodes.testIamPermissions({
             project: "Test string",
             resource: "Test string",
@@ -4518,27 +4473,21 @@ gapi.load('client', () => {
             project: "Test string",
             requestId: "Test string",
         });
-        /**
-         * Returns the specified License resource.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace
-         * images.
-         */
+        /** Returns the specified License resource.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. */
         await gapi.client.compute.licenses.get({
             license: "Test string",
             project: "Test string",
         });
         /**
-         * Gets the access control policy for a resource. May be empty if no such policy or resource exists.  Caution This resource is intended for use only by
-         * third-party partners who are creating Cloud Marketplace images.
+         * Gets the access control policy for a resource. May be empty if no such policy or resource exists.  Caution This resource is intended for use only by third-party partners who are
+         * creating Cloud Marketplace images.
          */
         await gapi.client.compute.licenses.getIamPolicy({
             optionsRequestedPolicyVersion: 42,
             project: "Test string",
             resource: "Test string",
         });
-        /**
-         * Create a License resource in the specified project.  Caution This resource is intended for use only by third-party partners who are creating Cloud
-         * Marketplace images.
-         */
+        /** Create a License resource in the specified project.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. */
         await gapi.client.compute.licenses.insert({
             project: "Test string",
             requestId: "Test string",
@@ -4558,10 +4507,9 @@ gapi.load('client', () => {
             transferable: true,
         });
         /**
-         * Retrieves the list of licenses available in the specified project. This method does not get any licenses that belong to other projects, including
-         * licenses attached to publicly-available images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a
-         * request to the respective image project, such as debian-cloud or windows-cloud.  Caution This resource is intended for use only by third-party partners
-         * who are creating Cloud Marketplace images.
+         * Retrieves the list of licenses available in the specified project. This method does not get any licenses that belong to other projects, including licenses attached to publicly-available
+         * images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a request to the respective image project, such as debian-cloud or
+         * windows-cloud.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
          */
         await gapi.client.compute.licenses.list({
             filter: "Test string",
@@ -4571,8 +4519,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Sets the access control policy on the specified resource. Replaces any existing policy.  Caution This resource is intended for use only by third-party
-         * partners who are creating Cloud Marketplace images.
+         * Sets the access control policy on the specified resource. Replaces any existing policy.  Caution This resource is intended for use only by third-party partners who are creating Cloud
+         * Marketplace images.
          */
         await gapi.client.compute.licenses.setIamPolicy({
             project: "Test string",
@@ -4663,10 +4611,7 @@ gapi.load('client', () => {
                 version: 42,
             },
         });
-        /**
-         * Returns permissions that a caller has on the specified resource.  Caution This resource is intended for use only by third-party partners who are
-         * creating Cloud Marketplace images.
-         */
+        /** Returns permissions that a caller has on the specified resource.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. */
         await gapi.client.compute.licenses.testIamPermissions({
             project: "Test string",
             resource: "Test string",
@@ -4725,8 +4670,8 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Deletes the specified network endpoint group. The network endpoints in the NEG and the VM instances they belong to are not terminated when the NEG is
-         * deleted. Note that the NEG cannot be deleted if there are backend services referencing it.
+         * Deletes the specified network endpoint group. The network endpoints in the NEG and the VM instances they belong to are not terminated when the NEG is deleted. Note that the NEG cannot
+         * be deleted if there are backend services referencing it.
          */
         await gapi.client.compute.networkEndpointGroups.delete({
             networkEndpointGroup: "Test string",
@@ -4958,8 +4903,8 @@ gapi.load('client', () => {
             requestId: "Test string",
         });
         /**
-         * Updates the specified network peering with the data included in the request Only the following fields can be modified:
-         * NetworkPeering.export_custom_routes, and NetworkPeering.import_custom_routes
+         * Updates the specified network peering with the data included in the request Only the following fields can be modified: NetworkPeering.export_custom_routes, and
+         * NetworkPeering.import_custom_routes
          */
         await gapi.client.compute.networks.updatePeering({
             network: "Test string",
@@ -5014,10 +4959,7 @@ gapi.load('client', () => {
             nodes: [
                 "Test string"            ],
         });
-        /**
-         * Returns the specified NodeGroup. Get a list of available NodeGroups by making a list() request. Note: the "nodes" field should not be used. Use
-         * nodeGroups.listNodes instead.
-         */
+        /** Returns the specified NodeGroup. Get a list of available NodeGroups by making a list() request. Note: the "nodes" field should not be used. Use nodeGroups.listNodes instead. */
         await gapi.client.compute.nodeGroups.get({
             nodeGroup: "Test string",
             project: "Test string",
@@ -5473,10 +5415,7 @@ gapi.load('client', () => {
             project: "Test string",
             region: "Test string",
         });
-        /**
-         * Patches the specified PacketMirroring resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch
-         * format and processing rules.
-         */
+        /** Patches the specified PacketMirroring resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. */
         await gapi.client.compute.packetMirrorings.patch({
             packetMirroring: "Test string",
             project: "Test string",
@@ -5550,10 +5489,7 @@ gapi.load('client', () => {
             project: "Test string",
             requestId: "Test string",
         });
-        /**
-         * Enable service resource (a.k.a service project) for a host project, so that subnets in the host project can be used by instances in the service
-         * project.
-         */
+        /** Enable service resource (a.k.a service project) for a host project, so that subnets in the host project can be used by instances in the service project. */
         await gapi.client.compute.projects.enableXpnResource({
             project: "Test string",
             requestId: "Test string",
@@ -5618,10 +5554,7 @@ gapi.load('client', () => {
                 }            ],
             kind: "Test string",
         });
-        /**
-         * Sets the default network tier of the project. The default network tier is used when an address/forwardingRule/instance is created without specifying
-         * the network tier field.
-         */
+        /** Sets the default network tier of the project. The default network tier is used when an address/forwardingRule/instance is created without specifying the network tier field. */
         await gapi.client.compute.projects.setDefaultNetworkTier({
             project: "Test string",
             requestId: "Test string",
@@ -5629,8 +5562,8 @@ gapi.load('client', () => {
             networkTier: "Test string",
         });
         /**
-         * Enables the usage export feature and sets the usage export bucket where reports are stored. If you provide an empty request body using this method, the
-         * usage export feature will be disabled.
+         * Enables the usage export feature and sets the usage export bucket where reports are stored. If you provide an empty request body using this method, the usage export feature will be
+         * disabled.
          */
         await gapi.client.compute.projects.setUsageExportBucket({
             project: "Test string",
@@ -5710,10 +5643,7 @@ gapi.load('client', () => {
             project: "Test string",
             region: "Test string",
         });
-        /**
-         * Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge
-         * patch format and processing rules.
-         */
+        /** Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.regionAutoscalers.patch({
             autoscaler: "Test string",
             project: "Test string",
@@ -5834,10 +5764,7 @@ gapi.load('client', () => {
         }, {
             group: "Test string",
         });
-        /**
-         * Creates a regional BackendService resource in the specified project using the data included in the request. For more information, see  Backend services
-         * overview.
-         */
+        /** Creates a regional BackendService resource in the specified project using the data included in the request. For more information, see  Backend services overview. */
         await gapi.client.compute.regionBackendServices.insert({
             project: "Test string",
             region: "Test string",
@@ -5962,8 +5889,8 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Updates the specified regional BackendService resource with the data included in the request. For more information, see  Understanding backend services
-         * This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+         * Updates the specified regional BackendService resource with the data included in the request. For more information, see  Understanding backend services This method supports PATCH
+         * semantics and uses the JSON merge patch format and processing rules.
          */
         await gapi.client.compute.regionBackendServices.patch({
             backendService: "Test string",
@@ -6337,8 +6264,8 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Deletes the specified regional persistent disk. Deleting a regional disk removes all the replicas of its data permanently and is irreversible. However,
-         * deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots.
+         * Deletes the specified regional persistent disk. Deleting a regional disk removes all the replicas of its data permanently and is irreversible. However, deleting a disk does not delete
+         * any snapshots previously made from the disk. You must separately delete snapshots.
          */
         await gapi.client.compute.regionDisks.delete({
             disk: "Test string",
@@ -6668,8 +6595,8 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON
-         * merge patch format and processing rules.
+         * Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing
+         * rules.
          */
         await gapi.client.compute.regionHealthChecks.patch({
             healthCheck: "Test string",
@@ -6853,8 +6780,8 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Updates the specified regional HealthCheckService resource with the data included in the request. This method supports PATCH semantics and uses the
-         * JSON merge patch format and processing rules.
+         * Updates the specified regional HealthCheckService resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and
+         * processing rules.
          */
         await gapi.client.compute.regionHealthCheckServices.patch({
             healthCheckService: "Test string",
@@ -6879,13 +6806,13 @@ gapi.load('client', () => {
             selfLink: "Test string",
         });
         /**
-         * Flags the specified instances to be immediately removed from the managed instance group. Abandoning an instance does not delete the instance, but it
-         * does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed
-         * instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have
-         * not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method.
+         * Flags the specified instances to be immediately removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any
+         * target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation
+         * is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the
+         * listmanagedinstances method.
          *
-         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has
-         * elapsed before the VM instance is removed or deleted.
+         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is
+         * removed or deleted.
          *
          * You can specify a maximum of 1000 instances with this method per request.
          */
@@ -6910,9 +6837,9 @@ gapi.load('client', () => {
             mostDisruptiveAllowedAction: "Test string",
         });
         /**
-         * Creates instances with per-instance configs in this regional managed instance group. Instances are created using the current instance template. The
-         * create instances operation is marked DONE if the createInstances request is successful. The underlying actions take additional time. You must
-         * separately verify the status of the creating or actions with the listmanagedinstances method.
+         * Creates instances with per-instance configs in this regional managed instance group. Instances are created using the current instance template. The create instances operation is marked
+         * DONE if the createInstances request is successful. The underlying actions take additional time. You must separately verify the status of the creating or actions with the
+         * listmanagedinstances method.
          */
         await gapi.client.compute.regionInstanceGroupManagers.createInstances({
             instanceGroupManager: "Test string",
@@ -6945,13 +6872,12 @@ gapi.load('client', () => {
             requestId: "Test string",
         });
         /**
-         * Flags the specified instances in the managed instance group to be immediately deleted. The instances are also removed from any target pools of which
-         * they were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. The deleteInstances
-         * operation is marked DONE if the deleteInstances request is successful. The underlying actions take additional time. You must separately verify the
-         * status of the deleting action with the listmanagedinstances method.
+         * Flags the specified instances in the managed instance group to be immediately deleted. The instances are also removed from any target pools of which they were a member. This method
+         * reduces the targetSize of the managed instance group by the number of instances that you delete. The deleteInstances operation is marked DONE if the deleteInstances request is
+         * successful. The underlying actions take additional time. You must separately verify the status of the deleting action with the listmanagedinstances method.
          *
-         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has
-         * elapsed before the VM instance is removed or deleted.
+         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is
+         * removed or deleted.
          *
          * You can specify a maximum of 1000 instances with this method per request.
          */
@@ -6980,9 +6906,9 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created
-         * using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been
-         * created. You must separately verify the status of the individual instances with the listmanagedinstances method.
+         * Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance
+         * template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the
+         * individual instances with the listmanagedinstances method.
          *
          * A regional managed instance group can contain up to 2000 instances.
          */
@@ -7101,8 +7027,8 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group
-         * has scheduled for its instances. The orderBy query parameter is not supported.
+         * Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group has scheduled for its instances.
+         * The orderBy query parameter is not supported.
          */
         await gapi.client.compute.regionInstanceGroupManagers.listManagedInstances({
             filter: "Test string",
@@ -7124,9 +7050,9 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even
-         * if the instances in the group are still in the process of being patched. You must separately verify the status of the individual instances with the
-         * listmanagedinstances method. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+         * Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even if the instances in the group are
+         * still in the process of being patched. You must separately verify the status of the individual instances with the listmanagedinstances method. This method supports PATCH semantics and
+         * uses the JSON merge patch format and processing rules.
          */
         await gapi.client.compute.regionInstanceGroupManagers.patch({
             instanceGroupManager: "Test string",
@@ -7225,8 +7151,8 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Insert or patch (for the ones that already exist) per-instance configs for the managed instance group. perInstanceConfig.instance serves as a key used
-         * to distinguish whether to perform insert or patch.
+         * Insert or patch (for the ones that already exist) per-instance configs for the managed instance group. perInstanceConfig.instance serves as a key used to distinguish whether to perform
+         * insert or patch.
          */
         await gapi.client.compute.regionInstanceGroupManagers.patchPerInstanceConfigs({
             instanceGroupManager: "Test string",
@@ -7252,12 +7178,12 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current
-         * instance template for the managed instance group. This operation is marked as DONE when the flag is set even if the instances have not yet been
-         * recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.
+         * Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current instance template for the managed
+         * instance group. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of the recreating action
+         * with the listmanagedinstances method.
          *
-         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has
-         * elapsed before the VM instance is removed or deleted.
+         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is
+         * removed or deleted.
          *
          * You can specify a maximum of 1000 instances with this method per request.
          */
@@ -7271,14 +7197,14 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Changes the intended size of the managed instance group. If you increase the size, the group creates new instances using the current instance template.
-         * If you decrease the size, the group deletes one or more instances.
+         * Changes the intended size of the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the size, the
+         * group deletes one or more instances.
          *
-         * The resize operation is marked DONE if the resize request is successful. The underlying actions take additional time. You must separately verify the
-         * status of the creating or deleting actions with the listmanagedinstances method.
+         * The resize operation is marked DONE if the resize request is successful. The underlying actions take additional time. You must separately verify the status of the creating or deleting
+         * actions with the listmanagedinstances method.
          *
-         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has
-         * elapsed before the VM instance is removed or deleted.
+         * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is
+         * removed or deleted.
          */
         await gapi.client.compute.regionInstanceGroupManagers.resize({
             instanceGroupManager: "Test string",
@@ -7308,8 +7234,8 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Insert or update (for the ones that already exist) per-instance configs for the managed instance group. perInstanceConfig.instance serves as a key used
-         * to distinguish whether to perform insert or patch.
+         * Insert or update (for the ones that already exist) per-instance configs for the managed instance group. perInstanceConfig.instance serves as a key used to distinguish whether to perform
+         * insert or patch.
          */
         await gapi.client.compute.regionInstanceGroupManagers.updatePerInstanceConfigs({
             instanceGroupManager: "Test string",
@@ -7350,8 +7276,8 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Lists the instances in the specified instance group and displays information about the named ports. Depending on the specified options, this method can
-         * list all instances or only the instances that are running. The orderBy query parameter is not supported.
+         * Lists the instances in the specified instance group and displays information about the named ports. Depending on the specified options, this method can list all instances or only the
+         * instances that are running. The orderBy query parameter is not supported.
          */
         await gapi.client.compute.regionInstanceGroups.listInstances({
             filter: "Test string",
@@ -7505,15 +7431,12 @@ gapi.load('client', () => {
             region: "Test string",
         });
         /**
-         * Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified
-         * Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the
-         * current state of the operation, which might be `DONE` or still in progress.
+         * Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs
+         * from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress.
          *
          * This method is called on a best-effort basis. Specifically:
-         * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero
-         * seconds.
-         * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
-         * operation is not `DONE`.
+         * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds.
+         * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`.
          */
         await gapi.client.compute.regionOperations.wait({
             operation: "Test string",
@@ -8177,10 +8100,7 @@ gapi.load('client', () => {
             project: "Test string",
             region: "Test string",
         });
-        /**
-         * Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and
-         * processing rules.
-         */
+        /** Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. */
         await gapi.client.compute.regionUrlMaps.patch({
             project: "Test string",
             region: "Test string",
@@ -10073,10 +9993,7 @@ gapi.load('client', () => {
             project: "Test string",
             region: "Test string",
         });
-        /**
-         * Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and
-         * processing rules.
-         */
+        /** Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. */
         await gapi.client.compute.routers.patch({
             project: "Test string",
             region: "Test string",
@@ -10236,8 +10153,8 @@ gapi.load('client', () => {
             selfLink: "Test string",
         });
         /**
-         * Updates the specified Router resource with the data included in the request. This method conforms to PUT semantics, which requests that the state of
-         * the target resource be created or replaced with the state defined by the representation enclosed in the request message payload.
+         * Updates the specified Router resource with the data included in the request. This method conforms to PUT semantics, which requests that the state of the target resource be created or
+         * replaced with the state defined by the representation enclosed in the request message payload.
          */
         await gapi.client.compute.routers.update({
             project: "Test string",
@@ -10529,8 +10446,8 @@ gapi.load('client', () => {
             securityPolicy: "Test string",
         });
         /**
-         * Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If
-         * any data on the snapshot that is marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot.
+         * Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If any data on the snapshot that is
+         * marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot.
          *
          * For more information, see Deleting snapshots.
          */
@@ -10904,8 +10821,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Patches the specified subnetwork with the data included in the request. Only certain fields can up updated with a patch request as indicated in the
-         * field descriptions. You must specify the current fingerprint of the subnetwork resource being patched.
+         * Patches the specified subnetwork with the data included in the request. Only certain fields can up updated with a patch request as indicated in the field descriptions. You must specify
+         * the current fingerprint of the subnetwork resource being patched.
          */
         await gapi.client.compute.subnetworks.patch({
             drainTimeoutSeconds: 42,
@@ -11091,10 +11008,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
         });
-        /**
-         * Patches the specified TargetGrpcProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch
-         * format and processing rules.
-         */
+        /** Patches the specified TargetGrpcProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. */
         await gapi.client.compute.targetGrpcProxies.patch({
             project: "Test string",
             requestId: "Test string",
@@ -11225,8 +11139,8 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Sets the SSL policy for TargetHttpsProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients
-         * and the HTTPS proxy load balancer. They do not affect the connection between the load balancer and the backends.
+         * Sets the SSL policy for TargetHttpsProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the HTTPS proxy load balancer.
+         * They do not affect the connection between the load balancer and the backends.
          */
         await gapi.client.compute.targetHttpsProxies.setSslPolicy({
             project: "Test string",
@@ -11470,8 +11384,8 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /**
-         * Sets the SSL policy for TargetSslProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and
-         * the SSL proxy load balancer. They do not affect the connection between the load balancer and the backends.
+         * Sets the SSL policy for TargetSslProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the SSL proxy load balancer. They
+         * do not affect the connection between the load balancer and the backends.
          */
         await gapi.client.compute.targetSslProxies.setSslPolicy({
             project: "Test string",
@@ -12079,10 +11993,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
         });
-        /**
-         * Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format
-         * and processing rules.
-         */
+        /** Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.urlMaps.patch({
             project: "Test string",
             requestId: "Test string",
@@ -13636,15 +13547,12 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified
-         * Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the
-         * current state of the operation, which might be `DONE` or still in progress.
+         * Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs
+         * from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress.
          *
          * This method is called on a best-effort basis. Specifically:
-         * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero
-         * seconds.
-         * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the
-         * operation is not `DONE`.
+         * - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds.
+         * - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`.
          */
         await gapi.client.compute.zoneOperations.wait({
             operation: "Test string",
