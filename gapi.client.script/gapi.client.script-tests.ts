@@ -61,10 +61,7 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * List information about processes made by or on behalf of a user,
-         * such as process type and current status.
-         */
+        /** List information about processes made by or on behalf of a user, such as process type and current status. */
         await gapi.client.script.processes.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -78,10 +75,7 @@ gapi.load('client', () => {
             "userProcessFilter.types": "Test string",
             "userProcessFilter.userAccessLevels": "Test string",
         });
-        /**
-         * List information about a script's executed processes, such as process type
-         * and current status.
-         */
+        /** List information about a script's executed processes, such as process type and current status. */
         await gapi.client.script.processes.listScriptProcesses({
             pageSize: 42,
             pageToken: "Test string",
@@ -94,10 +88,7 @@ gapi.load('client', () => {
             "scriptProcessFilter.types": "Test string",
             "scriptProcessFilter.userAccessLevels": "Test string",
         });
-        /**
-         * Creates a new, empty script project with no script files and a base
-         * manifest file.
-         */
+        /** Creates a new, empty script project with no script files and a base manifest file. */
         await gapi.client.script.projects.create({
         }, {
             parentId: "Test string",
@@ -140,10 +131,7 @@ gapi.load('client', () => {
                 versionNumber: 42,
             },
         });
-        /**
-         * Creates a new immutable version using the current code, with a unique
-         * version number.
-         */
+        /** Creates a new immutable version using the current code, with a unique version number. */
         await gapi.client.script.projects.versions.create({
             scriptId: "Test string",
         }, {
@@ -204,10 +192,7 @@ gapi.load('client', () => {
                 versionNumber: 42,
             },
         });
-        /**
-         * Creates a new immutable version using the current code, with a unique
-         * version number.
-         */
+        /** Creates a new immutable version using the current code, with a unique version number. */
         await gapi.client.script.projects.versions.create({
             scriptId: "Test string",
         }, {
@@ -227,10 +212,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             scriptId: "Test string",
         });
-        /**
-         * Gets the content of the script project, including the code source and
-         * metadata for each script file.
-         */
+        /** Gets the content of the script project, including the code source and metadata for each script file. */
         await gapi.client.script.projects.getContent({
             scriptId: "Test string",
             versionNumber: 42,
@@ -272,10 +254,7 @@ gapi.load('client', () => {
                 versionNumber: 42,
             },
         });
-        /**
-         * Creates a new immutable version using the current code, with a unique
-         * version number.
-         */
+        /** Creates a new immutable version using the current code, with a unique version number. */
         await gapi.client.script.projects.versions.create({
             scriptId: "Test string",
         }, {
@@ -295,10 +274,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             scriptId: "Test string",
         });
-        /**
-         * Get metrics data for scripts, such as number of executions and
-         * active users.
-         */
+        /** Get metrics data for scripts, such as number of executions and active users. */
         await gapi.client.script.projects.getMetrics({
             "metricsFilter.deploymentId": "Test string",
             metricsGranularity: "Test string",
@@ -341,10 +317,7 @@ gapi.load('client', () => {
                 versionNumber: 42,
             },
         });
-        /**
-         * Creates a new immutable version using the current code, with a unique
-         * version number.
-         */
+        /** Creates a new immutable version using the current code, with a unique version number. */
         await gapi.client.script.projects.versions.create({
             scriptId: "Test string",
         }, {
@@ -365,11 +338,9 @@ gapi.load('client', () => {
             scriptId: "Test string",
         });
         /**
-         * Updates the content of the specified script project.
-         * This content is stored as the HEAD version, and is used when the script is
-         * executed as a trigger, in the script editor, in add-on preview mode, or as
-         * a web app or Apps Script API in development mode. This clears all the
-         * existing files in the project.
+         * Updates the content of the specified script project. This content is stored as the HEAD version, and is used when the script is executed as a trigger,
+         * in the script editor, in add-on preview mode, or as a web app or Apps Script API in development mode. This clears all the existing files in the
+         * project.
          */
         await gapi.client.script.projects.updateContent({
             scriptId: "Test string",
@@ -433,10 +404,7 @@ gapi.load('client', () => {
                 versionNumber: 42,
             },
         });
-        /**
-         * Creates a new immutable version using the current code, with a unique
-         * version number.
-         */
+        /** Creates a new immutable version using the current code, with a unique version number. */
         await gapi.client.script.projects.versions.create({
             scriptId: "Test string",
         }, {
@@ -457,21 +425,12 @@ gapi.load('client', () => {
             scriptId: "Test string",
         });
         /**
-         * Runs a function in an Apps Script project. The script project must be
-         * deployed for use with the Apps Script API and the calling application must
-         * share the same Cloud Platform project.
-         *
-         * This method requires authorization with an OAuth 2.0 token that includes at
-         * least one of the scopes listed in the
-         * [Authorization](#authorization-scopes) section; script projects that do not
-         * require authorization cannot be executed through this API. To find the
-         * correct scopes to include in the authentication token, open the project in
-         * the script editor, then select ∗∗File > Project properties∗∗ and click the
-         * ∗∗Scopes∗∗ tab.
-         *
-         * The error `403, PERMISSION_DENIED: The caller does not have permission`
-         * indicates that the Cloud Platform project used to authorize the request is
-         * not the same as the one used by the script.
+         * Runs a function in an Apps Script project. The script project must be deployed for use with the Apps Script API and the calling application must share
+         * the same Cloud Platform project. This method requires authorization with an OAuth 2.0 token that includes at least one of the scopes listed in the
+         * [Authorization](#authorization-scopes) section; script projects that do not require authorization cannot be executed through this API. To find the
+         * correct scopes to include in the authentication token, open the project in the script editor, then select ∗∗File > Project properties∗∗ and click the
+         * ∗∗Scopes∗∗ tab. The error `403, PERMISSION_DENIED: The caller does not have permission` indicates that the Cloud Platform project used to authorize the
+         * request is not the same as the one used by the script.
          */
         await gapi.client.script.scripts.run({
             scriptId: "Test string",
