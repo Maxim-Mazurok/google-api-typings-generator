@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud OS Login API v1 1.0
 // Project: https://cloud.google.com/compute/docs/oslogin/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -86,8 +89,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. A reference to the POSIX account to update. POSIX accounts are identified by the project ID they are associated with. A reference to the
-                 * POSIX account is in format `users/{user}/projects/{project}`.
+                 * Required. A reference to the POSIX account to update. POSIX accounts are identified by the project ID they are associated with. A reference to the POSIX account is in format
+                 * `users/{user}/projects/{project}`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -118,8 +121,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The fingerprint of the public key to update. Public keys are identified by their SHA-256 fingerprint. The fingerprint of the public key is in
-                 * format `users/{user}/sshPublicKeys/{fingerprint}`.
+                 * Required. The fingerprint of the public key to update. Public keys are identified by their SHA-256 fingerprint. The fingerprint of the public key is in format
+                 * `users/{user}/sshPublicKeys/{fingerprint}`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -148,8 +151,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The fingerprint of the public key to retrieve. Public keys are identified by their SHA-256 fingerprint. The fingerprint of the public key is
-                 * in format `users/{user}/sshPublicKeys/{fingerprint}`.
+                 * Required. The fingerprint of the public key to retrieve. Public keys are identified by their SHA-256 fingerprint. The fingerprint of the public key is in format
+                 * `users/{user}/sshPublicKeys/{fingerprint}`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -178,8 +181,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The fingerprint of the public key to update. Public keys are identified by their SHA-256 fingerprint. The fingerprint of the public key is in
-                 * format `users/{user}/sshPublicKeys/{fingerprint}`.
+                 * Required. The fingerprint of the public key to update. Public keys are identified by their SHA-256 fingerprint. The fingerprint of the public key is in format
+                 * `users/{user}/sshPublicKeys/{fingerprint}`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -211,8 +214,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The fingerprint of the public key to update. Public keys are identified by their SHA-256 fingerprint. The fingerprint of the public key is in
-                 * format `users/{user}/sshPublicKeys/{fingerprint}`.
+                 * Required. The fingerprint of the public key to update. Public keys are identified by their SHA-256 fingerprint. The fingerprint of the public key is in format
+                 * `users/{user}/sshPublicKeys/{fingerprint}`.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -262,10 +265,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<LoginProfile>;
-            /**
-             * Adds an SSH public key and returns the profile information. Default POSIX account information is set when no username and UID exist as part of the
-             * login profile.
-             */
+            /** Adds an SSH public key and returns the profile information. Default POSIX account information is set when no username and UID exist as part of the login profile. */
             importSshPublicKey(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;

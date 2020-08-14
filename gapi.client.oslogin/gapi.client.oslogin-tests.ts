@@ -57,10 +57,7 @@ gapi.load('client', () => {
             key: "Test string",
             name: "Test string",
         });
-        /**
-         * Adds an SSH public key and returns the profile information. Default POSIX account information is set when no username and UID exist as part of the
-         * login profile.
-         */
+        /** Adds an SSH public key and returns the profile information. Default POSIX account information is set when no username and UID exist as part of the login profile. */
         await gapi.client.oslogin.users.importSshPublicKey({
             parent: "Test string",
             projectId: "Test string",

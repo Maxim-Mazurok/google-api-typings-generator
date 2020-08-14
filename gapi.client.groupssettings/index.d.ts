@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Groups Settings API v1 1.0
 // Project: https://developers.google.com/google-apps/groups-settings/get_started
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -27,8 +30,8 @@ declare namespace gapi.client {
             allowExternalMembers?: string;
             /**
              * Deprecated. Allows Google to contact administrator of the group.
-             * - true: Allow Google to contact managers of this group. Occasionally Google may send updates on the latest features, ask for input on new features, or
-             * ask for permission to highlight your group.
+             * - true: Allow Google to contact managers of this group. Occasionally Google may send updates on the latest features, ask for input on new features, or ask for permission to
+             * highlight your group.
              * - false: Google can not contact managers of this group.
              */
             allowGoogleCommunication?: string;
@@ -40,8 +43,7 @@ declare namespace gapi.client {
             allowWebPosting?: string;
             /**
              * Allows the group to be archived only. Possible values are:
-             * - true: Group is archived and the group is inactive. New messages to this group are rejected. The older archived messages are browseable and
-             * searchable.
+             * - true: Group is archived and the group is inactive. New messages to this group are rejected. The older archived messages are browseable and searchable.
              * - If true, the whoCanPostMessage property is set to NONE_CAN_POST.
              * - If reverted from true to false, whoCanPostMessages is set to ALL_MANAGERS_CAN_POST.
              * - false: The group is active and can receive messages.
@@ -51,36 +53,32 @@ declare namespace gapi.client {
             /** Set the content of custom footer text. The maximum number of characters is 1,000. */
             customFooterText?: string;
             /**
-             * An email address used when replying to a message if the replyTo property is set to REPLY_TO_CUSTOM. This address is defined by an account
-             * administrator.
+             * An email address used when replying to a message if the replyTo property is set to REPLY_TO_CUSTOM. This address is defined by an account administrator.
              * - When the group's ReplyTo property is set to REPLY_TO_CUSTOM, the customReplyTo property holds a custom email address used when replying to a message.
-             *
              * - If the group's ReplyTo property is set to REPLY_TO_CUSTOM, the customReplyTo property must have a text value or an error is returned.
              */
             customReplyTo?: string;
             /**
-             * Specifies whether the group has a custom role that's included in one of the settings being merged. This field is read-only and update/patch requests to
-             * it are ignored. Possible values are:
+             * Specifies whether the group has a custom role that's included in one of the settings being merged. This field is read-only and update/patch requests to it are ignored. Possible
+             * values are:
              * - true
              * - false
              */
             customRolesEnabledForSettingsToBeMerged?: string;
             /**
-             * When a message is rejected, this is text for the rejection notification sent to the message's author. By default, this property is empty and has no
-             * value in the API's response body. The maximum notification text size is 10,000 characters. Note: Requires sendMessageDenyNotification property to be
-             * true.
+             * When a message is rejected, this is text for the rejection notification sent to the message's author. By default, this property is empty and has no value in the API's response body.
+             * The maximum notification text size is 10,000 characters. Note: Requires sendMessageDenyNotification property to be true.
              */
             defaultMessageDenyNotificationText?: string;
             /**
-             * Description of the group. This property value may be an empty string if no group description has been entered. If entered, the maximum group
-             * description is no more than 300 characters.
+             * Description of the group. This property value may be an empty string if no group description has been entered. If entered, the maximum group description is no more than 300
+             * characters.
              */
             description?: string;
             /**
-             * The group's email address. This property can be updated using the Directory API. Note: Only a group owner can change a group's email address. A group
-             * manager can't do this.
-             * When you change your group's address using the Directory API or the control panel, you are changing the address your subscribers use to send email and
-             * the web address people use to access your group. People can't reach your group by visiting the old address.
+             * The group's email address. This property can be updated using the Directory API. Note: Only a group owner can change a group's email address. A group manager can't do this.
+             * When you change your group's address using the Directory API or the control panel, you are changing the address your subscribers use to send email and the web address people use to
+             * access your group. People can't reach your group by visiting the old address.
              */
             email?: string;
             /**
@@ -119,8 +117,8 @@ declare namespace gapi.client {
             maxMessageBytes?: number;
             /**
              * Enables members to post messages as the group. Possible values are:
-             * - true: Group member can post messages using the group's email address instead of their own email address. Message appear to originate from the group
-             * itself. Note: When true, any message moderation settings on individual users or new members do not apply to posts made on behalf of the group.
+             * - true: Group member can post messages using the group's email address instead of their own email address. Message appear to originate from the group itself. Note: When true, any
+             * message moderation settings on individual users or new members do not apply to posts made on behalf of the group.
              * - false: Members can not post in behalf of the group's email address.
              */
             membersCanPostAsTheGroup?: string;
@@ -129,28 +127,22 @@ declare namespace gapi.client {
             /**
              * Moderation level of incoming messages. Possible values are:
              * - MODERATE_ALL_MESSAGES: All messages are sent to the group owner's email address for approval. If approved, the message is sent to the group.
-             * - MODERATE_NON_MEMBERS: All messages from non group members are sent to the group owner's email address for approval. If approved, the message is sent
-             * to the group.
-             * - MODERATE_NEW_MEMBERS: All messages from new members are sent to the group owner's email address for approval. If approved, the message is sent to the
-             * group.
-             * - MODERATE_NONE: No moderator approval is required. Messages are delivered directly to the group. Note: When the whoCanPostMessage is set to
-             * ANYONE_CAN_POST, we recommend the messageModerationLevel be set to MODERATE_NON_MEMBERS to protect the group from possible spam.
-             * When memberCanPostAsTheGroup is true, any message moderation settings on individual users or new members will not apply to posts made on behalf of the
-             * group.
+             * - MODERATE_NON_MEMBERS: All messages from non group members are sent to the group owner's email address for approval. If approved, the message is sent to the group.
+             * - MODERATE_NEW_MEMBERS: All messages from new members are sent to the group owner's email address for approval. If approved, the message is sent to the group.
+             * - MODERATE_NONE: No moderator approval is required. Messages are delivered directly to the group. Note: When the whoCanPostMessage is set to ANYONE_CAN_POST, we recommend the
+             * messageModerationLevel be set to MODERATE_NON_MEMBERS to protect the group from possible spam.
+             * When memberCanPostAsTheGroup is true, any message moderation settings on individual users or new members will not apply to posts made on behalf of the group.
              */
             messageModerationLevel?: string;
             /** Name of the group, which has a maximum size of 75 characters. */
             name?: string;
-            /**
-             * The primary language for group. For a group's primary language use the language tags from the G Suite languages found at G Suite Email Settings API
-             * Email Language Tags.
-             */
+            /** The primary language for group. For a group's primary language use the language tags from the G Suite languages found at G Suite Email Settings API Email Language Tags. */
             primaryLanguage?: string;
             /**
              * Specifies who receives the default reply. Possible values are:
              * - REPLY_TO_CUSTOM: For replies to messages, use the group's custom email address.
-             * When the group's ReplyTo property is set to REPLY_TO_CUSTOM, the customReplyTo property holds the custom email address used when replying to a message.
-             * If the group's ReplyTo property is set to REPLY_TO_CUSTOM, the customReplyTo property must have a value. Otherwise an error is returned.
+             * When the group's ReplyTo property is set to REPLY_TO_CUSTOM, the customReplyTo property holds the custom email address used when replying to a message. If the group's ReplyTo
+             * property is set to REPLY_TO_CUSTOM, the customReplyTo property must have a value. Otherwise an error is returned.
              *
              * - REPLY_TO_SENDER: The reply sent to author of message.
              * - REPLY_TO_LIST: This reply message is sent to the group.
@@ -192,8 +184,7 @@ declare namespace gapi.client {
             /** Deprecated. This functionality is no longer supported in the Google Groups UI. The value is always "NONE". */
             whoCanAddReferences?: string;
             /**
-             * Specifies who can approve members who ask to join groups. This permission will be deprecated once it is merged into the new whoCanModerateMembers
-             * setting. Possible values are:
+             * Specifies who can approve members who ask to join groups. This permission will be deprecated once it is merged into the new whoCanModerateMembers setting. Possible values are:
              * - ALL_MEMBERS_CAN_APPROVE
              * - ALL_MANAGERS_CAN_APPROVE
              * - ALL_OWNERS_CAN_APPROVE
@@ -201,8 +192,7 @@ declare namespace gapi.client {
              */
             whoCanApproveMembers?: string;
             /**
-             * Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can approve pending messages in the moderation queue. Possible
-             * values are:
+             * Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can approve pending messages in the moderation queue. Possible values are:
              * - ALL_MEMBERS
              * - OWNERS_AND_MANAGERS
              * - OWNERS_ONLY
@@ -228,8 +218,7 @@ declare namespace gapi.client {
              */
             whoCanAssistContent?: string;
             /**
-             * Specifies who can deny membership to users. This permission will be deprecated once it is merged into the new whoCanModerateMembers setting. Possible
-             * values are:
+             * Specifies who can deny membership to users. This permission will be deprecated once it is merged into the new whoCanModerateMembers setting. Possible values are:
              * - ALL_MEMBERS
              * - OWNERS_AND_MANAGERS
              * - OWNERS_ONLY
@@ -245,8 +234,8 @@ declare namespace gapi.client {
              */
             whoCanContactOwner?: string;
             /**
-             * Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can delete replies to topics. (Authors can always delete their own
-             * posts). Possible values are:
+             * Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can delete replies to topics. (Authors can always delete their own posts). Possible values are:
+             *
              * - ALL_MEMBERS
              * - OWNERS_AND_MANAGERS
              * - OWNERS_ONLY
@@ -296,9 +285,9 @@ declare namespace gapi.client {
             /**
              * Permission to join group. Possible values are:
              * - ANYONE_CAN_JOIN: Anyone in the account domain can join. This includes accounts with multiple domains.
-             * - ALL_IN_DOMAIN_CAN_JOIN: Any Internet user who is outside your domain can access your Google Groups service and view the list of groups in your Groups
-             * directory. Warning: Group owners can add external addresses, outside of the domain to their groups. They can also allow people outside your domain to
-             * join their groups. If you later disable this option, any external addresses already added to users' groups remain in those groups.
+             * - ALL_IN_DOMAIN_CAN_JOIN: Any Internet user who is outside your domain can access your Google Groups service and view the list of groups in your Groups directory. Warning: Group
+             * owners can add external addresses, outside of the domain to their groups. They can also allow people outside your domain to join their groups. If you later disable this option, any
+             * external addresses already added to users' groups remain in those groups.
              * - INVITED_CAN_JOIN: Candidates for membership can be invited to join.
              * - CAN_REQUEST_TO_JOIN: Non members can request an invitation to join.
              */
@@ -311,8 +300,7 @@ declare namespace gapi.client {
              */
             whoCanLeaveGroup?: string;
             /**
-             * Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can prevent users from posting replies to topics. Possible values
-             * are:
+             * Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can prevent users from posting replies to topics. Possible values are:
              * - ALL_MEMBERS
              * - OWNERS_AND_MANAGERS
              * - OWNERS_ONLY
@@ -320,8 +308,7 @@ declare namespace gapi.client {
              */
             whoCanLockTopics?: string;
             /**
-             * Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can make topics appear at the top of the topic list. Possible
-             * values are:
+             * Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can make topics appear at the top of the topic list. Possible values are:
              * - ALL_MEMBERS
              * - OWNERS_AND_MANAGERS
              * - OWNERS_ONLY
@@ -339,7 +326,6 @@ declare namespace gapi.client {
             whoCanMarkDuplicate?: string;
             /**
              * Deprecated. This is merged into the new whoCanAssistContent setting. Permission to mark any other user's post as a favorite reply. Possible values are:
-             *
              * - ALL_MEMBERS
              * - OWNERS_AND_MANAGERS
              * - MANAGERS_ONLY
@@ -348,8 +334,7 @@ declare namespace gapi.client {
              */
             whoCanMarkFavoriteReplyOnAnyTopic?: string;
             /**
-             * Deprecated. This is merged into the new whoCanAssistContent setting. Permission to mark a post for a topic they started as a favorite reply. Possible
-             * values are:
+             * Deprecated. This is merged into the new whoCanAssistContent setting. Permission to mark a post for a topic they started as a favorite reply. Possible values are:
              * - ALL_MEMBERS
              * - OWNERS_AND_MANAGERS
              * - MANAGERS_ONLY
@@ -417,7 +402,6 @@ declare namespace gapi.client {
             whoCanMoveTopicsOut?: string;
             /**
              * Deprecated. This is merged into the new whoCanModerateContent setting. Specifies who can post announcements, a special topic type. Possible values are:
-             *
              * - ALL_MEMBERS
              * - OWNERS_AND_MANAGERS
              * - OWNERS_ONLY
@@ -433,8 +417,8 @@ declare namespace gapi.client {
              * - ALL_MEMBERS_CAN_POST: Any group member can post a message.
              * - ALL_OWNERS_CAN_POST: Only group owners can post a message.
              * - ALL_IN_DOMAIN_CAN_POST: Anyone in the account can post a message.
-             * - ANYONE_CAN_POST: Any Internet user who outside your account can access your Google Groups service and post a message. Note: When whoCanPostMessage is
-             * set to ANYONE_CAN_POST, we recommend the messageModerationLevel be set to MODERATE_NON_MEMBERS to protect the group from possible spam.
+             * - ANYONE_CAN_POST: Any Internet user who outside your account can access your Google Groups service and post a message. Note: When whoCanPostMessage is set to ANYONE_CAN_POST, we
+             * recommend the messageModerationLevel be set to MODERATE_NON_MEMBERS to protect the group from possible spam.
              */
             whoCanPostMessage?: string;
             /**

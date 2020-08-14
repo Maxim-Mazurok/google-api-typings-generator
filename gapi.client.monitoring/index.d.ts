@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Cloud Monitoring API v3 3.0
 // Project: https://cloud.google.com/monitoring/api/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -20,89 +23,78 @@ declare namespace gapi.client {
     namespace monitoring {
         interface Aggregation {
             /**
-             * The alignment_period specifies a time interval, in seconds, that is used to divide the data in all the time series into consistent blocks of time. This
-             * will be done before the per-series aligner can be applied to the data.The value must be at least 60 seconds, at most 104 weeks. If a per-series aligner
-             * other than ALIGN_NONE is specified, this field is required or an error is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is
-             * specified, then this field is ignored.The maximum value of the alignment_period is 2 years, or 104 weeks.
+             * The alignment_period specifies a time interval, in seconds, that is used to divide the data in all the time series into consistent blocks of time. This will be done before the
+             * per-series aligner can be applied to the data.The value must be at least 60 seconds, at most 104 weeks. If a per-series aligner other than ALIGN_NONE is specified, this field is
+             * required or an error is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is specified, then this field is ignored.The maximum value of the alignment_period
+             * is 2 years, or 104 weeks.
              */
             alignmentPeriod?: string;
             /**
-             * The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a
-             * function of all the already aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices
-             * depend on the metric_kind and the value_type of the original time series. Reduction can yield a time series with a different metric_kind or value_type
-             * than the input time series.Time series data must first be aligned (see per_series_aligner) in order to perform cross-time series reduction. If
-             * cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE. An alignment_period must also be specified;
-             * otherwise, an error is returned.
+             * The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a function of all the already
+             * aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices depend on the metric_kind and the value_type of the original
+             * time series. Reduction can yield a time series with a different metric_kind or value_type than the input time series.Time series data must first be aligned (see per_series_aligner)
+             * in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE. An alignment_period
+             * must also be specified; otherwise, an error is returned.
              */
             crossSeriesReducer?: string;
             /**
-             * The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets
-             * prior to applying the aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual
-             * time series is a member of exactly one subset. The cross_series_reducer is applied to each subset of time series. It is not possible to reduce across
-             * different resource types, so this field implicitly contains resource.type. Fields not specified in group_by_fields are aggregated away. If
-             * group_by_fields is not specified and all the time series have the same resource type, then the time series are aggregated into a single output time
-             * series. If cross_series_reducer is not defined, this field is ignored.
+             * The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the
+             * aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset. The
+             * cross_series_reducer is applied to each subset of time series. It is not possible to reduce across different resource types, so this field implicitly contains resource.type. Fields
+             * not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are aggregated
+             * into a single output time series. If cross_series_reducer is not defined, this field is ignored.
              */
             groupByFields?: string[];
             /**
-             * An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the
-             * data points in an alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp
-             * at the end of the period.Not all alignment operations may be applied to all time series. The valid choices depend on the metric_kind and value_type of
-             * the original time series. Alignment can change the metric_kind or the value_type of the time series.Time series data must be aligned in order to
-             * perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified and not equal to ALIGN_NONE and
-             * alignment_period must be specified; otherwise, an error is returned.
+             * An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the data points in an
+             * alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp at the end of the period.Not all alignment
+             * operations may be applied to all time series. The valid choices depend on the metric_kind and value_type of the original time series. Alignment can change the metric_kind or the
+             * value_type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be
+             * specified and not equal to ALIGN_NONE and alignment_period must be specified; otherwise, an error is returned.
              */
             perSeriesAligner?: string;
         }
         interface AlertPolicy {
-            /**
-             * How to combine the results of multiple conditions to determine if an incident should be opened. If condition_time_series_query_language is present,
-             * this must be COMBINE_UNSPECIFIED.
-             */
+            /** How to combine the results of multiple conditions to determine if an incident should be opened. If condition_time_series_query_language is present, this must be COMBINE_UNSPECIFIED. */
             combiner?: string;
             /**
-             * A list of conditions for the policy. The conditions are combined by AND or OR according to the combiner field. If the combined conditions evaluate to
-             * true, then an incident is created. A policy can have from one to six conditions. If condition_time_series_query_language is present, it must be the
-             * only condition.
+             * A list of conditions for the policy. The conditions are combined by AND or OR according to the combiner field. If the combined conditions evaluate to true, then an incident is
+             * created. A policy can have from one to six conditions. If condition_time_series_query_language is present, it must be the only condition.
              */
             conditions?: Condition[];
             /** A read-only record of the creation of the alerting policy. If provided in a call to create or update, this field will be ignored. */
             creationRecord?: MutationRecord;
             /**
-             * A short name or phrase used to identify the policy in dashboards, notifications, and incidents. To avoid confusion, don't use the same display name for
-             * multiple policies in the same project. The name is limited to 512 Unicode characters.
+             * A short name or phrase used to identify the policy in dashboards, notifications, and incidents. To avoid confusion, don't use the same display name for multiple policies in the same
+             * project. The name is limited to 512 Unicode characters.
              */
             displayName?: string;
             /**
-             * Documentation that is included with notifications and incidents related to this policy. Best practice is for the documentation to include information
-             * to help responders understand, mitigate, escalate, and correct the underlying problems detected by the alerting policy. Notification channels that have
-             * limited capacity might not show this documentation.
+             * Documentation that is included with notifications and incidents related to this policy. Best practice is for the documentation to include information to help responders understand,
+             * mitigate, escalate, and correct the underlying problems detected by the alerting policy. Notification channels that have limited capacity might not show this documentation.
              */
             documentation?: Documentation;
             /**
-             * Whether or not the policy is enabled. On write, the default interpretation if unset is that the policy is enabled. On read, clients should not make any
-             * assumption about the state if it has not been populated. The field should always be populated on List and Get operations, unless a field projection has
-             * been specified that strips it out.
+             * Whether or not the policy is enabled. On write, the default interpretation if unset is that the policy is enabled. On read, clients should not make any assumption about the state if
+             * it has not been populated. The field should always be populated on List and Get operations, unless a field projection has been specified that strips it out.
              */
             enabled?: boolean;
             /** A read-only record of the most recent change to the alerting policy. If provided in a call to create or update, this field will be ignored. */
             mutationRecord?: MutationRecord;
             /**
-             * Required if the policy exists. The resource name for this policy. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
-             * [ALERT_POLICY_ID] is assigned by Stackdriver Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the
-             * name field in the alerting policy passed as part of the request.
+             * Required if the policy exists. The resource name for this policy. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] [ALERT_POLICY_ID] is assigned by
+             * Stackdriver Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the name field in the alerting policy passed as part of the request.
              */
             name?: string;
             /**
-             * Identifies the notification channels to which notifications should be sent when incidents are opened or closed or when new violations occur on an
-             * already opened incident. Each element of this array corresponds to the name field in each of the NotificationChannel objects that are returned from the
-             * ListNotificationChannels method. The format of the entries in this field is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
+             * Identifies the notification channels to which notifications should be sent when incidents are opened or closed or when new violations occur on an already opened incident. Each
+             * element of this array corresponds to the name field in each of the NotificationChannel objects that are returned from the ListNotificationChannels method. The format of the entries
+             * in this field is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
              */
             notificationChannels?: string[];
             /**
-             * User-supplied key/value data to be used for organizing and identifying the AlertPolicy objects.The field can contain up to 64 entries. Each key and
-             * value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals,
-             * underscores, and dashes. Keys must begin with a letter.
+             * User-supplied key/value data to be used for organizing and identifying the AlertPolicy objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode
+             * characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
              */
             userLabels?: { [P in string]: string };
             /** Read-only description of how the alert policy is invalid. OK if the alert policy is valid. If not OK, the alert policy will not generate incidents. */
@@ -130,21 +122,18 @@ declare namespace gapi.client {
             /** Good service is defined to be the count of requests made to this service that are fast enough with respect to latency.threshold. */
             latency?: LatencyCriteria;
             /**
-             * OPTIONAL: The set of locations to which this SLI is relevant. Telemetry from other locations will not be used to calculate performance for this SLI. If
-             * omitted, this SLI applies to all locations in which the Service has activity. For service types that don't support breaking down by location, setting
-             * this field will result in an error.
+             * OPTIONAL: The set of locations to which this SLI is relevant. Telemetry from other locations will not be used to calculate performance for this SLI. If omitted, this SLI applies to
+             * all locations in which the Service has activity. For service types that don't support breaking down by location, setting this field will result in an error.
              */
             location?: string[];
             /**
-             * OPTIONAL: The set of RPCs to which this SLI is relevant. Telemetry from other methods will not be used to calculate performance for this SLI. If
-             * omitted, this SLI applies to all the Service's methods. For service types that don't support breaking down by method, setting this field will result in
-             * an error.
+             * OPTIONAL: The set of RPCs to which this SLI is relevant. Telemetry from other methods will not be used to calculate performance for this SLI. If omitted, this SLI applies to all the
+             * Service's methods. For service types that don't support breaking down by method, setting this field will result in an error.
              */
             method?: string[];
             /**
-             * OPTIONAL: The set of API versions to which this SLI is relevant. Telemetry from other API versions will not be used to calculate performance for this
-             * SLI. If omitted, this SLI applies to all API versions. For service types that don't support breaking down by version, setting this field will result in
-             * an error.
+             * OPTIONAL: The set of API versions to which this SLI is relevant. Telemetry from other API versions will not be used to calculate performance for this SLI. If omitted, this SLI
+             * applies to all API versions. For service types that don't support breaking down by version, setting this field will result in an error.
              */
             version?: string[];
         }
@@ -196,10 +185,7 @@ declare namespace gapi.client {
             error?: Status;
             /** The zero-based index in CreateCollectdTimeSeriesRequest.collectd_payloads. */
             index?: number;
-            /**
-             * Records the error status for values that were not written due to an error.Failed payloads for which nothing is written will not include partial value
-             * errors.
-             */
+            /** Records the error status for values that were not written due to an error.Failed payloads for which nothing is written will not include partial value errors. */
             valueErrors?: CollectdValueError[];
         }
         interface CollectdValue {
@@ -222,19 +208,17 @@ declare namespace gapi.client {
             /** A condition that compares a time series against a threshold. */
             conditionThreshold?: MetricThreshold;
             /**
-             * A short name or phrase used to identify the condition in dashboards, notifications, and incidents. To avoid confusion, don't use the same display name
-             * for multiple conditions in the same policy.
+             * A short name or phrase used to identify the condition in dashboards, notifications, and incidents. To avoid confusion, don't use the same display name for multiple conditions in the
+             * same policy.
              */
             displayName?: string;
             /**
-             * Required if the condition exists. The unique resource name for this condition. Its format is:
-             * projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID]/conditions/[CONDITION_ID] [CONDITION_ID] is assigned by Stackdriver Monitoring when the
-             * condition is created as part of a new or updated alerting policy.When calling the alertPolicies.create method, do not include the name field in the
-             * conditions of the requested alerting policy. Stackdriver Monitoring creates the condition identifiers and includes them in the new policy.When calling
-             * the alertPolicies.update method to update a policy, including a condition name causes the existing condition to be updated. Conditions without names
-             * are added to the updated policy. Existing conditions are deleted if they are not updated.Best practice is to preserve [CONDITION_ID] if you make only
-             * small changes, such as those to condition thresholds, durations, or trigger values. Otherwise, treat the change as a new condition and let the existing
-             * condition be deleted.
+             * Required if the condition exists. The unique resource name for this condition. Its format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID]/conditions/[CONDITION_ID]
+             * [CONDITION_ID] is assigned by Stackdriver Monitoring when the condition is created as part of a new or updated alerting policy.When calling the alertPolicies.create method, do not
+             * include the name field in the conditions of the requested alerting policy. Stackdriver Monitoring creates the condition identifiers and includes them in the new policy.When calling
+             * the alertPolicies.update method to update a policy, including a condition name causes the existing condition to be updated. Conditions without names are added to the updated policy.
+             * Existing conditions are deleted if they are not updated.Best practice is to preserve [CONDITION_ID] if you make only small changes, such as those to condition thresholds, durations,
+             * or trigger values. Otherwise, treat the change as a new condition and let the existing condition be deleted.
              */
             name?: string;
         }
@@ -246,8 +230,8 @@ declare namespace gapi.client {
         }
         interface CreateCollectdTimeSeriesRequest {
             /**
-             * The collectd payloads representing the time series data. You must not include more than a single point for each time series, so no two payloads can
-             * have the same values for all of the fields plugin, plugin_instance, type, and type_instance.
+             * The collectd payloads representing the time series data. You must not include more than a single point for each time series, so no two payloads can have the same values for all of
+             * the fields plugin, plugin_instance, type, and type_instance.
              */
             collectdPayloads?: CollectdPayload[];
             /** The version of collectd that collected the data. Example: "5.3.0-192.el6". */
@@ -257,21 +241,21 @@ declare namespace gapi.client {
         }
         interface CreateCollectdTimeSeriesResponse {
             /**
-             * Records the error status for points that were not written due to an error in the request.Failed requests for which nothing is written will return an
-             * error response instead. Requests where data points were rejected by the backend will set summary instead.
+             * Records the error status for points that were not written due to an error in the request.Failed requests for which nothing is written will return an error response instead. Requests
+             * where data points were rejected by the backend will set summary instead.
              */
             payloadErrors?: CollectdPayloadError[];
             /**
-             * Aggregate statistics from writing the payloads. This field is omitted if all points were successfully written, so that the response is empty. This is
-             * for backwards compatibility with clients that log errors on any non-empty response.
+             * Aggregate statistics from writing the payloads. This field is omitted if all points were successfully written, so that the response is empty. This is for backwards compatibility
+             * with clients that log errors on any non-empty response.
              */
             summary?: CreateTimeSeriesSummary;
         }
         interface CreateTimeSeriesRequest {
             /**
-             * Required. The new data to be added to a list of time series. Adds at most one data point to each of several time series. The new data point must be
-             * more recent than any other point in its time series. Each TimeSeries value must fully specify a unique time series by supplying all label values for
-             * the metric and the monitored resource.The maximum number of TimeSeries objects per Create request is 200.
+             * Required. The new data to be added to a list of time series. Adds at most one data point to each of several time series. The new data point must be more recent than any other point
+             * in its time series. Each TimeSeries value must fully specify a unique time series by supplying all label values for the metric and the monitored resource.The maximum number of
+             * TimeSeries objects per Create request is 200.
              */
             timeSeries?: TimeSeries[];
         }
@@ -288,10 +272,10 @@ declare namespace gapi.client {
         }
         interface Distribution {
             /**
-             * Required in the Cloud Monitoring API v3. The values for each bucket specified in bucket_options. The sum of the values in bucketCounts must equal the
-             * value in the count field of the Distribution object. The order of the bucket counts follows the numbering schemes described for the three bucket types.
-             * The underflow bucket has number 0; the finite buckets, if any, have numbers 1 through N-2; and the overflow bucket has number N-1. The size of
-             * bucket_counts must not be greater than N. If the size is less than N, then the remaining buckets are assigned values of zero.
+             * Required in the Cloud Monitoring API v3. The values for each bucket specified in bucket_options. The sum of the values in bucketCounts must equal the value in the count field of the
+             * Distribution object. The order of the bucket counts follows the numbering schemes described for the three bucket types. The underflow bucket has number 0; the finite buckets, if
+             * any, have numbers 1 through N-2; and the overflow bucket has number N-1. The size of bucket_counts must not be greater than N. If the size is less than N, then the remaining buckets
+             * are assigned values of zero.
              */
             bucketCounts?: string[];
             /** Required in the Cloud Monitoring API v3. Defines the histogram bucket boundaries. */
@@ -302,22 +286,18 @@ declare namespace gapi.client {
             exemplars?: Exemplar[];
             /** The arithmetic mean of the values in the population. If count is zero then this field must be zero. */
             mean?: number;
-            /**
-             * If specified, contains the range of the population values. The field must not be present if the count is zero. This field is presently ignored by the
-             * Cloud Monitoring API v3.
-             */
+            /** If specified, contains the range of the population values. The field must not be present if the count is zero. This field is presently ignored by the Cloud Monitoring API v3. */
             range?: Range;
             /**
-             * The sum of squared deviations from the mean of the values in the population. For values x_i this is: Sum[i=1..n]((x_i - mean)^2) Knuth, "The Art of
-             * Computer Programming", Vol. 2, page 323, 3rd edition describes Welford's method for accumulating this sum in one pass.If count is zero then this field
-             * must be zero.
+             * The sum of squared deviations from the mean of the values in the population. For values x_i this is: Sum[i=1..n]((x_i - mean)^2) Knuth, "The Art of Computer Programming", Vol. 2,
+             * page 323, 3rd edition describes Welford's method for accumulating this sum in one pass.If count is zero then this field must be zero.
              */
             sumOfSquaredDeviation?: number;
         }
         interface DistributionCut {
             /**
-             * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries aggregating values. Must have ValueType = DISTRIBUTION
-             * and MetricKind = DELTA or MetricKind = CUMULATIVE.
+             * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries aggregating values. Must have ValueType = DISTRIBUTION and MetricKind = DELTA or
+             * MetricKind = CUMULATIVE.
              */
             distributionFilter?: string;
             /** Range of values considered "good." For a one-sided range, set one bound to an infinite value. */
@@ -325,14 +305,11 @@ declare namespace gapi.client {
         }
         interface Documentation {
             /**
-             * The text of the documentation, interpreted according to mime_type. The content may not exceed 8,192 Unicode characters and may not exceed more than
-             * 10,240 bytes when encoded in UTF-8 format, whichever is smaller.
+             * The text of the documentation, interpreted according to mime_type. The content may not exceed 8,192 Unicode characters and may not exceed more than 10,240 bytes when encoded in
+             * UTF-8 format, whichever is smaller.
              */
             content?: string;
-            /**
-             * The format of the content field. Presently, only the value "text/markdown" is supported. See Markdown (https://en.wikipedia.org/wiki/Markdown) for more
-             * information.
-             */
+            /** The format of the content field. Presently, only the value "text/markdown" is supported. See Markdown (https://en.wikipedia.org/wiki/Markdown) for more information. */
             mimeType?: string;
         }
         interface DroppedLabels {
@@ -351,8 +328,8 @@ declare namespace gapi.client {
         interface Exemplar {
             /**
              * Contextual information about the example value. Examples are:Trace: type.googleapis.com/google.monitoring.v3.SpanContextLiteral string:
-             * type.googleapis.com/google.protobuf.StringValueLabels dropped during aggregation: type.googleapis.com/google.monitoring.v3.DroppedLabelsThere may be
-             * only a single attachment of any given message type in a single exemplar, and this is enforced by the system.
+             * type.googleapis.com/google.protobuf.StringValueLabels dropped during aggregation: type.googleapis.com/google.monitoring.v3.DroppedLabelsThere may be only a single attachment of any
+             * given message type in a single exemplar, and this is enforced by the system.
              */
             attachments?: Array<{ [P in string]: any }>;
             /** The observation (sampling) time of the above value. */
@@ -396,23 +373,22 @@ declare namespace gapi.client {
         }
         interface GetNotificationChannelVerificationCodeRequest {
             /**
-             * The desired expiration time. If specified, the API will guarantee that the returned code will not be valid after the specified timestamp; however, the
-             * API cannot guarantee that the returned code will be valid for at least as long as the requested time (the API puts an upper bound on the amount of time
-             * for which a code may be valid). If omitted, a default expiration will be used, which may be less than the max permissible expiration (so specifying an
-             * expiration may extend the code's lifetime over omitting an expiration, even though the API does impose an upper limit on the maximum expiration that is
-             * permitted).
+             * The desired expiration time. If specified, the API will guarantee that the returned code will not be valid after the specified timestamp; however, the API cannot guarantee that the
+             * returned code will be valid for at least as long as the requested time (the API puts an upper bound on the amount of time for which a code may be valid). If omitted, a default
+             * expiration will be used, which may be less than the max permissible expiration (so specifying an expiration may extend the code's lifetime over omitting an expiration, even though
+             * the API does impose an upper limit on the maximum expiration that is permitted).
              */
             expireTime?: string;
         }
         interface GetNotificationChannelVerificationCodeResponse {
             /**
-             * The verification code, which may be used to verify other channels that have an equivalent identity (i.e. other channels of the same type with the same
-             * fingerprint such as other email channels with the same email address or other sms channels with the same number).
+             * The verification code, which may be used to verify other channels that have an equivalent identity (i.e. other channels of the same type with the same fingerprint such as other
+             * email channels with the same email address or other sms channels with the same number).
              */
             code?: string;
             /**
-             * The expiration time associated with the code that was returned. If an expiration was provided in the request, this is the minimum of the requested
-             * expiration in the request and the max permitted expiration.
+             * The expiration time associated with the code that was returned. If an expiration was provided in the request, this is the minimum of the requested expiration in the request and the
+             * max permitted expiration.
              */
             expireTime?: string;
         }
@@ -430,49 +406,44 @@ declare namespace gapi.client {
             /** If true, the members of this group are considered to be a cluster. The system can perform additional analysis on groups that are clusters. */
             isCluster?: boolean;
             /**
-             * Output only. The name of this group. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] When creating a group, this field is ignored and
-             * a new name is created consisting of the project specified in the call to CreateGroup and a unique [GROUP_ID] that is generated automatically.
+             * Output only. The name of this group. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] When creating a group, this field is ignored and a new name is created
+             * consisting of the project specified in the call to CreateGroup and a unique [GROUP_ID] that is generated automatically.
              */
             name?: string;
-            /**
-             * The name of the group's parent, if it has one. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] For groups with no parent, parent_name
-             * is the empty string, "".
-             */
+            /** The name of the group's parent, if it has one. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] For groups with no parent, parent_name is the empty string, "". */
             parentName?: string;
         }
         interface HttpCheck {
             /** The authentication information. Optional when creating an HTTP check; defaults to empty. */
             authInfo?: BasicAuthentication;
             /**
-             * The request body associated with the HTTP POST request. If content_type is URL_ENCODED, the body passed in must be URL-encoded. Users can provide a
-             * Content-Length header via the headers field or the API will do so. If the request_method is GET and body is not empty, the API will return an error.
-             * The maximum byte size is 1 megabyte. Note: As with all bytes fields JSON representations are base64 encoded. e.g.: "foo=bar" in URL-encoded form is
-             * "foo%3Dbar" and in base64 encoding is "Zm9vJTI1M0RiYXI=".
+             * The request body associated with the HTTP POST request. If content_type is URL_ENCODED, the body passed in must be URL-encoded. Users can provide a Content-Length header via the
+             * headers field or the API will do so. If the request_method is GET and body is not empty, the API will return an error. The maximum byte size is 1 megabyte. Note: As with all bytes
+             * fields JSON representations are base64 encoded. e.g.: "foo=bar" in URL-encoded form is "foo%3Dbar" and in base64 encoding is "Zm9vJTI1M0RiYXI=".
              */
             body?: string;
             /** The content type to use for the check. */
             contentType?: string;
             /**
-             * The list of headers to send as part of the Uptime check request. If two headers have the same key and different values, they should be entered as a
-             * single header, with the value being a comma-separated list of all the desired values as described at https://www.w3.org/Protocols/rfc2616/rfc2616.txt
-             * (page 31). Entering two separate headers with the same key in a Create call will cause the first to be overwritten by the second. The maximum number of
-             * headers allowed is 100.
+             * The list of headers to send as part of the Uptime check request. If two headers have the same key and different values, they should be entered as a single header, with the value
+             * being a comma-separated list of all the desired values as described at https://www.w3.org/Protocols/rfc2616/rfc2616.txt (page 31). Entering two separate headers with the same key in
+             * a Create call will cause the first to be overwritten by the second. The maximum number of headers allowed is 100.
              */
             headers?: { [P in string]: string };
             /**
-             * Boolean specifying whether to encrypt the header information. Encryption should be specified for any headers related to authentication that you do not
-             * wish to be seen when retrieving the configuration. The server will be responsible for encrypting the headers. On Get/List calls, if mask_headers is set
-             * to true then the headers will be obscured with ∗∗∗∗∗∗.
+             * Boolean specifying whether to encrypt the header information. Encryption should be specified for any headers related to authentication that you do not wish to be seen when
+             * retrieving the configuration. The server will be responsible for encrypting the headers. On Get/List calls, if mask_headers is set to true then the headers will be obscured with
+             * ******.
              */
             maskHeaders?: boolean;
             /**
-             * Optional (defaults to "/"). The path to the page against which to run the check. Will be combined with the host (specified within the
-             * monitored_resource) and port to construct the full URL. If the provided path does not begin with "/", a "/" will be prepended automatically.
+             * Optional (defaults to "/"). The path to the page against which to run the check. Will be combined with the host (specified within the monitored_resource) and port to construct the
+             * full URL. If the provided path does not begin with "/", a "/" will be prepended automatically.
              */
             path?: string;
             /**
-             * Optional (defaults to 80 when use_ssl is false, and 443 when use_ssl is true). The TCP port on the HTTP server against which to run the check. Will be
-             * combined with host (specified within the monitored_resource) and path to construct the full URL.
+             * Optional (defaults to 80 when use_ssl is false, and 443 when use_ssl is true). The TCP port on the HTTP server against which to run the check. Will be combined with host (specified
+             * within the monitored_resource) and path to construct the full URL.
              */
             port?: number;
             /** The HTTP request method to use for the check. If set to METHOD_UNSPECIFIED then request_method defaults to GET. */
@@ -480,23 +451,20 @@ declare namespace gapi.client {
             /** If true, use HTTPS instead of HTTP to run the check. */
             useSsl?: boolean;
             /**
-             * Boolean specifying whether to include SSL certificate validation as a part of the Uptime check. Only applies to checks where monitored_resource is set
-             * to uptime_url. If use_ssl is false, setting validate_ssl to true has no effect.
+             * Boolean specifying whether to include SSL certificate validation as a part of the Uptime check. Only applies to checks where monitored_resource is set to uptime_url. If use_ssl is
+             * false, setting validate_ssl to true has no effect.
              */
             validateSsl?: boolean;
         }
         // tslint:disable-next-line:interface-name
         interface InternalChecker {
-            /**
-             * The checker's human-readable name. The display name should be unique within a Stackdriver Workspace in order to make it easier to identify; however,
-             * uniqueness is not enforced.
-             */
+            /** The checker's human-readable name. The display name should be unique within a Stackdriver Workspace in order to make it easier to identify; however, uniqueness is not enforced. */
             displayName?: string;
             /** The GCP zone the Uptime check should egress from. Only respected for internal Uptime checks, where internal_network is specified. */
             gcpZone?: string;
             /**
-             * A unique resource name for this InternalChecker. The format is: projects/[PROJECT_ID_OR_NUMBER]/internalCheckers/[INTERNAL_CHECKER_ID]
-             * [PROJECT_ID_OR_NUMBER] is the Stackdriver Workspace project for the Uptime check config associated with the internal checker.
+             * A unique resource name for this InternalChecker. The format is: projects/[PROJECT_ID_OR_NUMBER]/internalCheckers/[INTERNAL_CHECKER_ID] [PROJECT_ID_OR_NUMBER] is the Stackdriver
+             * Workspace project for the Uptime check config associated with the internal checker.
              */
             name?: string;
             /** The GCP VPC network (https://cloud.google.com/vpc/docs/vpc) where the internal resource lives (ex: "default"). */
@@ -510,8 +478,8 @@ declare namespace gapi.client {
             /** A human-readable description for the label. */
             description?: string;
             /**
-             * The key for this label. The key must meet the following criteria: Does not exceed 100 characters. Matches the following regular expression:
-             * [a-zA-Z][a-zA-Z0-9_]∗ The first character must be an upper- or lower-case letter. The remaining characters must be letters, digits, or underscores.
+             * The key for this label. The key must meet the following criteria: Does not exceed 100 characters. Matches the following regular expression: [a-zA-Z][a-zA-Z0-9_]* The first character
+             * must be an upper- or lower-case letter. The remaining characters must be letters, digits, or underscores.
              */
             key?: string;
             /** The type of data that can be assigned to the label. */
@@ -541,8 +509,8 @@ declare namespace gapi.client {
             /** The returned alert policies. */
             alertPolicies?: AlertPolicy[];
             /**
-             * If there might be more results than were returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * page_token in the next call to this method.
+             * If there might be more results than were returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
+             * method.
              */
             nextPageToken?: string;
             /** The total number of alert policies in all pages. This number is only an estimate, and may change in subsequent pages. https://aip.dev/158 */
@@ -552,8 +520,8 @@ declare namespace gapi.client {
             /** A set of monitored resources in the group. */
             members?: MonitoredResource[];
             /**
-             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * page_token in the next call to this method.
+             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
+             * method.
              */
             nextPageToken?: string;
             /** The total number of elements matching this request. */
@@ -563,8 +531,8 @@ declare namespace gapi.client {
             /** The groups that match the specified filters. */
             group?: Group[];
             /**
-             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * page_token in the next call to this method.
+             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
+             * method.
              */
             nextPageToken?: string;
         }
@@ -572,15 +540,15 @@ declare namespace gapi.client {
             /** The metric descriptors that are available to the project and that match the value of filter, if present. */
             metricDescriptors?: MetricDescriptor[];
             /**
-             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * page_token in the next call to this method.
+             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
+             * method.
              */
             nextPageToken?: string;
         }
         interface ListMonitoredResourceDescriptorsResponse {
             /**
-             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * page_token in the next call to this method.
+             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
+             * method.
              */
             nextPageToken?: string;
             /** The monitored resource descriptors that are available to this project and that match filter, if present. */
@@ -590,15 +558,15 @@ declare namespace gapi.client {
             /** The monitored resource descriptors supported for the specified project, optionally filtered. */
             channelDescriptors?: NotificationChannelDescriptor[];
             /**
-             * If not empty, indicates that there may be more results that match the request. Use the value in the page_token field in a subsequent request to fetch
-             * the next set of results. If empty, all results have been returned.
+             * If not empty, indicates that there may be more results that match the request. Use the value in the page_token field in a subsequent request to fetch the next set of results. If
+             * empty, all results have been returned.
              */
             nextPageToken?: string;
         }
         interface ListNotificationChannelsResponse {
             /**
-             * If not empty, indicates that there may be more results that match the request. Use the value in the page_token field in a subsequent request to fetch
-             * the next set of results. If empty, all results have been returned.
+             * If not empty, indicates that there may be more results that match the request. Use the value in the page_token field in a subsequent request to fetch the next set of results. If
+             * empty, all results have been returned.
              */
             nextPageToken?: string;
             /** The notification channels defined for the specified project. */
@@ -608,8 +576,8 @@ declare namespace gapi.client {
         }
         interface ListServiceLevelObjectivesResponse {
             /**
-             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * page_token in the next call to this method.
+             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
+             * method.
              */
             nextPageToken?: string;
             /** The ServiceLevelObjectives matching the specified filter. */
@@ -617,8 +585,8 @@ declare namespace gapi.client {
         }
         interface ListServicesResponse {
             /**
-             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * page_token in the next call to this method.
+             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
+             * method.
              */
             nextPageToken?: string;
             /** The Services matching the specified filter. */
@@ -628,24 +596,22 @@ declare namespace gapi.client {
             /** Query execution errors that may have caused the time series data returned to be incomplete. */
             executionErrors?: Status[];
             /**
-             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * page_token in the next call to this method.
+             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
+             * method.
              */
             nextPageToken?: string;
             /** One or more time series that match the filter included in the request. */
             timeSeries?: TimeSeries[];
             /**
-             * The unit in which all time_series point values are reported. unit follows the UCUM format for units as seen in https://unitsofmeasure.org/ucum.html. If
-             * different time_series have different units (for example, because they come from different metric types, or a unit is absent), then unit will be
-             * "{not_a_unit}".
+             * The unit in which all time_series point values are reported. unit follows the UCUM format for units as seen in https://unitsofmeasure.org/ucum.html. If different time_series have
+             * different units (for example, because they come from different metric types, or a unit is absent), then unit will be "{not_a_unit}".
              */
             unit?: string;
         }
         interface ListUptimeCheckConfigsResponse {
             /**
-             * This field represents the pagination token to retrieve the next page of results. If the value is empty, it means no further results for the request. To
-             * retrieve the next page of results, the value of the next_page_token is passed to the subsequent List method call (in the request message's page_token
-             * field).
+             * This field represents the pagination token to retrieve the next page of results. If the value is empty, it means no further results for the request. To retrieve the next page of
+             * results, the value of the next_page_token is passed to the subsequent List method call (in the request message's page_token field).
              */
             nextPageToken?: string;
             /** The total number of Uptime check configurations for the project, irrespective of any pagination. */
@@ -655,9 +621,8 @@ declare namespace gapi.client {
         }
         interface ListUptimeCheckIpsResponse {
             /**
-             * This field represents the pagination token to retrieve the next page of results. If the value is empty, it means no further results for the request. To
-             * retrieve the next page of results, the value of the next_page_token is passed to the subsequent List method call (in the request message's page_token
-             * field). NOTE: this field is not yet implemented
+             * This field represents the pagination token to retrieve the next page of results. If the value is empty, it means no further results for the request. To retrieve the next page of
+             * results, the value of the next_page_token is passed to the subsequent List method call (in the request message's page_token field). NOTE: this field is not yet implemented
              */
             nextPageToken?: string;
             /** The returned list of IP addresses (including region and location) that the checkers run from. */
@@ -679,28 +644,27 @@ declare namespace gapi.client {
         }
         interface MetricAbsence {
             /**
-             * Specifies the alignment of data points in individual time series as well as how to combine the retrieved time series together (such as when aggregating
-             * multiple streams on each resource to a single stream for each resource or when aggregating streams across all members of a group of resrouces).
-             * Multiple aggregations are applied in the order specified.This field is similar to the one in the ListTimeSeries request
-             * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list). It is advisable to use the ListTimeSeries method when debugging this
-             * field.
+             * Specifies the alignment of data points in individual time series as well as how to combine the retrieved time series together (such as when aggregating multiple streams on each
+             * resource to a single stream for each resource or when aggregating streams across all members of a group of resrouces). Multiple aggregations are applied in the order specified.This
+             * field is similar to the one in the ListTimeSeries request (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list). It is advisable to use the
+             * ListTimeSeries method when debugging this field.
              */
             aggregations?: Aggregation[];
             /**
-             * The amount of time that a time series must fail to report new data to be considered failing. Currently, only values that are a multiple of a
-             * minute--e.g. 60, 120, or 300 seconds--are supported. If an invalid value is given, an error will be returned. The Duration.nanos field is ignored.
+             * The amount of time that a time series must fail to report new data to be considered failing. Currently, only values that are a multiple of a minute--e.g. 60, 120, or 300
+             * seconds--are supported. If an invalid value is given, an error will be returned. The Duration.nanos field is ignored.
              */
             duration?: string;
             /**
-             * A filter (https://cloud.google.com/monitoring/api/v3/filters) that identifies which time series should be compared with the threshold.The filter is
-             * similar to the one that is specified in the ListTimeSeries request (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list)
-             * (that call is useful to verify the time series that will be retrieved / processed) and must specify the metric type and optionally may contain
-             * restrictions on resource type, resource labels, and metric labels. This field may not exceed 2048 Unicode characters in length.
+             * A filter (https://cloud.google.com/monitoring/api/v3/filters) that identifies which time series should be compared with the threshold.The filter is similar to the one that is
+             * specified in the ListTimeSeries request (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list) (that call is useful to verify the time series that will be
+             * retrieved / processed) and must specify the metric type and optionally may contain restrictions on resource type, resource labels, and metric labels. This field may not exceed 2048
+             * Unicode characters in length.
              */
             filter?: string;
             /**
-             * The number/percent of time series for which the comparison must hold in order for the condition to trigger. If unspecified, then the condition will
-             * trigger if the comparison is true for any of the time series that have been identified by filter and aggregations.
+             * The number/percent of time series for which the comparison must hold in order for the condition to trigger. If unspecified, then the condition will trigger if the comparison is true
+             * for any of the time series that have been identified by filter and aggregations.
              */
             trigger?: Trigger;
         }
@@ -708,15 +672,15 @@ declare namespace gapi.client {
             /** A detailed description of the metric, which can be used in documentation. */
             description?: string;
             /**
-             * A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example "Request count". This
-             * field is optional but it is recommended to be set for any metrics associated with user-visible concepts, such as Quota.
+             * A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example "Request count". This field is optional but it is
+             * recommended to be set for any metrics associated with user-visible concepts, such as Quota.
              */
             displayName?: string;
             /**
-             * The set of labels that can be used to describe a specific instance of this metric type.The label key name must follow: Only upper and lower-case
-             * letters, digits and underscores (_) are allowed. Label name must start with a letter or digit. The maximum length of a label name is 100 characters.For
-             * example, the appengine.googleapis.com/http/server/response_latencies metric type has a label for the HTTP response code, response_code, so you can look
-             * at latencies for successful responses or just for responses that failed.
+             * The set of labels that can be used to describe a specific instance of this metric type.The label key name must follow: Only upper and lower-case letters, digits and underscores (_)
+             * are allowed. Label name must start with a letter or digit. The maximum length of a label name is 100 characters.For example, the
+             * appengine.googleapis.com/http/server/response_latencies metric type has a label for the HTTP response code, response_code, so you can look at latencies for successful responses or
+             * just for responses that failed.
              */
             labels?: LabelDescriptor[];
             /** Optional. The launch stage of the metric definition. */
@@ -726,60 +690,53 @@ declare namespace gapi.client {
             /** Whether the metric records instantaneous values, changes to a value, etc. Some combinations of metric_kind and value_type might not be supported. */
             metricKind?: string;
             /**
-             * Read-only. If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with
-             * this metric type can only be associated with one of the monitored resource types listed here.
+             * Read-only. If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with this metric type can only be
+             * associated with one of the monitored resource types listed here.
              */
             monitoredResourceTypes?: string[];
             /** The resource name of the metric descriptor. */
             name?: string;
             /**
-             * The metric type, including its DNS name prefix. The type is not URL-encoded.All service defined metrics must be prefixed with the service name, in the
-             * format of {service name}/{relative metric name}, such as cloudsql.googleapis.com/database/cpu/utilization. The relative metric name must follow: Only
-             * upper and lower-case letters, digits, '/' and underscores '_' are allowed. The maximum number of characters allowed for the relative_metric_name is
-             * 100.All user-defined metric types have the DNS name custom.googleapis.com, external.googleapis.com, or logging.googleapis.com/user/.Metric types should
-             * use a natural hierarchical grouping. For example: "custom.googleapis.com/invoice/paid/amount" "external.googleapis.com/prometheus/up"
-             * "appengine.googleapis.com/http/server/response_latencies"
+             * The metric type, including its DNS name prefix. The type is not URL-encoded.All service defined metrics must be prefixed with the service name, in the format of {service
+             * name}/{relative metric name}, such as cloudsql.googleapis.com/database/cpu/utilization. The relative metric name must follow: Only upper and lower-case letters, digits, '/' and
+             * underscores '_' are allowed. The maximum number of characters allowed for the relative_metric_name is 100.All user-defined metric types have the DNS name custom.googleapis.com,
+             * external.googleapis.com, or logging.googleapis.com/user/.Metric types should use a natural hierarchical grouping. For example: "custom.googleapis.com/invoice/paid/amount"
+             * "external.googleapis.com/prometheus/up" "appengine.googleapis.com/http/server/response_latencies"
              */
             type?: string;
             /**
-             * The units in which the metric value is reported. It is only applicable if the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the
-             * representation of the stored metric values.Different systems may scale the values to be more easily displayed (so a value of 0.02KBy might be displayed
-             * as 20By, and a value of 3523KBy might be displayed as 3.5MBy). However, if the unit is KBy, then the value of the metric is always in thousands of
-             * bytes, no matter how it may be displayed..If you want a custom metric to record the exact number of CPU-seconds used by a job, you can create an INT64
-             * CUMULATIVE metric whose unit is s{CPU} (or equivalently 1s{CPU} or just s). If the job uses 12,005 CPU-seconds, then the value is written as
-             * 12005.Alternatively, if you want a custom metric to record data in a more granular way, you can create a DOUBLE CUMULATIVE metric whose unit is
-             * ks{CPU}, and then write the value 12.005 (which is 12005/1000), or use Kis{CPU} and write 11.723 (which is 12005/1024).The supported units are a subset
-             * of The Unified Code for Units of Measure (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT) bit bit By byte s second min minute h hour d
-             * day 1 dimensionlessPrefixes (PREFIX) k kilo (10^3) M mega (10^6) G giga (10^9) T tera (10^12) P peta (10^15) E exa (10^18) Z zetta (10^21) Y yotta
-             * (10^24) m milli (10^-3) u micro (10^-6) n nano (10^-9) p pico (10^-12) f femto (10^-15) a atto (10^-18) z zepto (10^-21) y yocto (10^-24) Ki kibi
-             * (2^10) Mi mebi (2^20) Gi gibi (2^30) Ti tebi (2^40) Pi pebi (2^50)GrammarThe grammar also includes these connectors: / division or ratio (as an infix
-             * operator). For examples, kBy/{email} or MiBy/10ms (although you should almost never have /s in a metric unit; rates should always be computed at query
-             * time from the underlying cumulative or delta value). . multiplication or composition (as an infix operator). For examples, GBy.d or k{watt}.h.The
-             * grammar for a unit is as follows: Expression = Component { "." Component } { "/" Component } ; Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ] |
-             * Annotation | "1" ; Annotation = "{" NAME "}" ; Notes: Annotation is just a comment if it follows a UNIT. If the annotation is used alone, then the unit
-             * is equivalent to 1. For examples, {request}/s == 1/s, By{transmitted}/s == By/s. NAME is a sequence of non-blank printable ASCII characters not
-             * containing { or }. 1 represents a unitary dimensionless unit (https://en.wikipedia.org/wiki/Dimensionless_quantity) of 1, such as in 1/s. It is
-             * typically used when none of the basic units are appropriate. For example, "new users per day" can be represented as 1/d or {new-users}/d (and a metric
-             * value 5 would mean "5 new users). Alternatively, "thousands of page views per day" would be represented as 1000/d or k1/d or k{page_views}/d (and a
-             * metric value of 5.3 would mean "5300 page views per day"). % represents dimensionless value of 1/100, and annotates values giving a percentage (so the
-             * metric values are typically in the range of 0..100, and a metric value 3 means "3 percent"). 10^2.% indicates a metric contains a ratio, typically in
-             * the range 0..1, that will be multiplied by 100 and displayed as a percentage (so a metric value 0.03 means "3 percent").
+             * The units in which the metric value is reported. It is only applicable if the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the representation of the stored metric
+             * values.Different systems may scale the values to be more easily displayed (so a value of 0.02KBy might be displayed as 20By, and a value of 3523KBy might be displayed as 3.5MBy).
+             * However, if the unit is KBy, then the value of the metric is always in thousands of bytes, no matter how it may be displayed..If you want a custom metric to record the exact number
+             * of CPU-seconds used by a job, you can create an INT64 CUMULATIVE metric whose unit is s{CPU} (or equivalently 1s{CPU} or just s). If the job uses 12,005 CPU-seconds, then the value
+             * is written as 12005.Alternatively, if you want a custom metric to record data in a more granular way, you can create a DOUBLE CUMULATIVE metric whose unit is ks{CPU}, and then write
+             * the value 12.005 (which is 12005/1000), or use Kis{CPU} and write 11.723 (which is 12005/1024).The supported units are a subset of The Unified Code for Units of Measure
+             * (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT) bit bit By byte s second min minute h hour d day 1 dimensionlessPrefixes (PREFIX) k kilo (10^3) M mega (10^6) G
+             * giga (10^9) T tera (10^12) P peta (10^15) E exa (10^18) Z zetta (10^21) Y yotta (10^24) m milli (10^-3) u micro (10^-6) n nano (10^-9) p pico (10^-12) f femto (10^-15) a atto
+             * (10^-18) z zepto (10^-21) y yocto (10^-24) Ki kibi (2^10) Mi mebi (2^20) Gi gibi (2^30) Ti tebi (2^40) Pi pebi (2^50)GrammarThe grammar also includes these connectors: / division or
+             * ratio (as an infix operator). For examples, kBy/{email} or MiBy/10ms (although you should almost never have /s in a metric unit; rates should always be computed at query time from
+             * the underlying cumulative or delta value). . multiplication or composition (as an infix operator). For examples, GBy.d or k{watt}.h.The grammar for a unit is as follows: Expression
+             * = Component { "." Component } { "/" Component } ; Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ] | Annotation | "1" ; Annotation = "{" NAME "}" ; Notes: Annotation is just a
+             * comment if it follows a UNIT. If the annotation is used alone, then the unit is equivalent to 1. For examples, {request}/s == 1/s, By{transmitted}/s == By/s. NAME is a sequence of
+             * non-blank printable ASCII characters not containing { or }. 1 represents a unitary dimensionless unit (https://en.wikipedia.org/wiki/Dimensionless_quantity) of 1, such as in 1/s. It
+             * is typically used when none of the basic units are appropriate. For example, "new users per day" can be represented as 1/d or {new-users}/d (and a metric value 5 would mean "5 new
+             * users). Alternatively, "thousands of page views per day" would be represented as 1000/d or k1/d or k{page_views}/d (and a metric value of 5.3 would mean "5300 page views per day").
+             * % represents dimensionless value of 1/100, and annotates values giving a percentage (so the metric values are typically in the range of 0..100, and a metric value 3 means "3
+             * percent"). 10^2.% indicates a metric contains a ratio, typically in the range 0..1, that will be multiplied by 100 and displayed as a percentage (so a metric value 0.03 means "3
+             * percent").
              */
             unit?: string;
             /** Whether the measurement is an integer, a floating-point number, etc. Some combinations of metric_kind and value_type might not be supported. */
             valueType?: string;
         }
         interface MetricDescriptorMetadata {
-            /**
-             * The delay of data points caused by ingestion. Data points older than this age are guaranteed to be ingested and available to be read, excluding data
-             * loss due to errors.
-             */
+            /** The delay of data points caused by ingestion. Data points older than this age are guaranteed to be ingested and available to be read, excluding data loss due to errors. */
             ingestDelay?: string;
             /** Deprecated. Must use the MetricDescriptor.launch_stage instead. */
             launchStage?: string;
             /**
-             * The sampling period of metric data points. For metrics which are written periodically, consecutive data points are stored at this time interval,
-             * excluding data loss due to errors. Metrics with a higher granularity have a smaller sampling period.
+             * The sampling period of metric data points. For metrics which are written periodically, consecutive data points are stored at this time interval, excluding data loss due to errors.
+             * Metrics with a higher granularity have a smaller sampling period.
              */
             samplePeriod?: string;
         }
@@ -791,66 +748,60 @@ declare namespace gapi.client {
         }
         interface MetricThreshold {
             /**
-             * Specifies the alignment of data points in individual time series as well as how to combine the retrieved time series together (such as when aggregating
-             * multiple streams on each resource to a single stream for each resource or when aggregating streams across all members of a group of resrouces).
-             * Multiple aggregations are applied in the order specified.This field is similar to the one in the ListTimeSeries request
-             * (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list). It is advisable to use the ListTimeSeries method when debugging this
-             * field.
+             * Specifies the alignment of data points in individual time series as well as how to combine the retrieved time series together (such as when aggregating multiple streams on each
+             * resource to a single stream for each resource or when aggregating streams across all members of a group of resrouces). Multiple aggregations are applied in the order specified.This
+             * field is similar to the one in the ListTimeSeries request (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list). It is advisable to use the
+             * ListTimeSeries method when debugging this field.
              */
             aggregations?: Aggregation[];
             /**
-             * The comparison to apply between the time series (indicated by filter and aggregation) and the threshold (indicated by threshold_value). The comparison
-             * is applied on each time series, with the time series on the left-hand side and the threshold on the right-hand side.Only COMPARISON_LT and
-             * COMPARISON_GT are supported currently.
+             * The comparison to apply between the time series (indicated by filter and aggregation) and the threshold (indicated by threshold_value). The comparison is applied on each time
+             * series, with the time series on the left-hand side and the threshold on the right-hand side.Only COMPARISON_LT and COMPARISON_GT are supported currently.
              */
             comparison?: string;
             /**
-             * Specifies the alignment of data points in individual time series selected by denominatorFilter as well as how to combine the retrieved time series
-             * together (such as when aggregating multiple streams on each resource to a single stream for each resource or when aggregating streams across all
-             * members of a group of resources).When computing ratios, the aggregations and denominator_aggregations fields must use the same alignment period and
-             * produce time series that have the same periodicity and labels.
+             * Specifies the alignment of data points in individual time series selected by denominatorFilter as well as how to combine the retrieved time series together (such as when aggregating
+             * multiple streams on each resource to a single stream for each resource or when aggregating streams across all members of a group of resources).When computing ratios, the
+             * aggregations and denominator_aggregations fields must use the same alignment period and produce time series that have the same periodicity and labels.
              */
             denominatorAggregations?: Aggregation[];
             /**
-             * A filter (https://cloud.google.com/monitoring/api/v3/filters) that identifies a time series that should be used as the denominator of a ratio that will
-             * be compared with the threshold. If a denominator_filter is specified, the time series specified by the filter field will be used as the numerator.The
-             * filter must specify the metric type and optionally may contain restrictions on resource type, resource labels, and metric labels. This field may not
-             * exceed 2048 Unicode characters in length.
+             * A filter (https://cloud.google.com/monitoring/api/v3/filters) that identifies a time series that should be used as the denominator of a ratio that will be compared with the
+             * threshold. If a denominator_filter is specified, the time series specified by the filter field will be used as the numerator.The filter must specify the metric type and optionally
+             * may contain restrictions on resource type, resource labels, and metric labels. This field may not exceed 2048 Unicode characters in length.
              */
             denominatorFilter?: string;
             /**
-             * The amount of time that a time series must violate the threshold to be considered failing. Currently, only values that are a multiple of a
-             * minute--e.g., 0, 60, 120, or 300 seconds--are supported. If an invalid value is given, an error will be returned. When choosing a duration, it is
-             * useful to keep in mind the frequency of the underlying time series data (which may also be affected by any alignments specified in the aggregations
-             * field); a good duration is long enough so that a single outlier does not generate spurious alerts, but short enough that unhealthy states are detected
-             * and alerted on quickly.
+             * The amount of time that a time series must violate the threshold to be considered failing. Currently, only values that are a multiple of a minute--e.g., 0, 60, 120, or 300
+             * seconds--are supported. If an invalid value is given, an error will be returned. When choosing a duration, it is useful to keep in mind the frequency of the underlying time series
+             * data (which may also be affected by any alignments specified in the aggregations field); a good duration is long enough so that a single outlier does not generate spurious alerts,
+             * but short enough that unhealthy states are detected and alerted on quickly.
              */
             duration?: string;
             /**
-             * A filter (https://cloud.google.com/monitoring/api/v3/filters) that identifies which time series should be compared with the threshold.The filter is
-             * similar to the one that is specified in the ListTimeSeries request (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list)
-             * (that call is useful to verify the time series that will be retrieved / processed) and must specify the metric type and optionally may contain
-             * restrictions on resource type, resource labels, and metric labels. This field may not exceed 2048 Unicode characters in length.
+             * A filter (https://cloud.google.com/monitoring/api/v3/filters) that identifies which time series should be compared with the threshold.The filter is similar to the one that is
+             * specified in the ListTimeSeries request (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list) (that call is useful to verify the time series that will be
+             * retrieved / processed) and must specify the metric type and optionally may contain restrictions on resource type, resource labels, and metric labels. This field may not exceed 2048
+             * Unicode characters in length.
              */
             filter?: string;
             /** A value against which to compare the time series. */
             thresholdValue?: number;
             /**
-             * The number/percent of time series for which the comparison must hold in order for the condition to trigger. If unspecified, then the condition will
-             * trigger if the comparison is true for any of the time series that have been identified by filter and aggregations, or by the ratio, if
-             * denominator_filter and denominator_aggregations are specified.
+             * The number/percent of time series for which the comparison must hold in order for the condition to trigger. If unspecified, then the condition will trigger if the comparison is true
+             * for any of the time series that have been identified by filter and aggregations, or by the ratio, if denominator_filter and denominator_aggregations are specified.
              */
             trigger?: Trigger;
         }
         interface MonitoredResource {
             /**
-             * Required. Values for all of the labels listed in the associated monitored resource descriptor. For example, Compute Engine VM instances use the labels
-             * "project_id", "instance_id", and "zone".
+             * Required. Values for all of the labels listed in the associated monitored resource descriptor. For example, Compute Engine VM instances use the labels "project_id", "instance_id",
+             * and "zone".
              */
             labels?: { [P in string]: string };
             /**
-             * Required. The monitored resource type. This field must match the type field of a MonitoredResourceDescriptor object. For example, the type of a Compute
-             * Engine VM instance is gce_instance. For a list of types, see Monitoring resource types and Logging resource types.
+             * Required. The monitored resource type. This field must match the type field of a MonitoredResourceDescriptor object. For example, the type of a Compute Engine VM instance is
+             * gce_instance. For a list of types, see Monitoring resource types and Logging resource types.
              */
             type?: string;
         }
@@ -858,38 +809,37 @@ declare namespace gapi.client {
             /** Optional. A detailed description of the monitored resource type that might be used in documentation. */
             description?: string;
             /**
-             * Optional. A concise name for the monitored resource type that might be displayed in user interfaces. It should be a Title Cased Noun Phrase, without
-             * any article or other determiners. For example, "Google Cloud SQL Database".
+             * Optional. A concise name for the monitored resource type that might be displayed in user interfaces. It should be a Title Cased Noun Phrase, without any article or other
+             * determiners. For example, "Google Cloud SQL Database".
              */
             displayName?: string;
             /**
-             * Required. A set of labels used to describe instances of this monitored resource type. The label key name must follow: Only upper and lower-case
-             * letters, digits and underscores (_) are allowed. Label name must start with a letter or digit. The maximum length of a label name is 100 characters.For
-             * example, an individual Google Cloud SQL database is identified by values for the labels database_id and location.
+             * Required. A set of labels used to describe instances of this monitored resource type. The label key name must follow: Only upper and lower-case letters, digits and underscores (_)
+             * are allowed. Label name must start with a letter or digit. The maximum length of a label name is 100 characters.For example, an individual Google Cloud SQL database is identified by
+             * values for the labels database_id and location.
              */
             labels?: LabelDescriptor[];
             /** Optional. The launch stage of the monitored resource definition. */
             launchStage?: string;
             /**
-             * Optional. The resource name of the monitored resource descriptor: "projects/{project_id}/monitoredResourceDescriptors/{type}" where {type} is the value
-             * of the type field in this object and {project_id} is a project ID that provides API-specific context for accessing the type. APIs that do not use
-             * project information can use the resource name format "monitoredResourceDescriptors/{type}".
+             * Optional. The resource name of the monitored resource descriptor: "projects/{project_id}/monitoredResourceDescriptors/{type}" where {type} is the value of the type field in this
+             * object and {project_id} is a project ID that provides API-specific context for accessing the type. APIs that do not use project information can use the resource name format
+             * "monitoredResourceDescriptors/{type}".
              */
             name?: string;
             /**
-             * Required. The monitored resource type. For example, the type cloudsql_database represents databases in Google Cloud SQL.All service defined monitored
-             * resource types must be prefixed with the service name, in the format of {service name}/{relative resource name}. The relative resource name must
-             * follow: Only upper and lower-case letters and digits are allowed. It must start with upper case character and is recommended to use Upper Camel Case
-             * style. The maximum number of characters allowed for the relative_resource_name is 100.Note there are legacy service monitored resources not following
-             * this rule.
+             * Required. The monitored resource type. For example, the type cloudsql_database represents databases in Google Cloud SQL.All service defined monitored resource types must be prefixed
+             * with the service name, in the format of {service name}/{relative resource name}. The relative resource name must follow: Only upper and lower-case letters and digits are allowed. It
+             * must start with upper case character and is recommended to use Upper Camel Case style. The maximum number of characters allowed for the relative_resource_name is 100.Note there are
+             * legacy service monitored resources not following this rule.
              */
             type?: string;
         }
         interface MonitoredResourceMetadata {
             /**
-             * Output only. Values for predefined system metadata labels. System labels are a kind of metadata extracted by Google, including "machine_image", "vpc",
-             * "subnet_id", "security_group", "name", etc. System label values can be only strings, Boolean values, or a list of strings. For example: { "name":
-             * "my-test-instance", "security_group": ["a", "b", "c"], "spot_instance": false }
+             * Output only. Values for predefined system metadata labels. System labels are a kind of metadata extracted by Google, including "machine_image", "vpc", "subnet_id", "security_group",
+             * "name", etc. System label values can be only strings, Boolean values, or a list of strings. For example: { "name": "my-test-instance", "security_group": ["a", "b", "c"],
+             * "spot_instance": false }
              */
             systemLabels?: { [P in string]: any };
             /** Output only. A map of user-defined metadata labels. */
@@ -903,68 +853,60 @@ declare namespace gapi.client {
         }
         interface NotificationChannel {
             /**
-             * An optional human-readable description of this notification channel. This description may provide additional details, beyond the display name, for the
-             * channel. This may not exceed 1024 Unicode characters.
+             * An optional human-readable description of this notification channel. This description may provide additional details, beyond the display name, for the channel. This may not exceed
+             * 1024 Unicode characters.
              */
             description?: string;
             /**
-             * An optional human-readable name for this notification channel. It is recommended that you specify a non-empty and unique name in order to make it
-             * easier to identify the channels in your project, though this is not enforced. The display name is limited to 512 Unicode characters.
+             * An optional human-readable name for this notification channel. It is recommended that you specify a non-empty and unique name in order to make it easier to identify the channels in
+             * your project, though this is not enforced. The display name is limited to 512 Unicode characters.
              */
             displayName?: string;
             /**
-             * Whether notifications are forwarded to the described channel. This makes it possible to disable delivery of notifications to a particular channel
-             * without removing the channel from all alerting policies that reference the channel. This is a more convenient approach when the change is temporary and
-             * you want to receive notifications from the same set of alerting policies on the channel at some point in the future.
+             * Whether notifications are forwarded to the described channel. This makes it possible to disable delivery of notifications to a particular channel without removing the channel from
+             * all alerting policies that reference the channel. This is a more convenient approach when the change is temporary and you want to receive notifications from the same set of alerting
+             * policies on the channel at some point in the future.
              */
             enabled?: boolean;
             /**
-             * Configuration fields that define the channel and its behavior. The permissible and required labels are specified in the
-             * NotificationChannelDescriptor.labels of the NotificationChannelDescriptor corresponding to the type field.
+             * Configuration fields that define the channel and its behavior. The permissible and required labels are specified in the NotificationChannelDescriptor.labels of the
+             * NotificationChannelDescriptor corresponding to the type field.
              */
             labels?: { [P in string]: string };
             /**
-             * The full REST resource name for this channel. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The [CHANNEL_ID] is
-             * automatically assigned by the server on creation.
+             * The full REST resource name for this channel. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The [CHANNEL_ID] is automatically assigned by the
+             * server on creation.
              */
             name?: string;
             /** The type of the notification channel. This field matches the value of the NotificationChannelDescriptor.type field. */
             type?: string;
             /**
-             * User-supplied key/value data that does not need to conform to the corresponding NotificationChannelDescriptor's schema, unlike the labels field. This
-             * field is intended to be used for organizing and identifying the NotificationChannel objects.The field can contain up to 64 entries. Each key and value
-             * is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores,
-             * and dashes. Keys must begin with a letter.
+             * User-supplied key/value data that does not need to conform to the corresponding NotificationChannelDescriptor's schema, unlike the labels field. This field is intended to be used
+             * for organizing and identifying the NotificationChannel objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever
+             * is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
              */
             userLabels?: { [P in string]: string };
             /**
-             * Indicates whether this channel has been verified or not. On a ListNotificationChannels or GetNotificationChannel operation, this field is expected to
-             * be populated.If the value is UNVERIFIED, then it indicates that the channel is non-functioning (it both requires verification and lacks verification);
-             * otherwise, it is assumed that the channel works.If the channel is neither VERIFIED nor UNVERIFIED, it implies that the channel is of a type that does
-             * not require verification or that this specific channel has been exempted from verification because it was created prior to verification being required
-             * for channels of this type.This field cannot be modified using a standard UpdateNotificationChannel operation. To change the value of this field, you
-             * must call VerifyNotificationChannel.
+             * Indicates whether this channel has been verified or not. On a ListNotificationChannels or GetNotificationChannel operation, this field is expected to be populated.If the value is
+             * UNVERIFIED, then it indicates that the channel is non-functioning (it both requires verification and lacks verification); otherwise, it is assumed that the channel works.If the
+             * channel is neither VERIFIED nor UNVERIFIED, it implies that the channel is of a type that does not require verification or that this specific channel has been exempted from
+             * verification because it was created prior to verification being required for channels of this type.This field cannot be modified using a standard UpdateNotificationChannel
+             * operation. To change the value of this field, you must call VerifyNotificationChannel.
              */
             verificationStatus?: string;
         }
         interface NotificationChannelDescriptor {
-            /**
-             * A human-readable description of the notification channel type. The description may include a description of the properties of the channel and pointers
-             * to external documentation.
-             */
+            /** A human-readable description of the notification channel type. The description may include a description of the properties of the channel and pointers to external documentation. */
             description?: string;
             /** A human-readable name for the notification channel type. This form of the name is suitable for a user interface. */
             displayName?: string;
-            /**
-             * The set of labels that must be defined to identify a particular channel of the corresponding type. Each label includes a description for how that field
-             * should be populated.
-             */
+            /** The set of labels that must be defined to identify a particular channel of the corresponding type. Each label includes a description for how that field should be populated. */
             labels?: LabelDescriptor[];
             /** The product launch stage for channels of this type. */
             launchStage?: string;
             /**
-             * The full REST resource name for this descriptor. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[TYPE] In the above,
-             * [TYPE] is the value of the type field.
+             * The full REST resource name for this descriptor. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[TYPE] In the above, [TYPE] is the value of the type
+             * field.
              */
             name?: string;
             /**
@@ -975,13 +917,13 @@ declare namespace gapi.client {
         }
         interface Option {
             /**
-             * The option's name. For protobuf built-in options (options defined in descriptor.proto), this is the short name. For example, "map_entry". For custom
-             * options, it should be the fully-qualified name. For example, "google.api.http".
+             * The option's name. For protobuf built-in options (options defined in descriptor.proto), this is the short name. For example, "map_entry". For custom options, it should be the
+             * fully-qualified name. For example, "google.api.http".
              */
             name?: string;
             /**
-             * The option's value packed in an Any message. If the value is a primitive, the corresponding wrapper type defined in google/protobuf/wrappers.proto
-             * should be used. If the value is an enum, it should be stored as an int32 value using the google.protobuf.Int32Value type.
+             * The option's value packed in an Any message. If the value is a primitive, the corresponding wrapper type defined in google/protobuf/wrappers.proto should be used. If the value is an
+             * enum, it should be stored as an int32 value using the google.protobuf.Int32Value type.
              */
             value?: { [P in string]: any };
         }
@@ -995,10 +937,10 @@ declare namespace gapi.client {
         }
         interface Point {
             /**
-             * The time interval to which the data point applies. For GAUGE metrics, the start time is optional, but if it is supplied, it must equal the end time.
-             * For DELTA metrics, the start and end time should specify a non-zero interval, with subsequent points specifying contiguous and non-overlapping
-             * intervals. For CUMULATIVE metrics, the start and end time should specify a non-zero interval, with subsequent points specifying the same start time and
-             * increasing end times, until an event resets the cumulative value to zero and sets a new start time for the following points.
+             * The time interval to which the data point applies. For GAUGE metrics, the start time is optional, but if it is supplied, it must equal the end time. For DELTA metrics, the start and
+             * end time should specify a non-zero interval, with subsequent points specifying contiguous and non-overlapping intervals. For CUMULATIVE metrics, the start and end time should
+             * specify a non-zero interval, with subsequent points specifying the same start time and increasing end times, until an event resets the cumulative value to zero and sets a new start
+             * time for the following points.
              */
             interval?: TimeInterval;
             /** The value of the data point. */
@@ -1014,8 +956,8 @@ declare namespace gapi.client {
             /** A positive number that is the maximum number of time_series_data to return. */
             pageSize?: number;
             /**
-             * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method
-             * to return additional results from the previous method call.
+             * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional results
+             * from the previous method call.
              */
             pageToken?: string;
             /** Required. The query in the monitoring query language format. The default time zone is in UTC. */
@@ -1023,8 +965,8 @@ declare namespace gapi.client {
         }
         interface QueryTimeSeriesResponse {
             /**
-             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as
-             * page_token in the next call to this method.
+             * If there are more results than have been returned, then this field is set to a non-empty value. To see the additional results, use that value as page_token in the next call to this
+             * method.
              */
             nextPageToken?: string;
             /** Query execution errors that may have caused the time series data returned to be incomplete. The available data will be available in the response. */
@@ -1042,8 +984,8 @@ declare namespace gapi.client {
         }
         interface RequestBasedSli {
             /**
-             * distribution_cut is used when good_service is a count of values aggregated in a Distribution that fall into a good range. The total_service is the
-             * total count of all values aggregated in the Distribution.
+             * distribution_cut is used when good_service is a count of values aggregated in a Distribution that fall into a good range. The total_service is the total count of all values
+             * aggregated in the Distribution.
              */
             distributionCut?: DistributionCut;
             /** good_total_ratio is used when the ratio of good_service to total_service is computed from two TimeSeries. */
@@ -1095,10 +1037,7 @@ declare namespace gapi.client {
             name?: string;
             /** A rolling time period, semantically "in the past ". Must be an integer multiple of 1 day no larger than 30 days. */
             rollingPeriod?: string;
-            /**
-             * The definition of good service, used to measure and calculate the quality of the Service's performance with respect to a single aspect of service
-             * quality.
-             */
+            /** The definition of good service, used to measure and calculate the quality of the Service's performance with respect to a single aspect of service quality. */
             serviceLevelIndicator?: ServiceLevelIndicator;
         }
         interface SourceContext {
@@ -1107,9 +1046,8 @@ declare namespace gapi.client {
         }
         interface SpanContext {
             /**
-             * The resource name of the span. The format is: projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID] [TRACE_ID] is a unique identifier for a
-             * trace within a project; it is a 32-character hexadecimal encoding of a 16-byte array.[SPAN_ID] is a unique identifier for a span within a trace; it is
-             * a 16-character hexadecimal encoding of an 8-byte array.
+             * The resource name of the span. The format is: projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID] [TRACE_ID] is a unique identifier for a trace within a project; it is
+             * a 32-character hexadecimal encoding of a 16-byte array.[SPAN_ID] is a unique identifier for a span within a trace; it is a 16-character hexadecimal encoding of an 8-byte array.
              */
             spanName?: string;
         }
@@ -1119,16 +1057,13 @@ declare namespace gapi.client {
             /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
             details?: Array<{ [P in string]: any }>;
             /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the
-             * google.rpc.Status.details field, or localized by the client.
+             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
+             * client.
              */
             message?: string;
         }
         interface TcpCheck {
-            /**
-             * The TCP port on the server against which to run the check. Will be combined with host (specified within the monitored_resource) to construct the full
-             * URL. Required.
-             */
+            /** The TCP port on the server against which to run the check. Will be combined with host (specified within the monitored_resource) to construct the full URL. Required. */
             port?: number;
         }
         interface Telemetry {
@@ -1143,43 +1078,41 @@ declare namespace gapi.client {
         }
         interface TimeSeries {
             /**
-             * Output only. The associated monitored resource metadata. When reading a time series, this field will include metadata labels that are explicitly named
-             * in the reduction. When creating a time series, this field is ignored.
+             * Output only. The associated monitored resource metadata. When reading a time series, this field will include metadata labels that are explicitly named in the reduction. When
+             * creating a time series, this field is ignored.
              */
             metadata?: MonitoredResourceMetadata;
             /** The associated metric. A fully-specified metric used to identify the time series. */
             metric?: Metric;
             /**
-             * The metric kind of the time series. When listing time series, this metric kind might be different from the metric kind of the associated metric if this
-             * time series is an alignment or reduction of other time series.When creating a time series, this field is optional. If present, it must be the same as
-             * the metric kind of the associated metric. If the associated metric's descriptor must be auto-created, then this field specifies the metric kind of the
-             * new descriptor and must be either GAUGE (the default) or CUMULATIVE.
+             * The metric kind of the time series. When listing time series, this metric kind might be different from the metric kind of the associated metric if this time series is an alignment
+             * or reduction of other time series.When creating a time series, this field is optional. If present, it must be the same as the metric kind of the associated metric. If the associated
+             * metric's descriptor must be auto-created, then this field specifies the metric kind of the new descriptor and must be either GAUGE (the default) or CUMULATIVE.
              */
             metricKind?: string;
             /**
-             * The data points of this time series. When listing time series, points are returned in reverse time order.When creating a time series, this field must
-             * contain exactly one point and the point's type must be the same as the value type of the associated metric. If the associated metric's descriptor must
-             * be auto-created, then the value type of the descriptor is determined by the point's type, which must be BOOL, INT64, DOUBLE, or DISTRIBUTION.
+             * The data points of this time series. When listing time series, points are returned in reverse time order.When creating a time series, this field must contain exactly one point and
+             * the point's type must be the same as the value type of the associated metric. If the associated metric's descriptor must be auto-created, then the value type of the descriptor is
+             * determined by the point's type, which must be BOOL, INT64, DOUBLE, or DISTRIBUTION.
              */
             points?: Point[];
             /** The associated monitored resource. Custom metrics can use only certain monitored resource types in their time series data. */
             resource?: MonitoredResource;
             /**
-             * The units in which the metric value is reported. It is only applicable if the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the
-             * representation of the stored metric values.
+             * The units in which the metric value is reported. It is only applicable if the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the representation of the stored metric
+             * values.
              */
             unit?: string;
             /**
-             * The value type of the time series. When listing time series, this value type might be different from the value type of the associated metric if this
-             * time series is an alignment or reduction of other time series.When creating a time series, this field is optional. If present, it must be the same as
-             * the type of the data in the points field.
+             * The value type of the time series. When listing time series, this value type might be different from the value type of the associated metric if this time series is an alignment or
+             * reduction of other time series.When creating a time series, this field is optional. If present, it must be the same as the type of the data in the points field.
              */
             valueType?: string;
         }
         interface TimeSeriesData {
             /**
-             * The values of the labels in the time series identifier, given in the same order as the label_descriptors field of the TimeSeriesDescriptor associated
-             * with this object. Each value must have a value of the type given in the corresponding entry of label_descriptors.
+             * The values of the labels in the time series identifier, given in the same order as the label_descriptors field of the TimeSeriesDescriptor associated with this object. Each value
+             * must have a value of the type given in the corresponding entry of label_descriptors.
              */
             labelValues?: LabelValue[];
             /** The points in the time series. */
@@ -1193,19 +1126,18 @@ declare namespace gapi.client {
         }
         interface TimeSeriesRatio {
             /**
-             * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries quantifying bad service, either demanded service that
-             * was not provided or demanded service that was of inadequate quality. Must have ValueType = DOUBLE or ValueType = INT64 and must have MetricKind = DELTA
-             * or MetricKind = CUMULATIVE.
+             * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries quantifying bad service, either demanded service that was not provided or demanded
+             * service that was of inadequate quality. Must have ValueType = DOUBLE or ValueType = INT64 and must have MetricKind = DELTA or MetricKind = CUMULATIVE.
              */
             badServiceFilter?: string;
             /**
-             * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries quantifying good service provided. Must have ValueType
-             * = DOUBLE or ValueType = INT64 and must have MetricKind = DELTA or MetricKind = CUMULATIVE.
+             * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries quantifying good service provided. Must have ValueType = DOUBLE or ValueType = INT64
+             * and must have MetricKind = DELTA or MetricKind = CUMULATIVE.
              */
             goodServiceFilter?: string;
             /**
-             * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries quantifying total demanded service. Must have
-             * ValueType = DOUBLE or ValueType = INT64 and must have MetricKind = DELTA or MetricKind = CUMULATIVE.
+             * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries quantifying total demanded service. Must have ValueType = DOUBLE or ValueType =
+             * INT64 and must have MetricKind = DELTA or MetricKind = CUMULATIVE.
              */
             totalServiceFilter?: string;
         }
@@ -1243,50 +1175,47 @@ declare namespace gapi.client {
         }
         interface UptimeCheckConfig {
             /**
-             * The content that is expected to appear in the data returned by the target server against which the check is run. Currently, only the first entry in the
-             * content_matchers list is supported, and additional entries will be ignored. This field is optional and should only be specified if a content match is
-             * required as part of the/ Uptime check.
+             * The content that is expected to appear in the data returned by the target server against which the check is run. Currently, only the first entry in the content_matchers list is
+             * supported, and additional entries will be ignored. This field is optional and should only be specified if a content match is required as part of the/ Uptime check.
              */
             contentMatchers?: ContentMatcher[];
             /**
-             * A human-friendly name for the Uptime check configuration. The display name should be unique within a Stackdriver Workspace in order to make it easier
-             * to identify; however, uniqueness is not enforced. Required.
+             * A human-friendly name for the Uptime check configuration. The display name should be unique within a Stackdriver Workspace in order to make it easier to identify; however,
+             * uniqueness is not enforced. Required.
              */
             displayName?: string;
             /** Contains information needed to make an HTTP or HTTPS check. */
             httpCheck?: HttpCheck;
             /**
-             * The internal checkers that this check will egress from. If is_internal is true and this list is empty, the check will egress from all the
-             * InternalCheckers configured for the project that owns this UptimeCheckConfig.
+             * The internal checkers that this check will egress from. If is_internal is true and this list is empty, the check will egress from all the InternalCheckers configured for the project
+             * that owns this UptimeCheckConfig.
              */
             internalCheckers?: InternalChecker[];
             /**
-             * If this is true, then checks are made only from the 'internal_checkers'. If it is false, then checks are made only from the 'selected_regions'. It is
-             * an error to provide 'selected_regions' when is_internal is true, or to provide 'internal_checkers' when is_internal is false.
+             * If this is true, then checks are made only from the 'internal_checkers'. If it is false, then checks are made only from the 'selected_regions'. It is an error to provide
+             * 'selected_regions' when is_internal is true, or to provide 'internal_checkers' when is_internal is false.
              */
             isInternal?: boolean;
             /**
-             * The monitored resource (https://cloud.google.com/monitoring/api/resources) associated with the configuration. The following monitored resource types
-             * are supported for Uptime checks: uptime_url, gce_instance, gae_app, aws_ec2_instance, aws_elb_load_balancer
+             * The monitored resource (https://cloud.google.com/monitoring/api/resources) associated with the configuration. The following monitored resource types are supported for Uptime checks:
+             * uptime_url, gce_instance, gae_app, aws_ec2_instance, aws_elb_load_balancer
              */
             monitoredResource?: MonitoredResource;
             /**
-             * A unique resource name for this Uptime check configuration. The format is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] This
-             * field should be omitted when creating the Uptime check configuration; on create, the resource name is assigned by the server and included in the
-             * response.
+             * A unique resource name for this Uptime check configuration. The format is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] This field should be omitted when
+             * creating the Uptime check configuration; on create, the resource name is assigned by the server and included in the response.
              */
             name?: string;
             /**
-             * How often, in seconds, the Uptime check is performed. Currently, the only supported values are 60s (1 minute), 300s (5 minutes), 600s (10 minutes), and
-             * 900s (15 minutes). Optional, defaults to 60s.
+             * How often, in seconds, the Uptime check is performed. Currently, the only supported values are 60s (1 minute), 300s (5 minutes), 600s (10 minutes), and 900s (15 minutes). Optional,
+             * defaults to 60s.
              */
             period?: string;
             /** The group resource associated with the configuration. */
             resourceGroup?: ResourceGroup;
             /**
-             * The list of regions from which the check will be run. Some regions contain one location, and others contain more than one. If this field is specified,
-             * enough regions must be provided to include a minimum of 3 locations. Not specifying this field will result in Uptime checks running from all available
-             * regions.
+             * The list of regions from which the check will be run. Some regions contain one location, and others contain more than one. If this field is specified, enough regions must be
+             * provided to include a minimum of 3 locations. Not specifying this field will result in Uptime checks running from all available regions.
              */
             selectedRegions?: string[];
             /** Contains information needed to make a TCP check. */
@@ -1296,14 +1225,13 @@ declare namespace gapi.client {
         }
         interface UptimeCheckIp {
             /**
-             * The IP address from which the Uptime check originates. This is a fully specified IP address (not an IP address range). Most IP addresses, as of this
-             * publication, are in IPv4 format; however, one should not rely on the IP addresses being in IPv4 format indefinitely, and should support interpreting
-             * this field in either IPv4 or IPv6 format.
+             * The IP address from which the Uptime check originates. This is a fully specified IP address (not an IP address range). Most IP addresses, as of this publication, are in IPv4 format;
+             * however, one should not rely on the IP addresses being in IPv4 format indefinitely, and should support interpreting this field in either IPv4 or IPv6 format.
              */
             ipAddress?: string;
             /**
-             * A more specific location within the region that typically encodes a particular city/town/metro (and its containing state/province or country) within
-             * the broader umbrella region category.
+             * A more specific location within the region that typically encodes a particular city/town/metro (and its containing state/province or country) within the broader umbrella region
+             * category.
              */
             location?: string;
             /** A broad region category in which the IP address is located. */
@@ -1315,8 +1243,8 @@ declare namespace gapi.client {
             /** The value stream kind. */
             metricKind?: string;
             /**
-             * The unit in which time_series point values are reported. unit follows the UCUM format for units as seen in https://unitsofmeasure.org/ucum.html. unit
-             * is only valid if value_type is INTEGER, DOUBLE, DISTRIBUTION.
+             * The unit in which time_series point values are reported. unit follows the UCUM format for units as seen in https://unitsofmeasure.org/ucum.html. unit is only valid if value_type is
+             * INTEGER, DOUBLE, DISTRIBUTION.
              */
             unit?: string;
             /** The value type. */
@@ -1324,18 +1252,14 @@ declare namespace gapi.client {
         }
         interface VerifyNotificationChannelRequest {
             /**
-             * Required. The verification code that was delivered to the channel as a result of invoking the SendNotificationChannelVerificationCode API method or
-             * that was retrieved from a verified channel via GetNotificationChannelVerificationCode. For example, one might have "G-123456" or
-             * "TKNZGhhd2EyN3I1MnRnMjRv" (in general, one is only guaranteed that the code is valid UTF-8; one should not make any assumptions regarding the structure
-             * or format of the code).
+             * Required. The verification code that was delivered to the channel as a result of invoking the SendNotificationChannelVerificationCode API method or that was retrieved from a
+             * verified channel via GetNotificationChannelVerificationCode. For example, one might have "G-123456" or "TKNZGhhd2EyN3I1MnRnMjRv" (in general, one is only guaranteed that the code is
+             * valid UTF-8; one should not make any assumptions regarding the structure or format of the code).
              */
             code?: string;
         }
         interface WindowsBasedSli {
-            /**
-             * A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries with ValueType = BOOL. The window is good if any true
-             * values appear in the window.
-             */
+            /** A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) specifying a TimeSeries with ValueType = BOOL. The window is good if any true values appear in the window. */
             goodBadMetricFilter?: string;
             /** A window is good if its performance is high enough. */
             goodTotalRatioThreshold?: PerformanceThreshold;
@@ -1362,10 +1286,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The project in which to create the alerting policy. The format is: projects/[PROJECT_ID_OR_NUMBER] Note that this field names the parent
-                 * container in which the alerting policy will be written, not the name of the created policy. |name| must be a host project of a workspace, otherwise
-                 * INVALID_ARGUMENT error will return. The alerting policy that is returned will have a name that contains a normalized representation of this name as a
-                 * prefix but adds a suffix of the form /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
+                 * Required. The project in which to create the alerting policy. The format is: projects/[PROJECT_ID_OR_NUMBER] Note that this field names the parent container in which the
+                 * alerting policy will be written, not the name of the created policy. |name| must be a host project of a workspace, otherwise INVALID_ARGUMENT error will return. The alerting
+                 * policy that is returned will have a name that contains a normalized representation of this name as a prefix but adds a suffix of the form /alertPolicies/[ALERT_POLICY_ID],
+                 * identifying the policy in the container.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1395,10 +1319,10 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The project in which to create the alerting policy. The format is: projects/[PROJECT_ID_OR_NUMBER] Note that this field names the parent
-                 * container in which the alerting policy will be written, not the name of the created policy. |name| must be a host project of a workspace, otherwise
-                 * INVALID_ARGUMENT error will return. The alerting policy that is returned will have a name that contains a normalized representation of this name as a
-                 * prefix but adds a suffix of the form /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
+                 * Required. The project in which to create the alerting policy. The format is: projects/[PROJECT_ID_OR_NUMBER] Note that this field names the parent container in which the
+                 * alerting policy will be written, not the name of the created policy. |name| must be a host project of a workspace, otherwise INVALID_ARGUMENT error will return. The alerting
+                 * policy that is returned will have a name that contains a normalized representation of this name as a prefix but adds a suffix of the form /alertPolicies/[ALERT_POLICY_ID],
+                 * identifying the policy in the container.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1427,10 +1351,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The alerting policy to delete. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] For more information, see
-                 * AlertPolicy.
-                 */
+                /** Required. The alerting policy to delete. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] For more information, see AlertPolicy. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1483,31 +1404,29 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * If provided, this field specifies the criteria that must be met by alert policies to be included in the response.For more details, see sorting and
-                 * filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
+                 * If provided, this field specifies the criteria that must be met by alert policies to be included in the response.For more details, see sorting and filtering
+                 * (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The project whose alert policies are to be listed. The format is: projects/[PROJECT_ID_OR_NUMBER] Note that this field names the parent
-                 * container in which the alerting policies to be listed are stored. To retrieve a single alerting policy by name, use the GetAlertPolicy operation,
-                 * instead.
+                 * Required. The project whose alert policies are to be listed. The format is: projects/[PROJECT_ID_OR_NUMBER] Note that this field names the parent container in which the alerting
+                 * policies to be listed are stored. To retrieve a single alerting policy by name, use the GetAlertPolicy operation, instead.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * A comma-separated list of fields by which to sort the result. Supports the same set of field references as the filter field. Entries can be prefixed
-                 * with a minus sign to sort by the field in descending order.For more details, see sorting and filtering
-                 * (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
+                 * A comma-separated list of fields by which to sort the result. Supports the same set of field references as the filter field. Entries can be prefixed with a minus sign to sort by
+                 * the field in descending order.For more details, see sorting and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
                  */
                 orderBy?: string;
                 /** The maximum number of results to return in a single response. */
                 pageSize?: number;
                 /**
-                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method
-                 * to return more results from the previous method call.
+                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return more results
+                 * from the previous method call.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1520,8 +1439,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListAlertPoliciesResponse>;
             /**
-             * Updates an alerting policy. You can either replace the entire policy with a new one or replace only certain fields in the current alerting policy by
-             * specifying the fields to be updated via updateMask. Returns the updated alerting policy.
+             * Updates an alerting policy. You can either replace the entire policy with a new one or replace only certain fields in the current alerting policy by specifying the fields to be
+             * updated via updateMask. Returns the updated alerting policy.
              */
             patch(request: {
                 /** V1 error format. */
@@ -1537,9 +1456,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required if the policy exists. The resource name for this policy. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
-                 * [ALERT_POLICY_ID] is assigned by Stackdriver Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the
-                 * name field in the alerting policy passed as part of the request.
+                 * Required if the policy exists. The resource name for this policy. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] [ALERT_POLICY_ID] is assigned by
+                 * Stackdriver Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the name field in the alerting policy passed as part of the
+                 * request.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1549,14 +1468,13 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. A list of alerting policy field names. If this field is not empty, each listed field in the existing alerting policy is set to the value of
-                 * the corresponding field in the supplied policy (alert_policy), or to the field's default value if the field is not in the supplied alerting policy.
-                 * Fields not listed retain their previous value.Examples of valid field masks include display_name, documentation, documentation.content,
-                 * documentation.mime_type, user_labels, user_label.nameofkey, enabled, conditions, combiner, etc.If this field is empty, then the supplied alerting
-                 * policy replaces the existing policy. It is the same as deleting the existing policy and adding the supplied policy, except for the following: The new
-                 * policy will have the same [ALERT_POLICY_ID] as the former policy. This gives you continuity with the former policy in your notifications and incidents.
-                 * Conditions in the new policy will keep their former [CONDITION_ID] if the supplied condition includes the name field with that [CONDITION_ID]. If the
-                 * supplied condition omits the name field, then a new [CONDITION_ID] is created.
+                 * Optional. A list of alerting policy field names. If this field is not empty, each listed field in the existing alerting policy is set to the value of the corresponding field in
+                 * the supplied policy (alert_policy), or to the field's default value if the field is not in the supplied alerting policy. Fields not listed retain their previous value.Examples
+                 * of valid field masks include display_name, documentation, documentation.content, documentation.mime_type, user_labels, user_label.nameofkey, enabled, conditions, combiner,
+                 * etc.If this field is empty, then the supplied alerting policy replaces the existing policy. It is the same as deleting the existing policy and adding the supplied policy, except
+                 * for the following: The new policy will have the same [ALERT_POLICY_ID] as the former policy. This gives you continuity with the former policy in your notifications and
+                 * incidents. Conditions in the new policy will keep their former [CONDITION_ID] if the supplied condition includes the name field with that [CONDITION_ID]. If the supplied
+                 * condition omits the name field, then a new [CONDITION_ID] is created.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1580,9 +1498,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required if the policy exists. The resource name for this policy. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
-                 * [ALERT_POLICY_ID] is assigned by Stackdriver Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the
-                 * name field in the alerting policy passed as part of the request.
+                 * Required if the policy exists. The resource name for this policy. The format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] [ALERT_POLICY_ID] is assigned by
+                 * Stackdriver Monitoring when the policy is created. When calling the alertPolicies.create method, do not include the name field in the alerting policy passed as part of the
+                 * request.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1592,14 +1510,13 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. A list of alerting policy field names. If this field is not empty, each listed field in the existing alerting policy is set to the value of
-                 * the corresponding field in the supplied policy (alert_policy), or to the field's default value if the field is not in the supplied alerting policy.
-                 * Fields not listed retain their previous value.Examples of valid field masks include display_name, documentation, documentation.content,
-                 * documentation.mime_type, user_labels, user_label.nameofkey, enabled, conditions, combiner, etc.If this field is empty, then the supplied alerting
-                 * policy replaces the existing policy. It is the same as deleting the existing policy and adding the supplied policy, except for the following: The new
-                 * policy will have the same [ALERT_POLICY_ID] as the former policy. This gives you continuity with the former policy in your notifications and incidents.
-                 * Conditions in the new policy will keep their former [CONDITION_ID] if the supplied condition includes the name field with that [CONDITION_ID]. If the
-                 * supplied condition omits the name field, then a new [CONDITION_ID] is created.
+                 * Optional. A list of alerting policy field names. If this field is not empty, each listed field in the existing alerting policy is set to the value of the corresponding field in
+                 * the supplied policy (alert_policy), or to the field's default value if the field is not in the supplied alerting policy. Fields not listed retain their previous value.Examples
+                 * of valid field masks include display_name, documentation, documentation.content, documentation.mime_type, user_labels, user_label.nameofkey, enabled, conditions, combiner,
+                 * etc.If this field is empty, then the supplied alerting policy replaces the existing policy. It is the same as deleting the existing policy and adding the supplied policy, except
+                 * for the following: The new policy will have the same [ALERT_POLICY_ID] as the former policy. This gives you continuity with the former policy in your notifications and
+                 * incidents. Conditions in the new policy will keep their former [CONDITION_ID] if the supplied condition includes the name field with that [CONDITION_ID]. If the supplied
+                 * condition omits the name field, then a new [CONDITION_ID] is created.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1610,10 +1527,7 @@ declare namespace gapi.client {
             body: AlertPolicy): Request<AlertPolicy>;
         }
         interface CollectdTimeSeriesResource {
-            /**
-             * Stackdriver Monitoring Agent only: Creates a new time series.This method is only for use by the Stackdriver Monitoring Agent. Use
-             * projects.timeSeries.create instead.
-             */
+            /** Stackdriver Monitoring Agent only: Creates a new time series.This method is only for use by the Stackdriver Monitoring Agent. Use projects.timeSeries.create instead. */
             create(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -1684,9 +1598,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * An optional list filter (https://cloud.google.com/monitoring/api/learn_more#filtering) describing the members to be returned. The filter may reference
-                 * the type, labels, and metadata of monitored resources that comprise the group. For example, to return only resources representing Compute Engine VM
-                 * instances, use this filter: `resource.type = "gce_instance"`
+                 * An optional list filter (https://cloud.google.com/monitoring/api/learn_more#filtering) describing the members to be returned. The filter may reference the type, labels, and
+                 * metadata of monitored resources that comprise the group. For example, to return only resources representing Compute Engine VM instances, use this filter: `resource.type =
+                 * "gce_instance"`
                  */
                 filter?: string;
                 /** Required. The end of the time interval. */
@@ -1702,8 +1616,8 @@ declare namespace gapi.client {
                 /** A positive number that is the maximum number of results to return. */
                 pageSize?: number;
                 /**
-                 * If this field is not empty then it must contain the next_page_token value returned by a previous call to this method. Using this field causes the
-                 * method to return additional results from the previous method call.
+                 * If this field is not empty then it must contain the next_page_token value returned by a previous call to this method. Using this field causes the method to return additional
+                 * results from the previous method call.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1800,8 +1714,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * If this field is true, then the request means to delete a group with all its descendants. Otherwise, the request means to delete a group only when it
-                 * has no descendants. The default value is false.
+                 * If this field is true, then the request means to delete a group with all its descendants. Otherwise, the request means to delete a group only when it has no descendants. The
+                 * default value is false.
                  */
                 recursive?: boolean;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1845,21 +1759,20 @@ declare namespace gapi.client {
                 /** Data format for response. */
                 alt?: string;
                 /**
-                 * A group name. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] Returns groups that are ancestors of the specified group. The groups are
-                 * returned in order, starting with the immediate parent and ending with the most distant ancestor. If the specified group has no immediate parent, the
-                 * results are empty.
+                 * A group name. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] Returns groups that are ancestors of the specified group. The groups are returned in order,
+                 * starting with the immediate parent and ending with the most distant ancestor. If the specified group has no immediate parent, the results are empty.
                  */
                 ancestorsOfGroup?: string;
                 /** JSONP */
                 callback?: string;
                 /**
-                 * A group name. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] Returns groups whose parent_name field contains the group name. If no
-                 * groups have this parent, the results are empty.
+                 * A group name. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] Returns groups whose parent_name field contains the group name. If no groups have this parent, the
+                 * results are empty.
                  */
                 childrenOfGroup?: string;
                 /**
-                 * A group name. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] Returns the descendants of the specified group. This is a superset of
-                 * the results returned by the children_of_group filter, and includes children-of-children, and so forth.
+                 * A group name. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] Returns the descendants of the specified group. This is a superset of the results returned by the
+                 * children_of_group filter, and includes children-of-children, and so forth.
                  */
                 descendantsOfGroup?: string;
                 /** Selector specifying which fields to include in a partial response. */
@@ -1873,8 +1786,8 @@ declare namespace gapi.client {
                 /** A positive number that is the maximum number of results to return. */
                 pageSize?: number;
                 /**
-                 * If this field is not empty then it must contain the next_page_token value returned by a previous call to this method. Using this field causes the
-                 * method to return additional results from the previous method call.
+                 * If this field is not empty then it must contain the next_page_token value returned by a previous call to this method. Using this field causes the method to return additional
+                 * results from the previous method call.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -1901,8 +1814,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. The name of this group. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] When creating a group, this field is ignored and
-                 * a new name is created consisting of the project specified in the call to CreateGroup and a unique [GROUP_ID] that is generated automatically.
+                 * Output only. The name of this group. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] When creating a group, this field is ignored and a new name is created
+                 * consisting of the project specified in the call to CreateGroup and a unique [GROUP_ID] that is generated automatically.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -1934,8 +1847,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Output only. The name of this group. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] When creating a group, this field is ignored and
-                 * a new name is created consisting of the project specified in the call to CreateGroup and a unique [GROUP_ID] that is generated automatically.
+                 * Output only. The name of this group. The format is: projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] When creating a group, this field is ignored and a new name is created
+                 * consisting of the project specified in the call to CreateGroup and a unique [GROUP_ID] that is generated automatically.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2026,8 +1939,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The metric descriptor on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID] An
-                 * example of [METRIC_ID] is: "custom.googleapis.com/my_test_metric".
+                 * Required. The metric descriptor on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID] An example of [METRIC_ID] is:
+                 * "custom.googleapis.com/my_test_metric".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2056,8 +1969,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The metric descriptor on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID] An
-                 * example value of [METRIC_ID] is "compute.googleapis.com/instance/disk/read_bytes_count".
+                 * Required. The metric descriptor on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID] An example value of [METRIC_ID] is
+                 * "compute.googleapis.com/instance/disk/read_bytes_count".
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2084,9 +1997,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * If this field is empty, all custom and system-defined metric descriptors are returned. Otherwise, the filter
-                 * (https://cloud.google.com/monitoring/api/v3/filters) specifies which metric descriptors are to be returned. For example, the following filter matches
-                 * all custom metrics (https://cloud.google.com/monitoring/custom-metrics): metric.type = starts_with("custom.googleapis.com/")
+                 * If this field is empty, all custom and system-defined metric descriptors are returned. Otherwise, the filter (https://cloud.google.com/monitoring/api/v3/filters) specifies which
+                 * metric descriptors are to be returned. For example, the following filter matches all custom metrics (https://cloud.google.com/monitoring/custom-metrics): metric.type =
+                 * starts_with("custom.googleapis.com/")
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2098,8 +2011,8 @@ declare namespace gapi.client {
                 /** A positive number that is the maximum number of results to return. */
                 pageSize?: number;
                 /**
-                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method
-                 * to return additional results from the previous method call.
+                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
+                 * results from the previous method call.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -2128,8 +2041,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The monitored resource descriptor to get. The format is: projects/[PROJECT_ID_OR_NUMBER]/monitoredResourceDescriptors/[RESOURCE_TYPE] The
-                 * [RESOURCE_TYPE] is a predefined type, such as cloudsql_database.
+                 * Required. The monitored resource descriptor to get. The format is: projects/[PROJECT_ID_OR_NUMBER]/monitoredResourceDescriptors/[RESOURCE_TYPE] The [RESOURCE_TYPE] is a
+                 * predefined type, such as cloudsql_database.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2156,9 +2069,8 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * An optional filter (https://cloud.google.com/monitoring/api/v3/filters) describing the descriptors to be returned. The filter can reference the
-                 * descriptor's type and labels. For example, the following filter returns only Google Compute Engine descriptors that have an id label: resource.type =
-                 * starts_with("gce_") AND resource.label:id
+                 * An optional filter (https://cloud.google.com/monitoring/api/v3/filters) describing the descriptors to be returned. The filter can reference the descriptor's type and labels. For
+                 * example, the following filter returns only Google Compute Engine descriptors that have an id label: resource.type = starts_with("gce_") AND resource.label:id
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2170,8 +2082,8 @@ declare namespace gapi.client {
                 /** A positive number that is the maximum number of results to return. */
                 pageSize?: number;
                 /**
-                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method
-                 * to return additional results from the previous method call.
+                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
+                 * results from the previous method call.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -2199,10 +2111,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. The channel type for which to execute the request. The format is:
-                 * projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[CHANNEL_TYPE]
-                 */
+                /** Required. The channel type for which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[CHANNEL_TYPE] */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2230,9 +2139,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The REST resource name of the parent from which to retrieve the notification channel descriptors. The expected syntax is:
-                 * projects/[PROJECT_ID_OR_NUMBER] Note that this names the parent container in which to look for the descriptors; to retrieve a single descriptor by
-                 * name, use the GetNotificationChannelDescriptor operation, instead.
+                 * Required. The REST resource name of the parent from which to retrieve the notification channel descriptors. The expected syntax is: projects/[PROJECT_ID_OR_NUMBER] Note that
+                 * this names the parent container in which to look for the descriptors; to retrieve a single descriptor by name, use the GetNotificationChannelDescriptor operation, instead.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2267,9 +2175,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This names the container into which the channel
-                 * will be written, this does not name the newly created channel. The resulting channel's name will have a normalized version of this field as a prefix,
-                 * but will add /notificationChannels/[CHANNEL_ID] to identify the channel.
+                 * Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This names the container into which the channel will be written, this does
+                 * not name the newly created channel. The resulting channel's name will have a normalized version of this field as a prefix, but will add /notificationChannels/[CHANNEL_ID] to
+                 * identify the channel.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2299,9 +2207,9 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This names the container into which the channel
-                 * will be written, this does not name the newly created channel. The resulting channel's name will have a normalized version of this field as a prefix,
-                 * but will add /notificationChannels/[CHANNEL_ID] to identify the channel.
+                 * Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This names the container into which the channel will be written, this does
+                 * not name the newly created channel. The resulting channel's name will have a normalized version of this field as a prefix, but will add /notificationChannels/[CHANNEL_ID] to
+                 * identify the channel.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2329,8 +2237,8 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * If true, the notification channel will be deleted regardless of its use in alert policies (the policies will be updated to remove the channel). If
-                 * false, channels that are still referenced by an existing alerting policy will fail to be deleted in a delete operation.
+                 * If true, the notification channel will be deleted regardless of its use in alert policies (the policies will be updated to remove the channel). If false, channels that are still
+                 * referenced by an existing alerting policy will fail to be deleted in a delete operation.
                  */
                 force?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -2349,9 +2257,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<{}>;
             /**
-             * Gets a single notification channel. The channel includes the relevant configuration details with which the channel was created. However, the response
-             * may truncate or omit passwords, API keys, or other private key matter and thus the response may not be 100% identical to the information that was
-             * supplied in the call to the create method.
+             * Gets a single notification channel. The channel includes the relevant configuration details with which the channel was created. However, the response may truncate or omit passwords,
+             * API keys, or other private key matter and thus the response may not be 100% identical to the information that was supplied in the call to the create method.
              */
             get(request?: {
                 /** V1 error format. */
@@ -2380,15 +2287,14 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<NotificationChannel>;
             /**
-             * Requests a verification code for an already verified channel that can then be used in a call to VerifyNotificationChannel() on a different channel with
-             * an equivalent identity in the same or in a different project. This makes it possible to copy a channel between projects without requiring manual
-             * reverification of the channel. If the channel is not in the verified state, this method will fail (in other words, this may only be used if the
-             * SendNotificationChannelVerificationCode and VerifyNotificationChannel paths have already been used to put the given channel into the verified
-             * state).There is no guarantee that the verification codes returned by this method will be of a similar structure or form as the ones that are delivered
-             * to the channel via SendNotificationChannelVerificationCode; while VerifyNotificationChannel() will recognize both the codes delivered via
-             * SendNotificationChannelVerificationCode() and returned from GetNotificationChannelVerificationCode(), it is typically the case that the verification
-             * codes delivered via SendNotificationChannelVerificationCode() will be shorter and also have a shorter expiration (e.g. codes such as "G-123456")
-             * whereas GetVerificationCode() will typically return a much longer, websafe base 64 encoded string that has a longer expiration time.
+             * Requests a verification code for an already verified channel that can then be used in a call to VerifyNotificationChannel() on a different channel with an equivalent identity in the
+             * same or in a different project. This makes it possible to copy a channel between projects without requiring manual reverification of the channel. If the channel is not in the
+             * verified state, this method will fail (in other words, this may only be used if the SendNotificationChannelVerificationCode and VerifyNotificationChannel paths have already been
+             * used to put the given channel into the verified state).There is no guarantee that the verification codes returned by this method will be of a similar structure or form as the ones
+             * that are delivered to the channel via SendNotificationChannelVerificationCode; while VerifyNotificationChannel() will recognize both the codes delivered via
+             * SendNotificationChannelVerificationCode() and returned from GetNotificationChannelVerificationCode(), it is typically the case that the verification codes delivered via
+             * SendNotificationChannelVerificationCode() will be shorter and also have a shorter expiration (e.g. codes such as "G-123456") whereas GetVerificationCode() will typically return a
+             * much longer, websafe base 64 encoded string that has a longer expiration time.
              */
             getVerificationCode(request: {
                 /** V1 error format. */
@@ -2404,8 +2310,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The notification channel for which a verification code is to be generated and retrieved. This must name a channel that is already verified;
-                 * if the specified channel is not verified, the request will fail.
+                 * Required. The notification channel for which a verification code is to be generated and retrieved. This must name a channel that is already verified; if the specified channel is
+                 * not verified, the request will fail.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2435,8 +2341,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The notification channel for which a verification code is to be generated and retrieved. This must name a channel that is already verified;
-                 * if the specified channel is not verified, the request will fail.
+                 * Required. The notification channel for which a verification code is to be generated and retrieved. This must name a channel that is already verified; if the specified channel is
+                 * not verified, the request will fail.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2464,24 +2370,22 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * If provided, this field specifies the criteria that must be met by notification channels to be included in the response.For more details, see sorting
-                 * and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
+                 * If provided, this field specifies the criteria that must be met by notification channels to be included in the response.For more details, see sorting and filtering
+                 * (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This names the container in which to look for the
-                 * notification channels; it does not name a specific channel. To query a specific channel by REST resource name, use the GetNotificationChannel
-                 * operation.
+                 * Required. The project on which to execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This names the container in which to look for the notification channels; it
+                 * does not name a specific channel. To query a specific channel by REST resource name, use the GetNotificationChannel operation.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * A comma-separated list of fields by which to sort the result. Supports the same set of fields as in filter. Entries can be prefixed with a minus sign
-                 * to sort in descending rather than ascending order.For more details, see sorting and filtering
-                 * (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
+                 * A comma-separated list of fields by which to sort the result. Supports the same set of fields as in filter. Entries can be prefixed with a minus sign to sort in descending
+                 * rather than ascending order.For more details, see sorting and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
                  */
                 orderBy?: string;
                 /** The maximum number of results to return in a single response. If not set to a positive number, a reasonable value will be chosen by the service. */
@@ -2512,8 +2416,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The full REST resource name for this channel. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The [CHANNEL_ID] is
-                 * automatically assigned by the server on creation.
+                 * The full REST resource name for this channel. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The [CHANNEL_ID] is automatically assigned by the
+                 * server on creation.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2545,8 +2449,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * The full REST resource name for this channel. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The [CHANNEL_ID] is
-                 * automatically assigned by the server on creation.
+                 * The full REST resource name for this channel. The format is: projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The [CHANNEL_ID] is automatically assigned by the
+                 * server on creation.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -2678,8 +2582,8 @@ declare namespace gapi.client {
         }
         interface TimeSeriesResource {
             /**
-             * Creates or adds data to one or more time series. The response is empty if all time series in the request were written. If any time series could not be
-             * written, a corresponding failure message is included in the error response.
+             * Creates or adds data to one or more time series. The response is empty if all time series in the request were written. If any time series could not be written, a corresponding
+             * failure message is included in the error response.
              */
             create(request: {
                 /** V1 error format. */
@@ -2743,37 +2647,34 @@ declare namespace gapi.client {
                 /** OAuth access token. */
                 access_token?: string;
                 /**
-                 * The alignment_period specifies a time interval, in seconds, that is used to divide the data in all the time series into consistent blocks of time. This
-                 * will be done before the per-series aligner can be applied to the data.The value must be at least 60 seconds, at most 104 weeks. If a per-series aligner
-                 * other than ALIGN_NONE is specified, this field is required or an error is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is
-                 * specified, then this field is ignored.The maximum value of the alignment_period is 2 years, or 104 weeks.
+                 * The alignment_period specifies a time interval, in seconds, that is used to divide the data in all the time series into consistent blocks of time. This will be done before the
+                 * per-series aligner can be applied to the data.The value must be at least 60 seconds, at most 104 weeks. If a per-series aligner other than ALIGN_NONE is specified, this field is
+                 * required or an error is returned. If no per-series aligner is specified, or the aligner ALIGN_NONE is specified, then this field is ignored.The maximum value of the
+                 * alignment_period is 2 years, or 104 weeks.
                  */
                 "aggregation.alignmentPeriod"?: string;
                 /**
-                 * The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a
-                 * function of all the already aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices
-                 * depend on the metric_kind and the value_type of the original time series. Reduction can yield a time series with a different metric_kind or value_type
-                 * than the input time series.Time series data must first be aligned (see per_series_aligner) in order to perform cross-time series reduction. If
-                 * cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE. An alignment_period must also be specified;
-                 * otherwise, an error is returned.
+                 * The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a function of all the already
+                 * aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices depend on the metric_kind and the value_type of the
+                 * original time series. Reduction can yield a time series with a different metric_kind or value_type than the input time series.Time series data must first be aligned (see
+                 * per_series_aligner) in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE.
+                 * An alignment_period must also be specified; otherwise, an error is returned.
                  */
                 "aggregation.crossSeriesReducer"?: string;
                 /**
-                 * The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets
-                 * prior to applying the aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual
-                 * time series is a member of exactly one subset. The cross_series_reducer is applied to each subset of time series. It is not possible to reduce across
-                 * different resource types, so this field implicitly contains resource.type. Fields not specified in group_by_fields are aggregated away. If
-                 * group_by_fields is not specified and all the time series have the same resource type, then the time series are aggregated into a single output time
-                 * series. If cross_series_reducer is not defined, this field is ignored.
+                 * The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the
+                 * aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset.
+                 * The cross_series_reducer is applied to each subset of time series. It is not possible to reduce across different resource types, so this field implicitly contains resource.type.
+                 * Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are
+                 * aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored.
                  */
                 "aggregation.groupByFields"?: string | string[];
                 /**
-                 * An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the
-                 * data points in an alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp
-                 * at the end of the period.Not all alignment operations may be applied to all time series. The valid choices depend on the metric_kind and value_type of
-                 * the original time series. Alignment can change the metric_kind or the value_type of the time series.Time series data must be aligned in order to
-                 * perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified and not equal to ALIGN_NONE and
-                 * alignment_period must be specified; otherwise, an error is returned.
+                 * An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the data points in an
+                 * alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp at the end of the period.Not all alignment
+                 * operations may be applied to all time series. The valid choices depend on the metric_kind and value_type of the original time series. Alignment can change the metric_kind or the
+                 * value_type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner
+                 * must be specified and not equal to ALIGN_NONE and alignment_period must be specified; otherwise, an error is returned.
                  */
                 "aggregation.perSeriesAligner"?: string;
                 /** Data format for response. */
@@ -2783,9 +2684,9 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * Required. A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) that specifies which time series should be returned. The filter must
-                 * specify a single metric type, and can additionally specify metric labels and other information. For example: metric.type =
-                 * "compute.googleapis.com/instance/cpu/usage_time" AND metric.labels.instance_name = "my-instance-name"
+                 * Required. A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters) that specifies which time series should be returned. The filter must specify a single metric
+                 * type, and can additionally specify metric labels and other information. For example: metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
+                 * metric.labels.instance_name = "my-instance-name"
                  */
                 filter?: string;
                 /** Required. The end of the time interval. */
@@ -2801,14 +2702,13 @@ declare namespace gapi.client {
                 /** Unsupported: must be left blank. The points in each time series are currently returned in reverse time order (most recent to oldest). */
                 orderBy?: string;
                 /**
-                 * A positive number that is the maximum number of results to return. If page_size is empty or more than 100,000 results, the effective page_size is
-                 * 100,000 results. If view is set to FULL, this is the maximum number of Points returned. If view is set to HEADERS, this is the maximum number of
-                 * TimeSeries returned.
+                 * A positive number that is the maximum number of results to return. If page_size is empty or more than 100,000 results, the effective page_size is 100,000 results. If view is set
+                 * to FULL, this is the maximum number of Points returned. If view is set to HEADERS, this is the maximum number of TimeSeries returned.
                  */
                 pageSize?: number;
                 /**
-                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method
-                 * to return additional results from the previous method call.
+                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
+                 * results from the previous method call.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -2937,8 +2837,8 @@ declare namespace gapi.client {
             },
             body: UptimeCheckConfig): Request<UptimeCheckConfig>;
             /**
-             * Deletes an Uptime check configuration. Note that this method will fail if the Uptime check configuration is referenced by an alert policy or other
-             * dependent configs that would be rendered invalid by the deletion.
+             * Deletes an Uptime check configuration. Note that this method will fail if the Uptime check configuration is referenced by an alert policy or other dependent configs that would be
+             * rendered invalid by the deletion.
              */
             delete(request?: {
                 /** V1 error format. */
@@ -3010,13 +2910,13 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page.
-                 * If the page_size is <=0, the server will decide the number of results to be returned.
+                 * The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page. If the page_size is <=0,
+                 * the server will decide the number of results to be returned.
                  */
                 pageSize?: number;
                 /**
-                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method
-                 * to return more results from the previous method call.
+                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return more results
+                 * from the previous method call.
                  */
                 pageToken?: string;
                 /** Required. The project whose Uptime check configurations are listed. The format is: projects/[PROJECT_ID_OR_NUMBER] */
@@ -3031,8 +2931,8 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListUptimeCheckConfigsResponse>;
             /**
-             * Updates an Uptime check configuration. You can either replace the entire configuration with a new one or replace only certain fields in the current
-             * configuration by specifying the fields to be updated via updateMask. Returns the updated configuration.
+             * Updates an Uptime check configuration. You can either replace the entire configuration with a new one or replace only certain fields in the current configuration by specifying the
+             * fields to be updated via updateMask. Returns the updated configuration.
              */
             patch(request: {
                 /** V1 error format. */
@@ -3048,9 +2948,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * A unique resource name for this Uptime check configuration. The format is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] This
-                 * field should be omitted when creating the Uptime check configuration; on create, the resource name is assigned by the server and included in the
-                 * response.
+                 * A unique resource name for this Uptime check configuration. The format is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] This field should be omitted when
+                 * creating the Uptime check configuration; on create, the resource name is assigned by the server and included in the response.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3060,8 +2959,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. If present, only the listed fields in the current Uptime check configuration are updated with values from the new configuration. If this
-                 * field is empty, then the current configuration is completely replaced with the new configuration.
+                 * Optional. If present, only the listed fields in the current Uptime check configuration are updated with values from the new configuration. If this field is empty, then the
+                 * current configuration is completely replaced with the new configuration.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3085,9 +2984,8 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * A unique resource name for this Uptime check configuration. The format is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] This
-                 * field should be omitted when creating the Uptime check configuration; on create, the resource name is assigned by the server and included in the
-                 * response.
+                 * A unique resource name for this Uptime check configuration. The format is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] This field should be omitted when
+                 * creating the Uptime check configuration; on create, the resource name is assigned by the server and included in the response.
                  */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
@@ -3097,8 +2995,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Optional. If present, only the listed fields in the current Uptime check configuration are updated with values from the new configuration. If this
-                 * field is empty, then the current configuration is completely replaced with the new configuration.
+                 * Optional. If present, only the listed fields in the current Uptime check configuration are updated with values from the new configuration. If this field is empty, then the
+                 * current configuration is completely replaced with the new configuration.
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -3142,10 +3040,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * Optional. The ServiceLevelObjective id to use for this ServiceLevelObjective. If omitted, an id will be generated instead. Must match the pattern
-                 * [a-z0-9\-]+
-                 */
+                /** Optional. The ServiceLevelObjective id to use for this ServiceLevelObjective. If omitted, an id will be generated instead. Must match the pattern [a-z0-9\-]+ */
                 serviceLevelObjectiveId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -3175,10 +3070,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * Optional. The ServiceLevelObjective id to use for this ServiceLevelObjective. If omitted, an id will be generated instead. Must match the pattern
-                 * [a-z0-9\-]+
-                 */
+                /** Optional. The ServiceLevelObjective id to use for this ServiceLevelObjective. If omitted, an id will be generated instead. Must match the pattern [a-z0-9\-]+ */
                 serviceLevelObjectiveId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -3200,10 +3092,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. Resource name of the ServiceLevelObjective to delete. The format is:
-                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
-                 */
+                /** Required. Resource name of the ServiceLevelObjective to delete. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME] */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3230,10 +3119,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /**
-                 * Required. Resource name of the ServiceLevelObjective to get. The format is:
-                 * projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
-                 */
+                /** Required. Resource name of the ServiceLevelObjective to get. The format is: projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME] */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3246,8 +3132,8 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * View of the ServiceLevelObjective to return. If DEFAULT, return the ServiceLevelObjective as originally defined. If EXPLICIT and the
-                 * ServiceLevelObjective is defined in terms of a BasicSli, replace the BasicSli with a RequestBasedSli spelling out how the SLI is computed.
+                 * View of the ServiceLevelObjective to return. If DEFAULT, return the ServiceLevelObjective as originally defined. If EXPLICIT and the ServiceLevelObjective is defined in terms of
+                 * a BasicSli, replace the BasicSli with a RequestBasedSli spelling out how the SLI is computed.
                  */
                 view?: string;
             }): Request<ServiceLevelObjective>;
@@ -3272,8 +3158,8 @@ declare namespace gapi.client {
                 /** A non-negative number that is the maximum number of results to return. When 0, use default page size. */
                 pageSize?: number;
                 /**
-                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method
-                 * to return additional results from the previous method call.
+                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
+                 * results from the previous method call.
                  */
                 pageToken?: string;
                 /**
@@ -3290,8 +3176,8 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
                 /**
-                 * View of the ServiceLevelObjectives to return. If DEFAULT, return each ServiceLevelObjective as originally defined. If EXPLICIT and the
-                 * ServiceLevelObjective is defined in terms of a BasicSli, replace the BasicSli with a RequestBasedSli spelling out how the SLI is computed.
+                 * View of the ServiceLevelObjectives to return. If DEFAULT, return each ServiceLevelObjective as originally defined. If EXPLICIT and the ServiceLevelObjective is defined in terms
+                 * of a BasicSli, replace the BasicSli with a RequestBasedSli spelling out how the SLI is computed.
                  */
                 view?: string;
             }): Request<ListServiceLevelObjectivesResponse>;
@@ -3484,12 +3370,11 @@ declare namespace gapi.client {
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
                 /**
-                 * A filter specifying what Services to return. The filter currently supports the following fields: - `identifier_case` - `app_engine.module_id` -
-                 * `cloud_endpoints.service` - `mesh_istio.mesh_uid` - `mesh_istio.service_namespace` - `mesh_istio.service_name` - `cluster_istio.location` (deprecated)
-                 * - `cluster_istio.cluster_name` (deprecated) - `cluster_istio.service_namespace` (deprecated) - `cluster_istio.service_name` (deprecated)
-                 * identifier_case refers to which option in the identifier oneof is populated. For example, the filter identifier_case = "CUSTOM" would match all
-                 * services with a value for the custom field. Valid options are "CUSTOM", "APP_ENGINE", "CLOUD_ENDPOINTS", "MESH_ISTIO", and "CLUSTER_ISTIO"
-                 * (deprecated),
+                 * A filter specifying what Services to return. The filter currently supports the following fields: - `identifier_case` - `app_engine.module_id` - `cloud_endpoints.service` -
+                 * `mesh_istio.mesh_uid` - `mesh_istio.service_namespace` - `mesh_istio.service_name` - `cluster_istio.location` (deprecated) - `cluster_istio.cluster_name` (deprecated) -
+                 * `cluster_istio.service_namespace` (deprecated) - `cluster_istio.service_name` (deprecated) identifier_case refers to which option in the identifier oneof is populated. For
+                 * example, the filter identifier_case = "CUSTOM" would match all services with a value for the custom field. Valid options are "CUSTOM", "APP_ENGINE", "CLOUD_ENDPOINTS",
+                 * "MESH_ISTIO", and "CLUSTER_ISTIO" (deprecated),
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -3499,13 +3384,13 @@ declare namespace gapi.client {
                 /** A non-negative number that is the maximum number of results to return. When 0, use default page size. */
                 pageSize?: number;
                 /**
-                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method
-                 * to return additional results from the previous method call.
+                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional
+                 * results from the previous method call.
                  */
                 pageToken?: string;
                 /**
-                 * Required. Resource name of the parent containing the listed services, either a project or a Monitoring Workspace. The formats are:
-                 * projects/[PROJECT_ID_OR_NUMBER] workspaces/[HOST_PROJECT_ID_OR_NUMBER]
+                 * Required. Resource name of the parent containing the listed services, either a project or a Monitoring Workspace. The formats are: projects/[PROJECT_ID_OR_NUMBER]
+                 * workspaces/[HOST_PROJECT_ID_OR_NUMBER]
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -3597,13 +3482,13 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page.
-                 * If the page_size is <=0, the server will decide the number of results to be returned. NOTE: this field is not yet implemented
+                 * The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page. If the page_size is <=0,
+                 * the server will decide the number of results to be returned. NOTE: this field is not yet implemented
                  */
                 pageSize?: number;
                 /**
-                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method
-                 * to return more results from the previous method call. NOTE: this field is not yet implemented
+                 * If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return more results
+                 * from the previous method call. NOTE: this field is not yet implemented
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
