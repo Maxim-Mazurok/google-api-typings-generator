@@ -1,7 +1,6 @@
 # TypeScript typings for Cloud Debugger API v2
 
-Examines the call stack and variables of a running application without stopping or slowing it down.
-
+Examines the call stack and variables of a running application without stopping or slowing it down. 
 For detailed description please check [documentation](https://cloud.google.com/debugger).
 
 ## Installing
