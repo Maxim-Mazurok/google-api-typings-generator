@@ -40,6 +40,12 @@ console.info(`Output directory: ${params.out}`);
     proxy: bestProxy,
     typesDirectory: params.out,
     maxLineLength: getMaxLineLength(),
+    owners: [
+      'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
+      'Google API Typings Generator <https://github.com/google-api-typings-generator>',
+      'Nick Amoscato <https://github.com/namoscato>',
+      'Declan Vong <https://github.com/declanvong>',
+    ],
   });
 
   if (params.url) {

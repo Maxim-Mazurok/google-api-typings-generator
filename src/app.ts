@@ -75,7 +75,7 @@ class IndentedTextWriter {
     public tabString = '    '
   ) {}
 
-  indent = 0;
+  public indent = 0;
 
   write(chunk: string) {
     this.writer.write(chunk);
@@ -125,7 +125,11 @@ function formatPropertyName(name: string) {
 }
 
 class TypescriptTextWriter implements TypescriptTextWriter {
-  constructor(private writer: IndentedTextWriter) {}
+  private readonly maxLineLength: number;
+
+  constructor(private writer: IndentedTextWriter, maxLineLength: number) {
+    this.maxLineLength = maxLineLength;
+  }
 
   private braces(
     text: string,
@@ -221,17 +225,20 @@ class TypescriptTextWriter implements TypescriptTextWriter {
       return;
     }
 
-    const maxLine = 150;
+    const maxLineLength =
+      this.maxLineLength -
+      this.writer.indent * this.writer.tabString.length -
+      '/**  */'.length;
 
     let lines: string[] = [];
 
     for (const line of text.trim().split(/\r?\n/g)) {
-      if (line.length > maxLine) {
+      if (line.length > maxLineLength) {
         const words = line.split(' ');
         let newLine = '';
 
         for (const word of words) {
-          if (newLine.length + word.length > maxLine) {
+          if (newLine.length + ' '.length + word.length > maxLineLength) {
             lines.push(newLine);
             newLine = word;
           } else if (newLine === '') {
@@ -247,7 +254,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
       }
     }
 
-    lines = lines.map(x => x.replace(/\*/g, '∗').trim());
+    lines = lines.map(x => x.replace(/\*\//g, '∗/').trim());
 
     for (const irregularSpace of irregularSpaces) {
       lines = lines.map(line => line.replace(irregularSpace, ' '));
@@ -437,6 +444,7 @@ export interface Configuration {
   proxy?: ProxySetting;
   typesDirectory: string;
   maxLineLength: number;
+  owners: string[];
 }
 
 export class App {
@@ -583,7 +591,8 @@ export class App {
       path.join(destinationDirectory, 'index.d.ts')
     );
     const writer = new TypescriptTextWriter(
-      new IndentedTextWriter(new StreamWriter(stream))
+      new IndentedTextWriter(new StreamWriter(stream)),
+      this.config.maxLineLength
     );
 
     writer.writeLine(
@@ -592,9 +601,14 @@ export class App {
       } ${parseVersion(checkExists(api.version))}`
     );
     writer.writeLine(`// Project: ${api.documentationLink}`);
-    writer.writeLine(
-      '// Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>'
+    this.config.owners.forEach((owner, index) =>
+      writer.writeLine(
+        index === 0
+          ? `// Definitions by: ${owner}`
+          : `//                 ${owner}`
+      )
     );
+
     writer.writeLine(
       '// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped'
     );
@@ -991,7 +1005,8 @@ export class App {
         path.join(destinationDirectory, `gapi.client.${api.name}-tests.ts`)
       ),
       writer = new TypescriptTextWriter(
-        new IndentedTextWriter(new StreamWriter(stream))
+        new IndentedTextWriter(new StreamWriter(stream)),
+        this.config.maxLineLength
       );
 
     writer.write(`/* This is stub file for gapi.client.${api.name} definition tests */
