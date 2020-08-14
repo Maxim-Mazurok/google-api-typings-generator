@@ -37,13 +37,6 @@ const excludedApis = [
   'storage',
   'vision',
   'youtube',
-  'people',
-  'datacatalog',
-  'dataproc',
-  'customsearch',
-  'serviceconsumermanagement',
-  'servicenetworking',
-  'serviceusage',
 ];
 
 const irregularSpaces = [
