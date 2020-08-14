@@ -28,9 +28,7 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Gets the access control policy for an Identity-Aware Proxy protected
-         * resource.
-         * More information about managing access via IAP can be found at:
+         * Gets the access control policy for an Identity-Aware Proxy protected resource. More information about managing access via IAP can be found at:
          * https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
          */
         await gapi.client.iap.v1.getIamPolicy({
@@ -45,9 +43,7 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Sets the access control policy for an Identity-Aware Proxy protected
-         * resource. Replaces any existing policy.
-         * More information about managing access via IAP can be found at:
+         * Sets the access control policy for an Identity-Aware Proxy protected resource. Replaces any existing policy. More information about managing access via IAP can be found at:
          * https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
          */
         await gapi.client.iap.v1.setIamPolicy({
@@ -71,9 +67,7 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Returns permissions that a caller has on the Identity-Aware Proxy protected
-         * resource.
-         * More information about managing access via IAP can be found at:
+         * Returns permissions that a caller has on the Identity-Aware Proxy protected resource. More information about managing access via IAP can be found at:
          * https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
          */
         await gapi.client.iap.v1.testIamPermissions({
@@ -82,10 +76,7 @@ gapi.load('client', () => {
             permissions: [
                 "Test string"            ],
         });
-        /**
-         * Updates the IAP settings on a particular IAP protected resource. It
-         * replaces all fields unless the `update_mask` is set.
-         */
+        /** Updates the IAP settings on a particular IAP protected resource. It replaces all fields unless the `update_mask` is set. */
         await gapi.client.iap.v1.updateIapSettings({
             name: "Test string",
             updateMask: "Test string",

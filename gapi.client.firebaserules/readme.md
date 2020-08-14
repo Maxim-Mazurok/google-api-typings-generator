@@ -1,7 +1,6 @@
 # TypeScript typings for Firebase Rules API v1
 
-Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request.
-
+Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request. 
 For detailed description please check [documentation](https://firebase.google.com/docs/storage/security).
 
 ## Installing
@@ -66,28 +65,7 @@ After that you can use Firebase Rules API resources:
 ```typescript
 
 /*
-Test `Source` for syntactic and semantic correctness. Issues present, if
-any, will be returned to the caller with a description, severity, and
-source location.
-
-The test method may be executed with `Source` or a `Ruleset` name.
-Passing `Source` is useful for unit testing new rules. Passing a `Ruleset`
-name is useful for regression testing an existing rule.
-
-The following is an example of `Source` that permits users to upload images
-to a bucket bearing their user id and matching the correct metadata:
-
-_*Example*_
-
-    // Users are allowed to subscribe and unsubscribe to the blog.
-    service firebase.storage {
-      match /users/{userId}/images/{imageName} {
-          allow write: if userId == request.auth.uid
-              && (imageName.matches('*.png$')
-              || imageName.matches('*.jpg$'))
-              && resource.mimeType.matches('^image/')
-      }
-    }
+Test `Source` for syntactic and semantic correctness. Issues present, if any, will be returned to the caller with a description, severity, and source location. The test method may be executed with `Source` or a `Ruleset` name. Passing `Source` is useful for unit testing new rules. Passing a `Ruleset` name is useful for regression testing an existing rule. The following is an example of `Source` that permits users to upload images to a bucket bearing their user id and matching the correct metadata: _*Example*_ // Users are allowed to subscribe and unsubscribe to the blog. service firebase.storage { match /users/{userId}/images/{imageName} { allow write: if userId == request.auth.uid && (imageName.matches('*.png$') || imageName.matches('*.jpg$')) && resource.mimeType.matches('^image/') } }
 */
 await gapi.client.firebaserules.projects.test({ name: "name",  });
 ```

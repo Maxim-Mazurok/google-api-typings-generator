@@ -59,10 +59,7 @@ After that you can use Cloud Identity-Aware Proxy API resources:
 ```typescript
 
 /*
-Gets the access control policy for an Identity-Aware Proxy protected
-resource.
-More information about managing access via IAP can be found at:
-https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+Gets the access control policy for an Identity-Aware Proxy protected resource. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
 */
 await gapi.client.iap.v1.getIamPolicy({ resource: "resource",  });
 
@@ -72,24 +69,17 @@ Gets the IAP settings on a particular IAP protected resource.
 await gapi.client.iap.v1.getIapSettings({ name: "name",  });
 
 /*
-Sets the access control policy for an Identity-Aware Proxy protected
-resource. Replaces any existing policy.
-More information about managing access via IAP can be found at:
-https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+Sets the access control policy for an Identity-Aware Proxy protected resource. Replaces any existing policy. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
 */
 await gapi.client.iap.v1.setIamPolicy({ resource: "resource",  });
 
 /*
-Returns permissions that a caller has on the Identity-Aware Proxy protected
-resource.
-More information about managing access via IAP can be found at:
-https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
+Returns permissions that a caller has on the Identity-Aware Proxy protected resource. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
 */
 await gapi.client.iap.v1.testIamPermissions({ resource: "resource",  });
 
 /*
-Updates the IAP settings on a particular IAP protected resource. It
-replaces all fields unless the `update_mask` is set.
+Updates the IAP settings on a particular IAP protected resource. It replaces all fields unless the `update_mask` is set.
 */
 await gapi.client.iap.v1.updateIapSettings({ name: "name",  });
 ```
