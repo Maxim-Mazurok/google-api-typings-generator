@@ -1,6 +1,9 @@
 // Type definitions for non-npm package Pub/Sub Lite API v1 1.0
 // Project: https://cloud.google.com/pubsub/lite/docs
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
+//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
+//                 Nick Amoscato <https://github.com/namoscato>
+//                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
@@ -65,8 +68,8 @@ declare namespace gapi.client {
             /** The number of partitions in the topic. Must be at least 1. */
             count?: string;
             /**
-             * Every partition in the topic is allocated throughput equivalent to `scale` times the standard partition throughput (4 MiB/s). This is also reflected in
-             * the cost of this topic; a topic with `scale` of 2 and count of 10 is charged for 20 partitions. This value must be in the range [1,4].
+             * Every partition in the topic is allocated throughput equivalent to `scale` times the standard partition throughput (4 MiB/s). This is also reflected in the cost of this topic; a
+             * topic with `scale` of 2 and count of 10 is charged for 20 partitions. This value must be in the range [1,4].
              */
             scale?: number;
         }
@@ -77,14 +80,11 @@ declare namespace gapi.client {
             partition?: string;
         }
         interface RetentionConfig {
-            /**
-             * How long a published message is retained. If unset, messages will be retained as long as the bytes retained for each partition is below
-             * `per_partition_bytes`.
-             */
+            /** How long a published message is retained. If unset, messages will be retained as long as the bytes retained for each partition is below `per_partition_bytes`. */
             period?: string;
             /**
-             * The provisioned storage, in bytes, per partition. If the number of bytes stored in any of the topic's partitions grows beyond this value, older
-             * messages will be dropped to make room for newer ones, regardless of the value of `period`.
+             * The provisioned storage, in bytes, per partition. If the number of bytes stored in any of the topic's partitions grows beyond this value, older messages will be dropped to make room
+             * for newer ones, regardless of the value of `period`.
              */
             perPartitionBytes?: string;
         }
@@ -131,10 +131,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * Required. The ID to use for the subscription, which will become the final component of the subscription's name. This value is structured like:
-                 * `my-sub-name`.
-                 */
+                /** Required. The ID to use for the subscription, which will become the final component of the subscription's name. This value is structured like: `my-sub-name`. */
                 subscriptionId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -164,10 +161,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /**
-                 * Required. The ID to use for the subscription, which will become the final component of the subscription's name. This value is structured like:
-                 * `my-sub-name`.
-                 */
+                /** Required. The ID to use for the subscription, which will become the final component of the subscription's name. This value is structured like: `my-sub-name`. */
                 subscriptionId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -245,14 +239,11 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The maximum number of subscriptions to return. The service may return fewer than this value. If unset or zero, all subscriptions for the parent will be
-                 * returned.
-                 */
+                /** The maximum number of subscriptions to return. The service may return fewer than this value. If unset or zero, all subscriptions for the parent will be returned. */
                 pageSize?: number;
                 /**
-                 * A page token, received from a previous `ListSubscriptions` call. Provide this to retrieve the subsequent page. When paginating, all other parameters
-                 * provided to `ListSubscriptions` must match the call that provided the page token.
+                 * A page token, received from a previous `ListSubscriptions` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
+                 * `ListSubscriptions` must match the call that provided the page token.
                  */
                 pageToken?: string;
                 /** Required. The parent whose subscriptions are to be listed. Structured like `projects/{project_number}/locations/{location}`. */
@@ -346,14 +337,11 @@ declare namespace gapi.client {
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /**
-                 * The maximum number of subscriptions to return. The service may return fewer than this value. If unset or zero, all subscriptions for the given topic
-                 * will be returned.
-                 */
+                /** The maximum number of subscriptions to return. The service may return fewer than this value. If unset or zero, all subscriptions for the given topic will be returned. */
                 pageSize?: number;
                 /**
-                 * A page token, received from a previous `ListTopicSubscriptions` call. Provide this to retrieve the subsequent page. When paginating, all other
-                 * parameters provided to `ListTopicSubscriptions` must match the call that provided the page token.
+                 * A page token, received from a previous `ListTopicSubscriptions` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
+                 * `ListTopicSubscriptions` must match the call that provided the page token.
                  */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
@@ -527,8 +515,8 @@ declare namespace gapi.client {
                 /** The maximum number of topics to return. The service may return fewer than this value. If unset or zero, all topics for the parent will be returned. */
                 pageSize?: number;
                 /**
-                 * A page token, received from a previous `ListTopics` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided
-                 * to `ListTopics` must match the call that provided the page token.
+                 * A page token, received from a previous `ListTopics` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListTopics` must match
+                 * the call that provided the page token.
                  */
                 pageToken?: string;
                 /** Required. The parent whose topics are to be listed. Structured like `projects/{project_number}/locations/{location}`. */
@@ -634,14 +622,11 @@ declare namespace gapi.client {
                 /** The maximum number of cursors to return. The service may return fewer than this value. If unset or zero, all cursors for the parent will be returned. */
                 pageSize?: number;
                 /**
-                 * A page token, received from a previous `ListPartitionCursors` call. Provide this to retrieve the subsequent page. When paginating, all other parameters
-                 * provided to `ListPartitionCursors` must match the call that provided the page token.
+                 * A page token, received from a previous `ListPartitionCursors` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
+                 * `ListPartitionCursors` must match the call that provided the page token.
                  */
                 pageToken?: string;
-                /**
-                 * Required. The subscription for which to retrieve cursors. Structured like
-                 * `projects/{project_number}/locations/{location}/subscriptions/{subscription_id}`.
-                 */
+                /** Required. The subscription for which to retrieve cursors. Structured like `projects/{project_number}/locations/{location}/subscriptions/{subscription_id}`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
