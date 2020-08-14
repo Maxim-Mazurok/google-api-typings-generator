@@ -338,9 +338,8 @@ gapi.load('client', () => {
             scriptId: "Test string",
         });
         /**
-         * Updates the content of the specified script project. This content is stored as the HEAD version, and is used when the script is executed as a trigger,
-         * in the script editor, in add-on preview mode, or as a web app or Apps Script API in development mode. This clears all the existing files in the
-         * project.
+         * Updates the content of the specified script project. This content is stored as the HEAD version, and is used when the script is executed as a trigger, in the script editor, in add-on
+         * preview mode, or as a web app or Apps Script API in development mode. This clears all the existing files in the project.
          */
         await gapi.client.script.projects.updateContent({
             scriptId: "Test string",
@@ -425,12 +424,11 @@ gapi.load('client', () => {
             scriptId: "Test string",
         });
         /**
-         * Runs a function in an Apps Script project. The script project must be deployed for use with the Apps Script API and the calling application must share
-         * the same Cloud Platform project. This method requires authorization with an OAuth 2.0 token that includes at least one of the scopes listed in the
-         * [Authorization](#authorization-scopes) section; script projects that do not require authorization cannot be executed through this API. To find the
-         * correct scopes to include in the authentication token, open the project in the script editor, then select ∗∗File > Project properties∗∗ and click the
-         * ∗∗Scopes∗∗ tab. The error `403, PERMISSION_DENIED: The caller does not have permission` indicates that the Cloud Platform project used to authorize the
-         * request is not the same as the one used by the script.
+         * Runs a function in an Apps Script project. The script project must be deployed for use with the Apps Script API and the calling application must share the same Cloud Platform project.
+         * This method requires authorization with an OAuth 2.0 token that includes at least one of the scopes listed in the [Authorization](#authorization-scopes) section; script projects that do
+         * not require authorization cannot be executed through this API. To find the correct scopes to include in the authentication token, open the project in the script editor, then select
+         * **File > Project properties** and click the **Scopes** tab. The error `403, PERMISSION_DENIED: The caller does not have permission` indicates that the Cloud Platform project used to
+         * authorize the request is not the same as the one used by the script.
          */
         await gapi.client.script.scripts.run({
             scriptId: "Test string",
