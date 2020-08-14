@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import stripJsonComments from 'strip-json-comments';
 
 export const TYPE_PREFIX = 'gapi.client.';
 
@@ -42,4 +43,22 @@ export function getTypeDirectory(api: string, version: string | null) {
   const name = `${TYPE_PREFIX}${api}`;
 
   return null === version ? name : path.join(name, version);
+}
+
+/**
+ * Reads and parses `dtslint.json` to get `max-line-length` value
+ */
+export function getMaxLineLength(): number {
+  const dtslintJson = fs.readFileSync(
+    path.join(__dirname, '../node_modules/dtslint/dtslint.json'),
+    'utf-8'
+  );
+  const dtslintConfig = JSON.parse(stripJsonComments(dtslintJson)) as {
+    rules: {
+      'max-line-length': [boolean, number] | [boolean, {limit: number}];
+    };
+  };
+  return typeof dtslintConfig.rules['max-line-length'][1] === 'number'
+    ? dtslintConfig.rules['max-line-length'][1]
+    : dtslintConfig.rules['max-line-length'][1].limit;
 }

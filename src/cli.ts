@@ -1,6 +1,7 @@
 import program from 'commander';
 import {App} from './app';
 import {getProxySettings, ProxySettings} from 'get-proxy-settings';
+import {getMaxLineLength} from './utils';
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -38,6 +39,7 @@ console.info(`Output directory: ${params.out}`);
     discoveryJsonDirectory: params.cacheDiscoveryJson,
     proxy: bestProxy,
     typesDirectory: params.out,
+    maxLineLength: getMaxLineLength(),
   });
 
   if (params.url) {
