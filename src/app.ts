@@ -37,13 +37,6 @@ const excludedApis = [
   'storage',
   'vision',
   'youtube',
-  'people',
-  'datacatalog',
-  'dataproc',
-  'customsearch',
-  'serviceconsumermanagement',
-  'servicenetworking',
-  'serviceusage',
 ];
 
 const irregularSpaces = [
@@ -254,7 +247,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
       }
     }
 
-    lines = lines.map(x => x.replace(/\*/g, '&#42;').trim());
+    lines = lines.map(x => x.replace(/\*/g, '∗').trim());
 
     for (const irregularSpace of irregularSpaces) {
       lines = lines.map(line => line.replace(irregularSpace, ' '));
@@ -443,6 +436,7 @@ export interface Configuration {
   discoveryJsonDirectory?: string; // temporary directory to cache discovery service JSON
   proxy?: ProxySetting;
   typesDirectory: string;
+  maxLineLength: number;
 }
 
 export class App {
