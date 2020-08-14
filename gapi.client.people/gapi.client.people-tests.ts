@@ -547,6 +547,31 @@ gapi.load('client', () => {
                     },
                     value: "Test string",
                 }            ],
+            locations: [
+                {
+                    buildingId: "Test string",
+                    current: true,
+                    deskCode: "Test string",
+                    floor: "Test string",
+                    floorSection: "Test string",
+                    metadata: {
+                        primary: true,
+                        source: {
+                            etag: "Test string",
+                            id: "Test string",
+                            profileMetadata: {
+                                objectType: "Test string",
+                                userTypes: [
+                                    "Test string"                                ],
+                            },
+                            type: "Test string",
+                            updateTime: "Test string",
+                        },
+                        verified: true,
+                    },
+                    type: "Test string",
+                    value: "Test string",
+                }            ],
             memberships: [
                 {
                     contactGroupMembership: {
@@ -1433,6 +1458,31 @@ gapi.load('client', () => {
                         },
                         verified: true,
                     },
+                    value: "Test string",
+                }            ],
+            locations: [
+                {
+                    buildingId: "Test string",
+                    current: true,
+                    deskCode: "Test string",
+                    floor: "Test string",
+                    floorSection: "Test string",
+                    metadata: {
+                        primary: true,
+                        source: {
+                            etag: "Test string",
+                            id: "Test string",
+                            profileMetadata: {
+                                objectType: "Test string",
+                                userTypes: [
+                                    "Test string"                                ],
+                            },
+                            type: "Test string",
+                            updateTime: "Test string",
+                        },
+                        verified: true,
+                    },
+                    type: "Test string",
                     value: "Test string",
                 }            ],
             memberships: [
