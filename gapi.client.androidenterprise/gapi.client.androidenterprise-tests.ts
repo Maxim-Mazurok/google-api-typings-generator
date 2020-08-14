@@ -693,7 +693,7 @@ gapi.load('client', () => {
             userId: "Test string",
         });
         /**
-         * Modifies the set of products that a user is entitled to access (referred to as &#42;whitelisted&#42; products). Only products that are approved or products
+         * Modifies the set of products that a user is entitled to access (referred to as ∗whitelisted∗ products). Only products that are approved or products
          * that were previously approved (products with revoked approval) can be whitelisted.
          */
         await gapi.client.androidenterprise.users.setAvailableProductSet({

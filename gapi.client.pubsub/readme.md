@@ -1,7 +1,6 @@
 # TypeScript typings for Cloud Pub/Sub API v1
 
-Provides reliable, many-to-many, asynchronous messaging between applications.
-
+Provides reliable, many-to-many, asynchronous messaging between applications. 
 For detailed description please check [documentation](https://cloud.google.com/pubsub/docs).
 
 ## Installing

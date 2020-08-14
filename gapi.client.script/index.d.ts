@@ -1116,8 +1116,8 @@ declare namespace gapi.client {
              * [Authorization](#authorization-scopes) section; script projects that do not
              * require authorization cannot be executed through this API. To find the
              * correct scopes to include in the authentication token, open the project in
-             * the script editor, then select &#42;&#42;File > Project properties&#42;&#42; and click the
-             * &#42;&#42;Scopes&#42;&#42; tab.
+             * the script editor, then select ∗∗File > Project properties∗∗ and click the
+             * ∗∗Scopes∗∗ tab.
              *
              * The error `403, PERMISSION_DENIED: The caller does not have permission`
              * indicates that the Cloud Platform project used to authorize the request is
@@ -1144,7 +1144,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /**
                  * The script ID of the script to be executed. To find the script ID, open
-                 * the project in the script editor and select &#42;&#42;File > Project properties&#42;&#42;.
+                 * the project in the script editor and select ∗∗File > Project properties∗∗.
                  */
                 scriptId: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1175,7 +1175,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /**
                  * The script ID of the script to be executed. To find the script ID, open
-                 * the project in the script editor and select &#42;&#42;File > Project properties&#42;&#42;.
+                 * the project in the script editor and select ∗∗File > Project properties∗∗.
                  */
                 scriptId: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */

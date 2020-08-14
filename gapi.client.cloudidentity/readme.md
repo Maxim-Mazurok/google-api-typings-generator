@@ -85,9 +85,7 @@ Lists groups within a customer or a domain.
 await gapi.client.cloudidentity.groups.list({  });
 
 /*
-Looks up [resource
-name](https://cloud.google.com/apis/design/resource_names) of a Group by
-its EntityKey.
+Looks up [resource name](https://cloud.google.com/apis/design/resource_names) of a Group by its EntityKey.
 */
 await gapi.client.cloudidentity.groups.lookup({  });
 

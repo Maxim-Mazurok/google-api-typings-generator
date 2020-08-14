@@ -14808,7 +14808,7 @@ gapi.load('client', () => {
             partnerId: "Test string",
         });
         /**
-         * Downloads media. Download is supported on the URI `/download/{resource_name=&#42;&#42;}?alt=media.` &#42;&#42;Note&#42;&#42;: Download requests will not be successful without
+         * Downloads media. Download is supported on the URI `/download/{resource_name=∗∗}?alt=media.` ∗∗Note∗∗: Download requests will not be successful without
          * including `alt=media` query string.
          */
         await gapi.client.displayvideo.media.download({

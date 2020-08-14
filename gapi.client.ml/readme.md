@@ -62,24 +62,17 @@ After that you can use AI Platform Training & Prediction API resources:
 ```typescript
 
 /*
-Performs explanation on the data in the request.
-
-<div>{% dynamic include "/ai-platform/includes/___explain-request" %}</div>
+Performs explanation on the data in the request. {% dynamic include "/ai-platform/includes/___explain-request" %} 
 */
 await gapi.client.ml.projects.explain({ name: "name",  });
 
 /*
-Get the service account information associated with your project. You need
-this information in order to grant the service account permissions for
-the Google Cloud Storage location where you put your model training code
-for training the model with Google Cloud Machine Learning.
+Get the service account information associated with your project. You need this information in order to grant the service account permissions for the Google Cloud Storage location where you put your model training code for training the model with Google Cloud Machine Learning.
 */
 await gapi.client.ml.projects.getConfig({ name: "name",  });
 
 /*
-Performs online prediction on the data in the request.
-
-<div>{% dynamic include "/ai-platform/includes/___predict-request" %}</div>
+Performs online prediction on the data in the request. {% dynamic include "/ai-platform/includes/___predict-request" %} 
 */
 await gapi.client.ml.projects.predict({ name: "name",  });
 ```

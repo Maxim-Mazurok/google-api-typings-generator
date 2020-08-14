@@ -1,7 +1,6 @@
 # TypeScript typings for PageSpeed Insights API v5
 
-The PageSpeed Insights API lets you analyze the performance of your website with a simple API.  It offers tailored suggestions for how you can optimize your site, and lets you easily integrate PageSpeed Insights analysis into your development tools and workflow.
-
+The PageSpeed Insights API lets you analyze the performance of your website with a simple API. It offers tailored suggestions for how you can optimize your site, and lets you easily integrate PageSpeed Insights analysis into your development tools and workflow. 
 For detailed description please check [documentation](https://developers.google.com/speed/docs/insights/v5/about).
 
 ## Installing
@@ -60,9 +59,7 @@ After that you can use PageSpeed Insights API resources:
 ```typescript
 
 /*
-Runs PageSpeed analysis on the page at the specified URL, and returns
-PageSpeed scores, a list of suggestions to make that page faster, and other
-information.
+Runs PageSpeed analysis on the page at the specified URL, and returns PageSpeed scores, a list of suggestions to make that page faster, and other information.
 */
 await gapi.client.pagespeedonline.pagespeedapi.runpagespeed({  });
 ```

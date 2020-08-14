@@ -43,14 +43,14 @@ gapi.load('client', () => {
          * The following is an example of `Source` that permits users to upload images
          * to a bucket bearing their user id and matching the correct metadata:
          *
-         * _&#42;Example&#42;_
+         * _∗Example∗_
          *
          * // Users are allowed to subscribe and unsubscribe to the blog.
          * service firebase.storage {
          * match /users/{userId}/images/{imageName} {
          * allow write: if userId == request.auth.uid
-         * && (imageName.matches('&#42;.png$')
-         * || imageName.matches('&#42;.jpg$'))
+         * && (imageName.matches('∗.png$')
+         * || imageName.matches('∗.jpg$'))
          * && resource.mimeType.matches('^image/')
          * }
          * }

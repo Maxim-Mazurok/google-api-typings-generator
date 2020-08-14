@@ -249,7 +249,7 @@ declare namespace gapi.client {
             alias?: string;
             /**
              * A metric expression in the request. An expression is constructed from one or more metrics and numbers. Accepted operators include: Plus (+), Minus (-),
-             * Negation (Unary -), Divided by (/), Multiplied by (&#42;), Parenthesis, Positive cardinal numbers (0-9), can include decimals and is limited to 1024
+             * Negation (Unary -), Divided by (/), Multiplied by (∗), Parenthesis, Positive cardinal numbers (0-9), can include decimals and is limited to 1024
              * characters. Example `ga:totalRefunds/ga:users`, in most cases the metric expression is just a single metric name like `ga:users`. Adding mixed
              * `MetricType` (E.g., `CURRENCY` + `PERCENTAGE`) metrics will result in unexpected results.
              */

@@ -840,7 +840,7 @@ declare namespace gapi.client {
                  * When retrieving all of your subscriptions and filtering for specific customers, you can enter a prefix for a customer name. Using an example customer
                  * group that includes exam.com, example20.com and example.com:
                  * - exa -- Returns all customer names that start with 'exa' which could include exam.com, example20.com, and example.com. A name prefix is similar to
-                 * using a regular expression's asterisk, exa&#42;.
+                 * using a regular expression's asterisk, exa∗.
                  * - example -- Returns example20.com and example.com.
                  */
                 customerNamePrefix?: string;

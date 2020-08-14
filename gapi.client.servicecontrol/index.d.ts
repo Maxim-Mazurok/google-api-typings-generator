@@ -176,11 +176,11 @@ declare namespace gapi.client {
              * value(s) depends on the `issuer`, but typically include one or more of
              * the following pieces of information:
              *
-             * &#42;  The services intended to receive the credential. For example,
+             * ∗  The services intended to receive the credential. For example,
              * ["https://pubsub.googleapis.com/", "https://storage.googleapis.com/"].
-             * &#42;  A set of service-based scopes. For example,
+             * ∗  A set of service-based scopes. For example,
              * ["https://www.googleapis.com/auth/cloud-platform"].
-             * &#42;  The client id of an app, such as the Firebase project id for JWTs
+             * ∗  The client id of an app, such as the Firebase project id for JWTs
              * from Firebase Auth.
              *
              * Consult the documentation for the credential issuer to determine the
@@ -478,10 +478,10 @@ declare namespace gapi.client {
              * can be logically identified as "//{resource.service}/{resource.name}".
              * The differences between a resource name and a URI are:
              *
-             * &#42;   Resource name is a logical identifier, independent of network
+             * ∗   Resource name is a logical identifier, independent of network
              * protocol and API version. For example,
              * `//pubsub.googleapis.com/projects/123/topics/news-feed`.
-             * &#42;   URI often includes protocol and version information, so it can
+             * ∗   URI often includes protocol and version information, so it can
              * be used directly by applications. For example,
              * `https://pubsub.googleapis.com/v1/projects/123/topics/news-feed`.
              *
@@ -605,7 +605,7 @@ declare namespace gapi.client {
              * [Admission Control](/service-infrastructure/docs/admission-control).
              *
              * NOTE: The admission control has an expected policy propagation delay of
-             * 60s. The caller &#42;&#42;must&#42;&#42; not depend on the most recent policy changes.
+             * 60s. The caller ∗∗must∗∗ not depend on the most recent policy changes.
              *
              * NOTE: The admission control has a hard limit of 1 referenced resources
              * per call. If an operation refers to more than 1 resources, the caller

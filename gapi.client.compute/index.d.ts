@@ -200,7 +200,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?`. The first character must be a
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?`. The first character must be a
              * lowercase letter, and all following characters (except for the last character) must be a dash, lowercase letter, or digit. The last character must be a
              * lowercase letter or digit.
              */
@@ -400,7 +400,7 @@ declare namespace gapi.client {
             /** Indicates that this is a boot disk. The virtual machine will use the first partition of the disk for its root filesystem. */
             boot?: boolean;
             /**
-             * Specifies a unique device name of your choice that is reflected into the /dev/disk/by-id/google-&#42; tree of a Linux operating system running within the
+             * Specifies a unique device name of your choice that is reflected into the /dev/disk/by-id/google-∗ tree of a Linux operating system running within the
              * instance. This name can be used to reference the device for mounting, resizing, and so on, from within the instance.
              *
              * If not specified, the server chooses a default device name to apply to this disk, in the form persistent-disk-x, where x is a number assigned by Google
@@ -586,7 +586,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -967,7 +967,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -1119,7 +1119,7 @@ declare namespace gapi.client {
             logConfig?: BackendServiceLogConfig;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -1374,33 +1374,33 @@ declare namespace gapi.client {
             /**
              * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values:
              *
-             * &#42; `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account.
+             * ∗ `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account.
              *
-             * &#42; `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account.
+             * ∗ `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account.
              *
-             * &#42; `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` .
+             * ∗ `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` .
              *
              *
              *
-             * &#42; `serviceAccount:{emailid}`: An email address that represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`.
+             * ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`.
              *
-             * &#42; `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`.
+             * ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`.
              *
-             * &#42; `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * ∗ `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
              * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
              * in the binding.
              *
-             * &#42; `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently
+             * ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently
              * deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to
              * `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding.
              *
-             * &#42; `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
+             * ∗ `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
              * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
              * retains the role in the binding.
              *
              *
              *
-             * &#42; `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
+             * ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -1468,7 +1468,7 @@ declare namespace gapi.client {
             licenseResource?: LicenseResourceCommitment;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -1757,7 +1757,7 @@ declare namespace gapi.client {
             licenses?: string[];
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -2163,8 +2163,8 @@ declare namespace gapi.client {
              */
             nanos?: number;
             /**
-             * Span of time at a resolution of a second. Must be from 0 to 315,576,000,000 inclusive. Note: these bounds are computed from: 60 sec/min &#42; 60 min/hr &#42;
-             * 24 hr/day &#42; 365.25 days/year &#42; 10000 years
+             * Span of time at a resolution of a second. Must be from 0 to 315,576,000,000 inclusive. Note: these bounds are computed from: 60 sec/min ∗ 60 min/hr ∗
+             * 24 hr/day ∗ 365.25 days/year ∗ 10000 years
              */
             seconds?: string;
         }
@@ -2257,7 +2257,7 @@ declare namespace gapi.client {
             labels?: { [P in string]: string };
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -2381,7 +2381,7 @@ declare namespace gapi.client {
             logConfig?: FirewallLogConfig;
             /**
              * Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?. The first character must be a
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?. The first character must be a
              * lowercase letter, and all following characters (except for the last character) must be a dash, lowercase letter, or digit. The last character must be a
              * lowercase letter or digit.
              */
@@ -2494,8 +2494,8 @@ declare namespace gapi.client {
              *
              *
              * - If the value is fixed, then the calculated value is equal to the fixed value.
-             * - If the value is a percent, then the calculated value is percent/100 &#42; targetSize. For example, the calculated value of a 80% of a managed instance
-             * group with 150 instances would be (80/100 &#42; 150) = 120 VM instances. If there is a remainder, the number is rounded up.
+             * - If the value is a percent, then the calculated value is percent/100 ∗ targetSize. For example, the calculated value of a 80% of a managed instance
+             * group with 150 instances would be (80/100 ∗ 150) = 120 VM instances. If there is a remainder, the number is rounded up.
              */
             calculated?: number;
             /** Specifies a fixed number of VM instances. This must be a positive integer. */
@@ -2543,9 +2543,9 @@ declare namespace gapi.client {
              *
              * If you don't specify a reserved IP address, an ephemeral IP address is assigned. Methods for specifying an IP address:
              *
-             * &#42; IPv4 dotted decimal, as in `100.1.2.3` &#42; Full URL, as in
-             * https://www.googleapis.com/compute/v1/projects/project_id/regions/region/addresses/address-name &#42; Partial URL or by name, as in: &#42;
-             * projects/project_id/regions/region/addresses/address-name &#42; regions/region/addresses/address-name &#42; global/addresses/address-name &#42; address-name
+             * ∗ IPv4 dotted decimal, as in `100.1.2.3` ∗ Full URL, as in
+             * https://www.googleapis.com/compute/v1/projects/project_id/regions/region/addresses/address-name ∗ Partial URL or by name, as in: ∗
+             * projects/project_id/regions/region/addresses/address-name ∗ regions/region/addresses/address-name ∗ global/addresses/address-name ∗ address-name
              *
              * The loadBalancingScheme and the forwarding rule's target determine the type of IP address that you can use. For detailed information, refer to [IP
              * address specifications](/load-balancing/docs/forwarding-rule-concepts#ip_address_specifications).
@@ -2605,7 +2605,7 @@ declare namespace gapi.client {
             metadataFilters?: MetadataFilter[];
             /**
              * Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -2649,7 +2649,7 @@ declare namespace gapi.client {
              *
              * If the forwarding rule's loadBalancingScheme is INTERNAL, you can specify ports in one of the following ways:
              *
-             * &#42; A list of up to five ports, which can be non-contiguous &#42; Keyword ALL, which causes the forwarding rule to forward traffic on any port of the
+             * ∗ A list of up to five ports, which can be non-contiguous ∗ Keyword ALL, which causes the forwarding rule to forward traffic on any port of the
              * forwarding rule's protocol.
              */
             ports?: string[];
@@ -2664,7 +2664,7 @@ declare namespace gapi.client {
              * An optional prefix to the service name for this Forwarding Rule. If specified, the prefix is the first label of the fully qualified service name.
              *
              * The label must be 1-63 characters long, and comply with RFC1035. Specifically, the label must be 1-63 characters long and match the regular expression
-             * `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter,
+             * `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter,
              * or digit, except the last character, which cannot be a dash.
              *
              * This field is only used for internal load balancing.
@@ -2814,7 +2814,7 @@ declare namespace gapi.client {
             labelFingerprint?: string;
             /**
              * A list of labels to apply for this resource. Each label key & value must comply with RFC1035. Specifically, the name must be 1-63 characters long and
-             * match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must
+             * match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must
              * be a dash, lowercase letter, or digit, except the last character, which cannot be a dash. For example, "webserver-frontend": "images". A label value
              * can also be empty (e.g. "my-label": "").
              */
@@ -2909,7 +2909,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -3042,7 +3042,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the
-             * regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a
+             * regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a
              * dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -3160,8 +3160,8 @@ declare namespace gapi.client {
             /** An optional description of this resource. Provide this property when you create the resource. */
             description?: string;
             /**
-             * The list of host patterns to match. They must be valid hostnames with optional port numbers in the format host:port. &#42; matches any string of
-             * ([a-z0-9-.]&#42;). In that case, &#42; must be the first character and must be followed in the pattern by either - or ..
+             * The list of host patterns to match. They must be valid hostnames with optional port numbers in the format host:port. ∗ matches any string of
+             * ([a-z0-9-.]∗). In that case, ∗ must be the first character and must be followed in the pattern by either - or ..
              */
             hosts?: string[];
             /** The name of the PathMatcher to use to match the path portion of the URL if the hostRule matches the URL's host portion. */
@@ -3322,7 +3322,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -3650,7 +3650,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -3791,7 +3791,7 @@ declare namespace gapi.client {
             licenses?: string[];
             /**
              * Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -3998,7 +3998,7 @@ declare namespace gapi.client {
             minCpuPlatform?: string;
             /**
              * The name of the resource, provided by the client when initially creating the resource. The resource name must be 1-63 characters long, and comply with
-             * RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first
+             * RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first
              * character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot
              * be a dash.
              */
@@ -4675,7 +4675,7 @@ declare namespace gapi.client {
              * Specifies the intended number of instances to be created from the instanceTemplate. The final number of instances created from the template will be
              * equal to:
              * - If expressed as a fixed number, the minimum of either targetSize.fixed or instanceGroupManager.targetSize is used.
-             * - if expressed as a percent, the targetSize would be (targetSize.percent/100 &#42; InstanceGroupManager.targetSize) If there is a remainder, the number is
+             * - if expressed as a percent, the targetSize would be (targetSize.percent/100 ∗ InstanceGroupManager.targetSize) If there is a remainder, the number is
              * rounded up.  If unset, this version will update any remaining instances not updated by another version. Read Starting a canary update for more
              * information.
              */
@@ -5053,7 +5053,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -5170,7 +5170,7 @@ declare namespace gapi.client {
             location?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -5264,7 +5264,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -6119,7 +6119,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?`. The first character must be a
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?`. The first character must be a
              * lowercase letter, and all following characters (except for the last character) must be a dash, lowercase letter, or digit. The last character must be a
              * lowercase letter or digit.
              */
@@ -6181,7 +6181,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -6545,7 +6545,7 @@ declare namespace gapi.client {
             importSubnetRoutesWithPublicIp?: boolean;
             /**
              * Name of this peering. Provided by the client when the peering is created. The name must comply with RFC1035. Specifically, the name must be 1-63
-             * characters long and match regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?`. The first character must be a lowercase letter, and all the following
+             * characters long and match regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?`. The first character must be a lowercase letter, and all the following
              * characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -6610,7 +6610,7 @@ declare namespace gapi.client {
             maintenancePolicy?: string;
             /**
              * The name of the resource, provided by the client when initially creating the resource. The resource name must be 1-63 characters long, and comply with
-             * RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first
+             * RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first
              * character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot
              * be a dash.
              */
@@ -6813,7 +6813,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * The name of the resource, provided by the client when initially creating the resource. The resource name must be 1-63 characters long, and comply with
-             * RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first
+             * RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first
              * character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot
              * be a dash.
              */
@@ -7093,7 +7093,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -7402,7 +7402,7 @@ declare namespace gapi.client {
             successRateRequestVolume?: number;
             /**
              * This factor is used to determine the ejection threshold for success rate outlier ejection. The ejection threshold is the difference between the mean
-             * success rate, and the product of this factor and the standard deviation of the mean success rate: mean - (stdev &#42; success_rate_stdev_factor). This
+             * success rate, and the product of this factor and the standard deviation of the mean success rate: mean - (stdev ∗ success_rate_stdev_factor). This
              * factor is divided by a thousand to get a double. That is, if the desired factor is 1.9, the runtime value should be 1900. Defaults to 1900.
              */
             successRateStdevFactor?: number;
@@ -7436,7 +7436,7 @@ declare namespace gapi.client {
             mirroredResources?: PacketMirroringMirroredResourceInfo;
             /**
              * Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -7654,7 +7654,7 @@ declare namespace gapi.client {
             /**
              * The list of path rules. Use this list instead of routeRules when routing based on simple path matching is all that's required. The order by which path
              * rules are specified does not matter. Matches are always done on the longest-path-first basis.
-             * For example: a pathRule with a path /a/b/c/&#42; will match before /a/b/&#42; irrespective of the order in which those paths appear in this list.
+             * For example: a pathRule with a path /a/b/c/∗ will match before /a/b/∗ irrespective of the order in which those paths appear in this list.
              * Within a given pathMatcher, only one of pathRules or routeRules must be set.
              */
             pathRules?: PathRule[];
@@ -7667,7 +7667,7 @@ declare namespace gapi.client {
         }
         interface PathRule {
             /**
-             * The list of path patterns to match. Each must start with / and the only place a &#42; is allowed is at the end following a /. The string fed to the path
+             * The list of path patterns to match. Each must start with / and the only place a ∗ is allowed is at the end following a /. The string fed to the path
              * matcher does not include any text after the first ? or #, and those chars are not allowed here.
              */
             paths?: string[];
@@ -7723,7 +7723,7 @@ declare namespace gapi.client {
              * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
              * be applied to the same version of the policy.
              *
-             * &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows
              * you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
@@ -7742,10 +7742,10 @@ declare namespace gapi.client {
              *
              * Any operation that affects conditional role bindings must specify version `3`. This requirement applies to the following operations:
              *
-             * &#42; Getting a policy that includes a conditional role binding &#42; Adding a conditional role binding to a policy &#42; Changing a conditional role binding in a
-             * policy &#42; Removing any role binding, with or without a condition, from a policy that includes conditions
+             * ∗ Getting a policy that includes a conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a
+             * policy ∗ Removing any role binding, with or without a condition, from a policy that includes conditions
              *
-             * &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows
              * you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost.
              *
              * If a policy does not include any conditions, operations on that policy may specify any valid version or leave the field unset.
@@ -8316,7 +8316,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * The name of the resource, provided by the client when initially creating the resource. The resource name must be 1-63 characters long, and comply with
-             * RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first
+             * RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first
              * character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot
              * be a dash.
              */
@@ -8508,7 +8508,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * The name of the resource, provided by the client when initially creating the resource. The resource name must be 1-63 characters long, and comply with
-             * RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first
+             * RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first
              * character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot
              * be a dash.
              */
@@ -8687,7 +8687,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?`. The first character must be a
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?`. The first character must be a
              * lowercase letter, and all following characters (except for the last character) must be a dash, lowercase letter, or digit. The last character must be a
              * lowercase letter or digit.
              */
@@ -8813,7 +8813,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -8929,7 +8929,7 @@ declare namespace gapi.client {
             managementType?: string;
             /**
              * Name of this BGP peer. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match
-             * the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a
+             * the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a
              * dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -8964,7 +8964,7 @@ declare namespace gapi.client {
             managementType?: string;
             /**
              * Name of this interface entry. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and
-             * match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must
+             * match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must
              * be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -9150,7 +9150,7 @@ declare namespace gapi.client {
             drainUserAllocatedNatIps?: string[];
             /**
              * The number of extra IPs to allocate. This will be greater than 0 only if user-specified IPs are NOT enough to allow all configured VMs to use NAT. This
-             * value is meaningful only when auto-allocation of NAT IPs is &#42;not&#42; used.
+             * value is meaningful only when auto-allocation of NAT IPs is ∗not∗ used.
              */
             minExtraNatIpsNeeded?: number;
             /** Unique name of this NAT. */
@@ -9181,8 +9181,8 @@ declare namespace gapi.client {
             /** If one or more 'not_in' clauses are specified, the rule matches if the PRINCIPAL/AUTHORITY_SELECTOR is in none of the entries. */
             notIns?: string[];
             /**
-             * A permission is a string of form '..' (e.g., 'storage.buckets.list'). A value of '&#42;' matches all permissions, and a verb part of '&#42;' (e.g.,
-             * 'storage.buckets.&#42;') matches all verbs.
+             * A permission is a string of form '..' (e.g., 'storage.buckets.list'). A value of '∗' matches all permissions, and a verb part of '∗' (e.g.,
+             * 'storage.buckets.∗') matches all verbs.
              */
             permissions?: string[];
         }
@@ -9242,12 +9242,12 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
             /**
-             * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "&#42;"). If no rules are provided
+             * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "∗"). If no rules are provided
              * when creating a security policy, a default rule with action "allow" will be added.
              */
             rules?: SecurityPolicyRule[];
@@ -9391,7 +9391,7 @@ declare namespace gapi.client {
         interface SignedUrlKey {
             /**
              * Name of the key. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the
-             * regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a
+             * regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a
              * dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             keyName?: string;
@@ -9432,7 +9432,7 @@ declare namespace gapi.client {
             licenses?: string[];
             /**
              * Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -9539,7 +9539,7 @@ declare namespace gapi.client {
             managed?: SslCertificateManagedSslCertificate;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -9779,7 +9779,7 @@ declare namespace gapi.client {
             minTlsVersion?: string;
             /**
              * Name of the resource. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the
-             * regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a
+             * regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a
              * dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -9869,7 +9869,7 @@ declare namespace gapi.client {
             logConfig?: SubnetworkLogConfig;
             /**
              * The name of the resource, provided by the client when initially creating the resource. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -10099,7 +10099,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -10193,7 +10193,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -10303,7 +10303,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -10435,7 +10435,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -10592,7 +10592,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -10768,7 +10768,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -10846,7 +10846,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -10911,7 +10911,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -11070,7 +11070,7 @@ declare namespace gapi.client {
             path?: string;
         }
         interface TestPermissionsRequest {
-            /** The set of permissions to check for the 'resource'. Permissions with wildcards (such as '&#42;' or 'storage.&#42;') are not allowed. */
+            /** The set of permissions to check for the 'resource'. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. */
             permissions?: string[];
         }
         interface TestPermissionsResponse {
@@ -11124,7 +11124,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -11446,7 +11446,7 @@ declare namespace gapi.client {
             labels?: { [P in string]: string };
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -11627,7 +11627,7 @@ declare namespace gapi.client {
             localTrafficSelector?: string[];
             /**
              * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;

@@ -109,6 +109,11 @@ Updates a Merchant Center account. Any fields that are not provided are deleted 
 await gapi.client.content.accounts.update({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
+Updates labels that are assigned to the Merchant Center account by CSS user.
+*/
+await gapi.client.content.accounts.updatelabels({ accountId: "accountId", merchantId: "merchantId",  });
+
+/*
 Retrieves multiple Merchant Center account statuses in a single request.
 */
 await gapi.client.content.accountstatuses.custombatch({  });

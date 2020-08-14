@@ -48,19 +48,19 @@ declare namespace gapi.client {
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: &#42; `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. &#42; `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. &#42; `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . &#42; `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. &#42; `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. &#42;
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
+             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
+             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
+             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
+             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
              * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
              * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. &#42; `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
+             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
              * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. &#42;
+             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
              * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
              * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. &#42; `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
+             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
              * `google.com` or `example.com`.
              */
             members?: string[];
@@ -277,8 +277,8 @@ declare namespace gapi.client {
         }
         interface GkeClusterReference {
             /**
-             * The full or partial name of a GKE cluster, using one of the following forms: &#42; `projects/{project}/locations/{location}/clusters/{cluster}` &#42;
-             * `locations/{location}/clusters/{cluster}` &#42; `{cluster}` If project and location are not specified, the project and location of the GameServerCluster
+             * The full or partial name of a GKE cluster, using one of the following forms: ∗ `projects/{project}/locations/{location}/clusters/{cluster}` ∗
+             * `locations/{location}/clusters/{cluster}` ∗ `{cluster}` If project and location are not specified, the project and location of the GameServerCluster
              * resource are used to generate the full name of the GKE cluster.
              */
             cluster?: string;
@@ -423,7 +423,7 @@ declare namespace gapi.client {
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
              * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
              * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field whenever you call
+             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
              * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
              * the version `3` policy are lost.
              */
@@ -438,9 +438,9 @@ declare namespace gapi.client {
             rules?: Rule[];
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: &#42; Getting a policy that includes a
-             * conditional role binding &#42; Adding a conditional role binding to a policy &#42; Changing a conditional role binding in a policy &#42; Removing any role binding,
-             * with or without a condition, from a policy that includes conditions &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field
+             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
+             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
+             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
              * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
              * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
              * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
@@ -523,8 +523,8 @@ declare namespace gapi.client {
              */
             notIn?: string[];
             /**
-             * A permission is a string of form '..' (e.g., 'storage.buckets.list'). A value of '&#42;' matches all permissions, and a verb part of '&#42;' (e.g.,
-             * 'storage.buckets.&#42;') matches all verbs.
+             * A permission is a string of form '..' (e.g., 'storage.buckets.list'). A value of '∗' matches all permissions, and a verb part of '∗' (e.g.,
+             * 'storage.buckets.∗') matches all verbs.
              */
             permissions?: string[];
         }
@@ -612,7 +612,7 @@ declare namespace gapi.client {
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '&#42;' or 'storage.&#42;') are not allowed. For more information see
+             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see
              * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
@@ -772,7 +772,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. The next_page_token value returned from a previous list request, if any. */
                 pageToken?: string;
-                /** Required. The parent resource name. Uses the form: `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/&#42;`. */
+                /** Required. The parent resource name. Uses the form: `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/∗`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1483,8 +1483,8 @@ declare namespace gapi.client {
             }): Request<Operation>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/&#42;/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/&#42;}/operations"` to their service configuration. For backwards compatibility, the
+             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
+             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
              * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
              * operations collection id.
              */

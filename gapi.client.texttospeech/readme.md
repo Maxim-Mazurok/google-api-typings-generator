@@ -59,8 +59,7 @@ After that you can use Cloud Text-to-Speech API resources:
 ```typescript
 
 /*
-Synthesizes speech synchronously: receive results after all text input
-has been processed.
+Synthesizes speech synchronously: receive results after all text input has been processed.
 */
 await gapi.client.texttospeech.text.synthesize({  });
 

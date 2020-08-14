@@ -1,7 +1,6 @@
 # TypeScript typings for Cloud IoT API v1
 
-Registers and manages IoT (Internet of Things) devices that connect to the Google Cloud Platform.
-
+Registers and manages IoT (Internet of Things) devices that connect to the Google Cloud Platform. 
 For detailed description please check [documentation](https://cloud.google.com/iot).
 
 ## Installing

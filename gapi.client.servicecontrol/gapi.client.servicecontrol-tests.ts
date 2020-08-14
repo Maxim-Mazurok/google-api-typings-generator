@@ -40,7 +40,7 @@ gapi.load('client', () => {
          * [Admission Control](/service-infrastructure/docs/admission-control).
          *
          * NOTE: The admission control has an expected policy propagation delay of
-         * 60s. The caller &#42;&#42;must&#42;&#42; not depend on the most recent policy changes.
+         * 60s. The caller ∗∗must∗∗ not depend on the most recent policy changes.
          *
          * NOTE: The admission control has a hard limit of 1 referenced resources
          * per call. If an operation refers to more than 1 resources, the caller

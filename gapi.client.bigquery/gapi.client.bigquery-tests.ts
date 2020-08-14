@@ -773,10 +773,7 @@ gapi.load('client', () => {
             modelId: "Test string",
             projectId: "Test string",
         });
-        /**
-         * Lists all models in the specified dataset. Requires the READER dataset
-         * role.
-         */
+        /** Lists all models in the specified dataset. Requires the READER dataset role. */
         await gapi.client.bigquery.models.list({
             datasetId: "Test string",
             maxResults: 42,
@@ -1010,6 +1007,7 @@ gapi.load('client', () => {
                     startTime: "Test string",
                     trainingOptions: {
                         autoArima: true,
+                        autoArimaMaxOrder: "Test string",
                         batchSize: "Test string",
                         dataFrequency: "Test string",
                         dataSplitColumn: "Test string",
@@ -1132,10 +1130,7 @@ gapi.load('client', () => {
             },
             routineType: "Test string",
         });
-        /**
-         * Lists all routines in the specified dataset. Requires the READER dataset
-         * role.
-         */
+        /** Lists all routines in the specified dataset. Requires the READER dataset role. */
         await gapi.client.bigquery.routines.list({
             datasetId: "Test string",
             filter: "Test string",
@@ -1144,10 +1139,7 @@ gapi.load('client', () => {
             projectId: "Test string",
             readMask: "Test string",
         });
-        /**
-         * Updates information in an existing routine. The update method replaces the
-         * entire Routine resource.
-         */
+        /** Updates information in an existing routine. The update method replaces the entire Routine resource. */
         await gapi.client.bigquery.routines.update({
             datasetId: "Test string",
             projectId: "Test string",
@@ -1240,11 +1232,7 @@ gapi.load('client', () => {
             selectedFields: "Test string",
             tableId: "Test string",
         });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
+        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
         await gapi.client.bigquery.tables.getIamPolicy({
             resource: "Test string",
         }, {
@@ -1648,10 +1636,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         *
-         * Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+         * Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+         * `PERMISSION_DENIED` errors.
          */
         await gapi.client.bigquery.tables.setIamPolicy({
             resource: "Test string",
@@ -1685,13 +1671,9 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a `NOT_FOUND` error.
-         *
-         * Note: This operation is designed to be used for building permission-aware
-         * UIs and command-line tools, not for authorization checking. This operation
-         * may "fail open" without warning.
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a
+         * `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization
+         * checking. This operation may "fail open" without warning.
          */
         await gapi.client.bigquery.tables.testIamPermissions({
             resource: "Test string",

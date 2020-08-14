@@ -27,10 +27,7 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Synthesizes speech synchronously: receive results after all text input
-         * has been processed.
-         */
+        /** Synthesizes speech synchronously: receive results after all text input has been processed. */
         await gapi.client.texttospeech.text.synthesize({
         }, {
             audioConfig: {

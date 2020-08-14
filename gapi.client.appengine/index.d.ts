@@ -316,7 +316,7 @@ declare namespace gapi.client {
              */
             priority?: number;
             /**
-             * IP address or range, defined using CIDR notation, of requests that this rule applies to. You can use the wildcard character "&#42;" to match all IPs
+             * IP address or range, defined using CIDR notation, of requests that this rule applies to. You can use the wildcard character "∗" to match all IPs
              * equivalent to "0/0" and "::/0" together. Examples: 192.168.1.1 or 192.168.0.0/16 or 2001:db8::/32 or 2001:0db8:0000:0042:0000:8a2e:0370:7334.
              * Truncation will be silently performed on addresses which are not properly truncated. For example, 1.2.3.4/24 is accepted as the same address as
              * 1.2.3.0/24. Similarly, for IPv6, 2001:db8::1/32 is accepted as the same address as 2001:db8::/32.
@@ -744,10 +744,10 @@ declare namespace gapi.client {
             shardBy?: string;
         }
         interface UrlDispatchRule {
-            /** Domain name to match against. The wildcard "&#42;" is supported if specified before a period: "&#42;.".Defaults to matching all domains: "&#42;". */
+            /** Domain name to match against. The wildcard "∗" is supported if specified before a period: "∗.".Defaults to matching all domains: "∗". */
             domain?: string;
             /**
-             * Pathname within the host. Must start with a "/". A single "&#42;" can be included at the end of the path.The sum of the lengths of the domain and path may
+             * Pathname within the host. Must start with a "/". A single "∗" can be included at the end of the path.The sum of the lengths of the domain and path may
              * not exceed 100 characters.
              */
             path?: string;
@@ -1388,7 +1388,7 @@ declare namespace gapi.client {
         interface IngressRulesResource {
             /**
              * Replaces the entire firewall ruleset in one bulk operation. This overrides and replaces the rules of an existing firewall with the new rules.If the
-             * final rule does not match traffic with the '&#42;' wildcard IP range, then an "allow all" rule is explicitly added to the end of the list.
+             * final rule does not match traffic with the '∗' wildcard IP range, then an "allow all" rule is explicitly added to the end of the list.
              */
             batchUpdate(request: {
                 /** V1 error format. */
@@ -1762,8 +1762,8 @@ declare namespace gapi.client {
             }): Request<Operation>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name
-             * binding allows API services to override the binding to use different resource name schemes, such as users/&#42;/operations. To override the binding, API
-             * services can add a binding such as "/v1/{name=users/&#42;}/operations" to their service configuration. For backwards compatibility, the default name
+             * binding allows API services to override the binding to use different resource name schemes, such as users/∗/operations. To override the binding, API
+             * services can add a binding such as "/v1/{name=users/∗}/operations" to their service configuration. For backwards compatibility, the default name
              * includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection
              * id.
              */

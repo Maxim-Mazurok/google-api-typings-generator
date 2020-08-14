@@ -27,10 +27,7 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Retrieves line items in CSV format. YouTube & partners line items are not
-         * supported.
-         */
+        /** Retrieves line items in CSV format. YouTube & partners line items are not supported. */
         await gapi.client.doubleclickbidmanager.lineitems.downloadlineitems({
         }, {
             fileSpec: "Test string",
@@ -39,10 +36,7 @@ gapi.load('client', () => {
             filterType: "Test string",
             format: "Test string",
         });
-        /**
-         * Uploads line items in CSV format. YouTube & partners line items are not
-         * supported.
-         */
+        /** Uploads line items in CSV format. YouTube & partners line items are not supported. */
         await gapi.client.doubleclickbidmanager.lineitems.uploadlineitems({
         }, {
             dryRun: true,

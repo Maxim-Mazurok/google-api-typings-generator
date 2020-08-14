@@ -329,7 +329,7 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. The instance's project and location, in the format projects/{project_id}/locations/{location}. In Cloud Filestore, locations map to GCP
-                 * zones, for example &#42;&#42;us-west1-b&#42;&#42;.
+                 * zones, for example ∗∗us-west1-b∗∗.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -362,7 +362,7 @@ declare namespace gapi.client {
                 oauth_token?: string;
                 /**
                  * Required. The instance's project and location, in the format projects/{project_id}/locations/{location}. In Cloud Filestore, locations map to GCP
-                 * zones, for example &#42;&#42;us-west1-b&#42;&#42;.
+                 * zones, for example ∗∗us-west1-b∗∗.
                  */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
@@ -455,7 +455,7 @@ declare namespace gapi.client {
                 pageToken?: string;
                 /**
                  * Required. The project and location for which to retrieve instance information, in the format projects/{project_id}/locations/{location}. In Cloud
-                 * Filestore, locations map to GCP zones, for example &#42;&#42;us-west1-b&#42;&#42;. To retrieve instance information for all locations, use "-" for the {location}
+                 * Filestore, locations map to GCP zones, for example ∗∗us-west1-b∗∗. To retrieve instance information for all locations, use "-" for the {location}
                  * value.
                  */
                 parent: string;
@@ -491,8 +491,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Mask of fields to update. At least one path must be supplied in this field. The elements of the repeated paths field may only include these fields: &#42;
-                 * "description" &#42; "file_shares" &#42; "labels"
+                 * Mask of fields to update. At least one path must be supplied in this field. The elements of the repeated paths field may only include these fields: ∗
+                 * "description" ∗ "file_shares" ∗ "labels"
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -524,8 +524,8 @@ declare namespace gapi.client {
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
                 /**
-                 * Mask of fields to update. At least one path must be supplied in this field. The elements of the repeated paths field may only include these fields: &#42;
-                 * "description" &#42; "file_shares" &#42; "labels"
+                 * Mask of fields to update. At least one path must be supplied in this field. The elements of the repeated paths field may only include these fields: ∗
+                 * "description" ∗ "file_shares" ∗ "labels"
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -659,8 +659,8 @@ declare namespace gapi.client {
             }): Request<Operation>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
-             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/&#42;/operations`. To override the
-             * binding, API services can add a binding such as `"/v1/{name=users/&#42;}/operations"` to their service configuration. For backwards compatibility, the
+             * `name` binding allows API services to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the
+             * binding, API services can add a binding such as `"/v1/{name=users/∗}/operations"` to their service configuration. For backwards compatibility, the
              * default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the
              * operations collection id.
              */

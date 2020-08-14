@@ -1,7 +1,6 @@
 # TypeScript typings for Cloud Firestore API v1
 
-Accesses the NoSQL document database built for automatic scaling, high performance, and ease of application development.
-
+Accesses the NoSQL document database built for automatic scaling, high performance, and ease of application development. 
 For detailed description please check [documentation](https://cloud.google.com/firestore).
 
 ## Installing

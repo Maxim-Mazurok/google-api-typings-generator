@@ -61,6 +61,7 @@ gapi.load('client', () => {
                             },
                             phoneNumber: "Test string",
                         },
+                        cssId: "Test string",
                         googleMyBusinessLink: {
                             gmbAccountId: "Test string",
                             gmbEmail: "Test string",
@@ -68,6 +69,8 @@ gapi.load('client', () => {
                         },
                         id: "Test string",
                         kind: "Test string",
+                        labelIds: [
+                            "Test string"                        ],
                         name: "Test string",
                         sellerId: "Test string",
                         users: [
@@ -100,6 +103,7 @@ gapi.load('client', () => {
                     merchantId: "Test string",
                     method: "Test string",
                     overwrite: true,
+                    view: "Test string",
                 }            ],
         });
         /** Deletes a Merchant Center sub-account. */
@@ -112,6 +116,7 @@ gapi.load('client', () => {
         await gapi.client.content.accounts.get({
             accountId: "Test string",
             merchantId: "Test string",
+            view: "Test string",
         });
         /** Creates a Merchant Center sub-account. */
         await gapi.client.content.accounts.insert({
@@ -138,6 +143,7 @@ gapi.load('client', () => {
                 },
                 phoneNumber: "Test string",
             },
+            cssId: "Test string",
             googleMyBusinessLink: {
                 gmbAccountId: "Test string",
                 gmbEmail: "Test string",
@@ -145,6 +151,8 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            labelIds: [
+                "Test string"            ],
             name: "Test string",
             sellerId: "Test string",
             users: [
@@ -175,9 +183,11 @@ gapi.load('client', () => {
         });
         /** Lists the sub-accounts in your Merchant Center account. */
         await gapi.client.content.accounts.list({
+            label: "Test string",
             maxResults: 42,
             merchantId: "Test string",
             pageToken: "Test string",
+            view: "Test string",
         });
         /** Returns the list of accounts linked to your Merchant Center account. */
         await gapi.client.content.accounts.listlinks({
@@ -212,6 +222,7 @@ gapi.load('client', () => {
                 },
                 phoneNumber: "Test string",
             },
+            cssId: "Test string",
             googleMyBusinessLink: {
                 gmbAccountId: "Test string",
                 gmbEmail: "Test string",
@@ -219,6 +230,8 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            labelIds: [
+                "Test string"            ],
             name: "Test string",
             sellerId: "Test string",
             users: [
@@ -235,6 +248,14 @@ gapi.load('client', () => {
                     channelId: "Test string",
                     status: "Test string",
                 }            ],
+        });
+        /** Updates labels that are assigned to the Merchant Center account by CSS user. */
+        await gapi.client.content.accounts.updatelabels({
+            accountId: "Test string",
+            merchantId: "Test string",
+        }, {
+            labelIds: [
+                "Test string"            ],
         });
         /** Retrieves multiple Merchant Center account statuses in a single request. */
         await gapi.client.content.accountstatuses.custombatch({} , {

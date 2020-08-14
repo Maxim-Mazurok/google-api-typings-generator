@@ -39,7 +39,7 @@ declare namespace gapi.client {
              * google.rpc.Code.INVALID_ARGUMENT). For more information, see
              * [Request URIs](https://cloud.google.com/storage/docs/request-endpoints).
              * To identify multiple videos, a video URI may include wildcards in the
-             * `object-id`. Supported wildcards: '&#42;' to match 0 or more characters;
+             * `object-id`. Supported wildcards: '∗' to match 0 or more characters;
              * '?' to match 1 character. If unset, the input video should be embedded
              * in the request as `input_content`. If set, `input_content` must be unset.
              */
@@ -370,12 +370,12 @@ declare namespace gapi.client {
             /**
              * Optional. If set to `true`, the server will attempt to filter out
              * profanities, replacing all but the initial character in each filtered word
-             * with asterisks, e.g. "f&#42;&#42;&#42;". If set to `false` or omitted, profanities
+             * with asterisks, e.g. "f∗∗∗". If set to `false` or omitted, profanities
              * won't be filtered out.
              */
             filterProfanity?: boolean;
             /**
-             * Required. &#42;Required&#42; The language of the supplied audio as a
+             * Required. ∗Required∗ The language of the supplied audio as a
              * [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.
              * Example: "en-US".
              * See [Language Support](https://cloud.google.com/speech/docs/languages)
@@ -2559,9 +2559,9 @@ declare namespace gapi.client {
              * server doesn't support this method, it returns `UNIMPLEMENTED`.
              *
              * NOTE: the `name` binding allows API services to override the binding
-             * to use different resource name schemes, such as `users/&#42;/operations`. To
+             * to use different resource name schemes, such as `users/∗/operations`. To
              * override the binding, API services can add a binding such as
-             * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
+             * `"/v1/{name=users/∗}/operations"` to their service configuration.
              * For backwards compatibility, the default name includes the operations
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.

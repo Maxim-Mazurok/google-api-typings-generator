@@ -8529,10 +8529,10 @@ gapi.load('client', () => {
          * By default, data within grids will not be returned.
          * You can include grid data one of two ways:
          *
-         * &#42; Specify a field mask listing your desired fields using the `fields` URL
+         * ∗ Specify a field mask listing your desired fields using the `fields` URL
          * parameter in HTTP
          *
-         * &#42; Set the includeGridData
+         * ∗ Set the includeGridData
          * URL parameter to true.  If a field mask is set, the `includeGridData`
          * parameter is ignored
          *
@@ -8875,10 +8875,10 @@ gapi.load('client', () => {
          * By default, data within grids will not be returned.
          * You can include grid data one of two ways:
          *
-         * &#42; Specify a field mask listing your desired fields using the `fields` URL
+         * ∗ Specify a field mask listing your desired fields using the `fields` URL
          * parameter in HTTP
          *
-         * &#42; Set the includeGridData
+         * ∗ Set the includeGridData
          * parameter to true.  If a field mask is set, the `includeGridData`
          * parameter is ignored
          *

@@ -41,10 +41,7 @@ gapi.load('client', () => {
             instance: "Test string",
             project: "Test string",
         });
-        /**
-         * Creates a new backup run on demand. This method is applicable only to
-         * Second Generation instances.
-         */
+        /** Creates a new backup run on demand. This method is applicable only to Second Generation instances. */
         await gapi.client.sql.backupRuns.insert({
             instance: "Test string",
             project: "Test string",
@@ -76,10 +73,7 @@ gapi.load('client', () => {
             type: "Test string",
             windowStartTime: "Test string",
         });
-        /**
-         * Lists all backup runs associated with a given instance and configuration in
-         * the reverse chronological order of the backup initiation time.
-         */
+        /** Lists all backup runs associated with a given instance and configuration in the reverse chronological order of the backup initiation time. */
         await gapi.client.sql.backupRuns.list({
             instance: "Test string",
             maxResults: 42,
@@ -92,19 +86,13 @@ gapi.load('client', () => {
             instance: "Test string",
             project: "Test string",
         });
-        /**
-         * Retrieves a resource containing information about a database inside a Cloud
-         * SQL instance.
-         */
+        /** Retrieves a resource containing information about a database inside a Cloud SQL instance. */
         await gapi.client.sql.databases.get({
             database: "Test string",
             instance: "Test string",
             project: "Test string",
         });
-        /**
-         * Inserts a resource containing information about a database inside a Cloud
-         * SQL instance.
-         */
+        /** Inserts a resource containing information about a database inside a Cloud SQL instance. */
         await gapi.client.sql.databases.insert({
             instance: "Test string",
             project: "Test string",
@@ -127,10 +115,7 @@ gapi.load('client', () => {
             instance: "Test string",
             project: "Test string",
         });
-        /**
-         * Partially updates a resource containing information about a database inside
-         * a Cloud SQL instance. This method supports patch semantics.
-         */
+        /** Partially updates a resource containing information about a database inside a Cloud SQL instance. This method supports patch semantics. */
         await gapi.client.sql.databases.patch({
             database: "Test string",
             instance: "Test string",
@@ -149,10 +134,7 @@ gapi.load('client', () => {
                 recoveryModel: "Test string",
             },
         });
-        /**
-         * Updates a resource containing information about a database inside a Cloud
-         * SQL instance.
-         */
+        /** Updates a resource containing information about a database inside a Cloud SQL instance. */
         await gapi.client.sql.databases.update({
             database: "Test string",
             instance: "Test string",
@@ -176,20 +158,15 @@ gapi.load('client', () => {
             databaseVersion: "Test string",
         });
         /**
-         * Add a new trusted Certificate Authority (CA) version for the specified
-         * instance. Required to prepare for a certificate rotation. If a CA version
-         * was previously added but never used in a certificate rotation, this
-         * operation replaces that version. There cannot be more than one CA version
-         * waiting to be rotated in.
+         * Add a new trusted Certificate Authority (CA) version for the specified instance. Required to prepare for a certificate rotation. If a CA version was
+         * previously added but never used in a certificate rotation, this operation replaces that version. There cannot be more than one CA version waiting to be
+         * rotated in.
          */
         await gapi.client.sql.instances.addServerCa({
             instance: "Test string",
             project: "Test string",
         });
-        /**
-         * Creates a Cloud SQL instance as a clone of the source instance. Using this
-         * operation might cause your instance to restart.
-         */
+        /** Creates a Cloud SQL instance as a clone of the source instance. Using this operation might cause your instance to restart. */
         await gapi.client.sql.instances.clone({
             instance: "Test string",
             project: "Test string",
@@ -211,10 +188,7 @@ gapi.load('client', () => {
             instance: "Test string",
             project: "Test string",
         });
-        /**
-         * Demotes the stand-alone instance to be a Cloud SQL read replica for an
-         * external database server.
-         */
+        /** Demotes the stand-alone instance to be a Cloud SQL read replica for an external database server. */
         await gapi.client.sql.instances.demoteMaster({
             instance: "Test string",
             project: "Test string",
@@ -236,10 +210,7 @@ gapi.load('client', () => {
                 verifyGtidConsistency: true,
             },
         });
-        /**
-         * Exports data from a Cloud SQL instance to a Cloud Storage bucket as a SQL
-         * dump or CSV file.
-         */
+        /** Exports data from a Cloud SQL instance to a Cloud Storage bucket as a SQL dump or CSV file. */
         await gapi.client.sql.instances.export({
             instance: "Test string",
             project: "Test string",
@@ -252,6 +223,7 @@ gapi.load('client', () => {
                     "Test string"                ],
                 fileType: "Test string",
                 kind: "Test string",
+                offload: true,
                 sqlExportOptions: {
                     mysqlExportOptions: {
                         masterData: 42,
@@ -263,10 +235,7 @@ gapi.load('client', () => {
                 uri: "Test string",
             },
         });
-        /**
-         * Failover the instance to its failover replica instance. Using this
-         * operation might cause your instance to restart.
-         */
+        /** Failover the instance to its failover replica instance. Using this operation might cause your instance to restart. */
         await gapi.client.sql.instances.failover({
             instance: "Test string",
             project: "Test string",
@@ -281,10 +250,7 @@ gapi.load('client', () => {
             instance: "Test string",
             project: "Test string",
         });
-        /**
-         * Imports data into a Cloud SQL instance from a SQL dump  or CSV file in
-         * Cloud Storage.
-         */
+        /** Imports data into a Cloud SQL instance from a SQL dump or CSV file in Cloud Storage. */
         await gapi.client.sql.instances.import({
             instance: "Test string",
             project: "Test string",
@@ -462,20 +428,15 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Lists all of the trusted Certificate Authorities (CAs) for the specified
-         * instance. There can be up to three CAs listed: the CA that was used to sign
-         * the certificate that is currently in use, a CA that has been added but not
-         * yet used to sign a certificate, and a CA used to sign a certificate that
-         * has previously rotated out.
+         * Lists all of the trusted Certificate Authorities (CAs) for the specified instance. There can be up to three CAs listed: the CA that was used to sign
+         * the certificate that is currently in use, a CA that has been added but not yet used to sign a certificate, and a CA used to sign a certificate that has
+         * previously rotated out.
          */
         await gapi.client.sql.instances.listServerCas({
             instance: "Test string",
             project: "Test string",
         });
-        /**
-         * Updates settings of a Cloud SQL instance.
-         * This method supports patch semantics.
-         */
+        /** Updates settings of a Cloud SQL instance. This method supports patch semantics. */
         await gapi.client.sql.instances.patch({
             instance: "Test string",
             project: "Test string",
@@ -621,18 +582,12 @@ gapi.load('client', () => {
             suspensionReason: [
                 "Test string"            ],
         });
-        /**
-         * Promotes the read replica instance to be a stand-alone Cloud SQL instance.
-         * Using this operation might cause your instance to restart.
-         */
+        /** Promotes the read replica instance to be a stand-alone Cloud SQL instance. Using this operation might cause your instance to restart. */
         await gapi.client.sql.instances.promoteReplica({
             instance: "Test string",
             project: "Test string",
         });
-        /**
-         * Deletes all client certificates and generates a new server SSL certificate
-         * for the instance.
-         */
+        /** Deletes all client certificates and generates a new server SSL certificate for the instance. */
         await gapi.client.sql.instances.resetSslConfig({
             instance: "Test string",
             project: "Test string",
@@ -642,10 +597,7 @@ gapi.load('client', () => {
             instance: "Test string",
             project: "Test string",
         });
-        /**
-         * Restores a backup of a Cloud SQL instance. Using this operation might cause
-         * your instance to restart.
-         */
+        /** Restores a backup of a Cloud SQL instance. Using this operation might cause your instance to restart. */
         await gapi.client.sql.instances.restoreBackup({
             instance: "Test string",
             project: "Test string",
@@ -657,10 +609,7 @@ gapi.load('client', () => {
                 project: "Test string",
             },
         });
-        /**
-         * Rotates the server certificate to one signed by the Certificate Authority
-         * (CA) version previously added with the addServerCA method.
-         */
+        /** Rotates the server certificate to one signed by the Certificate Authority (CA) version previously added with the addServerCA method. */
         await gapi.client.sql.instances.rotateServerCa({
             instance: "Test string",
             project: "Test string",
@@ -690,10 +639,7 @@ gapi.load('client', () => {
                 logType: "Test string",
             },
         });
-        /**
-         * Updates settings of a Cloud SQL instance. Using this operation might cause
-         * your instance to restart.
-         */
+        /** Updates settings of a Cloud SQL instance. Using this operation might cause your instance to restart. */
         await gapi.client.sql.instances.update({
             instance: "Test string",
             project: "Test string",
@@ -844,10 +790,7 @@ gapi.load('client', () => {
             operation: "Test string",
             project: "Test string",
         });
-        /**
-         * Lists all instance operations that have been performed on the given Cloud
-         * SQL instance in the reverse chronological order of the start time.
-         */
+        /** Lists all instance operations that have been performed on the given Cloud SQL instance in the reverse chronological order of the start time. */
         await gapi.client.sql.operations.list({
             instance: "Test string",
             maxResults: 42,
@@ -855,10 +798,8 @@ gapi.load('client', () => {
             project: "Test string",
         });
         /**
-         * Generates a short-lived X509 certificate containing the provided public key
-         * and signed by a private key specific to the target instance. Users may use
-         * the certificate to authenticate as themselves when connecting to the
-         * database.
+         * Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use
+         * the certificate to authenticate as themselves when connecting to the database.
          */
         await gapi.client.sql.sslCerts.createEphemeral({
             instance: "Test string",
@@ -866,18 +807,14 @@ gapi.load('client', () => {
         }, {
             public_key: "Test string",
         });
-        /**
-         * Deletes the SSL certificate. For First Generation instances, the
-         * certificate remains valid until the instance is restarted.
-         */
+        /** Deletes the SSL certificate. For First Generation instances, the certificate remains valid until the instance is restarted. */
         await gapi.client.sql.sslCerts.delete({
             instance: "Test string",
             project: "Test string",
             sha1Fingerprint: "Test string",
         });
         /**
-         * Retrieves a particular SSL certificate.  Does not include the private key
-         * (required for usage).  The private key must be saved from the response to
+         * Retrieves a particular SSL certificate. Does not include the private key (required for usage). The private key must be saved from the response to
          * initial creation.
          */
         await gapi.client.sql.sslCerts.get({
@@ -886,9 +823,8 @@ gapi.load('client', () => {
             sha1Fingerprint: "Test string",
         });
         /**
-         * Creates an SSL certificate and returns it along with the private key and
-         * server certificate authority.  The new certificate will not be usable until
-         * the instance is restarted.
+         * Creates an SSL certificate and returns it along with the private key and server certificate authority. The new certificate will not be usable until the
+         * instance is restarted.
          */
         await gapi.client.sql.sslCerts.insert({
             instance: "Test string",
@@ -901,11 +837,7 @@ gapi.load('client', () => {
             instance: "Test string",
             project: "Test string",
         });
-        /**
-         * Lists all available machine types (tiers) for Cloud SQL, for example,
-         * db-n1-standard-1. For related information, see <a
-         * href="/sql/pricing">Pricing</a>.
-         */
+        /** Lists all available machine types (tiers) for Cloud SQL, for example, db-n1-standard-1. For related information, see Pricing. */
         await gapi.client.sql.tiers.list({
             project: "Test string",
         });
@@ -933,6 +865,7 @@ gapi.load('client', () => {
                 serverRoles: [
                     "Test string"                ],
             },
+            type: "Test string",
         });
         /** Lists users in the specified Cloud SQL instance. */
         await gapi.client.sql.users.list({
@@ -958,6 +891,7 @@ gapi.load('client', () => {
                 serverRoles: [
                     "Test string"                ],
             },
+            type: "Test string",
         });
     }
 });

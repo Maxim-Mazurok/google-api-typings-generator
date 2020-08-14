@@ -214,7 +214,7 @@ gapi.load('client', () => {
          * locations](https://firebase.google.com/docs/projects/locations). After the default GCP resource location is finalized, or if it was already set, it
          * cannot be changed. The default GCP resource location for the specified `FirebaseProject` might already be set because either the underlying GCP
          * `Project` already has an App Engine application or `FinalizeDefaultLocation` was previously called with a specified `locationId`. Any new calls to
-         * `FinalizeDefaultLocation` with a &#42;different&#42; specified `locationId` will return a 409 error. The result of this call is an
+         * `FinalizeDefaultLocation` with a ∗different∗ specified `locationId` will return a 409 error. The result of this call is an
          * [`Operation`](../../v1beta1/operations), which can be used to track the provisioning process. The
          * [`response`](../../v1beta1/operations#Operation.FIELDS.response) type of the `Operation` is google.protobuf.Empty. The `Operation` can be polled by its
          * `name` using GetOperation until `done` is true. When `done` is true, the `Operation` has either succeeded or failed. If the `Operation` has succeeded,
@@ -483,7 +483,7 @@ gapi.load('client', () => {
          * locations](https://firebase.google.com/docs/projects/locations). After the default GCP resource location is finalized, or if it was already set, it
          * cannot be changed. The default GCP resource location for the specified `FirebaseProject` might already be set because either the underlying GCP
          * `Project` already has an App Engine application or `FinalizeDefaultLocation` was previously called with a specified `locationId`. Any new calls to
-         * `FinalizeDefaultLocation` with a &#42;different&#42; specified `locationId` will return a 409 error. The result of this call is an
+         * `FinalizeDefaultLocation` with a ∗different∗ specified `locationId` will return a 409 error. The result of this call is an
          * [`Operation`](../../v1beta1/operations), which can be used to track the provisioning process. The
          * [`response`](../../v1beta1/operations#Operation.FIELDS.response) type of the `Operation` is google.protobuf.Empty. The `Operation` can be polled by its
          * `name` using GetOperation until `done` is true. When `done` is true, the `Operation` has either succeeded or failed. If the `Operation` has succeeded,
@@ -731,7 +731,7 @@ gapi.load('client', () => {
          * locations](https://firebase.google.com/docs/projects/locations). After the default GCP resource location is finalized, or if it was already set, it
          * cannot be changed. The default GCP resource location for the specified `FirebaseProject` might already be set because either the underlying GCP
          * `Project` already has an App Engine application or `FinalizeDefaultLocation` was previously called with a specified `locationId`. Any new calls to
-         * `FinalizeDefaultLocation` with a &#42;different&#42; specified `locationId` will return a 409 error. The result of this call is an
+         * `FinalizeDefaultLocation` with a ∗different∗ specified `locationId` will return a 409 error. The result of this call is an
          * [`Operation`](../../v1beta1/operations), which can be used to track the provisioning process. The
          * [`response`](../../v1beta1/operations#Operation.FIELDS.response) type of the `Operation` is google.protobuf.Empty. The `Operation` can be polled by its
          * `name` using GetOperation until `done` is true. When `done` is true, the `Operation` has either succeeded or failed. If the `Operation` has succeeded,
@@ -982,7 +982,7 @@ gapi.load('client', () => {
          * locations](https://firebase.google.com/docs/projects/locations). After the default GCP resource location is finalized, or if it was already set, it
          * cannot be changed. The default GCP resource location for the specified `FirebaseProject` might already be set because either the underlying GCP
          * `Project` already has an App Engine application or `FinalizeDefaultLocation` was previously called with a specified `locationId`. Any new calls to
-         * `FinalizeDefaultLocation` with a &#42;different&#42; specified `locationId` will return a 409 error. The result of this call is an
+         * `FinalizeDefaultLocation` with a ∗different∗ specified `locationId` will return a 409 error. The result of this call is an
          * [`Operation`](../../v1beta1/operations), which can be used to track the provisioning process. The
          * [`response`](../../v1beta1/operations#Operation.FIELDS.response) type of the `Operation` is google.protobuf.Empty. The `Operation` can be polled by its
          * `name` using GetOperation until `done` is true. When `done` is true, the `Operation` has either succeeded or failed. If the `Operation` has succeeded,
@@ -1233,7 +1233,7 @@ gapi.load('client', () => {
          * locations](https://firebase.google.com/docs/projects/locations). After the default GCP resource location is finalized, or if it was already set, it
          * cannot be changed. The default GCP resource location for the specified `FirebaseProject` might already be set because either the underlying GCP
          * `Project` already has an App Engine application or `FinalizeDefaultLocation` was previously called with a specified `locationId`. Any new calls to
-         * `FinalizeDefaultLocation` with a &#42;different&#42; specified `locationId` will return a 409 error. The result of this call is an
+         * `FinalizeDefaultLocation` with a ∗different∗ specified `locationId` will return a 409 error. The result of this call is an
          * [`Operation`](../../v1beta1/operations), which can be used to track the provisioning process. The
          * [`response`](../../v1beta1/operations#Operation.FIELDS.response) type of the `Operation` is google.protobuf.Empty. The `Operation` can be polled by its
          * `name` using GetOperation until `done` is true. When `done` is true, the `Operation` has either succeeded or failed. If the `Operation` has succeeded,
@@ -1487,7 +1487,7 @@ gapi.load('client', () => {
          * locations](https://firebase.google.com/docs/projects/locations). After the default GCP resource location is finalized, or if it was already set, it
          * cannot be changed. The default GCP resource location for the specified `FirebaseProject` might already be set because either the underlying GCP
          * `Project` already has an App Engine application or `FinalizeDefaultLocation` was previously called with a specified `locationId`. Any new calls to
-         * `FinalizeDefaultLocation` with a &#42;different&#42; specified `locationId` will return a 409 error. The result of this call is an
+         * `FinalizeDefaultLocation` with a ∗different∗ specified `locationId` will return a 409 error. The result of this call is an
          * [`Operation`](../../v1beta1/operations), which can be used to track the provisioning process. The
          * [`response`](../../v1beta1/operations#Operation.FIELDS.response) type of the `Operation` is google.protobuf.Empty. The `Operation` can be polled by its
          * `name` using GetOperation until `done` is true. When `done` is true, the `Operation` has either succeeded or failed. If the `Operation` has succeeded,
@@ -1748,7 +1748,7 @@ gapi.load('client', () => {
          * locations](https://firebase.google.com/docs/projects/locations). After the default GCP resource location is finalized, or if it was already set, it
          * cannot be changed. The default GCP resource location for the specified `FirebaseProject` might already be set because either the underlying GCP
          * `Project` already has an App Engine application or `FinalizeDefaultLocation` was previously called with a specified `locationId`. Any new calls to
-         * `FinalizeDefaultLocation` with a &#42;different&#42; specified `locationId` will return a 409 error. The result of this call is an
+         * `FinalizeDefaultLocation` with a ∗different∗ specified `locationId` will return a 409 error. The result of this call is an
          * [`Operation`](../../v1beta1/operations), which can be used to track the provisioning process. The
          * [`response`](../../v1beta1/operations#Operation.FIELDS.response) type of the `Operation` is google.protobuf.Empty. The `Operation` can be polled by its
          * `name` using GetOperation until `done` is true. When `done` is true, the `Operation` has either succeeded or failed. If the `Operation` has succeeded,
@@ -1852,7 +1852,7 @@ gapi.load('client', () => {
          * current Google Analytics property. However, this call does not delete the Google Analytics resources, such as the Google Analytics property or any data
          * streams. These resources may be re-associated later to the `FirebaseProject` by calling
          * [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics) and specifying the same `analyticsPropertyId`. For Android Apps and iOS Apps, this
-         * call re-links data streams with their corresponding apps. However, for Web Apps, this call provisions a &#42;new&#42; data stream for each Web App. To call
+         * call re-links data streams with their corresponding apps. However, for Web Apps, this call provisions a ∗new∗ data stream for each Web App. To call
          * `RemoveAnalytics`, a project member must be an Owner for the `FirebaseProject`.
          */
         await gapi.client.firebase.projects.removeAnalytics({
@@ -2005,7 +2005,7 @@ gapi.load('client', () => {
          * locations](https://firebase.google.com/docs/projects/locations). After the default GCP resource location is finalized, or if it was already set, it
          * cannot be changed. The default GCP resource location for the specified `FirebaseProject` might already be set because either the underlying GCP
          * `Project` already has an App Engine application or `FinalizeDefaultLocation` was previously called with a specified `locationId`. Any new calls to
-         * `FinalizeDefaultLocation` with a &#42;different&#42; specified `locationId` will return a 409 error. The result of this call is an
+         * `FinalizeDefaultLocation` with a ∗different∗ specified `locationId` will return a 409 error. The result of this call is an
          * [`Operation`](../../v1beta1/operations), which can be used to track the provisioning process. The
          * [`response`](../../v1beta1/operations#Operation.FIELDS.response) type of the `Operation` is google.protobuf.Empty. The `Operation` can be polled by its
          * `name` using GetOperation until `done` is true. When `done` is true, the `Operation` has either succeeded or failed. If the `Operation` has succeeded,
@@ -2258,7 +2258,7 @@ gapi.load('client', () => {
          * locations](https://firebase.google.com/docs/projects/locations). After the default GCP resource location is finalized, or if it was already set, it
          * cannot be changed. The default GCP resource location for the specified `FirebaseProject` might already be set because either the underlying GCP
          * `Project` already has an App Engine application or `FinalizeDefaultLocation` was previously called with a specified `locationId`. Any new calls to
-         * `FinalizeDefaultLocation` with a &#42;different&#42; specified `locationId` will return a 409 error. The result of this call is an
+         * `FinalizeDefaultLocation` with a ∗different∗ specified `locationId` will return a 409 error. The result of this call is an
          * [`Operation`](../../v1beta1/operations), which can be used to track the provisioning process. The
          * [`response`](../../v1beta1/operations#Operation.FIELDS.response) type of the `Operation` is google.protobuf.Empty. The `Operation` can be polled by its
          * `name` using GetOperation until `done` is true. When `done` is true, the `Operation` has either succeeded or failed. If the `Operation` has succeeded,

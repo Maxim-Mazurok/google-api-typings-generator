@@ -1,7 +1,6 @@
 # TypeScript typings for Binary Authorization API v1
 
-The management interface for Binary Authorization, a system providing policy control for images deployed to Kubernetes Engine clusters.
-
+The management interface for Binary Authorization, a system providing policy control for images deployed to Kubernetes Engine clusters. 
 For detailed description please check [documentation](https://cloud.google.com/binary-authorization/).
 
 ## Installing
@@ -60,22 +59,12 @@ After that you can use Binary Authorization API resources:
 ```typescript
 
 /*
-A policy specifies the attestors that must attest to
-a container image, before the project is allowed to deploy that
-image. There is at most one policy per project. All image admission
-requests are permitted if a project has no policy.
-
-Gets the policy for this project. Returns a default
-policy if the project does not have one.
+A policy specifies the attestors that must attest to a container image, before the project is allowed to deploy that image. There is at most one policy per project. All image admission requests are permitted if a project has no policy. Gets the policy for this project. Returns a default policy if the project does not have one.
 */
 await gapi.client.binaryauthorization.projects.getPolicy({ name: "name",  });
 
 /*
-Creates or updates a project's policy, and returns a copy of the
-new policy. A policy is always updated as a whole, to avoid race
-conditions with concurrent policy enforcement (or management!)
-requests. Returns NOT_FOUND if the project does not exist, INVALID_ARGUMENT
-if the request is malformed.
+Creates or updates a project's policy, and returns a copy of the new policy. A policy is always updated as a whole, to avoid race conditions with concurrent policy enforcement (or management!) requests. Returns NOT_FOUND if the project does not exist, INVALID_ARGUMENT if the request is malformed.
 */
 await gapi.client.binaryauthorization.projects.updatePolicy({ name: "name",  });
 ```

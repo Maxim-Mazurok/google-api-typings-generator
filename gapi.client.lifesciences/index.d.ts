@@ -153,9 +153,9 @@ declare namespace gapi.client {
              * <li><code>/google/logs/output</code> The combined standard output and
              * standard error of all actions run as part of the pipeline
              * execution.</li>
-             * <li><code>/google/logs/action/&#42;/stdout</code> The complete contents of
+             * <li><code>/google/logs/action/∗/stdout</code> The complete contents of
              * each individual action's standard output.</li>
-             * <li><code>/google/logs/action/&#42;/stderr</code> The complete contents of
+             * <li><code>/google/logs/action/∗/stderr</code> The complete contents of
              * each individual action's standard error output.</li>
              * </ul>
              */
@@ -388,11 +388,11 @@ declare namespace gapi.client {
              * If the specified network is configured for custom subnet creation, the
              * name of the subnetwork to attach the instance to must be specified here.
              *
-             * The value is prefixed with `regions/&#42;/subnetworks/` unless it contains a
+             * The value is prefixed with `regions/∗/subnetworks/` unless it contains a
              * `/`, in which case it is assumed to be a fully specified subnetwork
              * resource URL.
              *
-             * If the `&#42;` character appears in the value, it is replaced with the region
+             * If the `∗` character appears in the value, it is replaced with the region
              * that the virtual machine has been allocated in.
              */
             subnetwork?: string;
@@ -639,7 +639,7 @@ declare namespace gapi.client {
              * despite cancellation.
              * Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission&#58;
              *
-             * &#42; `lifesciences.operations.cancel`
+             * ∗ `lifesciences.operations.cancel`
              */
             cancel(request: {
                 /** V1 error format. */
@@ -702,7 +702,7 @@ declare namespace gapi.client {
              * recommended by the API service.
              * Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission&#58;
              *
-             * &#42; `lifesciences.operations.get`
+             * ∗ `lifesciences.operations.get`
              */
             get(request?: {
                 /** V1 error format. */
@@ -734,7 +734,7 @@ declare namespace gapi.client {
              * Lists operations that match the specified filter in the request.
              * Authorization requires the following [Google IAM](https://cloud.google.com/iam) permission&#58;
              *
-             * &#42; `lifesciences.operations.list`
+             * ∗ `lifesciences.operations.list`
              */
             list(request?: {
                 /** V1 error format. */
@@ -751,14 +751,14 @@ declare namespace gapi.client {
                  * A string for filtering Operations.
                  * The following filter fields are supported&#58;
                  *
-                 * &#42; createTime&#58; The time this job was created
-                 * &#42; events&#58; The set of event (names) that have occurred while running
+                 * ∗ createTime&#58; The time this job was created
+                 * ∗ events&#58; The set of event (names) that have occurred while running
                  * the pipeline.  The &#58; operator can be used to determine if a
                  * particular event has occurred.
-                 * &#42; error&#58; If the pipeline is running, this value is NULL.  Once the
+                 * ∗ error&#58; If the pipeline is running, this value is NULL.  Once the
                  * pipeline finishes, the value is the standard Google error code.
-                 * &#42; labels.key or labels."key with space" where key is a label key.
-                 * &#42; done&#58; If the pipeline is running, this value is false. Once the
+                 * ∗ labels.key or labels."key with space" where key is a label key.
+                 * ∗ done&#58; If the pipeline is running, this value is false. Once the
                  * pipeline finishes, the value is true.
                  */
                 filter?: string;
@@ -791,7 +791,7 @@ declare namespace gapi.client {
              * google.cloud.lifesciences.v2beta.RunPipelineResponse object if the
              * pipeline completes successfully.
              *
-             * &#42;&#42;Note:&#42;&#42; Before you can use this method, the &#42;Life Sciences Service Agent&#42;
+             * ∗∗Note:∗∗ Before you can use this method, the ∗Life Sciences Service Agent∗
              * must have access to your project. This is done automatically when the
              * Cloud Life Sciences API is first enabled, but if you delete this permission
              * you must disable and re-enable the API to grant the Life Sciences
@@ -799,7 +799,7 @@ declare namespace gapi.client {
              * Authorization requires the following [Google
              * IAM](https://cloud.google.com/iam/) permission:
              *
-             * &#42; `lifesciences.workflows.run`
+             * ∗ `lifesciences.workflows.run`
              */
             run(request: {
                 /** V1 error format. */

@@ -55,33 +55,33 @@ declare namespace gapi.client {
             /**
              * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values:
              *
-             * &#42; `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account.
+             * ∗ `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account.
              *
-             * &#42; `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account.
+             * ∗ `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account.
              *
-             * &#42; `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` .
+             * ∗ `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` .
              *
              *
              *
-             * &#42; `serviceAccount:{emailid}`: An email address that represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`.
+             * ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example, `my-other-app@appspot.gserviceaccount.com`.
              *
-             * &#42; `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`.
+             * ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`.
              *
-             * &#42; `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
+             * ∗ `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
              * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
              * in the binding.
              *
-             * &#42; `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently
+             * ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently
              * deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to
              * `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding.
              *
-             * &#42; `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
+             * ∗ `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
              * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
              * retains the role in the binding.
              *
              *
              *
-             * &#42; `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
+             * ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
             /** Role that is assigned to `members`. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
@@ -120,8 +120,8 @@ declare namespace gapi.client {
             insertTime?: string;
             /**
              * Map of labels; provided by the client when the resource is created or updated. Specifically: Label keys must be between 1 and 63 characters long and
-             * must conform to the following regular expression: `[a-z]([-a-z0-9]&#42;[a-z0-9])?` Label values must be between 0 and 63 characters long and must conform
-             * to the regular expression `([a-z]([-a-z0-9]&#42;[a-z0-9])?)?`.
+             * must conform to the following regular expression: `[a-z]([-a-z0-9]∗[a-z0-9])?` Label values must be between 0 and 63 characters long and must conform
+             * to the regular expression `([a-z]([-a-z0-9]∗[a-z0-9])?)?`.
              */
             labels?: DeploymentLabelEntry[];
             /**
@@ -131,7 +131,7 @@ declare namespace gapi.client {
             manifest?: string;
             /**
              * Name of the resource; provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
-             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]&#42;[a-z0-9])?` which means the first character must
+             * Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]∗[a-z0-9])?` which means the first character must
              * be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
              */
             name?: string;
@@ -183,8 +183,8 @@ declare namespace gapi.client {
             description?: string;
             /**
              * Output only. Map of labels; provided by the client when the resource is created or updated. Specifically: Label keys must be between 1 and 63
-             * characters long and must conform to the following regular expression: `[a-z]([-a-z0-9]&#42;[a-z0-9])?` Label values must be between 0 and 63 characters
-             * long and must conform to the regular expression `([a-z]([-a-z0-9]&#42;[a-z0-9])?)?`.
+             * characters long and must conform to the following regular expression: `[a-z]([-a-z0-9]∗[a-z0-9])?` Label values must be between 0 and 63 characters
+             * long and must conform to the regular expression `([a-z]([-a-z0-9]∗[a-z0-9])?)?`.
              */
             labels?: DeploymentUpdateLabelEntry[];
             /** Output only. URL of the manifest representing the update configuration of this deployment. */
@@ -391,7 +391,7 @@ declare namespace gapi.client {
              * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
              * be applied to the same version of the policy.
              *
-             * &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows
              * you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost.
              */
             etag?: string;
@@ -410,10 +410,10 @@ declare namespace gapi.client {
              *
              * Any operation that affects conditional role bindings must specify version `3`. This requirement applies to the following operations:
              *
-             * &#42; Getting a policy that includes a conditional role binding &#42; Adding a conditional role binding to a policy &#42; Changing a conditional role binding in a
-             * policy &#42; Removing any role binding, with or without a condition, from a policy that includes conditions
+             * ∗ Getting a policy that includes a conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a
+             * policy ∗ Removing any role binding, with or without a condition, from a policy that includes conditions
              *
-             * &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows
              * you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost.
              *
              * If a policy does not include any conditions, operations on that policy may specify any valid version or leave the field unset.
@@ -540,8 +540,8 @@ declare namespace gapi.client {
             /** If one or more 'not_in' clauses are specified, the rule matches if the PRINCIPAL/AUTHORITY_SELECTOR is in none of the entries. */
             notIns?: string[];
             /**
-             * A permission is a string of form '..' (e.g., 'storage.buckets.list'). A value of '&#42;' matches all permissions, and a verb part of '&#42;' (e.g.,
-             * 'storage.buckets.&#42;') matches all verbs.
+             * A permission is a string of form '..' (e.g., 'storage.buckets.list'). A value of '∗' matches all permissions, and a verb part of '∗' (e.g.,
+             * 'storage.buckets.∗') matches all verbs.
              */
             permissions?: string[];
         }
@@ -555,7 +555,7 @@ declare namespace gapi.client {
             imports?: ImportFile[];
         }
         interface TestPermissionsRequest {
-            /** The set of permissions to check for the 'resource'. Permissions with wildcards (such as '&#42;' or 'storage.&#42;') are not allowed. */
+            /** The set of permissions to check for the 'resource'. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. */
             permissions?: string[];
         }
         interface TestPermissionsResponse {

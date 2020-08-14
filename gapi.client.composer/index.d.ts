@@ -31,9 +31,9 @@ declare namespace gapi.client {
              * The labels map can contain no more than 64 entries. Entries of the labels
              * map are UTF8 strings that comply with the following restrictions:
              *
-             * &#42; Keys must conform to regexp: \p{Ll}\p{Lo}{0,62}
-             * &#42; Values must conform to regexp:  [\p{Ll}\p{Lo}\p{N}_-]{0,63}
-             * &#42; Both keys and values are additionally constrained to be <= 128 bytes in
+             * ∗ Keys must conform to regexp: \p{Ll}\p{Lo}{0,62}
+             * ∗ Values must conform to regexp:  [\p{Ll}\p{Lo}\p{N}_-]{0,63}
+             * ∗ Both keys and values are additionally constrained to be <= 128 bytes in
              * size.
              */
             labels?: { [P in string]: string };
@@ -393,31 +393,31 @@ declare namespace gapi.client {
              * scheduler, worker, and webserver processes.
              *
              * Environment variable names must match the regular expression
-             * `a-zA-Z_&#42;`. They cannot specify Apache Airflow
+             * `a-zA-Z_∗`. They cannot specify Apache Airflow
              * software configuration overrides (they cannot match the regular expression
              * `AIRFLOW__[A-Z0-9_]+__[A-Z0-9_]+`), and they cannot match any of the
              * following reserved names:
              *
-             * &#42; `AIRFLOW_HOME`
-             * &#42; `C_FORCE_ROOT`
-             * &#42; `CONTAINER_NAME`
-             * &#42; `DAGS_FOLDER`
-             * &#42; `GCP_PROJECT`
-             * &#42; `GCS_BUCKET`
-             * &#42; `GKE_CLUSTER_NAME`
-             * &#42; `SQL_DATABASE`
-             * &#42; `SQL_INSTANCE`
-             * &#42; `SQL_PASSWORD`
-             * &#42; `SQL_PROJECT`
-             * &#42; `SQL_REGION`
-             * &#42; `SQL_USER`
+             * ∗ `AIRFLOW_HOME`
+             * ∗ `C_FORCE_ROOT`
+             * ∗ `CONTAINER_NAME`
+             * ∗ `DAGS_FOLDER`
+             * ∗ `GCP_PROJECT`
+             * ∗ `GCS_BUCKET`
+             * ∗ `GKE_CLUSTER_NAME`
+             * ∗ `SQL_DATABASE`
+             * ∗ `SQL_INSTANCE`
+             * ∗ `SQL_PASSWORD`
+             * ∗ `SQL_PROJECT`
+             * ∗ `SQL_REGION`
+             * ∗ `SQL_USER`
              */
             envVariables?: { [P in string]: string };
             /**
              * The version of the software running in the environment.
              * This encapsulates both the version of Cloud Composer functionality and the
              * version of Apache Airflow. It must match the regular expression
-             * `composer-([0-9]+\.[0-9]+\.[0-9]+|latest)-airflow-[0-9]+\.[0-9]+(\.[0-9]+.&#42;)?`.
+             * `composer-([0-9]+\.[0-9]+\.[0-9]+|latest)-airflow-[0-9]+\.[0-9]+(\.[0-9]+.∗)?`.
              * When used as input, the server also checks if the provided version is
              * supported and denies the request for an unsupported version.
              *
@@ -713,7 +713,7 @@ declare namespace gapi.client {
                  * }
                  * }
                  *
-                 * &#42;&#42;Note:&#42;&#42; Only the following fields can be updated:
+                 * ∗∗Note:∗∗ Only the following fields can be updated:
                  *
                  * <table>
                  * <tbody>
@@ -880,7 +880,7 @@ declare namespace gapi.client {
                  * }
                  * }
                  *
-                 * &#42;&#42;Note:&#42;&#42; Only the following fields can be updated:
+                 * ∗∗Note:∗∗ Only the following fields can be updated:
                  *
                  * <table>
                  * <tbody>
@@ -1069,9 +1069,9 @@ declare namespace gapi.client {
              * server doesn't support this method, it returns `UNIMPLEMENTED`.
              *
              * NOTE: the `name` binding allows API services to override the binding
-             * to use different resource name schemes, such as `users/&#42;/operations`. To
+             * to use different resource name schemes, such as `users/∗/operations`. To
              * override the binding, API services can add a binding such as
-             * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
+             * `"/v1/{name=users/∗}/operations"` to their service configuration.
              * For backwards compatibility, the default name includes the operations
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.

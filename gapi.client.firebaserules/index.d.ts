@@ -554,7 +554,7 @@ declare namespace gapi.client {
                  * `Release` filter. The list method supports filters with restrictions on the
                  * `Release.name`, `Release.ruleset_name`, and `Release.test_suite_name`.
                  *
-                 * Example 1: A filter of 'name=prod&#42;' might return `Release`s with names
+                 * Example 1: A filter of 'name=prod∗' might return `Release`s with names
                  * within 'projects/foo' prefixed with 'prod':
                  *
                  * Name                          | Ruleset Name
@@ -563,7 +563,7 @@ declare namespace gapi.client {
                  * projects/foo/releases/prod/v1 | projects/foo/rulesets/uuid1234
                  * projects/foo/releases/prod/v2 | projects/foo/rulesets/uuid8888
                  *
-                 * Example 2: A filter of `name=prod&#42; ruleset_name=uuid1234` would return only
+                 * Example 2: A filter of `name=prod∗ ruleset_name=uuid1234` would return only
                  * `Release` instances for 'projects/foo' with names prefixed with 'prod'
                  * referring to the same `Ruleset` name of 'uuid1234':
                  *
@@ -840,7 +840,7 @@ declare namespace gapi.client {
                  * Filters on `Ruleset.create_time` should use the `date` function which
                  * parses strings that conform to the RFC 3339 date/time specifications.
                  *
-                 * Example: `create_time > date("2017-01-01T00:00:00Z") AND name=UUID-&#42;`
+                 * Example: `create_time > date("2017-01-01T00:00:00Z") AND name=UUID-∗`
                  */
                 filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -885,14 +885,14 @@ declare namespace gapi.client {
              * The following is an example of `Source` that permits users to upload images
              * to a bucket bearing their user id and matching the correct metadata:
              *
-             * _&#42;Example&#42;_
+             * _∗Example∗_
              *
              * // Users are allowed to subscribe and unsubscribe to the blog.
              * service firebase.storage {
              * match /users/{userId}/images/{imageName} {
              * allow write: if userId == request.auth.uid
-             * && (imageName.matches('&#42;.png$')
-             * || imageName.matches('&#42;.jpg$'))
+             * && (imageName.matches('∗.png$')
+             * || imageName.matches('∗.jpg$'))
              * && resource.mimeType.matches('^image/')
              * }
              * }

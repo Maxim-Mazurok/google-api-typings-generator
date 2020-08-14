@@ -228,7 +228,7 @@ declare namespace gapi.client {
              * aligned with the XZ plane, and the tip of the tower lies towards +Y.
              *
              * This rotation is unrelated to the object's pose in the web preview,
-             * which is just a camera position setting and is &#42;not&#42; reflected in this
+             * which is just a camera position setting and is ∗not∗ reflected in this
              * rotation.
              *
              * Please note: this is applicable only to the gLTF.

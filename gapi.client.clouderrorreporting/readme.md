@@ -1,7 +1,6 @@
 # TypeScript typings for Error Reporting API v1beta1
 
-Groups and counts similar errors from cloud services and applications, reports new errors, and provides access to error groups and their associated errors.
-
+Groups and counts similar errors from cloud services and applications, reports new errors, and provides access to error groups and their associated errors. 
 For detailed description please check [documentation](https://cloud.google.com/error-reporting/).
 
 ## Installing

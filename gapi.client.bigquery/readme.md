@@ -150,8 +150,7 @@ Gets the specified model resource by model ID.
 await gapi.client.bigquery.models.get({ datasetId: "datasetId", modelId: "modelId", projectId: "projectId",  });
 
 /*
-Lists all models in the specified dataset. Requires the READER dataset
-role.
+Lists all models in the specified dataset. Requires the READER dataset role.
 */
 await gapi.client.bigquery.models.list({ datasetId: "datasetId", projectId: "projectId",  });
 
@@ -186,14 +185,12 @@ Creates a new routine in the dataset.
 await gapi.client.bigquery.routines.insert({ datasetId: "datasetId", projectId: "projectId",  });
 
 /*
-Lists all routines in the specified dataset. Requires the READER dataset
-role.
+Lists all routines in the specified dataset. Requires the READER dataset role.
 */
 await gapi.client.bigquery.routines.list({ datasetId: "datasetId", projectId: "projectId",  });
 
 /*
-Updates information in an existing routine. The update method replaces the
-entire Routine resource.
+Updates information in an existing routine. The update method replaces the entire Routine resource.
 */
 await gapi.client.bigquery.routines.update({ datasetId: "datasetId", projectId: "projectId", routineId: "routineId",  });
 
@@ -218,9 +215,7 @@ Gets the specified table resource by table ID. This method does not return the d
 await gapi.client.bigquery.tables.get({ datasetId: "datasetId", projectId: "projectId", tableId: "tableId",  });
 
 /*
-Gets the access control policy for a resource.
-Returns an empty policy if the resource exists and does not have a policy
-set.
+Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
 */
 await gapi.client.bigquery.tables.getIamPolicy({ resource: "resource",  });
 
@@ -240,21 +235,12 @@ Updates information in an existing table. The update method replaces the entire 
 await gapi.client.bigquery.tables.patch({ datasetId: "datasetId", projectId: "projectId", tableId: "tableId",  });
 
 /*
-Sets the access control policy on the specified resource. Replaces any
-existing policy.
-
-Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
 */
 await gapi.client.bigquery.tables.setIamPolicy({ resource: "resource",  });
 
 /*
-Returns permissions that a caller has on the specified resource.
-If the resource does not exist, this will return an empty set of
-permissions, not a `NOT_FOUND` error.
-
-Note: This operation is designed to be used for building permission-aware
-UIs and command-line tools, not for authorization checking. This operation
-may "fail open" without warning.
+Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
 */
 await gapi.client.bigquery.tables.testIamPermissions({ resource: "resource",  });
 

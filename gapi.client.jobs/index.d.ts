@@ -64,8 +64,8 @@ declare namespace gapi.client {
              *
              * The fields eligible for filtering are:
              *
-             * &#42; `companyName` (Required)
-             * &#42; `requisitionId` (Required)
+             * ∗ `companyName` (Required)
+             * ∗ `requisitionId` (Required)
              *
              * Sample Query: companyName = "projects/api-test-project/companies/123" AND
              * requisitionId = "req-1"
@@ -348,7 +348,7 @@ declare namespace gapi.client {
              *
              * At most one entry can be of type
              * CompensationInfo.CompensationType.BASE, which is
-             * referred as &#42;&#42; base compensation entry &#42;&#42; for the job.
+             * referred as ∗∗ base compensation entry ∗∗ for the job.
              */
             entries?: CompensationEntry[];
         }
@@ -567,7 +567,7 @@ declare namespace gapi.client {
              * attributes that are not covered by the provided structured fields.
              *
              * The keys of the map are strings up to 64 bytes and must match the
-             * pattern: a-zA-Z&#42;. For example, key0LikeThis or
+             * pattern: a-zA-Z∗. For example, key0LikeThis or
              * KEY_1_LIKE_THIS.
              *
              * At most 100 filterable and at most 100 unfilterable keys are supported.
@@ -1326,7 +1326,7 @@ declare namespace gapi.client {
              * The schema revision of the `PostalAddress`. This must be set to 0, which is
              * the latest revision.
              *
-             * All new revisions &#42;&#42;must&#42;&#42; be backward compatible with old revisions.
+             * All new revisions ∗∗must∗∗ be backward compatible with old revisions.
              */
             revision?: number;
             /**
@@ -1352,11 +1352,11 @@ declare namespace gapi.client {
             /**
              * Optional. Option for job HTML content sanitization. Applied fields are:
              *
-             * &#42; description
-             * &#42; applicationInfo.instruction
-             * &#42; incentives
-             * &#42; qualifications
-             * &#42; responsibilities
+             * ∗ description
+             * ∗ applicationInfo.instruction
+             * ∗ incentives
+             * ∗ qualifications
+             * ∗ responsibilities
              *
              * HTML tags in these fields may be stripped if sanitiazation is not
              * disabled.
@@ -1495,28 +1495,28 @@ declare namespace gapi.client {
              *
              * Supported options are:
              *
-             * &#42; `"relevance desc"`: By relevance descending, as determined by the API
+             * ∗ `"relevance desc"`: By relevance descending, as determined by the API
              * algorithms. Relevance thresholding of query results is only available
              * with this ordering.
-             * &#42; `"posting_publish_time desc"`: By Job.posting_publish_time
+             * ∗ `"posting_publish_time desc"`: By Job.posting_publish_time
              * descending.
-             * &#42; `"posting_update_time desc"`: By Job.posting_update_time
+             * ∗ `"posting_update_time desc"`: By Job.posting_update_time
              * descending.
-             * &#42; `"title"`: By Job.title ascending.
-             * &#42; `"title desc"`: By Job.title descending.
-             * &#42; `"annualized_base_compensation"`: By job's
+             * ∗ `"title"`: By Job.title ascending.
+             * ∗ `"title desc"`: By Job.title descending.
+             * ∗ `"annualized_base_compensation"`: By job's
              * CompensationInfo.annualized_base_compensation_range ascending. Jobs
              * whose annualized base compensation is unspecified are put at the end of
              * search results.
-             * &#42; `"annualized_base_compensation desc"`: By job's
+             * ∗ `"annualized_base_compensation desc"`: By job's
              * CompensationInfo.annualized_base_compensation_range descending. Jobs
              * whose annualized base compensation is unspecified are put at the end of
              * search results.
-             * &#42; `"annualized_total_compensation"`: By job's
+             * ∗ `"annualized_total_compensation"`: By job's
              * CompensationInfo.annualized_total_compensation_range ascending. Jobs
              * whose annualized base compensation is unspecified are put at the end of
              * search results.
-             * &#42; `"annualized_total_compensation desc"`: By job's
+             * ∗ `"annualized_total_compensation desc"`: By job's
              * CompensationInfo.annualized_total_compensation_range descending. Jobs
              * whose annualized base compensation is unspecified are put at the end of
              * search results.
@@ -2221,13 +2221,13 @@ declare namespace gapi.client {
                  *
                  * The fields eligible for filtering are:
                  *
-                 * &#42; `companyName` (Required)
-                 * &#42; `requisitionId` (Optional)
+                 * ∗ `companyName` (Required)
+                 * ∗ `requisitionId` (Optional)
                  *
                  * Sample Query:
                  *
-                 * &#42; companyName = "projects/api-test-project/companies/123"
-                 * &#42; companyName = "projects/api-test-project/companies/123" AND requisitionId
+                 * ∗ companyName = "projects/api-test-project/companies/123"
+                 * ∗ companyName = "projects/api-test-project/companies/123" AND requisitionId
                  * = "req-1"
                  */
                 filter?: string;

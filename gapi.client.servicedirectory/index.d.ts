@@ -27,19 +27,19 @@ declare namespace gapi.client {
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: &#42; `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. &#42; `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. &#42; `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . &#42; `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. &#42; `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. &#42;
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
+             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
+             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
+             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
+             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
              * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
              * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. &#42; `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
+             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
              * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. &#42;
+             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
              * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
              * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. &#42; `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
+             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
              * `google.com` or `example.com`.
              */
             members?: string[];
@@ -60,7 +60,7 @@ declare namespace gapi.client {
              * spread accoss all key-value pairs. Metadata that goes beyond any these limits will be rejected.
              */
             metadata?: { [P in string]: string };
-            /** Immutable. The resource name for the endpoint in the format 'projects/&#42;/locations/&#42;/namespaces/&#42;/services/&#42;/endpoints/&#42;'. */
+            /** Immutable. The resource name for the endpoint in the format 'projects/∗/locations/∗/namespaces/∗/services/∗/endpoints/∗'. */
             name?: string;
             /** Optional. Service Directory will reject values outside of [0, 65535]. */
             port?: number;
@@ -130,7 +130,7 @@ declare namespace gapi.client {
              * can be no longer than 63 characters.
              */
             labels?: { [P in string]: string };
-            /** Immutable. The resource name for the namespace in the format 'projects/&#42;/locations/&#42;/namespaces/&#42;'. */
+            /** Immutable. The resource name for the namespace in the format 'projects/∗/locations/∗/namespaces/∗'. */
             name?: string;
         }
         interface Policy {
@@ -143,16 +143,16 @@ declare namespace gapi.client {
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
              * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
              * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field whenever you call
+             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
              * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
              * the version `3` policy are lost.
              */
             etag?: string;
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: &#42; Getting a policy that includes a
-             * conditional role binding &#42; Adding a conditional role binding to a policy &#42; Changing a conditional role binding in a policy &#42; Removing any role binding,
-             * with or without a condition, from a policy that includes conditions &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field
+             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
+             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
+             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
              * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
              * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
              * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
@@ -164,8 +164,8 @@ declare namespace gapi.client {
             /**
              * Optional. The filter applied to the endpoints of the resolved service. General filter string syntax: () can be "name" or "metadata." for map field. can
              * be "<, >, <=, >=, !=, =, :". Of which ":" means HAS and is roughly the same as "=". must be the same data type as the field. can be "AND, OR, NOT".
-             * Examples of valid filters: &#42; "metadata.owner" returns Endpoints that have a label with the key "owner", this is the same as "metadata:owner" &#42;
-             * "metadata.protocol=gRPC" returns Endpoints that have key/value "protocol=gRPC" &#42; "metadata.owner!=sd AND metadata.foo=bar" returns Endpoints that have
+             * Examples of valid filters: ∗ "metadata.owner" returns Endpoints that have a label with the key "owner", this is the same as "metadata:owner" ∗
+             * "metadata.protocol=gRPC" returns Endpoints that have key/value "protocol=gRPC" ∗ "metadata.owner!=sd AND metadata.foo=bar" returns Endpoints that have
              * "owner" field in metadata with a value that is not "sd" AND have the key/value foo=bar.
              */
             endpointFilter?: string;
@@ -189,7 +189,7 @@ declare namespace gapi.client {
              * spread across all key-value pairs. Metadata that goes beyond any these limits will be rejected.
              */
             metadata?: { [P in string]: string };
-            /** Immutable. The resource name for the service in the format 'projects/&#42;/locations/&#42;/namespaces/&#42;/services/&#42;'. */
+            /** Immutable. The resource name for the service in the format 'projects/∗/locations/∗/namespaces/∗/services/∗'. */
             name?: string;
         }
         interface SetIamPolicyRequest {
@@ -201,7 +201,7 @@ declare namespace gapi.client {
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '&#42;' or 'storage.&#42;') are not allowed. For more information see
+             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see
              * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
@@ -348,12 +348,12 @@ declare namespace gapi.client {
                 /**
                  * Optional. The filter to list result by. General filter string syntax: () can be "name", "address", "port" or "metadata." for map field. can be "<, >,
                  * <=, >=, !=, =, :". Of which ":" means HAS, and is roughly the same as "=". must be the same data type as field. can be "AND, OR, NOT". Examples of
-                 * valid filters: &#42; "metadata.owner" returns Endpoints that have a label with the key "owner" this is the same as "metadata:owner". &#42;
-                 * "metadata.protocol=gRPC" returns Endpoints that have key/value "protocol=gRPC". &#42; "address=192.108.1.105" returns Endpoints that have this address. &#42;
-                 * "port>8080" returns Endpoints that have port number larger than 8080. &#42;
+                 * valid filters: ∗ "metadata.owner" returns Endpoints that have a label with the key "owner" this is the same as "metadata:owner". ∗
+                 * "metadata.protocol=gRPC" returns Endpoints that have key/value "protocol=gRPC". ∗ "address=192.108.1.105" returns Endpoints that have this address. ∗
+                 * "port>8080" returns Endpoints that have port number larger than 8080. ∗
                  * "name>projects/my-project/locations/us-east/namespaces/my-namespace/services/my-service/endpoints/endpoint-c" returns Endpoints that have name that is
-                 * alphabetically later than the string, so "endpoint-e" will be returned but "endpoint-a" will not be. &#42; "metadata.owner!=sd AND metadata.foo=bar"
-                 * returns Endpoints that have "owner" in label key but value is not "sd" AND have key/value foo=bar. &#42; "doesnotexist.foo=bar" returns an empty list. Note
+                 * alphabetically later than the string, so "endpoint-e" will be returned but "endpoint-a" will not be. ∗ "metadata.owner!=sd AND metadata.foo=bar"
+                 * returns Endpoints that have "owner" in label key but value is not "sd" AND have key/value foo=bar. ∗ "doesnotexist.foo=bar" returns an empty list. Note
                  * that Endpoint doesn't have a field called "doesnotexist". Since the filter does not match any Endpoints, it returns no results.
                  */
                 filter?: string;
@@ -392,7 +392,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the endpoint in the format 'projects/&#42;/locations/&#42;/namespaces/&#42;/services/&#42;/endpoints/&#42;'. */
+                /** Immutable. The resource name for the endpoint in the format 'projects/∗/locations/∗/namespaces/∗/services/∗/endpoints/∗'. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -422,7 +422,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the endpoint in the format 'projects/&#42;/locations/&#42;/namespaces/&#42;/services/&#42;/endpoints/&#42;'. */
+                /** Immutable. The resource name for the endpoint in the format 'projects/∗/locations/∗/namespaces/∗/services/∗/endpoints/∗'. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -604,11 +604,11 @@ declare namespace gapi.client {
                 fields?: string;
                 /**
                  * Optional. The filter to list result by. General filter string syntax: () can be "name", or "metadata." for map field. can be "<, >, <=, >=, !=, =, :".
-                 * Of which ":" means HAS, and is roughly the same as "=". must be the same data type as field. can be "AND, OR, NOT". Examples of valid filters: &#42;
-                 * "metadata.owner" returns Services that have a label with the key "owner" this is the same as "metadata:owner". &#42; "metadata.protocol=gRPC" returns
-                 * Services that have key/value "protocol=gRPC". &#42; "name>projects/my-project/locations/us-east/namespaces/my-namespace/services/service-c" returns
-                 * Services that have name that is alphabetically later than the string, so "service-e" will be returned but "service-a" will not be. &#42;
-                 * "metadata.owner!=sd AND metadata.foo=bar" returns Services that have "owner" in label key but value is not "sd" AND have key/value foo=bar. &#42;
+                 * Of which ":" means HAS, and is roughly the same as "=". must be the same data type as field. can be "AND, OR, NOT". Examples of valid filters: ∗
+                 * "metadata.owner" returns Services that have a label with the key "owner" this is the same as "metadata:owner". ∗ "metadata.protocol=gRPC" returns
+                 * Services that have key/value "protocol=gRPC". ∗ "name>projects/my-project/locations/us-east/namespaces/my-namespace/services/service-c" returns
+                 * Services that have name that is alphabetically later than the string, so "service-e" will be returned but "service-a" will not be. ∗
+                 * "metadata.owner!=sd AND metadata.foo=bar" returns Services that have "owner" in label key but value is not "sd" AND have key/value foo=bar. ∗
                  * "doesnotexist.foo=bar" returns an empty list. Note that Service doesn't have a field called "doesnotexist". Since the filter does not match any
                  * Services, it returns no results.
                  */
@@ -648,7 +648,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the service in the format 'projects/&#42;/locations/&#42;/namespaces/&#42;/services/&#42;'. */
+                /** Immutable. The resource name for the service in the format 'projects/∗/locations/∗/namespaces/∗/services/∗'. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -678,7 +678,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the service in the format 'projects/&#42;/locations/&#42;/namespaces/&#42;/services/&#42;'. */
+                /** Immutable. The resource name for the service in the format 'projects/∗/locations/∗/namespaces/∗/services/∗'. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -973,11 +973,11 @@ declare namespace gapi.client {
                 fields?: string;
                 /**
                  * Optional. The filter to list result by. General filter string syntax: () can be "name", or "labels." for map field. can be "<, >, <=, >=, !=, =, :". Of
-                 * which ":" means HAS, and is roughly the same as "=". must be the same data type as field. can be "AND, OR, NOT". Examples of valid filters: &#42;
-                 * "labels.owner" returns Namespaces that have a label with the key "owner" this is the same as "labels:owner". &#42; "labels.protocol=gRPC" returns
-                 * Namespaces that have key/value "protocol=gRPC". &#42; "name>projects/my-project/locations/us-east/namespaces/namespace-c" returns Namespaces that have name
-                 * that is alphabetically later than the string, so "namespace-e" will be returned but "namespace-a" will not be. &#42; "labels.owner!=sd AND labels.foo=bar"
-                 * returns Namespaces that have "owner" in label key but value is not "sd" AND have key/value foo=bar. &#42; "doesnotexist.foo=bar" returns an empty list.
+                 * which ":" means HAS, and is roughly the same as "=". must be the same data type as field. can be "AND, OR, NOT". Examples of valid filters: ∗
+                 * "labels.owner" returns Namespaces that have a label with the key "owner" this is the same as "labels:owner". ∗ "labels.protocol=gRPC" returns
+                 * Namespaces that have key/value "protocol=gRPC". ∗ "name>projects/my-project/locations/us-east/namespaces/namespace-c" returns Namespaces that have name
+                 * that is alphabetically later than the string, so "namespace-e" will be returned but "namespace-a" will not be. ∗ "labels.owner!=sd AND labels.foo=bar"
+                 * returns Namespaces that have "owner" in label key but value is not "sd" AND have key/value foo=bar. ∗ "doesnotexist.foo=bar" returns an empty list.
                  * Note that Namespace doesn't have a field called "doesnotexist". Since the filter does not match any Namespaces, it returns no results.
                  */
                 filter?: string;
@@ -1019,7 +1019,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the namespace in the format 'projects/&#42;/locations/&#42;/namespaces/&#42;'. */
+                /** Immutable. The resource name for the namespace in the format 'projects/∗/locations/∗/namespaces/∗'. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1049,7 +1049,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the namespace in the format 'projects/&#42;/locations/&#42;/namespaces/&#42;'. */
+                /** Immutable. The resource name for the namespace in the format 'projects/∗/locations/∗/namespaces/∗'. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;

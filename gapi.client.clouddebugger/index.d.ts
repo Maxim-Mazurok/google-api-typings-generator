@@ -113,8 +113,8 @@ declare namespace gapi.client {
              *
              * Examples (final state):
              *
-             * &#42;   `Invalid line number` referring to location
-             * &#42;   `Field f not found in class C` referring to condition
+             * ∗   `Invalid line number` referring to location
+             * ∗   `Field f not found in class C` referring to condition
              */
             status?: StatusMessage;
             /** E-mail address of the user that created this breakpoint */
@@ -243,9 +243,9 @@ declare namespace gapi.client {
              *
              * Examples:
              *
-             * &#42;   `Failed to load '$0' which helps debug $1 the first time it
+             * ∗   `Failed to load '$0' which helps debug $1 the first time it
              * is loaded.  Again, $0 is very important.`
-             * &#42;   `Please pay $$10 to use $0 instead of $1.`
+             * ∗   `Please pay $$10 to use $0 instead of $1.`
              */
             format?: string;
             /** Optional parameters to be embedded into the message. */
@@ -445,9 +445,9 @@ declare namespace gapi.client {
              *
              * Examples of error message applied to value:
              *
-             * &#42;   `Malformed string`,
-             * &#42;   `Field f not found in class C`
-             * &#42;   `Null pointer dereference`
+             * ∗   `Malformed string`,
+             * ∗   `Field f not found in class C`
+             * ∗   `Null pointer dereference`
              */
             status?: StatusMessage;
             /**

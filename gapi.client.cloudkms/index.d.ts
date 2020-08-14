@@ -114,19 +114,19 @@ declare namespace gapi.client {
              */
             condition?: Expr;
             /**
-             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: &#42; `allUsers`: A special identifier
-             * that represents anyone who is on the internet; with or without a Google account. &#42; `allAuthenticatedUsers`: A special identifier that represents anyone
-             * who is authenticated with a Google account or a service account. &#42; `user:{emailid}`: An email address that represents a specific Google account. For
-             * example, `alice@example.com` . &#42; `serviceAccount:{emailid}`: An email address that represents a service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. &#42; `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. &#42;
+             * Specifies the identities requesting access for a Cloud Platform resource. `members` can have the following values: ∗ `allUsers`: A special identifier
+             * that represents anyone who is on the internet; with or without a Google account. ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
+             * who is authenticated with a Google account or a service account. ∗ `user:{emailid}`: An email address that represents a specific Google account. For
+             * example, `alice@example.com` . ∗ `serviceAccount:{emailid}`: An email address that represents a service account. For example,
+             * `my-other-app@appspot.gserviceaccount.com`. ∗ `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. ∗
              * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example,
              * `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role
-             * in the binding. &#42; `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
+             * in the binding. ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has
              * been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this
-             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. &#42;
+             * value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. ∗
              * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For
              * example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding. &#42; `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
+             * retains the role in the binding. ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example,
              * `google.com` or `example.com`.
              */
             members?: string[];
@@ -138,7 +138,7 @@ declare namespace gapi.client {
             createTime?: string;
             /** Labels with user-defined metadata. For more information, see [Labeling Keys](https://cloud.google.com/kms/docs/labeling-keys). */
             labels?: { [P in string]: string };
-            /** Output only. The resource name for this CryptoKey in the format `projects/&#42;/locations/&#42;/keyRings/&#42;/cryptoKeys/&#42;`. */
+            /** Output only. The resource name for this CryptoKey in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗`. */
             name?: string;
             /**
              * At next_rotation_time, the Key Management Service will automatically: 1. Create a new version of this CryptoKey. 2. Mark the new version as primary.
@@ -193,7 +193,7 @@ declare namespace gapi.client {
             importJob?: string;
             /** Output only. The time at which this CryptoKeyVersion's key material was imported. */
             importTime?: string;
-            /** Output only. The resource name for this CryptoKeyVersion in the format `projects/&#42;/locations/&#42;/keyRings/&#42;/cryptoKeys/&#42;/cryptoKeyVersions/&#42;`. */
+            /** Output only. The resource name for this CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/∗`. */
             name?: string;
             /** Output only. The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion. */
             protectionLevel?: string;
@@ -365,7 +365,7 @@ declare namespace gapi.client {
             generateTime?: string;
             /** Required. Immutable. The wrapping method to be used for incoming key material. */
             importMethod?: string;
-            /** Output only. The resource name for this ImportJob in the format `projects/&#42;/locations/&#42;/keyRings/&#42;/importJobs/&#42;`. */
+            /** Output only. The resource name for this ImportJob in the format `projects/∗/locations/∗/keyRings/∗/importJobs/∗`. */
             name?: string;
             /**
              * Required. Immutable. The protection level of the ImportJob. This must match the protection_level of the version_template on the CryptoKey you attempt
@@ -386,7 +386,7 @@ declare namespace gapi.client {
         interface KeyRing {
             /** Output only. The time at which this KeyRing was created. */
             createTime?: string;
-            /** Output only. The resource name for the KeyRing in the format `projects/&#42;/locations/&#42;/keyRings/&#42;`. */
+            /** Output only. The resource name for the KeyRing in the format `projects/∗/locations/∗/keyRings/∗`. */
             name?: string;
         }
         interface ListCryptoKeysResponse {
@@ -457,16 +457,16 @@ declare namespace gapi.client {
              * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly
              * suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is
              * returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will
-             * be applied to the same version of the policy. &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field whenever you call
+             * be applied to the same version of the policy. ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field whenever you call
              * `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in
              * the version `3` policy are lost.
              */
             etag?: string;
             /**
              * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects
-             * conditional role bindings must specify version `3`. This requirement applies to the following operations: &#42; Getting a policy that includes a
-             * conditional role binding &#42; Adding a conditional role binding to a policy &#42; Changing a conditional role binding in a policy &#42; Removing any role binding,
-             * with or without a condition, from a policy that includes conditions &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field
+             * conditional role bindings must specify version `3`. This requirement applies to the following operations: ∗ Getting a policy that includes a
+             * conditional role binding ∗ Adding a conditional role binding to a policy ∗ Changing a conditional role binding in a policy ∗ Removing any role binding,
+             * with or without a condition, from a policy that includes conditions ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
              * whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of
              * the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version
              * or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM
@@ -511,7 +511,7 @@ declare namespace gapi.client {
         }
         interface TestIamPermissionsRequest {
             /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '&#42;' or 'storage.&#42;') are not allowed. For more information see
+             * The set of permissions to check for the `resource`. Permissions with wildcards (such as '∗' or 'storage.∗') are not allowed. For more information see
              * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */
             permissions?: string[];
@@ -913,7 +913,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Optional pagination token, returned earlier via ListCryptoKeyVersionsResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the CryptoKey to list, in the format `projects/&#42;/locations/&#42;/keyRings/&#42;/cryptoKeys/&#42;`. */
+                /** Required. The resource name of the CryptoKey to list, in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -943,7 +943,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CryptoKeyVersion in the format `projects/&#42;/locations/&#42;/keyRings/&#42;/cryptoKeys/&#42;/cryptoKeyVersions/&#42;`. */
+                /** Output only. The resource name for this CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/∗`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -973,7 +973,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CryptoKeyVersion in the format `projects/&#42;/locations/&#42;/keyRings/&#42;/cryptoKeys/&#42;/cryptoKeyVersions/&#42;`. */
+                /** Output only. The resource name for this CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/∗`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1332,7 +1332,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Optional pagination token, returned earlier via ListCryptoKeysResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the KeyRing to list, in the format `projects/&#42;/locations/&#42;/keyRings/&#42;`. */
+                /** Required. The resource name of the KeyRing to list, in the format `projects/∗/locations/∗/keyRings/∗`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1359,7 +1359,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CryptoKey in the format `projects/&#42;/locations/&#42;/keyRings/&#42;/cryptoKeys/&#42;`. */
+                /** Output only. The resource name for this CryptoKey in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1389,7 +1389,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CryptoKey in the format `projects/&#42;/locations/&#42;/keyRings/&#42;/cryptoKeys/&#42;`. */
+                /** Output only. The resource name for this CryptoKey in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1682,7 +1682,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Optional pagination token, returned earlier via ListImportJobsResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the KeyRing to list, in the format `projects/&#42;/locations/&#42;/keyRings/&#42;`. */
+                /** Required. The resource name of the KeyRing to list, in the format `projects/∗/locations/∗/keyRings/∗`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1776,7 +1776,7 @@ declare namespace gapi.client {
                 keyRingId?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/&#42;/locations/&#42;`. */
+                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/∗/locations/∗`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1806,7 +1806,7 @@ declare namespace gapi.client {
                 keyRingId?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/&#42;/locations/&#42;`. */
+                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/∗/locations/∗`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1912,7 +1912,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Optional pagination token, returned earlier via ListKeyRingsResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/&#42;/locations/&#42;`. */
+                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/∗/locations/∗`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;

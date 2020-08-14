@@ -427,7 +427,7 @@ declare namespace gapi.client {
             metricDescriptor?: MetricDescriptor;
             /**
              * Required. The client-assigned metric identifier. Examples: "error_count", "nginx/requests".Metric identifiers are limited to 100 characters and can
-             * include only the following characters: A-Z, a-z, 0-9, and the special characters _-.,+!&#42;',()%/. The forward-slash character (/) denotes a hierarchy of
+             * include only the following characters: A-Z, a-z, 0-9, and the special characters _-.,+!∗',()%/. The forward-slash character (/) denotes a hierarchy of
              * name pieces, and it cannot be the first character of the name.The metric identifier in this field must not be URL-encoded
              * (https://en.wikipedia.org/wiki/Percent-encoding). However, when the metric identifier appears as the [METRIC_ID] part of a metric_name API parameter,
              * then the metric identifier must be URL-encoded. Example: "projects/my-project/metrics/nginx%2Frequests".
@@ -442,7 +442,7 @@ declare namespace gapi.client {
              * capture group to extract data from the specified log entry field. The value of the field is converted to a string before applying the regex. It is an
              * error to specify a regex that does not include exactly one capture group.The result of the extraction must be convertible to a double type, as the
              * distribution always records double values. If either the extraction or the conversion to double fails, then those values are not recorded in the
-             * distribution.Example: REGEXP_EXTRACT(jsonPayload.request, ".&#42;quantity=(\d+).&#42;")
+             * distribution.Example: REGEXP_EXTRACT(jsonPayload.request, ".∗quantity=(\d+).∗")
              */
             valueExtractor?: string;
             /** Deprecated. The API version that created or updated this metric. The v2 format is used by default and cannot be changed. */

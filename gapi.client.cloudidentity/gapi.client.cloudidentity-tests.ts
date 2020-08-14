@@ -78,11 +78,7 @@ gapi.load('client', () => {
             parent: "Test string",
             view: "Test string",
         });
-        /**
-         * Looks up [resource
-         * name](https://cloud.google.com/apis/design/resource_names) of a Membership
-         * within a Group by member's EntityKey.
-         */
+        /** Looks up [resource name](https://cloud.google.com/apis/design/resource_names) of a Membership within a Group by member's EntityKey. */
         await gapi.client.cloudidentity.groups.memberships.lookup({
             "memberKey.id": "Test string",
             "memberKey.namespace": "Test string",
@@ -123,11 +119,7 @@ gapi.load('client', () => {
             parent: "Test string",
             view: "Test string",
         });
-        /**
-         * Looks up [resource
-         * name](https://cloud.google.com/apis/design/resource_names) of a Membership
-         * within a Group by member's EntityKey.
-         */
+        /** Looks up [resource name](https://cloud.google.com/apis/design/resource_names) of a Membership within a Group by member's EntityKey. */
         await gapi.client.cloudidentity.groups.memberships.lookup({
             "memberKey.id": "Test string",
             "memberKey.namespace": "Test string",
@@ -168,11 +160,7 @@ gapi.load('client', () => {
             parent: "Test string",
             view: "Test string",
         });
-        /**
-         * Looks up [resource
-         * name](https://cloud.google.com/apis/design/resource_names) of a Membership
-         * within a Group by member's EntityKey.
-         */
+        /** Looks up [resource name](https://cloud.google.com/apis/design/resource_names) of a Membership within a Group by member's EntityKey. */
         await gapi.client.cloudidentity.groups.memberships.lookup({
             "memberKey.id": "Test string",
             "memberKey.namespace": "Test string",
@@ -216,21 +204,13 @@ gapi.load('client', () => {
             parent: "Test string",
             view: "Test string",
         });
-        /**
-         * Looks up [resource
-         * name](https://cloud.google.com/apis/design/resource_names) of a Membership
-         * within a Group by member's EntityKey.
-         */
+        /** Looks up [resource name](https://cloud.google.com/apis/design/resource_names) of a Membership within a Group by member's EntityKey. */
         await gapi.client.cloudidentity.groups.memberships.lookup({
             "memberKey.id": "Test string",
             "memberKey.namespace": "Test string",
             parent: "Test string",
         });
-        /**
-         * Looks up [resource
-         * name](https://cloud.google.com/apis/design/resource_names) of a Group by
-         * its EntityKey.
-         */
+        /** Looks up [resource name](https://cloud.google.com/apis/design/resource_names) of a Group by its EntityKey. */
         await gapi.client.cloudidentity.groups.lookup({
             "groupKey.id": "Test string",
             "groupKey.namespace": "Test string",
@@ -266,11 +246,7 @@ gapi.load('client', () => {
             parent: "Test string",
             view: "Test string",
         });
-        /**
-         * Looks up [resource
-         * name](https://cloud.google.com/apis/design/resource_names) of a Membership
-         * within a Group by member's EntityKey.
-         */
+        /** Looks up [resource name](https://cloud.google.com/apis/design/resource_names) of a Membership within a Group by member's EntityKey. */
         await gapi.client.cloudidentity.groups.memberships.lookup({
             "memberKey.id": "Test string",
             "memberKey.namespace": "Test string",
@@ -325,11 +301,7 @@ gapi.load('client', () => {
             parent: "Test string",
             view: "Test string",
         });
-        /**
-         * Looks up [resource
-         * name](https://cloud.google.com/apis/design/resource_names) of a Membership
-         * within a Group by member's EntityKey.
-         */
+        /** Looks up [resource name](https://cloud.google.com/apis/design/resource_names) of a Membership within a Group by member's EntityKey. */
         await gapi.client.cloudidentity.groups.memberships.lookup({
             "memberKey.id": "Test string",
             "memberKey.namespace": "Test string",
@@ -373,11 +345,7 @@ gapi.load('client', () => {
             parent: "Test string",
             view: "Test string",
         });
-        /**
-         * Looks up [resource
-         * name](https://cloud.google.com/apis/design/resource_names) of a Membership
-         * within a Group by member's EntityKey.
-         */
+        /** Looks up [resource name](https://cloud.google.com/apis/design/resource_names) of a Membership within a Group by member's EntityKey. */
         await gapi.client.cloudidentity.groups.memberships.lookup({
             "memberKey.id": "Test string",
             "memberKey.namespace": "Test string",

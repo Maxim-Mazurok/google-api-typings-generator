@@ -466,8 +466,8 @@ gapi.load('client', () => {
          * [Authorization](#authorization-scopes) section; script projects that do not
          * require authorization cannot be executed through this API. To find the
          * correct scopes to include in the authentication token, open the project in
-         * the script editor, then select &#42;&#42;File > Project properties&#42;&#42; and click the
-         * &#42;&#42;Scopes&#42;&#42; tab.
+         * the script editor, then select ∗∗File > Project properties∗∗ and click the
+         * ∗∗Scopes∗∗ tab.
          *
          * The error `403, PERMISSION_DENIED: The caller does not have permission`
          * indicates that the Cloud Platform project used to authorize the request is

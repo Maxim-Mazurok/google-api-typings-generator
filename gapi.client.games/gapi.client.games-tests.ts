@@ -35,19 +35,13 @@ gapi.load('client', () => {
             maxResults: 42,
             pageToken: "Test string",
         });
-        /**
-         * Increments the steps of the achievement with the given ID for the currently
-         * authenticated player.
-         */
+        /** Increments the steps of the achievement with the given ID for the currently authenticated player. */
         await gapi.client.games.achievements.increment({
             achievementId: "Test string",
             requestId: "Test string",
             stepsToIncrement: 42,
         });
-        /**
-         * Lists the progress for all your application's achievements for the
-         * currently authenticated player.
-         */
+        /** Lists the progress for all your application's achievements for the currently authenticated player. */
         await gapi.client.games.achievements.list({
             language: "Test string",
             maxResults: 42,
@@ -55,18 +49,13 @@ gapi.load('client', () => {
             playerId: "Test string",
             state: "Test string",
         });
-        /**
-         * Sets the state of the achievement with the given ID to
-         * `REVEALED` for the currently authenticated player.
-         */
+        /** Sets the state of the achievement with the given ID to `REVEALED` for the currently authenticated player. */
         await gapi.client.games.achievements.reveal({
             achievementId: "Test string",
         });
         /**
-         * Sets the steps for the currently authenticated player towards unlocking an
-         * achievement. If the steps parameter is less than the current number of
-         * steps that the player already gained for the achievement, the achievement
-         * is not modified.
+         * Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps
+         * that the player already gained for the achievement, the achievement is not modified.
          */
         await gapi.client.games.achievements.setStepsAtLeast({
             achievementId: "Test string",
@@ -97,33 +86,22 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Retrieves the metadata of the application with the given ID. If the
-         * requested application is not available for the specified
-         * `platformType`, the returned response will not include any
-         * instance data.
+         * Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified `platformType`, the
+         * returned response will not include any instance data.
          */
         await gapi.client.games.applications.get({
             applicationId: "Test string",
             language: "Test string",
             platformType: "Test string",
         });
-        /**
-         * Indicate that the currently authenticated user is playing your
-         * application.
-         */
+        /** Indicate that the currently authenticated user is playing your application. */
         await gapi.client.games.applications.played({
         });
-        /**
-         * Verifies the auth token provided with this request is for the application
-         * with the specified ID, and returns the ID of the player it was granted for.
-         */
+        /** Verifies the auth token provided with this request is for the application with the specified ID, and returns the ID of the player it was granted for. */
         await gapi.client.games.applications.verify({
             applicationId: "Test string",
         });
-        /**
-         * Returns a list showing the current progress on events in this application
-         * for the currently authenticated user.
-         */
+        /** Returns a list showing the current progress on events in this application for the currently authenticated user. */
         await gapi.client.games.events.listByPlayer({
             language: "Test string",
             maxResults: 42,
@@ -135,10 +113,7 @@ gapi.load('client', () => {
             maxResults: 42,
             pageToken: "Test string",
         });
-        /**
-         * Records a batch of changes to the number of times events have occurred for
-         * the currently authenticated user of this application.
-         */
+        /** Records a batch of changes to the number of times events have occurred for the currently authenticated user of this application. */
         await gapi.client.games.events.record({
             language: "Test string",
         }, {
@@ -175,10 +150,7 @@ gapi.load('client', () => {
         /** Return the metagame configuration data for the calling application. */
         await gapi.client.games.metagame.getMetagameConfig({
         });
-        /**
-         * List play data aggregated per category for the player corresponding to
-         * `playerId`.
-         */
+        /** List play data aggregated per category for the player corresponding to `playerId`. */
         await gapi.client.games.metagame.listCategoriesByPlayer({
             collection: "Test string",
             language: "Test string",
@@ -186,10 +158,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             playerId: "Test string",
         });
-        /**
-         * Retrieves the Player resource with the given ID.  To retrieve the player
-         * for the currently authenticated user, set `playerId` to `me`.
-         */
+        /** Retrieves the Player resource with the given ID. To retrieve the player for the currently authenticated user, set `playerId` to `me`. */
         await gapi.client.games.players.get({
             language: "Test string",
             playerId: "Test string",
@@ -206,12 +175,9 @@ gapi.load('client', () => {
             clientRevision: "Test string",
         });
         /**
-         * Get high scores, and optionally ranks, in leaderboards for the currently
-         * authenticated player.  For a specific time span, `leaderboardId`
-         * can be set to `ALL` to retrieve data for all leaderboards in a
-         * given time span.  `NOTE: You cannot ask for 'ALL' leaderboards and
-         * 'ALL' timeSpans in the same request; only one parameter may be set to
-         * 'ALL'.
+         * Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, `leaderboardId` can be set to
+         * `ALL` to retrieve data for all leaderboards in a given time span. `NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request;
+         * only one parameter may be set to 'ALL'.
          */
         await gapi.client.games.scores.get({
             includeRankType: "Test string",
@@ -268,20 +234,14 @@ gapi.load('client', () => {
             language: "Test string",
             snapshotId: "Test string",
         });
-        /**
-         * Retrieves a list of snapshots created by your application for the player
-         * corresponding to the player ID.
-         */
+        /** Retrieves a list of snapshots created by your application for the player corresponding to the player ID. */
         await gapi.client.games.snapshots.list({
             language: "Test string",
             maxResults: 42,
             pageToken: "Test string",
             playerId: "Test string",
         });
-        /**
-         * Returns engagement and spend statistics in this application for the
-         * currently authenticated user.
-         */
+        /** Returns engagement and spend statistics in this application for the currently authenticated user. */
         await gapi.client.games.stats.get({
         });
     }

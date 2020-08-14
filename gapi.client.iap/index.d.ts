@@ -66,29 +66,29 @@ declare namespace gapi.client {
              * Specifies the identities requesting access for a Cloud Platform resource.
              * `members` can have the following values:
              *
-             * &#42; `allUsers`: A special identifier that represents anyone who is
+             * ∗ `allUsers`: A special identifier that represents anyone who is
              * on the internet; with or without a Google account.
              *
-             * &#42; `allAuthenticatedUsers`: A special identifier that represents anyone
+             * ∗ `allAuthenticatedUsers`: A special identifier that represents anyone
              * who is authenticated with a Google account or a service account.
              *
-             * &#42; `user:{emailid}`: An email address that represents a specific Google
+             * ∗ `user:{emailid}`: An email address that represents a specific Google
              * account. For example, `alice@example.com` .
              *
              *
-             * &#42; `serviceAccount:{emailid}`: An email address that represents a service
+             * ∗ `serviceAccount:{emailid}`: An email address that represents a service
              * account. For example, `my-other-app@appspot.gserviceaccount.com`.
              *
-             * &#42; `group:{emailid}`: An email address that represents a Google group.
+             * ∗ `group:{emailid}`: An email address that represents a Google group.
              * For example, `admins@example.com`.
              *
-             * &#42; `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+             * ∗ `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
              * identifier) representing a user that has been recently deleted. For
              * example, `alice@example.com?uid=123456789012345678901`. If the user is
              * recovered, this value reverts to `user:{emailid}` and the recovered user
              * retains the role in the binding.
              *
-             * &#42; `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
+             * ∗ `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
              * unique identifier) representing a service account that has been recently
              * deleted. For example,
              * `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`.
@@ -96,14 +96,14 @@ declare namespace gapi.client {
              * `serviceAccount:{emailid}` and the undeleted service account retains the
              * role in the binding.
              *
-             * &#42; `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
+             * ∗ `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
              * identifier) representing a Google group that has been recently
              * deleted. For example, `admins@example.com?uid=123456789012345678901`. If
              * the group is recovered, this value reverts to `group:{emailid}` and the
              * recovered group retains the role in the binding.
              *
              *
-             * &#42; `domain:{domain}`: The G Suite domain (primary) that represents all the
+             * ∗ `domain:{domain}`: The G Suite domain (primary) that represents all the
              * users of that domain. For example, `google.com` or `example.com`.
              */
             members?: string[];
@@ -278,7 +278,7 @@ declare namespace gapi.client {
              * systems are expected to put that etag in the request to `setIamPolicy` to
              * ensure that their change will be applied to the same version of the policy.
              *
-             * &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field
+             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
              * whenever you call `setIamPolicy`. If you omit this field, then IAM allows
              * you to overwrite a version `3` policy with a version `1` policy, and all of
              * the conditions in the version `3` policy are lost.
@@ -293,13 +293,13 @@ declare namespace gapi.client {
              * Any operation that affects conditional role bindings must specify version
              * `3`. This requirement applies to the following operations:
              *
-             * &#42; Getting a policy that includes a conditional role binding
-             * &#42; Adding a conditional role binding to a policy
-             * &#42; Changing a conditional role binding in a policy
-             * &#42; Removing any role binding, with or without a condition, from a policy
+             * ∗ Getting a policy that includes a conditional role binding
+             * ∗ Adding a conditional role binding to a policy
+             * ∗ Changing a conditional role binding in a policy
+             * ∗ Removing any role binding, with or without a condition, from a policy
              * that includes conditions
              *
-             * &#42;&#42;Important:&#42;&#42; If you use IAM Conditions, you must include the `etag` field
+             * ∗∗Important:∗∗ If you use IAM Conditions, you must include the `etag` field
              * whenever you call `setIamPolicy`. If you omit this field, then IAM allows
              * you to overwrite a version `3` policy with a version `1` policy, and all of
              * the conditions in the version `3` policy are lost.
@@ -359,9 +359,9 @@ declare namespace gapi.client {
              * This field is in limited use. If your intended use case is not expected
              * to express resource.labels attribute in IAM Conditions, leave this field
              * empty. Before planning on using this attribute please:
-             * &#42; Read go/iam-conditions-labels-comm and ensure your service can meet the
+             * ∗ Read go/iam-conditions-labels-comm and ensure your service can meet the
              * data availability and management requirements.
-             * &#42; Talk to iam-conditions-eng@ about your use case.
+             * ∗ Talk to iam-conditions-eng@ about your use case.
              */
             labels?: { [P in string]: string };
             /**
@@ -409,7 +409,7 @@ declare namespace gapi.client {
         interface TestIamPermissionsRequest {
             /**
              * The set of permissions to check for the `resource`. Permissions with
-             * wildcards (such as '&#42;' or 'storage.&#42;') are not allowed. For more
+             * wildcards (such as '∗' or 'storage.∗') are not allowed. For more
              * information see
              * [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
              */

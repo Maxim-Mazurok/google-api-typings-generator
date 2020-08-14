@@ -539,7 +539,7 @@ declare namespace gapi.client {
             minAndroidSdkVersion?: number;
             /** A list of permissions required by the app. */
             permissions?: ProductPermission[];
-            /** A string of the form &#42;app:<package name>&#42;. For example, app:com.google.android.gm represents the Gmail app. */
+            /** A string of the form ∗app:<package name>∗. For example, app:com.google.android.gm represents the Gmail app. */
             productId?: string;
             /**
              * Whether this product is free, free with in-app purchases, or paid. If the pricing is unknown, this means the product is not generally available anymore
@@ -3525,7 +3525,7 @@ declare namespace gapi.client {
                 userId: string;
             }): Request<void>;
             /**
-             * Modifies the set of products that a user is entitled to access (referred to as &#42;whitelisted&#42; products). Only products that are approved or products
+             * Modifies the set of products that a user is entitled to access (referred to as ∗whitelisted∗ products). Only products that are approved or products
              * that were previously approved (products with revoked approval) can be whitelisted.
              */
             setAvailableProductSet(request: {

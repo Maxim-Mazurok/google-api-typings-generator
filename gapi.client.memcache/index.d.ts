@@ -612,11 +612,11 @@ declare namespace gapi.client {
                  * Required. The logical name of the Memcached instance in the user
                  * project with the following restrictions:
                  *
-                 * &#42; Must contain only lowercase letters, numbers, and hyphens.
-                 * &#42; Must start with a letter.
-                 * &#42; Must be between 1-40 characters.
-                 * &#42; Must end with a number or a letter.
-                 * &#42; Must be unique within the user project / location
+                 * ∗ Must contain only lowercase letters, numbers, and hyphens.
+                 * ∗ Must start with a letter.
+                 * ∗ Must be between 1-40 characters.
+                 * ∗ Must end with a number or a letter.
+                 * ∗ Must be unique within the user project / location
                  */
                 instanceId?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -655,11 +655,11 @@ declare namespace gapi.client {
                  * Required. The logical name of the Memcached instance in the user
                  * project with the following restrictions:
                  *
-                 * &#42; Must contain only lowercase letters, numbers, and hyphens.
-                 * &#42; Must start with a letter.
-                 * &#42; Must be between 1-40 characters.
-                 * &#42; Must end with a number or a letter.
-                 * &#42; Must be unique within the user project / location
+                 * ∗ Must contain only lowercase letters, numbers, and hyphens.
+                 * ∗ Must start with a letter.
+                 * ∗ Must be between 1-40 characters.
+                 * ∗ Must end with a number or a letter.
+                 * ∗ Must be unique within the user project / location
                  */
                 instanceId?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
@@ -830,7 +830,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /**
                  * Required. Mask of fields to update.
-                 * &#42;   `displayName`
+                 * ∗   `displayName`
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -872,7 +872,7 @@ declare namespace gapi.client {
                 quotaUser?: string;
                 /**
                  * Required. Mask of fields to update.
-                 * &#42;   `displayName`
+                 * ∗   `displayName`
                  */
                 updateMask?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
@@ -1084,9 +1084,9 @@ declare namespace gapi.client {
              * server doesn't support this method, it returns `UNIMPLEMENTED`.
              *
              * NOTE: the `name` binding allows API services to override the binding
-             * to use different resource name schemes, such as `users/&#42;/operations`. To
+             * to use different resource name schemes, such as `users/∗/operations`. To
              * override the binding, API services can add a binding such as
-             * `"/v1/{name=users/&#42;}/operations"` to their service configuration.
+             * `"/v1/{name=users/∗}/operations"` to their service configuration.
              * For backwards compatibility, the default name includes the operations
              * collection id, however overriding users must ensure the name binding
              * is the parent resource, without the operations collection id.

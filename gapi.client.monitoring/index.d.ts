@@ -462,7 +462,7 @@ declare namespace gapi.client {
             /**
              * Boolean specifying whether to encrypt the header information. Encryption should be specified for any headers related to authentication that you do not
              * wish to be seen when retrieving the configuration. The server will be responsible for encrypting the headers. On Get/List calls, if mask_headers is set
-             * to true then the headers will be obscured with &#42;&#42;&#42;&#42;&#42;&#42;.
+             * to true then the headers will be obscured with ∗∗∗∗∗∗.
              */
             maskHeaders?: boolean;
             /**
@@ -511,7 +511,7 @@ declare namespace gapi.client {
             description?: string;
             /**
              * The key for this label. The key must meet the following criteria: Does not exceed 100 characters. Matches the following regular expression:
-             * [a-zA-Z][a-zA-Z0-9_]&#42; The first character must be an upper- or lower-case letter. The remaining characters must be letters, digits, or underscores.
+             * [a-zA-Z][a-zA-Z0-9_]∗ The first character must be an upper- or lower-case letter. The remaining characters must be letters, digits, or underscores.
              */
             key?: string;
             /** The type of data that can be assigned to the label. */

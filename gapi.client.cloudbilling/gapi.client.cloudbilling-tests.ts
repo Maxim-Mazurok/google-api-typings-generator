@@ -235,7 +235,7 @@ gapi.load('client', () => {
          * billing account, this method changes the billing account used for resource
          * usage charges.
          *
-         * &#42;Note:&#42; Incurred charges that have not yet been reported in the transaction
+         * ∗Note:∗ Incurred charges that have not yet been reported in the transaction
          * history of the GCP Console might be billed to the new billing
          * account, even if the charge occurred before the new billing account was
          * assigned to the project.
@@ -253,11 +253,11 @@ gapi.load('client', () => {
          * associated account. The current authenticated user must be either an owner
          * of the project or an owner of the billing account for the project.
          *
-         * Note that associating a project with a &#42;closed&#42; billing account will have
+         * Note that associating a project with a ∗closed∗ billing account will have
          * much the same effect as disabling billing on the project: any paid
          * resources used by the project will be shut down. Thus, unless you wish to
          * disable billing, you should always call this method with the name of an
-         * &#42;open&#42; billing account.
+         * ∗open∗ billing account.
          */
         await gapi.client.cloudbilling.projects.updateBillingInfo({
             name: "Test string",
