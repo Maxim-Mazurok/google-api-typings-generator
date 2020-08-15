@@ -39,10 +39,7 @@ gapi.load('client', () => {
             projectId: "Test string",
             snapshotId: "Test string",
         });
-        /**
-         * Creates a new TemplateVersion (Important: not new Template) entry in the
-         * spanner table. Requires project_id and display_name (template).
-         */
+        /** Creates a new TemplateVersion (Important: not new Template) entry in the spanner table. Requires project_id and display_name (template). */
         await gapi.client.dataflow.projects.catalogTemplates.commit({
             name: "Test string",
         }, {
@@ -97,11 +94,7 @@ gapi.load('client', () => {
                 versionId: "Test string",
             },
         });
-        /**
-         * Creates a new Template with TemplateVersion. Requires
-         * project_id(projects) and template display_name(catalogTemplates).
-         * The template display_name is set by the user.
-         */
+        /** Creates a new Template with TemplateVersion. Requires project_id(projects) and template display_name(catalogTemplates). The template display_name is set by the user. */
         await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
             parent: "Test string",
         }, {
@@ -160,11 +153,7 @@ gapi.load('client', () => {
         await gapi.client.dataflow.projects.catalogTemplates.delete({
             name: "Test string",
         });
-        /**
-         * Creates a new Template with TemplateVersion. Requires
-         * project_id(projects) and template display_name(catalogTemplates).
-         * The template display_name is set by the user.
-         */
+        /** Creates a new Template with TemplateVersion. Requires project_id(projects) and template display_name(catalogTemplates). The template display_name is set by the user. */
         await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
             parent: "Test string",
         }, {
@@ -219,19 +208,11 @@ gapi.load('client', () => {
                 versionId: "Test string",
             },
         });
-        /**
-         * Get TemplateVersion using project_id and display_name with an optional
-         * version_id field. Get latest (has tag "latest") TemplateVersion if
-         * version_id not set.
-         */
+        /** Get TemplateVersion using project_id and display_name with an optional version_id field. Get latest (has tag "latest") TemplateVersion if version_id not set. */
         await gapi.client.dataflow.projects.catalogTemplates.get({
             name: "Test string",
         });
-        /**
-         * Creates a new Template with TemplateVersion. Requires
-         * project_id(projects) and template display_name(catalogTemplates).
-         * The template display_name is set by the user.
-         */
+        /** Creates a new Template with TemplateVersion. Requires project_id(projects) and template display_name(catalogTemplates). The template display_name is set by the user. */
         await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
             parent: "Test string",
         }, {
@@ -286,10 +267,7 @@ gapi.load('client', () => {
                 versionId: "Test string",
             },
         });
-        /**
-         * Updates the label of the TemplateVersion. Label can be duplicated in
-         * Template, so either add or remove the label in the TemplateVersion.
-         */
+        /** Updates the label of the TemplateVersion. Label can be duplicated in Template, so either add or remove the label in the TemplateVersion. */
         await gapi.client.dataflow.projects.catalogTemplates.label({
             name: "Test string",
         }, {
@@ -297,11 +275,7 @@ gapi.load('client', () => {
             op: "Test string",
             value: "Test string",
         });
-        /**
-         * Creates a new Template with TemplateVersion. Requires
-         * project_id(projects) and template display_name(catalogTemplates).
-         * The template display_name is set by the user.
-         */
+        /** Creates a new Template with TemplateVersion. Requires project_id(projects) and template display_name(catalogTemplates). The template display_name is set by the user. */
         await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
             parent: "Test string",
         }, {
@@ -357,11 +331,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Updates the tag of the TemplateVersion, and tag is unique in Template.
-         * If tag exists in another TemplateVersion in the Template, updates the tag
-         * to this TemplateVersion will remove it from the old TemplateVersion and add
-         * it to this TemplateVersion. If request is remove_only (remove_only = true),
-         * remove the tag from this TemplateVersion.
+         * Updates the tag of the TemplateVersion, and tag is unique in Template. If tag exists in another TemplateVersion in the Template, updates the tag to this TemplateVersion will remove it
+         * from the old TemplateVersion and add it to this TemplateVersion. If request is remove_only (remove_only = true), remove the tag from this TemplateVersion.
          */
         await gapi.client.dataflow.projects.catalogTemplates.tag({
             name: "Test string",
@@ -369,11 +340,7 @@ gapi.load('client', () => {
             removeOnly: true,
             tag: "Test string",
         });
-        /**
-         * Creates a new Template with TemplateVersion. Requires
-         * project_id(projects) and template display_name(catalogTemplates).
-         * The template display_name is set by the user.
-         */
+        /** Creates a new Template with TemplateVersion. Requires project_id(projects) and template display_name(catalogTemplates). The template display_name is set by the user. */
         await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
             parent: "Test string",
         }, {
@@ -457,13 +424,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -847,13 +810,8 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Creates a Cloud Dataflow job.
-         *
-         * To create a job, we recommend using `projects.locations.jobs.create` with a
-         * [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.create` is not recommended, as your job will always start
-         * in `us-central1`.
+         * Creates a Cloud Dataflow job. To create a job, we recommend using `projects.locations.jobs.create` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.create` is not recommended, as your job will always start in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.create({
             location: "Test string",
@@ -1128,13 +1086,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -1518,13 +1472,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Gets the state of the specified Cloud Dataflow job.
-         *
-         * To get the state of a job, we recommend using `projects.locations.jobs.get`
-         * with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.get` is not recommended, as you can only get the state of
-         * jobs that are running in `us-central1`.
+         * Gets the state of the specified Cloud Dataflow job. To get the state of a job, we recommend using `projects.locations.jobs.get` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.get` is not recommended, as you can only get the state of jobs that are running in
+         * `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.get({
             jobId: "Test string",
@@ -1552,13 +1502,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -1942,13 +1888,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.getMetrics` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.getMetrics` is not recommended, as you can only request the
-         * status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.getMetrics` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.getMetrics` is not recommended, as you can only request the status of jobs that are running in
+         * `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.getMetrics({
             jobId: "Test string",
@@ -1976,13 +1918,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -2366,14 +2304,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * List the jobs of a project.
-         *
-         * To list the jobs of a project in a region, we recommend using
-         * `projects.locations.jobs.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
-         * list the all jobs across all regions, use `projects.jobs.aggregated`. Using
-         * `projects.jobs.list` is not recommended, as you can only get the list of
-         * jobs that are running in `us-central1`.
+         * List the jobs of a project. To list the jobs of a project in a region, we recommend using `projects.locations.jobs.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To list the all jobs across all regions, use `projects.jobs.aggregated`. Using `projects.jobs.list` is not
+         * recommended, as you can only get the list of jobs that are running in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.list({
             filter: "Test string",
@@ -2403,13 +2336,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -2822,13 +2751,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -3212,13 +3137,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Updates the state of an existing Cloud Dataflow job.
-         *
-         * To update the state of an existing job, we recommend using
-         * `projects.locations.jobs.update` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.update` is not recommended, as you can only update the state
-         * of jobs that are running in `us-central1`.
+         * Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in
+         * `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.update({
             jobId: "Test string",
@@ -3492,13 +3413,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -3971,13 +3888,8 @@ gapi.load('client', () => {
             validateOnly: true,
         });
         /**
-         * Creates a Cloud Dataflow job.
-         *
-         * To create a job, we recommend using `projects.locations.jobs.create` with a
-         * [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.create` is not recommended, as your job will always start
-         * in `us-central1`.
+         * Creates a Cloud Dataflow job. To create a job, we recommend using `projects.locations.jobs.create` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.create` is not recommended, as your job will always start in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.create({
             location: "Test string",
@@ -4254,13 +4166,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
             endTime: "Test string",
@@ -4277,6 +4185,17 @@ gapi.load('client', () => {
             jobId: "Test string",
             location: "Test string",
             projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
         });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
@@ -4652,13 +4571,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Gets the state of the specified Cloud Dataflow job.
-         *
-         * To get the state of a job, we recommend using `projects.locations.jobs.get`
-         * with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.get` is not recommended, as you can only get the state of
-         * jobs that are running in `us-central1`.
+         * Gets the state of the specified Cloud Dataflow job. To get the state of a job, we recommend using `projects.locations.jobs.get` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.get` is not recommended, as you can only get the state of jobs that are running in
+         * `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.get({
             jobId: "Test string",
@@ -4688,13 +4603,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
             endTime: "Test string",
@@ -4711,6 +4622,449 @@ gapi.load('client', () => {
             jobId: "Test string",
             location: "Test string",
             projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
+        });
+        /** Leases a dataflow WorkItem to run. */
+        await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            requestedLeaseDuration: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workerCapabilities: [
+                "Test string"            ],
+            workerId: "Test string",
+            workItemTypes: [
+                "Test string"            ],
+        });
+        /** Reports the status of dataflow WorkItems leased by a worker. */
+        await gapi.client.dataflow.projects.locations.jobs.workItems.reportStatus({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workerId: "Test string",
+            workItemStatuses: [
+                {
+                    completed: true,
+                    counterUpdates: [
+                        {
+                            boolean: true,
+                            cumulative: true,
+                            distribution: {
+                                count: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                histogram: {
+                                    bucketCounts: [
+                                        "Test string"                                    ],
+                                    firstBucketOffset: 42,
+                                },
+                                max: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                min: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sum: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sumOfSquares: 42,
+                            },
+                            floatingPoint: 42,
+                            floatingPointList: {
+                                elements: [
+                                    42                                ],
+                            },
+                            floatingPointMean: {
+                                count: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sum: 42,
+                            },
+                            integer: {
+                                highBits: 42,
+                                lowBits: 42,
+                            },
+                            integerGauge: {
+                                timestamp: "Test string",
+                                value: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                            },
+                            integerList: {
+                                elements: [
+                                    {
+                                        highBits: 42,
+                                        lowBits: 42,
+                                    }                                ],
+                            },
+                            integerMean: {
+                                count: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sum: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                            },
+                            internal: 42,
+                            nameAndKind: {
+                                kind: "Test string",
+                                name: "Test string",
+                            },
+                            shortId: "Test string",
+                            stringList: {
+                                elements: [
+                                    "Test string"                                ],
+                            },
+                            structuredNameAndMetadata: {
+                                metadata: {
+                                    description: "Test string",
+                                    kind: "Test string",
+                                    otherUnits: "Test string",
+                                    standardUnits: "Test string",
+                                },
+                                name: {
+                                    componentStepName: "Test string",
+                                    executionStepName: "Test string",
+                                    inputIndex: 42,
+                                    name: "Test string",
+                                    origin: "Test string",
+                                    originalRequestingStepName: "Test string",
+                                    originalStepName: "Test string",
+                                    originNamespace: "Test string",
+                                    portion: "Test string",
+                                    workerId: "Test string",
+                                },
+                            },
+                        }                    ],
+                    dynamicSourceSplit: {
+                        primary: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        residual: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                    },
+                    errors: [
+                        {
+                            code: 42,
+                            details: [
+                                {
+                                    A: 42                                }                            ],
+                            message: "Test string",
+                        }                    ],
+                    metricUpdates: [
+                        {
+                            cumulative: true,
+                            distribution: 42,
+                            gauge: 42,
+                            internal: 42,
+                            kind: "Test string",
+                            meanCount: 42,
+                            meanSum: 42,
+                            name: {
+                                context: {
+                                    A: "Test string"                                },
+                                name: "Test string",
+                                origin: "Test string",
+                            },
+                            scalar: 42,
+                            set: 42,
+                            updateTime: "Test string",
+                        }                    ],
+                    progress: {
+                        percentComplete: 42,
+                        position: {
+                            byteOffset: "Test string",
+                            concatPosition: {
+                                index: 42,
+                                position: undefined,
+                            },
+                            end: true,
+                            key: "Test string",
+                            recordIndex: "Test string",
+                            shufflePosition: "Test string",
+                        },
+                        remainingTime: "Test string",
+                    },
+                    reportedProgress: {
+                        consumedParallelism: {
+                            isInfinite: true,
+                            value: 42,
+                        },
+                        fractionConsumed: 42,
+                        position: {
+                            byteOffset: "Test string",
+                            concatPosition: {
+                                index: 42,
+                                position: undefined,
+                            },
+                            end: true,
+                            key: "Test string",
+                            recordIndex: "Test string",
+                            shufflePosition: "Test string",
+                        },
+                        remainingParallelism: {
+                            isInfinite: true,
+                            value: 42,
+                        },
+                    },
+                    reportIndex: "Test string",
+                    requestedLeaseDuration: "Test string",
+                    sourceFork: {
+                        primary: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        primarySource: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        residual: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        residualSource: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                    },
+                    sourceOperationResponse: {
+                        getMetadata: {
+                            metadata: {
+                                estimatedSizeBytes: "Test string",
+                                infinite: true,
+                                producesSortedKeys: true,
+                            },
+                        },
+                        split: {
+                            bundles: [
+                                {
+                                    derivationMode: "Test string",
+                                    source: {
+                                        baseSpecs: [
+                                            {
+                                                A: 42                                            }                                        ],
+                                        codec: {
+                                            A: 42                                        },
+                                        doesNotNeedSplitting: true,
+                                        metadata: {
+                                            estimatedSizeBytes: "Test string",
+                                            infinite: true,
+                                            producesSortedKeys: true,
+                                        },
+                                        spec: {
+                                            A: 42                                        },
+                                    },
+                                }                            ],
+                            outcome: "Test string",
+                            shards: [
+                                {
+                                    derivationMode: "Test string",
+                                    source: {
+                                        baseSpecs: [
+                                            {
+                                                A: 42                                            }                                        ],
+                                        codec: {
+                                            A: 42                                        },
+                                        doesNotNeedSplitting: true,
+                                        metadata: {
+                                            estimatedSizeBytes: "Test string",
+                                            infinite: true,
+                                            producesSortedKeys: true,
+                                        },
+                                        spec: {
+                                            A: 42                                        },
+                                    },
+                                }                            ],
+                        },
+                    },
+                    stopPosition: {
+                        byteOffset: "Test string",
+                        concatPosition: {
+                            index: 42,
+                            position: undefined,
+                        },
+                        end: true,
+                        key: "Test string",
+                        recordIndex: "Test string",
+                        shufflePosition: "Test string",
+                    },
+                    totalThrottlerWaitTimeSeconds: 42,
+                    workItemId: "Test string",
+                }            ],
+        });
+        /** Request detailed information about the execution status of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.getExecutionDetails({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        });
+        /** Get encoded debug configuration for component. Not cacheable. */
+        await gapi.client.dataflow.projects.locations.jobs.debug.getConfig({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            componentId: "Test string",
+            location: "Test string",
+            workerId: "Test string",
+        });
+        /** Send encoded debug capture data for component. */
+        await gapi.client.dataflow.projects.locations.jobs.debug.sendCapture({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            componentId: "Test string",
+            data: "Test string",
+            location: "Test string",
+            workerId: "Test string",
+        });
+        /**
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
+         */
+        await gapi.client.dataflow.projects.locations.jobs.messages.list({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            minimumImportance: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            startTime: "Test string",
+        });
+        /** Lists snapshots. */
+        await gapi.client.dataflow.projects.locations.jobs.snapshots.list({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
         });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
@@ -5086,13 +5440,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.getMetrics` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.getMetrics` is not recommended, as you can only request the
-         * status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.getMetrics` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.getMetrics` is not recommended, as you can only request the status of jobs that are running in
+         * `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.getMetrics({
             jobId: "Test string",
@@ -5122,13 +5472,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
             endTime: "Test string",
@@ -5145,6 +5491,17 @@ gapi.load('client', () => {
             jobId: "Test string",
             location: "Test string",
             projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
         });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
@@ -5520,14 +5877,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * List the jobs of a project.
-         *
-         * To list the jobs of a project in a region, we recommend using
-         * `projects.locations.jobs.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
-         * list the all jobs across all regions, use `projects.jobs.aggregated`. Using
-         * `projects.jobs.list` is not recommended, as you can only get the list of
-         * jobs that are running in `us-central1`.
+         * List the jobs of a project. To list the jobs of a project in a region, we recommend using `projects.locations.jobs.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To list the all jobs across all regions, use `projects.jobs.aggregated`. Using `projects.jobs.list` is not
+         * recommended, as you can only get the list of jobs that are running in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.list({
             filter: "Test string",
@@ -5559,13 +5911,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
             endTime: "Test string",
@@ -5582,6 +5930,17 @@ gapi.load('client', () => {
             jobId: "Test string",
             location: "Test string",
             projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
         });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
@@ -5989,13 +6348,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
             endTime: "Test string",
@@ -6012,6 +6367,17 @@ gapi.load('client', () => {
             jobId: "Test string",
             location: "Test string",
             projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
         });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
@@ -6387,13 +6753,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Updates the state of an existing Cloud Dataflow job.
-         *
-         * To update the state of an existing job, we recommend using
-         * `projects.locations.jobs.update` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.update` is not recommended, as you can only update the state
-         * of jobs that are running in `us-central1`.
+         * Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in
+         * `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.update({
             jobId: "Test string",
@@ -6669,13 +7031,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
             endTime: "Test string",
@@ -6692,6 +7050,17 @@ gapi.load('client', () => {
             jobId: "Test string",
             location: "Test string",
             projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
         });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
@@ -7085,10 +7454,8 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Validates a GoogleSQL query for Cloud Dataflow syntax. Will always
-         * confirm the given query parses correctly, and if able to look up
-         * schema information from DataCatalog, will validate that the query
-         * analyzes properly as well.
+         * Validates a GoogleSQL query for Cloud Dataflow syntax. Will always confirm the given query parses correctly, and if able to look up schema information from DataCatalog, will validate
+         * that the query analyzes properly as well.
          */
         await gapi.client.dataflow.projects.locations.sql.validate({
             location: "Test string",
@@ -7106,6 +7473,7 @@ gapi.load('client', () => {
                 additionalUserLabels: {
                     A: "Test string"                },
                 bypassTempDirValidation: true,
+                enableStreamingEngine: true,
                 ipConfiguration: "Test string",
                 kmsKeyName: "Test string",
                 machineType: "Test string",
@@ -7147,6 +7515,7 @@ gapi.load('client', () => {
                 additionalUserLabels: {
                     A: "Test string"                },
                 bypassTempDirValidation: true,
+                enableStreamingEngine: true,
                 ipConfiguration: "Test string",
                 kmsKeyName: "Test string",
                 machineType: "Test string",
@@ -7189,6 +7558,7 @@ gapi.load('client', () => {
                 additionalUserLabels: {
                     A: "Test string"                },
                 bypassTempDirValidation: true,
+                enableStreamingEngine: true,
                 ipConfiguration: "Test string",
                 kmsKeyName: "Test string",
                 machineType: "Test string",
@@ -7230,6 +7600,7 @@ gapi.load('client', () => {
                 additionalUserLabels: {
                     A: "Test string"                },
                 bypassTempDirValidation: true,
+                enableStreamingEngine: true,
                 ipConfiguration: "Test string",
                 kmsKeyName: "Test string",
                 machineType: "Test string",
@@ -7251,9 +7622,8 @@ gapi.load('client', () => {
             update: true,
         });
         /**
-         * List TemplateVersions using project_id and an optional display_name field.
-         * List all the TemplateVersions in the Template if display set.
-         * List all the TemplateVersions in the Project if display_name not set.
+         * List TemplateVersions using project_id and an optional display_name field. List all the TemplateVersions in the Template if display set. List all the TemplateVersions in the Project if
+         * display_name not set.
          */
         await gapi.client.dataflow.projects.templateVersions.list({
             pageSize: 42,
@@ -7312,10 +7682,7 @@ gapi.load('client', () => {
                     },
                 }            ],
         });
-        /**
-         * Creates a new TemplateVersion (Important: not new Template) entry in the
-         * spanner table. Requires project_id and display_name (template).
-         */
+        /** Creates a new TemplateVersion (Important: not new Template) entry in the spanner table. Requires project_id and display_name (template). */
         await gapi.client.dataflow.projects.catalogTemplates.commit({
             name: "Test string",
         }, {
@@ -7370,11 +7737,7 @@ gapi.load('client', () => {
                 versionId: "Test string",
             },
         });
-        /**
-         * Creates a new Template with TemplateVersion. Requires
-         * project_id(projects) and template display_name(catalogTemplates).
-         * The template display_name is set by the user.
-         */
+        /** Creates a new Template with TemplateVersion. Requires project_id(projects) and template display_name(catalogTemplates). The template display_name is set by the user. */
         await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
             parent: "Test string",
         }, {
@@ -7433,11 +7796,7 @@ gapi.load('client', () => {
         await gapi.client.dataflow.projects.catalogTemplates.delete({
             name: "Test string",
         });
-        /**
-         * Creates a new Template with TemplateVersion. Requires
-         * project_id(projects) and template display_name(catalogTemplates).
-         * The template display_name is set by the user.
-         */
+        /** Creates a new Template with TemplateVersion. Requires project_id(projects) and template display_name(catalogTemplates). The template display_name is set by the user. */
         await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
             parent: "Test string",
         }, {
@@ -7492,19 +7851,11 @@ gapi.load('client', () => {
                 versionId: "Test string",
             },
         });
-        /**
-         * Get TemplateVersion using project_id and display_name with an optional
-         * version_id field. Get latest (has tag "latest") TemplateVersion if
-         * version_id not set.
-         */
+        /** Get TemplateVersion using project_id and display_name with an optional version_id field. Get latest (has tag "latest") TemplateVersion if version_id not set. */
         await gapi.client.dataflow.projects.catalogTemplates.get({
             name: "Test string",
         });
-        /**
-         * Creates a new Template with TemplateVersion. Requires
-         * project_id(projects) and template display_name(catalogTemplates).
-         * The template display_name is set by the user.
-         */
+        /** Creates a new Template with TemplateVersion. Requires project_id(projects) and template display_name(catalogTemplates). The template display_name is set by the user. */
         await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
             parent: "Test string",
         }, {
@@ -7559,10 +7910,7 @@ gapi.load('client', () => {
                 versionId: "Test string",
             },
         });
-        /**
-         * Updates the label of the TemplateVersion. Label can be duplicated in
-         * Template, so either add or remove the label in the TemplateVersion.
-         */
+        /** Updates the label of the TemplateVersion. Label can be duplicated in Template, so either add or remove the label in the TemplateVersion. */
         await gapi.client.dataflow.projects.catalogTemplates.label({
             name: "Test string",
         }, {
@@ -7570,11 +7918,7 @@ gapi.load('client', () => {
             op: "Test string",
             value: "Test string",
         });
-        /**
-         * Creates a new Template with TemplateVersion. Requires
-         * project_id(projects) and template display_name(catalogTemplates).
-         * The template display_name is set by the user.
-         */
+        /** Creates a new Template with TemplateVersion. Requires project_id(projects) and template display_name(catalogTemplates). The template display_name is set by the user. */
         await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
             parent: "Test string",
         }, {
@@ -7630,11 +7974,8 @@ gapi.load('client', () => {
             },
         });
         /**
-         * Updates the tag of the TemplateVersion, and tag is unique in Template.
-         * If tag exists in another TemplateVersion in the Template, updates the tag
-         * to this TemplateVersion will remove it from the old TemplateVersion and add
-         * it to this TemplateVersion. If request is remove_only (remove_only = true),
-         * remove the tag from this TemplateVersion.
+         * Updates the tag of the TemplateVersion, and tag is unique in Template. If tag exists in another TemplateVersion in the Template, updates the tag to this TemplateVersion will remove it
+         * from the old TemplateVersion and add it to this TemplateVersion. If request is remove_only (remove_only = true), remove the tag from this TemplateVersion.
          */
         await gapi.client.dataflow.projects.catalogTemplates.tag({
             name: "Test string",
@@ -7642,11 +7983,7 @@ gapi.load('client', () => {
             removeOnly: true,
             tag: "Test string",
         });
-        /**
-         * Creates a new Template with TemplateVersion. Requires
-         * project_id(projects) and template display_name(catalogTemplates).
-         * The template display_name is set by the user.
-         */
+        /** Creates a new Template with TemplateVersion. Requires project_id(projects) and template display_name(catalogTemplates). The template display_name is set by the user. */
         await gapi.client.dataflow.projects.catalogTemplates.templateVersions.create({
             parent: "Test string",
         }, {
@@ -7730,13 +8067,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -8120,13 +8453,8 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Creates a Cloud Dataflow job.
-         *
-         * To create a job, we recommend using `projects.locations.jobs.create` with a
-         * [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.create` is not recommended, as your job will always start
-         * in `us-central1`.
+         * Creates a Cloud Dataflow job. To create a job, we recommend using `projects.locations.jobs.create` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.create` is not recommended, as your job will always start in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.create({
             location: "Test string",
@@ -8401,13 +8729,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -8791,13 +9115,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Gets the state of the specified Cloud Dataflow job.
-         *
-         * To get the state of a job, we recommend using `projects.locations.jobs.get`
-         * with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.get` is not recommended, as you can only get the state of
-         * jobs that are running in `us-central1`.
+         * Gets the state of the specified Cloud Dataflow job. To get the state of a job, we recommend using `projects.locations.jobs.get` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.get` is not recommended, as you can only get the state of jobs that are running in
+         * `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.get({
             jobId: "Test string",
@@ -8825,13 +9145,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -9215,13 +9531,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.getMetrics` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.getMetrics` is not recommended, as you can only request the
-         * status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.getMetrics` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.getMetrics` is not recommended, as you can only request the status of jobs that are running in
+         * `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.getMetrics({
             jobId: "Test string",
@@ -9249,13 +9561,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -9639,14 +9947,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * List the jobs of a project.
-         *
-         * To list the jobs of a project in a region, we recommend using
-         * `projects.locations.jobs.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
-         * list the all jobs across all regions, use `projects.jobs.aggregated`. Using
-         * `projects.jobs.list` is not recommended, as you can only get the list of
-         * jobs that are running in `us-central1`.
+         * List the jobs of a project. To list the jobs of a project in a region, we recommend using `projects.locations.jobs.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To list the all jobs across all regions, use `projects.jobs.aggregated`. Using `projects.jobs.list` is not
+         * recommended, as you can only get the list of jobs that are running in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.list({
             filter: "Test string",
@@ -9676,13 +9979,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -10095,13 +10394,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -10485,13 +10780,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Updates the state of an existing Cloud Dataflow job.
-         *
-         * To update the state of an existing job, we recommend using
-         * `projects.locations.jobs.update` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.update` is not recommended, as you can only update the state
-         * of jobs that are running in `us-central1`.
+         * Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in
+         * `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.update({
             jobId: "Test string",
@@ -10765,13 +11056,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.jobs.messages.list({
             endTime: "Test string",
@@ -11244,13 +11531,8 @@ gapi.load('client', () => {
             validateOnly: true,
         });
         /**
-         * Creates a Cloud Dataflow job.
-         *
-         * To create a job, we recommend using `projects.locations.jobs.create` with a
-         * [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.create` is not recommended, as your job will always start
-         * in `us-central1`.
+         * Creates a Cloud Dataflow job. To create a job, we recommend using `projects.locations.jobs.create` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.create` is not recommended, as your job will always start in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.create({
             location: "Test string",
@@ -11527,13 +11809,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
             endTime: "Test string",
@@ -11550,6 +11828,17 @@ gapi.load('client', () => {
             jobId: "Test string",
             location: "Test string",
             projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
         });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
@@ -11925,13 +12214,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Gets the state of the specified Cloud Dataflow job.
-         *
-         * To get the state of a job, we recommend using `projects.locations.jobs.get`
-         * with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.get` is not recommended, as you can only get the state of
-         * jobs that are running in `us-central1`.
+         * Gets the state of the specified Cloud Dataflow job. To get the state of a job, we recommend using `projects.locations.jobs.get` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.get` is not recommended, as you can only get the state of jobs that are running in
+         * `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.get({
             jobId: "Test string",
@@ -11961,13 +12246,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
             endTime: "Test string",
@@ -11984,6 +12265,449 @@ gapi.load('client', () => {
             jobId: "Test string",
             location: "Test string",
             projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
+        });
+        /** Leases a dataflow WorkItem to run. */
+        await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            requestedLeaseDuration: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workerCapabilities: [
+                "Test string"            ],
+            workerId: "Test string",
+            workItemTypes: [
+                "Test string"            ],
+        });
+        /** Reports the status of dataflow WorkItems leased by a worker. */
+        await gapi.client.dataflow.projects.locations.jobs.workItems.reportStatus({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            currentWorkerTime: "Test string",
+            location: "Test string",
+            unifiedWorkerRequest: {
+                A: 42            },
+            workerId: "Test string",
+            workItemStatuses: [
+                {
+                    completed: true,
+                    counterUpdates: [
+                        {
+                            boolean: true,
+                            cumulative: true,
+                            distribution: {
+                                count: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                histogram: {
+                                    bucketCounts: [
+                                        "Test string"                                    ],
+                                    firstBucketOffset: 42,
+                                },
+                                max: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                min: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sum: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sumOfSquares: 42,
+                            },
+                            floatingPoint: 42,
+                            floatingPointList: {
+                                elements: [
+                                    42                                ],
+                            },
+                            floatingPointMean: {
+                                count: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sum: 42,
+                            },
+                            integer: {
+                                highBits: 42,
+                                lowBits: 42,
+                            },
+                            integerGauge: {
+                                timestamp: "Test string",
+                                value: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                            },
+                            integerList: {
+                                elements: [
+                                    {
+                                        highBits: 42,
+                                        lowBits: 42,
+                                    }                                ],
+                            },
+                            integerMean: {
+                                count: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                                sum: {
+                                    highBits: 42,
+                                    lowBits: 42,
+                                },
+                            },
+                            internal: 42,
+                            nameAndKind: {
+                                kind: "Test string",
+                                name: "Test string",
+                            },
+                            shortId: "Test string",
+                            stringList: {
+                                elements: [
+                                    "Test string"                                ],
+                            },
+                            structuredNameAndMetadata: {
+                                metadata: {
+                                    description: "Test string",
+                                    kind: "Test string",
+                                    otherUnits: "Test string",
+                                    standardUnits: "Test string",
+                                },
+                                name: {
+                                    componentStepName: "Test string",
+                                    executionStepName: "Test string",
+                                    inputIndex: 42,
+                                    name: "Test string",
+                                    origin: "Test string",
+                                    originalRequestingStepName: "Test string",
+                                    originalStepName: "Test string",
+                                    originNamespace: "Test string",
+                                    portion: "Test string",
+                                    workerId: "Test string",
+                                },
+                            },
+                        }                    ],
+                    dynamicSourceSplit: {
+                        primary: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        residual: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                    },
+                    errors: [
+                        {
+                            code: 42,
+                            details: [
+                                {
+                                    A: 42                                }                            ],
+                            message: "Test string",
+                        }                    ],
+                    metricUpdates: [
+                        {
+                            cumulative: true,
+                            distribution: 42,
+                            gauge: 42,
+                            internal: 42,
+                            kind: "Test string",
+                            meanCount: 42,
+                            meanSum: 42,
+                            name: {
+                                context: {
+                                    A: "Test string"                                },
+                                name: "Test string",
+                                origin: "Test string",
+                            },
+                            scalar: 42,
+                            set: 42,
+                            updateTime: "Test string",
+                        }                    ],
+                    progress: {
+                        percentComplete: 42,
+                        position: {
+                            byteOffset: "Test string",
+                            concatPosition: {
+                                index: 42,
+                                position: undefined,
+                            },
+                            end: true,
+                            key: "Test string",
+                            recordIndex: "Test string",
+                            shufflePosition: "Test string",
+                        },
+                        remainingTime: "Test string",
+                    },
+                    reportedProgress: {
+                        consumedParallelism: {
+                            isInfinite: true,
+                            value: 42,
+                        },
+                        fractionConsumed: 42,
+                        position: {
+                            byteOffset: "Test string",
+                            concatPosition: {
+                                index: 42,
+                                position: undefined,
+                            },
+                            end: true,
+                            key: "Test string",
+                            recordIndex: "Test string",
+                            shufflePosition: "Test string",
+                        },
+                        remainingParallelism: {
+                            isInfinite: true,
+                            value: 42,
+                        },
+                    },
+                    reportIndex: "Test string",
+                    requestedLeaseDuration: "Test string",
+                    sourceFork: {
+                        primary: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        primarySource: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        residual: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                        residualSource: {
+                            derivationMode: "Test string",
+                            source: {
+                                baseSpecs: [
+                                    {
+                                        A: 42                                    }                                ],
+                                codec: {
+                                    A: 42                                },
+                                doesNotNeedSplitting: true,
+                                metadata: {
+                                    estimatedSizeBytes: "Test string",
+                                    infinite: true,
+                                    producesSortedKeys: true,
+                                },
+                                spec: {
+                                    A: 42                                },
+                            },
+                        },
+                    },
+                    sourceOperationResponse: {
+                        getMetadata: {
+                            metadata: {
+                                estimatedSizeBytes: "Test string",
+                                infinite: true,
+                                producesSortedKeys: true,
+                            },
+                        },
+                        split: {
+                            bundles: [
+                                {
+                                    derivationMode: "Test string",
+                                    source: {
+                                        baseSpecs: [
+                                            {
+                                                A: 42                                            }                                        ],
+                                        codec: {
+                                            A: 42                                        },
+                                        doesNotNeedSplitting: true,
+                                        metadata: {
+                                            estimatedSizeBytes: "Test string",
+                                            infinite: true,
+                                            producesSortedKeys: true,
+                                        },
+                                        spec: {
+                                            A: 42                                        },
+                                    },
+                                }                            ],
+                            outcome: "Test string",
+                            shards: [
+                                {
+                                    derivationMode: "Test string",
+                                    source: {
+                                        baseSpecs: [
+                                            {
+                                                A: 42                                            }                                        ],
+                                        codec: {
+                                            A: 42                                        },
+                                        doesNotNeedSplitting: true,
+                                        metadata: {
+                                            estimatedSizeBytes: "Test string",
+                                            infinite: true,
+                                            producesSortedKeys: true,
+                                        },
+                                        spec: {
+                                            A: 42                                        },
+                                    },
+                                }                            ],
+                        },
+                    },
+                    stopPosition: {
+                        byteOffset: "Test string",
+                        concatPosition: {
+                            index: 42,
+                            position: undefined,
+                        },
+                        end: true,
+                        key: "Test string",
+                        recordIndex: "Test string",
+                        shufflePosition: "Test string",
+                    },
+                    totalThrottlerWaitTimeSeconds: 42,
+                    workItemId: "Test string",
+                }            ],
+        });
+        /** Request detailed information about the execution status of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.getExecutionDetails({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        });
+        /** Get encoded debug configuration for component. Not cacheable. */
+        await gapi.client.dataflow.projects.locations.jobs.debug.getConfig({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            componentId: "Test string",
+            location: "Test string",
+            workerId: "Test string",
+        });
+        /** Send encoded debug capture data for component. */
+        await gapi.client.dataflow.projects.locations.jobs.debug.sendCapture({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        }, {
+            componentId: "Test string",
+            data: "Test string",
+            location: "Test string",
+            workerId: "Test string",
+        });
+        /**
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
+         */
+        await gapi.client.dataflow.projects.locations.jobs.messages.list({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            minimumImportance: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            startTime: "Test string",
+        });
+        /** Lists snapshots. */
+        await gapi.client.dataflow.projects.locations.jobs.snapshots.list({
+            jobId: "Test string",
+            location: "Test string",
+            projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
         });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
@@ -12359,13 +13083,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.getMetrics` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.getMetrics` is not recommended, as you can only request the
-         * status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.getMetrics` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.getMetrics` is not recommended, as you can only request the status of jobs that are running in
+         * `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.getMetrics({
             jobId: "Test string",
@@ -12395,13 +13115,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
             endTime: "Test string",
@@ -12418,6 +13134,17 @@ gapi.load('client', () => {
             jobId: "Test string",
             location: "Test string",
             projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
         });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
@@ -12793,14 +13520,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * List the jobs of a project.
-         *
-         * To list the jobs of a project in a region, we recommend using
-         * `projects.locations.jobs.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
-         * list the all jobs across all regions, use `projects.jobs.aggregated`. Using
-         * `projects.jobs.list` is not recommended, as you can only get the list of
-         * jobs that are running in `us-central1`.
+         * List the jobs of a project. To list the jobs of a project in a region, we recommend using `projects.locations.jobs.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To list the all jobs across all regions, use `projects.jobs.aggregated`. Using `projects.jobs.list` is not
+         * recommended, as you can only get the list of jobs that are running in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.list({
             filter: "Test string",
@@ -12832,13 +13554,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
             endTime: "Test string",
@@ -12855,6 +13573,17 @@ gapi.load('client', () => {
             jobId: "Test string",
             location: "Test string",
             projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
         });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
@@ -13262,13 +13991,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
             endTime: "Test string",
@@ -13285,6 +14010,17 @@ gapi.load('client', () => {
             jobId: "Test string",
             location: "Test string",
             projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
         });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
@@ -13660,13 +14396,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Updates the state of an existing Cloud Dataflow job.
-         *
-         * To update the state of an existing job, we recommend using
-         * `projects.locations.jobs.update` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.update` is not recommended, as you can only update the state
-         * of jobs that are running in `us-central1`.
+         * Updates the state of an existing Cloud Dataflow job. To update the state of an existing job, we recommend using `projects.locations.jobs.update` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.update` is not recommended, as you can only update the state of jobs that are running in
+         * `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.update({
             jobId: "Test string",
@@ -13942,13 +14674,9 @@ gapi.load('client', () => {
             workerId: "Test string",
         });
         /**
-         * Request the job status.
-         *
-         * To request the status of a job, we recommend using
-         * `projects.locations.jobs.messages.list` with a [regional endpoint]
-         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
-         * `projects.jobs.messages.list` is not recommended, as you can only request
-         * the status of jobs that are running in `us-central1`.
+         * Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.messages.list` with a [regional endpoint]
+         * (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.messages.list` is not recommended, as you can only request the status of jobs that are running
+         * in `us-central1`.
          */
         await gapi.client.dataflow.projects.locations.jobs.messages.list({
             endTime: "Test string",
@@ -13965,6 +14693,17 @@ gapi.load('client', () => {
             jobId: "Test string",
             location: "Test string",
             projectId: "Test string",
+        });
+        /** Request detailed information about the execution status of a stage of the job. EXPERIMENTAL. This API is subject to change or removal without notice. */
+        await gapi.client.dataflow.projects.locations.jobs.stages.getExecutionDetails({
+            endTime: "Test string",
+            jobId: "Test string",
+            location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            stageId: "Test string",
+            startTime: "Test string",
         });
         /** Leases a dataflow WorkItem to run. */
         await gapi.client.dataflow.projects.locations.jobs.workItems.lease({
@@ -14358,10 +15097,8 @@ gapi.load('client', () => {
             projectId: "Test string",
         });
         /**
-         * Validates a GoogleSQL query for Cloud Dataflow syntax. Will always
-         * confirm the given query parses correctly, and if able to look up
-         * schema information from DataCatalog, will validate that the query
-         * analyzes properly as well.
+         * Validates a GoogleSQL query for Cloud Dataflow syntax. Will always confirm the given query parses correctly, and if able to look up schema information from DataCatalog, will validate
+         * that the query analyzes properly as well.
          */
         await gapi.client.dataflow.projects.locations.sql.validate({
             location: "Test string",
@@ -14379,6 +15116,7 @@ gapi.load('client', () => {
                 additionalUserLabels: {
                     A: "Test string"                },
                 bypassTempDirValidation: true,
+                enableStreamingEngine: true,
                 ipConfiguration: "Test string",
                 kmsKeyName: "Test string",
                 machineType: "Test string",
@@ -14420,6 +15158,7 @@ gapi.load('client', () => {
                 additionalUserLabels: {
                     A: "Test string"                },
                 bypassTempDirValidation: true,
+                enableStreamingEngine: true,
                 ipConfiguration: "Test string",
                 kmsKeyName: "Test string",
                 machineType: "Test string",
@@ -14462,6 +15201,7 @@ gapi.load('client', () => {
                 additionalUserLabels: {
                     A: "Test string"                },
                 bypassTempDirValidation: true,
+                enableStreamingEngine: true,
                 ipConfiguration: "Test string",
                 kmsKeyName: "Test string",
                 machineType: "Test string",
@@ -14503,6 +15243,7 @@ gapi.load('client', () => {
                 additionalUserLabels: {
                     A: "Test string"                },
                 bypassTempDirValidation: true,
+                enableStreamingEngine: true,
                 ipConfiguration: "Test string",
                 kmsKeyName: "Test string",
                 machineType: "Test string",
@@ -14524,9 +15265,8 @@ gapi.load('client', () => {
             update: true,
         });
         /**
-         * List TemplateVersions using project_id and an optional display_name field.
-         * List all the TemplateVersions in the Template if display set.
-         * List all the TemplateVersions in the Project if display_name not set.
+         * List TemplateVersions using project_id and an optional display_name field. List all the TemplateVersions in the Template if display set. List all the TemplateVersions in the Project if
+         * display_name not set.
          */
         await gapi.client.dataflow.projects.templateVersions.list({
             pageSize: 42,
