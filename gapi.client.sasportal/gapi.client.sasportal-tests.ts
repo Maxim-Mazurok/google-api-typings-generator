@@ -90,6 +90,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -226,6 +227,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -334,6 +336,7 @@ gapi.load('client', () => {
                             highFrequencyMhz: 42,
                             lowFrequencyMhz: 42,
                         },
+                        grantId: "Test string",
                         maxEirp: 42,
                         moveList: [
                             {
@@ -589,6 +592,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -725,6 +729,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -833,6 +838,7 @@ gapi.load('client', () => {
                             highFrequencyMhz: 42,
                             lowFrequencyMhz: 42,
                         },
+                        grantId: "Test string",
                         maxEirp: 42,
                         moveList: [
                             {
@@ -1093,6 +1099,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -1229,6 +1236,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -1337,6 +1345,7 @@ gapi.load('client', () => {
                             highFrequencyMhz: 42,
                             lowFrequencyMhz: 42,
                         },
+                        grantId: "Test string",
                         maxEirp: 42,
                         moveList: [
                             {
@@ -1602,6 +1611,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -1738,6 +1748,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -1846,6 +1857,7 @@ gapi.load('client', () => {
                             highFrequencyMhz: 42,
                             lowFrequencyMhz: 42,
                         },
+                        grantId: "Test string",
                         maxEirp: 42,
                         moveList: [
                             {
@@ -1976,6 +1988,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -2122,6 +2135,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -2268,6 +2282,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -2416,6 +2431,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -2564,6 +2580,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
@@ -2716,6 +2733,7 @@ gapi.load('client', () => {
                         highFrequencyMhz: 42,
                         lowFrequencyMhz: 42,
                     },
+                    grantId: "Test string",
                     maxEirp: 42,
                     moveList: [
                         {
