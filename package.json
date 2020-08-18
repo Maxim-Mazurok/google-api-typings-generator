@@ -38,7 +38,7 @@
     "deep-sort-object": "^1.0.2",
     "dot": "^1.1.3",
     "dtslint": "^3.6.14",
-    "get-proxy-settings": "^0.1.11",
+    "get-proxy-settings": "^0.1.12",
     "gts": "^2.0.2",
     "lodash": "^4.17.20",
     "mocha": "^8.1.1",
