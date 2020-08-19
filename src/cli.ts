@@ -33,7 +33,7 @@ console.info(`Output directory: ${params.out}`);
 
 (async () => {
   const proxy = await getProxySettings();
-  const bestProxy = proxy.https || proxy.http || undefined;
+  const bestProxy = proxy ? proxy.https || proxy.http : undefined;
 
   const app = new App({
     discoveryJsonDirectory: params.cacheDiscoveryJson,
