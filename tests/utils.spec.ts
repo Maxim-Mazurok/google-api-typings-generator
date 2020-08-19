@@ -1,3 +1,4 @@
+import {sep as pathSeparator} from 'path';
 import _ from 'lodash';
 import assert from 'assert';
 import {
@@ -46,7 +47,10 @@ describe('getTypeDirectory', () => {
 
   describe('with version', () => {
     it('should return name', () => {
-      assert.strictEqual('gapi.client.API/v1', getTypeDirectory('API', 'v1'));
+      assert.strictEqual(
+        `gapi.client.API${pathSeparator}v1`,
+        getTypeDirectory('API', 'v1')
+      );
     });
   });
 });

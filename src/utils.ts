@@ -62,3 +62,12 @@ export function getMaxLineLength(): number {
     ? dtslintConfig.rules['max-line-length'][1]
     : dtslintConfig.rules['max-line-length'][1].limit;
 }
+
+/**
+ * Loads default tslint config to get banned types from `ban-types` rule
+ */
+export async function getBannedTypes(): Promise<string[]> {
+  const tslintAll = await import('../node_modules/tslint/lib/configs/all');
+  const options = tslintAll.rules['ban-types'].options;
+  return options.length || options[0].length ? options.map(x => x[0]) : [];
+}

@@ -29,12 +29,11 @@ const typesMap: {[key: string]: string} = {
   string: 'string',
 };
 
-const excludedApis = [
+export const excludedApis = [
   'dialogflow',
   'replicapool',
   'replicapoolupdater',
   'apigee',
-  'storage',
   'vision',
   'youtube',
 ];
@@ -125,11 +124,13 @@ function formatPropertyName(name: string) {
 }
 
 class TypescriptTextWriter implements TypescriptTextWriter {
-  private readonly maxLineLength: number;
+  private readonly ignoreBannedType = '// tslint:disable-next-line:ban-types';
 
-  constructor(private writer: IndentedTextWriter, maxLineLength: number) {
-    this.maxLineLength = maxLineLength;
-  }
+  constructor(
+    private readonly writer: IndentedTextWriter,
+    private readonly maxLineLength: number,
+    private readonly bannedTypes: string[]
+  ) {}
 
   private braces(
     text: string,
@@ -140,6 +141,12 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     context(this);
     this.writer.indent--;
     this.writer.writeLine('}');
+  }
+
+  private includesBannedType(type: string): boolean {
+    return this.bannedTypes.some(bannedType =>
+      type.match(new RegExp(`\\b${bannedType}\\b`))
+    );
   }
 
   referenceTypes(type: string) {
@@ -214,6 +221,8 @@ class TypescriptTextWriter implements TypescriptTextWriter {
       type(this);
       this.endLine(';');
     } else if (typeof type === 'string') {
+      this.includesBannedType(type) &&
+        this.writer.writeLine(this.ignoreBannedType);
       this.writer.writeLine(
         `${formatPropertyName(name)}${required ? '' : '?'}: ${type};`
       );
@@ -281,9 +290,22 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     returnType: string,
     singleLine = false
   ) {
+    const ignoreBannedReturnType = this.bannedTypes.some(bannedType =>
+      returnType.match(new RegExp(`\\b${bannedType}\\b`))
+    );
+    if (singleLine && ignoreBannedReturnType) {
+      this.writer.writeLine(this.ignoreBannedType);
+    }
+
     this.writer.startIndentedLine(`${name}(`);
 
     _.forEach(parameters, (parameter, index) => {
+      if (
+        typeof parameter.type === 'string' &&
+        this.includesBannedType(parameter.type)
+      ) {
+        this.writer.writeNewLine(this.ignoreBannedType);
+      }
       this.write(`${parameter.parameter}${parameter.required ? '' : '?'}: `);
       this.write(parameter.type);
 
@@ -297,6 +319,11 @@ class TypescriptTextWriter implements TypescriptTextWriter {
         }
       }
     });
+
+    if (!singleLine && ignoreBannedReturnType) {
+      this.writeNewLine();
+      this.writeNewLine(this.ignoreBannedType);
+    }
 
     this.writer.write(`): ${returnType};`);
 
@@ -444,6 +471,7 @@ export interface Configuration {
   proxy?: ProxySetting;
   typesDirectory: string;
   maxLineLength: number;
+  bannedTypes: string[];
   owners: string[];
 }
 
@@ -592,7 +620,8 @@ export class App {
     );
     const writer = new TypescriptTextWriter(
       new IndentedTextWriter(new StreamWriter(stream)),
-      this.config.maxLineLength
+      this.config.maxLineLength,
+      this.config.bannedTypes
     );
 
     writer.writeLine(
@@ -1006,7 +1035,8 @@ export class App {
       ),
       writer = new TypescriptTextWriter(
         new IndentedTextWriter(new StreamWriter(stream)),
-        this.config.maxLineLength
+        this.config.maxLineLength,
+        this.config.bannedTypes
       );
 
     writer.write(`/* This is stub file for gapi.client.${api.name} definition tests */
