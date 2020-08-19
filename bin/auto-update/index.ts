@@ -4,6 +4,7 @@ import {Git, Settings as GitSettings} from './git';
 import {Helpers, tmpBranchNameFunc} from './helpers';
 import {GitHelpers} from './gitHelpers';
 import {TYPE_PREFIX} from '../../src/utils';
+import {supportedApis} from './config';
 
 if (!process.env.GH_AUTH_TOKEN) {
   throw new Error('Please, set env var: GH_AUTH_TOKEN');
@@ -41,14 +42,7 @@ const settings: Settings = {
   templateUpdateLabel: 'DT PR template update',
 };
 
-const supportedApis = [
-  'sheets',
-  'drive',
-  'classroom',
-  'calendar',
-  'storage',
-  'discovery',
-].map(x => `${TYPE_PREFIX}${x}`);
+const supportedTypes = supportedApis.map(x => `${TYPE_PREFIX}${x}`);
 
 const sh = new SH(settings.dtForkPath);
 const git = new Git(sh, settings);
@@ -112,7 +106,7 @@ process.on('unhandledRejection', reason => {
 
   for (const type of changedTypes) {
     if (
-      supportedApis.indexOf(type) === -1 ||
+      supportedTypes.indexOf(type) === -1 ||
       (await gitHelpers.onlyRevisionChanged(type))
     ) {
       continue;

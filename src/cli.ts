@@ -1,7 +1,7 @@
 import program from 'commander';
 import {App} from './app';
 import {getProxySettings, ProxySettings} from 'get-proxy-settings';
-import {getMaxLineLength} from './utils';
+import {getBannedTypes, getMaxLineLength} from './utils';
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -40,6 +40,7 @@ console.info(`Output directory: ${params.out}`);
     proxy: bestProxy,
     typesDirectory: params.out,
     maxLineLength: getMaxLineLength(),
+    bannedTypes: await getBannedTypes(),
     owners: [
       'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
       'Google API Typings Generator <https://github.com/google-api-typings-generator>',
