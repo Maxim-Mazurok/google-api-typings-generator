@@ -72,8 +72,9 @@ gapi.load('client', () => {
             token: "Test string",
             type: "Test string",
         });
-        /** Stop watching resources through this channel */
-        await gapi.client.admin.channels.stop({} , {
+        /** Stop watching resources through this channel. */
+        await gapi.client.admin.channels.stop({
+        }, {
             address: "Test string",
             expiration: "Test string",
             id: "Test string",
