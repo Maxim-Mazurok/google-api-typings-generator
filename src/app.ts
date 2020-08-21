@@ -81,12 +81,10 @@ class IndentedTextWriter {
   }
 
   startIndentedLine(chunk = '') {
-    // tslint:disable-next-line:ban
     this.write(Array(this.indent + 1).join(this.tabString) + chunk);
   }
 
   endIndentedLine(chunk = '') {
-    // tslint:disable-next-line:ban
     this.write(chunk + Array(this.indent + 1).join(this.tabString));
   }
 
