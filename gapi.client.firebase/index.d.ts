@@ -139,12 +139,21 @@ declare namespace gapi.client {
             locationId?: string;
         }
         interface FirebaseAppInfo {
-            /** Immutable. The globally unique, Firebase-assigned identifier for the `WebApp`. This identifier should be treated as an opaque token, as the data format is not specified. */
+            /**
+             * Output only. Immutable. The globally unique, Firebase-assigned identifier for the `WebApp`. This identifier should be treated as an opaque token, as the data format is not
+             * specified.
+             */
             appId?: string;
             /** The user-assigned display name of the Firebase App. */
             displayName?: string;
             /** The resource name of the Firebase App, in the format: projects/PROJECT_ID /iosApps/APP_ID or projects/PROJECT_ID/androidApps/APP_ID or projects/ PROJECT_ID/webApps/APP_ID */
             name?: string;
+            /**
+             * Output only. Immutable. The platform-specific identifier of the App. *Note:* For most use cases, use `appId`, which is the canonical, globally unique identifier for referencing an
+             * App. This string is derived from a native identifier for each platform: `packageName` for an `AndroidApp`, `bundleId` for an `IosApp`, and `webId` for a `WebApp`. Its contents
+             * should be treated as opaque, as the native identifier format may change as platforms evolve. This string is only unique within a `FirebaseProject` and its associated Apps.
+             */
+            namespace?: string;
             /** The platform of the Firebase App. */
             platform?: string;
         }
@@ -396,6 +405,11 @@ declare namespace gapi.client {
             name?: string;
             /** Immutable. A user-assigned unique identifier of the parent FirebaseProject for the `WebApp`. */
             projectId?: string;
+            /**
+             * Output only. Immutable. A unique, Firebase-assigned identifier for the `WebApp`. This identifier is only used to populate the `namespace` value for the `WebApp`. For most use cases,
+             * use `appId` to identify or reference the App. The `webId` value is only unique within a `FirebaseProject` and its associated Apps.
+             */
+            webId?: string;
         }
         interface WebAppConfig {
             /** The API key associated with the `WebApp`. */
@@ -1906,6 +1920,12 @@ declare namespace gapi.client {
                 callback?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
+                /**
+                 * A query string compatible with Google's [AIP-160](https://google.aip.dev/160) standard. Use any of the following fields in a query: *
+                 * [`appId`](../projects.apps#FirebaseProjectInfo.FIELDS.app_id) * [`namespace`](../projects.apps#FirebaseProjectInfo.FIELDS.namespace) *
+                 * [`platform`](../projects.apps#FirebaseProjectInfo.FIELDS.platform)
+                 */
+                filter?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /** OAuth 2.0 token for the current user. */

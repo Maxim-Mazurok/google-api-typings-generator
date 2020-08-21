@@ -272,6 +272,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /** Gets the specified WebApp. */
         await gapi.client.firebase.projects.webApps.get({
@@ -301,6 +302,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /**
          * Links the specified FirebaseProject with an existing [Google Analytics account](http://www.google.com/analytics/). Using this call, you can either: - Specify an `analyticsAccountId` to
@@ -533,6 +535,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /** Gets the specified WebApp. */
         await gapi.client.firebase.projects.webApps.get({
@@ -562,6 +565,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /** Gets the specified FirebaseProject. */
         await gapi.client.firebase.projects.get({
@@ -776,6 +780,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /** Gets the specified WebApp. */
         await gapi.client.firebase.projects.webApps.get({
@@ -805,6 +810,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /**
          * Gets the configuration artifact associated with the specified FirebaseProject, which can be used by servers to simplify initialization. Typically, this configuration is used with the
@@ -1022,6 +1028,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /** Gets the specified WebApp. */
         await gapi.client.firebase.projects.webApps.get({
@@ -1051,6 +1058,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /**
          * Gets the Google Analytics details currently associated with the specified FirebaseProject. If the `FirebaseProject` is not yet linked to Google Analytics, then the response to
@@ -1268,6 +1276,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /** Gets the specified WebApp. */
         await gapi.client.firebase.projects.webApps.get({
@@ -1297,6 +1306,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /**
          * Lists each FirebaseProject accessible to the caller. The elements are returned in no particular order, but they will be a consistent view of the Projects when additional requests are
@@ -1516,6 +1526,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /** Gets the specified WebApp. */
         await gapi.client.firebase.projects.webApps.get({
@@ -1545,6 +1556,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /** Updates the attributes of the specified FirebaseProject. All [query parameters](#query-parameters) are required. */
         await gapi.client.firebase.projects.patch({
@@ -1772,6 +1784,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /** Gets the specified WebApp. */
         await gapi.client.firebase.projects.webApps.get({
@@ -1801,6 +1814,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /**
          * Unlinks the specified FirebaseProject from its Google Analytics account. This call removes the association of the specified `FirebaseProject` with its current Google Analytics property.
@@ -2023,6 +2037,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /** Gets the specified WebApp. */
         await gapi.client.firebase.projects.webApps.get({
@@ -2052,12 +2067,14 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /**
          * Lists all available Apps for the specified FirebaseProject. This is a convenience method. Typically, interaction with an App should be done using the platform-specific service, but some
          * tool use-cases require a summary of all known Apps (such as for App selector interfaces).
          */
         await gapi.client.firebase.projects.searchApps({
+            filter: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
@@ -2271,6 +2288,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
         /** Gets the specified WebApp. */
         await gapi.client.firebase.projects.webApps.get({
@@ -2300,6 +2318,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             name: "Test string",
             projectId: "Test string",
+            webId: "Test string",
         });
     }
 });
