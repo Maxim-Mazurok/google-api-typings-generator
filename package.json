@@ -41,7 +41,7 @@
     "dot": "^1.1.3",
     "dtslint": "latest",
     "get-proxy-settings": "^0.1.12",
-    "gts": "github:Maxim-Mazurok/gts#ts-4",
+    "gts": "github:google/gts#master",
     "lodash": "^4.17.20",
     "mocha": "^8.1.1",
     "n-readlines": "^1.0.0",
