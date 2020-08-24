@@ -395,6 +395,10 @@ gapi.load('client', () => {
                 deviceKernelVersion: "Test string",
                 primaryLanguageCode: "Test string",
                 securityPatchLevel: "Test string",
+                systemUpdateInfo: {
+                    updateReceivedTime: "Test string",
+                    updateStatus: "Test string",
+                },
             },
             state: "Test string",
             systemProperties: {
@@ -1140,6 +1144,10 @@ gapi.load('client', () => {
                 deviceKernelVersion: "Test string",
                 primaryLanguageCode: "Test string",
                 securityPatchLevel: "Test string",
+                systemUpdateInfo: {
+                    updateReceivedTime: "Test string",
+                    updateStatus: "Test string",
+                },
             },
             state: "Test string",
             systemProperties: {
@@ -1918,6 +1926,10 @@ gapi.load('client', () => {
                 deviceKernelVersion: "Test string",
                 primaryLanguageCode: "Test string",
                 securityPatchLevel: "Test string",
+                systemUpdateInfo: {
+                    updateReceivedTime: "Test string",
+                    updateStatus: "Test string",
+                },
             },
             state: "Test string",
             systemProperties: {
