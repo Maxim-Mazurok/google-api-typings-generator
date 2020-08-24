@@ -778,12 +778,15 @@ gapi.load('client', () => {
          * folder, all descendants owned by the user are also deleted.
          */
         await gapi.client.drive.files.delete({
+            enforceSingleParent: true,
             fileId: "Test string",
             supportsAllDrives: true,
             supportsTeamDrives: true,
         });
         /** Permanently deletes all of the user's trashed files. */
-        await gapi.client.drive.files.emptyTrash();
+        await gapi.client.drive.files.emptyTrash({
+            enforceSingleParent: true,
+        });
         /** Exports a Google Doc to the requested MIME type and returns the exported content. Please note that the exported content is limited to 10MB. */
         await gapi.client.drive.files.export({
             fileId: "Test string",

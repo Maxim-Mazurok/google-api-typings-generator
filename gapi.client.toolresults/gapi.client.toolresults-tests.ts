@@ -68,6 +68,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -481,6 +482,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -1643,6 +1645,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -2607,6 +2610,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -3769,6 +3773,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -4735,6 +4740,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -5897,6 +5903,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -6536,6 +6543,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -6949,6 +6957,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -8111,6 +8120,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -8757,6 +8767,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -9170,6 +9181,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -10332,6 +10344,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -11296,6 +11309,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -12458,6 +12472,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -13424,6 +13439,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -14586,6 +14602,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -15225,6 +15242,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -15638,6 +15656,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -16800,6 +16819,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -17449,6 +17469,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -17862,6 +17883,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -19024,6 +19046,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -19988,6 +20011,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -21150,6 +21174,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -22116,6 +22141,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -23278,6 +23304,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -23917,6 +23944,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -24330,6 +24358,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -25492,6 +25521,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -26156,6 +26186,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -26569,6 +26600,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -27731,6 +27763,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -28695,6 +28728,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -29857,6 +29891,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -30823,6 +30858,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -31985,6 +32021,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -32624,6 +32661,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -33037,6 +33075,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -34199,6 +34238,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -34845,6 +34885,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -35258,6 +35299,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -36420,6 +36462,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -37384,6 +37427,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -38546,6 +38590,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -39512,6 +39557,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -40674,6 +40720,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -41313,6 +41360,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -41726,6 +41774,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -42888,6 +42937,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -43537,6 +43587,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -43950,6 +44001,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -45112,6 +45164,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -46076,6 +46129,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -47238,6 +47292,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -48204,6 +48259,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -49366,6 +49422,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -50005,6 +50062,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -50418,6 +50476,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
@@ -51580,6 +51639,7 @@ gapi.load('client', () => {
             outcome: {
                 failureDetail: {
                     crashed: true,
+                    deviceOutOfMemory: true,
                     failedRoboscript: true,
                     notInstalled: true,
                     otherNativeCrash: true,
