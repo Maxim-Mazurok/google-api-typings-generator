@@ -1558,6 +1558,8 @@ gapi.load('client', () => {
                             unit: "Test string",
                             value: 42,
                         },
+                        shoppingAdsExcludedCountries: [
+                            "Test string"                        ],
                         sizes: [
                             "Test string"                        ],
                         sizeSystem: "Test string",
@@ -1740,6 +1742,8 @@ gapi.load('client', () => {
                 unit: "Test string",
                 value: 42,
             },
+            shoppingAdsExcludedCountries: [
+                "Test string"            ],
             sizes: [
                 "Test string"            ],
             sizeSystem: "Test string",
