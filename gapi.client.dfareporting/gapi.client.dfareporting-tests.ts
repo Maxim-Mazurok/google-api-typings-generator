@@ -1931,6 +1931,7 @@ gapi.load('client', () => {
                             type: "Test string",
                             value: "Test string",
                         }                    ],
+                    dclid: "Test string",
                     encryptedUserId: "Test string",
                     encryptedUserIdCandidates: [
                         "Test string"                    ],
@@ -1969,6 +1970,7 @@ gapi.load('client', () => {
                             type: "Test string",
                             value: "Test string",
                         }                    ],
+                    dclid: "Test string",
                     encryptedUserId: "Test string",
                     encryptedUserIdCandidates: [
                         "Test string"                    ],
