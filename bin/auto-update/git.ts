@@ -2,7 +2,9 @@ import {SH} from './sh';
 import {basename, parse} from 'path';
 import parseGitStatus from 'parse-git-status';
 import {Octokit} from '@octokit/rest';
-import {tmpBranchNameFunc} from './helpers';
+import {graphql} from '@octokit/graphql';
+import {graphql as Graphql} from '@octokit/graphql/dist-types/types';
+import {getTmpBranchName} from './helpers';
 import {TYPE_PREFIX} from '../../src/utils';
 
 export interface Settings {
@@ -15,16 +17,24 @@ export class Git {
   readonly settings: Settings;
   readonly sh: SH;
   readonly octokit: Octokit;
+  readonly graphql: Graphql;
 
   constructor(sh: SH, settings: Settings) {
     this.sh = sh;
     this.settings = settings;
 
     const {user, auth, thisRepo} = this.settings;
+
     this.octokit = new Octokit({
       auth,
       userAgent: `${user}/${thisRepo}`,
       timeZone: 'UTC',
+    });
+
+    this.graphql = graphql.defaults({
+      headers: {
+        authorization: auth,
+      },
     });
   }
 
@@ -42,7 +52,7 @@ export class Git {
   };
 
   tmpAndOriginBranchesDiffer = async (type: string): Promise<boolean> => {
-    const cmd = `git diff origin/${type}..${tmpBranchNameFunc(
+    const cmd = `git diff origin/${type}..${getTmpBranchName(
       type
     )} --quiet types/${type}/*`;
     try {

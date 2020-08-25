@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@expo/spawn-async": "^1.5.0",
+    "@octokit/graphql": "^4.5.4",
     "@octokit/rest": "^18.0.3",
     "@types/commander": "^2.12.2",
     "@types/dot": "^1.1.4",
