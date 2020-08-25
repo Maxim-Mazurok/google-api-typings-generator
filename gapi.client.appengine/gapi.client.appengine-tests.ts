@@ -288,6 +288,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -699,6 +701,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -943,6 +947,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -1354,6 +1360,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -1599,6 +1607,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -2010,6 +2020,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -2264,6 +2276,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -2675,6 +2689,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -3086,6 +3102,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -3497,6 +3515,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -3741,6 +3761,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -4152,6 +4174,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -4397,6 +4421,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -4808,6 +4834,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -5062,6 +5090,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -5473,6 +5503,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -5916,6 +5948,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -6327,6 +6361,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -6571,6 +6607,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -6982,6 +7020,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -7227,6 +7267,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -7638,6 +7680,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -7892,6 +7936,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -8303,6 +8349,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -8721,6 +8769,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -9132,6 +9182,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -9376,6 +9428,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -9787,6 +9841,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -10032,6 +10088,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -10443,6 +10501,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
@@ -10697,6 +10757,8 @@ gapi.load('client', () => {
             },
             betaSettings: {
                 A: "Test string"            },
+            buildEnvVariables: {
+                A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
             defaultExpiration: "Test string",
@@ -11108,6 +11170,8 @@ gapi.load('client', () => {
                 maxInstances: 42,
             },
             betaSettings: {
+                A: "Test string"            },
+            buildEnvVariables: {
                 A: "Test string"            },
             createdBy: "Test string",
             createTime: "Test string",
