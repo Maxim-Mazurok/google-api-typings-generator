@@ -1,4 +1,4 @@
-# TypeScript typings for Cloud Memorystore for Memcached API v1beta2
+# TypeScript typings for Cloud Memorystore for Memcached API v1
 
 Google Cloud Memorystore for Memcached API is used for creating and managing Memcached instances in GCP.
 For detailed description please check [documentation](https://cloud.google.com/memorystore/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/m
 Install typings for Cloud Memorystore for Memcached API:
 
 ```
-npm install @types/gapi.client.memcache@v1beta2 --save-dev
+npm install @types/gapi.client.memcache@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('memcache', 'v1beta2', () => {
+gapi.client.load('memcache', 'v1', () => {
   // now we can use gapi.client.memcache
   // ...
 });
