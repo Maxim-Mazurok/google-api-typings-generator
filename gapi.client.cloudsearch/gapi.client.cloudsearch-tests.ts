@@ -46,10 +46,10 @@ gapi.load('client', () => {
         /**
          * Uploads media for indexing. The upload endpoint supports direct and resumable upload protocols and is intended for large items that can not be [inlined during index
          * requests](https://developers.google.com/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent). To index large content: 1. Call indexing.datasources.items.upload
-         * with the resource name to begin an upload session and retrieve the UploadItemRef. 1. Call media.upload to upload the content using the same resource name from step 1. 1. Call
-         * indexing.datasources.items.index to index the item. Populate the [ItemContent](/cloud-search/docs/reference/rest/v1/indexing.datasources.items#ItemContent) with the UploadItemRef from
-         * step 1. For additional information, see [Create a content connector using the REST API](https://developers.google.com/cloud-search/docs/guides/content-connector#rest). **Note:** This
-         * API requires a service account to execute.
+         * with the item name to begin an upload session and retrieve the UploadItemRef. 1. Call media.upload to upload the content, as a streaming request, using the same resource name from the
+         * UploadItemRef from step 1. 1. Call indexing.datasources.items.index to index the item. Populate the
+         * [ItemContent](/cloud-search/docs/reference/rest/v1/indexing.datasources.items#ItemContent) with the UploadItemRef from step 1. For additional information, see [Create a content
+         * connector using the REST API](https://developers.google.com/cloud-search/docs/guides/content-connector#rest). **Note:** This API requires a service account to execute.
          */
         await gapi.client.cloudsearch.media.upload({
             resourceName: "Test string",
@@ -59,6 +59,18 @@ gapi.load('client', () => {
         /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
         await gapi.client.cloudsearch.operations.get({
             name: "Test string",
+        });
+        /**
+         * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services to
+         * override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+         * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
+         * ensure the name binding is the parent resource, without the operations collection id.
+         */
+        await gapi.client.cloudsearch.operations.lro.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /**
          * The Cloud Search Query API provides the search method, which returns the most relevant results from a user query. The results can come from G Suite Apps, such as Gmail or Google Drive,
