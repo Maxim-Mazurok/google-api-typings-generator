@@ -36,13 +36,11 @@ export class Git {
     const {user} = this.settings;
     const maxResults = 100;
     const result = await this.octokit.graphql<{
-      data: {
-        search: {
-          edges: {
-            node: {headRefName: string}[];
-            pageInfo: {hasNextPage: Boolean};
-          };
-        };
+      search: {
+        edges: {
+          node: {headRefName: string};
+        }[];
+        pageInfo: {hasNextPage: Boolean};
       };
     }>({
       query: `query lastOpenPRs($searchQuery:String!, $maxResults: Int = 100)
@@ -65,13 +63,13 @@ export class Git {
       maxResults,
     });
 
-    if (result.data.search.edges.pageInfo.hasNextPage) {
+    if (result.search.pageInfo.hasNextPage) {
       throw Error(
         `Can't get more than ${maxResults} open PRs: pagination is not implemented`
       );
     }
 
-    const forkBranches = result.data.search.edges.node.map(x => x.headRefName);
+    const forkBranches = result.search.edges.map(x => x.node.headRefName);
 
     return forkBranches;
   };
