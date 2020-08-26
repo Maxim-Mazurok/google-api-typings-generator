@@ -98,7 +98,7 @@ export class GitHelpers {
     }
 
     if (this.openPRBranches.includes(gapiTypeName)) {
-      console.log(`PR is already open fro ${gapiTypeName}, skipping...`);
+      console.log(`PR is already open for ${gapiTypeName}, skipping...`);
       return;
     }
 
