@@ -5,7 +5,7 @@ on:
     - cron: '0 * * * *'
   repository_dispatch:
     types: [auto-open-prs]
-  workflow_dispatch # for manual testing
+  workflow_dispatch: # for manual testing
 
 jobs:
   generate:
