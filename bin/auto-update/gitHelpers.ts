@@ -6,6 +6,7 @@ import {revisionPrefix} from '../../src/app';
 export class GitHelpers {
   readonly settings: Settings;
   readonly git: Git;
+  private openPRBranches?: string[];
 
   constructor(git: Git, settings: Settings) {
     this.settings = settings;
@@ -82,13 +83,26 @@ export class GitHelpers {
     }
   };
 
-  openPRIfItDoesNotExist = async (gapiTypeName: string): Promise<void> => {
+  pushAndOpenPRIfItDoesNotExist = async (
+    gapiTypeName: string
+  ): Promise<void> => {
     const {
       user,
       dtRepoOwner: owner,
       dtRepoName: repo,
       thisRepo,
     } = this.settings;
+
+    if (!this.openPRBranches) {
+      this.openPRBranches = await this.git.get100LatestOpenPRs(owner, repo);
+    }
+
+    if (this.openPRBranches.includes(gapiTypeName)) {
+      console.log(`PR is already open for ${gapiTypeName}, skipping...`);
+      return;
+    }
+
+    await this.git.push({branch: gapiTypeName, force: true}); // pushes to fork branch
 
     console.log(`Opening PR for ${gapiTypeName}...`);
 

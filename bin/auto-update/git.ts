@@ -2,7 +2,7 @@ import {SH} from './sh';
 import {basename, parse} from 'path';
 import parseGitStatus from 'parse-git-status';
 import {Octokit} from '@octokit/rest';
-import {tmpBranchNameFunc} from './helpers';
+import {getTmpBranchName} from './helpers';
 import {TYPE_PREFIX} from '../../src/utils';
 
 export interface Settings {
@@ -21,12 +21,58 @@ export class Git {
     this.settings = settings;
 
     const {user, auth, thisRepo} = this.settings;
+
     this.octokit = new Octokit({
       auth,
       userAgent: `${user}/${thisRepo}`,
       timeZone: 'UTC',
     });
   }
+
+  get100LatestOpenPRs = async (
+    owner: string,
+    repo: string
+  ): Promise<string[]> => {
+    const {user} = this.settings;
+    const maxResults = 100;
+    const result = await this.octokit.graphql<{
+      search: {
+        edges: {
+          node: {headRefName: string};
+        }[];
+        pageInfo: {hasNextPage: Boolean};
+      };
+    }>({
+      query: `query lastOpenPRs($searchQuery:String!, $maxResults: Int = 100)
+      {
+        search(query: $searchQuery, type: ISSUE, first: $maxResults) {
+          edges {
+            node {
+              ... on PullRequest {
+                headRefName
+              }
+            }
+          }
+          pageInfo {
+            hasNextPage
+          }
+        }
+      }
+    `,
+      searchQuery: `author:${user} repo:${owner}/${repo} is:pr is:open`,
+      maxResults,
+    });
+
+    if (result.search.pageInfo.hasNextPage) {
+      throw Error(
+        `Can't get more than ${maxResults} open PRs: pagination is not implemented`
+      );
+    }
+
+    const forkBranches = result.search.edges.map(x => x.node.headRefName);
+
+    return forkBranches;
+  };
 
   deleteBranch = async (
     branch: string,
@@ -42,7 +88,7 @@ export class Git {
   };
 
   tmpAndOriginBranchesDiffer = async (type: string): Promise<boolean> => {
-    const cmd = `git diff origin/${type}..${tmpBranchNameFunc(
+    const cmd = `git diff origin/${type}..${getTmpBranchName(
       type
     )} --quiet types/${type}/*`;
     try {
@@ -201,13 +247,22 @@ export class Git {
   push = async ({
     all,
     force,
-  }: {
-    all?: boolean;
+    branch,
+  }: (
+    | {
+        all?: boolean;
+        branch?: undefined;
+      }
+    | {
+        all?: false;
+        branch: string;
+      }
+  ) & {
     force?: boolean;
   } = {}): Promise<void> => {
     const cmd = `git push ${all ? '--all' : ''} ${
       force ? '--force' : ''
-    } origin`;
+    } origin ${branch || ''}`;
     await this.sh.trySh(cmd);
   };
 

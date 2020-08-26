@@ -4,7 +4,7 @@ import {Settings} from './index';
 import {ensureDirectoryExists} from '../../src/utils';
 import {join} from 'path';
 
-export const tmpBranchNameFunc = (type: string): string => `${type}-tmp`;
+export const getTmpBranchName = (type: string): string => `${type}-tmp`;
 
 export class Helpers {
   readonly sh: SH;

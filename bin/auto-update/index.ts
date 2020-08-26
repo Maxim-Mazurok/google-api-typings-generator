@@ -1,7 +1,7 @@
 import {join, resolve} from 'path';
 import {SH} from './sh';
 import {Git, Settings as GitSettings} from './git';
-import {Helpers, tmpBranchNameFunc} from './helpers';
+import {Helpers, getTmpBranchName} from './helpers';
 import {GitHelpers} from './gitHelpers';
 import {TYPE_PREFIX} from '../../src/utils';
 import {supportedApis} from './config';
@@ -76,7 +76,7 @@ process.on('unhandledRejection', reason => {
       await gitHelpers.stageTypesFolder(type);
       await git.stash({keepIndex: true, name: 'all-changes'}); // #1 contains all changes
       await git.stash({keepIndex: false}); // #0 contains only staged changes
-      await git.checkoutBranch(tmpBranchNameFunc(type), {
+      await git.checkoutBranch(getTmpBranchName(type), {
         // create new temporary branch
         createOrReset: true, // so that existing branch will be reset to master and not continue own history
         from: 'master',
@@ -93,16 +93,14 @@ process.on('unhandledRejection', reason => {
     if (!isNewBranch) {
       if (await git.tmpAndOriginBranchesDiffer(type)) {
         // if type definition actually changed - update branch
-        await git.moveBranch(tmpBranchNameFunc(type), type);
+        await git.moveBranch(getTmpBranchName(type), type);
       } else {
         // else - delete temp branch
         await git.checkoutBranch('master');
-        await git.deleteBranch(tmpBranchNameFunc(type), {force: true});
+        await git.deleteBranch(getTmpBranchName(type), {force: true});
       }
     }
   }
-
-  await git.push({all: true, force: true}); // pushes to fork
 
   for (const type of changedTypes) {
     if (
@@ -112,7 +110,7 @@ process.on('unhandledRejection', reason => {
       continue;
     }
 
-    await gitHelpers.openPRIfItDoesNotExist(type);
+    await gitHelpers.pushAndOpenPRIfItDoesNotExist(type);
   }
 
   await gitHelpers.checkForTemplateUpdate();
