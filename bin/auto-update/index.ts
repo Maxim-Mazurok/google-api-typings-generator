@@ -103,14 +103,13 @@ process.on('unhandledRejection', reason => {
   }
 
   for (const type of changedTypes) {
-    if (
-      supportedTypes.indexOf(type) === -1 ||
-      (await gitHelpers.onlyRevisionChanged(type))
-    ) {
+    if (supportedTypes.indexOf(type) === -1) {
       continue;
     }
 
-    await gitHelpers.pushAndOpenPRIfItDoesNotExist(type);
+    await gitHelpers.pushAndOpenPRIfItDoesNotExistAndIfNotOnlyRevisionChanged(
+      type
+    );
   }
 
   await gitHelpers.checkForTemplateUpdate();

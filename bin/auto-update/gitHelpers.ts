@@ -83,7 +83,7 @@ export class GitHelpers {
     }
   };
 
-  pushAndOpenPRIfItDoesNotExist = async (
+  pushAndOpenPRIfItDoesNotExistAndIfNotOnlyRevisionChanged = async (
     gapiTypeName: string
   ): Promise<void> => {
     const {
@@ -102,7 +102,15 @@ export class GitHelpers {
       return;
     }
 
-    await this.git.push({branch: gapiTypeName, force: true}); // pushes to fork branch
+    if (await this.git.checkBranchExists(gapiTypeName)) {
+      // only push local branches created during this run
+      await this.git.push({branch: gapiTypeName, force: true}); // pushes to fork branch
+    }
+
+    if (await this.onlyRevisionChanged(gapiTypeName)) {
+      console.log(`Revision-only change for ${gapiTypeName}, skipping...`);
+      return;
+    }
 
     console.log(`Opening PR for ${gapiTypeName}...`);
 
