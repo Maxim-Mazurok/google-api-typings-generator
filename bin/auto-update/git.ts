@@ -45,9 +45,9 @@ export class Git {
         };
       };
     }>({
-      query: `query lastOpenPRs($author:String!, $repo:String!, $maxResults: Int = 100)
+      query: `query lastOpenPRs($searchQuery:String!, $maxResults: Int = 100)
       {
-        search(query: "author:$author repo:$repo is:pr is:open", type: ISSUE, first:$maxResults) {
+        search(query: $searchQuery, type: ISSUE, first: $maxResults) {
           edges {
             node {
               ... on PullRequest {
@@ -61,8 +61,7 @@ export class Git {
         }
       }
     `,
-      author: user,
-      repo: `${owner}/${repo}`,
+      searchQuery: `author:${user} repo:${owner}/${repo} is:pr is:open`,
       maxResults,
     });
 
