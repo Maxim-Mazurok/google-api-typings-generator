@@ -184,6 +184,11 @@ export class Git {
       .filter(x => x.indexOf(TYPE_PREFIX) === 0);
   };
 
+  checkBranchExists = async (name: string): Promise<boolean> => {
+    const {stdout} = await this.sh.runSh(`git branch --list ${name}`);
+    return stdout.split('\n').find(x => x.trim() === name) !== undefined;
+  };
+
   checkBranchFormat = async (name: string): Promise<boolean> => {
     try {
       await this.sh.runSh(`git check-ref-format --branch ${name}`);
