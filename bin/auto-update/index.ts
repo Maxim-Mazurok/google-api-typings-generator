@@ -102,8 +102,6 @@ process.on('unhandledRejection', reason => {
     }
   }
 
-  await git.push({all: true, force: true}); // pushes to fork
-
   for (const type of changedTypes) {
     if (
       supportedTypes.indexOf(type) === -1 ||
@@ -112,7 +110,7 @@ process.on('unhandledRejection', reason => {
       continue;
     }
 
-    await gitHelpers.openPRIfItDoesNotExist(type);npm install @octokit/graphql
+    await gitHelpers.pushAndOpenPRIfItDoesNotExist(type);
   }
 
   await gitHelpers.checkForTemplateUpdate();

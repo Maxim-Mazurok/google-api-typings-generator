@@ -3,6 +3,7 @@
         "Mazurok",
         "dtslint",
         "gapi",
+        "nvmrc",
         "octokit",
         "posttest",
         "precheck",

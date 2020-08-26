@@ -2,8 +2,6 @@ import {SH} from './sh';
 import {basename, parse} from 'path';
 import parseGitStatus from 'parse-git-status';
 import {Octokit} from '@octokit/rest';
-import {graphql} from '@octokit/graphql';
-import {graphql as Graphql} from '@octokit/graphql/dist-types/types';
 import {getTmpBranchName} from './helpers';
 import {TYPE_PREFIX} from '../../src/utils';
 
@@ -17,7 +15,6 @@ export class Git {
   readonly settings: Settings;
   readonly sh: SH;
   readonly octokit: Octokit;
-  readonly graphql: Graphql;
 
   constructor(sh: SH, settings: Settings) {
     this.sh = sh;
@@ -30,13 +27,55 @@ export class Git {
       userAgent: `${user}/${thisRepo}`,
       timeZone: 'UTC',
     });
-
-    this.graphql = graphql.defaults({
-      headers: {
-        authorization: auth,
-      },
-    });
   }
+
+  get100LatestOpenPRs = async (
+    owner: string,
+    repo: string
+  ): Promise<string[]> => {
+    const {user} = this.settings;
+    const maxResults = 100;
+    const result = await this.octokit.graphql<{
+      data: {
+        search: {
+          edges: {
+            node: {headRefName: string}[];
+            pageInfo: {hasNextPage: Boolean};
+          };
+        };
+      };
+    }>({
+      query: `query lastOpenPRs($author:String!, $repo:String!, $maxResults: Int = 100)
+      {
+        search(query: "author:$author repo:$repo is:pr is:open", type: ISSUE, first:$maxResults) {
+          edges {
+            node {
+              ... on PullRequest {
+                headRefName
+              }
+            }
+          }
+          pageInfo {
+            hasNextPage
+          }
+        }
+      }
+    `,
+      author: user,
+      repo: `${owner}/${repo}`,
+      maxResults,
+    });
+
+    if (result.data.search.edges.pageInfo.hasNextPage) {
+      throw Error(
+        `Can't get more than ${maxResults} open PRs: pagination is not implemented`
+      );
+    }
+
+    const forkBranches = result.data.search.edges.node.map(x => x.headRefName);
+
+    return forkBranches;
+  };
 
   deleteBranch = async (
     branch: string,
@@ -211,13 +250,22 @@ export class Git {
   push = async ({
     all,
     force,
-  }: {
-    all?: boolean;
+    branch,
+  }: (
+    | {
+        all?: boolean;
+        branch?: undefined;
+      }
+    | {
+        all?: false;
+        branch: string;
+      }
+  ) & {
     force?: boolean;
   } = {}): Promise<void> => {
     const cmd = `git push ${all ? '--all' : ''} ${
       force ? '--force' : ''
-    } origin`;
+    } origin ${branch || ''}`;
     await this.sh.trySh(cmd);
   };
 
