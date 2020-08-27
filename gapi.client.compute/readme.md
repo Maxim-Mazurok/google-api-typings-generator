@@ -903,6 +903,11 @@ Gets the access control policy for a resource. May be empty if no such policy or
 await gapi.client.compute.instances.getIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
 
 /*
+Returns the screenshot from the specified instance.
+*/
+await gapi.client.compute.instances.getScreenshot({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
 Returns the last 1 MB of serial port output from the specified instance.
 */
 await gapi.client.compute.instances.getSerialPortOutput({ instance: "instance", project: "project", zone: "zone",  });
