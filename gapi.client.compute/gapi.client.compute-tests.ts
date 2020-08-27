@@ -3137,12 +3137,6 @@ gapi.load('client', () => {
             resource: "Test string",
             zone: "Test string",
         });
-        /** Returns the screenshot from the specified instance. */
-        await gapi.client.compute.instances.getScreenshot({
-            instance: "Test string",
-            project: "Test string",
-            zone: "Test string",
-        });
         /** Returns the last 1 MB of serial port output from the specified instance. */
         await gapi.client.compute.instances.getSerialPortOutput({
             instance: "Test string",
