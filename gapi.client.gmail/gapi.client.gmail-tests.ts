@@ -309,7 +309,10 @@ gapi.load('client', () => {
             messageId: "Test string",
             userId: "Test string",
         });
-        /** Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message. */
+        /**
+         * Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message. Note: This function
+         * doesn't trigger forwarding rules or filters set up by the user.
+         */
         await gapi.client.gmail.users.messages.import({
             deleted: true,
             internalDateSource: "Test string",
@@ -5292,7 +5295,10 @@ gapi.load('client', () => {
             messageId: "Test string",
             userId: "Test string",
         });
-        /** Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message. */
+        /**
+         * Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message. Note: This function
+         * doesn't trigger forwarding rules or filters set up by the user.
+         */
         await gapi.client.gmail.users.messages.import({
             deleted: true,
             internalDateSource: "Test string",
@@ -10280,7 +10286,10 @@ gapi.load('client', () => {
             messageId: "Test string",
             userId: "Test string",
         });
-        /** Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message. */
+        /**
+         * Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message. Note: This function
+         * doesn't trigger forwarding rules or filters set up by the user.
+         */
         await gapi.client.gmail.users.messages.import({
             deleted: true,
             internalDateSource: "Test string",
