@@ -1446,14 +1446,25 @@ gapi.load('client', () => {
                 autoScaling: {
                     minNodes: 42,
                 },
+                container: {
+                    args: [
+                        "Test string"                    ],
+                    command: [
+                        "Test string"                    ],
+                    env: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    image: "Test string",
+                    ports: [
+                        {
+                            containerPort: 42,
+                        }                    ],
+                },
                 createTime: "Test string",
                 deploymentUri: "Test string",
                 description: "Test string",
-                endpoints: {
-                    explain: "Test string",
-                    health: "Test string",
-                    predict: "Test string",
-                },
                 errorMessage: "Test string",
                 etag: "Test string",
                 explanationConfig: {
@@ -1485,6 +1496,10 @@ gapi.load('client', () => {
                     bigqueryTableName: "Test string",
                     samplingPercentage: 42,
                 },
+                routes: {
+                    health: "Test string",
+                    predict: "Test string",
+                },
                 runtimeVersion: "Test string",
                 serviceAccount: "Test string",
                 state: "Test string",
@@ -1514,14 +1529,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -1552,6 +1578,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -1593,14 +1623,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -1631,6 +1672,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -1663,14 +1708,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -1701,6 +1757,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -1742,14 +1802,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -1780,6 +1851,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -1812,14 +1887,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -1850,6 +1936,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -1891,14 +1981,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -1929,6 +2030,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -1962,14 +2067,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -2000,6 +2116,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -2041,14 +2161,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -2079,6 +2210,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -2117,14 +2252,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -2155,6 +2301,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -2196,14 +2346,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -2235,6 +2396,10 @@ gapi.load('client', () => {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
             },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
+            },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
             state: "Test string",
@@ -2260,14 +2425,25 @@ gapi.load('client', () => {
                 autoScaling: {
                     minNodes: 42,
                 },
+                container: {
+                    args: [
+                        "Test string"                    ],
+                    command: [
+                        "Test string"                    ],
+                    env: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    image: "Test string",
+                    ports: [
+                        {
+                            containerPort: 42,
+                        }                    ],
+                },
                 createTime: "Test string",
                 deploymentUri: "Test string",
                 description: "Test string",
-                endpoints: {
-                    explain: "Test string",
-                    health: "Test string",
-                    predict: "Test string",
-                },
                 errorMessage: "Test string",
                 etag: "Test string",
                 explanationConfig: {
@@ -2299,6 +2475,10 @@ gapi.load('client', () => {
                     bigqueryTableName: "Test string",
                     samplingPercentage: 42,
                 },
+                routes: {
+                    health: "Test string",
+                    predict: "Test string",
+                },
                 runtimeVersion: "Test string",
                 serviceAccount: "Test string",
                 state: "Test string",
@@ -2328,14 +2508,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -2366,6 +2557,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -2407,14 +2602,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -2445,6 +2651,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -2505,14 +2715,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -2543,6 +2764,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -2584,14 +2809,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -2622,6 +2858,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -2660,14 +2900,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -2698,6 +2949,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -2739,14 +2994,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -2777,6 +3043,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -4227,14 +4497,25 @@ gapi.load('client', () => {
                 autoScaling: {
                     minNodes: 42,
                 },
+                container: {
+                    args: [
+                        "Test string"                    ],
+                    command: [
+                        "Test string"                    ],
+                    env: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    image: "Test string",
+                    ports: [
+                        {
+                            containerPort: 42,
+                        }                    ],
+                },
                 createTime: "Test string",
                 deploymentUri: "Test string",
                 description: "Test string",
-                endpoints: {
-                    explain: "Test string",
-                    health: "Test string",
-                    predict: "Test string",
-                },
                 errorMessage: "Test string",
                 etag: "Test string",
                 explanationConfig: {
@@ -4266,6 +4547,10 @@ gapi.load('client', () => {
                     bigqueryTableName: "Test string",
                     samplingPercentage: 42,
                 },
+                routes: {
+                    health: "Test string",
+                    predict: "Test string",
+                },
                 runtimeVersion: "Test string",
                 serviceAccount: "Test string",
                 state: "Test string",
@@ -4295,14 +4580,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -4333,6 +4629,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -4374,14 +4674,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -4412,6 +4723,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -4444,14 +4759,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -4482,6 +4808,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -4523,14 +4853,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -4561,6 +4902,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -4593,14 +4938,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -4631,6 +4987,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -4672,14 +5032,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -4710,6 +5081,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -4743,14 +5118,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -4781,6 +5167,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -4822,14 +5212,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -4860,6 +5261,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -4898,14 +5303,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -4936,6 +5352,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -4977,14 +5397,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -5016,6 +5447,10 @@ gapi.load('client', () => {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
             },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
+            },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
             state: "Test string",
@@ -5041,14 +5476,25 @@ gapi.load('client', () => {
                 autoScaling: {
                     minNodes: 42,
                 },
+                container: {
+                    args: [
+                        "Test string"                    ],
+                    command: [
+                        "Test string"                    ],
+                    env: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    image: "Test string",
+                    ports: [
+                        {
+                            containerPort: 42,
+                        }                    ],
+                },
                 createTime: "Test string",
                 deploymentUri: "Test string",
                 description: "Test string",
-                endpoints: {
-                    explain: "Test string",
-                    health: "Test string",
-                    predict: "Test string",
-                },
                 errorMessage: "Test string",
                 etag: "Test string",
                 explanationConfig: {
@@ -5080,6 +5526,10 @@ gapi.load('client', () => {
                     bigqueryTableName: "Test string",
                     samplingPercentage: 42,
                 },
+                routes: {
+                    health: "Test string",
+                    predict: "Test string",
+                },
                 runtimeVersion: "Test string",
                 serviceAccount: "Test string",
                 state: "Test string",
@@ -5109,14 +5559,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -5147,6 +5608,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -5188,14 +5653,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -5226,6 +5702,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -5286,14 +5766,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -5324,6 +5815,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -5365,14 +5860,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -5403,6 +5909,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -5441,14 +5951,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -5479,6 +6000,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -5520,14 +6045,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -5558,6 +6094,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -7013,14 +7553,25 @@ gapi.load('client', () => {
                 autoScaling: {
                     minNodes: 42,
                 },
+                container: {
+                    args: [
+                        "Test string"                    ],
+                    command: [
+                        "Test string"                    ],
+                    env: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    image: "Test string",
+                    ports: [
+                        {
+                            containerPort: 42,
+                        }                    ],
+                },
                 createTime: "Test string",
                 deploymentUri: "Test string",
                 description: "Test string",
-                endpoints: {
-                    explain: "Test string",
-                    health: "Test string",
-                    predict: "Test string",
-                },
                 errorMessage: "Test string",
                 etag: "Test string",
                 explanationConfig: {
@@ -7052,6 +7603,10 @@ gapi.load('client', () => {
                     bigqueryTableName: "Test string",
                     samplingPercentage: 42,
                 },
+                routes: {
+                    health: "Test string",
+                    predict: "Test string",
+                },
                 runtimeVersion: "Test string",
                 serviceAccount: "Test string",
                 state: "Test string",
@@ -7081,14 +7636,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -7119,6 +7685,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -7160,14 +7730,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -7198,6 +7779,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -7230,14 +7815,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -7268,6 +7864,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -7309,14 +7909,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -7347,6 +7958,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -7379,14 +7994,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -7417,6 +8043,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -7458,14 +8088,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -7496,6 +8137,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -7529,14 +8174,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -7567,6 +8223,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -7608,14 +8268,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -7646,6 +8317,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -7684,14 +8359,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -7722,6 +8408,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -7763,14 +8453,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -7802,6 +8503,10 @@ gapi.load('client', () => {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
             },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
+            },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
             state: "Test string",
@@ -7827,14 +8532,25 @@ gapi.load('client', () => {
                 autoScaling: {
                     minNodes: 42,
                 },
+                container: {
+                    args: [
+                        "Test string"                    ],
+                    command: [
+                        "Test string"                    ],
+                    env: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    image: "Test string",
+                    ports: [
+                        {
+                            containerPort: 42,
+                        }                    ],
+                },
                 createTime: "Test string",
                 deploymentUri: "Test string",
                 description: "Test string",
-                endpoints: {
-                    explain: "Test string",
-                    health: "Test string",
-                    predict: "Test string",
-                },
                 errorMessage: "Test string",
                 etag: "Test string",
                 explanationConfig: {
@@ -7866,6 +8582,10 @@ gapi.load('client', () => {
                     bigqueryTableName: "Test string",
                     samplingPercentage: 42,
                 },
+                routes: {
+                    health: "Test string",
+                    predict: "Test string",
+                },
                 runtimeVersion: "Test string",
                 serviceAccount: "Test string",
                 state: "Test string",
@@ -7895,14 +8615,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -7933,6 +8664,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -7974,14 +8709,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -8012,6 +8758,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -8072,14 +8822,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -8110,6 +8871,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -8151,14 +8916,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -8189,6 +8965,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -8227,14 +9007,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -8265,6 +9056,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
@@ -8306,14 +9101,25 @@ gapi.load('client', () => {
             autoScaling: {
                 minNodes: 42,
             },
+            container: {
+                args: [
+                    "Test string"                ],
+                command: [
+                    "Test string"                ],
+                env: [
+                    {
+                        name: "Test string",
+                        value: "Test string",
+                    }                ],
+                image: "Test string",
+                ports: [
+                    {
+                        containerPort: 42,
+                    }                ],
+            },
             createTime: "Test string",
             deploymentUri: "Test string",
             description: "Test string",
-            endpoints: {
-                explain: "Test string",
-                health: "Test string",
-                predict: "Test string",
-            },
             errorMessage: "Test string",
             etag: "Test string",
             explanationConfig: {
@@ -8344,6 +9150,10 @@ gapi.load('client', () => {
             requestLoggingConfig: {
                 bigqueryTableName: "Test string",
                 samplingPercentage: 42,
+            },
+            routes: {
+                health: "Test string",
+                predict: "Test string",
             },
             runtimeVersion: "Test string",
             serviceAccount: "Test string",
