@@ -61,6 +61,7 @@ gapi.load('client', () => {
                 {
                     name: "Test string",
                 }            ],
+            type: "Test string",
             updateTime: "Test string",
         });
         /** Deletes a Membership. */
@@ -102,6 +103,7 @@ gapi.load('client', () => {
                 {
                     name: "Test string",
                 }            ],
+            type: "Test string",
             updateTime: "Test string",
         });
         /** Deletes a Membership. */
@@ -143,6 +145,7 @@ gapi.load('client', () => {
                 {
                     name: "Test string",
                 }            ],
+            type: "Test string",
             updateTime: "Test string",
         });
         /** Deletes a Membership. */
@@ -187,6 +190,7 @@ gapi.load('client', () => {
                 {
                     name: "Test string",
                 }            ],
+            type: "Test string",
             updateTime: "Test string",
         });
         /** Deletes a Membership. */
@@ -229,6 +233,7 @@ gapi.load('client', () => {
                 {
                     name: "Test string",
                 }            ],
+            type: "Test string",
             updateTime: "Test string",
         });
         /** Deletes a Membership. */
@@ -284,6 +289,7 @@ gapi.load('client', () => {
                 {
                     name: "Test string",
                 }            ],
+            type: "Test string",
             updateTime: "Test string",
         });
         /** Deletes a Membership. */
@@ -328,6 +334,7 @@ gapi.load('client', () => {
                 {
                     name: "Test string",
                 }            ],
+            type: "Test string",
             updateTime: "Test string",
         });
         /** Deletes a Membership. */
