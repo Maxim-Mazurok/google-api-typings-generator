@@ -8,7 +8,22 @@ gapi.load('client', () => {
     gapi.client.load('homegraph', 'v1', () => {
         /** now we can use gapi.client.homegraph */
 
-        run();
+        /** don't forget to authenticate your client before sending any request to resources: */
+        /** declare client_id registered in Google Developers Console */
+        const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+        const scope = [
+            /** New Service: https://www.googleapis.com/auth/homegraph */
+            'https://www.googleapis.com/auth/homegraph',
+        ];
+        const immediate = false;
+        gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
+            if (authResult && !authResult.error) {
+                /** handle successful authorization */
+                run();
+            } else {
+                /** handle authorization error */
+            }
+        });
     });
 
     async function run() {

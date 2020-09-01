@@ -31,7 +31,28 @@ gapi.client.load('homegraph', 'v1', () => {
 });
 ```
 
+Don't forget to authenticate your client before sending any request to resources:
 
+```typescript
+// declare client_id registered in Google Developers Console
+var client_id = '',
+  scope = [ 
+      // New Service: https://www.googleapis.com/auth/homegraph
+      'https://www.googleapis.com/auth/homegraph',
+    ],
+    immediate = true;
+// ...
+
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
+    if (authResult && !authResult.error) {
+        /* handle successful authorization */
+    } else {
+        /* handle authorization error */
+    }
+});
+```
 
 After that you can use HomeGraph API resources:
 
