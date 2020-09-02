@@ -72,9 +72,7 @@ Closes the specified matter. Returns matter with updated state.
 await gapi.client.vault.matters.close({ matterId: "matterId",  });
 
 /*
-Creates a new matter with the given name and description. The initial state
-is open, and the owner is the method caller. Returns the created matter
-with default view.
+Creates a new matter with the given name and description. The initial state is open, and the owner is the method caller. Returns the created matter with default view.
 */
 await gapi.client.vault.matters.create({  });
 
@@ -109,18 +107,12 @@ Undeletes the specified matter. Returns matter with updated state.
 await gapi.client.vault.matters.undelete({ matterId: "matterId",  });
 
 /*
-Updates the specified matter.
-This updates only the name and description of the matter, identified by
-matter ID. Changes to any other fields are ignored.
-Returns the default view of the matter.
+Updates the specified matter. This updates only the name and description of the matter, identified by matter ID. Changes to any other fields are ignored. Returns the default view of the matter.
 */
 await gapi.client.vault.matters.update({ matterId: "matterId",  });
 
 /*
-Deletes a long-running operation. This method indicates that the client is
-no longer interested in the operation result. It does not cancel the
-operation. If the server doesn't support this method, it returns
-`google.rpc.Code.UNIMPLEMENTED`.
+Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
 */
 await gapi.client.vault.operations.delete({ name: "name",  });
 ```
