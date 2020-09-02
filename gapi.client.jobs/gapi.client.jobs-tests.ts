@@ -29,10 +29,7 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Completes the specified prefix with keyword suggestions.
-         * Intended for use by a job search auto-complete search box.
-         */
+        /** Completes the specified prefix with keyword suggestions. Intended for use by a job search auto-complete search box. */
         await gapi.client.jobs.projects.complete({
             companyName: "Test string",
             languageCode: "Test string",
@@ -44,13 +41,8 @@ gapi.load('client', () => {
             type: "Test string",
         });
         /**
-         * Report events issued when end user interacts with customer's application
-         * that uses Cloud Talent Solution. You may inspect the created events in
-         * [self service
-         * tools](https://console.cloud.google.com/talent-solution/overview).
-         * [Learn
-         * more](https://cloud.google.com/talent-solution/docs/management-tools)
-         * about self service tools.
+         * Report events issued when end user interacts with customer's application that uses Cloud Talent Solution. You may inspect the created events in [self service
+         * tools](https://console.cloud.google.com/talent-solution/overview). [Learn more](https://cloud.google.com/talent-solution/docs/management-tools) about self service tools.
          */
         await gapi.client.jobs.projects.clientEvents.create({
             parent: "Test string",
@@ -114,10 +106,7 @@ gapi.load('client', () => {
                 websiteUri: "Test string",
             },
         });
-        /**
-         * Deletes specified company.
-         * Prerequisite: The company has no jobs associated with it.
-         */
+        /** Deletes specified company. Prerequisite: The company has no jobs associated with it. */
         await gapi.client.jobs.projects.companies.delete({
             name: "Test string",
         });
@@ -132,11 +121,7 @@ gapi.load('client', () => {
             parent: "Test string",
             requireOpenJobs: true,
         });
-        /**
-         * Updates specified company. Company names can't be updated. To update a
-         * company name, delete the company and all jobs associated with it, and only
-         * then re-create them.
-         */
+        /** Updates specified company. Company names can't be updated. To update a company name, delete the company and all jobs associated with it, and only then re-create them. */
         await gapi.client.jobs.projects.companies.patch({
             name: "Test string",
         }, {
@@ -188,12 +173,7 @@ gapi.load('client', () => {
         }, {
             filter: "Test string",
         });
-        /**
-         * Creates a new job.
-         *
-         * Typically, the job becomes searchable within 10 seconds, but it may take
-         * up to 5 minutes.
-         */
+        /** Creates a new job. Typically, the job becomes searchable within 10 seconds, but it may take up to 5 minutes. */
         await gapi.client.jobs.projects.jobs.create({
             parent: "Test string",
         }, {
@@ -326,19 +306,11 @@ gapi.load('client', () => {
                 visibility: "Test string",
             },
         });
-        /**
-         * Deletes the specified job.
-         *
-         * Typically, the job becomes unsearchable within 10 seconds, but it may take
-         * up to 5 minutes.
-         */
+        /** Deletes the specified job. Typically, the job becomes unsearchable within 10 seconds, but it may take up to 5 minutes. */
         await gapi.client.jobs.projects.jobs.delete({
             name: "Test string",
         });
-        /**
-         * Retrieves the specified job, whose status is OPEN or recently EXPIRED
-         * within the last 90 days.
-         */
+        /** Retrieves the specified job, whose status is OPEN or recently EXPIRED within the last 90 days. */
         await gapi.client.jobs.projects.jobs.get({
             name: "Test string",
         });
@@ -350,12 +322,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /**
-         * Updates specified job.
-         *
-         * Typically, updated contents become visible in search results within 10
-         * seconds, but it may take up to 5 minutes.
-         */
+        /** Updates specified job. Typically, updated contents become visible in search results within 10 seconds, but it may take up to 5 minutes. */
         await gapi.client.jobs.projects.jobs.patch({
             name: "Test string",
         }, {
@@ -490,11 +457,8 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Searches for jobs using the provided SearchJobsRequest.
-         *
-         * This call constrains the visibility of jobs
-         * present in the database, and only returns jobs that the caller has
-         * permission to search against.
+         * Searches for jobs using the provided SearchJobsRequest. This call constrains the visibility of jobs present in the database, and only returns jobs that the caller has permission to
+         * search against.
          */
         await gapi.client.jobs.projects.jobs.search({
             parent: "Test string",
@@ -608,16 +572,9 @@ gapi.load('client', () => {
             searchMode: "Test string",
         });
         /**
-         * Searches for jobs using the provided SearchJobsRequest.
-         *
-         * This API call is intended for the use case of targeting passive job
-         * seekers (for example, job seekers who have signed up to receive email
-         * alerts about potential job opportunities), and has different algorithmic
-         * adjustments that are targeted to passive job seekers.
-         *
-         * This call constrains the visibility of jobs
-         * present in the database, and only returns jobs the caller has
-         * permission to search against.
+         * Searches for jobs using the provided SearchJobsRequest. This API call is intended for the use case of targeting passive job seekers (for example, job seekers who have signed up to
+         * receive email alerts about potential job opportunities), and has different algorithmic adjustments that are targeted to passive job seekers. This call constrains the visibility of jobs
+         * present in the database, and only returns jobs the caller has permission to search against.
          */
         await gapi.client.jobs.projects.jobs.searchForAlert({
             parent: "Test string",
