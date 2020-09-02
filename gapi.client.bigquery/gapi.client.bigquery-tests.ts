@@ -680,6 +680,9 @@ gapi.load('client', () => {
                 startTime: "Test string",
                 totalBytesProcessed: "Test string",
                 totalSlotMs: "Test string",
+                transactionInfoTemplate: {
+                    transactionId: "Test string",
+                },
             },
             status: {
                 errorResult: {
