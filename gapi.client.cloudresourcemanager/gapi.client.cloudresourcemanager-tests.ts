@@ -141,6 +141,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
