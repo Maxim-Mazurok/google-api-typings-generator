@@ -285,15 +285,9 @@ declare namespace gapi.client {
              * the Quotas page.
              */
             id?: string;
-            /**
-             * Latitude of the location, in degrees north of the equator. Only some locations -- generally, ballot drop boxes for vote-by-mail elections -- will have this set; for others, use a
-             * geocoding service like the Google Maps API to resolve the address to a geographic point.
-             */
+            /** Latitude of the location, in degrees north of the equator. Note this field may not be available for some locations. */
             latitude?: number;
-            /**
-             * Longitude of the location, in degrees east of the Prime Meridian. Only some locations -- generally, ballot drop boxes for vote-by-mail elections -- will have this set; for others,
-             * use a geocoding service like the Google Maps API to resolve the address to a geographic point.
-             */
+            /** Longitude of the location, in degrees east of the Prime Meridian. Note this field may not be available for some locations. */
             longitude?: number;
             /** The name of the early vote site or drop off location. This field is not populated for polling locations. */
             name?: string;
