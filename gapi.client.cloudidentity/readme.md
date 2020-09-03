@@ -37,6 +37,9 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
+      // See your device details
+      'https://www.googleapis.com/auth/cloud-identity.devices.lookup',
+
       // See, change, create, and delete any of the Cloud Identity Groups that you can access, including the members of each group
       'https://www.googleapis.com/auth/cloud-identity.groups',
 
@@ -63,6 +66,36 @@ gapi.auth.authorize(
 After that you can use Cloud Identity API resources:
 
 ```typescript
+
+/*
+Cancels an unfinished device wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped. This operation is possible when the device is in a "pending wipe" state. The device enters the "pending wipe" state when a wipe device command is issued, but has not yet been sent to the device. The cancel wipe will fail if the wipe command has already been issued to the device.
+*/
+await gapi.client.cloudidentity.devices.cancelWipe({ name: "name",  });
+
+/*
+Creates a device. Only company-owned device may be created.
+*/
+await gapi.client.cloudidentity.devices.create({  });
+
+/*
+Deletes the specified device.
+*/
+await gapi.client.cloudidentity.devices.delete({ name: "name",  });
+
+/*
+Retrieves the specified device.
+*/
+await gapi.client.cloudidentity.devices.get({ name: "name",  });
+
+/*
+Lists/Searches devices.
+*/
+await gapi.client.cloudidentity.devices.list({  });
+
+/*
+Wipes all data on the specified device.
+*/
+await gapi.client.cloudidentity.devices.wipe({ name: "name",  });
 
 /*
 Creates a Group.

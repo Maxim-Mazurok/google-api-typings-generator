@@ -12,6 +12,8 @@ gapi.load('client', () => {
         /** declare client_id registered in Google Developers Console */
         const client_id = '<<PUT YOUR CLIENT ID HERE>>';
         const scope = [
+            /** See your device details */
+            'https://www.googleapis.com/auth/cloud-identity.devices.lookup',
             /** See, change, create, and delete any of the Cloud Identity Groups that you can access, including the members of each group */
             'https://www.googleapis.com/auth/cloud-identity.groups',
             /** See any Cloud Identity Groups that you can access, including group members and their emails */
@@ -31,6 +33,2277 @@ gapi.load('client', () => {
     });
 
     async function run() {
+        /**
+         * Cancels an unfinished device wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped. This operation is
+         * possible when the device is in a "pending wipe" state. The device enters the "pending wipe" state when a wipe device command is issued, but has not yet been sent to the device. The
+         * cancel wipe will fail if the wipe command has already been issued to the device.
+         */
+        await gapi.client.cloudidentity.devices.cancelWipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Approves device to access user data. */
+        await gapi.client.cloudidentity.devices.deviceUsers.approve({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Blocks device from accessing user data */
+        await gapi.client.cloudidentity.devices.deviceUsers.block({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Cancels an unfinished user account wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped. */
+        await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
+        await gapi.client.cloudidentity.devices.deviceUsers.delete({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Retrieves the specified DeviceUser */
+        await gapi.client.cloudidentity.devices.deviceUsers.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Lists/Searches DeviceUsers. */
+        await gapi.client.cloudidentity.devices.deviceUsers.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /**
+         * Looks up resource names of the DeviceUsers associated with the caller's credentials, as well as the properties provided in the request. This method must be called with end-user
+         * credentials with the scope: https://www.googleapis.com/auth/cloud-identity.devices.lookup If multiple properties are provided, only DeviceUsers having all of these properties are
+         * considered as matches - i.e. the query behaves like an AND. Different platforms require different amounts of information from the caller to ensure that the DeviceUser is uniquely
+         * identified. - iOS: No properties need to be passed, the caller's credentials are sufficient to identify the corresponding DeviceUser. - Android: Specifying the 'android_id' field is
+         * required. - Desktop: Specifying the 'raw_resource_id' field is required.
+         */
+        await gapi.client.cloudidentity.devices.deviceUsers.lookup({
+            androidId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            rawResourceId: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /**
+         * Wipes the user's account on a device. Other data on the device that is not associated with the user's work account is not affected. For example, if a Gmail app is installed on a device
+         * that is used for personal and work purposes, and the user is logged in to the Gmail app with their personal account as well as their work account, wiping the "deviceUser" by their work
+         * administrator will not affect their personal account within Gmail or other apps such as Photos.
+         */
+        await gapi.client.cloudidentity.devices.deviceUsers.wipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Creates a device. Only company-owned device may be created. */
+        await gapi.client.cloudidentity.devices.create({
+            customer: "Test string",
+        }, {
+            androidSpecificAttributes: {
+                enabledUnknownSources: true,
+                ownerProfileAccount: true,
+                ownershipPrivilege: "Test string",
+                supportsWorkProfile: true,
+            },
+            assetTag: "Test string",
+            basebandVersion: "Test string",
+            bootloaderVersion: "Test string",
+            brand: "Test string",
+            buildNumber: "Test string",
+            compromisedState: "Test string",
+            createTime: "Test string",
+            deviceType: "Test string",
+            enabledDeveloperOptions: true,
+            enabledUsbDebugging: true,
+            encryptionState: "Test string",
+            imei: "Test string",
+            kernelVersion: "Test string",
+            lastSyncTime: "Test string",
+            managementState: "Test string",
+            manufacturer: "Test string",
+            meid: "Test string",
+            model: "Test string",
+            name: "Test string",
+            networkOperator: "Test string",
+            osVersion: "Test string",
+            otherAccounts: [
+                "Test string"            ],
+            ownerType: "Test string",
+            releaseVersion: "Test string",
+            securityPatchTime: "Test string",
+            serialNumber: "Test string",
+            wifiMacAddresses: [
+                "Test string"            ],
+        });
+        /** Approves device to access user data. */
+        await gapi.client.cloudidentity.devices.deviceUsers.approve({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Blocks device from accessing user data */
+        await gapi.client.cloudidentity.devices.deviceUsers.block({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Cancels an unfinished user account wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped. */
+        await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
+        await gapi.client.cloudidentity.devices.deviceUsers.delete({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Retrieves the specified DeviceUser */
+        await gapi.client.cloudidentity.devices.deviceUsers.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Lists/Searches DeviceUsers. */
+        await gapi.client.cloudidentity.devices.deviceUsers.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /**
+         * Looks up resource names of the DeviceUsers associated with the caller's credentials, as well as the properties provided in the request. This method must be called with end-user
+         * credentials with the scope: https://www.googleapis.com/auth/cloud-identity.devices.lookup If multiple properties are provided, only DeviceUsers having all of these properties are
+         * considered as matches - i.e. the query behaves like an AND. Different platforms require different amounts of information from the caller to ensure that the DeviceUser is uniquely
+         * identified. - iOS: No properties need to be passed, the caller's credentials are sufficient to identify the corresponding DeviceUser. - Android: Specifying the 'android_id' field is
+         * required. - Desktop: Specifying the 'raw_resource_id' field is required.
+         */
+        await gapi.client.cloudidentity.devices.deviceUsers.lookup({
+            androidId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            rawResourceId: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /**
+         * Wipes the user's account on a device. Other data on the device that is not associated with the user's work account is not affected. For example, if a Gmail app is installed on a device
+         * that is used for personal and work purposes, and the user is logged in to the Gmail app with their personal account as well as their work account, wiping the "deviceUser" by their work
+         * administrator will not affect their personal account within Gmail or other apps such as Photos.
+         */
+        await gapi.client.cloudidentity.devices.deviceUsers.wipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Deletes the specified device. */
+        await gapi.client.cloudidentity.devices.delete({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Approves device to access user data. */
+        await gapi.client.cloudidentity.devices.deviceUsers.approve({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Blocks device from accessing user data */
+        await gapi.client.cloudidentity.devices.deviceUsers.block({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Cancels an unfinished user account wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped. */
+        await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
+        await gapi.client.cloudidentity.devices.deviceUsers.delete({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Retrieves the specified DeviceUser */
+        await gapi.client.cloudidentity.devices.deviceUsers.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Lists/Searches DeviceUsers. */
+        await gapi.client.cloudidentity.devices.deviceUsers.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /**
+         * Looks up resource names of the DeviceUsers associated with the caller's credentials, as well as the properties provided in the request. This method must be called with end-user
+         * credentials with the scope: https://www.googleapis.com/auth/cloud-identity.devices.lookup If multiple properties are provided, only DeviceUsers having all of these properties are
+         * considered as matches - i.e. the query behaves like an AND. Different platforms require different amounts of information from the caller to ensure that the DeviceUser is uniquely
+         * identified. - iOS: No properties need to be passed, the caller's credentials are sufficient to identify the corresponding DeviceUser. - Android: Specifying the 'android_id' field is
+         * required. - Desktop: Specifying the 'raw_resource_id' field is required.
+         */
+        await gapi.client.cloudidentity.devices.deviceUsers.lookup({
+            androidId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            rawResourceId: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /**
+         * Wipes the user's account on a device. Other data on the device that is not associated with the user's work account is not affected. For example, if a Gmail app is installed on a device
+         * that is used for personal and work purposes, and the user is logged in to the Gmail app with their personal account as well as their work account, wiping the "deviceUser" by their work
+         * administrator will not affect their personal account within Gmail or other apps such as Photos.
+         */
+        await gapi.client.cloudidentity.devices.deviceUsers.wipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Retrieves the specified device. */
+        await gapi.client.cloudidentity.devices.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Approves device to access user data. */
+        await gapi.client.cloudidentity.devices.deviceUsers.approve({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Blocks device from accessing user data */
+        await gapi.client.cloudidentity.devices.deviceUsers.block({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Cancels an unfinished user account wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped. */
+        await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
+        await gapi.client.cloudidentity.devices.deviceUsers.delete({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Retrieves the specified DeviceUser */
+        await gapi.client.cloudidentity.devices.deviceUsers.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Lists/Searches DeviceUsers. */
+        await gapi.client.cloudidentity.devices.deviceUsers.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /**
+         * Looks up resource names of the DeviceUsers associated with the caller's credentials, as well as the properties provided in the request. This method must be called with end-user
+         * credentials with the scope: https://www.googleapis.com/auth/cloud-identity.devices.lookup If multiple properties are provided, only DeviceUsers having all of these properties are
+         * considered as matches - i.e. the query behaves like an AND. Different platforms require different amounts of information from the caller to ensure that the DeviceUser is uniquely
+         * identified. - iOS: No properties need to be passed, the caller's credentials are sufficient to identify the corresponding DeviceUser. - Android: Specifying the 'android_id' field is
+         * required. - Desktop: Specifying the 'raw_resource_id' field is required.
+         */
+        await gapi.client.cloudidentity.devices.deviceUsers.lookup({
+            androidId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            rawResourceId: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /**
+         * Wipes the user's account on a device. Other data on the device that is not associated with the user's work account is not affected. For example, if a Gmail app is installed on a device
+         * that is used for personal and work purposes, and the user is logged in to the Gmail app with their personal account as well as their work account, wiping the "deviceUser" by their work
+         * administrator will not affect their personal account within Gmail or other apps such as Photos.
+         */
+        await gapi.client.cloudidentity.devices.deviceUsers.wipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Lists/Searches devices. */
+        await gapi.client.cloudidentity.devices.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            view: "Test string",
+        });
+        /** Approves device to access user data. */
+        await gapi.client.cloudidentity.devices.deviceUsers.approve({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Blocks device from accessing user data */
+        await gapi.client.cloudidentity.devices.deviceUsers.block({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Cancels an unfinished user account wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped. */
+        await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
+        await gapi.client.cloudidentity.devices.deviceUsers.delete({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Retrieves the specified DeviceUser */
+        await gapi.client.cloudidentity.devices.deviceUsers.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Lists/Searches DeviceUsers. */
+        await gapi.client.cloudidentity.devices.deviceUsers.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /**
+         * Looks up resource names of the DeviceUsers associated with the caller's credentials, as well as the properties provided in the request. This method must be called with end-user
+         * credentials with the scope: https://www.googleapis.com/auth/cloud-identity.devices.lookup If multiple properties are provided, only DeviceUsers having all of these properties are
+         * considered as matches - i.e. the query behaves like an AND. Different platforms require different amounts of information from the caller to ensure that the DeviceUser is uniquely
+         * identified. - iOS: No properties need to be passed, the caller's credentials are sufficient to identify the corresponding DeviceUser. - Android: Specifying the 'android_id' field is
+         * required. - Desktop: Specifying the 'raw_resource_id' field is required.
+         */
+        await gapi.client.cloudidentity.devices.deviceUsers.lookup({
+            androidId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            rawResourceId: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /**
+         * Wipes the user's account on a device. Other data on the device that is not associated with the user's work account is not affected. For example, if a Gmail app is installed on a device
+         * that is used for personal and work purposes, and the user is logged in to the Gmail app with their personal account as well as their work account, wiping the "deviceUser" by their work
+         * administrator will not affect their personal account within Gmail or other apps such as Photos.
+         */
+        await gapi.client.cloudidentity.devices.deviceUsers.wipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Wipes all data on the specified device. */
+        await gapi.client.cloudidentity.devices.wipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Approves device to access user data. */
+        await gapi.client.cloudidentity.devices.deviceUsers.approve({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Blocks device from accessing user data */
+        await gapi.client.cloudidentity.devices.deviceUsers.block({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Cancels an unfinished user account wipe. This operation can be used to cancel device wipe in the gap between the wipe operation returning success and the device being wiped. */
+        await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
+        await gapi.client.cloudidentity.devices.deviceUsers.delete({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Retrieves the specified DeviceUser */
+        await gapi.client.cloudidentity.devices.deviceUsers.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /** Lists/Searches DeviceUsers. */
+        await gapi.client.cloudidentity.devices.deviceUsers.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /**
+         * Looks up resource names of the DeviceUsers associated with the caller's credentials, as well as the properties provided in the request. This method must be called with end-user
+         * credentials with the scope: https://www.googleapis.com/auth/cloud-identity.devices.lookup If multiple properties are provided, only DeviceUsers having all of these properties are
+         * considered as matches - i.e. the query behaves like an AND. Different platforms require different amounts of information from the caller to ensure that the DeviceUser is uniquely
+         * identified. - iOS: No properties need to be passed, the caller's credentials are sufficient to identify the corresponding DeviceUser. - Android: Specifying the 'android_id' field is
+         * required. - Desktop: Specifying the 'raw_resource_id' field is required.
+         */
+        await gapi.client.cloudidentity.devices.deviceUsers.lookup({
+            androidId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            rawResourceId: "Test string",
+            userId: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
+        /**
+         * Wipes the user's account on a device. Other data on the device that is not associated with the user's work account is not affected. For example, if a Gmail app is installed on a device
+         * that is used for personal and work purposes, and the user is logged in to the Gmail app with their personal account as well as their work account, wiping the "deviceUser" by their work
+         * administrator will not affect their personal account within Gmail or other apps such as Photos.
+         */
+        await gapi.client.cloudidentity.devices.deviceUsers.wipe({
+            name: "Test string",
+        }, {
+            customer: "Test string",
+        });
+        /** Gets the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
+            customer: "Test string",
+            name: "Test string",
+        });
+        /** Lists the client states for the given search query. */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.list({
+            customer: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the client state for the device user */
+        await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
+            customer: "Test string",
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            assetTags: [
+                "Test string"            ],
+            complianceState: "Test string",
+            createTime: "Test string",
+            customId: "Test string",
+            etag: "Test string",
+            healthScore: "Test string",
+            keyValuePairs: {
+                A: {
+                    boolValue: true,
+                    numberValue: 42,
+                    stringValue: "Test string",
+                }            },
+            lastUpdateTime: "Test string",
+            managed: "Test string",
+            name: "Test string",
+            ownerType: "Test string",
+            scoreReason: "Test string",
+        });
         /** Creates a Group. */
         await gapi.client.cloudidentity.groups.create({
         }, {
