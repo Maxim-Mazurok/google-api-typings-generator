@@ -16,6 +16,16 @@ gapi.load('client', () => {
         await gapi.client.admob.accounts.get({
             name: "Test string",
         });
+        /** Retrieves the specified app. */
+        await gapi.client.admob.accounts.apps.get({
+            name: "Test string",
+        });
+        /** List the apps under the specified AdMob account. */
+        await gapi.client.admob.accounts.apps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
         /** Generates an AdMob Mediation report based on the provided report specification. */
         await gapi.client.admob.accounts.mediationReport.generate({
             parent: "Test string",
@@ -106,6 +116,16 @@ gapi.load('client', () => {
         await gapi.client.admob.accounts.list({
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /** Retrieves the specified app. */
+        await gapi.client.admob.accounts.apps.get({
+            name: "Test string",
+        });
+        /** List the apps under the specified AdMob account. */
+        await gapi.client.admob.accounts.apps.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Generates an AdMob Mediation report based on the provided report specification. */
         await gapi.client.admob.accounts.mediationReport.generate({
