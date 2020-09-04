@@ -52,6 +52,7 @@ gapi.load('client', () => {
             policy: {
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
