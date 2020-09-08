@@ -15,13 +15,13 @@ export class GitHelpers {
 
   onlyRevisionChanged = async (type: string): Promise<boolean> => {
     const cmd = `git diff master..origin/${type} --unified=0 types/${type}/*`;
-    const diff = (await this.git.sh.trySh(cmd)).stdout;
-    return (
-      diff.split('\n').length === 15 &&
-      new RegExp(
-        `^-${revisionPrefix}\\d{8}\\n\\+${revisionPrefix}\\d{8}\\n(.*\\n){5}-${revisionPrefix}\\d{8}\\n\\+${revisionPrefix}\\d{8}$`
-      ).test(diff)
+    const diff = (await this.git.sh.trySh(cmd)).stdout
+      .split('\n')
+      .filter(x => /^[+-]/.test(x) && !/^[+-]{3}/.test(x));
+    const nonRevisionDiff = diff.filter(
+      x => !new RegExp(`^[-+]${revisionPrefix}\\d{8}`).test(x)
     );
+    return nonRevisionDiff.length === 0;
   };
 
   setConfig = async (): Promise<void> => {
