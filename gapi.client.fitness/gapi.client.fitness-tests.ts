@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200902
+// Revision: 20200907
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -47,9 +47,9 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/fitness.oxygen_saturation.read',
             /** See and add info about your oxygen saturation in Google Fit. I consent to Google sharing my oxygen saturation information with this app. */
             'https://www.googleapis.com/auth/fitness.oxygen_saturation.write',
-            /** See info about your reproductive health in Google Fit. I consent to Google sharing my reporductive health information with this app. */
+            /** See info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app. */
             'https://www.googleapis.com/auth/fitness.reproductive_health.read',
-            /** See and add info about your reproductive health in Google Fit. I consent to Google sharing my reporductive health information with this app. */
+            /** See and add info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app. */
             'https://www.googleapis.com/auth/fitness.reproductive_health.write',
         ];
         const immediate = false;
