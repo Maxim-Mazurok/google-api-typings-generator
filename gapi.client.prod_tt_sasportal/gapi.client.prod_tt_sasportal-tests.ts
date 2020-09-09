@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200901
+// Revision: 20200908
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -33,6 +33,134 @@ gapi.load('client', () => {
         /** Returns a requested customer. */
         await gapi.client.prod_tt_sasportal.customers.get({
             name: "Test string",
+        });
+        /** Moves a deployment under another node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.deployments.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
+        });
+        /** Creates a device under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.deployments.devices.create({
+            parent: "Test string",
+        }, {
+            activeConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    cpeCbsdIndication: true,
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            deviceMetadata: {
+            },
+            displayName: "Test string",
+            fccId: "Test string",
+            grants: [
+                {
+                    channelType: "Test string",
+                    expireTime: "Test string",
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    grantId: "Test string",
+                    maxEirp: 42,
+                    moveList: [
+                        {
+                            dpaId: "Test string",
+                            frequencyRange: {
+                                highFrequencyMhz: 42,
+                                lowFrequencyMhz: 42,
+                            },
+                        }                    ],
+                    state: "Test string",
+                    suspensionReason: [
+                        "Test string"                    ],
+                }            ],
+            name: "Test string",
+            preloadedConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    cpeCbsdIndication: true,
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            serialNumber: "Test string",
+            state: "Test string",
+        });
+        /** Creates a signed device under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.deployments.devices.createSigned({
+            parent: "Test string",
+        }, {
+            encodedDevice: "Test string",
+            installerId: "Test string",
+        });
+        /** Lists devices under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.deployments.devices.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.customers.devices.bulk({
@@ -535,6 +663,134 @@ gapi.load('client', () => {
         await gapi.client.prod_tt_sasportal.customers.list({
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /** Moves a deployment under another node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.deployments.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
+        });
+        /** Creates a device under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.deployments.devices.create({
+            parent: "Test string",
+        }, {
+            activeConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    cpeCbsdIndication: true,
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            deviceMetadata: {
+            },
+            displayName: "Test string",
+            fccId: "Test string",
+            grants: [
+                {
+                    channelType: "Test string",
+                    expireTime: "Test string",
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    grantId: "Test string",
+                    maxEirp: 42,
+                    moveList: [
+                        {
+                            dpaId: "Test string",
+                            frequencyRange: {
+                                highFrequencyMhz: 42,
+                                lowFrequencyMhz: 42,
+                            },
+                        }                    ],
+                    state: "Test string",
+                    suspensionReason: [
+                        "Test string"                    ],
+                }            ],
+            name: "Test string",
+            preloadedConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    cpeCbsdIndication: true,
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            serialNumber: "Test string",
+            state: "Test string",
+        });
+        /** Creates a signed device under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.deployments.devices.createSigned({
+            parent: "Test string",
+        }, {
+            encodedDevice: "Test string",
+            installerId: "Test string",
+        });
+        /** Lists devices under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.deployments.devices.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.customers.devices.bulk({
@@ -1042,6 +1298,134 @@ gapi.load('client', () => {
             name: "Test string",
             sasUserIds: [
                 "Test string"            ],
+        });
+        /** Moves a deployment under another node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.deployments.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
+        });
+        /** Creates a device under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.deployments.devices.create({
+            parent: "Test string",
+        }, {
+            activeConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    cpeCbsdIndication: true,
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            deviceMetadata: {
+            },
+            displayName: "Test string",
+            fccId: "Test string",
+            grants: [
+                {
+                    channelType: "Test string",
+                    expireTime: "Test string",
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    grantId: "Test string",
+                    maxEirp: 42,
+                    moveList: [
+                        {
+                            dpaId: "Test string",
+                            frequencyRange: {
+                                highFrequencyMhz: 42,
+                                lowFrequencyMhz: 42,
+                            },
+                        }                    ],
+                    state: "Test string",
+                    suspensionReason: [
+                        "Test string"                    ],
+                }            ],
+            name: "Test string",
+            preloadedConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    cpeCbsdIndication: true,
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            serialNumber: "Test string",
+            state: "Test string",
+        });
+        /** Creates a signed device under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.deployments.devices.createSigned({
+            parent: "Test string",
+        }, {
+            encodedDevice: "Test string",
+            installerId: "Test string",
+        });
+        /** Lists devices under a node or customer. */
+        await gapi.client.prod_tt_sasportal.customers.deployments.devices.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.customers.devices.bulk({
@@ -1554,6 +1938,134 @@ gapi.load('client', () => {
         /** Returns a requested node. */
         await gapi.client.prod_tt_sasportal.nodes.get({
             name: "Test string",
+        });
+        /** Moves a deployment under another node or customer. */
+        await gapi.client.prod_tt_sasportal.nodes.deployments.move({
+            name: "Test string",
+        }, {
+            destination: "Test string",
+        });
+        /** Creates a device under a node or customer. */
+        await gapi.client.prod_tt_sasportal.nodes.deployments.devices.create({
+            parent: "Test string",
+        }, {
+            activeConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    cpeCbsdIndication: true,
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            deviceMetadata: {
+            },
+            displayName: "Test string",
+            fccId: "Test string",
+            grants: [
+                {
+                    channelType: "Test string",
+                    expireTime: "Test string",
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    grantId: "Test string",
+                    maxEirp: 42,
+                    moveList: [
+                        {
+                            dpaId: "Test string",
+                            frequencyRange: {
+                                highFrequencyMhz: 42,
+                                lowFrequencyMhz: 42,
+                            },
+                        }                    ],
+                    state: "Test string",
+                    suspensionReason: [
+                        "Test string"                    ],
+                }            ],
+            name: "Test string",
+            preloadedConfig: {
+                airInterface: {
+                    radioTechnology: "Test string",
+                    supportedSpec: "Test string",
+                },
+                callSign: "Test string",
+                category: "Test string",
+                installationParams: {
+                    antennaAzimuth: 42,
+                    antennaBeamwidth: 42,
+                    antennaDowntilt: 42,
+                    antennaGain: 42,
+                    antennaModel: "Test string",
+                    cpeCbsdIndication: true,
+                    eirpCapability: 42,
+                    height: 42,
+                    heightType: "Test string",
+                    horizontalAccuracy: 42,
+                    indoorDeployment: true,
+                    latitude: 42,
+                    longitude: 42,
+                    verticalAccuracy: 42,
+                },
+                isSigned: true,
+                measurementCapabilities: [
+                    "Test string"                ],
+                model: {
+                    firmwareVersion: "Test string",
+                    hardwareVersion: "Test string",
+                    name: "Test string",
+                    softwareVersion: "Test string",
+                    vendor: "Test string",
+                },
+                state: "Test string",
+                updateTime: "Test string",
+                userId: "Test string",
+            },
+            serialNumber: "Test string",
+            state: "Test string",
+        });
+        /** Creates a signed device under a node or customer. */
+        await gapi.client.prod_tt_sasportal.nodes.deployments.devices.createSigned({
+            parent: "Test string",
+        }, {
+            encodedDevice: "Test string",
+            installerId: "Test string",
+        });
+        /** Lists devices under a node or customer. */
+        await gapi.client.prod_tt_sasportal.nodes.deployments.devices.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Creates a device under a node or customer. Returned devices are unordered. */
         await gapi.client.prod_tt_sasportal.nodes.devices.bulk({
