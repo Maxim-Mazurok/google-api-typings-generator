@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200826
+// Revision: 20200903
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -2219,6 +2219,9 @@ gapi.load('client', () => {
         }, {
             id: "Test string",
             name: "Test string",
+            networkSettings: {
+                ingressTrafficAllowed: "Test string",
+            },
             split: {
                 allocations: {
                     A: 42                },
@@ -5033,6 +5036,9 @@ gapi.load('client', () => {
         }, {
             id: "Test string",
             name: "Test string",
+            networkSettings: {
+                ingressTrafficAllowed: "Test string",
+            },
             split: {
                 allocations: {
                     A: 42                },
@@ -7879,6 +7885,9 @@ gapi.load('client', () => {
         }, {
             id: "Test string",
             name: "Test string",
+            networkSettings: {
+                ingressTrafficAllowed: "Test string",
+            },
             split: {
                 allocations: {
                     A: 42                },
@@ -10700,6 +10709,9 @@ gapi.load('client', () => {
         }, {
             id: "Test string",
             name: "Test string",
+            networkSettings: {
+                ingressTrafficAllowed: "Test string",
+            },
             split: {
                 allocations: {
                     A: 42                },
