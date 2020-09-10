@@ -7,7 +7,7 @@ import {TypesBranchAndDirSettings} from './auto-update';
 const pathToTypes = resolve(process.cwd(), process.argv[2]);
 
 const settings: GitSettings & TypesBranchAndDirSettings = {
-  user: 'google-api-typings-generator',
+  user: 'Maxim-Mazurok',
   auth: process.env.GH_AUTH_TOKEN || '', // token is optional
   thisRepo: 'google-api-typings-generator',
   typesBranchName: 'types',

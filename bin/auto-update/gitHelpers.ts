@@ -83,6 +83,9 @@ export class GitHelpers {
     }
   };
 
+  /**
+   * @param gapiTypeName - gapi.client.*
+   */
   pushAndOpenPRIfItDoesNotExistAndIfNotOnlyRevisionChanged = async (
     gapiTypeName: string
   ): Promise<void> => {
@@ -91,6 +94,7 @@ export class GitHelpers {
       dtRepoOwner: owner,
       dtRepoName: repo,
       thisRepo,
+      authBot: openPrToken,
     } = this.settings;
 
     if (!this.openPRBranches) {
@@ -116,12 +120,14 @@ export class GitHelpers {
 
     try {
       await this.git.octokit.pulls.create({
+        headers: {
+          authorization: `token ${openPrToken}`,
+        },
         owner,
         repo,
         title: `[${gapiTypeName}] automatic update`,
         head: `${user}:${gapiTypeName}`,
         base: 'master',
-        // TODO: check for updates in the template (using retrieveCommunityProfileMetrics from black-panther-preview, maybe) but it doesn't seem to be updated often
         body: `
   - [x] Use a meaningful title for the pull request. Include the name of the package modified.
   - [x] Test the change in your own code. (Compile and run.)
