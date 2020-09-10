@@ -26,8 +26,8 @@ export class GitHelpers {
 
   setConfig = async (): Promise<void> => {
     const {userEmail, userName} = this.settings;
-    await this.git.sh.trySh(`git config --global user.email "${userEmail}"`);
-    await this.git.sh.trySh(`git config --global user.name "${userName}"`);
+    await this.git.sh.trySh(`git config --local user.email "${userEmail}"`);
+    await this.git.sh.trySh(`git config --local user.name "${userName}"`);
   };
 
   checkForTemplateUpdate = async (): Promise<void> => {
