@@ -10,6 +10,10 @@ if (!process.env.GH_AUTH_TOKEN) {
   throw new Error('Please, set env var: GH_AUTH_TOKEN');
 }
 
+if (!process.env.GH_AUTH_TOKEN_BOT) {
+  throw new Error('Please, set env var: GH_AUTH_TOKEN_BOT');
+}
+
 export interface TypesBranchAndDirSettings {
   typesDirName: string; // directory name in DT
   typesBranchName: string; // branch name where generated types are in the generator repo
@@ -24,6 +28,7 @@ export interface Settings extends GitSettings, TypesBranchAndDirSettings {
   dtRepoName: string; // DefinitelyTyped repo name only
   pullRequestTemplateSHA: string; // SHA of PULL_REQUEST_TEMPLATE.md file from DT
   templateUpdateLabel: string; // label for issues regarding PR template update
+  authBot: string; // GH token for bot account (that will open PRs) with public_repo access
 }
 
 const settings: Settings = {
@@ -31,10 +36,11 @@ const settings: Settings = {
   typesDirName: 'types',
   tempTypesDirName: 'temp-types',
   typesBranchName: 'types',
-  user: 'google-api-typings-generator',
-  userEmail: 'google-api-typings-generator@mazurok.com',
+  user: 'Maxim-Mazurok',
+  userEmail: 'maxim@mazurok.com',
   userName: 'Google API Typings Generator',
   auth: process.env.GH_AUTH_TOKEN,
+  authBot: process.env.GH_AUTH_TOKEN_BOT,
   dtRepoOwner: 'DefinitelyTyped',
   dtRepoName: 'DefinitelyTyped',
   thisRepo: 'google-api-typings-generator',
