@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200726
+// Revision: 20200809
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -16,9 +16,8 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Searches Knowledge Graph for entities that match the constraints.
-         * A list of matched entities will be returned in response, which will be in
-         * JSON-LD format and compatible with http://schema.org
+         * Searches Knowledge Graph for entities that match the constraints. A list of matched entities will be returned in response, which will be in JSON-LD format and compatible with
+         * http://schema.org
          */
         await gapi.client.kgsearch.entities.search({
             ids: "Test string",
