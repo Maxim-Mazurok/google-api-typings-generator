@@ -2,7 +2,7 @@ import {SH} from './sh';
 import {basename, parse} from 'path';
 import parseGitStatus from 'parse-git-status';
 import {Octokit} from '@octokit/rest';
-import {getTmpBranchName} from './helpers';
+import {getTmpBranchName, createOctokit} from './helpers';
 import {TYPE_PREFIX} from '../../src/utils';
 
 export interface Settings {
@@ -22,11 +22,7 @@ export class Git {
 
     const {user, auth, thisRepo} = this.settings;
 
-    this.octokit = new Octokit({
-      auth,
-      userAgent: `${user}/${thisRepo}`,
-      timeZone: 'UTC',
-    });
+    this.octokit = createOctokit({auth, user, thisRepo});
   }
 
   get100LatestOpenPRs = async (

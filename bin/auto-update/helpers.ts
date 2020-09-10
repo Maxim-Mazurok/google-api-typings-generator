@@ -3,9 +3,20 @@ import {Git} from './git';
 import {Settings} from './index';
 import {ensureDirectoryExists} from '../../src/utils';
 import {join} from 'path';
+import {Octokit} from '@octokit/rest';
 
 export const getTmpBranchName = (type: string): string => `${type}-tmp`;
 
+export const createOctokit = ({
+  auth,
+  user,
+  thisRepo,
+}: Pick<Settings, 'auth' | 'user' | 'thisRepo'>) =>
+  new Octokit({
+    auth,
+    userAgent: `${user}/${thisRepo}`,
+    timeZone: 'UTC',
+  });
 export class Helpers {
   readonly sh: SH;
   readonly git: Git;

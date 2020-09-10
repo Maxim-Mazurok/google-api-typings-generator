@@ -2,6 +2,7 @@ import {join} from 'path';
 import {Settings} from './index';
 import {Git} from './git';
 import {revisionPrefix} from '../../src/app';
+import {createOctokit} from './helpers';
 
 export class GitHelpers {
   readonly settings: Settings;
@@ -94,7 +95,7 @@ export class GitHelpers {
       dtRepoOwner: owner,
       dtRepoName: repo,
       thisRepo,
-      authBot: openPrToken,
+      authBot,
     } = this.settings;
 
     if (!this.openPRBranches) {
@@ -119,10 +120,8 @@ export class GitHelpers {
     console.log(`Opening PR for ${gapiTypeName}...`);
 
     try {
-      await this.git.octokit.pulls.create({
-        headers: {
-          authorization: `token ${openPrToken}`,
-        },
+      const octokit = createOctokit({auth: authBot, user, thisRepo});
+      await octokit.pulls.create({
         owner,
         repo,
         title: `[${gapiTypeName}] automatic update`,
