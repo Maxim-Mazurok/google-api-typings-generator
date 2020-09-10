@@ -28,7 +28,7 @@ export interface Settings extends GitSettings, TypesBranchAndDirSettings {
   dtRepoName: string; // DefinitelyTyped repo name only
   pullRequestTemplateSHA: string; // SHA of PULL_REQUEST_TEMPLATE.md file from DT
   templateUpdateLabel: string; // label for issues regarding PR template update
-  authBot: string; // GH token for bot account (that will open PRs) with public_repo access
+  authBot: string; // GH token for bot account (that will open PRs) with public_repo access and with collaborator access to the DT fork
 }
 
 const settings: Settings = {
