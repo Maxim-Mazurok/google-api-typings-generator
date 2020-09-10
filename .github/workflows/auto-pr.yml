@@ -28,3 +28,4 @@ jobs:
         run: npm run auto-update
         env:
           GH_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}
+          GH_AUTH_TOKEN_BOT: ${{ secrets.GH_AUTH_TOKEN_BOT }}
