@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200904
+// Revision: 20200905
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -622,7 +622,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -726,7 +726,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -830,7 +830,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -934,7 +934,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -1114,7 +1114,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -1218,7 +1218,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -1322,7 +1322,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -1426,7 +1426,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -3675,7 +3675,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -3779,7 +3779,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -3883,7 +3883,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -3987,7 +3987,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -4167,7 +4167,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -4271,7 +4271,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -4375,7 +4375,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -4479,7 +4479,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -6733,7 +6733,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -6837,7 +6837,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -6941,7 +6941,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -7045,7 +7045,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -7225,7 +7225,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -7329,7 +7329,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -7433,7 +7433,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
@@ -7537,7 +7537,7 @@ gapi.load('client', () => {
         }, {
         });
         /**
-         * Adds one or more trials to a study, with parameter values suggested by AI Platform Optimizer. Returns a long-running operation associated with the generation of trial suggestions. When
+         * Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When
          * this long-running operation succeeds, it will contain a SuggestTrialsResponse.
          */
         await gapi.client.ml.projects.locations.studies.trials.suggest({
