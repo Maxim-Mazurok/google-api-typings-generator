@@ -17,6 +17,9 @@ export const createOctokit = ({
     userAgent: `${user}/${thisRepo}`,
     timeZone: 'UTC',
   });
+
+export const timeout = (ms: number) =>
+  new Promise(resolve => setTimeout(resolve, ms));
 export class Helpers {
   readonly sh: SH;
   readonly git: Git;

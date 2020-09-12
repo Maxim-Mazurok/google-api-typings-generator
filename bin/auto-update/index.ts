@@ -1,7 +1,7 @@
 import {join, resolve} from 'path';
 import {SH} from './sh';
 import {Git, Settings as GitSettings} from './git';
-import {Helpers, getTmpBranchName} from './helpers';
+import {Helpers, getTmpBranchName, timeout} from './helpers';
 import {GitHelpers} from './gitHelpers';
 import {TYPE_PREFIX} from '../../src/utils';
 import {supportedApis} from './config';
@@ -115,25 +115,23 @@ process.on('unhandledRejection', reason => {
       continue;
     }
 
-    await gitHelpers.pushAndOpenPRIfItDoesNotExistAndIfNotOnlyRevisionChanged(
+    const pullNumber = await gitHelpers.pushAndOpenPRIfItDoesNotExistAndIfNotOnlyRevisionChanged(
       type
     );
-  }
-
-  // approve and merge PRs
-  const pullsWaitingForApproval = await git.get100LatestPRsWaitingForReview(
-    settings.dtRepoOwner,
-    settings.dtRepoName,
-    settings.user,
-    settings.botUser
-  );
-  for (const pullNumber of pullsWaitingForApproval) {
-    await git.approvePR(settings.dtRepoOwner, settings.dtRepoName, pullNumber);
-    await git.commentReadyToMerge(
-      settings.dtRepoOwner,
-      settings.dtRepoName,
-      pullNumber
-    );
+    if (pullNumber) {
+      // approve and merge PRs
+      await git.approvePR(
+        settings.dtRepoOwner,
+        settings.dtRepoName,
+        pullNumber
+      );
+      await timeout(1500); // comment should have Date after approval
+      await git.commentReadyToMerge(
+        settings.dtRepoOwner,
+        settings.dtRepoName,
+        pullNumber
+      );
+    }
   }
 
   await gitHelpers.checkForTemplateUpdate();

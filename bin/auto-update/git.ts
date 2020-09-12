@@ -70,53 +70,9 @@ export class Git {
     return forkBranches;
   };
 
-  get100LatestPRsWaitingForReview = async (
-    owner: string,
-    repo: string,
-    reviewer: string, // Maxim-Mazurok
-    botUser: string
-  ): Promise<number[]> => {
-    const maxResults = 100;
-    const result = await this.octokit.graphql<{
-      search: {
-        edges: {
-          node: {number: number};
-        }[];
-        pageInfo: {hasNextPage: Boolean};
-      };
-    }>({
-      query: `query lastOpenPRsWaitingForReview($searchQuery:String!, $maxResults: Int = 100)
-      {
-        search(query: $searchQuery, type: ISSUE, first: $maxResults) {
-          edges {
-            node {
-              ... on PullRequest {
-                number
-              }
-            }
-          }
-          pageInfo {
-            hasNextPage
-          }
-        }
-      }
-    `,
-      searchQuery: `author:${botUser} repo:${owner}/${repo} is:pr is:open -reviewed-by:${reviewer}`,
-      maxResults,
-    });
-
-    if (result.search.pageInfo.hasNextPage) {
-      throw Error(
-        `Can't get more than ${maxResults} open PRs waiting for review: pagination is not implemented`
-      );
-    }
-
-    const pullNumbers = result.search.edges.map(x => x.node.number);
-
-    return pullNumbers;
-  };
-
   approvePR = async (owner: string, repo: string, pullNumber: number) => {
+    console.log(`Approving PR #${pullNumber}...`);
+
     const reviewId = (
       await this.octokit.pulls.createReview({
         owner,
@@ -139,6 +95,8 @@ export class Git {
     repo: string,
     pullNumber: number
   ) => {
+    console.log(`Commenting "Ready to merge" on PR #${pullNumber}...`);
+
     await this.octokit.issues.createComment({
       repo,
       owner,
