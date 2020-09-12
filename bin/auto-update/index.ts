@@ -1,7 +1,7 @@
 import {join, resolve} from 'path';
 import {SH} from './sh';
 import {Git, Settings as GitSettings} from './git';
-import {Helpers, getTmpBranchName} from './helpers';
+import {Helpers, getTmpBranchName, timeout} from './helpers';
 import {GitHelpers} from './gitHelpers';
 import {TYPE_PREFIX} from '../../src/utils';
 import {supportedApis} from './config';
@@ -29,6 +29,7 @@ export interface Settings extends GitSettings, TypesBranchAndDirSettings {
   pullRequestTemplateSHA: string; // SHA of PULL_REQUEST_TEMPLATE.md file from DT
   templateUpdateLabel: string; // label for issues regarding PR template update
   authBot: string; // GH token for bot account (that will open PRs) with public_repo access and with collaborator access to the DT fork
+  botUser: string; // bot account username (that will open PRs)
 }
 
 const settings: Settings = {
@@ -38,8 +39,9 @@ const settings: Settings = {
   typesBranchName: 'types',
   user: 'Maxim-Mazurok',
   userEmail: 'maxim@mazurok.com',
-  userName: 'Google API Typings Generator',
+  userName: 'Maxim Mazurok',
   auth: process.env.GH_AUTH_TOKEN,
+  botUser: 'google-api-typings-generator',
   authBot: process.env.GH_AUTH_TOKEN_BOT,
   dtRepoOwner: 'DefinitelyTyped',
   dtRepoName: 'DefinitelyTyped',
@@ -113,9 +115,23 @@ process.on('unhandledRejection', reason => {
       continue;
     }
 
-    await gitHelpers.pushAndOpenPRIfItDoesNotExistAndIfNotOnlyRevisionChanged(
+    const pullNumber = await gitHelpers.pushAndOpenPRIfItDoesNotExistAndIfNotOnlyRevisionChanged(
       type
     );
+    if (pullNumber) {
+      // approve and merge PRs
+      await git.approvePR(
+        settings.dtRepoOwner,
+        settings.dtRepoName,
+        pullNumber
+      );
+      await timeout(1500); // comment should have Date after approval
+      await git.commentReadyToMerge(
+        settings.dtRepoOwner,
+        settings.dtRepoName,
+        pullNumber
+      );
+    }
   }
 
   await gitHelpers.checkForTemplateUpdate();

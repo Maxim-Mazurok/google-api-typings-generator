@@ -89,7 +89,7 @@ export class GitHelpers {
    */
   pushAndOpenPRIfItDoesNotExistAndIfNotOnlyRevisionChanged = async (
     gapiTypeName: string
-  ): Promise<void> => {
+  ): Promise<number | void> => {
     const {
       user,
       dtRepoOwner: owner,
@@ -121,13 +121,14 @@ export class GitHelpers {
 
     try {
       const octokit = createOctokit({auth: authBot, user, thisRepo});
-      await octokit.pulls.create({
-        owner,
-        repo,
-        title: `[${gapiTypeName}] automatic update`,
-        head: `${user}:${gapiTypeName}`,
-        base: 'master',
-        body: `
+      return (
+        await octokit.pulls.create({
+          owner,
+          repo,
+          title: `[${gapiTypeName}] automatic update`,
+          head: `${user}:${gapiTypeName}`,
+          base: 'master',
+          body: `
   - [x] Use a meaningful title for the pull request. Include the name of the package modified.
   - [x] Test the change in your own code. (Compile and run.)
   - [x] Add or edit tests to reflect the change. (Run with \`npm test\`.)
@@ -151,7 +152,8 @@ export class GitHelpers {
 
   Note you can also [use these types](https://github.com/${user}/${thisRepo}/issues/85#issuecomment-601133279) from our [\`types\` branch](https://github.com/${user}/${thisRepo}/tree/types) which is updated hourly.
   `,
-      });
+        })
+      ).data.number;
     } catch (e) {
       if (
         e &&

@@ -6,7 +6,7 @@ import {getTmpBranchName, createOctokit} from './helpers';
 import {TYPE_PREFIX} from '../../src/utils';
 
 export interface Settings {
-  user: string; // user who submits PRs to DT
+  user: string; // user who commits
   auth: string; // GH token with public_repo access
   thisRepo: string; // repo form where API calls to GH will be made
 }
@@ -68,6 +68,41 @@ export class Git {
     const forkBranches = result.search.edges.map(x => x.node.headRefName);
 
     return forkBranches;
+  };
+
+  approvePR = async (owner: string, repo: string, pullNumber: number) => {
+    console.log(`Approving PR #${pullNumber}...`);
+
+    const reviewId = (
+      await this.octokit.pulls.createReview({
+        owner,
+        repo,
+        pull_number: pullNumber,
+      })
+    ).data.id;
+
+    this.octokit.pulls.submitReview({
+      event: 'APPROVE',
+      owner,
+      repo,
+      review_id: reviewId,
+      pull_number: pullNumber,
+    });
+  };
+
+  commentReadyToMerge = async (
+    owner: string,
+    repo: string,
+    pullNumber: number
+  ) => {
+    console.log(`Commenting "Ready to merge" on PR #${pullNumber}...`);
+
+    await this.octokit.issues.createComment({
+      repo,
+      owner,
+      body: 'Ready to merge',
+      issue_number: pullNumber,
+    });
   };
 
   deleteBranch = async (
