@@ -121,9 +121,7 @@ process.on('unhandledRejection', reason => {
     );
   }
 
-  await gitHelpers.checkForTemplateUpdate();
-
-  // approve PRs
+  // approve and merge PRs
   const pullsWaitingForApproval = await git.get100LatestPRsWaitingForReview(
     settings.dtRepoOwner,
     settings.dtRepoName,
@@ -131,5 +129,8 @@ process.on('unhandledRejection', reason => {
   );
   for (const pullNumber of pullsWaitingForApproval) {
     await git.approvePR(settings.dtRepoOwner, settings.dtRepoName, pullNumber);
+    await gitHelpers.commentReadyToMerge(pullNumber);
   }
+
+  await gitHelpers.checkForTemplateUpdate();
 })();
