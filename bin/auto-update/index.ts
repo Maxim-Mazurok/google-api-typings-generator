@@ -5,6 +5,7 @@ import {Helpers, getTmpBranchName} from './helpers';
 import {GitHelpers} from './gitHelpers';
 import {TYPE_PREFIX} from '../../src/utils';
 import {supportedApis} from './config';
+import {pull} from 'lodash';
 
 if (!process.env.GH_AUTH_TOKEN) {
   throw new Error('Please, set env var: GH_AUTH_TOKEN');
@@ -29,6 +30,7 @@ export interface Settings extends GitSettings, TypesBranchAndDirSettings {
   pullRequestTemplateSHA: string; // SHA of PULL_REQUEST_TEMPLATE.md file from DT
   templateUpdateLabel: string; // label for issues regarding PR template update
   authBot: string; // GH token for bot account (that will open PRs) with public_repo access and with collaborator access to the DT fork
+  botUser: string; // bot account username (that will open PRs)
 }
 
 const settings: Settings = {
@@ -38,8 +40,9 @@ const settings: Settings = {
   typesBranchName: 'types',
   user: 'Maxim-Mazurok',
   userEmail: 'maxim@mazurok.com',
-  userName: 'Google API Typings Generator',
+  userName: 'Maxim Mazurok',
   auth: process.env.GH_AUTH_TOKEN,
+  botUser: 'google-api-typings-generator',
   authBot: process.env.GH_AUTH_TOKEN_BOT,
   dtRepoOwner: 'DefinitelyTyped',
   dtRepoName: 'DefinitelyTyped',
@@ -119,4 +122,14 @@ process.on('unhandledRejection', reason => {
   }
 
   await gitHelpers.checkForTemplateUpdate();
+
+  // approve PRs
+  const pullsWaitingForApproval = await git.get100LatestPRsWaitingForReview(
+    settings.dtRepoOwner,
+    settings.dtRepoName,
+    settings.botUser
+  );
+  for (const pullNumber of pullsWaitingForApproval) {
+    await git.approvePR(settings.dtRepoOwner, settings.dtRepoName, pullNumber);
+  }
 })();

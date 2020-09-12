@@ -4,9 +4,11 @@ import parseGitStatus from 'parse-git-status';
 import {Octokit} from '@octokit/rest';
 import {getTmpBranchName, createOctokit} from './helpers';
 import {TYPE_PREFIX} from '../../src/utils';
+import {pull} from 'lodash';
 
 export interface Settings {
-  user: string; // user who submits PRs to DT
+  user: string; // user who commits
+  botUser: string; // user who submits PRs to DT
   auth: string; // GH token with public_repo access
   thisRepo: string; // repo form where API calls to GH will be made
 }
@@ -68,6 +70,70 @@ export class Git {
     const forkBranches = result.search.edges.map(x => x.node.headRefName);
 
     return forkBranches;
+  };
+
+  get100LatestPRsWaitingForReview = async (
+    owner: string,
+    repo: string,
+    reviewer: string
+  ): Promise<number[]> => {
+    const {botUser: user} = this.settings;
+    const maxResults = 100;
+    const result = await this.octokit.graphql<{
+      search: {
+        edges: {
+          node: {number: number};
+        }[];
+        pageInfo: {hasNextPage: Boolean};
+      };
+    }>({
+      query: `query lastOpenPRsWaitingForReview($searchQuery:String!, $maxResults: Int = 100)
+      {
+        search(query: $searchQuery, type: ISSUE, first: $maxResults) {
+          edges {
+            node {
+              ... on PullRequest {
+                number
+              }
+            }
+          }
+          pageInfo {
+            hasNextPage
+          }
+        }
+      }
+    `,
+      searchQuery: `author:${user} repo:${owner}/${repo} is:pr is:open -reviewed-by:${reviewer}`,
+      maxResults,
+    });
+
+    if (result.search.pageInfo.hasNextPage) {
+      throw Error(
+        `Can't get more than ${maxResults} open PRs waiting for review: pagination is not implemented`
+      );
+    }
+
+    const pullNumbers = result.search.edges.map(x => x.node.number);
+
+    return pullNumbers;
+  };
+
+  approvePR = async (owner: string, repo: string, pullNumber: number) => {
+    const reviewId = (
+      await this.octokit.pulls.createReview({
+        owner,
+        repo,
+        pull_number: pullNumber,
+      })
+    ).data.id;
+
+    this.octokit.pulls.submitReview({
+      event: 'APPROVE',
+      owner,
+      repo,
+      review_id: reviewId,
+      pull_number: pullNumber,
+    });
   };
 
   deleteBranch = async (
