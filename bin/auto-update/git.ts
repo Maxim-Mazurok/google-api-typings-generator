@@ -4,11 +4,9 @@ import parseGitStatus from 'parse-git-status';
 import {Octokit} from '@octokit/rest';
 import {getTmpBranchName, createOctokit} from './helpers';
 import {TYPE_PREFIX} from '../../src/utils';
-import {pull} from 'lodash';
 
 export interface Settings {
   user: string; // user who commits
-  botUser: string; // user who submits PRs to DT
   auth: string; // GH token with public_repo access
   thisRepo: string; // repo form where API calls to GH will be made
 }
@@ -75,9 +73,9 @@ export class Git {
   get100LatestPRsWaitingForReview = async (
     owner: string,
     repo: string,
-    reviewer: string
+    reviewer: string, // Maxim-Mazurok
+    botUser: string
   ): Promise<number[]> => {
-    const {botUser: user} = this.settings;
     const maxResults = 100;
     const result = await this.octokit.graphql<{
       search: {
@@ -103,7 +101,7 @@ export class Git {
         }
       }
     `,
-      searchQuery: `author:${user} repo:${owner}/${repo} is:pr is:open -reviewed-by:${reviewer}`,
+      searchQuery: `author:${botUser} repo:${owner}/${repo} is:pr is:open -reviewed-by:${reviewer}`,
       maxResults,
     });
 
@@ -133,6 +131,19 @@ export class Git {
       repo,
       review_id: reviewId,
       pull_number: pullNumber,
+    });
+  };
+
+  commentReadyToMerge = async (
+    owner: string,
+    repo: string,
+    pullNumber: number
+  ) => {
+    await this.octokit.issues.createComment({
+      repo,
+      owner,
+      body: 'Ready to merge',
+      issue_number: pullNumber,
     });
   };
 

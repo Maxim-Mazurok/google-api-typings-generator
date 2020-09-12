@@ -13,6 +13,7 @@ const settings: Settings = {
   userEmail: 'userEmail',
   userName: 'userName',
   auth: 'auth',
+  botUser: 'botUser',
   authBot: 'authBot',
   dtRepoOwner: 'dtRepoOwner',
   dtRepoName: 'dtRepoName',

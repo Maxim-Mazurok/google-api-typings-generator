@@ -5,7 +5,6 @@ import {Helpers, getTmpBranchName} from './helpers';
 import {GitHelpers} from './gitHelpers';
 import {TYPE_PREFIX} from '../../src/utils';
 import {supportedApis} from './config';
-import {pull} from 'lodash';
 
 if (!process.env.GH_AUTH_TOKEN) {
   throw new Error('Please, set env var: GH_AUTH_TOKEN');
@@ -125,11 +124,16 @@ process.on('unhandledRejection', reason => {
   const pullsWaitingForApproval = await git.get100LatestPRsWaitingForReview(
     settings.dtRepoOwner,
     settings.dtRepoName,
+    settings.user,
     settings.botUser
   );
   for (const pullNumber of pullsWaitingForApproval) {
     await git.approvePR(settings.dtRepoOwner, settings.dtRepoName, pullNumber);
-    await gitHelpers.commentReadyToMerge(pullNumber);
+    await git.commentReadyToMerge(
+      settings.dtRepoOwner,
+      settings.dtRepoName,
+      pullNumber
+    );
   }
 
   await gitHelpers.checkForTemplateUpdate();

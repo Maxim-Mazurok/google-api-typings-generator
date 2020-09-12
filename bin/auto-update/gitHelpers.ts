@@ -3,7 +3,6 @@ import {Settings} from './index';
 import {Git} from './git';
 import {revisionPrefix} from '../../src/app';
 import {createOctokit} from './helpers';
-import {pull} from 'lodash';
 
 export class GitHelpers {
   readonly settings: Settings;
@@ -167,23 +166,6 @@ export class GitHelpers {
         throw new Error(`Failed to open PR for ${gapiTypeName}`);
       }
     }
-  };
-
-  commentReadyToMerge = async (pullNumber: number) => {
-    const {
-      user,
-      dtRepoOwner: owner,
-      dtRepoName: repo,
-      thisRepo,
-      authBot,
-    } = this.settings;
-    const octokit = createOctokit({auth: authBot, user, thisRepo});
-    await octokit.issues.createComment({
-      repo,
-      owner,
-      body: 'Ready to merge',
-      issue_number: pullNumber,
-    });
   };
 
   cloneDTFork = async (): Promise<void> => {
