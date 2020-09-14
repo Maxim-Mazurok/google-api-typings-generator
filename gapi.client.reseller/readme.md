@@ -1,6 +1,6 @@
 # TypeScript typings for Enterprise Apps Reseller API v1
 
-Creates and manages your customers and their subscriptions.
+Perform common functions that are available on the Google Apps Reseller Console at scale like placing orders and viewing customer information
 For detailed description please check [documentation](https://developers.google.com/google-apps/reseller/).
 
 ## Installing
@@ -72,7 +72,7 @@ Order a new customer's account.
 await gapi.client.reseller.customers.insert({  });
 
 /*
-Update a customer account's settings. This method supports patch semantics.
+Patch a customer account's settings via Apiary Patch Orchestration
 */
 await gapi.client.reseller.customers.patch({ customerId: "customerId",  });
 
