@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20190916
+// Revision: 20200912
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -64,7 +64,7 @@ gapi.load('client', () => {
             productId: "Test string",
             skuId: "Test string",
         });
-        /** Reassign a user's product SKU with a different SKU in the same product. This method supports patch semantics. */
+        /** Patch a Licensing info via Apiary Patch Orchestration */
         await gapi.client.licensing.licenseAssignments.patch({
             productId: "Test string",
             skuId: "Test string",

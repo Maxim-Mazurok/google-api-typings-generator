@@ -1,11 +1,11 @@
-# TypeScript typings for Licensing API v1
+# TypeScript typings for Enterprise License Manager API v1
 
-Licensing API to view and manage licenses for your domain
+The Google Enterprise License Manager API's allows you to license apps for all the users of a domain managed by you.
 For detailed description please check [documentation](https://developers.google.com/admin-sdk/licensing/).
 
 ## Installing
 
-Install typings for Licensing API:
+Install typings for Enterprise License Manager API:
 
 ```
 npm install @types/gapi.client.licensing@v1 --save-dev
@@ -54,7 +54,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Licensing API resources:
+After that you can use Enterprise License Manager API resources:
 
 ```typescript
 
@@ -84,7 +84,7 @@ List all users assigned licenses for a specific product SKU.
 await gapi.client.licensing.licenseAssignments.listForProductAndSku({ customerId: "customerId", productId: "productId", skuId: "skuId",  });
 
 /*
-Reassign a user's product SKU with a different SKU in the same product. This method supports patch semantics.
+Patch a Licensing info via Apiary Patch Orchestration
 */
 await gapi.client.licensing.licenseAssignments.patch({ productId: "productId", skuId: "skuId", userId: "userId",  });
 
