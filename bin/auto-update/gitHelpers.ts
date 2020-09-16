@@ -131,7 +131,7 @@ export class GitHelpers {
           body: `
   - [x] Use a meaningful title for the pull request. Include the name of the package modified.
   - [x] Test the change in your own code. (Compile and run.)
-  - [x] Add or edit tests to reflect the change. (Run with \`npm test\`.)
+  - [x] Add or edit tests to reflect the change. (Run with \`npm test YOUR_PACKAGE_NAME\`.)
   - [x] Follow the advice from the [readme](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.md#make-a-pull-request).
   - [x] Avoid [common mistakes](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.md#common-mistakes).
   - [x] Run \`npm run lint package-name\` (or \`tsc\` if no \`tslint.json\` is present).
@@ -148,9 +148,9 @@ export class GitHelpers {
 
   🤖 This pull request was automatically created by [${user}/${thisRepo}](https://github.com/${user}/${thisRepo}) which generates types from [Google API Discovery Service](https://developers.google.com/discovery). Types were linted and tested before submission.
 
-  If there is an issue with this pull request, consider [submitting a new issue](https://github.com/${user}/${thisRepo}/issues/new).
+  If there is an issue with this pull request, consider [submitting a new issue](https://github.com/${user}/${thisRepo}/issues/new) to [${user}/${thisRepo}](https://github.com/${user}/${thisRepo}).
 
-  Note you can also [use these types](https://github.com/${user}/${thisRepo}/issues/85#issuecomment-601133279) from our [\`types\` branch](https://github.com/${user}/${thisRepo}/tree/types) which is updated hourly.
+  Note: you can also [use these types](https://github.com/${user}/${thisRepo}/issues/85#issuecomment-601133279) from our [\`types\` branch](https://github.com/${user}/${thisRepo}/tree/types) which is updated hourly.
   `,
         })
       ).data.number;
