@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200813
+// Revision: 20200901
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -3882,6 +3882,25 @@ gapi.load('client', () => {
                     },
                 },
                 containerSpecGcsPath: "Test string",
+                environment: {
+                    additionalExperiments: [
+                        "Test string"                    ],
+                    additionalUserLabels: {
+                        A: "Test string"                    },
+                    enableStreamingEngine: true,
+                    ipConfiguration: "Test string",
+                    kmsKeyName: "Test string",
+                    machineType: "Test string",
+                    maxWorkers: 42,
+                    network: "Test string",
+                    numWorkers: 42,
+                    serviceAccountEmail: "Test string",
+                    subnetwork: "Test string",
+                    tempLocation: "Test string",
+                    workerRegion: "Test string",
+                    workerZone: "Test string",
+                    zone: "Test string",
+                },
                 jobName: "Test string",
                 launchOptions: {
                     A: "Test string"                },
@@ -5014,6 +5033,8 @@ gapi.load('client', () => {
         await gapi.client.dataflow.projects.locations.jobs.getExecutionDetails({
             jobId: "Test string",
             location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
             projectId: "Test string",
         });
         /** Get encoded debug configuration for component. Not cacheable. */
@@ -11525,6 +11546,25 @@ gapi.load('client', () => {
                     },
                 },
                 containerSpecGcsPath: "Test string",
+                environment: {
+                    additionalExperiments: [
+                        "Test string"                    ],
+                    additionalUserLabels: {
+                        A: "Test string"                    },
+                    enableStreamingEngine: true,
+                    ipConfiguration: "Test string",
+                    kmsKeyName: "Test string",
+                    machineType: "Test string",
+                    maxWorkers: 42,
+                    network: "Test string",
+                    numWorkers: 42,
+                    serviceAccountEmail: "Test string",
+                    subnetwork: "Test string",
+                    tempLocation: "Test string",
+                    workerRegion: "Test string",
+                    workerZone: "Test string",
+                    zone: "Test string",
+                },
                 jobName: "Test string",
                 launchOptions: {
                     A: "Test string"                },
@@ -12657,6 +12697,8 @@ gapi.load('client', () => {
         await gapi.client.dataflow.projects.locations.jobs.getExecutionDetails({
             jobId: "Test string",
             location: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
             projectId: "Test string",
         });
         /** Get encoded debug configuration for component. Not cacheable. */
