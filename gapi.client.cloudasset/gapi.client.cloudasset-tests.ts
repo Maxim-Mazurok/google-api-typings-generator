@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200904
+// Revision: 20200911
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -124,6 +124,10 @@ gapi.load('client', () => {
                 bigqueryDestination: {
                     dataset: "Test string",
                     force: true,
+                    partitionSpec: {
+                        partitionKey: "Test string",
+                    },
+                    separateTablesPerAssetType: true,
                     table: "Test string",
                 },
                 gcsDestination: {
