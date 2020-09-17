@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200825
+// Revision: 20200916
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -5672,7 +5672,6 @@ gapi.load('client', () => {
         await gapi.client.dfareporting.remarketingListShares.patch({
             id: "Test string",
             profileId: "Test string",
-            remarketingListId: "Test string",
         }, {
             kind: "Test string",
             remarketingListId: "Test string",

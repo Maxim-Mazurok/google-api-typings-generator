@@ -102,7 +102,7 @@ await gapi.client.dfareporting.accounts.list({ profileId: "profileId",  });
 /*
 Updates an existing account. This method supports patch semantics.
 */
-await gapi.client.dfareporting.accounts.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.accounts.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing account.
@@ -127,7 +127,7 @@ await gapi.client.dfareporting.accountUserProfiles.list({ profileId: "profileId"
 /*
 Updates an existing account user profile. This method supports patch semantics.
 */
-await gapi.client.dfareporting.accountUserProfiles.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.accountUserProfiles.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing account user profile.
@@ -152,7 +152,7 @@ await gapi.client.dfareporting.ads.list({ profileId: "profileId",  });
 /*
 Updates an existing ad. This method supports patch semantics.
 */
-await gapi.client.dfareporting.ads.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.ads.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing ad.
@@ -182,7 +182,7 @@ await gapi.client.dfareporting.advertiserGroups.list({ profileId: "profileId",  
 /*
 Updates an existing advertiser group. This method supports patch semantics.
 */
-await gapi.client.dfareporting.advertiserGroups.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.advertiserGroups.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing advertiser group.
@@ -207,7 +207,7 @@ await gapi.client.dfareporting.advertiserLandingPages.list({ profileId: "profile
 /*
 Updates an existing advertiser landing page. This method supports patch semantics.
 */
-await gapi.client.dfareporting.advertiserLandingPages.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.advertiserLandingPages.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing landing page.
@@ -232,7 +232,7 @@ await gapi.client.dfareporting.advertisers.list({ profileId: "profileId",  });
 /*
 Updates an existing advertiser. This method supports patch semantics.
 */
-await gapi.client.dfareporting.advertisers.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.advertisers.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing advertiser.
@@ -272,7 +272,7 @@ await gapi.client.dfareporting.campaigns.list({ profileId: "profileId",  });
 /*
 Updates an existing campaign. This method supports patch semantics.
 */
-await gapi.client.dfareporting.campaigns.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.campaigns.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing campaign.
@@ -327,7 +327,7 @@ await gapi.client.dfareporting.contentCategories.list({ profileId: "profileId", 
 /*
 Updates an existing content category. This method supports patch semantics.
 */
-await gapi.client.dfareporting.contentCategories.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.contentCategories.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing content category.
@@ -382,7 +382,7 @@ await gapi.client.dfareporting.creativeFields.list({ profileId: "profileId",  })
 /*
 Updates an existing creative field. This method supports patch semantics.
 */
-await gapi.client.dfareporting.creativeFields.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.creativeFields.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing creative field.
@@ -412,7 +412,7 @@ await gapi.client.dfareporting.creativeFieldValues.list({ creativeFieldId: "crea
 /*
 Updates an existing creative field value. This method supports patch semantics.
 */
-await gapi.client.dfareporting.creativeFieldValues.patch({ creativeFieldId: "creativeFieldId", profileId: "profileId",  });
+await gapi.client.dfareporting.creativeFieldValues.patch({ creativeFieldId: "creativeFieldId", id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing creative field value.
@@ -437,7 +437,7 @@ await gapi.client.dfareporting.creativeGroups.list({ profileId: "profileId",  })
 /*
 Updates an existing creative group. This method supports patch semantics.
 */
-await gapi.client.dfareporting.creativeGroups.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.creativeGroups.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing creative group.
@@ -462,7 +462,7 @@ await gapi.client.dfareporting.creatives.list({ profileId: "profileId",  });
 /*
 Updates an existing creative. This method supports patch semantics.
 */
-await gapi.client.dfareporting.creatives.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.creatives.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing creative.
@@ -532,7 +532,7 @@ await gapi.client.dfareporting.eventTags.list({ profileId: "profileId",  });
 /*
 Updates an existing event tag. This method supports patch semantics.
 */
-await gapi.client.dfareporting.eventTags.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.eventTags.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing event tag.
@@ -577,7 +577,7 @@ await gapi.client.dfareporting.floodlightActivities.list({ profileId: "profileId
 /*
 Updates an existing floodlight activity. This method supports patch semantics.
 */
-await gapi.client.dfareporting.floodlightActivities.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.floodlightActivities.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing floodlight activity.
@@ -602,7 +602,7 @@ await gapi.client.dfareporting.floodlightActivityGroups.list({ profileId: "profi
 /*
 Updates an existing floodlight activity group. This method supports patch semantics.
 */
-await gapi.client.dfareporting.floodlightActivityGroups.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.floodlightActivityGroups.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing floodlight activity group.
@@ -622,7 +622,7 @@ await gapi.client.dfareporting.floodlightConfigurations.list({ profileId: "profi
 /*
 Updates an existing floodlight configuration. This method supports patch semantics.
 */
-await gapi.client.dfareporting.floodlightConfigurations.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.floodlightConfigurations.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing floodlight configuration.
@@ -727,7 +727,7 @@ await gapi.client.dfareporting.placementGroups.list({ profileId: "profileId",  }
 /*
 Updates an existing placement group. This method supports patch semantics.
 */
-await gapi.client.dfareporting.placementGroups.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.placementGroups.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing placement group.
@@ -757,7 +757,7 @@ await gapi.client.dfareporting.placements.list({ profileId: "profileId",  });
 /*
 Updates an existing placement. This method supports patch semantics.
 */
-await gapi.client.dfareporting.placements.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.placements.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing placement.
@@ -787,7 +787,7 @@ await gapi.client.dfareporting.placementStrategies.list({ profileId: "profileId"
 /*
 Updates an existing placement strategy. This method supports patch semantics.
 */
-await gapi.client.dfareporting.placementStrategies.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.placementStrategies.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing placement strategy.
@@ -847,7 +847,7 @@ await gapi.client.dfareporting.remarketingLists.list({ advertiserId: "advertiser
 /*
 Updates an existing remarketing list. This method supports patch semantics.
 */
-await gapi.client.dfareporting.remarketingLists.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.remarketingLists.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing remarketing list.
@@ -862,7 +862,7 @@ await gapi.client.dfareporting.remarketingListShares.get({ profileId: "profileId
 /*
 Updates an existing remarketing list share. This method supports patch semantics.
 */
-await gapi.client.dfareporting.remarketingListShares.patch({ profileId: "profileId", remarketingListId: "remarketingListId",  });
+await gapi.client.dfareporting.remarketingListShares.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing remarketing list share.
@@ -922,7 +922,7 @@ await gapi.client.dfareporting.sites.list({ profileId: "profileId",  });
 /*
 Updates an existing site. This method supports patch semantics.
 */
-await gapi.client.dfareporting.sites.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.sites.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing site.
@@ -962,7 +962,7 @@ await gapi.client.dfareporting.subaccounts.list({ profileId: "profileId",  });
 /*
 Updates an existing subaccount. This method supports patch semantics.
 */
-await gapi.client.dfareporting.subaccounts.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.subaccounts.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing subaccount.
@@ -997,7 +997,7 @@ await gapi.client.dfareporting.targetingTemplates.list({ profileId: "profileId",
 /*
 Updates an existing targeting template. This method supports patch semantics.
 */
-await gapi.client.dfareporting.targetingTemplates.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.targetingTemplates.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing targeting template.
@@ -1057,7 +1057,7 @@ await gapi.client.dfareporting.userRoles.list({ profileId: "profileId",  });
 /*
 Updates an existing user role. This method supports patch semantics.
 */
-await gapi.client.dfareporting.userRoles.patch({ profileId: "profileId",  });
+await gapi.client.dfareporting.userRoles.patch({ id: "id", profileId: "profileId",  });
 
 /*
 Updates an existing user role.
