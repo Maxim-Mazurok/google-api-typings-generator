@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200912
+// Revision: 20200915
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -2362,6 +2362,24 @@ gapi.load('client', () => {
             "memberKey.namespace": "Test string",
             parent: "Test string",
         });
+        /** Modifies the `MembershipRole`s of a `Membership`. */
+        await gapi.client.cloudidentity.groups.memberships.modifyMembershipRoles({
+            name: "Test string",
+        }, {
+            addRoles: [
+                {
+                    name: "Test string",
+                }            ],
+            removeRoles: [
+                "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        name: "Test string",
+                    },
+                }            ],
+        });
         /** Deletes a Group. */
         await gapi.client.cloudidentity.groups.delete({
             name: "Test string",
@@ -2404,6 +2422,24 @@ gapi.load('client', () => {
             "memberKey.namespace": "Test string",
             parent: "Test string",
         });
+        /** Modifies the `MembershipRole`s of a `Membership`. */
+        await gapi.client.cloudidentity.groups.memberships.modifyMembershipRoles({
+            name: "Test string",
+        }, {
+            addRoles: [
+                {
+                    name: "Test string",
+                }            ],
+            removeRoles: [
+                "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        name: "Test string",
+                    },
+                }            ],
+        });
         /** Retrieves a Group. */
         await gapi.client.cloudidentity.groups.get({
             name: "Test string",
@@ -2445,6 +2481,24 @@ gapi.load('client', () => {
             "memberKey.id": "Test string",
             "memberKey.namespace": "Test string",
             parent: "Test string",
+        });
+        /** Modifies the `MembershipRole`s of a `Membership`. */
+        await gapi.client.cloudidentity.groups.memberships.modifyMembershipRoles({
+            name: "Test string",
+        }, {
+            addRoles: [
+                {
+                    name: "Test string",
+                }            ],
+            removeRoles: [
+                "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        name: "Test string",
+                    },
+                }            ],
         });
         /** Lists groups within a customer or a domain. */
         await gapi.client.cloudidentity.groups.list({
@@ -2491,6 +2545,24 @@ gapi.load('client', () => {
             "memberKey.namespace": "Test string",
             parent: "Test string",
         });
+        /** Modifies the `MembershipRole`s of a `Membership`. */
+        await gapi.client.cloudidentity.groups.memberships.modifyMembershipRoles({
+            name: "Test string",
+        }, {
+            addRoles: [
+                {
+                    name: "Test string",
+                }            ],
+            removeRoles: [
+                "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        name: "Test string",
+                    },
+                }            ],
+        });
         /** Looks up [resource name](https://cloud.google.com/apis/design/resource_names) of a Group by its EntityKey. */
         await gapi.client.cloudidentity.groups.lookup({
             "groupKey.id": "Test string",
@@ -2533,6 +2605,24 @@ gapi.load('client', () => {
             "memberKey.id": "Test string",
             "memberKey.namespace": "Test string",
             parent: "Test string",
+        });
+        /** Modifies the `MembershipRole`s of a `Membership`. */
+        await gapi.client.cloudidentity.groups.memberships.modifyMembershipRoles({
+            name: "Test string",
+        }, {
+            addRoles: [
+                {
+                    name: "Test string",
+                }            ],
+            removeRoles: [
+                "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        name: "Test string",
+                    },
+                }            ],
         });
         /** Updates a Group. */
         await gapi.client.cloudidentity.groups.patch({
@@ -2590,6 +2680,24 @@ gapi.load('client', () => {
             "memberKey.namespace": "Test string",
             parent: "Test string",
         });
+        /** Modifies the `MembershipRole`s of a `Membership`. */
+        await gapi.client.cloudidentity.groups.memberships.modifyMembershipRoles({
+            name: "Test string",
+        }, {
+            addRoles: [
+                {
+                    name: "Test string",
+                }            ],
+            removeRoles: [
+                "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        name: "Test string",
+                    },
+                }            ],
+        });
         /** Searches for Groups. */
         await gapi.client.cloudidentity.groups.search({
             pageSize: 42,
@@ -2634,6 +2742,24 @@ gapi.load('client', () => {
             "memberKey.id": "Test string",
             "memberKey.namespace": "Test string",
             parent: "Test string",
+        });
+        /** Modifies the `MembershipRole`s of a `Membership`. */
+        await gapi.client.cloudidentity.groups.memberships.modifyMembershipRoles({
+            name: "Test string",
+        }, {
+            addRoles: [
+                {
+                    name: "Test string",
+                }            ],
+            removeRoles: [
+                "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        name: "Test string",
+                    },
+                }            ],
         });
     }
 });
