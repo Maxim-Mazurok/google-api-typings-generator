@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200727
+// Revision: 20200916
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -15,10 +15,7 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Returns AMP URL(s) and equivalent
-         * [AMP Cache URL(s)](/amp/cache/overview#amp-cache-url-format).
-         */
+        /** Returns AMP URL(s) and equivalent [AMP Cache URL(s)](/amp/cache/overview#amp-cache-url-format). */
         await gapi.client.acceleratedmobilepageurl.ampUrls.batchGet({
         }, {
             lookupStrategy: "Test string",

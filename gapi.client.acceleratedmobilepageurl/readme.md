@@ -1,7 +1,6 @@
 # TypeScript typings for Accelerated Mobile Pages (AMP) URL API v1
 
-Retrieves the list of AMP URLs (and equivalent AMP Cache URLs) for a given list of public URL(s).
-
+Retrieves the list of AMP URLs (and equivalent AMP Cache URLs) for a given list of public URL(s). 
 For detailed description please check [documentation](https://developers.google.com/amp/cache/).
 
 ## Installing
@@ -39,8 +38,7 @@ After that you can use Accelerated Mobile Pages (AMP) URL API resources:
 ```typescript
 
 /*
-Returns AMP URL(s) and equivalent
-[AMP Cache URL(s)](/amp/cache/overview#amp-cache-url-format).
+Returns AMP URL(s) and equivalent [AMP Cache URL(s)](/amp/cache/overview#amp-cache-url-format).
 */
 await gapi.client.acceleratedmobilepageurl.ampUrls.batchGet({  });
 ```
