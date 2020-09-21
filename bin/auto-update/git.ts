@@ -27,9 +27,9 @@ export class Git {
 
   get100LatestOpenPRs = async (
     owner: string,
-    repo: string
+    repo: string,
+    user: string // who opens PRs
   ): Promise<string[]> => {
-    const {user} = this.settings;
     const maxResults = 100;
     const result = await this.octokit.graphql<{
       search: {

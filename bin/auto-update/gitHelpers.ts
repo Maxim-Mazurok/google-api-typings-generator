@@ -92,6 +92,7 @@ export class GitHelpers {
   ): Promise<number | void> => {
     const {
       user,
+      botUser,
       dtRepoOwner: owner,
       dtRepoName: repo,
       thisRepo,
@@ -99,7 +100,11 @@ export class GitHelpers {
     } = this.settings;
 
     if (!this.openPRBranches) {
-      this.openPRBranches = await this.git.get100LatestOpenPRs(owner, repo);
+      this.openPRBranches = await this.git.get100LatestOpenPRs(
+        owner,
+        repo,
+        botUser
+      );
     }
 
     if (this.openPRBranches.includes(gapiTypeName)) {
