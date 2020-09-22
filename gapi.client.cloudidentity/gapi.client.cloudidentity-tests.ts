@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200915
+// Revision: 20200919
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -2372,13 +2372,6 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
-            updateRolesParams: [
-                {
-                    fieldMask: "Test string",
-                    membershipRole: {
-                        name: "Test string",
-                    },
-                }            ],
         });
         /** Deletes a Group. */
         await gapi.client.cloudidentity.groups.delete({
@@ -2432,13 +2425,6 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
-            updateRolesParams: [
-                {
-                    fieldMask: "Test string",
-                    membershipRole: {
-                        name: "Test string",
-                    },
-                }            ],
         });
         /** Retrieves a Group. */
         await gapi.client.cloudidentity.groups.get({
@@ -2492,13 +2478,6 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
-            updateRolesParams: [
-                {
-                    fieldMask: "Test string",
-                    membershipRole: {
-                        name: "Test string",
-                    },
-                }            ],
         });
         /** Lists groups within a customer or a domain. */
         await gapi.client.cloudidentity.groups.list({
@@ -2555,13 +2534,6 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
-            updateRolesParams: [
-                {
-                    fieldMask: "Test string",
-                    membershipRole: {
-                        name: "Test string",
-                    },
-                }            ],
         });
         /** Looks up [resource name](https://cloud.google.com/apis/design/resource_names) of a Group by its EntityKey. */
         await gapi.client.cloudidentity.groups.lookup({
@@ -2616,13 +2588,6 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
-            updateRolesParams: [
-                {
-                    fieldMask: "Test string",
-                    membershipRole: {
-                        name: "Test string",
-                    },
-                }            ],
         });
         /** Updates a Group. */
         await gapi.client.cloudidentity.groups.patch({
@@ -2690,13 +2655,6 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
-            updateRolesParams: [
-                {
-                    fieldMask: "Test string",
-                    membershipRole: {
-                        name: "Test string",
-                    },
-                }            ],
         });
         /** Searches for Groups. */
         await gapi.client.cloudidentity.groups.search({
@@ -2753,13 +2711,6 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
-            updateRolesParams: [
-                {
-                    fieldMask: "Test string",
-                    membershipRole: {
-                        name: "Test string",
-                    },
-                }            ],
         });
     }
 });
