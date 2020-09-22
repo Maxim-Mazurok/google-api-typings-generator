@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200729
+// Revision: 20200914
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -40,12 +40,7 @@ gapi.load('client', () => {
         await gapi.client.sourcerepo.projects.getConfig({
             name: "Test string",
         });
-        /**
-         * Creates a repo in the given project with the given name.
-         *
-         * If the named repository already exists, `CreateRepo` returns
-         * `ALREADY_EXISTS`.
-         */
+        /** Creates a repo in the given project with the given name. If the named repository already exists, `CreateRepo` returns `ALREADY_EXISTS`. */
         await gapi.client.sourcerepo.projects.repos.create({
             parent: "Test string",
         }, {
@@ -72,19 +67,12 @@ gapi.load('client', () => {
         await gapi.client.sourcerepo.projects.repos.get({
             name: "Test string",
         });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
+        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
         await gapi.client.sourcerepo.projects.repos.getIamPolicy({
             "options.requestedPolicyVersion": 42,
             resource: "Test string",
         });
-        /**
-         * Returns all repos belonging to a project. The sizes of the repos are
-         * not set by ListRepos.  To get the size of a repo, use GetRepo.
-         */
+        /** Returns all repos belonging to a project. The sizes of the repos are not set by ListRepos. To get the size of a repo, use GetRepo. */
         await gapi.client.sourcerepo.projects.repos.list({
             name: "Test string",
             pageSize: 42,
@@ -112,10 +100,7 @@ gapi.load('client', () => {
             },
             updateMask: "Test string",
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. */
         await gapi.client.sourcerepo.projects.repos.setIamPolicy({
             resource: "Test string",
         }, {
@@ -147,20 +132,12 @@ gapi.load('client', () => {
             },
             updateMask: "Test string",
         });
-        /**
-         * Synchronize a connected repo.
-         *
-         * The response contains SyncRepoMetadata in the metadata field.
-         */
+        /** Synchronize a connected repo. The response contains SyncRepoMetadata in the metadata field. */
         await gapi.client.sourcerepo.projects.repos.sync({
             name: "Test string",
         }, {
         });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         */
+        /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error. */
         await gapi.client.sourcerepo.projects.repos.testIamPermissions({
             resource: "Test string",
         }, {
@@ -183,12 +160,7 @@ gapi.load('client', () => {
             },
             updateMask: "Test string",
         });
-        /**
-         * Creates a repo in the given project with the given name.
-         *
-         * If the named repository already exists, `CreateRepo` returns
-         * `ALREADY_EXISTS`.
-         */
+        /** Creates a repo in the given project with the given name. If the named repository already exists, `CreateRepo` returns `ALREADY_EXISTS`. */
         await gapi.client.sourcerepo.projects.repos.create({
             parent: "Test string",
         }, {
@@ -215,19 +187,12 @@ gapi.load('client', () => {
         await gapi.client.sourcerepo.projects.repos.get({
             name: "Test string",
         });
-        /**
-         * Gets the access control policy for a resource.
-         * Returns an empty policy if the resource exists and does not have a policy
-         * set.
-         */
+        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
         await gapi.client.sourcerepo.projects.repos.getIamPolicy({
             "options.requestedPolicyVersion": 42,
             resource: "Test string",
         });
-        /**
-         * Returns all repos belonging to a project. The sizes of the repos are
-         * not set by ListRepos.  To get the size of a repo, use GetRepo.
-         */
+        /** Returns all repos belonging to a project. The sizes of the repos are not set by ListRepos. To get the size of a repo, use GetRepo. */
         await gapi.client.sourcerepo.projects.repos.list({
             name: "Test string",
             pageSize: 42,
@@ -255,10 +220,7 @@ gapi.load('client', () => {
             },
             updateMask: "Test string",
         });
-        /**
-         * Sets the access control policy on the specified resource. Replaces any
-         * existing policy.
-         */
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. */
         await gapi.client.sourcerepo.projects.repos.setIamPolicy({
             resource: "Test string",
         }, {
@@ -290,20 +252,12 @@ gapi.load('client', () => {
             },
             updateMask: "Test string",
         });
-        /**
-         * Synchronize a connected repo.
-         *
-         * The response contains SyncRepoMetadata in the metadata field.
-         */
+        /** Synchronize a connected repo. The response contains SyncRepoMetadata in the metadata field. */
         await gapi.client.sourcerepo.projects.repos.sync({
             name: "Test string",
         }, {
         });
-        /**
-         * Returns permissions that a caller has on the specified resource.
-         * If the resource does not exist, this will return an empty set of
-         * permissions, not a NOT_FOUND error.
-         */
+        /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error. */
         await gapi.client.sourcerepo.projects.repos.testIamPermissions({
             resource: "Test string",
         }, {
