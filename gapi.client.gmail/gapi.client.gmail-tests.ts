@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200831
+// Revision: 20200919
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -519,7 +519,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -968,7 +968,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -1417,7 +1417,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -1866,7 +1866,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -2315,7 +2315,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -2771,7 +2771,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -3225,7 +3225,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -3679,7 +3679,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -4131,7 +4131,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -4589,7 +4589,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -5505,7 +5505,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -5954,7 +5954,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -6403,7 +6403,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -6852,7 +6852,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -7301,7 +7301,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -7757,7 +7757,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -8211,7 +8211,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -8665,7 +8665,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -9117,7 +9117,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -9575,7 +9575,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -10496,7 +10496,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -10945,7 +10945,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -11394,7 +11394,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -11843,7 +11843,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -12292,7 +12292,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -12748,7 +12748,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -13202,7 +13202,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -13656,7 +13656,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -14108,7 +14108,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
@@ -14566,7 +14566,7 @@ gapi.load('client', () => {
         await gapi.client.gmail.users.settings.delegates.list({
             userId: "Test string",
         });
-        /** Creates a filter. */
+        /** Creates a filter. Note: you can only create a maximum of 1,000 filters. */
         await gapi.client.gmail.users.settings.filters.create({
             userId: "Test string",
         }, {
