@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200908
+// Revision: 20200916
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -647,7 +647,7 @@ gapi.load('client', () => {
                     productId: "Test string",
                 }            ],
         });
-        /** Update the local inventory of a product in your Merchant Center account. */
+        /** Updates the local inventory of a product in your Merchant Center account. */
         await gapi.client.content.localinventory.insert({
             merchantId: "Test string",
             productId: "Test string",

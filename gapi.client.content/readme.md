@@ -254,7 +254,7 @@ Updates local inventory for multiple products or stores in a single request.
 await gapi.client.content.localinventory.custombatch({  });
 
 /*
-Update the local inventory of a product in your Merchant Center account.
+Updates the local inventory of a product in your Merchant Center account.
 */
 await gapi.client.content.localinventory.insert({ merchantId: "merchantId", productId: "productId",  });
 
