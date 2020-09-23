@@ -88,11 +88,6 @@ Deletes a managed service. This method will change the service to the `Soft-Dele
 await gapi.client.servicemanagement.services.delete({ serviceName: "serviceName",  });
 
 /*
-Disables a service for a project, so it can no longer be be used for the project. It prevents accidental usage that may cause unexpected billing charges or security leaks. Operation
-*/
-await gapi.client.servicemanagement.services.disable({ serviceName: "serviceName",  });
-
-/*
 Enables a service for a project, so it can be used for the project. See [Cloud Auth Guide](https://cloud.google.com/docs/authentication) for more information. Operation
 */
 await gapi.client.servicemanagement.services.enable({ serviceName: "serviceName",  });

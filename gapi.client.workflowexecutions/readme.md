@@ -1,6 +1,6 @@
 # TypeScript typings for Workflow Executions API v1beta
 
-Manages user-provided workflows.
+Execute workflows created with Workflows API.
 For detailed description please check [documentation](https://cloud.google.com/workflows).
 
 ## Installing
