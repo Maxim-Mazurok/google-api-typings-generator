@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200922
+// Revision: 20200924
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1226,6 +1226,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /**
          * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be
@@ -1343,6 +1345,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
@@ -3224,6 +3228,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /**
          * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be
@@ -3341,6 +3347,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
@@ -4967,6 +4975,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /**
          * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be
@@ -5084,6 +5094,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
@@ -6753,6 +6765,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /**
          * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be
@@ -6870,6 +6884,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
@@ -8492,6 +8508,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /**
          * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be
@@ -8609,6 +8627,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
@@ -10231,6 +10251,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /**
          * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be
@@ -10348,6 +10370,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
@@ -11974,6 +11998,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /**
          * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be
@@ -12091,6 +12117,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
@@ -13762,6 +13790,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /**
          * Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be
@@ -13879,6 +13909,8 @@ gapi.load('client', () => {
                 markupType: "Test string",
             },
             updateTime: "Test string",
+            warningMessages: [
+                "Test string"            ],
         });
         /** Creates a new location list. Returns the newly created location list if successful. */
         await gapi.client.displayvideo.advertisers.locationLists.create({
