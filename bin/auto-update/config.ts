@@ -5,4 +5,5 @@ export const supportedApis = [
   'calendar',
   'storage',
   'discovery',
+  'analyticsreporting',
 ];
