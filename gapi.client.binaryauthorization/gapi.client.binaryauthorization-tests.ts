@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200911
+// Revision: 20200918
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -135,6 +135,25 @@ gapi.load('client', () => {
                         },
                     }                ],
             },
+        });
+        /** Returns whether the given Attestation for the given image URI was signed by the given Attestor */
+        await gapi.client.binaryauthorization.projects.attestors.validateAttestationOccurrence({
+            attestor: "Test string",
+        }, {
+            attestation: {
+                jwts: [
+                    {
+                        compactJwt: "Test string",
+                    }                ],
+                serializedPayload: "Test string",
+                signatures: [
+                    {
+                        publicKeyId: "Test string",
+                        signature: "Test string",
+                    }                ],
+            },
+            occurrenceNote: "Test string",
+            occurrenceResourceUri: "Test string",
         });
         /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
         await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
@@ -300,6 +319,25 @@ gapi.load('client', () => {
                         },
                     }                ],
             },
+        });
+        /** Returns whether the given Attestation for the given image URI was signed by the given Attestor */
+        await gapi.client.binaryauthorization.projects.attestors.validateAttestationOccurrence({
+            attestor: "Test string",
+        }, {
+            attestation: {
+                jwts: [
+                    {
+                        compactJwt: "Test string",
+                    }                ],
+                serializedPayload: "Test string",
+                signatures: [
+                    {
+                        publicKeyId: "Test string",
+                        signature: "Test string",
+                    }                ],
+            },
+            occurrenceNote: "Test string",
+            occurrenceResourceUri: "Test string",
         });
         /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
         await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
