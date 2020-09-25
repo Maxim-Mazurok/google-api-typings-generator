@@ -16,7 +16,7 @@ Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/goo
 
 ## Fork Log:
 
-- ⚠️ This is the only maintained fork
+- ⚠️ This is the only maintained repo for GAPI type definitions (forked and detached from [Bolisov/google-api-typings-generator](https://github.com/Bolisov/google-api-typings-generator))
 - 🤖 Auto updates every hour; [details](#auto-updates)
 - Supports both `resource` and second-argument approaches; [details](#resource-vs-body)
 - Includes empty interfaces; [details](#empty-interfaces)
