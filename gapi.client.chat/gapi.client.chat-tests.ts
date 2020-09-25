@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200909
+// Revision: 20200919
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -45,6 +45,18 @@ gapi.load('client', () => {
             annotations: [
                 {
                     length: 42,
+                    slashCommand: {
+                        bot: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                        commandId: "Test string",
+                        commandName: "Test string",
+                        triggersDialog: true,
+                        type: "Test string",
+                    },
                     startIndex: 42,
                     type: "Test string",
                     userMention: {
@@ -230,6 +242,9 @@ gapi.load('client', () => {
                 domainId: "Test string",
                 name: "Test string",
                 type: "Test string",
+            },
+            slashCommand: {
+                commandId: "Test string",
             },
             space: {
                 displayName: "Test string",
@@ -275,6 +290,18 @@ gapi.load('client', () => {
             annotations: [
                 {
                     length: 42,
+                    slashCommand: {
+                        bot: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                        commandId: "Test string",
+                        commandName: "Test string",
+                        triggersDialog: true,
+                        type: "Test string",
+                    },
                     startIndex: 42,
                     type: "Test string",
                     userMention: {
@@ -460,6 +487,9 @@ gapi.load('client', () => {
                 domainId: "Test string",
                 name: "Test string",
                 type: "Test string",
+            },
+            slashCommand: {
+                commandId: "Test string",
             },
             space: {
                 displayName: "Test string",
@@ -504,6 +534,18 @@ gapi.load('client', () => {
             annotations: [
                 {
                     length: 42,
+                    slashCommand: {
+                        bot: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                        commandId: "Test string",
+                        commandName: "Test string",
+                        triggersDialog: true,
+                        type: "Test string",
+                    },
                     startIndex: 42,
                     type: "Test string",
                     userMention: {
@@ -689,6 +731,9 @@ gapi.load('client', () => {
                 domainId: "Test string",
                 name: "Test string",
                 type: "Test string",
+            },
+            slashCommand: {
+                commandId: "Test string",
             },
             space: {
                 displayName: "Test string",
@@ -734,6 +779,18 @@ gapi.load('client', () => {
             annotations: [
                 {
                     length: 42,
+                    slashCommand: {
+                        bot: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                        commandId: "Test string",
+                        commandName: "Test string",
+                        triggersDialog: true,
+                        type: "Test string",
+                    },
                     startIndex: 42,
                     type: "Test string",
                     userMention: {
@@ -919,6 +976,9 @@ gapi.load('client', () => {
                 domainId: "Test string",
                 name: "Test string",
                 type: "Test string",
+            },
+            slashCommand: {
+                commandId: "Test string",
             },
             space: {
                 displayName: "Test string",
