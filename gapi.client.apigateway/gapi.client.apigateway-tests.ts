@@ -8,7 +8,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('apigateway', 'v1alpha2', () => {
+    gapi.client.load('apigateway', 'v1beta', () => {
         /** now we can use gapi.client.apigateway */
 
         /** don't forget to authenticate your client before sending any request to resources: */
