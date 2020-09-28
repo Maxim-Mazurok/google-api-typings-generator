@@ -103,32 +103,32 @@ Creates a Group.
 await gapi.client.cloudidentity.groups.create({  });
 
 /*
-Deletes a Group.
+Deletes a `Group`.
 */
 await gapi.client.cloudidentity.groups.delete({ name: "name",  });
 
 /*
-Retrieves a Group.
+Retrieves a `Group`.
 */
 await gapi.client.cloudidentity.groups.get({ name: "name",  });
 
 /*
-Lists groups within a customer or a domain.
+Lists the `Group`s under a customer or namespace.
 */
 await gapi.client.cloudidentity.groups.list({  });
 
 /*
-Looks up [resource name](https://cloud.google.com/apis/design/resource_names) of a Group by its EntityKey.
+Looks up the [resource name](https://cloud.google.com/apis/design/resource_names) of a `Group` by its `EntityKey`.
 */
 await gapi.client.cloudidentity.groups.lookup({  });
 
 /*
-Updates a Group.
+Updates a `Group`.
 */
 await gapi.client.cloudidentity.groups.patch({ name: "name",  });
 
 /*
-Searches for Groups.
+Searches for `Group`s matching a specified query.
 */
 await gapi.client.cloudidentity.groups.search({  });
 ```
