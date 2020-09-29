@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200903
+// Revision: 20200919
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -363,6 +363,10 @@ gapi.load('client', () => {
             serviceAccountEmailAddress: "Test string",
             settings: {
                 activationPolicy: "Test string",
+                activeDirectoryConfig: {
+                    domain: "Test string",
+                    kind: "Test string",
+                },
                 authorizedGaeApplications: [
                     "Test string"                ],
                 availabilityType: "Test string",
@@ -385,6 +389,12 @@ gapi.load('client', () => {
                 databaseReplicationEnabled: true,
                 dataDiskSizeGb: "Test string",
                 dataDiskType: "Test string",
+                denyMaintenancePeriods: [
+                    {
+                        endDate: "Test string",
+                        startDate: "Test string",
+                        time: "Test string",
+                    }                ],
                 ipConfiguration: {
                     authorizedNetworks: [
                         {
@@ -403,12 +413,6 @@ gapi.load('client', () => {
                     kind: "Test string",
                     zone: "Test string",
                 },
-                maintenanceDenyPeriods: [
-                    {
-                        endDate: "Test string",
-                        startDate: "Test string",
-                        time: "Test string",
-                    }                ],
                 maintenanceWindow: {
                     day: 42,
                     hour: 42,
@@ -530,6 +534,10 @@ gapi.load('client', () => {
             serviceAccountEmailAddress: "Test string",
             settings: {
                 activationPolicy: "Test string",
+                activeDirectoryConfig: {
+                    domain: "Test string",
+                    kind: "Test string",
+                },
                 authorizedGaeApplications: [
                     "Test string"                ],
                 availabilityType: "Test string",
@@ -552,6 +560,12 @@ gapi.load('client', () => {
                 databaseReplicationEnabled: true,
                 dataDiskSizeGb: "Test string",
                 dataDiskType: "Test string",
+                denyMaintenancePeriods: [
+                    {
+                        endDate: "Test string",
+                        startDate: "Test string",
+                        time: "Test string",
+                    }                ],
                 ipConfiguration: {
                     authorizedNetworks: [
                         {
@@ -570,12 +584,6 @@ gapi.load('client', () => {
                     kind: "Test string",
                     zone: "Test string",
                 },
-                maintenanceDenyPeriods: [
-                    {
-                        endDate: "Test string",
-                        startDate: "Test string",
-                        time: "Test string",
-                    }                ],
                 maintenanceWindow: {
                     day: 42,
                     hour: 42,
@@ -739,6 +747,10 @@ gapi.load('client', () => {
             serviceAccountEmailAddress: "Test string",
             settings: {
                 activationPolicy: "Test string",
+                activeDirectoryConfig: {
+                    domain: "Test string",
+                    kind: "Test string",
+                },
                 authorizedGaeApplications: [
                     "Test string"                ],
                 availabilityType: "Test string",
@@ -761,6 +773,12 @@ gapi.load('client', () => {
                 databaseReplicationEnabled: true,
                 dataDiskSizeGb: "Test string",
                 dataDiskType: "Test string",
+                denyMaintenancePeriods: [
+                    {
+                        endDate: "Test string",
+                        startDate: "Test string",
+                        time: "Test string",
+                    }                ],
                 ipConfiguration: {
                     authorizedNetworks: [
                         {
@@ -779,12 +797,6 @@ gapi.load('client', () => {
                     kind: "Test string",
                     zone: "Test string",
                 },
-                maintenanceDenyPeriods: [
-                    {
-                        endDate: "Test string",
-                        startDate: "Test string",
-                        time: "Test string",
-                    }                ],
                 maintenanceWindow: {
                     day: 42,
                     hour: 42,
