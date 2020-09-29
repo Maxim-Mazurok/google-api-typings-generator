@@ -125,7 +125,7 @@ process.on('unhandledRejection', reason => {
         settings.dtRepoName,
         pullNumber
       );
-      await timeout(1500); // comment should have Date after approval
+      await timeout(1_500); // comment should have Date after approval
       await git.commentReadyToMerge(
         settings.dtRepoOwner,
         settings.dtRepoName,
