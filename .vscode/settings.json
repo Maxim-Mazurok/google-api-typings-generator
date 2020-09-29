@@ -9,6 +9,7 @@
     "codeql",
     "dtslint",
     "gapi",
+    "mergebot",
     "nvmrc",
     "octokit",
     "peaceiris",

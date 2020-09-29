@@ -2,7 +2,7 @@ import {join} from 'path';
 import {Settings} from './index';
 import {Git} from './git';
 import {revisionPrefix} from '../../src/app';
-import {createOctokit} from './helpers';
+import {createOctokit, timeout} from './helpers';
 
 export class GitHelpers {
   readonly settings: Settings;
@@ -115,6 +115,7 @@ export class GitHelpers {
     if (await this.git.checkBranchExists(gapiTypeName)) {
       // only push local branches created during this run
       await this.git.push({branch: gapiTypeName, force: true}); // pushes to fork branch
+      await timeout(10_000); // to let github record this push properly, and later approve/comment will be after push, required for dt-mergebot
     }
 
     if (await this.onlyRevisionChanged(gapiTypeName)) {
