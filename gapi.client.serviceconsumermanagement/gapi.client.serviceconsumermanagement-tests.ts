@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200923
+// Revision: 20200929
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -71,8 +71,8 @@ gapi.load('client', () => {
             query: "Test string",
         });
         /**
-         * Add a new tenant project to the tenancy unit. There can be a maximum of 512 tenant projects in a tenancy unit. If there are previously failed `AddTenantProject` calls, you might need to
-         * call `RemoveTenantProject` first to resolve them before you can make another call to `AddTenantProject` with the same tag. Operation.
+         * Add a new tenant project to the tenancy unit. There can be a maximum of 1024 tenant projects in a tenancy unit. If there are previously failed `AddTenantProject` calls, you might need
+         * to call `RemoveTenantProject` first to resolve them before you can make another call to `AddTenantProject` with the same tag. Operation.
          */
         await gapi.client.serviceconsumermanagement.services.tenancyUnits.addProject({
             parent: "Test string",
