@@ -669,6 +669,11 @@ Retrieves the list of custom images available to the specified project. Custom i
 await gapi.client.compute.images.list({ project: "project",  });
 
 /*
+Patches the specified image with the data included in the request. Only the following fields can be modified: family, description, deprecation status.
+*/
+await gapi.client.compute.images.patch({ image: "image", project: "project",  });
+
+/*
 Sets the access control policy on the specified resource. Replaces any existing policy.
 */
 await gapi.client.compute.images.setIamPolicy({ project: "project", resource: "resource",  });
@@ -821,7 +826,9 @@ Deletes the specified instance group. The instances in the group are not deleted
 await gapi.client.compute.instanceGroups.delete({ instanceGroup: "instanceGroup", project: "project", zone: "zone",  });
 
 /*
-Returns the specified instance group. Gets a list of available instance groups by making a list() request.
+Returns the specified zonal instance group. Get a list of available zonal instance groups by making a list() request.
+
+For managed instance groups, use the instanceGroupManagers or regionInstanceGroupManagers methods instead.
 */
 await gapi.client.compute.instanceGroups.get({ instanceGroup: "instanceGroup", project: "project", zone: "zone",  });
 
@@ -831,7 +838,9 @@ Creates an instance group in the specified project using the parameters that are
 await gapi.client.compute.instanceGroups.insert({ project: "project", zone: "zone",  });
 
 /*
-Retrieves the list of instance groups that are located in the specified project and zone.
+Retrieves the list of zonal instance group resources contained within the specified zone.
+
+For managed instance groups, use the instanceGroupManagers or regionInstanceGroupManagers methods instead.
 */
 await gapi.client.compute.instanceGroups.list({ project: "project", zone: "zone",  });
 
@@ -2465,6 +2474,11 @@ await gapi.client.compute.targetHttpProxies.insert({ project: "project",  });
 Retrieves the list of TargetHttpProxy resources available to the specified project.
 */
 await gapi.client.compute.targetHttpProxies.list({ project: "project",  });
+
+/*
+Patches the specified TargetHttpProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. (== suppress_warning http-rest-shadowed ==)
+*/
+await gapi.client.compute.targetHttpProxies.patch({ project: "project", targetHttpProxy: "targetHttpProxy",  });
 
 /*
 Changes the URL map for TargetHttpProxy.

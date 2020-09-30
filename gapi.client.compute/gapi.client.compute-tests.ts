@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200811
+// Revision: 20200901
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -48,6 +48,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Returns the specified accelerator type. */
         await gapi.client.compute.acceleratorTypes.get({
@@ -62,6 +63,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Retrieves an aggregated list of addresses. */
@@ -72,6 +74,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified address resource. */
         await gapi.client.compute.addresses.delete({
@@ -119,6 +122,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Retrieves an aggregated list of autoscalers. */
         await gapi.client.compute.autoscalers.aggregatedList({
@@ -128,6 +132,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified autoscaler. */
         await gapi.client.compute.autoscalers.delete({
@@ -198,6 +203,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
@@ -353,6 +359,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Updates the specified BackendBucket resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.backendBuckets.patch({
@@ -411,6 +418,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified BackendService resource. */
         await gapi.client.compute.backendServices.delete({
@@ -564,6 +572,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Patches the specified BackendService resource with the data included in the request. For more information, see  Backend services overview. This method supports PATCH semantics and uses
@@ -824,6 +833,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Creates a snapshot of a specified persistent disk. */
         await gapi.client.compute.disks.createSnapshot({
@@ -966,6 +976,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Removes resource policies from a disk. */
@@ -995,6 +1006,7 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
+                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -1022,6 +1034,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
@@ -1106,6 +1119,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Returns the specified disk type. Gets a list of available disk types by making a list() request. */
         await gapi.client.compute.diskTypes.get({
@@ -1120,6 +1134,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Deletes the specified externalVpnGateway. */
@@ -1161,6 +1176,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Sets the labels on an ExternalVpnGateway. To learn more about labels, read the Labeling Resources documentation. */
         await gapi.client.compute.externalVpnGateways.setLabels({
@@ -1241,6 +1257,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Updates the specified firewall rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.firewalls.patch({
@@ -1343,6 +1360,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified ForwardingRule resource. */
         await gapi.client.compute.forwardingRules.delete({
@@ -1406,6 +1424,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. Currently,
@@ -1503,6 +1522,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified GlobalForwardingRule resource. */
         await gapi.client.compute.globalForwardingRules.delete({
@@ -1562,6 +1582,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. Currently,
@@ -1700,6 +1721,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Lists the network endpoints in the specified network endpoint group. */
         await gapi.client.compute.globalNetworkEndpointGroups.listNetworkEndpoints({
@@ -1709,6 +1731,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Retrieves an aggregated list of all operations. */
         await gapi.client.compute.globalOperations.aggregatedList({
@@ -1718,6 +1741,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified Operations resource. */
         await gapi.client.compute.globalOperations.delete({
@@ -1736,6 +1760,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs
@@ -1757,6 +1782,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified HealthCheck resource. */
         await gapi.client.compute.healthChecks.delete({
@@ -1843,6 +1869,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing
@@ -2020,6 +2047,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Updates a HttpHealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and
@@ -2101,6 +2129,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Updates a HttpsHealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and
@@ -2288,6 +2317,101 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
+        });
+        /** Patches the specified image with the data included in the request. Only the following fields can be modified: family, description, deprecation status. */
+        await gapi.client.compute.images.patch({
+            image: "Test string",
+            project: "Test string",
+            requestId: "Test string",
+        }, {
+            archiveSizeBytes: "Test string",
+            creationTimestamp: "Test string",
+            deprecated: {
+                deleted: "Test string",
+                deprecated: "Test string",
+                obsolete: "Test string",
+                replacement: "Test string",
+                state: "Test string",
+            },
+            description: "Test string",
+            diskSizeGb: "Test string",
+            family: "Test string",
+            guestOsFeatures: [
+                {
+                    type: "Test string",
+                }            ],
+            id: "Test string",
+            imageEncryptionKey: {
+                kmsKeyName: "Test string",
+                kmsKeyServiceAccount: "Test string",
+                rawKey: "Test string",
+                sha256: "Test string",
+            },
+            kind: "Test string",
+            labelFingerprint: "Test string",
+            labels: {
+                A: "Test string"            },
+            licenseCodes: [
+                "Test string"            ],
+            licenses: [
+                "Test string"            ],
+            name: "Test string",
+            rawDisk: {
+                containerType: "Test string",
+                sha1Checksum: "Test string",
+                source: "Test string",
+            },
+            selfLink: "Test string",
+            shieldedInstanceInitialState: {
+                dbs: [
+                    {
+                        content: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                dbxs: [
+                    {
+                        content: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                keks: [
+                    {
+                        content: "Test string",
+                        fileType: "Test string",
+                    }                ],
+                pk: {
+                    content: "Test string",
+                    fileType: "Test string",
+                },
+            },
+            sourceDisk: "Test string",
+            sourceDiskEncryptionKey: {
+                kmsKeyName: "Test string",
+                kmsKeyServiceAccount: "Test string",
+                rawKey: "Test string",
+                sha256: "Test string",
+            },
+            sourceDiskId: "Test string",
+            sourceImage: "Test string",
+            sourceImageEncryptionKey: {
+                kmsKeyName: "Test string",
+                kmsKeyServiceAccount: "Test string",
+                rawKey: "Test string",
+                sha256: "Test string",
+            },
+            sourceImageId: "Test string",
+            sourceSnapshot: "Test string",
+            sourceSnapshotEncryptionKey: {
+                kmsKeyName: "Test string",
+                kmsKeyServiceAccount: "Test string",
+                rawKey: "Test string",
+                sha256: "Test string",
+            },
+            sourceSnapshotId: "Test string",
+            sourceType: "Test string",
+            status: "Test string",
+            storageLocations: [
+                "Test string"            ],
         });
         /** Sets the access control policy on the specified resource. Replaces any existing policy. */
         await gapi.client.compute.images.setIamPolicy({
@@ -2296,6 +2420,7 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
+                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -2323,6 +2448,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
@@ -2424,6 +2550,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Applies changes to selected instances on the managed instance group. This method can be used to apply new overrides and/or new versions. */
         await gapi.client.compute.instanceGroupManagers.applyUpdatesToInstances({
@@ -2617,6 +2744,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Lists all errors thrown by actions on instances for a given managed instance group. The filter and orderBy query parameters are not supported. */
@@ -2627,6 +2755,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /**
@@ -2641,6 +2770,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Lists all of the per-instance configs defined for the managed instance group. The orderBy query parameter is not supported. */
@@ -2651,6 +2781,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /**
@@ -2887,6 +3018,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Deletes the specified instance group. The instances in the group are not deleted. Note that instance group must not belong to a backend service. Read  Deleting an instance group for
@@ -2898,7 +3030,11 @@ gapi.load('client', () => {
             requestId: "Test string",
             zone: "Test string",
         });
-        /** Returns the specified instance group. Gets a list of available instance groups by making a list() request. */
+        /**
+         * Returns the specified zonal instance group. Get a list of available zonal instance groups by making a list() request.
+         *
+         * For managed instance groups, use the instanceGroupManagers or regionInstanceGroupManagers methods instead.
+         */
         await gapi.client.compute.instanceGroups.get({
             instanceGroup: "Test string",
             project: "Test string",
@@ -2928,13 +3064,18 @@ gapi.load('client', () => {
             subnetwork: "Test string",
             zone: "Test string",
         });
-        /** Retrieves the list of instance groups that are located in the specified project and zone. */
+        /**
+         * Retrieves the list of zonal instance group resources contained within the specified zone.
+         *
+         * For managed instance groups, use the instanceGroupManagers or regionInstanceGroupManagers methods instead.
+         */
         await gapi.client.compute.instanceGroups.list({
             filter: "Test string",
             maxResults: 42,
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Lists the instances in the specified instance group. The orderBy query parameter is not supported. */
@@ -2945,6 +3086,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         }, {
             instanceState: "Test string",
@@ -3014,6 +3156,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Attaches an existing Disk resource to an instance. You must first create the disk before you can attach it. It is not possible to create and attach a disk at the same time. For more
@@ -3168,6 +3311,9 @@ gapi.load('client', () => {
             zone: "Test string",
         }, {
             canIpForward: true,
+            confidentialInstanceConfig: {
+                enableConfidentialCompute: true,
+            },
             cpuPlatform: "Test string",
             creationTimestamp: "Test string",
             deletionProtection: true,
@@ -3349,6 +3495,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /**
@@ -3362,6 +3509,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Removes resource policies from an instance. */
@@ -3406,6 +3554,7 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
+                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -3433,6 +3582,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
@@ -3666,6 +3816,9 @@ gapi.load('client', () => {
             zone: "Test string",
         }, {
             canIpForward: true,
+            confidentialInstanceConfig: {
+                enableConfidentialCompute: true,
+            },
             cpuPlatform: "Test string",
             creationTimestamp: "Test string",
             deletionProtection: true,
@@ -3951,6 +4104,9 @@ gapi.load('client', () => {
             name: "Test string",
             properties: {
                 canIpForward: true,
+                confidentialInstanceConfig: {
+                    enableConfidentialCompute: true,
+                },
                 description: "Test string",
                 disks: [
                     {
@@ -4124,6 +4280,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Sets the access control policy on the specified resource. Replaces any existing policy. */
         await gapi.client.compute.instanceTemplates.setIamPolicy({
@@ -4132,6 +4289,7 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
+                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -4159,6 +4317,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
@@ -4231,6 +4390,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified interconnect attachment. */
         await gapi.client.compute.interconnectAttachments.delete({
@@ -4292,6 +4452,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Updates the specified interconnect attachment with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.interconnectAttachments.patch({
@@ -4344,6 +4505,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified interconnect. */
         await gapi.client.compute.interconnects.delete({
@@ -4413,6 +4575,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Updates the specified interconnect with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.interconnects.patch({
@@ -4526,6 +4689,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Sets the access control policy on the specified resource. Replaces any existing policy.  Caution This resource is intended for use only by third-party partners who are creating Cloud
@@ -4537,6 +4701,7 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
+                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -4564,6 +4729,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
@@ -4636,6 +4802,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Returns the specified machine type. Gets a list of available machine types by making a list() request. */
         await gapi.client.compute.machineTypes.get({
@@ -4650,6 +4817,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Retrieves the list of network endpoint groups and sorts them by zone. */
@@ -4660,6 +4828,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Attach a list of network endpoints to the specified network endpoint group. */
         await gapi.client.compute.networkEndpointGroups.attachNetworkEndpoints({
@@ -4754,6 +4923,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Lists the network endpoints in the specified network endpoint group. */
@@ -4764,6 +4934,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         }, {
             healthStatus: "Test string",
@@ -4794,6 +4965,7 @@ gapi.load('client', () => {
                 importSubnetRoutesWithPublicIp: true,
                 name: "Test string",
                 network: "Test string",
+                peerMtu: 42,
                 state: "Test string",
                 stateDetails: "Test string",
             },
@@ -4822,6 +4994,7 @@ gapi.load('client', () => {
             id: "Test string",
             IPv4Range: "Test string",
             kind: "Test string",
+            mtu: 42,
             name: "Test string",
             peerings: [
                 {
@@ -4833,6 +5006,7 @@ gapi.load('client', () => {
                     importSubnetRoutesWithPublicIp: true,
                     name: "Test string",
                     network: "Test string",
+                    peerMtu: 42,
                     state: "Test string",
                     stateDetails: "Test string",
                 }            ],
@@ -4850,6 +5024,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Lists the peering routes exchanged over peering connection. */
         await gapi.client.compute.networks.listPeeringRoutes({
@@ -4862,6 +5037,7 @@ gapi.load('client', () => {
             peeringName: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Patches the specified network with the data included in the request. Only the following fields can be modified: routingConfig.routingMode. */
         await gapi.client.compute.networks.patch({
@@ -4876,6 +5052,7 @@ gapi.load('client', () => {
             id: "Test string",
             IPv4Range: "Test string",
             kind: "Test string",
+            mtu: 42,
             name: "Test string",
             peerings: [
                 {
@@ -4887,6 +5064,7 @@ gapi.load('client', () => {
                     importSubnetRoutesWithPublicIp: true,
                     name: "Test string",
                     network: "Test string",
+                    peerMtu: 42,
                     state: "Test string",
                     stateDetails: "Test string",
                 }            ],
@@ -4929,6 +5107,7 @@ gapi.load('client', () => {
                 importSubnetRoutesWithPublicIp: true,
                 name: "Test string",
                 network: "Test string",
+                peerMtu: 42,
                 state: "Test string",
                 stateDetails: "Test string",
             },
@@ -4950,6 +5129,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified NodeGroup resource. */
         await gapi.client.compute.nodeGroups.delete({
@@ -5013,6 +5193,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Lists nodes in the node group. */
@@ -5023,6 +5204,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Updates the specified node group. */
@@ -5058,6 +5240,7 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
+                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -5085,6 +5268,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
@@ -5167,6 +5351,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified NodeTemplate resource. */
         await gapi.client.compute.nodeTemplates.delete({
@@ -5224,6 +5409,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Sets the access control policy on the specified resource. Replaces any existing policy. */
         await gapi.client.compute.nodeTemplates.setIamPolicy({
@@ -5233,6 +5419,7 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
+                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -5260,6 +5447,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
@@ -5333,6 +5521,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Returns the specified node type. Gets a list of available node types by making a list() request. */
         await gapi.client.compute.nodeTypes.get({
@@ -5347,6 +5536,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Retrieves an aggregated list of packetMirrorings. */
@@ -5357,6 +5547,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified PacketMirroring resource. */
         await gapi.client.compute.packetMirrorings.delete({
@@ -5423,6 +5614,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Patches the specified PacketMirroring resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. */
         await gapi.client.compute.packetMirrorings.patch({
@@ -5523,6 +5715,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Lists all shared VPC host projects visible to the user in an organization. */
         await gapi.client.compute.projects.listXpnHosts({
@@ -5531,6 +5724,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         }, {
             organization: "Test string",
         });
@@ -5651,6 +5845,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.regionAutoscalers.patch({
@@ -5896,6 +6091,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Updates the specified regional BackendService resource with the data included in the request. For more information, see  Understanding backend services This method supports PATCH
@@ -6140,6 +6336,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Returns the specified commitment resource. Gets a list of available commitments by making a list() request. */
         await gapi.client.compute.regionCommitments.get({
@@ -6190,7 +6387,6 @@ gapi.load('client', () => {
                                     interface: "Test string",
                                 }                            ],
                             machineType: "Test string",
-                            maintenanceInterval: "Test string",
                             minCpuPlatform: "Test string",
                         },
                         inUseCount: "Test string",
@@ -6218,6 +6414,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Adds existing resource policies to a regional disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation. */
         await gapi.client.compute.regionDisks.addResourcePolicies({
@@ -6367,6 +6564,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Removes resource policies from a regional disk. */
         await gapi.client.compute.regionDisks.removeResourcePolicies({
@@ -6395,6 +6593,7 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
+                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -6422,6 +6621,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
@@ -6512,6 +6712,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified HealthCheck resource. */
         await gapi.client.compute.regionHealthChecks.delete({
@@ -6602,6 +6803,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing
@@ -6787,6 +6989,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Updates the specified regional HealthCheckService resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and
@@ -7024,6 +7227,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Lists all errors thrown by actions on instances for a given regional managed instance group. The filter and orderBy query parameters are not supported. */
         await gapi.client.compute.regionInstanceGroupManagers.listErrors({
@@ -7034,6 +7238,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group has scheduled for its instances.
@@ -7047,6 +7252,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Lists all of the per-instance configs defined for the managed instance group. The orderBy query parameter is not supported. */
         await gapi.client.compute.regionInstanceGroupManagers.listPerInstanceConfigs({
@@ -7057,6 +7263,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Updates a managed instance group using the information that you specify in the request. This operation is marked as DONE when the group is patched even if the instances in the group are
@@ -7283,6 +7490,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Lists the instances in the specified instance group and displays information about the named ports. Depending on the specified options, this method can list all instances or only the
@@ -7296,6 +7504,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         }, {
             instanceState: "Test string",
             portName: "Test string",
@@ -7371,6 +7580,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified NotificationEndpoint in the given region */
         await gapi.client.compute.regionNotificationEndpoints.delete({
@@ -7417,6 +7627,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified region-specific Operations resource. */
         await gapi.client.compute.regionOperations.delete({
@@ -7438,6 +7649,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs
@@ -7464,6 +7676,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified SslCertificate resource in the region. */
         await gapi.client.compute.regionSslCertificates.delete({
@@ -7517,6 +7730,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified TargetHttpProxy resource. */
         await gapi.client.compute.regionTargetHttpProxies.delete({
@@ -7539,6 +7753,7 @@ gapi.load('client', () => {
         }, {
             creationTimestamp: "Test string",
             description: "Test string",
+            fingerprint: "Test string",
             id: "Test string",
             kind: "Test string",
             name: "Test string",
@@ -7554,6 +7769,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Changes the URL map for TargetHttpProxy. */
         await gapi.client.compute.regionTargetHttpProxies.setUrlMap({
@@ -7604,6 +7820,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Replaces SslCertificates for TargetHttpsProxy. */
         await gapi.client.compute.regionTargetHttpsProxies.setSslCertificates({
@@ -8108,6 +8325,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. */
         await gapi.client.compute.regionUrlMaps.patch({
@@ -9510,6 +9728,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified reservation. */
         await gapi.client.compute.reservations.delete({
@@ -9558,7 +9777,6 @@ gapi.load('client', () => {
                             interface: "Test string",
                         }                    ],
                     machineType: "Test string",
-                    maintenanceInterval: "Test string",
                     minCpuPlatform: "Test string",
                 },
                 inUseCount: "Test string",
@@ -9574,6 +9792,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Resizes the reservation (applicable to standalone reservations only). For more information, read Modifying reservations. */
@@ -9593,6 +9812,7 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
+                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -9620,6 +9840,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
@@ -9693,6 +9914,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified resource policy. */
         await gapi.client.compute.resourcePolicies.delete({
@@ -9775,6 +9997,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Sets the access control policy on the specified resource. Replaces any existing policy. */
         await gapi.client.compute.resourcePolicies.setIamPolicy({
@@ -9784,6 +10007,7 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
+                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -9811,6 +10035,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
@@ -9884,6 +10109,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified Router resource. */
         await gapi.client.compute.routers.delete({
@@ -9906,6 +10132,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
             router: "Test string",
         });
         /** Retrieves runtime information of the specified router. */
@@ -10001,6 +10228,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. */
         await gapi.client.compute.routers.patch({
@@ -10296,6 +10524,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Inserts a rule into a security policy. */
         await gapi.client.compute.securityPolicies.addRule({
@@ -10379,6 +10608,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Gets the current list of preconfigured Web Application Firewall (WAF) expressions. */
         await gapi.client.compute.securityPolicies.listPreconfiguredExpressionSets({
@@ -10387,6 +10617,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Patches the specified policy with the data included in the request. */
         await gapi.client.compute.securityPolicies.patch({
@@ -10483,6 +10714,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Sets the access control policy on the specified resource. Replaces any existing policy. */
         await gapi.client.compute.snapshots.setIamPolicy({
@@ -10491,6 +10723,7 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
+                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -10518,6 +10751,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
@@ -10599,6 +10833,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified SslCertificate resource. */
         await gapi.client.compute.sslCertificates.delete({
@@ -10648,6 +10883,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified SSL policy. The SSL policy resource can be deleted only if it is not in use by any TargetHttpsProxy or TargetSslProxy resources. */
         await gapi.client.compute.sslPolicies.delete({
@@ -10696,6 +10932,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Lists all features that can be specified in the SSL policy when using custom profile. */
         await gapi.client.compute.sslPolicies.listAvailableFeatures({
@@ -10704,6 +10941,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Patches the specified SSL policy with the data included in the request. */
         await gapi.client.compute.sslPolicies.patch({
@@ -10743,6 +10981,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified subnetwork. */
         await gapi.client.compute.subnetworks.delete({
@@ -10820,6 +11059,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Retrieves an aggregated list of all usable subnetworks in the project. */
         await gapi.client.compute.subnetworks.listUsable({
@@ -10828,6 +11068,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /**
          * Patches the specified subnetwork with the data included in the request. Only certain fields can up updated with a patch request as indicated in the field descriptions. You must specify
@@ -10881,6 +11122,7 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
+                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -10908,6 +11150,7 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
+                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
@@ -11016,6 +11259,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Patches the specified TargetGrpcProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. */
         await gapi.client.compute.targetGrpcProxies.patch({
@@ -11042,6 +11286,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified TargetHttpProxy resource. */
         await gapi.client.compute.targetHttpProxies.delete({
@@ -11061,6 +11306,7 @@ gapi.load('client', () => {
         }, {
             creationTimestamp: "Test string",
             description: "Test string",
+            fingerprint: "Test string",
             id: "Test string",
             kind: "Test string",
             name: "Test string",
@@ -11075,6 +11321,26 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
+        });
+        /**
+         * Patches the specified TargetHttpProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. (==
+         * suppress_warning http-rest-shadowed ==)
+         */
+        await gapi.client.compute.targetHttpProxies.patch({
+            project: "Test string",
+            requestId: "Test string",
+            targetHttpProxy: "Test string",
+        }, {
+            creationTimestamp: "Test string",
+            description: "Test string",
+            fingerprint: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            name: "Test string",
+            region: "Test string",
+            selfLink: "Test string",
+            urlMap: "Test string",
         });
         /** Changes the URL map for TargetHttpProxy. */
         await gapi.client.compute.targetHttpProxies.setUrlMap({
@@ -11092,6 +11358,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified TargetHttpsProxy resource. */
         await gapi.client.compute.targetHttpsProxies.delete({
@@ -11129,6 +11396,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Sets the QUIC override policy for TargetHttpsProxy. */
         await gapi.client.compute.targetHttpsProxies.setQuicOverride({
@@ -11174,6 +11442,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified TargetInstance resource. */
         await gapi.client.compute.targetInstances.delete({
@@ -11211,6 +11480,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /** Adds health check URLs to a target pool. */
@@ -11245,6 +11515,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified target pool. */
         await gapi.client.compute.targetPools.delete({
@@ -11296,6 +11567,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Removes health check URL from a target pool. */
         await gapi.client.compute.targetPools.removeHealthCheck({
@@ -11366,6 +11638,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Changes the BackendService for TargetSslProxy. */
         await gapi.client.compute.targetSslProxies.setBackendService({
@@ -11435,6 +11708,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Changes the BackendService for TargetTcpProxy. */
         await gapi.client.compute.targetTcpProxies.setBackendService({
@@ -11460,6 +11734,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified target VPN gateway. */
         await gapi.client.compute.targetVpnGateways.delete({
@@ -11502,6 +11777,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Retrieves the list of all UrlMap resources, regional and global, available to the specified project. */
         await gapi.client.compute.urlMaps.aggregatedList({
@@ -11511,6 +11787,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified UrlMap resource. */
         await gapi.client.compute.urlMaps.delete({
@@ -12001,6 +12278,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. */
         await gapi.client.compute.urlMaps.patch({
@@ -13400,6 +13678,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified VPN gateway. */
         await gapi.client.compute.vpnGateways.delete({
@@ -13451,6 +13730,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Sets the labels on a VpnGateway. To learn more about labels, read the Labeling Resources documentation. */
         await gapi.client.compute.vpnGateways.setLabels({
@@ -13480,6 +13760,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified VpnTunnel resource. */
         await gapi.client.compute.vpnTunnels.delete({
@@ -13533,6 +13814,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             region: "Test string",
+            returnPartialSuccess: true,
         });
         /** Deletes the specified zone-specific Operations resource. */
         await gapi.client.compute.zoneOperations.delete({
@@ -13553,6 +13835,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
             zone: "Test string",
         });
         /**
@@ -13580,6 +13863,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
     }
 });
