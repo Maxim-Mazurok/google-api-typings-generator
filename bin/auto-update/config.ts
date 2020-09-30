@@ -6,4 +6,5 @@ export const supportedApis = [
   'storage',
   'discovery',
   'analyticsreporting',
+  'analytics',
 ];
