@@ -1,11 +1,11 @@
-# TypeScript typings for Cloud OS Config API v1
+# TypeScript typings for OS Config API v1
 
 OS management tools that can be used for patch management, patch compliance, and configuration management on VM instances.
-For detailed description please check [documentation](https://cloud.google.com/).
+For detailed description please check [documentation](https://cloud.google.com/compute/docs/manage-os).
 
 ## Installing
 
-Install typings for Cloud OS Config API:
+Install typings for OS Config API:
 
 ```
 npm install @types/gapi.client.osconfig@v1 --save-dev
@@ -54,7 +54,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Cloud OS Config API resources:
+After that you can use OS Config API resources:
 
 ```typescript
 ```
