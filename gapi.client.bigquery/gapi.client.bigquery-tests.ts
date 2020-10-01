@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200916
+// Revision: 20200925
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -95,6 +95,7 @@ gapi.load('client', () => {
                 A: "Test string"            },
             lastModifiedTime: "Test string",
             location: "Test string",
+            satisfiesPZS: true,
             selfLink: "Test string",
         });
         /** Lists all datasets in the specified project to which you have been granted the READER dataset role. */
@@ -146,6 +147,7 @@ gapi.load('client', () => {
                 A: "Test string"            },
             lastModifiedTime: "Test string",
             location: "Test string",
+            satisfiesPZS: true,
             selfLink: "Test string",
         });
         /**
@@ -189,6 +191,7 @@ gapi.load('client', () => {
                 A: "Test string"            },
             lastModifiedTime: "Test string",
             location: "Test string",
+            satisfiesPZS: true,
             selfLink: "Test string",
         });
         /**
@@ -303,6 +306,7 @@ gapi.load('client', () => {
                     fieldDelimiter: "Test string",
                     hivePartitioningOptions: {
                         mode: "Test string",
+                        requirePartitionFilter: true,
                         sourceUriPrefix: "Test string",
                     },
                     ignoreUnknownValues: true,
@@ -453,6 +457,7 @@ gapi.load('client', () => {
                             },
                             hivePartitioningOptions: {
                                 mode: "Test string",
+                                requirePartitionFilter: true,
                                 sourceUriPrefix: "Test string",
                             },
                             ignoreUnknownValues: true,
@@ -1299,6 +1304,7 @@ gapi.load('client', () => {
                 },
                 hivePartitioningOptions: {
                     mode: "Test string",
+                    requirePartitionFilter: true,
                     sourceUriPrefix: "Test string",
                 },
                 ignoreUnknownValues: true,
@@ -1502,6 +1508,7 @@ gapi.load('client', () => {
                 },
                 hivePartitioningOptions: {
                     mode: "Test string",
+                    requirePartitionFilter: true,
                     sourceUriPrefix: "Test string",
                 },
                 ignoreUnknownValues: true,
@@ -1740,6 +1747,7 @@ gapi.load('client', () => {
                 },
                 hivePartitioningOptions: {
                     mode: "Test string",
+                    requirePartitionFilter: true,
                     sourceUriPrefix: "Test string",
                 },
                 ignoreUnknownValues: true,
