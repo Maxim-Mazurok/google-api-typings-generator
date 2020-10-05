@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200728
+// Revision: 20201002
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -41,6 +41,7 @@ gapi.load('client', () => {
         await gapi.client.adsense.accounts.adclients.getAdCode({
             accountId: "Test string",
             adClientId: "Test string",
+            tagPartner: "Test string",
         });
         /** List all ad clients in the specified account. */
         await gapi.client.adsense.accounts.adclients.list({
@@ -193,6 +194,7 @@ gapi.load('client', () => {
         await gapi.client.adsense.accounts.adclients.getAdCode({
             accountId: "Test string",
             adClientId: "Test string",
+            tagPartner: "Test string",
         });
         /** List all ad clients in the specified account. */
         await gapi.client.adsense.accounts.adclients.list({
