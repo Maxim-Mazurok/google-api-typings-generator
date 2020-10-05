@@ -1,4 +1,4 @@
-# TypeScript typings for Cloud Document AI API v1beta2
+# TypeScript typings for Cloud Document AI API v1beta3
 
 Service to parse structured information from unstructured or semi-structured documents using state-of-the-art Google AI such as natural language, computer vision, translation, and AutoML.
 For detailed description please check [documentation](https://cloud.google.com/document-ai/docs/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/d
 Install typings for Cloud Document AI API:
 
 ```
-npm install @types/gapi.client.documentai@v1beta2 --save-dev
+npm install @types/gapi.client.documentai@v1beta3 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('documentai', 'v1beta2', () => {
+gapi.client.load('documentai', 'v1beta3', () => {
   // now we can use gapi.client.documentai
   // ...
 });

@@ -8,7 +8,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('documentai', 'v1beta2', () => {
+    gapi.client.load('documentai', 'v1beta3', () => {
         /** now we can use gapi.client.documentai */
 
         /** don't forget to authenticate your client before sending any request to resources: */
