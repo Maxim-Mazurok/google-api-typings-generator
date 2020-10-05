@@ -1,6 +1,6 @@
 # TypeScript typings for AdMob API v1
 
-The Google AdMob API lets you programmatically get reports on earnings. 
+The AdMob API allows publishers to programmatically get information about their AdMob account. 
 For detailed description please check [documentation](https://developers.google.com/admob/api/).
 
 ## Installing
