@@ -1,4 +1,4 @@
-# TypeScript typings for Cloud Billing Budget API v1beta1
+# TypeScript typings for Cloud Billing Budget API v1
 
 The Cloud Billing Budget API stores Cloud Billing budgets, which define a budget plan and the rules to execute as spend is tracked against that plan.
 For detailed description please check [documentation](https://cloud.google.com/billing/docs/how-to/budget-api-overview).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/b
 Install typings for Cloud Billing Budget API:
 
 ```
-npm install @types/gapi.client.billingbudgets@v1beta1 --save-dev
+npm install @types/gapi.client.billingbudgets@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('billingbudgets', 'v1beta1', () => {
+gapi.client.load('billingbudgets', 'v1', () => {
   // now we can use gapi.client.billingbudgets
   // ...
 });
