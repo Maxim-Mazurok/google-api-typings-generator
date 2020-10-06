@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200919
+// Revision: 20200930
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -371,6 +371,10 @@ gapi.load('client', () => {
                     "Test string"                ],
                 availabilityType: "Test string",
                 backupConfiguration: {
+                    backupRetentionSettings: {
+                        retainedBackups: 42,
+                        retentionUnit: "Test string",
+                    },
                     binaryLogEnabled: true,
                     enabled: true,
                     kind: "Test string",
@@ -378,6 +382,7 @@ gapi.load('client', () => {
                     pointInTimeRecoveryEnabled: true,
                     replicationLogArchivingEnabled: true,
                     startTime: "Test string",
+                    transactionLogRetentionDays: 42,
                 },
                 collation: "Test string",
                 crashSafeReplicationEnabled: true,
@@ -542,6 +547,10 @@ gapi.load('client', () => {
                     "Test string"                ],
                 availabilityType: "Test string",
                 backupConfiguration: {
+                    backupRetentionSettings: {
+                        retainedBackups: 42,
+                        retentionUnit: "Test string",
+                    },
                     binaryLogEnabled: true,
                     enabled: true,
                     kind: "Test string",
@@ -549,6 +558,7 @@ gapi.load('client', () => {
                     pointInTimeRecoveryEnabled: true,
                     replicationLogArchivingEnabled: true,
                     startTime: "Test string",
+                    transactionLogRetentionDays: 42,
                 },
                 collation: "Test string",
                 crashSafeReplicationEnabled: true,
@@ -755,6 +765,10 @@ gapi.load('client', () => {
                     "Test string"                ],
                 availabilityType: "Test string",
                 backupConfiguration: {
+                    backupRetentionSettings: {
+                        retainedBackups: 42,
+                        retentionUnit: "Test string",
+                    },
                     binaryLogEnabled: true,
                     enabled: true,
                     kind: "Test string",
@@ -762,6 +776,7 @@ gapi.load('client', () => {
                     pointInTimeRecoveryEnabled: true,
                     replicationLogArchivingEnabled: true,
                     startTime: "Test string",
+                    transactionLogRetentionDays: 42,
                 },
                 collation: "Test string",
                 crashSafeReplicationEnabled: true,
