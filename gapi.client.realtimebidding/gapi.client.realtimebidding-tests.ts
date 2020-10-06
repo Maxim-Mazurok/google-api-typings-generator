@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200930
+// Revision: 20201006
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -49,11 +49,6 @@ gapi.load('client', () => {
             creativeFormat: "Test string",
             creativeId: "Test string",
             creativeServingDecision: {
-                adTechnologyProviders: {
-                    detectedProviderIds: [
-                        "Test string"                    ],
-                    hasUnidentifiedProvider: true,
-                },
                 chinaServingStatus: {
                     status: "Test string",
                     topics: [
@@ -383,11 +378,6 @@ gapi.load('client', () => {
             creativeFormat: "Test string",
             creativeId: "Test string",
             creativeServingDecision: {
-                adTechnologyProviders: {
-                    detectedProviderIds: [
-                        "Test string"                    ],
-                    hasUnidentifiedProvider: true,
-                },
                 chinaServingStatus: {
                     status: "Test string",
                     topics: [
