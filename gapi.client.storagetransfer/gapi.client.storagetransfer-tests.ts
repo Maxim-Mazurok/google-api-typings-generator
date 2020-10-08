@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200924
+// Revision: 20201001
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -218,6 +218,7 @@ gapi.load('client', () => {
          */
         await gapi.client.storagetransfer.transferOperations.cancel({
             name: "Test string",
+        }, {
         });
         /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
         await gapi.client.storagetransfer.transferOperations.get({
