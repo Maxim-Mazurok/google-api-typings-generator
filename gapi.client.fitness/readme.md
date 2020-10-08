@@ -67,6 +67,12 @@ var client_id = '',
       // See and add info about your body measurements and heart rate to Google Fit
       'https://www.googleapis.com/auth/fitness.body.write',
 
+      // See your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.
+      'https://www.googleapis.com/auth/fitness.heart_rate.read',
+
+      // See and add to your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.
+      'https://www.googleapis.com/auth/fitness.heart_rate.write',
+
       // See your Google Fit speed and distance data
       'https://www.googleapis.com/auth/fitness.location.read',
 
@@ -90,6 +96,12 @@ var client_id = '',
 
       // See and add info about your reproductive health in Google Fit. I consent to Google sharing my reproductive health information with this app.
       'https://www.googleapis.com/auth/fitness.reproductive_health.write',
+
+      // See your sleep data in Google Fit. I consent to Google sharing my sleep information with this app.
+      'https://www.googleapis.com/auth/fitness.sleep.read',
+
+      // See and add to your sleep data in Google Fit. I consent to Google sharing my sleep information with this app.
+      'https://www.googleapis.com/auth/fitness.sleep.write',
     ],
     immediate = true;
 // ...
