@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201007
+// Revision: 20200922
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -848,19 +848,6 @@ gapi.load('client', () => {
             returnId: "Test string",
         }, {
             operationId: "Test string",
-        });
-        /** Create return in your Merchant Center account. */
-        await gapi.client.content.orderreturns.createorderreturn({
-            merchantId: "Test string",
-        }, {
-            lineItems: [
-                {
-                    lineItemId: "Test string",
-                    quantity: 42,
-                }            ],
-            operationId: "Test string",
-            orderId: "Test string",
-            returnMethodType: "Test string",
         });
         /** Retrieves an order return from your Merchant Center account. */
         await gapi.client.content.orderreturns.get({

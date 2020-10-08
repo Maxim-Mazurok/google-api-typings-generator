@@ -284,11 +284,6 @@ Acks an order return in your Merchant Center account.
 await gapi.client.content.orderreturns.acknowledge({ merchantId: "merchantId", returnId: "returnId",  });
 
 /*
-Create return in your Merchant Center account.
-*/
-await gapi.client.content.orderreturns.createorderreturn({ merchantId: "merchantId",  });
-
-/*
 Retrieves an order return from your Merchant Center account.
 */
 await gapi.client.content.orderreturns.get({ merchantId: "merchantId", returnId: "returnId",  });

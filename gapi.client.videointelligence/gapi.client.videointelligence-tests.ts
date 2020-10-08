@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201002
+// Revision: 20200911
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -46,11 +46,6 @@ gapi.load('client', () => {
                 explicitContentDetectionConfig: {
                     model: "Test string",
                 },
-                faceDetectionConfig: {
-                    includeAttributes: true,
-                    includeBoundingBoxes: true,
-                    model: "Test string",
-                },
                 labelDetectionConfig: {
                     frameConfidenceThreshold: 42,
                     labelDetectionMode: "Test string",
@@ -60,11 +55,6 @@ gapi.load('client', () => {
                 },
                 objectTrackingConfig: {
                     model: "Test string",
-                },
-                personDetectionConfig: {
-                    includeAttributes: true,
-                    includeBoundingBoxes: true,
-                    includePoseLandmarks: true,
                 },
                 segments: [
                     {
