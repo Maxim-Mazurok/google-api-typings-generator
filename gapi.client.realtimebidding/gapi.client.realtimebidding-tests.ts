@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201006
+// Revision: 20201008
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -49,7 +49,7 @@ gapi.load('client', () => {
             creativeFormat: "Test string",
             creativeId: "Test string",
             creativeServingDecision: {
-                chinaServingStatus: {
+                chinaPolicyCompliance: {
                     status: "Test string",
                     topics: [
                         {
@@ -103,7 +103,7 @@ gapi.load('client', () => {
                             policyTopic: "Test string",
                         }                    ],
                 },
-                dealsServingStatus: {
+                dealsPolicyCompliance: {
                     status: "Test string",
                     topics: [
                         {
@@ -179,7 +179,7 @@ gapi.load('client', () => {
                 detectedVendorIds: [
                     42                ],
                 lastStatusUpdate: "Test string",
-                openAuctionServingStatus: {
+                networkPolicyCompliance: {
                     status: "Test string",
                     topics: [
                         {
@@ -233,7 +233,61 @@ gapi.load('client', () => {
                             policyTopic: "Test string",
                         }                    ],
                 },
-                russiaServingStatus: {
+                platformPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                russiaPolicyCompliance: {
                     status: "Test string",
                     topics: [
                         {
@@ -378,7 +432,7 @@ gapi.load('client', () => {
             creativeFormat: "Test string",
             creativeId: "Test string",
             creativeServingDecision: {
-                chinaServingStatus: {
+                chinaPolicyCompliance: {
                     status: "Test string",
                     topics: [
                         {
@@ -432,7 +486,7 @@ gapi.load('client', () => {
                             policyTopic: "Test string",
                         }                    ],
                 },
-                dealsServingStatus: {
+                dealsPolicyCompliance: {
                     status: "Test string",
                     topics: [
                         {
@@ -508,7 +562,7 @@ gapi.load('client', () => {
                 detectedVendorIds: [
                     42                ],
                 lastStatusUpdate: "Test string",
-                openAuctionServingStatus: {
+                networkPolicyCompliance: {
                     status: "Test string",
                     topics: [
                         {
@@ -562,7 +616,61 @@ gapi.load('client', () => {
                             policyTopic: "Test string",
                         }                    ],
                 },
-                russiaServingStatus: {
+                platformPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                russiaPolicyCompliance: {
                     status: "Test string",
                     topics: [
                         {
