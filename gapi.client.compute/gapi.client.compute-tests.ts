@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200901
+// Revision: 20200910
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -3404,6 +3404,9 @@ gapi.load('client', () => {
             labelFingerprint: "Test string",
             labels: {
                 A: "Test string"            },
+            lastStartTimestamp: "Test string",
+            lastStopTimestamp: "Test string",
+            lastSuspendedTimestamp: "Test string",
             machineType: "Test string",
             metadata: {
                 fingerprint: "Test string",
@@ -3499,8 +3502,8 @@ gapi.load('client', () => {
             zone: "Test string",
         });
         /**
-         * Retrieves a list of resources that refer to the VM instance specified in the request. For example, if the VM instance is part of a managed instance group, the referrers list includes
-         * the managed instance group. For more information, read Viewing Referrers to VM Instances.
+         * Retrieves a list of resources that refer to the VM instance specified in the request. For example, if the VM instance is part of a managed or unmanaged instance group, the referrers
+         * list includes the instance group. For more information, read Viewing referrers to VM instances.
          */
         await gapi.client.compute.instances.listReferrers({
             filter: "Test string",
@@ -3909,6 +3912,9 @@ gapi.load('client', () => {
             labelFingerprint: "Test string",
             labels: {
                 A: "Test string"            },
+            lastStartTimestamp: "Test string",
+            lastStopTimestamp: "Test string",
+            lastSuspendedTimestamp: "Test string",
             machineType: "Test string",
             metadata: {
                 fingerprint: "Test string",
