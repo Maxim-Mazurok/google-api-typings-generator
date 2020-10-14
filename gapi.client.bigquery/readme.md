@@ -195,6 +195,11 @@ Updates information in an existing routine. The update method replaces the entir
 await gapi.client.bigquery.routines.update({ datasetId: "datasetId", projectId: "projectId", routineId: "routineId",  });
 
 /*
+Lists all row access policies on the specified table.
+*/
+await gapi.client.bigquery.rowAccessPolicies.list({ datasetId: "datasetId", projectId: "projectId", tableId: "tableId",  });
+
+/*
 Streams data into BigQuery one record at a time without needing to run a load job. Requires the WRITER dataset role.
 */
 await gapi.client.bigquery.tabledata.insertAll({ datasetId: "datasetId", projectId: "projectId", tableId: "tableId",  });

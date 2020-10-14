@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200929
+// Revision: 20201007
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1201,6 +1201,14 @@ gapi.load('client', () => {
                 routineId: "Test string",
             },
             routineType: "Test string",
+        });
+        /** Lists all row access policies on the specified table. */
+        await gapi.client.bigquery.rowAccessPolicies.list({
+            datasetId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            projectId: "Test string",
+            tableId: "Test string",
         });
         /** Streams data into BigQuery one record at a time without needing to run a load job. Requires the WRITER dataset role. */
         await gapi.client.bigquery.tabledata.insertAll({
