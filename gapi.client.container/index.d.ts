@@ -206,13 +206,7 @@ declare namespace gapi.client {
              * [region](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available) in which the cluster resides.
              */
             location?: string;
-            /**
-             * The list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the cluster's nodes should be located. This field provides a default value
-             * if [NodePool.Locations](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations) are not specified during
-             * node pool creation. Warning: changing cluster locations will update the
-             * [NodePool.Locations](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations) of all node pools and will
-             * result in nodes being added and/or removed.
-             */
+            /** The list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the cluster's nodes should be located. */
             locations?: string[];
             /**
              * The logging service the cluster should use to write logs. Currently available options: * `logging.googleapis.com/kubernetes` - The Cloud Logging service with a Kubernetes-native
@@ -324,8 +318,9 @@ declare namespace gapi.client {
             /** The desired config of Intra-node visibility. */
             desiredIntraNodeVisibilityConfig?: IntraNodeVisibilityConfig;
             /**
-             * The desired list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the cluster's nodes should be located. This list must always
-             * include the cluster's primary zone. Warning: changing cluster locations will update the locations of all node pools and will result in nodes being added and/or removed.
+             * The desired list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the cluster's nodes should be located. Changing the locations a
+             * cluster is in will result in nodes being either created or removed from the cluster, depending on whether locations are being added or removed. This list must always include the
+             * cluster's primary zone.
              */
             desiredLocations?: string[];
             /**
@@ -749,9 +744,9 @@ declare namespace gapi.client {
              * of a URL in the metadata server. Additionally, to avoid ambiguity, keys must not conflict with any other metadata keys for the project or be one of the reserved keys: -
              * "cluster-location" - "cluster-name" - "cluster-uid" - "configure-sh" - "containerd-configure-sh" - "enable-os-login" - "gci-ensure-gke-docker" - "gci-metrics-enabled" -
              * "gci-update-strategy" - "instance-template" - "kube-env" - "startup-script" - "user-data" - "disable-address-manager" - "windows-startup-script-ps1" - "common-psm1" -
-             * "k8s-node-setup-psm1" - "install-ssh-psm1" - "user-profile-psm1" The following keys are reserved for Windows nodes: - "serial-port-logging-enable" Values are free-form strings, and
-             * only have meaning as interpreted by the image running in the instance. The only restriction placed on them is that each value's size must be less than or equal to 32 KB. The total
-             * size of all keys and values must be less than 512 KB.
+             * "k8s-node-setup-psm1" - "install-ssh-psm1" - "user-profile-psm1" - "serial-port-logging-enable" Values are free-form strings, and only have meaning as interpreted by the image
+             * running in the instance. The only restriction placed on them is that each value's size must be less than or equal to 32 KB. The total size of all keys and values must be less than
+             * 512 KB.
              */
             metadata?: { [P in string]: string };
             /**
@@ -832,11 +827,7 @@ declare namespace gapi.client {
              * node pool.
              */
             instanceGroupUrls?: string[];
-            /**
-             * The list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the NodePool's nodes should be located. If this value is unspecified during
-             * node pool creation, the [Cluster.Locations](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters#Cluster.FIELDS.locations) value will be
-             * used, instead. Warning: changing node pool locations will result in nodes being added and/or removed.
-             */
+            /** The list of Google Compute Engine [zones](https://cloud.google.com/compute/docs/zones#available) in which the NodePool's nodes should be located. */
             locations?: string[];
             /** NodeManagement configuration for this NodePool. */
             management?: NodeManagement;
