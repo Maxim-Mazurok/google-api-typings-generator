@@ -71,12 +71,12 @@ await gapi.client.storagetransfer.transferJobs.create({  });
 /*
 Gets a transfer job.
 */
-await gapi.client.storagetransfer.transferJobs.get({ jobName: "jobName",  });
+await gapi.client.storagetransfer.transferJobs.get({ jobName: "jobName", projectId: "projectId",  });
 
 /*
 Lists transfer jobs.
 */
-await gapi.client.storagetransfer.transferJobs.list({  });
+await gapi.client.storagetransfer.transferJobs.list({ filter: "filter",  });
 
 /*
 Updates a transfer job. Updating a job's transfer spec does not affect transfer operations that are running already. Updating a job's schedule is not allowed. **Note:** The job's status field can be modified using this RPC (for example, to set a job's status to DELETED, DISABLED, or ENABLED).
@@ -96,7 +96,7 @@ await gapi.client.storagetransfer.transferOperations.get({ name: "name",  });
 /*
 Lists transfer operations.
 */
-await gapi.client.storagetransfer.transferOperations.list({ name: "name",  });
+await gapi.client.storagetransfer.transferOperations.list({ filter: "filter", name: "name",  });
 
 /*
 Pauses a transfer operation.

@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201001
+// Revision: 20201013
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -45,6 +45,7 @@ gapi.load('client', () => {
             deletionTime: "Test string",
             description: "Test string",
             lastModificationTime: "Test string",
+            latestOperationName: "Test string",
             name: "Test string",
             notificationConfig: {
                 eventTypes: [
@@ -137,6 +138,7 @@ gapi.load('client', () => {
                 deletionTime: "Test string",
                 description: "Test string",
                 lastModificationTime: "Test string",
+                latestOperationName: "Test string",
                 name: "Test string",
                 notificationConfig: {
                     eventTypes: [

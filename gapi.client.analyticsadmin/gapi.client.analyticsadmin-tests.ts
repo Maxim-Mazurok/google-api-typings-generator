@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201014
+// Revision: 20201015
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -329,8 +329,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Returns all accounts accessible by the caller. Note that these accounts might not currently have App+Web properties. Soft-deleted (ie: "trashed") accounts are excluded by default.
-         * Returns an empty list if no relevant accounts are found.
+         * Returns all accounts accessible by the caller. Note that these accounts might not currently have GA4 properties. Soft-deleted (ie: "trashed") accounts are excluded by default. Returns
+         * an empty list if no relevant accounts are found.
          */
         await gapi.client.analyticsadmin.accounts.list({
             pageSize: 42,
@@ -643,7 +643,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /** Creates an "App+Web" property with the specified location and attributes. */
+        /** Creates an "GA4" property with the specified location and attributes. */
         await gapi.client.analyticsadmin.properties.create({
         }, {
             createTime: "Test string",
@@ -969,7 +969,7 @@ gapi.load('client', () => {
         /**
          * Marks target Property as soft-deleted (ie: "trashed") and returns it. This API does not have a method to restore soft-deleted properties. However, they can be restored using the Trash
          * Can UI. If the properties are not restored before the expiration time, the Property and all child resources (eg: GoogleAdsLinks, Streams, UserLinks) will be permanently purged.
-         * https://support.google.com/analytics/answer/6154772 Returns an error if the target is not found, or is not an App+Web Property.
+         * https://support.google.com/analytics/answer/6154772 Returns an error if the target is not found, or is not an GA4 Property.
          */
         await gapi.client.analyticsadmin.properties.delete({
             name: "Test string",
@@ -1284,10 +1284,7 @@ gapi.load('client', () => {
             urlQueryParameter: "Test string",
             videoEngagementEnabled: true,
         });
-        /**
-         * Lookup for a single "App+Web" Property. Throws "Target not found" if no such property found, if property is not of the type "App+Web", or if caller does not have permissions to access
-         * it.
-         */
+        /** Lookup for a single "GA4" Property. Throws "Target not found" if no such property found, if property is not of the type "GA4", or if caller does not have permissions to access it. */
         await gapi.client.analyticsadmin.properties.get({
             name: "Test string",
         });
@@ -1602,8 +1599,8 @@ gapi.load('client', () => {
             videoEngagementEnabled: true,
         });
         /**
-         * Returns child Properties under the specified parent Account. Only "App+Web" properties will be returned. Properties will be excluded if the caller does not have access. Soft-deleted
-         * (ie: "trashed") properties are excluded by default. Returns an empty list if no relevant properties are found.
+         * Returns child Properties under the specified parent Account. Only "GA4" properties will be returned. Properties will be excluded if the caller does not have access. Soft-deleted (ie:
+         * "trashed") properties are excluded by default. Returns an empty list if no relevant properties are found.
          */
         await gapi.client.analyticsadmin.properties.list({
             filter: "Test string",
