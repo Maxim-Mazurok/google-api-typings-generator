@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201013
+// Revision: 20201014
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -179,8 +179,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within a whitelisted set of
-         * roles. Each role is applied at only the granularity specified in the whitelist.
+         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within an allowlisted set
+         * of roles. Each role is applied at only the granularity specified in the allowlist.
          */
         await gapi.client.servicenetworking.services.roles.add({
             parent: "Test string",
@@ -294,8 +294,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within a whitelisted set of
-         * roles. Each role is applied at only the granularity specified in the whitelist.
+         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within an allowlisted set
+         * of roles. Each role is applied at only the granularity specified in the allowlist.
          */
         await gapi.client.servicenetworking.services.roles.add({
             parent: "Test string",
@@ -409,8 +409,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within a whitelisted set of
-         * roles. Each role is applied at only the granularity specified in the whitelist.
+         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within an allowlisted set
+         * of roles. Each role is applied at only the granularity specified in the allowlist.
          */
         await gapi.client.servicenetworking.services.roles.add({
             parent: "Test string",
@@ -529,8 +529,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within a whitelisted set of
-         * roles. Each role is applied at only the granularity specified in the whitelist.
+         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within an allowlisted set
+         * of roles. Each role is applied at only the granularity specified in the allowlist.
          */
         await gapi.client.servicenetworking.services.roles.add({
             parent: "Test string",
@@ -656,8 +656,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within a whitelisted set of
-         * roles. Each role is applied at only the granularity specified in the whitelist.
+         * Service producers can use this method to add roles in the shared VPC host project. Each role is bound to the provided member. Each role must be selected from within an allowlisted set
+         * of roles. Each role is applied at only the granularity specified in the allowlist.
          */
         await gapi.client.servicenetworking.services.roles.add({
             parent: "Test string",
