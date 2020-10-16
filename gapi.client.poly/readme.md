@@ -1,7 +1,6 @@
 # TypeScript typings for Poly API v1
 
-The Poly API provides read access to assets hosted on <a href="https://poly.google.com">poly.google.com</a> to all, and upload access to <a href="https://poly.google.com">poly.google.com</a> for whitelisted accounts.
-
+The Poly API provides read access to assets hosted on poly.google.com to all, and upload access to poly.google.com for whitelisted accounts. 
 For detailed description please check [documentation](https://developers.google.com/poly/).
 
 ## Installing
@@ -39,17 +38,12 @@ After that you can use Poly API resources:
 ```typescript
 
 /*
-Returns detailed information about an asset given its name.
-PRIVATE assets are returned only if
- the currently authenticated user (via OAuth token) is the author of the
- asset.
+Returns detailed information about an asset given its name. PRIVATE assets are returned only if the currently authenticated user (via OAuth token) is the author of the asset.
 */
 await gapi.client.poly.assets.get({ name: "name",  });
 
 /*
-Lists all public, remixable assets. These are assets with an access level
-of PUBLIC and published under the
-CC-By license.
+Lists all public, remixable assets. These are assets with an access level of PUBLIC and published under the CC-By license.
 */
 await gapi.client.poly.assets.list({  });
 ```

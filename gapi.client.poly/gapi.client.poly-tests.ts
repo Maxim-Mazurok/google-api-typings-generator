@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200527
+// Revision: 20201006
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -15,20 +15,11 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Returns detailed information about an asset given its name.
-         * PRIVATE assets are returned only if
-         * the currently authenticated user (via OAuth token) is the author of the
-         * asset.
-         */
+        /** Returns detailed information about an asset given its name. PRIVATE assets are returned only if the currently authenticated user (via OAuth token) is the author of the asset. */
         await gapi.client.poly.assets.get({
             name: "Test string",
         });
-        /**
-         * Lists all public, remixable assets. These are assets with an access level
-         * of PUBLIC and published under the
-         * CC-By license.
-         */
+        /** Lists all public, remixable assets. These are assets with an access level of PUBLIC and published under the CC-By license. */
         await gapi.client.poly.assets.list({
             category: "Test string",
             curated: true,
