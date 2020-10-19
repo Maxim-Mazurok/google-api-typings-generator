@@ -1,7 +1,7 @@
 # TypeScript typings for Cloud DNS API v1
 
 
-For detailed description please check [documentation](http://developers.google.com/cloud-dns).
+For detailed description please check [documentation](https://cloud.google.com/dns/docs).
 
 ## Installing
 
