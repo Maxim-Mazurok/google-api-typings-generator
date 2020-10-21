@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Workspace Reseller API v1 1.0
+// Type definitions for non-npm package Enterprise Apps Reseller API v1 1.0
 // Project: https://developers.google.com/google-apps/reseller/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>
@@ -16,7 +16,7 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load Workspace Reseller API v1 */
+    /** Load Enterprise Apps Reseller API v1 */
     function load(name: "reseller", version: "v1"): PromiseLike<void>;
     function load(name: "reseller", version: "v1", callback: () => any): void;
 
