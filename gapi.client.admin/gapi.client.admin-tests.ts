@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201013
+// Revision: 20201020
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -43,6 +43,7 @@ gapi.load('client', () => {
             endTime: "Test string",
             eventName: "Test string",
             filters: "Test string",
+            groupIdFilter: "Test string",
             maxResults: 42,
             orgUnitID: "Test string",
             pageToken: "Test string",
@@ -57,6 +58,7 @@ gapi.load('client', () => {
             endTime: "Test string",
             eventName: "Test string",
             filters: "Test string",
+            groupIdFilter: "Test string",
             maxResults: 42,
             orgUnitID: "Test string",
             pageToken: "Test string",
@@ -122,6 +124,7 @@ gapi.load('client', () => {
             customerId: "Test string",
             date: "Test string",
             filters: "Test string",
+            groupIdFilter: "Test string",
             maxResults: 42,
             orgUnitID: "Test string",
             pageToken: "Test string",
