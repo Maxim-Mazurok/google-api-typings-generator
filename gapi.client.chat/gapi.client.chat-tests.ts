@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201013
+// Revision: 20201019
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -49,6 +49,7 @@ gapi.load('client', () => {
                         bot: {
                             displayName: "Test string",
                             domainId: "Test string",
+                            isAnonymous: true,
                             name: "Test string",
                             type: "Test string",
                         },
@@ -64,6 +65,7 @@ gapi.load('client', () => {
                         user: {
                             displayName: "Test string",
                             domainId: "Test string",
+                            isAnonymous: true,
                             name: "Test string",
                             type: "Test string",
                         },
@@ -240,6 +242,7 @@ gapi.load('client', () => {
             sender: {
                 displayName: "Test string",
                 domainId: "Test string",
+                isAnonymous: true,
                 name: "Test string",
                 type: "Test string",
             },
@@ -294,6 +297,7 @@ gapi.load('client', () => {
                         bot: {
                             displayName: "Test string",
                             domainId: "Test string",
+                            isAnonymous: true,
                             name: "Test string",
                             type: "Test string",
                         },
@@ -309,6 +313,7 @@ gapi.load('client', () => {
                         user: {
                             displayName: "Test string",
                             domainId: "Test string",
+                            isAnonymous: true,
                             name: "Test string",
                             type: "Test string",
                         },
@@ -485,6 +490,7 @@ gapi.load('client', () => {
             sender: {
                 displayName: "Test string",
                 domainId: "Test string",
+                isAnonymous: true,
                 name: "Test string",
                 type: "Test string",
             },
@@ -538,6 +544,7 @@ gapi.load('client', () => {
                         bot: {
                             displayName: "Test string",
                             domainId: "Test string",
+                            isAnonymous: true,
                             name: "Test string",
                             type: "Test string",
                         },
@@ -553,6 +560,7 @@ gapi.load('client', () => {
                         user: {
                             displayName: "Test string",
                             domainId: "Test string",
+                            isAnonymous: true,
                             name: "Test string",
                             type: "Test string",
                         },
@@ -729,6 +737,7 @@ gapi.load('client', () => {
             sender: {
                 displayName: "Test string",
                 domainId: "Test string",
+                isAnonymous: true,
                 name: "Test string",
                 type: "Test string",
             },
@@ -783,6 +792,7 @@ gapi.load('client', () => {
                         bot: {
                             displayName: "Test string",
                             domainId: "Test string",
+                            isAnonymous: true,
                             name: "Test string",
                             type: "Test string",
                         },
@@ -798,6 +808,7 @@ gapi.load('client', () => {
                         user: {
                             displayName: "Test string",
                             domainId: "Test string",
+                            isAnonymous: true,
                             name: "Test string",
                             type: "Test string",
                         },
@@ -974,6 +985,7 @@ gapi.load('client', () => {
             sender: {
                 displayName: "Test string",
                 domainId: "Test string",
+                isAnonymous: true,
                 name: "Test string",
                 type: "Test string",
             },
