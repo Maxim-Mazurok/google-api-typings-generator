@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201007
+// Revision: 20201015
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -68,6 +68,11 @@ gapi.load('client', () => {
                     groupByEmail: "Test string",
                     iamMember: "Test string",
                     role: "Test string",
+                    routine: {
+                        datasetId: "Test string",
+                        projectId: "Test string",
+                        routineId: "Test string",
+                    },
                     specialGroup: "Test string",
                     userByEmail: "Test string",
                     view: {
@@ -120,6 +125,11 @@ gapi.load('client', () => {
                     groupByEmail: "Test string",
                     iamMember: "Test string",
                     role: "Test string",
+                    routine: {
+                        datasetId: "Test string",
+                        projectId: "Test string",
+                        routineId: "Test string",
+                    },
                     specialGroup: "Test string",
                     userByEmail: "Test string",
                     view: {
@@ -164,6 +174,11 @@ gapi.load('client', () => {
                     groupByEmail: "Test string",
                     iamMember: "Test string",
                     role: "Test string",
+                    routine: {
+                        datasetId: "Test string",
+                        projectId: "Test string",
+                        routineId: "Test string",
+                    },
                     specialGroup: "Test string",
                     userByEmail: "Test string",
                     view: {
@@ -975,6 +990,15 @@ gapi.load('client', () => {
                             rSquared: 42,
                         },
                     },
+                    globalExplanations: [
+                        {
+                            classLabel: "Test string",
+                            explanations: [
+                                {
+                                    attribution: 42,
+                                    featureName: "Test string",
+                                }                            ],
+                        }                    ],
                     results: [
                         {
                             arimaResult: {
