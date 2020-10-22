@@ -76,7 +76,7 @@ await gapi.client.books.cloudloading.addBook({  });
 /*
 Remove the book and its contents
 */
-await gapi.client.books.cloudloading.deleteBook({  });
+await gapi.client.books.cloudloading.deleteBook({ volumeId: "volumeId",  });
 
 /*
 Updates a user-upload volume.
@@ -86,7 +86,7 @@ await gapi.client.books.cloudloading.updateBook({  });
 /*
 Returns a list of offline dictionary metadata available
 */
-await gapi.client.books.dictionary.listOfflineMetadata({  });
+await gapi.client.books.dictionary.listOfflineMetadata({ cpksver: "cpksver",  });
 
 /*
 Gets information regarding the family that the user is part of.
@@ -121,17 +121,17 @@ await gapi.client.books.myconfig.getUserSettings({  });
 /*
 Release downloaded content access restriction.
 */
-await gapi.client.books.myconfig.releaseDownloadAccess({  });
+await gapi.client.books.myconfig.releaseDownloadAccess({ cpksver: "cpksver", volumeIds: "volumeIds",  });
 
 /*
 Request concurrent and download access restrictions.
 */
-await gapi.client.books.myconfig.requestAccess({  });
+await gapi.client.books.myconfig.requestAccess({ cpksver: "cpksver", nonce: "nonce", source: "source", volumeId: "volumeId",  });
 
 /*
 Request downloaded content access for specified volumes on the My eBooks shelf.
 */
-await gapi.client.books.myconfig.syncVolumeLicenses({  });
+await gapi.client.books.myconfig.syncVolumeLicenses({ cpksver: "cpksver", nonce: "nonce", source: "source",  });
 
 /*
 Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects will retain the existing value.
@@ -141,7 +141,7 @@ await gapi.client.books.myconfig.updateUserSettings({  });
 /*
 Returns notification details for a given notification id.
 */
-await gapi.client.books.notification.get({  });
+await gapi.client.books.notification.get({ notification_id: "notification_id",  });
 
 /*
 List categories for onboarding experience.
@@ -176,7 +176,7 @@ await gapi.client.books.promooffer.get({  });
 /*
 Returns Series metadata for the given series ids.
 */
-await gapi.client.books.series.get({  });
+await gapi.client.books.series.get({ series_id: "series_id",  });
 
 /*
 Gets volume information for a single volume.
@@ -186,5 +186,5 @@ await gapi.client.books.volumes.get({ volumeId: "volumeId",  });
 /*
 Performs a book search.
 */
-await gapi.client.books.volumes.list({  });
+await gapi.client.books.volumes.list({ q: "q",  });
 ```
