@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201020
+// Revision: 20201021
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -79,6 +79,12 @@ gapi.load('client', () => {
             ipPrefixLength: 42,
             region: "Test string",
             requestedAddress: "Test string",
+            secondaryIpRangeSpecs: [
+                {
+                    ipPrefixLength: 42,
+                    rangeName: "Test string",
+                    requestedAddress: "Test string",
+                }            ],
             subnetwork: "Test string",
             subnetworkUsers: [
                 "Test string"            ],
