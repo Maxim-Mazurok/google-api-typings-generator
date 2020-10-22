@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201005
+// Revision: 20201016
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1448,6 +1448,12 @@ gapi.load('client', () => {
                     type: "Test string",
                 },
                 autoScaling: {
+                    maxNodes: 42,
+                    metrics: [
+                        {
+                            name: "Test string",
+                            target: 42,
+                        }                    ],
                     minNodes: 42,
                 },
                 container: {
@@ -1531,6 +1537,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -1625,6 +1637,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -1710,6 +1728,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -1804,6 +1828,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -1889,6 +1919,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -1983,6 +2019,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -2069,6 +2111,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -2163,6 +2211,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -2254,6 +2308,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -2348,6 +2408,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -2427,6 +2493,12 @@ gapi.load('client', () => {
                     type: "Test string",
                 },
                 autoScaling: {
+                    maxNodes: 42,
+                    metrics: [
+                        {
+                            name: "Test string",
+                            target: 42,
+                        }                    ],
                     minNodes: 42,
                 },
                 container: {
@@ -2510,6 +2582,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -2604,6 +2682,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -2718,6 +2802,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -2812,6 +2902,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -2903,6 +2999,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -2997,6 +3099,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -4501,6 +4609,12 @@ gapi.load('client', () => {
                     type: "Test string",
                 },
                 autoScaling: {
+                    maxNodes: 42,
+                    metrics: [
+                        {
+                            name: "Test string",
+                            target: 42,
+                        }                    ],
                     minNodes: 42,
                 },
                 container: {
@@ -4584,6 +4698,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -4678,6 +4798,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -4763,6 +4889,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -4857,6 +4989,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -4942,6 +5080,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -5036,6 +5180,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -5122,6 +5272,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -5216,6 +5372,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -5307,6 +5469,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -5401,6 +5569,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -5480,6 +5654,12 @@ gapi.load('client', () => {
                     type: "Test string",
                 },
                 autoScaling: {
+                    maxNodes: 42,
+                    metrics: [
+                        {
+                            name: "Test string",
+                            target: 42,
+                        }                    ],
                     minNodes: 42,
                 },
                 container: {
@@ -5563,6 +5743,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -5657,6 +5843,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -5771,6 +5963,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -5865,6 +6063,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -5956,6 +6160,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -6050,6 +6260,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -7559,6 +7775,12 @@ gapi.load('client', () => {
                     type: "Test string",
                 },
                 autoScaling: {
+                    maxNodes: 42,
+                    metrics: [
+                        {
+                            name: "Test string",
+                            target: 42,
+                        }                    ],
                     minNodes: 42,
                 },
                 container: {
@@ -7642,6 +7864,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -7736,6 +7964,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -7821,6 +8055,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -7915,6 +8155,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -8000,6 +8246,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -8094,6 +8346,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -8180,6 +8438,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -8274,6 +8538,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -8365,6 +8635,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -8459,6 +8735,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -8538,6 +8820,12 @@ gapi.load('client', () => {
                     type: "Test string",
                 },
                 autoScaling: {
+                    maxNodes: 42,
+                    metrics: [
+                        {
+                            name: "Test string",
+                            target: 42,
+                        }                    ],
                     minNodes: 42,
                 },
                 container: {
@@ -8621,6 +8909,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -8715,6 +9009,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -8829,6 +9129,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -8923,6 +9229,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -9014,6 +9326,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
@@ -9108,6 +9426,12 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             autoScaling: {
+                maxNodes: 42,
+                metrics: [
+                    {
+                        name: "Test string",
+                        target: 42,
+                    }                ],
                 minNodes: 42,
             },
             container: {
