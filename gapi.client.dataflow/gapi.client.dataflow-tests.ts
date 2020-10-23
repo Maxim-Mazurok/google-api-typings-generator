@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201003
+// Revision: 20201016
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -49,6 +49,25 @@ gapi.load('client', () => {
             templateVersion: {
                 artifact: {
                     containerSpec: {
+                        defaultEnvironment: {
+                            additionalExperiments: [
+                                "Test string"                            ],
+                            additionalUserLabels: {
+                                A: "Test string"                            },
+                            enableStreamingEngine: true,
+                            ipConfiguration: "Test string",
+                            kmsKeyName: "Test string",
+                            machineType: "Test string",
+                            maxWorkers: 42,
+                            network: "Test string",
+                            numWorkers: 42,
+                            serviceAccountEmail: "Test string",
+                            subnetwork: "Test string",
+                            tempLocation: "Test string",
+                            workerRegion: "Test string",
+                            workerZone: "Test string",
+                            zone: "Test string",
+                        },
                         image: "Test string",
                         metadata: {
                             description: "Test string",
@@ -104,6 +123,25 @@ gapi.load('client', () => {
             templateVersion: {
                 artifact: {
                     containerSpec: {
+                        defaultEnvironment: {
+                            additionalExperiments: [
+                                "Test string"                            ],
+                            additionalUserLabels: {
+                                A: "Test string"                            },
+                            enableStreamingEngine: true,
+                            ipConfiguration: "Test string",
+                            kmsKeyName: "Test string",
+                            machineType: "Test string",
+                            maxWorkers: 42,
+                            network: "Test string",
+                            numWorkers: 42,
+                            serviceAccountEmail: "Test string",
+                            subnetwork: "Test string",
+                            tempLocation: "Test string",
+                            workerRegion: "Test string",
+                            workerZone: "Test string",
+                            zone: "Test string",
+                        },
                         image: "Test string",
                         metadata: {
                             description: "Test string",
@@ -163,6 +201,25 @@ gapi.load('client', () => {
             templateVersion: {
                 artifact: {
                     containerSpec: {
+                        defaultEnvironment: {
+                            additionalExperiments: [
+                                "Test string"                            ],
+                            additionalUserLabels: {
+                                A: "Test string"                            },
+                            enableStreamingEngine: true,
+                            ipConfiguration: "Test string",
+                            kmsKeyName: "Test string",
+                            machineType: "Test string",
+                            maxWorkers: 42,
+                            network: "Test string",
+                            numWorkers: 42,
+                            serviceAccountEmail: "Test string",
+                            subnetwork: "Test string",
+                            tempLocation: "Test string",
+                            workerRegion: "Test string",
+                            workerZone: "Test string",
+                            zone: "Test string",
+                        },
                         image: "Test string",
                         metadata: {
                             description: "Test string",
@@ -222,6 +279,25 @@ gapi.load('client', () => {
             templateVersion: {
                 artifact: {
                     containerSpec: {
+                        defaultEnvironment: {
+                            additionalExperiments: [
+                                "Test string"                            ],
+                            additionalUserLabels: {
+                                A: "Test string"                            },
+                            enableStreamingEngine: true,
+                            ipConfiguration: "Test string",
+                            kmsKeyName: "Test string",
+                            machineType: "Test string",
+                            maxWorkers: 42,
+                            network: "Test string",
+                            numWorkers: 42,
+                            serviceAccountEmail: "Test string",
+                            subnetwork: "Test string",
+                            tempLocation: "Test string",
+                            workerRegion: "Test string",
+                            workerZone: "Test string",
+                            zone: "Test string",
+                        },
                         image: "Test string",
                         metadata: {
                             description: "Test string",
@@ -285,6 +361,25 @@ gapi.load('client', () => {
             templateVersion: {
                 artifact: {
                     containerSpec: {
+                        defaultEnvironment: {
+                            additionalExperiments: [
+                                "Test string"                            ],
+                            additionalUserLabels: {
+                                A: "Test string"                            },
+                            enableStreamingEngine: true,
+                            ipConfiguration: "Test string",
+                            kmsKeyName: "Test string",
+                            machineType: "Test string",
+                            maxWorkers: 42,
+                            network: "Test string",
+                            numWorkers: 42,
+                            serviceAccountEmail: "Test string",
+                            subnetwork: "Test string",
+                            tempLocation: "Test string",
+                            workerRegion: "Test string",
+                            workerZone: "Test string",
+                            zone: "Test string",
+                        },
                         image: "Test string",
                         metadata: {
                             description: "Test string",
@@ -350,6 +445,25 @@ gapi.load('client', () => {
             templateVersion: {
                 artifact: {
                     containerSpec: {
+                        defaultEnvironment: {
+                            additionalExperiments: [
+                                "Test string"                            ],
+                            additionalUserLabels: {
+                                A: "Test string"                            },
+                            enableStreamingEngine: true,
+                            ipConfiguration: "Test string",
+                            kmsKeyName: "Test string",
+                            machineType: "Test string",
+                            maxWorkers: 42,
+                            network: "Test string",
+                            numWorkers: 42,
+                            serviceAccountEmail: "Test string",
+                            subnetwork: "Test string",
+                            tempLocation: "Test string",
+                            workerRegion: "Test string",
+                            workerZone: "Test string",
+                            zone: "Test string",
+                        },
                         image: "Test string",
                         metadata: {
                             description: "Test string",
@@ -1017,6 +1131,8 @@ gapi.load('client', () => {
                                 sizeBytes: "Test string",
                                 userName: "Test string",
                             }                        ],
+                        prerequisiteStage: [
+                            "Test string"                        ],
                     }                ],
                 originalPipelineTransform: [
                     {
@@ -3344,6 +3460,8 @@ gapi.load('client', () => {
                                 sizeBytes: "Test string",
                                 userName: "Test string",
                             }                        ],
+                        prerequisiteStage: [
+                            "Test string"                        ],
                     }                ],
                 originalPipelineTransform: [
                     {
@@ -3861,6 +3979,25 @@ gapi.load('client', () => {
         }, {
             launchParameter: {
                 containerSpec: {
+                    defaultEnvironment: {
+                        additionalExperiments: [
+                            "Test string"                        ],
+                        additionalUserLabels: {
+                            A: "Test string"                        },
+                        enableStreamingEngine: true,
+                        ipConfiguration: "Test string",
+                        kmsKeyName: "Test string",
+                        machineType: "Test string",
+                        maxWorkers: 42,
+                        network: "Test string",
+                        numWorkers: 42,
+                        serviceAccountEmail: "Test string",
+                        subnetwork: "Test string",
+                        tempLocation: "Test string",
+                        workerRegion: "Test string",
+                        workerZone: "Test string",
+                        zone: "Test string",
+                    },
                     image: "Test string",
                     metadata: {
                         description: "Test string",
@@ -4114,6 +4251,8 @@ gapi.load('client', () => {
                                 sizeBytes: "Test string",
                                 userName: "Test string",
                             }                        ],
+                        prerequisiteStage: [
+                            "Test string"                        ],
                     }                ],
                 originalPipelineTransform: [
                     {
@@ -6981,6 +7120,8 @@ gapi.load('client', () => {
                                 sizeBytes: "Test string",
                                 userName: "Test string",
                             }                        ],
+                        prerequisiteStage: [
+                            "Test string"                        ],
                     }                ],
                 originalPipelineTransform: [
                     {
@@ -7713,6 +7854,25 @@ gapi.load('client', () => {
             templateVersion: {
                 artifact: {
                     containerSpec: {
+                        defaultEnvironment: {
+                            additionalExperiments: [
+                                "Test string"                            ],
+                            additionalUserLabels: {
+                                A: "Test string"                            },
+                            enableStreamingEngine: true,
+                            ipConfiguration: "Test string",
+                            kmsKeyName: "Test string",
+                            machineType: "Test string",
+                            maxWorkers: 42,
+                            network: "Test string",
+                            numWorkers: 42,
+                            serviceAccountEmail: "Test string",
+                            subnetwork: "Test string",
+                            tempLocation: "Test string",
+                            workerRegion: "Test string",
+                            workerZone: "Test string",
+                            zone: "Test string",
+                        },
                         image: "Test string",
                         metadata: {
                             description: "Test string",
@@ -7768,6 +7928,25 @@ gapi.load('client', () => {
             templateVersion: {
                 artifact: {
                     containerSpec: {
+                        defaultEnvironment: {
+                            additionalExperiments: [
+                                "Test string"                            ],
+                            additionalUserLabels: {
+                                A: "Test string"                            },
+                            enableStreamingEngine: true,
+                            ipConfiguration: "Test string",
+                            kmsKeyName: "Test string",
+                            machineType: "Test string",
+                            maxWorkers: 42,
+                            network: "Test string",
+                            numWorkers: 42,
+                            serviceAccountEmail: "Test string",
+                            subnetwork: "Test string",
+                            tempLocation: "Test string",
+                            workerRegion: "Test string",
+                            workerZone: "Test string",
+                            zone: "Test string",
+                        },
                         image: "Test string",
                         metadata: {
                             description: "Test string",
@@ -7827,6 +8006,25 @@ gapi.load('client', () => {
             templateVersion: {
                 artifact: {
                     containerSpec: {
+                        defaultEnvironment: {
+                            additionalExperiments: [
+                                "Test string"                            ],
+                            additionalUserLabels: {
+                                A: "Test string"                            },
+                            enableStreamingEngine: true,
+                            ipConfiguration: "Test string",
+                            kmsKeyName: "Test string",
+                            machineType: "Test string",
+                            maxWorkers: 42,
+                            network: "Test string",
+                            numWorkers: 42,
+                            serviceAccountEmail: "Test string",
+                            subnetwork: "Test string",
+                            tempLocation: "Test string",
+                            workerRegion: "Test string",
+                            workerZone: "Test string",
+                            zone: "Test string",
+                        },
                         image: "Test string",
                         metadata: {
                             description: "Test string",
@@ -7886,6 +8084,25 @@ gapi.load('client', () => {
             templateVersion: {
                 artifact: {
                     containerSpec: {
+                        defaultEnvironment: {
+                            additionalExperiments: [
+                                "Test string"                            ],
+                            additionalUserLabels: {
+                                A: "Test string"                            },
+                            enableStreamingEngine: true,
+                            ipConfiguration: "Test string",
+                            kmsKeyName: "Test string",
+                            machineType: "Test string",
+                            maxWorkers: 42,
+                            network: "Test string",
+                            numWorkers: 42,
+                            serviceAccountEmail: "Test string",
+                            subnetwork: "Test string",
+                            tempLocation: "Test string",
+                            workerRegion: "Test string",
+                            workerZone: "Test string",
+                            zone: "Test string",
+                        },
                         image: "Test string",
                         metadata: {
                             description: "Test string",
@@ -7949,6 +8166,25 @@ gapi.load('client', () => {
             templateVersion: {
                 artifact: {
                     containerSpec: {
+                        defaultEnvironment: {
+                            additionalExperiments: [
+                                "Test string"                            ],
+                            additionalUserLabels: {
+                                A: "Test string"                            },
+                            enableStreamingEngine: true,
+                            ipConfiguration: "Test string",
+                            kmsKeyName: "Test string",
+                            machineType: "Test string",
+                            maxWorkers: 42,
+                            network: "Test string",
+                            numWorkers: 42,
+                            serviceAccountEmail: "Test string",
+                            subnetwork: "Test string",
+                            tempLocation: "Test string",
+                            workerRegion: "Test string",
+                            workerZone: "Test string",
+                            zone: "Test string",
+                        },
                         image: "Test string",
                         metadata: {
                             description: "Test string",
@@ -8014,6 +8250,25 @@ gapi.load('client', () => {
             templateVersion: {
                 artifact: {
                     containerSpec: {
+                        defaultEnvironment: {
+                            additionalExperiments: [
+                                "Test string"                            ],
+                            additionalUserLabels: {
+                                A: "Test string"                            },
+                            enableStreamingEngine: true,
+                            ipConfiguration: "Test string",
+                            kmsKeyName: "Test string",
+                            machineType: "Test string",
+                            maxWorkers: 42,
+                            network: "Test string",
+                            numWorkers: 42,
+                            serviceAccountEmail: "Test string",
+                            subnetwork: "Test string",
+                            tempLocation: "Test string",
+                            workerRegion: "Test string",
+                            workerZone: "Test string",
+                            zone: "Test string",
+                        },
                         image: "Test string",
                         metadata: {
                             description: "Test string",
@@ -8681,6 +8936,8 @@ gapi.load('client', () => {
                                 sizeBytes: "Test string",
                                 userName: "Test string",
                             }                        ],
+                        prerequisiteStage: [
+                            "Test string"                        ],
                     }                ],
                 originalPipelineTransform: [
                     {
@@ -11008,6 +11265,8 @@ gapi.load('client', () => {
                                 sizeBytes: "Test string",
                                 userName: "Test string",
                             }                        ],
+                        prerequisiteStage: [
+                            "Test string"                        ],
                     }                ],
                 originalPipelineTransform: [
                     {
@@ -11525,6 +11784,25 @@ gapi.load('client', () => {
         }, {
             launchParameter: {
                 containerSpec: {
+                    defaultEnvironment: {
+                        additionalExperiments: [
+                            "Test string"                        ],
+                        additionalUserLabels: {
+                            A: "Test string"                        },
+                        enableStreamingEngine: true,
+                        ipConfiguration: "Test string",
+                        kmsKeyName: "Test string",
+                        machineType: "Test string",
+                        maxWorkers: 42,
+                        network: "Test string",
+                        numWorkers: 42,
+                        serviceAccountEmail: "Test string",
+                        subnetwork: "Test string",
+                        tempLocation: "Test string",
+                        workerRegion: "Test string",
+                        workerZone: "Test string",
+                        zone: "Test string",
+                    },
                     image: "Test string",
                     metadata: {
                         description: "Test string",
@@ -11778,6 +12056,8 @@ gapi.load('client', () => {
                                 sizeBytes: "Test string",
                                 userName: "Test string",
                             }                        ],
+                        prerequisiteStage: [
+                            "Test string"                        ],
                     }                ],
                 originalPipelineTransform: [
                     {
@@ -14645,6 +14925,8 @@ gapi.load('client', () => {
                                 sizeBytes: "Test string",
                                 userName: "Test string",
                             }                        ],
+                        prerequisiteStage: [
+                            "Test string"                        ],
                     }                ],
                 originalPipelineTransform: [
                     {
