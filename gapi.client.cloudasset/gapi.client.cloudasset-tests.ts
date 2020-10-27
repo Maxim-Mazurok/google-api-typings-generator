@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201012
+// Revision: 20201023
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -95,6 +95,65 @@ gapi.load('client', () => {
         /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
         await gapi.client.cloudasset.operations.get({
             name: "Test string",
+        });
+        /** Analyzes IAM policies to answer which identities have what accesses on which resources. */
+        await gapi.client.cloudasset.v1.analyzeIamPolicy({
+            "analysisQuery.accessSelector.permissions": "Test string",
+            "analysisQuery.accessSelector.roles": "Test string",
+            "analysisQuery.identitySelector.identity": "Test string",
+            "analysisQuery.options.analyzeServiceAccountImpersonation": true,
+            "analysisQuery.options.expandGroups": true,
+            "analysisQuery.options.expandResources": true,
+            "analysisQuery.options.expandRoles": true,
+            "analysisQuery.options.outputGroupEdges": true,
+            "analysisQuery.options.outputResourceEdges": true,
+            "analysisQuery.resourceSelector.fullResourceName": "Test string",
+            executionTimeout: "Test string",
+            scope: "Test string",
+        });
+        /**
+         * Analyzes IAM policies asynchronously to answer which identities have what accesses on which resources, and writes the analysis results to a Google Cloud Storage or a BigQuery
+         * destination. For Cloud Storage destination, the output format is the JSON format that represents a AnalyzeIamPolicyResponse. This method implements the google.longrunning.Operation,
+         * which allows you to track the operation status. We recommend intervals of at least 2 seconds with exponential backoff retry to poll the operation result. The metadata contains the
+         * request to help callers to map responses to requests.
+         */
+        await gapi.client.cloudasset.v1.analyzeIamPolicyLongrunning({
+            scope: "Test string",
+        }, {
+            analysisQuery: {
+                accessSelector: {
+                    permissions: [
+                        "Test string"                    ],
+                    roles: [
+                        "Test string"                    ],
+                },
+                identitySelector: {
+                    identity: "Test string",
+                },
+                options: {
+                    analyzeServiceAccountImpersonation: true,
+                    expandGroups: true,
+                    expandResources: true,
+                    expandRoles: true,
+                    outputGroupEdges: true,
+                    outputResourceEdges: true,
+                },
+                resourceSelector: {
+                    fullResourceName: "Test string",
+                },
+                scope: "Test string",
+            },
+            outputConfig: {
+                bigqueryDestination: {
+                    dataset: "Test string",
+                    partitionKey: "Test string",
+                    tablePrefix: "Test string",
+                    writeDisposition: "Test string",
+                },
+                gcsDestination: {
+                    uri: "Test string",
+                },
+            },
         });
         /**
          * Batch gets the update history of assets that overlap a time window. For IAM_POLICY content, this API outputs history when the asset and its attached IAM POLICY both exist. This can

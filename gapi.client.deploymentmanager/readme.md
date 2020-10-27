@@ -1,11 +1,11 @@
-# TypeScript typings for Google Cloud Deployment Manager API v2
+# TypeScript typings for Cloud Deployment Manager V2 API v2
 
-Declares, configures, and deploys complex solutions on Google Cloud Platform.
-For detailed description please check [documentation](https://cloud.google.com/deployment-manager/).
+The Google Cloud Deployment Manager v2 API provides services for configuring, deploying, and viewing Google Cloud services and APIs via templates which specify deployments of Cloud resources.
+For detailed description please check [documentation](http://cloud.google.com/deployment-manager).
 
 ## Installing
 
-Install typings for Google Cloud Deployment Manager API:
+Install typings for Cloud Deployment Manager V2 API:
 
 ```
 npm install @types/gapi.client.deploymentmanager@v2 --save-dev
@@ -63,7 +63,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Google Cloud Deployment Manager API resources:
+After that you can use Cloud Deployment Manager V2 API resources:
 
 ```typescript
 

@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20200519
+// Revision: 20201022
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -56,6 +56,7 @@ gapi.load('client', () => {
         });
         /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
         await gapi.client.deploymentmanager.deployments.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
             project: "Test string",
             resource: "Test string",
         });
@@ -146,6 +147,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Patches a deployment and all of the resources described by the deployment manifest. */
         await gapi.client.deploymentmanager.deployments.patch({
@@ -254,11 +256,8 @@ gapi.load('client', () => {
                             {
                                 exemptedMembers: [
                                     "Test string"                                ],
-                                ignoreChildExemptions: true,
                                 logType: "Test string",
                             }                        ],
-                        exemptedMembers: [
-                            "Test string"                        ],
                         service: "Test string",
                     }                ],
                 bindings: [
@@ -274,48 +273,6 @@ gapi.load('client', () => {
                         role: "Test string",
                     }                ],
                 etag: "Test string",
-                iamOwned: true,
-                rules: [
-                    {
-                        action: "Test string",
-                        conditions: [
-                            {
-                                iam: "Test string",
-                                op: "Test string",
-                                svc: "Test string",
-                                sys: "Test string",
-                                values: [
-                                    "Test string"                                ],
-                            }                        ],
-                        description: "Test string",
-                        ins: [
-                            "Test string"                        ],
-                        logConfigs: [
-                            {
-                                cloudAudit: {
-                                    authorizationLoggingOptions: {
-                                        permissionType: "Test string",
-                                    },
-                                    logName: "Test string",
-                                },
-                                counter: {
-                                    customFields: [
-                                        {
-                                            name: "Test string",
-                                            value: "Test string",
-                                        }                                    ],
-                                    field: "Test string",
-                                    metric: "Test string",
-                                },
-                                dataAccess: {
-                                    logMode: "Test string",
-                                },
-                            }                        ],
-                        notIns: [
-                            "Test string"                        ],
-                        permissions: [
-                            "Test string"                        ],
-                    }                ],
                 version: 42,
             },
         });
@@ -430,6 +387,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Gets information about a specific operation. */
         await gapi.client.deploymentmanager.operations.get({
@@ -443,6 +401,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Gets information about a single resource. */
         await gapi.client.deploymentmanager.resources.get({
@@ -458,6 +417,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
         /** Lists all resource types for Deployment Manager. */
         await gapi.client.deploymentmanager.types.list({
@@ -466,6 +426,7 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
+            returnPartialSuccess: true,
         });
     }
 });
