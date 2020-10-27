@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201018
+// Revision: 20201026
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -31,15 +31,77 @@ gapi.load('client', () => {
 
     async function run() {
         /** Returns information about the authenticated user. */
-        await gapi.client.content.accounts.authinfo();
+        await gapi.client.content.accounts.authinfo({
+        });
+        /** Creates a new label, not assigned to any account. */
+        await gapi.client.content.accounts.labels.create({
+            accountId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a label and removes it from all accounts to which it was assigned. */
+        await gapi.client.content.accounts.labels.delete({
+            accountId: "Test string",
+            labelId: "Test string",
+        });
+        /** Lists the labels assigned to an account. */
+        await gapi.client.content.accounts.labels.list({
+            accountId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a label. */
+        await gapi.client.content.accounts.labels.patch({
+            accountId: "Test string",
+            labelId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
         /** Claims the website of a Merchant Center sub-account. */
         await gapi.client.content.accounts.claimwebsite({
             accountId: "Test string",
             merchantId: "Test string",
             overwrite: true,
         });
+        /** Creates a new label, not assigned to any account. */
+        await gapi.client.content.accounts.labels.create({
+            accountId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a label and removes it from all accounts to which it was assigned. */
+        await gapi.client.content.accounts.labels.delete({
+            accountId: "Test string",
+            labelId: "Test string",
+        });
+        /** Lists the labels assigned to an account. */
+        await gapi.client.content.accounts.labels.list({
+            accountId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a label. */
+        await gapi.client.content.accounts.labels.patch({
+            accountId: "Test string",
+            labelId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
         /** Retrieves, inserts, updates, and deletes multiple Merchant Center (sub-)accounts in a single request. */
-        await gapi.client.content.accounts.custombatch({} , {
+        await gapi.client.content.accounts.custombatch({
+        }, {
             entries: [
                 {
                     account: {
@@ -109,17 +171,107 @@ gapi.load('client', () => {
                     view: "Test string",
                 }            ],
         });
+        /** Creates a new label, not assigned to any account. */
+        await gapi.client.content.accounts.labels.create({
+            accountId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a label and removes it from all accounts to which it was assigned. */
+        await gapi.client.content.accounts.labels.delete({
+            accountId: "Test string",
+            labelId: "Test string",
+        });
+        /** Lists the labels assigned to an account. */
+        await gapi.client.content.accounts.labels.list({
+            accountId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a label. */
+        await gapi.client.content.accounts.labels.patch({
+            accountId: "Test string",
+            labelId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
         /** Deletes a Merchant Center sub-account. */
         await gapi.client.content.accounts.delete({
             accountId: "Test string",
             force: true,
             merchantId: "Test string",
         });
+        /** Creates a new label, not assigned to any account. */
+        await gapi.client.content.accounts.labels.create({
+            accountId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a label and removes it from all accounts to which it was assigned. */
+        await gapi.client.content.accounts.labels.delete({
+            accountId: "Test string",
+            labelId: "Test string",
+        });
+        /** Lists the labels assigned to an account. */
+        await gapi.client.content.accounts.labels.list({
+            accountId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a label. */
+        await gapi.client.content.accounts.labels.patch({
+            accountId: "Test string",
+            labelId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
         /** Retrieves a Merchant Center account. */
         await gapi.client.content.accounts.get({
             accountId: "Test string",
             merchantId: "Test string",
             view: "Test string",
+        });
+        /** Creates a new label, not assigned to any account. */
+        await gapi.client.content.accounts.labels.create({
+            accountId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a label and removes it from all accounts to which it was assigned. */
+        await gapi.client.content.accounts.labels.delete({
+            accountId: "Test string",
+            labelId: "Test string",
+        });
+        /** Lists the labels assigned to an account. */
+        await gapi.client.content.accounts.labels.list({
+            accountId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a label. */
+        await gapi.client.content.accounts.labels.patch({
+            accountId: "Test string",
+            labelId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
         });
         /** Creates a Merchant Center sub-account. */
         await gapi.client.content.accounts.insert({
@@ -173,6 +325,36 @@ gapi.load('client', () => {
                     status: "Test string",
                 }            ],
         });
+        /** Creates a new label, not assigned to any account. */
+        await gapi.client.content.accounts.labels.create({
+            accountId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a label and removes it from all accounts to which it was assigned. */
+        await gapi.client.content.accounts.labels.delete({
+            accountId: "Test string",
+            labelId: "Test string",
+        });
+        /** Lists the labels assigned to an account. */
+        await gapi.client.content.accounts.labels.list({
+            accountId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a label. */
+        await gapi.client.content.accounts.labels.patch({
+            accountId: "Test string",
+            labelId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
         /** Performs an action on a link between two Merchant Center accounts, namely accountId and linkedAccountId. */
         await gapi.client.content.accounts.link({
             accountId: "Test string",
@@ -184,6 +366,36 @@ gapi.load('client', () => {
             services: [
                 "Test string"            ],
         });
+        /** Creates a new label, not assigned to any account. */
+        await gapi.client.content.accounts.labels.create({
+            accountId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a label and removes it from all accounts to which it was assigned. */
+        await gapi.client.content.accounts.labels.delete({
+            accountId: "Test string",
+            labelId: "Test string",
+        });
+        /** Lists the labels assigned to an account. */
+        await gapi.client.content.accounts.labels.list({
+            accountId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a label. */
+        await gapi.client.content.accounts.labels.patch({
+            accountId: "Test string",
+            labelId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
         /** Lists the sub-accounts in your Merchant Center account. */
         await gapi.client.content.accounts.list({
             label: "Test string",
@@ -192,12 +404,72 @@ gapi.load('client', () => {
             pageToken: "Test string",
             view: "Test string",
         });
+        /** Creates a new label, not assigned to any account. */
+        await gapi.client.content.accounts.labels.create({
+            accountId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a label and removes it from all accounts to which it was assigned. */
+        await gapi.client.content.accounts.labels.delete({
+            accountId: "Test string",
+            labelId: "Test string",
+        });
+        /** Lists the labels assigned to an account. */
+        await gapi.client.content.accounts.labels.list({
+            accountId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a label. */
+        await gapi.client.content.accounts.labels.patch({
+            accountId: "Test string",
+            labelId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
         /** Returns the list of accounts linked to your Merchant Center account. */
         await gapi.client.content.accounts.listlinks({
             accountId: "Test string",
             maxResults: 42,
             merchantId: "Test string",
             pageToken: "Test string",
+        });
+        /** Creates a new label, not assigned to any account. */
+        await gapi.client.content.accounts.labels.create({
+            accountId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a label and removes it from all accounts to which it was assigned. */
+        await gapi.client.content.accounts.labels.delete({
+            accountId: "Test string",
+            labelId: "Test string",
+        });
+        /** Lists the labels assigned to an account. */
+        await gapi.client.content.accounts.labels.list({
+            accountId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a label. */
+        await gapi.client.content.accounts.labels.patch({
+            accountId: "Test string",
+            labelId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
         });
         /** Updates a Merchant Center account. Any fields that are not provided are deleted from the resource. */
         await gapi.client.content.accounts.update({
@@ -252,6 +524,36 @@ gapi.load('client', () => {
                     status: "Test string",
                 }            ],
         });
+        /** Creates a new label, not assigned to any account. */
+        await gapi.client.content.accounts.labels.create({
+            accountId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a label and removes it from all accounts to which it was assigned. */
+        await gapi.client.content.accounts.labels.delete({
+            accountId: "Test string",
+            labelId: "Test string",
+        });
+        /** Lists the labels assigned to an account. */
+        await gapi.client.content.accounts.labels.list({
+            accountId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a label. */
+        await gapi.client.content.accounts.labels.patch({
+            accountId: "Test string",
+            labelId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
         /** Updates labels that are assigned to the Merchant Center account by CSS user. */
         await gapi.client.content.accounts.updatelabels({
             accountId: "Test string",
@@ -260,8 +562,39 @@ gapi.load('client', () => {
             labelIds: [
                 "Test string"            ],
         });
+        /** Creates a new label, not assigned to any account. */
+        await gapi.client.content.accounts.labels.create({
+            accountId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a label and removes it from all accounts to which it was assigned. */
+        await gapi.client.content.accounts.labels.delete({
+            accountId: "Test string",
+            labelId: "Test string",
+        });
+        /** Lists the labels assigned to an account. */
+        await gapi.client.content.accounts.labels.list({
+            accountId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a label. */
+        await gapi.client.content.accounts.labels.patch({
+            accountId: "Test string",
+            labelId: "Test string",
+        }, {
+            accountId: "Test string",
+            description: "Test string",
+            labelId: "Test string",
+            name: "Test string",
+        });
         /** Retrieves multiple Merchant Center account statuses in a single request. */
-        await gapi.client.content.accountstatuses.custombatch({} , {
+        await gapi.client.content.accountstatuses.custombatch({
+        }, {
             entries: [
                 {
                     accountId: "Test string",
@@ -286,7 +619,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Retrieves and updates tax settings of multiple accounts in a single request. */
-        await gapi.client.content.accounttax.custombatch({} , {
+        await gapi.client.content.accounttax.custombatch({
+        }, {
             entries: [
                 {
                     accountId: "Test string",
@@ -334,8 +668,28 @@ gapi.load('client', () => {
                     useGlobalRate: true,
                 }            ],
         });
+        /** Retrieves a single CSS domain by ID. */
+        await gapi.client.content.csses.get({
+            cssDomainId: "Test string",
+            cssGroupId: "Test string",
+        });
+        /** Lists CSS domains affiliated with a CSS group. */
+        await gapi.client.content.csses.list({
+            cssGroupId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates labels that are assigned to a CSS domain by its CSS group. */
+        await gapi.client.content.csses.updatelabels({
+            cssDomainId: "Test string",
+            cssGroupId: "Test string",
+        }, {
+            labelIds: [
+                "Test string"            ],
+        });
         /** Deletes, fetches, gets, inserts and updates multiple datafeeds in a single request. */
-        await gapi.client.content.datafeeds.custombatch({} , {
+        await gapi.client.content.datafeeds.custombatch({
+        }, {
             entries: [
                 {
                     batchId: 42,
@@ -472,7 +826,8 @@ gapi.load('client', () => {
                 }            ],
         });
         /** Gets multiple Merchant Center datafeed statuses in a single request. */
-        await gapi.client.content.datafeedstatuses.custombatch({} , {
+        await gapi.client.content.datafeedstatuses.custombatch({
+        }, {
             entries: [
                 {
                     batchId: 42,
@@ -497,7 +852,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Retrieves and/or updates the LIA settings of multiple accounts in a single request. */
-        await gapi.client.content.liasettings.custombatch({} , {
+        await gapi.client.content.liasettings.custombatch({
+        }, {
             entries: [
                 {
                     accountId: "Test string",
@@ -557,7 +913,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Retrieves the list of POS data providers that have active settings for the all eiligible countries. */
-        await gapi.client.content.liasettings.listposdataproviders();
+        await gapi.client.content.liasettings.listposdataproviders({
+        });
         /** Requests access to a specified Google My Business account. */
         await gapi.client.content.liasettings.requestgmbaccess({
             accountId: "Test string",
@@ -620,7 +977,8 @@ gapi.load('client', () => {
             kind: "Test string",
         });
         /** Updates local inventory for multiple products or stores in a single request. */
-        await gapi.client.content.localinventory.custombatch({} , {
+        await gapi.client.content.localinventory.custombatch({
+        }, {
             entries: [
                 {
                     batchId: 42,
@@ -1138,10 +1496,10 @@ gapi.load('client', () => {
             templateName: "Test string",
         });
         /**
-         * Deprecated. Notifies that item return and refund was handled directly by merchant outside of Google payments processing (e.g. cash refund done in store).
-         * Note: We recommend calling the returnrefundlineitem method to refund in-store returns. We will issue the refund directly to the customer. This helps to prevent possible differences
-         * arising between merchant and Google transaction records. We also recommend having the point of sale system communicate with Google to ensure that customers do not receive a double
-         * refund by first refunding via Google then via an in-store return.
+         * Deprecated. Notifies that item return and refund was handled directly by merchant outside of Google payments processing (e.g. cash refund done in store). Note: We recommend calling the
+         * returnrefundlineitem method to refund in-store returns. We will issue the refund directly to the customer. This helps to prevent possible differences arising between merchant and Google
+         * transaction records. We also recommend having the point of sale system communicate with Google to ensure that customers do not receive a double refund by first refunding via Google then
+         * via an in-store return.
          */
         await gapi.client.content.orders.instorerefundlineitem({
             merchantId: "Test string",
@@ -1334,7 +1692,8 @@ gapi.load('client', () => {
             undeliveredDate: "Test string",
         });
         /** Batches multiple POS-related calls in a single request. */
-        await gapi.client.content.pos.custombatch({} , {
+        await gapi.client.content.pos.custombatch({
+        }, {
             entries: [
                 {
                     batchId: 42,
@@ -1440,7 +1799,8 @@ gapi.load('client', () => {
             timestamp: "Test string",
         });
         /** Retrieves, inserts, and deletes multiple products in a single request. */
-        await gapi.client.content.products.custombatch({} , {
+        await gapi.client.content.products.custombatch({
+        }, {
             entries: [
                 {
                     batchId: 42,
@@ -1807,7 +2167,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Gets the statuses of multiple products in a single request. */
-        await gapi.client.content.productstatuses.custombatch({} , {
+        await gapi.client.content.productstatuses.custombatch({
+        }, {
             entries: [
                 {
                     batchId: 42,
@@ -1846,7 +2207,8 @@ gapi.load('client', () => {
                 "Test string"            ],
         });
         /** Updates regional inventory for multiple products or regions in a single request. */
-        await gapi.client.content.regionalinventory.custombatch({} , {
+        await gapi.client.content.regionalinventory.custombatch({
+        }, {
             entries: [
                 {
                     batchId: 42,
@@ -1899,8 +2261,114 @@ gapi.load('client', () => {
             },
             salePriceEffectiveDate: "Test string",
         });
+        /** Creates a repricing rule for your Merchant Center account. */
+        await gapi.client.content.repricingrules.create({
+            merchantId: "Test string",
+            ruleId: "Test string",
+        }, {
+            countryCode: "Test string",
+            effectiveTimePeriod: {
+                fixedTimePeriods: [
+                    {
+                        endTime: "Test string",
+                        startTime: "Test string",
+                    }                ],
+            },
+            eligibleOfferMatcher: {
+                brandMatcher: {
+                    strAttributes: [
+                        "Test string"                    ],
+                },
+                itemGroupIdMatcher: {
+                    strAttributes: [
+                        "Test string"                    ],
+                },
+                matcherOption: "Test string",
+                offerIdMatcher: {
+                    strAttributes: [
+                        "Test string"                    ],
+                },
+            },
+            languageCode: "Test string",
+            merchantId: "Test string",
+            paused: true,
+            restriction: {
+                floor: {
+                    percentageDelta: 42,
+                    priceDelta: "Test string",
+                },
+                useAutoPricingMinPrice: true,
+            },
+            ruleId: "Test string",
+            title: "Test string",
+            type: "Test string",
+        });
+        /** Deletes a repricing rule in your Merchant Center account. */
+        await gapi.client.content.repricingrules.delete({
+            merchantId: "Test string",
+            ruleId: "Test string",
+        });
+        /** Retrieves a repricing rule from your Merchant Center account. */
+        await gapi.client.content.repricingrules.get({
+            merchantId: "Test string",
+            ruleId: "Test string",
+        });
+        /** Lists the repricing rules in your Merchant Center account. */
+        await gapi.client.content.repricingrules.list({
+            countryCode: "Test string",
+            languageCode: "Test string",
+            merchantId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /**
+         * Updates a repricing rule in your Merchant Center account. All mutable fields will be overwritten in each update request. In each update, you must provide all required mutable fields, or
+         * an error will be thrown. If you do not provide an optional field in the update request, if that field currently exists, it will be deleted from the rule.
+         */
+        await gapi.client.content.repricingrules.patch({
+            merchantId: "Test string",
+            ruleId: "Test string",
+        }, {
+            countryCode: "Test string",
+            effectiveTimePeriod: {
+                fixedTimePeriods: [
+                    {
+                        endTime: "Test string",
+                        startTime: "Test string",
+                    }                ],
+            },
+            eligibleOfferMatcher: {
+                brandMatcher: {
+                    strAttributes: [
+                        "Test string"                    ],
+                },
+                itemGroupIdMatcher: {
+                    strAttributes: [
+                        "Test string"                    ],
+                },
+                matcherOption: "Test string",
+                offerIdMatcher: {
+                    strAttributes: [
+                        "Test string"                    ],
+                },
+            },
+            languageCode: "Test string",
+            merchantId: "Test string",
+            paused: true,
+            restriction: {
+                floor: {
+                    percentageDelta: 42,
+                    priceDelta: "Test string",
+                },
+                useAutoPricingMinPrice: true,
+            },
+            ruleId: "Test string",
+            title: "Test string",
+            type: "Test string",
+        });
         /** Batches multiple return address related calls in a single request. */
-        await gapi.client.content.returnaddress.custombatch({} , {
+        await gapi.client.content.returnaddress.custombatch({
+        }, {
             entries: [
                 {
                     batchId: 42,
@@ -1962,7 +2430,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /** Batches multiple return policy related calls in a single request. */
-        await gapi.client.content.returnpolicy.custombatch({} , {
+        await gapi.client.content.returnpolicy.custombatch({
+        }, {
             entries: [
                 {
                     batchId: 42,
@@ -2060,7 +2529,8 @@ gapi.load('client', () => {
             transactionIds: "Test string",
         });
         /** Retrieves and updates the shipping settings of multiple accounts in a single request. */
-        await gapi.client.content.shippingsettings.custombatch({} , {
+        await gapi.client.content.shippingsettings.custombatch({
+        }, {
             entries: [
                 {
                     accountId: "Test string",

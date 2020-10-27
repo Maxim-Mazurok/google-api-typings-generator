@@ -1,7 +1,7 @@
 # TypeScript typings for Content API for Shopping v2.1
 
-Manages product items, inventory, and Merchant Center accounts for Google Shopping.
-For detailed description please check [documentation](https://developers.google.com/shopping-content).
+Manage your product listings and accounts for Google Shopping
+For detailed description please check [documentation](https://developers.google.com/shopping-content/v2/).
 
 ## Installing
 
@@ -149,6 +149,21 @@ Updates the tax settings of the account. Any fields that are not provided are de
 await gapi.client.content.accounttax.update({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
+Retrieves a single CSS domain by ID.
+*/
+await gapi.client.content.csses.get({ cssDomainId: "cssDomainId", cssGroupId: "cssGroupId",  });
+
+/*
+Lists CSS domains affiliated with a CSS group.
+*/
+await gapi.client.content.csses.list({ cssGroupId: "cssGroupId",  });
+
+/*
+Updates labels that are assigned to a CSS domain by its CSS group.
+*/
+await gapi.client.content.csses.updatelabels({ cssDomainId: "cssDomainId", cssGroupId: "cssGroupId",  });
+
+/*
 Deletes, fetches, gets, inserts and updates multiple datafeeds in a single request.
 */
 await gapi.client.content.datafeeds.custombatch({  });
@@ -226,7 +241,7 @@ await gapi.client.content.liasettings.listposdataproviders({  });
 /*
 Requests access to a specified Google My Business account.
 */
-await gapi.client.content.liasettings.requestgmbaccess({ accountId: "accountId", gmbEmail: "gmbEmail", merchantId: "merchantId",  });
+await gapi.client.content.liasettings.requestgmbaccess({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
 Requests inventory validation for the specified country.
@@ -236,12 +251,12 @@ await gapi.client.content.liasettings.requestinventoryverification({ accountId: 
 /*
 Sets the inventory verification contract for the specified country.
 */
-await gapi.client.content.liasettings.setinventoryverificationcontact({ accountId: "accountId", contactEmail: "contactEmail", contactName: "contactName", country: "country", language: "language", merchantId: "merchantId",  });
+await gapi.client.content.liasettings.setinventoryverificationcontact({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
 Sets the POS data provider for the specified country.
 */
-await gapi.client.content.liasettings.setposdataprovider({ accountId: "accountId", country: "country", merchantId: "merchantId",  });
+await gapi.client.content.liasettings.setposdataprovider({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
 Updates the LIA settings of the account. Any fields that are not provided are deleted from the resource.
@@ -271,12 +286,12 @@ await gapi.client.content.orderinvoices.createrefundinvoice({ merchantId: "merch
 /*
 Retrieves a report for disbursements from your Merchant Center account.
 */
-await gapi.client.content.orderreports.listdisbursements({ disbursementStartDate: "disbursementStartDate", merchantId: "merchantId",  });
+await gapi.client.content.orderreports.listdisbursements({ merchantId: "merchantId",  });
 
 /*
 Retrieves a list of transactions for a disbursement from your Merchant Center account.
 */
-await gapi.client.content.orderreports.listtransactions({ disbursementId: "disbursementId", merchantId: "merchantId", transactionStartDate: "transactionStartDate",  });
+await gapi.client.content.orderreports.listtransactions({ disbursementId: "disbursementId", merchantId: "merchantId",  });
 
 /*
 Acks an order return in your Merchant Center account.
@@ -354,8 +369,7 @@ Sandbox only. Retrieves an order template that can be used to quickly create a n
 await gapi.client.content.orders.gettestordertemplate({ merchantId: "merchantId", templateName: "templateName",  });
 
 /*
-Deprecated. Notifies that item return and refund was handled directly by merchant outside of Google payments processing (e.g. cash refund done in store).
-Note: We recommend calling the returnrefundlineitem method to refund in-store returns. We will issue the refund directly to the customer. This helps to prevent possible differences arising between merchant and Google transaction records. We also recommend having the point of sale system communicate with Google to ensure that customers do not receive a double refund by first refunding via Google then via an in-store return.
+Deprecated. Notifies that item return and refund was handled directly by merchant outside of Google payments processing (e.g. cash refund done in store). Note: We recommend calling the returnrefundlineitem method to refund in-store returns. We will issue the refund directly to the customer. This helps to prevent possible differences arising between merchant and Google transaction records. We also recommend having the point of sale system communicate with Google to ensure that customers do not receive a double refund by first refunding via Google then via an in-store return.
 */
 await gapi.client.content.orders.instorerefundlineitem({ merchantId: "merchantId", orderId: "orderId",  });
 
@@ -503,6 +517,31 @@ await gapi.client.content.regionalinventory.custombatch({  });
 Update the regional inventory of a product in your Merchant Center account. If a regional inventory with the same region ID already exists, this method updates that entry.
 */
 await gapi.client.content.regionalinventory.insert({ merchantId: "merchantId", productId: "productId",  });
+
+/*
+Creates a repricing rule for your Merchant Center account.
+*/
+await gapi.client.content.repricingrules.create({ merchantId: "merchantId",  });
+
+/*
+Deletes a repricing rule in your Merchant Center account.
+*/
+await gapi.client.content.repricingrules.delete({ merchantId: "merchantId", ruleId: "ruleId",  });
+
+/*
+Retrieves a repricing rule from your Merchant Center account.
+*/
+await gapi.client.content.repricingrules.get({ merchantId: "merchantId", ruleId: "ruleId",  });
+
+/*
+Lists the repricing rules in your Merchant Center account.
+*/
+await gapi.client.content.repricingrules.list({ merchantId: "merchantId",  });
+
+/*
+Updates a repricing rule in your Merchant Center account. All mutable fields will be overwritten in each update request. In each update, you must provide all required mutable fields, or an error will be thrown. If you do not provide an optional field in the update request, if that field currently exists, it will be deleted from the rule.
+*/
+await gapi.client.content.repricingrules.patch({ merchantId: "merchantId", ruleId: "ruleId",  });
 
 /*
 Batches multiple return address related calls in a single request.
