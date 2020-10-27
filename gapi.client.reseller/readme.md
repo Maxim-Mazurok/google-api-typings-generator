@@ -1,11 +1,11 @@
-# TypeScript typings for Workspace Reseller API v1
+# TypeScript typings for Enterprise Apps Reseller API v1
 
 Creates and manages your customers and their subscriptions.
 For detailed description please check [documentation](https://developers.google.com/google-apps/reseller/).
 
 ## Installing
 
-Install typings for Workspace Reseller API:
+Install typings for Enterprise Apps Reseller API:
 
 ```
 npm install @types/gapi.client.reseller@v1 --save-dev
@@ -57,7 +57,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Workspace Reseller API resources:
+After that you can use Enterprise Apps Reseller API resources:
 
 ```typescript
 
