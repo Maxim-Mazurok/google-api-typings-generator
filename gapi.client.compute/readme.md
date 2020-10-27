@@ -2727,6 +2727,8 @@ await gapi.client.compute.urlMaps.insert({ project: "project",  });
 
 /*
 Initiates a cache invalidation operation, invalidating the specified path, scoped to the specified UrlMap.
+
+For more information, see [Invalidating cached content](/cdn/docs/invalidating-cached-content).
 */
 await gapi.client.compute.urlMaps.invalidateCache({ project: "project", urlMap: "urlMap",  });
 

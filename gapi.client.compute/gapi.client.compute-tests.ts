@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201005
+// Revision: 20201007
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -160,7 +160,9 @@ gapi.load('client', () => {
                 },
                 customMetricUtilizations: [
                     {
+                        filter: "Test string",
                         metric: "Test string",
+                        singleInstanceAssignment: 42,
                         utilizationTarget: 42,
                         utilizationTargetType: "Test string",
                     }                ],
@@ -220,7 +222,9 @@ gapi.load('client', () => {
                 },
                 customMetricUtilizations: [
                     {
+                        filter: "Test string",
                         metric: "Test string",
+                        singleInstanceAssignment: 42,
                         utilizationTarget: 42,
                         utilizationTargetType: "Test string",
                     }                ],
@@ -270,7 +274,9 @@ gapi.load('client', () => {
                 },
                 customMetricUtilizations: [
                     {
+                        filter: "Test string",
                         metric: "Test string",
+                        singleInstanceAssignment: 42,
                         utilizationTarget: 42,
                         utilizationTargetType: "Test string",
                     }                ],
@@ -561,6 +567,11 @@ gapi.load('client', () => {
             protocol: "Test string",
             region: "Test string",
             securityPolicy: "Test string",
+            securitySettings: {
+                clientTlsPolicy: "Test string",
+                subjectAltNames: [
+                    "Test string"                ],
+            },
             selfLink: "Test string",
             sessionAffinity: "Test string",
             timeoutSec: 42,
@@ -688,6 +699,11 @@ gapi.load('client', () => {
             protocol: "Test string",
             region: "Test string",
             securityPolicy: "Test string",
+            securitySettings: {
+                clientTlsPolicy: "Test string",
+                subjectAltNames: [
+                    "Test string"                ],
+            },
             selfLink: "Test string",
             sessionAffinity: "Test string",
             timeoutSec: 42,
@@ -811,6 +827,11 @@ gapi.load('client', () => {
             protocol: "Test string",
             region: "Test string",
             securityPolicy: "Test string",
+            securitySettings: {
+                clientTlsPolicy: "Test string",
+                subjectAltNames: [
+                    "Test string"                ],
+            },
             selfLink: "Test string",
             sessionAffinity: "Test string",
             timeoutSec: 42,
@@ -844,6 +865,7 @@ gapi.load('client', () => {
             zone: "Test string",
         }, {
             autoCreated: true,
+            chainName: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
             diskSizeGb: "Test string",
@@ -1839,6 +1861,9 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            logConfig: {
+                enable: true,
+            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -1919,6 +1944,9 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            logConfig: {
+                enable: true,
+            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -1987,6 +2015,9 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            logConfig: {
+                enable: true,
+            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -2558,6 +2589,7 @@ gapi.load('client', () => {
             project: "Test string",
             zone: "Test string",
         }, {
+            allInstances: true,
             instances: [
                 "Test string"            ],
             minimalAction: "Test string",
@@ -5807,7 +5839,9 @@ gapi.load('client', () => {
                 },
                 customMetricUtilizations: [
                     {
+                        filter: "Test string",
                         metric: "Test string",
+                        singleInstanceAssignment: 42,
                         utilizationTarget: 42,
                         utilizationTargetType: "Test string",
                     }                ],
@@ -5867,7 +5901,9 @@ gapi.load('client', () => {
                 },
                 customMetricUtilizations: [
                     {
+                        filter: "Test string",
                         metric: "Test string",
+                        singleInstanceAssignment: 42,
                         utilizationTarget: 42,
                         utilizationTargetType: "Test string",
                     }                ],
@@ -5917,7 +5953,9 @@ gapi.load('client', () => {
                 },
                 customMetricUtilizations: [
                     {
+                        filter: "Test string",
                         metric: "Test string",
+                        singleInstanceAssignment: 42,
                         utilizationTarget: 42,
                         utilizationTargetType: "Test string",
                     }                ],
@@ -6085,6 +6123,11 @@ gapi.load('client', () => {
             protocol: "Test string",
             region: "Test string",
             securityPolicy: "Test string",
+            securitySettings: {
+                clientTlsPolicy: "Test string",
+                subjectAltNames: [
+                    "Test string"                ],
+            },
             selfLink: "Test string",
             sessionAffinity: "Test string",
             timeoutSec: 42,
@@ -6214,6 +6257,11 @@ gapi.load('client', () => {
             protocol: "Test string",
             region: "Test string",
             securityPolicy: "Test string",
+            securitySettings: {
+                clientTlsPolicy: "Test string",
+                subjectAltNames: [
+                    "Test string"                ],
+            },
             selfLink: "Test string",
             sessionAffinity: "Test string",
             timeoutSec: 42,
@@ -6330,6 +6378,11 @@ gapi.load('client', () => {
             protocol: "Test string",
             region: "Test string",
             securityPolicy: "Test string",
+            securitySettings: {
+                clientTlsPolicy: "Test string",
+                subjectAltNames: [
+                    "Test string"                ],
+            },
             selfLink: "Test string",
             sessionAffinity: "Test string",
             timeoutSec: 42,
@@ -6440,6 +6493,7 @@ gapi.load('client', () => {
             requestId: "Test string",
         }, {
             autoCreated: true,
+            chainName: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
             diskSizeGb: "Test string",
@@ -6778,6 +6832,9 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            logConfig: {
+                enable: true,
+            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -6860,6 +6917,9 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            logConfig: {
+                enable: true,
+            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -6929,6 +6989,9 @@ gapi.load('client', () => {
             },
             id: "Test string",
             kind: "Test string",
+            logConfig: {
+                enable: true,
+            },
             name: "Test string",
             region: "Test string",
             selfLink: "Test string",
@@ -7049,6 +7112,7 @@ gapi.load('client', () => {
             project: "Test string",
             region: "Test string",
         }, {
+            allInstances: true,
             instances: [
                 "Test string"            ],
             minimalAction: "Test string",
@@ -7763,6 +7827,7 @@ gapi.load('client', () => {
             id: "Test string",
             kind: "Test string",
             name: "Test string",
+            proxyBind: true,
             region: "Test string",
             selfLink: "Test string",
             urlMap: "Test string",
@@ -7805,14 +7870,17 @@ gapi.load('client', () => {
             region: "Test string",
             requestId: "Test string",
         }, {
+            authorizationPolicy: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
             id: "Test string",
             kind: "Test string",
             name: "Test string",
+            proxyBind: true,
             quicOverride: "Test string",
             region: "Test string",
             selfLink: "Test string",
+            serverTlsPolicy: "Test string",
             sslCertificates: [
                 "Test string"            ],
             sslPolicy: "Test string",
@@ -9986,6 +10054,7 @@ gapi.load('client', () => {
                     },
                 },
                 snapshotProperties: {
+                    chainName: "Test string",
                     guestFlush: true,
                     labels: {
                         A: "Test string"                    },
@@ -11316,6 +11385,7 @@ gapi.load('client', () => {
             id: "Test string",
             kind: "Test string",
             name: "Test string",
+            proxyBind: true,
             region: "Test string",
             selfLink: "Test string",
             urlMap: "Test string",
@@ -11344,6 +11414,7 @@ gapi.load('client', () => {
             id: "Test string",
             kind: "Test string",
             name: "Test string",
+            proxyBind: true,
             region: "Test string",
             selfLink: "Test string",
             urlMap: "Test string",
@@ -11382,14 +11453,17 @@ gapi.load('client', () => {
             project: "Test string",
             requestId: "Test string",
         }, {
+            authorizationPolicy: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
             id: "Test string",
             kind: "Test string",
             name: "Test string",
+            proxyBind: true,
             quicOverride: "Test string",
             region: "Test string",
             selfLink: "Test string",
+            serverTlsPolicy: "Test string",
             sslCertificates: [
                 "Test string"            ],
             sslPolicy: "Test string",
@@ -12268,7 +12342,11 @@ gapi.load('client', () => {
                     service: "Test string",
                 }            ],
         });
-        /** Initiates a cache invalidation operation, invalidating the specified path, scoped to the specified UrlMap. */
+        /**
+         * Initiates a cache invalidation operation, invalidating the specified path, scoped to the specified UrlMap.
+         *
+         * For more information, see [Invalidating cached content](/cdn/docs/invalidating-cached-content).
+         */
         await gapi.client.compute.urlMaps.invalidateCache({
             project: "Test string",
             requestId: "Test string",
