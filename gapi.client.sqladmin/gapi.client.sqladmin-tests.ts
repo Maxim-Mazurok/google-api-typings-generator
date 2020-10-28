@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201015
+// Revision: 20201022
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -343,11 +343,13 @@ gapi.load('client', () => {
             replicaNames: [
                 "Test string"            ],
             rootPassword: "Test string",
+            satisfiesPzs: true,
             scheduledMaintenance: {
                 canDefer: true,
                 canReschedule: true,
                 startTime: "Test string",
             },
+            secondaryGceZone: "Test string",
             selfLink: "Test string",
             serverCaCert: {
                 cert: "Test string",
@@ -416,6 +418,7 @@ gapi.load('client', () => {
                 locationPreference: {
                     followGaeApplication: "Test string",
                     kind: "Test string",
+                    secondaryZone: "Test string",
                     zone: "Test string",
                 },
                 maintenanceWindow: {
@@ -519,11 +522,13 @@ gapi.load('client', () => {
             replicaNames: [
                 "Test string"            ],
             rootPassword: "Test string",
+            satisfiesPzs: true,
             scheduledMaintenance: {
                 canDefer: true,
                 canReschedule: true,
                 startTime: "Test string",
             },
+            secondaryGceZone: "Test string",
             selfLink: "Test string",
             serverCaCert: {
                 cert: "Test string",
@@ -592,6 +597,7 @@ gapi.load('client', () => {
                 locationPreference: {
                     followGaeApplication: "Test string",
                     kind: "Test string",
+                    secondaryZone: "Test string",
                     zone: "Test string",
                 },
                 maintenanceWindow: {
@@ -737,11 +743,13 @@ gapi.load('client', () => {
             replicaNames: [
                 "Test string"            ],
             rootPassword: "Test string",
+            satisfiesPzs: true,
             scheduledMaintenance: {
                 canDefer: true,
                 canReschedule: true,
                 startTime: "Test string",
             },
+            secondaryGceZone: "Test string",
             selfLink: "Test string",
             serverCaCert: {
                 cert: "Test string",
@@ -810,6 +818,7 @@ gapi.load('client', () => {
                 locationPreference: {
                     followGaeApplication: "Test string",
                     kind: "Test string",
+                    secondaryZone: "Test string",
                     zone: "Test string",
                 },
                 maintenanceWindow: {
