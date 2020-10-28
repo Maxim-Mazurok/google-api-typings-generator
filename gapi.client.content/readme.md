@@ -241,7 +241,7 @@ await gapi.client.content.liasettings.listposdataproviders({  });
 /*
 Requests access to a specified Google My Business account.
 */
-await gapi.client.content.liasettings.requestgmbaccess({ accountId: "accountId", merchantId: "merchantId",  });
+await gapi.client.content.liasettings.requestgmbaccess({ accountId: "accountId", gmbEmail: "gmbEmail", merchantId: "merchantId",  });
 
 /*
 Requests inventory validation for the specified country.
@@ -251,12 +251,12 @@ await gapi.client.content.liasettings.requestinventoryverification({ accountId: 
 /*
 Sets the inventory verification contract for the specified country.
 */
-await gapi.client.content.liasettings.setinventoryverificationcontact({ accountId: "accountId", merchantId: "merchantId",  });
+await gapi.client.content.liasettings.setinventoryverificationcontact({ accountId: "accountId", contactEmail: "contactEmail", contactName: "contactName", country: "country", language: "language", merchantId: "merchantId",  });
 
 /*
 Sets the POS data provider for the specified country.
 */
-await gapi.client.content.liasettings.setposdataprovider({ accountId: "accountId", merchantId: "merchantId",  });
+await gapi.client.content.liasettings.setposdataprovider({ accountId: "accountId", country: "country", merchantId: "merchantId",  });
 
 /*
 Updates the LIA settings of the account. Any fields that are not provided are deleted from the resource.
