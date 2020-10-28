@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201017
+// Revision: 20201023
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -232,7 +232,6 @@ gapi.load('client', () => {
                 rules: [
                     {
                         additionalBindings: undefined,
-                        allowHalfDuplex: true,
                         body: "Test string",
                         custom: {
                             kind: "Test string",
@@ -446,11 +445,6 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
-                serviceIdentity: {
-                    description: "Test string",
-                    displayName: "Test string",
-                    serviceAccountParent: "Test string",
-                },
             },
         });
         /** Gets a service configuration (version) for a managed service. */
@@ -750,7 +744,6 @@ gapi.load('client', () => {
                 rules: [
                     {
                         additionalBindings: undefined,
-                        allowHalfDuplex: true,
                         body: "Test string",
                         custom: {
                             kind: "Test string",
@@ -964,11 +957,6 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
-                serviceIdentity: {
-                    description: "Test string",
-                    displayName: "Test string",
-                    serviceAccountParent: "Test string",
-                },
             },
         });
         /** Gets a service configuration (version) for a managed service. */
@@ -1267,7 +1255,6 @@ gapi.load('client', () => {
                 rules: [
                     {
                         additionalBindings: undefined,
-                        allowHalfDuplex: true,
                         body: "Test string",
                         custom: {
                             kind: "Test string",
@@ -1481,11 +1468,6 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
-                serviceIdentity: {
-                    description: "Test string",
-                    displayName: "Test string",
-                    serviceAccountParent: "Test string",
-                },
             },
         });
         /** Gets a service configuration (version) for a managed service. */
@@ -1791,7 +1773,6 @@ gapi.load('client', () => {
                 rules: [
                     {
                         additionalBindings: undefined,
-                        allowHalfDuplex: true,
                         body: "Test string",
                         custom: {
                             kind: "Test string",
@@ -2005,11 +1986,6 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
-                serviceIdentity: {
-                    description: "Test string",
-                    displayName: "Test string",
-                    serviceAccountParent: "Test string",
-                },
             },
         });
         /** Gets a service configuration (version) for a managed service. */
@@ -2306,7 +2282,6 @@ gapi.load('client', () => {
                 rules: [
                     {
                         additionalBindings: undefined,
-                        allowHalfDuplex: true,
                         body: "Test string",
                         custom: {
                             kind: "Test string",
@@ -2520,11 +2495,6 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
-                serviceIdentity: {
-                    description: "Test string",
-                    displayName: "Test string",
-                    serviceAccountParent: "Test string",
-                },
             },
         });
         /** Gets a service configuration (version) for a managed service. */
@@ -2823,7 +2793,6 @@ gapi.load('client', () => {
                 rules: [
                     {
                         additionalBindings: undefined,
-                        allowHalfDuplex: true,
                         body: "Test string",
                         custom: {
                             kind: "Test string",
@@ -3037,11 +3006,6 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
-                serviceIdentity: {
-                    description: "Test string",
-                    displayName: "Test string",
-                    serviceAccountParent: "Test string",
-                },
             },
         });
         /** Gets a service configuration (version) for a managed service. */
@@ -3342,7 +3306,6 @@ gapi.load('client', () => {
                 rules: [
                     {
                         additionalBindings: undefined,
-                        allowHalfDuplex: true,
                         body: "Test string",
                         custom: {
                             kind: "Test string",
@@ -3556,11 +3519,6 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
-                serviceIdentity: {
-                    description: "Test string",
-                    displayName: "Test string",
-                    serviceAccountParent: "Test string",
-                },
             },
         });
         /** Gets a service configuration (version) for a managed service. */
@@ -3863,7 +3821,6 @@ gapi.load('client', () => {
                 rules: [
                     {
                         additionalBindings: undefined,
-                        allowHalfDuplex: true,
                         body: "Test string",
                         custom: {
                             kind: "Test string",
@@ -4077,11 +4034,6 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
-                serviceIdentity: {
-                    description: "Test string",
-                    displayName: "Test string",
-                    serviceAccountParent: "Test string",
-                },
             },
         });
         /** Gets a service configuration (version) for a managed service. */
@@ -4406,7 +4358,6 @@ gapi.load('client', () => {
                 rules: [
                     {
                         additionalBindings: undefined,
-                        allowHalfDuplex: true,
                         body: "Test string",
                         custom: {
                             kind: "Test string",
@@ -4620,11 +4571,6 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
-                serviceIdentity: {
-                    description: "Test string",
-                    displayName: "Test string",
-                    serviceAccountParent: "Test string",
-                },
             },
         });
         /** Gets a service configuration (version) for a managed service. */
@@ -4927,7 +4873,6 @@ gapi.load('client', () => {
                 rules: [
                     {
                         additionalBindings: undefined,
-                        allowHalfDuplex: true,
                         body: "Test string",
                         custom: {
                             kind: "Test string",
@@ -5141,11 +5086,6 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
-                serviceIdentity: {
-                    description: "Test string",
-                    displayName: "Test string",
-                    serviceAccountParent: "Test string",
-                },
             },
         });
         /** Gets a service configuration (version) for a managed service. */
@@ -5445,7 +5385,6 @@ gapi.load('client', () => {
                 rules: [
                     {
                         additionalBindings: undefined,
-                        allowHalfDuplex: true,
                         body: "Test string",
                         custom: {
                             kind: "Test string",
@@ -5659,11 +5598,6 @@ gapi.load('client', () => {
                         selector: "Test string",
                         skipServiceControl: true,
                     }                ],
-                serviceIdentity: {
-                    description: "Test string",
-                    displayName: "Test string",
-                    serviceAccountParent: "Test string",
-                },
             },
         });
         /** Gets a service configuration (version) for a managed service. */
