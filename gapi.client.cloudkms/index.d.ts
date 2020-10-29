@@ -320,7 +320,6 @@ declare namespace gapi.client {
             /** The URI for an external resource that this CryptoKeyVersion represents. */
             externalKeyUri?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface ImportCryptoKeyVersionRequest {
             /** Required. The algorithm of the key being imported. This does not need to match the version_template of the CryptoKey this version imports into. */
             algorithm?: string;
@@ -334,7 +333,6 @@ declare namespace gapi.client {
              */
             rsaAesWrappedKey?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface ImportJob {
             /**
              * Output only. Statement that was generated and signed by the key creator (for example, an HSM) at key creation time. Use this statement to verify attributes of the key as stored on
@@ -1485,7 +1483,6 @@ declare namespace gapi.client {
             body: UpdateCryptoKeyPrimaryVersionRequest): Request<CryptoKey>;
             cryptoKeyVersions: CryptoKeyVersionsResource;
         }
-        // tslint:disable-next-line:interface-name
         interface ImportJobsResource {
             /** Create a new ImportJob within a KeyRing. ImportJob.import_method is required. */
             create(request: {
