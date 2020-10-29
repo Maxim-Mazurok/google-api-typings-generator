@@ -333,14 +333,12 @@ declare namespace gapi.client {
             /** Output only. The PEM-encoded signed certificate signing request (CSR). */
             pemCsr?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IssuanceModes {
             /** Required. When true, allows callers to create Certificates by specifying a CertificateConfig. */
             allowConfigBasedIssuance?: boolean;
             /** Required. When true, allows callers to create Certificates by specifying a CSR. */
             allowCsrBasedIssuance?: boolean;
         }
-        // tslint:disable-next-line:interface-name
         interface IssuingOptions {
             /** Required. When true, includes a URL to the issuing CA certificate in the "authority information access" X.509 extension. */
             includeCaCertUrl?: boolean;
