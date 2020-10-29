@@ -258,7 +258,6 @@ declare namespace gapi.client {
             /** The response for each requested resource name. */
             responses?: PersonResponse[];
         }
-        // tslint:disable-next-line:interface-name
         interface ImClient {
             /** Output only. The protocol of the IM client formatted in the viewer's account locale or the `Accept-Language` HTTP header locale. */
             formattedProtocol?: string;
@@ -276,7 +275,6 @@ declare namespace gapi.client {
             /** The user name used in the IM client. */
             username?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Interest {
             /** Metadata about the interest. */
             metadata?: FieldMetadata;
