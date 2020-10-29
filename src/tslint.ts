@@ -1,17 +1,16 @@
-/* copied from https://github.com/palantir/tslint/blob/master/src/rules/interfaceNameRule.ts */
+/* copied from https://github.com/palantir/tslint/blob/5.14.0/src/rules/interfaceNameRule.ts */
+/* version 5.14.0 because that's what's used in dtslint currently */
 
-export function hasPrefixI(name: string): boolean {
-  return name.length >= 3 && name[0] === 'I' && /^[A-Z]*$/.test(name[1]);
+function isUpperCase(str: string): boolean {
+  return str === str.toUpperCase();
 }
 
-export function cantDecide(name: string): boolean {
+export function hasPrefixI(name: string): boolean {
+  // Allow IndexedDB interfaces
   return (
-    // Case ID
-    (name.length === 2 && name[0] === 'I' && /^[A-Z]*$/.test(name[1])) ||
-    // Case IDB or ID42
-    (name.length >= 2 &&
-      name[0] === 'I' &&
-      /^[A-Z]*$/.test(name[1]) &&
-      !/^[a-z]*$/.test(name[2]))
+    name.length >= 2 &&
+    name[0] === 'I' &&
+    isUpperCase(name[1]) &&
+    !name.startsWith('IDB')
   );
 }
