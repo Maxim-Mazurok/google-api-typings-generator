@@ -13,6 +13,7 @@ import {
 import {StreamWriter, TextWriter} from './writer';
 import {Template} from './template';
 import {ProxySetting} from 'get-proxy-settings';
+import {hasPrefixI} from './tslint';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
@@ -166,7 +167,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     emptyInterface = false
   ) {
     const ignoreRules: string[] = [];
-    if (name && name[0] && name[0] === 'I') {
+    if (hasPrefixI(name)) {
       // workaround for cases like `IPAllocationPolicy`
       ignoreRules.push('interface-name');
     }
