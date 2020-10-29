@@ -360,7 +360,6 @@ declare namespace gapi.client {
             /** The hash value. */
             value?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Installation {
             /** All of the places within the filesystem versions of this package have been found. */
             location?: Location[];
