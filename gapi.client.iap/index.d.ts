@@ -122,7 +122,6 @@ declare namespace gapi.client {
              */
             requestedPolicyVersion?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface IapSettings {
             /** Top level wrapper for all access related setting in IAP */
             accessSettings?: AccessSettings;
@@ -131,7 +130,6 @@ declare namespace gapi.client {
             /** Required. The resource name of the IAP protected resource. */
             name?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentityAwareProxyClient {
             /** Human-friendly name given to the OAuth client. */
             displayName?: string;
@@ -261,7 +259,6 @@ declare namespace gapi.client {
             /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
             permissions?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface IdentityAwareProxyClientsResource {
             /** Creates an Identity Aware Proxy (IAP) OAuth client. The client is owned by IAP. Requires that the brand for the project exists and that it is set for internal-only use. */
             create(request: {

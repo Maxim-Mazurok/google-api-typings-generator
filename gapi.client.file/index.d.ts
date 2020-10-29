@@ -154,7 +154,6 @@ declare namespace gapi.client {
             /** Name of the SLO tier the Instance belongs to. This name will be expected to match the tiers specified in the service SLO configuration. Field is mandatory and must not be empty. */
             tier?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Instance {
             /** Output only. The time when the instance was created. */
             createTime?: string;
@@ -281,7 +280,6 @@ declare namespace gapi.client {
              */
             message?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /** Creates an instance. */
             create(request: {

@@ -74,7 +74,6 @@ declare namespace gapi.client {
             /** Timestamp for the most recent `Release.update_time`. */
             updateTime?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Issue {
             /** Short error description. */
             description?: string;

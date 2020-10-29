@@ -290,7 +290,6 @@ declare namespace gapi.client {
             /** Required. The path to a directory in GCS that will eventually contain the results for this test. The requesting user must have write access on the bucket in the supplied path. */
             gcsPath?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IntentFilter {
             /** The android:name value of the tag. */
             actionNames?: string[];
@@ -299,7 +298,6 @@ declare namespace gapi.client {
             /** The android:mimeType value of the tag. */
             mimeType?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IosDevice {
             /** Required. The id of the iOS device to be used. Use the TestEnvironmentDiscoveryService to get supported options. */
             iosModelId?: string;
@@ -310,7 +308,6 @@ declare namespace gapi.client {
             /** Required. How the device is oriented during the test. Use the TestEnvironmentDiscoveryService to get supported options. */
             orientation?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IosDeviceCatalog {
             /** The set of supported iOS device models. */
             models?: IosModel[];
@@ -321,7 +318,6 @@ declare namespace gapi.client {
             /** The set of supported Xcode versions. */
             xcodeVersions?: XcodeVersion[];
         }
-        // tslint:disable-next-line:interface-name
         interface IosDeviceFile {
             /** The bundle id of the app where this file lives. iOS apps sandbox their own filesystem, so app files must specify which app installed on the device. */
             bundleId?: string;
@@ -330,12 +326,10 @@ declare namespace gapi.client {
             /** Location of the file on the device, inside the app's sandboxed filesystem */
             devicePath?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IosDeviceList {
             /** Required. A list of iOS devices. */
             iosDevices?: IosDevice[];
         }
-        // tslint:disable-next-line:interface-name
         interface IosModel {
             /**
              * Device capabilities. Copied from
@@ -359,14 +353,12 @@ declare namespace gapi.client {
             /** Tags for this dimension. Examples: "default", "preview", "deprecated". */
             tags?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface IosRuntimeConfiguration {
             /** The set of available locales. */
             locales?: Locale[];
             /** The set of available orientations. */
             orientations?: Orientation[];
         }
-        // tslint:disable-next-line:interface-name
         interface IosTestLoop {
             /** Output only. The bundle id for the application under test. */
             appBundleId?: string;
@@ -375,7 +367,6 @@ declare namespace gapi.client {
             /** The list of scenarios that should be run during the test. Defaults to the single scenario 0 if unspecified. */
             scenarios?: number[];
         }
-        // tslint:disable-next-line:interface-name
         interface IosTestSetup {
             /** iOS apps to install in addition to those being directly tested. */
             additionalIpas?: FileReference[];
@@ -392,7 +383,6 @@ declare namespace gapi.client {
             /** List of files to push to the device before starting the test. */
             pushFiles?: IosDeviceFile[];
         }
-        // tslint:disable-next-line:interface-name
         interface IosVersion {
             /** An opaque id for this iOS version. Use this id to invoke the TestExecutionService. */
             id?: string;
@@ -405,7 +395,6 @@ declare namespace gapi.client {
             /** Tags for this dimension. Examples: "default", "preview", "deprecated". */
             tags?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface IosXcTest {
             /** Output only. The bundle id for the application under test. */
             appBundleId?: string;

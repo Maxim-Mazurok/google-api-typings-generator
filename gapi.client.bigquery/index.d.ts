@@ -818,7 +818,6 @@ declare namespace gapi.client {
              */
             sourceUriPrefix?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IterationResult {
             arimaResult?: ArimaResult;
             /** Information about top clusters for clustering models. */

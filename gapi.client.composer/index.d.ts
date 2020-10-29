@@ -66,7 +66,6 @@ declare namespace gapi.client {
             /** The configuration settings for software inside the environment. */
             softwareConfig?: SoftwareConfig;
         }
-        // tslint:disable-next-line:interface-name
         interface ImageVersion {
             /** The string identifier of the ImageVersion, in the form: "composer-x.y.z-airflow-a.b(.c)" */
             imageVersionId?: string;
@@ -531,7 +530,6 @@ declare namespace gapi.client {
             },
             body: Environment): Request<Operation>;
         }
-        // tslint:disable-next-line:interface-name
         interface ImageVersionsResource {
             /** List ImageVersions for provided location. */
             list(request?: {

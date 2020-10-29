@@ -180,7 +180,6 @@ declare namespace gapi.client {
             /** The version name of this APK. */
             versionName?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Image {
             /** A unique id representing this image. */
             id?: string;
@@ -191,22 +190,18 @@ declare namespace gapi.client {
             /** A URL that will serve a preview of the image. */
             url?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface ImagesDeleteAllResponse {
             /** The deleted images. */
             deleted?: Image[];
         }
-        // tslint:disable-next-line:interface-name
         interface ImagesListResponse {
             /** All listed Images. */
             images?: Image[];
         }
-        // tslint:disable-next-line:interface-name
         interface ImagesUploadResponse {
             /** The uploaded image. */
             image?: Image;
         }
-        // tslint:disable-next-line:interface-name
         interface InAppProduct {
             /** Default language of the localized data, as defined by BCP-47. e.g. "en-US". */
             defaultLanguage?: string;
@@ -234,7 +229,6 @@ declare namespace gapi.client {
             /** Trial period, specified in ISO 8601 format. Acceptable values are anything between P7D (seven days) and P999D (999 days). */
             trialPeriod?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InAppProductListing {
             /** Localized entitlement benefits for a subscription. */
             benefits?: string[];
@@ -243,7 +237,6 @@ declare namespace gapi.client {
             /** Title for the store listing. */
             title?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InappproductsListResponse {
             /** All in-app products. */
             inappproduct?: InAppProduct[];
@@ -254,7 +247,6 @@ declare namespace gapi.client {
             /** Pagination token, to handle a number of products that is over one page. */
             tokenPagination?: TokenPagination;
         }
-        // tslint:disable-next-line:interface-name
         interface InternalAppSharingArtifact {
             /** The sha256 fingerprint of the certificate used to sign the generated artifact. */
             certificateFingerprint?: string;
@@ -263,7 +255,6 @@ declare namespace gapi.client {
             /** The sha256 hash of the artifact represented as a lowercase hexadecimal number, matching the output of the sha256sum command. */
             sha256?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IntroductoryPriceInfo {
             /**
              * Introductory price of the subscription, not including tax. The currency is the same as price_currency_code. Price is expressed in micro-units, where 1,000,000 micro-units represents
@@ -1216,7 +1207,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ExpansionFilesUploadResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface ImagesResource {
             /** Deletes the image (specified by id) from the edit. */
             delete(request?: {
@@ -2137,7 +2127,6 @@ declare namespace gapi.client {
             testers: TestersResource;
             tracks: TracksResource;
         }
-        // tslint:disable-next-line:interface-name
         interface InappproductsResource {
             /** Deletes an in-app product (i.e. a managed product or a subscriptions). */
             delete(request?: {
@@ -2437,7 +2426,6 @@ declare namespace gapi.client {
             },
             body: InAppProduct): Request<InAppProduct>;
         }
-        // tslint:disable-next-line:interface-name
         interface InternalappsharingartifactsResource {
             /**
              * Uploads an APK to internal app sharing. If you are using the Google API client libraries, please increase the timeout of the http request before calling this endpoint (a timeout of

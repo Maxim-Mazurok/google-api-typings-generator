@@ -359,12 +359,10 @@ declare namespace gapi.client {
             /** The maximum allowable length for html values is 2048 characters. */
             values?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface IndexItemOptions {
             /** Specifies if the index request should allow gsuite principals that do not exist or are deleted in the index request. */
             allowUnknownGsuitePrincipals?: boolean;
         }
-        // tslint:disable-next-line:interface-name
         interface IndexItemRequest {
             /** Name of connector making this call. Format: datasources/{source_id}/connectors/{ID} */
             connectorName?: string;
@@ -376,7 +374,6 @@ declare namespace gapi.client {
             /** Required. The RequestMode for this request. */
             mode?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IntegerOperatorOptions {
             /**
              * Indicates the operator name required in the query in order to isolate the integer property using the greater-than operator. For example, if greaterThanOperatorName is
@@ -398,7 +395,6 @@ declare namespace gapi.client {
              */
             operatorName?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IntegerPropertyOptions {
             /**
              * The maximum value of the property. The minimum and maximum values for the property are used to rank results according to the ordered ranking. Indexing requests with values greater
@@ -415,11 +411,9 @@ declare namespace gapi.client {
             /** Used to specify the ordered ranking for the integer. Can only be used if isRepeatable is false. */
             orderedRanking?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IntegerValues {
             values?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface Interaction {
             /** The time when the user acted on the item. If multiple actions of the same type exist for a single user, only the most recent action is recorded. */
             interactionTime?: string;
@@ -427,7 +421,6 @@ declare namespace gapi.client {
             principal?: Principal;
             type?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Item {
             /** Access control list for this item. */
             acl?: ItemAcl;
@@ -454,7 +447,6 @@ declare namespace gapi.client {
              */
             version?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface ItemAcl {
             /**
              * Sets the type of access rules to apply when an item inherits its ACL from a parent. This should always be set in tandem with the inheritAclFrom field. Also, when the inheritAclFrom
@@ -484,7 +476,6 @@ declare namespace gapi.client {
              */
             readers?: Principal[];
         }
-        // tslint:disable-next-line:interface-name
         interface ItemContent {
             /** Upload reference ID of a previously uploaded content via write method. */
             contentDataRef?: UploadItemRef;
@@ -494,14 +485,12 @@ declare namespace gapi.client {
             /** Content that is supplied inlined within the update method. The maximum length is 102400 bytes (100 KiB). */
             inlineContent?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface ItemCountByStatus {
             /** Number of items matching the status code. */
             count?: string;
             /** Status of the items. */
             statusCode?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface ItemMetadata {
             /**
              * The name of the container for this item. Deletion of the container item leads to automatic deletion of this item. Note: ACLs are not inherited from a container item. To provide ACL
@@ -540,7 +529,6 @@ declare namespace gapi.client {
             /** The time when the item was last modified in the source repository. */
             updateTime?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface ItemStatus {
             /** Status code. */
             code?: string;
@@ -549,7 +537,6 @@ declare namespace gapi.client {
             /** Repository error reported by connector. */
             repositoryErrors?: RepositoryError[];
         }
-        // tslint:disable-next-line:interface-name
         interface ItemStructuredData {
             /** Hashing value provided by the API caller. This can be used with the items.push method to calculate modified state. The maximum length is 2048 characters. */
             hash?: string;
@@ -1367,7 +1354,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListUnmappedIdentitiesResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface ItemsResource {
             /** Checks whether an item is accessible by specified principal. **Note:** This API requires an admin account to execute. */
             checkAccess(request: {
@@ -1490,7 +1476,6 @@ declare namespace gapi.client {
         interface DatasourcesResource {
             items: ItemsResource;
         }
-        // tslint:disable-next-line:interface-name
         interface ItemsResource {
             /** Lists names of items associated with an unmapped identity. **Note:** This API requires an admin account to execute. */
             listForunmappedidentity(request?: {
@@ -1565,7 +1550,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListUnmappedIdentitiesResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitysourcesResource {
             items: ItemsResource;
             unmappedids: UnmappedidsResource;
@@ -1574,7 +1558,6 @@ declare namespace gapi.client {
             datasources: DatasourcesResource;
             identitysources: IdentitysourcesResource;
         }
-        // tslint:disable-next-line:interface-name
         interface ItemsResource {
             /**
              * Deletes Item resource for the specified resource name. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding
@@ -2168,7 +2151,6 @@ declare namespace gapi.client {
             body: UpdateSchemaRequest): Request<Operation>;
             items: ItemsResource;
         }
-        // tslint:disable-next-line:interface-name
         interface IndexingResource {
             datasources: DatasourcesResource;
         }
@@ -2971,7 +2953,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GetDataSourceIndexStatsResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface IndexResource {
             datasources: DatasourcesResource;
         }

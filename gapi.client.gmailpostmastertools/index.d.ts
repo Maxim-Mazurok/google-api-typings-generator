@@ -43,7 +43,6 @@ declare namespace gapi.client {
             /** The ratio of user marked spam messages with the identifier vs the total number of inboxed messages with that identifier. */
             spamRatio?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface IpReputation {
             /** Total number of unique IPs in this reputation category. This metric only pertains to traffic that passed [SPF](http://www.openspf.org/) or [DKIM](http://www.dkim.org/). */
             numIps?: string;

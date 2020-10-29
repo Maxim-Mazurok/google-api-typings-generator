@@ -114,12 +114,10 @@ declare namespace gapi.client {
             /** Header value. */
             value?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IapCredential {
             /** Authentication configuration when Web-Security-Scanner service account is added in Identity-Aware-Proxy (IAP) access policies. */
             iapTestServiceAccountInfo?: IapTestServiceAccountInfo;
         }
-        // tslint:disable-next-line:interface-name
         interface IapTestServiceAccountInfo {
             /** Required. Describes OAuth2 client id of resources protected by Identity-Aware-Proxy (IAP). */
             targetAudienceClientId?: string;

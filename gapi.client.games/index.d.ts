@@ -289,7 +289,6 @@ declare namespace gapi.client {
             /** The minimum number of steps for the achievement to be set to. */
             steps?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface ImageAsset {
             /** The height of the asset. */
             height?: number;
@@ -302,7 +301,6 @@ declare namespace gapi.client {
             /** The width of the asset. */
             width?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface Instance {
             /** URI which shows where a user can acquire this instance. */
             acquisitionUri?: string;
@@ -323,7 +321,6 @@ declare namespace gapi.client {
             /** Platform dependent details for Web. */
             webInstance?: InstanceWebDetails;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceAndroidDetails {
             /** Flag indicating whether the anti-piracy check is enabled. */
             enablePiracyCheck?: boolean;
@@ -334,7 +331,6 @@ declare namespace gapi.client {
             /** Indicates that this instance is the default for new installations. */
             preferred?: boolean;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceIosDetails {
             /** Bundle identifier. */
             bundleIdentifier?: string;
@@ -351,7 +347,6 @@ declare namespace gapi.client {
             /** Flag to indicate if this instance supports iPhone. */
             supportIphone?: boolean;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceWebDetails {
             /** Uniquely identifies the type of this resource. Value is always the fixed string `games#instanceWebDetails`. */
             kind?: string;

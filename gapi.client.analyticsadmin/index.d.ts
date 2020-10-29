@@ -1699,7 +1699,6 @@ declare namespace gapi.client {
             },
             body: GoogleAnalyticsAdminV1alphaGoogleAdsLink): Request<GoogleAnalyticsAdminV1alphaGoogleAdsLink>;
         }
-        // tslint:disable-next-line:interface-name
         interface IosAppDataStreamsResource {
             /** Creates an iOS app data stream with the specified location and attributes. */
             create(request: {

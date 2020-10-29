@@ -354,7 +354,6 @@ declare namespace gapi.client {
             /** The object ID of the created group. */
             objectId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Image {
             /**
              * An URL to an image with a default lifetime of 30 minutes. This URL is tagged with the account of the requester. Anyone with the URL effectively accesses the image as the original
@@ -366,7 +365,6 @@ declare namespace gapi.client {
             /** The source URL is the URL used to insert the image. The source URL can be empty. */
             sourceUrl?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface ImageProperties {
             /** The brightness effect of the image. The value should be in the interval [-1.0, 1.0], where 0 means no effect. This property is read-only. */
             brightness?: number;
@@ -385,7 +383,6 @@ declare namespace gapi.client {
             /** The transparency effect of the image. The value should be in the interval [0.0, 1.0], where 0 means no effect and 1 means completely transparent. This property is read-only. */
             transparency?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertTableColumnsRequest {
             /**
              * The reference table cell location from which columns will be inserted. A new column will be inserted to the left (or right) of the column where the reference cell is. If the
@@ -399,7 +396,6 @@ declare namespace gapi.client {
             /** The table to insert columns into. */
             tableObjectId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertTableRowsRequest {
             /**
              * The reference table cell location from which rows will be inserted. A new row will be inserted above (or below) the row where the reference cell is. If the reference cell is a
@@ -413,7 +409,6 @@ declare namespace gapi.client {
             /** The table to insert rows into. */
             tableObjectId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertTextRequest {
             /** The optional table cell location if the text is to be inserted into a table cell. If present, the object_id must refer to a table. */
             cellLocation?: TableCellLocation;

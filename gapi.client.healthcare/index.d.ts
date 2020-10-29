@@ -412,12 +412,10 @@ declare namespace gapi.client {
             /** Application specific response metadata. Must be set in the first response for streaming APIs. */
             extensions?: Array<{ [P in string]: any }>;
         }
-        // tslint:disable-next-line:interface-name
         interface ImageConfig {
             /** Determines how to redact text from image. */
             textRedactionMode?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface ImportDicomDataRequest {
             /**
              * Cloud Storage source data location and import configuration. The Cloud Healthcare Service Agent requires the `roles/storage.objectViewer` Cloud IAM roles on the Cloud Storage
@@ -425,10 +423,9 @@ declare namespace gapi.client {
              */
             gcsSource?: GoogleCloudHealthcareV1DicomGcsSource;
         }
-        // tslint:disable-next-line:interface-name no-empty-interface
+        // tslint:disable-next-line:no-empty-interface
         interface ImportDicomDataResponse {
         }
-        // tslint:disable-next-line:interface-name
         interface ImportResourcesRequest {
             /** The content structure in the source location. If not specified, the server treats the input source files as BUNDLE. */
             contentStructure?: string;
@@ -438,10 +435,9 @@ declare namespace gapi.client {
              */
             gcsSource?: GoogleCloudHealthcareV1FhirGcsSource;
         }
-        // tslint:disable-next-line:interface-name no-empty-interface
+        // tslint:disable-next-line:no-empty-interface
         interface ImportResourcesResponse {
         }
-        // tslint:disable-next-line:interface-name
         interface InfoTypeTransformation {
             /** Config for character mask. */
             characterMaskConfig?: CharacterMaskConfig;
@@ -456,12 +452,10 @@ declare namespace gapi.client {
             /** Config for replace with InfoType. */
             replaceWithInfoTypeConfig?: any;
         }
-        // tslint:disable-next-line:interface-name
         interface IngestMessageRequest {
             /** HL7v2 message to ingest. */
             message?: Message;
         }
-        // tslint:disable-next-line:interface-name
         interface IngestMessageResponse {
             /** HL7v2 ACK message. */
             hl7Ack?: string;
@@ -819,7 +813,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<HttpBody>;
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /**
              * DeleteInstance deletes an instance associated with the given study, series, and SOP Instance UID. Delete requests are equivalent to the GET requests specified in the Retrieve

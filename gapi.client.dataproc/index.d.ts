@@ -397,7 +397,6 @@ declare namespace gapi.client {
             /** Optional. Mapping of query variable names to values (equivalent to the Hive command: SET name="value";). */
             scriptVariables?: { [P in string]: string };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupAutoscalingPolicyConfig {
             /**
              * Required. Maximum number of instances for this group. Required for primary workers. Note that by default, clusters will not use secondary workers. Required for secondary workers if
@@ -416,7 +415,6 @@ declare namespace gapi.client {
              */
             weight?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupConfig {
             /** Optional. The Compute Engine accelerator configuration for these instances. */
             accelerators?: AcceleratorConfig[];
@@ -455,14 +453,12 @@ declare namespace gapi.client {
              */
             preemptibility?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceReference {
             /** The unique identifier of the Compute Engine instance. */
             instanceId?: string;
             /** The user-friendly name of the Compute Engine instance. */
             instanceName?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstantiateWorkflowTemplateRequest {
             /** Optional. Map from parameter names to values that should be used for those parameters. Values may not exceed 1000 characters. */
             parameters?: { [P in string]: string };

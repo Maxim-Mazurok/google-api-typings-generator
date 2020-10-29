@@ -504,7 +504,6 @@ declare namespace gapi.client {
             /** Whether the HTTP Load Balancing controller is enabled in the cluster. When enabled, it runs a small pod in the cluster that manages the load balancers. */
             disabled?: boolean;
         }
-        // tslint:disable-next-line:interface-name
         interface IntraNodeVisibilityConfig {
             /** Enables intra node visibility for this cluster. */
             enabled?: boolean;

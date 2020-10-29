@@ -124,7 +124,6 @@ declare namespace gapi.client {
             /** A detailed description of the feature. */
             text?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Image {
             /** The URL of the image. For crawled images, this is the provided URL. For uploaded images, this is a serving URL from Google if the image has been processed successfully. */
             imageUrl?: string;
@@ -133,7 +132,6 @@ declare namespace gapi.client {
             /** The type of the image, i.e., crawled or uploaded. @OutputOnly */
             type?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Issue {
             /** If present, the attribute that triggered the issue. For more information about attributes, see https://support.google.com/manufacturers/answer/6124116. */
             attribute?: string;

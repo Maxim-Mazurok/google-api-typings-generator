@@ -147,7 +147,6 @@ declare namespace gapi.client {
             /** List of action parameters. */
             parameters?: ActionParameter[];
         }
-        // tslint:disable-next-line:interface-name
         interface Image {
             /**
              * The aspect ratio of this image (width/height). This field allows clients to reserve the right height for the image while waiting for it to load. It's not meant to override the
@@ -159,7 +158,6 @@ declare namespace gapi.client {
             /** The onclick action. */
             onClick?: OnClick;
         }
-        // tslint:disable-next-line:interface-name
         interface ImageButton {
             /** The icon specified by an enum that indices to an icon provided by Chat API. */
             icon?: string;

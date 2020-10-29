@@ -496,7 +496,6 @@ declare namespace gapi.client {
              */
             textStyle?: TextStyle;
         }
-        // tslint:disable-next-line:interface-name
         interface ImageProperties {
             /** The clockwise rotation angle of the image, in radians. */
             angle?: number;
@@ -516,7 +515,6 @@ declare namespace gapi.client {
             /** The transparency effect of the image. The value should be in the interval [0.0, 1.0], where 0 means no effect and 1 means completely transparent. */
             transparency?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface ImagePropertiesSuggestionState {
             /** Indicates if there was a suggested change to angle. */
             angleSuggested?: boolean;
@@ -533,7 +531,6 @@ declare namespace gapi.client {
             /** Indicates if there was a suggested change to transparency. */
             transparencySuggested?: boolean;
         }
-        // tslint:disable-next-line:interface-name
         interface InlineObject {
             /** The properties of this inline object. */
             inlineObjectProperties?: InlineObjectProperties;
@@ -546,7 +543,6 @@ declare namespace gapi.client {
             /** The suggested insertion ID. If empty, then this is not a suggested insertion. */
             suggestedInsertionId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InlineObjectElement {
             /** The ID of the InlineObject this element contains. */
             inlineObjectId?: string;
@@ -562,17 +558,14 @@ declare namespace gapi.client {
              */
             textStyle?: TextStyle;
         }
-        // tslint:disable-next-line:interface-name
         interface InlineObjectProperties {
             /** The embedded object of this inline object. */
             embeddedObject?: EmbeddedObject;
         }
-        // tslint:disable-next-line:interface-name
         interface InlineObjectPropertiesSuggestionState {
             /** A mask that indicates which of the fields in embedded_object have been changed in this suggestion. */
             embeddedObjectSuggestionState?: EmbeddedObjectSuggestionState;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertInlineImageRequest {
             /** Inserts the text at the end of a header, footer or the document body. Inline images cannot be inserted inside a footnote. */
             endOfSegmentLocation?: EndOfSegmentLocation;
@@ -594,17 +587,14 @@ declare namespace gapi.client {
              */
             uri?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertInlineImageResponse {
             /** The ID of the created InlineObject. */
             objectId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertInlineSheetsChartResponse {
             /** The object ID of the inserted chart. */
             objectId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertPageBreakRequest {
             /**
              * Inserts the page break at the end of the document body. Page breaks cannot be inserted inside a footnote, header or footer. Since page breaks can only be inserted inside the body,
@@ -618,7 +608,6 @@ declare namespace gapi.client {
              */
             location?: Location;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertSectionBreakRequest {
             /**
              * Inserts a newline and a section break at the end of the document body. Section breaks cannot be inserted inside a footnote, header or footer. Because section breaks can only be
@@ -634,7 +623,6 @@ declare namespace gapi.client {
             /** The type of section to insert. */
             sectionType?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertTableColumnRequest {
             /** Whether to insert new column to the right of the reference cell location. - `True`: insert to the right. - `False`: insert to the left. */
             insertRight?: boolean;
@@ -644,7 +632,6 @@ declare namespace gapi.client {
              */
             tableCellLocation?: TableCellLocation;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertTableRequest {
             /** The number of columns in the table. */
             columns?: number;
@@ -662,7 +649,6 @@ declare namespace gapi.client {
             /** The number of rows in the table. */
             rows?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertTableRowRequest {
             /** Whether to insert new row below the reference cell location. - `True`: insert below the cell. - `False`: insert above the cell. */
             insertBelow?: boolean;
@@ -672,7 +658,6 @@ declare namespace gapi.client {
              */
             tableCellLocation?: TableCellLocation;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertTextRequest {
             /** Inserts the text at the end of a header, footer, footnote or the document body. */
             endOfSegmentLocation?: EndOfSegmentLocation;

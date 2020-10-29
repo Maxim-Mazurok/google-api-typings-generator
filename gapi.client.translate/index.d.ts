@@ -116,7 +116,6 @@ declare namespace gapi.client {
              */
             gcsSource?: GcsSource;
         }
-        // tslint:disable-next-line:interface-name
         interface InputConfig {
             /**
              * Required. Google Cloud Storage location for the source input. This can be a single file (for example, `gs://translation-test/input.tsv`) or a wildcard (for example,

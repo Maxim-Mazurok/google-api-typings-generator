@@ -24,7 +24,6 @@ declare namespace gapi.client {
         // tslint:disable-next-line:no-empty-interface
         interface Empty {
         }
-        // tslint:disable-next-line:interface-name
         interface ImportSshPublicKeyResponse {
             /** Detailed information about import results. */
             details?: string;

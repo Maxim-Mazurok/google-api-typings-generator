@@ -239,7 +239,6 @@ declare namespace gapi.client {
              */
             maxCookieCount?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface Image {
             /** Image height in pixels. */
             height?: number;

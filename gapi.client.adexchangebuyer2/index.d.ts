@@ -556,7 +556,6 @@ declare namespace gapi.client {
             /** The width of the HTML snippet in pixels. */
             width?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface Image {
             /** Image height in pixels. */
             height?: number;
@@ -565,7 +564,6 @@ declare namespace gapi.client {
             /** Image width in pixels. */
             width?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface ImpressionMetricsRow {
             /** The number of impressions available to the buyer on Ad Exchange. In some cases this value may be unavailable. */
             availableImpressions?: MetricValue;
@@ -580,7 +578,6 @@ declare namespace gapi.client {
             /** The number of impressions for which the buyer successfully sent a response to Ad Exchange. */
             successfulResponses?: MetricValue;
         }
-        // tslint:disable-next-line:interface-name
         interface InventorySizeTargeting {
             /** A list of inventory sizes to be excluded. */
             excludedInventorySizes?: AdSize[];
@@ -1159,7 +1156,6 @@ declare namespace gapi.client {
              */
             topic?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InvitationsResource {
             /** Creates and sends out an email invitation to access an Ad Exchange client buyer account. */
             create(request: {
@@ -3134,7 +3130,6 @@ declare namespace gapi.client {
             creatives: CreativesResource;
             details: DetailsResource;
         }
-        // tslint:disable-next-line:interface-name
         interface ImpressionMetricsResource {
             /** Lists all metrics that are measured in terms of number of impressions. */
             list(request?: {
@@ -3735,7 +3730,6 @@ declare namespace gapi.client {
             creatives: CreativesResource;
             details: DetailsResource;
         }
-        // tslint:disable-next-line:interface-name
         interface ImpressionMetricsResource {
             /** Lists all metrics that are measured in terms of number of impressions. */
             list(request?: {

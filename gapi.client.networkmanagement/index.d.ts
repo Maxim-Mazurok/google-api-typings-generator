@@ -211,7 +211,6 @@ declare namespace gapi.client {
             /** VIP of the forwarding rule. */
             vip?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceInfo {
             /** Name of a Compute Engine instance. */
             displayName?: string;

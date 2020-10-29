@@ -295,7 +295,6 @@ declare namespace gapi.client {
             /** The platform of the test history. - In response: always set. Returns the platform of the last execution if unknown. */
             testPlatform?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Image {
             /** An error explaining why the thumbnail could not be rendered. */
             error?: Status;
@@ -306,14 +305,12 @@ declare namespace gapi.client {
             /** The thumbnail. */
             thumbnail?: Thumbnail;
         }
-        // tslint:disable-next-line:interface-name
         interface InAppPurchasesFound {
             /** The total number of in-app purchases flows explored: how many times the robo tries to buy a SKU. */
             inAppPurchasesFlowsExplored?: number;
             /** The total number of in-app purchases flows started. */
             inAppPurchasesFlowsStarted?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface InconclusiveDetail {
             /**
              * If the end user aborted the test execution before a pass or fail could be determined. For example, the user pressed ctrl-c which sent a kill signal to the test runner while the test
@@ -328,7 +325,6 @@ declare namespace gapi.client {
              */
             infrastructureFailure?: boolean;
         }
-        // tslint:disable-next-line:interface-name
         interface IndividualOutcome {
             /** Unique int given to each step. Ranges from 0(inclusive) to total number of steps(exclusive). The primary step is 0. */
             multistepNumber?: number;
@@ -337,23 +333,20 @@ declare namespace gapi.client {
             runDuration?: Duration;
             stepId?: string;
         }
-        // tslint:disable-next-line:interface-name no-empty-interface
+        // tslint:disable-next-line:no-empty-interface
         interface InsufficientCoverage {
         }
-        // tslint:disable-next-line:interface-name
         interface IosAppCrashed {
             /** The stack trace, if one is available. Optional. */
             stackTrace?: StackTrace;
         }
-        // tslint:disable-next-line:interface-name
         interface IosAppInfo {
             /** The name of the app. Required */
             name?: string;
         }
-        // tslint:disable-next-line:interface-name no-empty-interface
+        // tslint:disable-next-line:no-empty-interface
         interface IosRoboTest {
         }
-        // tslint:disable-next-line:interface-name
         interface IosTest {
             /** Information about the application under test. */
             iosAppInfo?: IosAppInfo;
@@ -366,12 +359,10 @@ declare namespace gapi.client {
             /** Max time a test is allowed to run before it is automatically cancelled. */
             testTimeout?: Duration;
         }
-        // tslint:disable-next-line:interface-name
         interface IosTestLoop {
             /** Bundle ID of the app. */
             bundleId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IosXcTest {
             /** Bundle ID of the app. */
             bundleId?: string;

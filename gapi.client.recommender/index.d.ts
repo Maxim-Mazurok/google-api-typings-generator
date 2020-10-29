@@ -211,7 +211,6 @@ declare namespace gapi.client {
             /** The whole units of the amount. For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar. */
             units?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InsightsResource {
             /** Gets the requested insight. Requires the recommender.*.get IAM permission for the specified insight type. */
             get(request?: {
@@ -343,7 +342,6 @@ declare namespace gapi.client {
             },
             body: GoogleCloudRecommenderV1MarkInsightAcceptedRequest): Request<GoogleCloudRecommenderV1Insight>;
         }
-        // tslint:disable-next-line:interface-name
         interface InsightTypesResource {
             insights: InsightsResource;
         }

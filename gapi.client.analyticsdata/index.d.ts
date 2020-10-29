@@ -191,7 +191,6 @@ declare namespace gapi.client {
             /** A list of filter expressions. */
             expressions?: FilterExpression[];
         }
-        // tslint:disable-next-line:interface-name
         interface InListFilter {
             /** If true, the string value is case sensitive. */
             caseSensitive?: boolean;

@@ -41,7 +41,6 @@ declare namespace gapi.client {
             /** URL of the blocked resource. */
             url?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Image {
             /** Image data in format determined by the mime type. Currently, the format will always be "image/png", but this might change in the future. */
             data?: string;

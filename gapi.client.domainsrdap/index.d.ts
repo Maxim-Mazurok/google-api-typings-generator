@@ -159,7 +159,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<RdapResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface IpResource {
             /** The RDAP API recognizes this command from the RDAP specification but does not support it. The response is a formatted 501 error. */
             get(request?: {

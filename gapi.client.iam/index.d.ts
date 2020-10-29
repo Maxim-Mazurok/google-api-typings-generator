@@ -421,7 +421,6 @@ declare namespace gapi.client {
              */
             publicKeyData?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IamPoliciesResource {
             /**
              * Lints, or validates, an IAM policy. Currently checks the google.iam.v1.Binding.condition field, which contains a condition expression for a role binding. Successful calls to this

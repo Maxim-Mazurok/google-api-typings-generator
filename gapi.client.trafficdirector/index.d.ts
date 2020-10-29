@@ -153,7 +153,6 @@ declare namespace gapi.client {
              */
             maxProgramSize?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface InlineScopedRouteConfigs {
             /** The timestamp when the scoped route config set was last updated. */
             lastUpdated?: string;

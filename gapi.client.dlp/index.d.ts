@@ -1798,7 +1798,6 @@ declare namespace gapi.client {
             /** Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds. */
             seconds?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface InfoTypesResource {
             /** Returns a list of the sensitive information types that the DLP API supports. See https://cloud.google.com/dlp/docs/infotypes-reference to learn more. */
             list(request?: {
@@ -1834,7 +1833,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GooglePrivacyDlpV2ListInfoTypesResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface InfoTypesResource {
             /** Returns a list of the sensitive information types that the DLP API supports. See https://cloud.google.com/dlp/docs/infotypes-reference to learn more. */
             list(request?: {
@@ -2113,7 +2111,6 @@ declare namespace gapi.client {
             },
             body: GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest): Request<GooglePrivacyDlpV2DeidentifyTemplate>;
         }
-        // tslint:disable-next-line:interface-name
         interface InspectTemplatesResource {
             /**
              * Creates an InspectTemplate for re-using frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates to learn
@@ -2594,7 +2591,6 @@ declare namespace gapi.client {
             },
             body: GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest): Request<GooglePrivacyDlpV2DeidentifyTemplate>;
         }
-        // tslint:disable-next-line:interface-name
         interface InspectTemplatesResource {
             /**
              * Creates an InspectTemplate for re-using frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates to learn
@@ -4021,7 +4017,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GooglePrivacyDlpV2ListDlpJobsResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface ImageResource {
             /**
              * Redacts potentially sensitive info from an image. This method has limits on input size, processing time, and output size. See
@@ -4094,7 +4089,6 @@ declare namespace gapi.client {
             },
             body: GooglePrivacyDlpV2RedactImageRequest): Request<GooglePrivacyDlpV2RedactImageResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface InspectTemplatesResource {
             /**
              * Creates an InspectTemplate for re-using frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates to learn
@@ -5439,7 +5433,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GooglePrivacyDlpV2ListDlpJobsResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface ImageResource {
             /**
              * Redacts potentially sensitive info from an image. This method has limits on input size, processing time, and output size. See
@@ -5512,7 +5505,6 @@ declare namespace gapi.client {
             },
             body: GooglePrivacyDlpV2RedactImageRequest): Request<GooglePrivacyDlpV2RedactImageResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface InspectTemplatesResource {
             /**
              * Creates an InspectTemplate for re-using frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/dlp/docs/creating-templates to learn

@@ -188,7 +188,6 @@ declare namespace gapi.client {
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
             title?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IamResource {
             /** Checks whether a member has a specific permission for a specific resource, and explains why the member does or does not have that permission. */
             troubleshoot(request: {

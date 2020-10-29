@@ -330,7 +330,6 @@ declare namespace gapi.client {
             /** Number of consecutive failed health checks required before removing traffic. */
             unhealthyThreshold?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentityAwareProxy {
             /** Whether the serving infrastructure will authenticate and authorize all incoming requests.If true, the oauth2_client_id and oauth2_client_secret fields must be non-empty. */
             enabled?: boolean;
@@ -344,7 +343,6 @@ declare namespace gapi.client {
             /** Hex-encoded SHA-256 hash of the client secret.@OutputOnly */
             oauth2ClientSecretSha256?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Instance {
             /** Output only. App Engine release this instance is running on. */
             appEngineRelease?: string;
@@ -1351,7 +1349,6 @@ declare namespace gapi.client {
             },
             body: DomainMapping): Request<Operation>;
         }
-        // tslint:disable-next-line:interface-name
         interface IngressRulesResource {
             /**
              * Replaces the entire firewall ruleset in one bulk operation. This overrides and replaces the rules of an existing firewall with the new rules.If the final rule does not match traffic
@@ -1760,7 +1757,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListOperationsResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /**
              * Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in "debug mode", the instance continues

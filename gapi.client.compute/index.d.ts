@@ -3626,7 +3626,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface Image {
             /** Size of the image tar.gz archive stored in Google Cloud Storage (in bytes). */
             archiveSizeBytes?: string;
@@ -3756,7 +3755,6 @@ declare namespace gapi.client {
             /** Cloud Storage bucket storage location of the image (regional or multi-regional). */
             storageLocations?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface ImageList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -3793,7 +3791,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InitialStateConfig {
             /** The Key Database (db). */
             dbs?: FileContentBuffer[];
@@ -3804,7 +3801,6 @@ declare namespace gapi.client {
             /** The Platform Key (PK). */
             pk?: FileContentBuffer;
         }
-        // tslint:disable-next-line:interface-name
         interface Instance {
             /**
              * Allows this instance to send and receive packets with non-matching destination or source IPs. This is required if you plan to use this instance to forward routes. For more
@@ -3927,7 +3923,6 @@ declare namespace gapi.client {
             /** [Output Only] URL of the zone where the instance resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body. */
             zone?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceAggregatedList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -3966,7 +3961,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroup {
             /** [Output Only] The creation timestamp for this instance group in RFC3339 text format. */
             creationTimestamp?: string;
@@ -4008,7 +4002,6 @@ declare namespace gapi.client {
             /** [Output Only] The URL of the zone where the instance group is located (for zonal resources). */
             zone?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupAggregatedList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -4047,7 +4040,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -4084,7 +4076,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManager {
             /** The autohealing policy for this managed instance group. You can specify only one value. */
             autoHealingPolicies?: InstanceGroupManagerAutoHealingPolicy[];
@@ -4151,7 +4142,6 @@ declare namespace gapi.client {
             /** [Output Only] The URL of the zone where the managed instance group is located (for zonal resources). */
             zone?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagerActionsSummary {
             /**
              * [Output Only] The total number of instances in the managed instance group that are scheduled to be abandoned. Abandoning an instance removes it from the managed instance group
@@ -4192,7 +4182,6 @@ declare namespace gapi.client {
              */
             verifying?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagerAggregatedList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -4231,7 +4220,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagerAutoHealingPolicy {
             /** The URL for the health check that signals autohealing. */
             healthCheck?: string;
@@ -4242,7 +4230,6 @@ declare namespace gapi.client {
              */
             initialDelaySec?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagerList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -4279,12 +4266,10 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersAbandonInstancesRequest {
             /** The URLs of one or more instances to abandon. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]. */
             instances?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersApplyUpdatesRequest {
             /** Flag to update all instances instead of specified list of ?instances?. If the flag is set to true then the instances may not be specified in the request. */
             allInstances?: boolean;
@@ -4309,22 +4294,18 @@ declare namespace gapi.client {
              */
             mostDisruptiveAllowedAction?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersCreateInstancesRequest {
             /** [Required] List of specifications of per-instance configs. */
             instances?: PerInstanceConfig[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersDeleteInstancesRequest {
             /** The URLs of one or more instances to delete. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]. */
             instances?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersDeletePerInstanceConfigsReq {
             /** The list of instance names for which we want to delete per-instance configs on this managed instance group. */
             names?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersListErrorsResponse {
             /** [Output Only] The list of errors of the managed instance group. */
             items?: InstanceManagedByIgmError[];
@@ -4334,7 +4315,6 @@ declare namespace gapi.client {
              */
             nextPageToken?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersListManagedInstancesResponse {
             /** [Output Only] The list of instances in the managed instance group. */
             managedInstances?: ManagedInstance[];
@@ -4344,7 +4324,6 @@ declare namespace gapi.client {
              */
             nextPageToken?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersListPerInstanceConfigsResp {
             /** [Output Only] The list of PerInstanceConfig. */
             items?: PerInstanceConfig[];
@@ -4375,17 +4354,14 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersPatchPerInstanceConfigsReq {
             /** The list of per-instance configs to insert or patch on this managed instance group. */
             perInstanceConfigs?: PerInstanceConfig[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersRecreateInstancesRequest {
             /** The URLs of one or more instances to recreate. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME]. */
             instances?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersScopedList {
             /** [Output Only] The list of managed instance groups that are contained in the specified project and zone. */
             instanceGroupManagers?: InstanceGroupManager[];
@@ -4411,12 +4387,10 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersSetInstanceTemplateRequest {
             /** The URL of the instance template that is specified for this managed instance group. The group uses this template to create all new instances in the managed instance group. */
             instanceTemplate?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersSetTargetPoolsRequest {
             /**
              * The fingerprint of the target pools information. Use this optional property to prevent conflicts when multiple users change the target pools settings concurrently. Obtain the
@@ -4430,7 +4404,6 @@ declare namespace gapi.client {
              */
             targetPools?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagerStatus {
             /** [Output Only] The URL of the Autoscaler that targets this instance group manager. */
             autoscaler?: string;
@@ -4445,7 +4418,6 @@ declare namespace gapi.client {
             /** [Output Only] A status of consistency of Instances' versions with their target version specified by version field on Instance Group Manager. */
             versionTarget?: InstanceGroupManagerStatusVersionTarget;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagerStatusStateful {
             /**
              * [Output Only] A bit indicating whether the managed instance group has stateful configuration, that is, if you have configured any items in a stateful policy or in per-instance
@@ -4456,12 +4428,10 @@ declare namespace gapi.client {
             /** [Output Only] Status of per-instance configs on the instance. */
             perInstanceConfigs?: InstanceGroupManagerStatusStatefulPerInstanceConfigs;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagerStatusStatefulPerInstanceConfigs {
             /** A bit indicating if all of the group's per-instance configs (listed in the output of a listPerInstanceConfigs API call) have status EFFECTIVE or there are no per-instance-configs. */
             allEffective?: boolean;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagerStatusVersionTarget {
             /**
              * [Output Only] A bit indicating whether version target has been reached in this managed instance group, i.e. all instances are in their target version. Instances' target version are
@@ -4469,12 +4439,10 @@ declare namespace gapi.client {
              */
             isReached?: boolean;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersUpdatePerInstanceConfigsReq {
             /** The list of per-instance configs to insert or patch on this managed instance group. */
             perInstanceConfigs?: PerInstanceConfig[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagerUpdatePolicy {
             /**
              * The  instance redistribution policy for regional managed instance groups. Valid values are:
@@ -4515,7 +4483,6 @@ declare namespace gapi.client {
              */
             type?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagerVersion {
             /**
              * The URL of the instance template that is specified for this managed instance group. The group uses this template to create new instances in the managed instance group until the
@@ -4532,12 +4499,10 @@ declare namespace gapi.client {
              */
             targetSize?: FixedOrPercent;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupsAddInstancesRequest {
             /** The list of instances to add to the instance group. */
             instances?: InstanceReference[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupsListInstances {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -4574,7 +4539,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupsListInstancesRequest {
             /**
              * A filter for the state of the instances in the instance group. Valid options are ALL or RUNNING. If you do not specify this parameter the list includes all instances regardless of
@@ -4582,12 +4546,10 @@ declare namespace gapi.client {
              */
             instanceState?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupsRemoveInstancesRequest {
             /** The list of instances to remove from the instance group. */
             instances?: InstanceReference[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupsScopedList {
             /** [Output Only] The list of instance groups that are contained in this scope. */
             instanceGroups?: InstanceGroup[];
@@ -4613,7 +4575,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupsSetNamedPortsRequest {
             /**
              * The fingerprint of the named ports information for this instance group. Use this optional property to prevent conflicts when multiple users change the named ports settings
@@ -4624,7 +4585,6 @@ declare namespace gapi.client {
             /** The list of named ports to set for this instance group. */
             namedPorts?: NamedPort[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -4661,7 +4621,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceListReferrers {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -4698,7 +4657,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceManagedByIgmError {
             /** [Output Only] Contents of the error. */
             error?: InstanceManagedByIgmErrorManagedInstanceError;
@@ -4707,7 +4665,6 @@ declare namespace gapi.client {
             /** [Output Only] The time that this error occurred. This value is in RFC3339 text format. */
             timestamp?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceManagedByIgmErrorInstanceActionDetails {
             /** [Output Only] Action that managed instance group was executing on the instance when the error occurred. Possible values: */
             action?: string;
@@ -4719,14 +4676,12 @@ declare namespace gapi.client {
              */
             version?: ManagedInstanceVersion;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceManagedByIgmErrorManagedInstanceError {
             /** [Output Only] Error code. */
             code?: string;
             /** [Output Only] Error message. */
             message?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceMoveRequest {
             /**
              * The URL of the destination zone to move the instance. This can be a full or partial URL. For example, the following are all valid URLs to a zone:
@@ -4743,7 +4698,6 @@ declare namespace gapi.client {
              */
             targetInstance?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceProperties {
             /**
              * Enables instances created based on these properties to send packets with source IP addresses other than their own and receive packets with destination IP addresses other than their
@@ -4795,22 +4749,18 @@ declare namespace gapi.client {
              */
             tags?: Tags;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceReference {
             /** The URL for a specific instance. */
             instance?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesAddResourcePoliciesRequest {
             /** Resource policies to be added to this instance. */
             resourcePolicies?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesRemoveResourcePoliciesRequest {
             /** Resource policies to be removed from this instance. */
             resourcePolicies?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesScopedList {
             /** [Output Only] A list of instances contained in this scope. */
             instances?: Instance[];
@@ -4836,35 +4786,29 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesSetLabelsRequest {
             /** Fingerprint of the previous set of labels for this resource, used to prevent conflicts. Provide the latest fingerprint value when making a request to add or change labels. */
             labelFingerprint?: string;
             labels?: { [P in string]: string };
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesSetMachineResourcesRequest {
             /** A list of the type and count of accelerator cards attached to the instance. */
             guestAccelerators?: AcceleratorConfig[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesSetMachineTypeRequest {
             /** Full or partial URL of the machine type resource. See Machine Types for a full list of machine types. For example: zones/us-central1-f/machineTypes/n1-standard-1 */
             machineType?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesSetMinCpuPlatformRequest {
             /** Minimum cpu/platform this instance should be started at. */
             minCpuPlatform?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesSetServiceAccountRequest {
             /** Email address of the service account. */
             email?: string;
             /** The list of scopes to be made available for this service account. */
             scopes?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesStartWithEncryptionKeyRequest {
             /**
              * Array of disks associated with this instance that are protected with a customer-supplied encryption key.
@@ -4875,7 +4819,6 @@ declare namespace gapi.client {
              */
             disks?: CustomerEncryptionKeyProtectedDisk[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceTemplate {
             /** [Output Only] The creation timestamp for this instance template in RFC3339 text format. */
             creationTimestamp?: string;
@@ -4904,7 +4847,6 @@ declare namespace gapi.client {
             /** The source instance params to use to create this instance template. */
             sourceInstanceParams?: SourceInstanceParams;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceTemplateList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -4941,7 +4883,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceWithNamedPorts {
             /** [Output Only] The URL of the instance. */
             instance?: string;
@@ -4950,14 +4891,12 @@ declare namespace gapi.client {
             /** [Output Only] The status of the instance. */
             status?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Int64RangeMatch {
             /** The end of the range (exclusive) in signed long integer format. */
             rangeEnd?: string;
             /** The start of the range (inclusive) in signed long integer format. */
             rangeStart?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Interconnect {
             /**
              * Administrative status of the interconnect. When this is set to true, the Interconnect is functional and can carry traffic. When set to false, no packets can be carried over the
@@ -5035,7 +4974,6 @@ declare namespace gapi.client {
              */
             state?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectAttachment {
             /** Determines whether this Attachment will carry packets. Not present for PARTNER_PROVIDER. */
             adminEnabled?: boolean;
@@ -5148,7 +5086,6 @@ declare namespace gapi.client {
             /** The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. Only specified at creation time. */
             vlanTag8021q?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectAttachmentAggregatedList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -5187,7 +5124,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectAttachmentList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -5224,7 +5160,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectAttachmentPartnerMetadata {
             /**
              * Plain text name of the Interconnect this attachment is connected to, as displayed in the Partner's portal. For instance "Chicago 1". This value may be validated to match approved
@@ -5239,12 +5174,10 @@ declare namespace gapi.client {
              */
             portalUrl?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectAttachmentPrivateInfo {
             /** [Output Only] 802.1q encapsulation tag to be used for traffic between Google and the customer, going to and from this network and region. */
             tag8021q?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectAttachmentsScopedList {
             /** A list of interconnect attachments contained in this scope. */
             interconnectAttachments?: InterconnectAttachment[];
@@ -5270,7 +5203,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectCircuitInfo {
             /** Customer-side demarc ID for this circuit. */
             customerDemarcId?: string;
@@ -5279,7 +5211,6 @@ declare namespace gapi.client {
             /** Google-side demarc ID for this circuit. Assigned at circuit turn-up and provided by Google to the customer in the LOA. */
             googleDemarcId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectDiagnostics {
             /**
              * A list of InterconnectDiagnostics.ARPEntry objects, describing individual neighbors currently seen by the Google router in the ARP cache for the Interconnect. This will be empty
@@ -5291,14 +5222,12 @@ declare namespace gapi.client {
             /** The MAC address of the Interconnect's bundle interface. */
             macAddress?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectDiagnosticsARPEntry {
             /** The IP address of this ARP neighbor. */
             ipAddress?: string;
             /** The MAC address of this ARP neighbor. */
             macAddress?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectDiagnosticsLinkLACPStatus {
             /** System ID of the port on Google's side of the LACP exchange. */
             googleSystemId?: string;
@@ -5311,7 +5240,6 @@ declare namespace gapi.client {
              */
             state?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectDiagnosticsLinkOpticalPower {
             /**
              * The status of the current value when compared to the warning and alarm levels for the receiving or transmitting transceiver. Possible states include:
@@ -5328,7 +5256,6 @@ declare namespace gapi.client {
              */
             value?: number;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectDiagnosticsLinkStatus {
             /** A list of InterconnectDiagnostics.ARPEntry objects, describing the ARP neighbor entries seen on this link. This will be empty if the link is bundled */
             arpCaches?: InterconnectDiagnosticsARPEntry[];
@@ -5342,7 +5269,6 @@ declare namespace gapi.client {
             /** An InterconnectDiagnostics.LinkOpticalPower object, describing the current value and status of the transmitted light level. */
             transmittingOpticalPower?: InterconnectDiagnosticsLinkOpticalPower;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -5379,7 +5305,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectLocation {
             /** [Output Only] The postal address of the Point of Presence, each line in the address is separated by a newline character. */
             address?: string;
@@ -5429,7 +5354,6 @@ declare namespace gapi.client {
              */
             status?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectLocationList {
             /** [Output Only] Unique identifier for the resource; defined by the server. */
             id?: string;
@@ -5466,7 +5390,6 @@ declare namespace gapi.client {
                 message?: string;
             };
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectLocationRegionInfo {
             /** Expected round-trip time in milliseconds, from this InterconnectLocation to a VM in this region. */
             expectedRttMs?: string;
@@ -5475,7 +5398,6 @@ declare namespace gapi.client {
             /** URL for the region of this location. */
             region?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectOutageNotification {
             /** If issue_type is IT_PARTIAL_OUTAGE, a list of the Google-side circuit IDs that will be affected. */
             affectedCircuits?: string[];
@@ -5507,7 +5429,6 @@ declare namespace gapi.client {
              */
             state?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectsGetDiagnosticsResponse {
             result?: InterconnectDiagnostics;
         }
@@ -16870,7 +16791,6 @@ declare namespace gapi.client {
             },
             body: HttpsHealthCheck): Request<Operation>;
         }
-        // tslint:disable-next-line:interface-name
         interface ImagesResource {
             /** Deletes the specified image. */
             delete(request?: {
@@ -17286,7 +17206,6 @@ declare namespace gapi.client {
             },
             body: TestPermissionsRequest): Request<TestPermissionsResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupManagersResource {
             /**
              * Flags the specified instances to be removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target
@@ -18500,7 +18419,6 @@ declare namespace gapi.client {
             },
             body: InstanceGroupManagersUpdatePerInstanceConfigsReq): Request<Operation>;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceGroupsResource {
             /**
              * Adds a list of instances to the specified instance group. All of the instances in the instance group must be in the same network/subnetwork. Read  Adding instances for more
@@ -19068,7 +18986,6 @@ declare namespace gapi.client {
             },
             body: InstanceGroupsSetNamedPortsRequest): Request<Operation>;
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /** Adds an access config to an instance's network interface. */
             addAccessConfig(request: {
@@ -21178,7 +21095,6 @@ declare namespace gapi.client {
             },
             body: ShieldedInstanceConfig): Request<Operation>;
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceTemplatesResource {
             /**
              * Deletes the specified instance template. Deleting an instance template is permanent and cannot be undone. It is not possible to delete templates that are already in use by a managed
@@ -21417,7 +21333,6 @@ declare namespace gapi.client {
             },
             body: TestPermissionsRequest): Request<TestPermissionsResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectAttachmentsResource {
             /** Retrieves an aggregated list of interconnect attachments. */
             aggregatedList(request?: {
@@ -21722,7 +21637,6 @@ declare namespace gapi.client {
             },
             body: InterconnectAttachment): Request<Operation>;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectLocationsResource {
             /** Returns the details for the specified interconnect location. Gets a list of available interconnect locations by making a list() request. */
             get(request?: {
@@ -21797,7 +21711,6 @@ declare namespace gapi.client {
                 userIp?: string;
             }): Request<InterconnectLocationList>;
         }
-        // tslint:disable-next-line:interface-name
         interface InterconnectsResource {
             /** Deletes the specified interconnect. */
             delete(request?: {

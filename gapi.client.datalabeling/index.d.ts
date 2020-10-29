@@ -2432,7 +2432,6 @@ declare namespace gapi.client {
             }): Request<GoogleCloudDatalabelingV1beta1Evaluation>;
             exampleComparisons: ExampleComparisonsResource;
         }
-        // tslint:disable-next-line:interface-name
         interface ImageResource {
             /** Starts a labeling task for image. The type of image labeling task is configured by feature in the request. */
             label(request: {
@@ -3255,7 +3254,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleCloudDatalabelingV1beta1SearchEvaluationsResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface InstructionsResource {
             /** Creates an instruction for how data should be labeled. */
             create(request: {

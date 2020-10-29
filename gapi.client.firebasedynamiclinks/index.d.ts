@@ -268,7 +268,6 @@ declare namespace gapi.client {
             /** Campaign term; used with paid search to supply the keywords for ads. */
             utmTerm?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IosInfo {
             /** iOS App Store ID. */
             iosAppStoreId?: string;

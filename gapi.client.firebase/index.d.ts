@@ -184,7 +184,6 @@ declare namespace gapi.client {
              */
             state?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IosApp {
             /** Immutable. The globally unique, Firebase-assigned identifier for the `IosApp`. This identifier should be treated as an opaque token, as the data format is not specified. */
             appId?: string;
@@ -204,7 +203,6 @@ declare namespace gapi.client {
             /** Immutable. A user-assigned unique identifier of the parent FirebaseProject for the `IosApp`. */
             projectId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IosAppConfig {
             /** The content of the XML configuration file. */
             configFileContents?: string;
@@ -1001,7 +999,6 @@ declare namespace gapi.client {
             },
             body: FinalizeDefaultLocationRequest): Request<Operation>;
         }
-        // tslint:disable-next-line:interface-name
         interface IosAppsResource {
             /**
              * Requests the creation of a new IosApp in the specified FirebaseProject. The result of this call is an `Operation` which can be used to track the provisioning process. The

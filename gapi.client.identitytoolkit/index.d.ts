@@ -105,7 +105,6 @@ declare namespace gapi.client {
             /** The stoken field for the recaptcha widget, used to request captcha challenge. */
             recaptchaStoken?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyCreateAuthUriRequest {
             /** The app ID of the mobile app, base64(CERT_SHA1):PACKAGE_NAME for Android, BUNDLE_ID for iOS. */
             appId?: string;
@@ -143,7 +142,6 @@ declare namespace gapi.client {
             /** Tenant project number to be used for idp discovery. */
             tenantProjectNumber?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyDeleteAccountRequest {
             /** GCP project number of the requesting delegated app. Currently only intended for Firebase V1 migration. */
             delegatedProjectNumber?: string;
@@ -152,7 +150,6 @@ declare namespace gapi.client {
             /** The local ID of the user. */
             localId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyDownloadAccountRequest {
             /** GCP project number of the requesting delegated app. Currently only intended for Firebase V1 migration. */
             delegatedProjectNumber?: string;
@@ -163,7 +160,6 @@ declare namespace gapi.client {
             /** Specify which project (field value is actually project id) to operate. Only used when provided credential. */
             targetProjectId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyEmailLinkSigninRequest {
             /** The email address of the user. */
             email?: string;
@@ -172,7 +168,6 @@ declare namespace gapi.client {
             /** The confirmation code. */
             oobCode?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyGetAccountInfoRequest {
             /** GCP project number of the requesting delegated app. Currently only intended for Firebase V1 migration. */
             delegatedProjectNumber?: string;
@@ -185,7 +180,6 @@ declare namespace gapi.client {
             /** Privileged caller can query users by specified phone number. */
             phoneNumber?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyGetProjectConfigResponse {
             /** Whether to allow password user sign in or sign up. */
             allowPasswordUser?: boolean;
@@ -211,11 +205,9 @@ declare namespace gapi.client {
             /** Verify email template. */
             verifyEmailTemplate?: EmailTemplate;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyGetPublicKeysResponse {
             [key: string]: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyResetPasswordRequest {
             /** The email address of the user. */
             email?: string;
@@ -226,7 +218,6 @@ declare namespace gapi.client {
             /** The confirmation code. */
             oobCode?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartySendVerificationCodeRequest {
             /** Receipt of successful app token validation with APNS. */
             iosReceipt?: string;
@@ -237,12 +228,10 @@ declare namespace gapi.client {
             /** Recaptcha solution. */
             recaptchaToken?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartySendVerificationCodeResponse {
             /** Encrypted session information */
             sessionInfo?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartySetAccountInfoRequest {
             /** The captcha challenge. */
             captchaChallenge?: string;
@@ -291,7 +280,6 @@ declare namespace gapi.client {
             /** Timestamp in seconds for valid login token. */
             validSince?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartySetProjectConfigRequest {
             /** Whether to allow password user sign in or sign up. */
             allowPasswordUser?: boolean;
@@ -316,24 +304,20 @@ declare namespace gapi.client {
             /** Verify email template. */
             verifyEmailTemplate?: EmailTemplate;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartySetProjectConfigResponse {
             /** Project ID of the relying party. */
             projectId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartySignOutUserRequest {
             /** Instance id token of the app. */
             instanceId?: string;
             /** The local ID of the user. */
             localId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartySignOutUserResponse {
             /** The local ID of the user. */
             localId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartySignupNewUserRequest {
             /** The captcha challenge. */
             captchaChallenge?: string;
@@ -364,7 +348,6 @@ declare namespace gapi.client {
             /** Tenant project number to be used for idp discovery. */
             tenantProjectNumber?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyUploadAccountRequest {
             /** Whether allow overwrite existing account when user local_id exists. */
             allowOverwrite?: boolean;
@@ -392,7 +375,6 @@ declare namespace gapi.client {
             /** The account info to be stored. */
             users?: UserInfo[];
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyVerifyAssertionRequest {
             /**
              * When it's true, automatically creates a new account if the user doesn't exist. When it's false, allows existing user to sign in normally and throws exception if the user doesn't
@@ -424,7 +406,6 @@ declare namespace gapi.client {
             /** Tenant project number to be used for idp discovery. */
             tenantProjectNumber?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyVerifyCustomTokenRequest {
             /** GCP project number of the requesting delegated app. Currently only intended for Firebase V1 migration. */
             delegatedProjectNumber?: string;
@@ -435,7 +416,6 @@ declare namespace gapi.client {
             /** The custom token to verify */
             token?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyVerifyPasswordRequest {
             /** The captcha challenge. */
             captchaChallenge?: string;
@@ -460,7 +440,6 @@ declare namespace gapi.client {
             /** Tenant project number to be used for idp discovery. */
             tenantProjectNumber?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyVerifyPhoneNumberRequest {
             code?: string;
             idToken?: string;
@@ -471,7 +450,6 @@ declare namespace gapi.client {
             temporaryProof?: string;
             verificationProof?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitytoolkitRelyingpartyVerifyPhoneNumberResponse {
             expiresIn?: string;
             idToken?: string;
@@ -484,7 +462,6 @@ declare namespace gapi.client {
             verificationProof?: string;
             verificationProofExpiresIn?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdpConfig {
             /** OAuth2 client ID. */
             clientId?: string;

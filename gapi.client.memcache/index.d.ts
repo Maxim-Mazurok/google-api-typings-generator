@@ -183,7 +183,6 @@ declare namespace gapi.client {
             /** Name of the SLO tier the Instance belongs to. This name will be expected to match the tiers specified in the service SLO configuration. Field is mandatory and must not be empty. */
             tier?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Instance {
             /**
              * The full name of the Google Compute Engine [network](https://cloud.google.com/vpc/docs/vpc) to which the instance is connected. If left unspecified, the `default` network will be
@@ -234,7 +233,6 @@ declare namespace gapi.client {
              */
             zones?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface InstanceMessage {
             /** A code that correspond to one type of user-facing message. */
             code?: string;
@@ -347,7 +345,6 @@ declare namespace gapi.client {
         // tslint:disable-next-line:no-empty-interface
         interface ZoneMetadata {
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /** ApplyParameters will restart the set of specified nodes in order to update them to the current set of parameters for the Memcached Instance. */
             applyParameters(request: {

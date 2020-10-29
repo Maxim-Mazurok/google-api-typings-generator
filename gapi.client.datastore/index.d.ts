@@ -575,7 +575,6 @@ declare namespace gapi.client {
             /** A timestamp value. When stored in the Datastore, precise only to microseconds; any additional precision is rounded down. */
             timestampValue?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IndexesResource {
             /**
              * Creates the specified index. A newly created index's initial state is `CREATING`. On completion of the returned google.longrunning.Operation, the state will be `READY`. If the index

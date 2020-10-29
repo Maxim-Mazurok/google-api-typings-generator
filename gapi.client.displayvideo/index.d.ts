@@ -1280,7 +1280,6 @@ declare namespace gapi.client {
             /** Output only. The household income of an audience. */
             householdIncome?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdFilter {
             /** YouTube Ads to download by ID. All IDs must belong to the same Advertiser or Partner specified in CreateSdfDownloadTaskRequest. */
             adGroupAdIds?: string[];
@@ -1295,7 +1294,6 @@ declare namespace gapi.client {
             /** Media Products to download by ID. All IDs must belong to the same Advertiser or Partner specified in CreateSdfDownloadTaskRequest. */
             mediaProductIds?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface InsertionOrder {
             /** Output only. The unique ID of the advertiser the insertion order belongs to. */
             advertiserId?: string;
@@ -1333,7 +1331,6 @@ declare namespace gapi.client {
             /** Output only. The timestamp when the insertion order was last updated. Assigned by the system. */
             updateTime?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertionOrderBudget {
             /** The type of automation used to manage bid and budget for the insertion order. If this field is unspecified in creation, the value defaults to `INSERTION_ORDER_AUTOMATION_TYPE_NONE`. */
             automationType?: string;
@@ -1342,7 +1339,6 @@ declare namespace gapi.client {
             /** Required. Immutable. The budget unit specifies whether the budget is currency based or impression based. */
             budgetUnit?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertionOrderBudgetSegment {
             /**
              * Required. The budget amount the insertion order will spend for the given date_range. The amount is in micros. Must be greater than 0. For example, 500000000 represents 500 standard
@@ -1363,7 +1359,6 @@ declare namespace gapi.client {
              */
             description?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IntegralAdScience {
             /** Display Viewability section (applicable to display line items only). */
             displayViewability?: string;
@@ -1392,7 +1387,6 @@ declare namespace gapi.client {
             /** Video Viewability Section (applicable to video line items only). */
             videoViewability?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IntegrationDetails {
             /** Additional details of the entry in string format. Must be UTF-8 encoded with a length of no more than 1000 characters. */
             details?: string;
@@ -1402,7 +1396,6 @@ declare namespace gapi.client {
              */
             integrationCode?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InventorySource {
             /** Whether the inventory source has a guaranteed or non-guaranteed delivery. */
             commitment?: string;
@@ -1436,17 +1429,14 @@ declare namespace gapi.client {
             /** Output only. The timestamp when the inventory source was last updated. Assigned by the system. */
             updateTime?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InventorySourceAssignedTargetingOptionDetails {
             /** Required. ID of the inventory source. Should refer to the inventory_source_id field of an InventorySource resource. */
             inventorySourceId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InventorySourceDisplayCreativeConfig {
             /** The size requirements for display creatives that can be assigned to the inventory source. */
             creativeSize?: Dimensions;
         }
-        // tslint:disable-next-line:interface-name
         interface InventorySourceFilter {
             /**
              * Inventory Sources to download by ID. All IDs must belong to the same Advertiser or Partner specified in CreateSdfDownloadTaskRequest. Leave empty to download all Inventory Sources
@@ -1454,7 +1444,6 @@ declare namespace gapi.client {
              */
             inventorySourceIds?: string[];
         }
-        // tslint:disable-next-line:interface-name
         interface InventorySourceGroup {
             /** Required. The display name of the inventory source group. Must be UTF-8 encoded with a maximum size of 240 bytes. */
             displayName?: string;
@@ -1463,12 +1452,10 @@ declare namespace gapi.client {
             /** Output only. The resource name of the inventory source group. */
             name?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InventorySourceGroupAssignedTargetingOptionDetails {
             /** Required. ID of the inventory source group. Should refer to the inventory_source_group_id field of an InventorySourceGroup resource. */
             inventorySourceGroupId?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InventorySourceStatus {
             /**
              * Output only. The configuration status of the inventory source. Only applicable for guaranteed inventory sources. Acceptable values are `INVENTORY_SOURCE_CONFIG_STATUS_PENDING` and
@@ -1494,7 +1481,6 @@ declare namespace gapi.client {
              */
             sellerStatus?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InventorySourceVideoCreativeConfig {
             /** The duration requirements for the video creatives that can be assigned to the inventory source. */
             duration?: string;
@@ -3283,7 +3269,6 @@ declare namespace gapi.client {
             },
             body: Creative): Request<Creative>;
         }
-        // tslint:disable-next-line:interface-name
         interface InsertionOrdersResource {
             /** Creates a new insertion order. Returns the newly created insertion order if successful. */
             create(request: {
@@ -6127,7 +6112,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<ListAssignedInventorySourcesResponse>;
         }
-        // tslint:disable-next-line:interface-name
         interface InventorySourceGroupsResource {
             /** Creates a new inventory source group. Returns the newly created inventory source group if successful. */
             create(request: {
@@ -6380,7 +6364,6 @@ declare namespace gapi.client {
             body: InventorySourceGroup): Request<InventorySourceGroup>;
             assignedInventorySources: AssignedInventorySourcesResource;
         }
-        // tslint:disable-next-line:interface-name
         interface InventorySourcesResource {
             /** Gets an inventory source. */
             get(request?: {

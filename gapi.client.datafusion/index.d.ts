@@ -82,7 +82,6 @@ declare namespace gapi.client {
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
             title?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface Instance {
             /** List of accelerators enabled for this CDF instance. */
             accelerators?: Accelerator[];
@@ -300,7 +299,6 @@ declare namespace gapi.client {
             /** The version number of the Data Fusion instance, such as '6.0.1.0'. */
             versionNumber?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface InstancesResource {
             /** Creates a new Data Fusion instance in the specified project and location. */
             create(request: {

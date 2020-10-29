@@ -572,7 +572,6 @@ declare namespace gapi.client {
             /** Whether to restrict API calls within the Service Perimeter to the list of APIs specified in 'allowed_services'. */
             enableRestriction?: boolean;
         }
-        // tslint:disable-next-line:interface-name
         interface IamPolicyAnalysis {
             /** The analysis query. */
             analysisQuery?: IamPolicyAnalysisQuery;
@@ -583,14 +582,12 @@ declare namespace gapi.client {
             /** A list of non-critical errors happened during the query handling. */
             nonCriticalErrors?: IamPolicyAnalysisState[];
         }
-        // tslint:disable-next-line:interface-name
         interface IamPolicyAnalysisOutputConfig {
             /** Destination on BigQuery. */
             bigqueryDestination?: GoogleCloudAssetV1BigQueryDestination;
             /** Destination on Cloud Storage. */
             gcsDestination?: GoogleCloudAssetV1GcsDestination;
         }
-        // tslint:disable-next-line:interface-name
         interface IamPolicyAnalysisQuery {
             /** Optional. Specifies roles or permissions for analysis. This is optional. */
             accessSelector?: AccessSelector;
@@ -608,7 +605,6 @@ declare namespace gapi.client {
              */
             scope?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IamPolicyAnalysisResult {
             /** The access control lists derived from the iam_binding that match or potentially match resource and access selectors specified in the request. */
             accessControlLists?: GoogleCloudAssetV1AccessControlList[];
@@ -621,7 +617,6 @@ declare namespace gapi.client {
             /** The identity list derived from members of the iam_binding that match or potentially match identity selector specified in the request. */
             identityList?: GoogleCloudAssetV1IdentityList;
         }
-        // tslint:disable-next-line:interface-name
         interface IamPolicyAnalysisState {
             /** The human-readable description of the cause of failure. */
             cause?: string;
@@ -631,7 +626,6 @@ declare namespace gapi.client {
              */
             code?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IamPolicySearchResult {
             /** Explanation about the IAM policy search result. It contains additional information to explain why the search result matches the query. */
             explanation?: Explanation;
@@ -655,7 +649,6 @@ declare namespace gapi.client {
              */
             resource?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IdentitySelector {
             /**
              * Required. The identity appear in the form of members in [IAM policy binding](https://cloud.google.com/iam/reference/rest/v1/Binding). The examples of supported forms are:

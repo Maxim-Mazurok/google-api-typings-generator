@@ -171,7 +171,6 @@ declare namespace gapi.client {
              */
             policy?: Policy;
         }
-        // tslint:disable-next-line:interface-name
         interface ImportFile {
             /** The contents of the file. */
             content?: string;

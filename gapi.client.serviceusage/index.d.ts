@@ -542,17 +542,14 @@ declare namespace gapi.client {
             /** Selects a method to which this rule applies. Refer to selector for syntax details. */
             selector?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface ImportAdminOverridesResponse {
             /** The overrides that were created from the imported data. */
             overrides?: QuotaOverride[];
         }
-        // tslint:disable-next-line:interface-name
         interface ImportAdminQuotaPoliciesResponse {
             /** The policies that were created from the imported data. */
             policies?: AdminQuotaPolicy[];
         }
-        // tslint:disable-next-line:interface-name
         interface ImportConsumerOverridesResponse {
             /** The overrides that were created from the imported data. */
             overrides?: QuotaOverride[];
