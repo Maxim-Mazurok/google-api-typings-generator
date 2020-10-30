@@ -1,4 +1,4 @@
-# TypeScript typings for Container Analysis API v1alpha1
+# TypeScript typings for Container Analysis API v1beta1
 
 An implementation of the Grafeas API, which stores, and enables querying and retrieval of critical metadata about all of your software artifacts.
 For detailed description please check [documentation](https://cloud.google.com/container-analysis/api/reference/rest/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/c
 Install typings for Container Analysis API:
 
 ```
-npm install @types/gapi.client.containeranalysis@v1alpha1 --save-dev
+npm install @types/gapi.client.containeranalysis@v1beta1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('containeranalysis', 'v1alpha1', () => {
+gapi.client.load('containeranalysis', 'v1beta1', () => {
   // now we can use gapi.client.containeranalysis
   // ...
 });
