@@ -106,6 +106,16 @@ Changes one or more properties of an existing exclusion.
 await gapi.client.logging.exclusions.patch({ name: "name",  });
 
 /*
+Gets information about a location.
+*/
+await gapi.client.logging.locations.get({ name: "name",  });
+
+/*
+Lists information about the supported locations for this service.
+*/
+await gapi.client.logging.locations.list({ name: "name",  });
+
+/*
 Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted.
 */
 await gapi.client.logging.logs.delete({ logName: "logName",  });

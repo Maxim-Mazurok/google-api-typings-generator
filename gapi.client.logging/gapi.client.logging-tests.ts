@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201016
+// Revision: 20201022
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -164,6 +164,547 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
+        /** Gets information about a location. */
+        await gapi.client.logging.locations.get({
+            name: "Test string",
+        });
+        /** Creates a bucket that can be used to store log entries. Once a bucket has been created, the region cannot be changed. */
+        await gapi.client.logging.locations.buckets.create({
+            bucketId: "Test string",
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            lifecycleState: "Test string",
+            locked: true,
+            name: "Test string",
+            retentionDays: 42,
+            updateTime: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be permanently deleted. */
+        await gapi.client.logging.locations.buckets.delete({
+            name: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets a bucket (Beta). */
+        await gapi.client.logging.locations.buckets.get({
+            name: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Lists buckets (Beta). */
+        await gapi.client.logging.locations.buckets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the bucket
+         * is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be modified after
+         * it is created. This method is in Beta.
+         */
+        await gapi.client.logging.locations.buckets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            lifecycleState: "Test string",
+            locked: true,
+            name: "Test string",
+            retentionDays: 42,
+            updateTime: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Undeletes a bucket. A bucket that has been deleted may be undeleted within the grace period of 7 days. */
+        await gapi.client.logging.locations.buckets.undelete({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Lists information about the supported locations for this service. */
+        await gapi.client.logging.locations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a bucket that can be used to store log entries. Once a bucket has been created, the region cannot be changed. */
+        await gapi.client.logging.locations.buckets.create({
+            bucketId: "Test string",
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            lifecycleState: "Test string",
+            locked: true,
+            name: "Test string",
+            retentionDays: 42,
+            updateTime: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be permanently deleted. */
+        await gapi.client.logging.locations.buckets.delete({
+            name: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets a bucket (Beta). */
+        await gapi.client.logging.locations.buckets.get({
+            name: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Lists buckets (Beta). */
+        await gapi.client.logging.locations.buckets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the bucket
+         * is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be modified after
+         * it is created. This method is in Beta.
+         */
+        await gapi.client.logging.locations.buckets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            lifecycleState: "Test string",
+            locked: true,
+            name: "Test string",
+            retentionDays: 42,
+            updateTime: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Undeletes a bucket. A bucket that has been deleted may be undeleted within the grace period of 7 days. */
+        await gapi.client.logging.locations.buckets.undelete({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
         /**
          * Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after
          * the delete operation with a timestamp before the operation will be deleted.
@@ -222,6 +763,547 @@ gapi.load('client', () => {
             createTime: "Test string",
             description: "Test string",
             disabled: true,
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets information about a location. */
+        await gapi.client.logging.organizations.locations.get({
+            name: "Test string",
+        });
+        /** Creates a bucket that can be used to store log entries. Once a bucket has been created, the region cannot be changed. */
+        await gapi.client.logging.organizations.locations.buckets.create({
+            bucketId: "Test string",
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            lifecycleState: "Test string",
+            locked: true,
+            name: "Test string",
+            retentionDays: 42,
+            updateTime: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be permanently deleted. */
+        await gapi.client.logging.organizations.locations.buckets.delete({
+            name: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets a bucket (Beta). */
+        await gapi.client.logging.organizations.locations.buckets.get({
+            name: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Lists buckets (Beta). */
+        await gapi.client.logging.organizations.locations.buckets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the bucket
+         * is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be modified after
+         * it is created. This method is in Beta.
+         */
+        await gapi.client.logging.organizations.locations.buckets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            lifecycleState: "Test string",
+            locked: true,
+            name: "Test string",
+            retentionDays: 42,
+            updateTime: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Undeletes a bucket. A bucket that has been deleted may be undeleted within the grace period of 7 days. */
+        await gapi.client.logging.organizations.locations.buckets.undelete({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Lists information about the supported locations for this service. */
+        await gapi.client.logging.organizations.locations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a bucket that can be used to store log entries. Once a bucket has been created, the region cannot be changed. */
+        await gapi.client.logging.organizations.locations.buckets.create({
+            bucketId: "Test string",
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            lifecycleState: "Test string",
+            locked: true,
+            name: "Test string",
+            retentionDays: 42,
+            updateTime: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be permanently deleted. */
+        await gapi.client.logging.organizations.locations.buckets.delete({
+            name: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets a bucket (Beta). */
+        await gapi.client.logging.organizations.locations.buckets.get({
+            name: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Lists buckets (Beta). */
+        await gapi.client.logging.organizations.locations.buckets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the bucket
+         * is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be modified after
+         * it is created. This method is in Beta.
+         */
+        await gapi.client.logging.organizations.locations.buckets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            lifecycleState: "Test string",
+            locked: true,
+            name: "Test string",
+            retentionDays: 42,
+            updateTime: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Undeletes a bucket. A bucket that has been deleted may be undeleted within the grace period of 7 days. */
+        await gapi.client.logging.organizations.locations.buckets.undelete({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
             filter: "Test string",
             name: "Test string",
             updateTime: "Test string",
@@ -398,6 +1480,547 @@ gapi.load('client', () => {
             createTime: "Test string",
             description: "Test string",
             disabled: true,
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets information about a location. */
+        await gapi.client.logging.organizations.locations.get({
+            name: "Test string",
+        });
+        /** Creates a bucket that can be used to store log entries. Once a bucket has been created, the region cannot be changed. */
+        await gapi.client.logging.organizations.locations.buckets.create({
+            bucketId: "Test string",
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            lifecycleState: "Test string",
+            locked: true,
+            name: "Test string",
+            retentionDays: 42,
+            updateTime: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be permanently deleted. */
+        await gapi.client.logging.organizations.locations.buckets.delete({
+            name: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets a bucket (Beta). */
+        await gapi.client.logging.organizations.locations.buckets.get({
+            name: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Lists buckets (Beta). */
+        await gapi.client.logging.organizations.locations.buckets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the bucket
+         * is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be modified after
+         * it is created. This method is in Beta.
+         */
+        await gapi.client.logging.organizations.locations.buckets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            lifecycleState: "Test string",
+            locked: true,
+            name: "Test string",
+            retentionDays: 42,
+            updateTime: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Undeletes a bucket. A bucket that has been deleted may be undeleted within the grace period of 7 days. */
+        await gapi.client.logging.organizations.locations.buckets.undelete({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Lists information about the supported locations for this service. */
+        await gapi.client.logging.organizations.locations.list({
+            filter: "Test string",
+            name: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates a bucket that can be used to store log entries. Once a bucket has been created, the region cannot be changed. */
+        await gapi.client.logging.organizations.locations.buckets.create({
+            bucketId: "Test string",
+            parent: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            lifecycleState: "Test string",
+            locked: true,
+            name: "Test string",
+            retentionDays: 42,
+            updateTime: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7 days, the bucket will be purged and all logs in the bucket will be permanently deleted. */
+        await gapi.client.logging.organizations.locations.buckets.delete({
+            name: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Gets a bucket (Beta). */
+        await gapi.client.logging.organizations.locations.buckets.get({
+            name: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Lists buckets (Beta). */
+        await gapi.client.logging.organizations.locations.buckets.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the bucket
+         * is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be modified after
+         * it is created. This method is in Beta.
+         */
+        await gapi.client.logging.organizations.locations.buckets.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            lifecycleState: "Test string",
+            locked: true,
+            name: "Test string",
+            retentionDays: 42,
+            updateTime: "Test string",
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Undeletes a bucket. A bucket that has been deleted may be undeleted within the grace period of 7 days. */
+        await gapi.client.logging.organizations.locations.buckets.undelete({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a view over logs in a bucket. A bucket may contain a maximum of 50 views. */
+        await gapi.client.logging.organizations.locations.buckets.views.create({
+            parent: "Test string",
+            viewId: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            filter: "Test string",
+            name: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a view from a bucket. */
+        await gapi.client.logging.organizations.locations.buckets.views.delete({
+            name: "Test string",
+        });
+        /** Gets a view. */
+        await gapi.client.logging.organizations.locations.buckets.views.get({
+            name: "Test string",
+        });
+        /** Lists views on a bucket.. */
+        await gapi.client.logging.organizations.locations.buckets.views.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a view. This method replaces the following fields in the existing view with values from the new view: filter. */
+        await gapi.client.logging.organizations.locations.buckets.views.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            createTime: "Test string",
+            description: "Test string",
             filter: "Test string",
             name: "Test string",
             updateTime: "Test string",
