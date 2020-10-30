@@ -8,7 +8,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('containeranalysis', 'v1alpha1', () => {
+    gapi.client.load('containeranalysis', 'v1beta1', () => {
         /** now we can use gapi.client.containeranalysis */
 
         /** don't forget to authenticate your client before sending any request to resources: */
