@@ -121,7 +121,6 @@ declare namespace gapi.client {
             /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
             title?: string;
         }
-        // tslint:disable-next-line:interface-name
         interface IamPolicy {
             /**
              * Associates a list of `members` to a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at
