@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201027
+// Revision: 20201030
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1071,6 +1071,7 @@ gapi.load('client', () => {
                                             "Test string"                                        ],
                                         avoidUnknownBrandSafetyCategory: true,
                                     },
+                                    customSegmentId: "Test string",
                                     displayViewability: {
                                         iab: "Test string",
                                         viewableDuring: "Test string",
@@ -1086,6 +1087,8 @@ gapi.load('client', () => {
                                     },
                                 },
                                 integralAdScience: {
+                                    customSegmentId: [
+                                        "Test string"                                    ],
                                     displayViewability: "Test string",
                                     excludedAdFraudRisk: "Test string",
                                     excludedAdultRisk: "Test string",
@@ -1190,6 +1193,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -1224,6 +1228,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -1309,6 +1317,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -1343,6 +1352,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -1546,6 +1559,57 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /** Activates a manual trigger. Each activation of the manual trigger must be at least 5 minutes apart, otherwise an error will be returned. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.activate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Creates a new manual trigger. Returns the newly created manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.create({
+            advertiserId: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
+        });
+        /** Deactivates a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.deactivate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Gets a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.get({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        });
+        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a manual trigger. Returns the updated manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.patch({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
         });
         /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
@@ -1990,6 +2054,7 @@ gapi.load('client', () => {
                                             "Test string"                                        ],
                                         avoidUnknownBrandSafetyCategory: true,
                                     },
+                                    customSegmentId: "Test string",
                                     displayViewability: {
                                         iab: "Test string",
                                         viewableDuring: "Test string",
@@ -2005,6 +2070,8 @@ gapi.load('client', () => {
                                     },
                                 },
                                 integralAdScience: {
+                                    customSegmentId: [
+                                        "Test string"                                    ],
                                     displayViewability: "Test string",
                                     excludedAdFraudRisk: "Test string",
                                     excludedAdultRisk: "Test string",
@@ -3073,6 +3140,7 @@ gapi.load('client', () => {
                                             "Test string"                                        ],
                                         avoidUnknownBrandSafetyCategory: true,
                                     },
+                                    customSegmentId: "Test string",
                                     displayViewability: {
                                         iab: "Test string",
                                         viewableDuring: "Test string",
@@ -3088,6 +3156,8 @@ gapi.load('client', () => {
                                     },
                                 },
                                 integralAdScience: {
+                                    customSegmentId: [
+                                        "Test string"                                    ],
                                     displayViewability: "Test string",
                                     excludedAdFraudRisk: "Test string",
                                     excludedAdultRisk: "Test string",
@@ -3192,6 +3262,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -3226,6 +3297,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -3311,6 +3386,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -3345,6 +3421,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -3548,6 +3628,57 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /** Activates a manual trigger. Each activation of the manual trigger must be at least 5 minutes apart, otherwise an error will be returned. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.activate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Creates a new manual trigger. Returns the newly created manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.create({
+            advertiserId: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
+        });
+        /** Deactivates a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.deactivate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Gets a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.get({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        });
+        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a manual trigger. Returns the updated manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.patch({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
         });
         /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
@@ -4820,6 +4951,7 @@ gapi.load('client', () => {
                                             "Test string"                                        ],
                                         avoidUnknownBrandSafetyCategory: true,
                                     },
+                                    customSegmentId: "Test string",
                                     displayViewability: {
                                         iab: "Test string",
                                         viewableDuring: "Test string",
@@ -4835,6 +4967,8 @@ gapi.load('client', () => {
                                     },
                                 },
                                 integralAdScience: {
+                                    customSegmentId: [
+                                        "Test string"                                    ],
                                     displayViewability: "Test string",
                                     excludedAdFraudRisk: "Test string",
                                     excludedAdultRisk: "Test string",
@@ -4939,6 +5073,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -4973,6 +5108,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -5058,6 +5197,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -5092,6 +5232,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -5295,6 +5439,57 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /** Activates a manual trigger. Each activation of the manual trigger must be at least 5 minutes apart, otherwise an error will be returned. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.activate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Creates a new manual trigger. Returns the newly created manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.create({
+            advertiserId: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
+        });
+        /** Deactivates a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.deactivate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Gets a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.get({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        });
+        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a manual trigger. Returns the updated manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.patch({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
         });
         /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
@@ -6610,6 +6805,7 @@ gapi.load('client', () => {
                                             "Test string"                                        ],
                                         avoidUnknownBrandSafetyCategory: true,
                                     },
+                                    customSegmentId: "Test string",
                                     displayViewability: {
                                         iab: "Test string",
                                         viewableDuring: "Test string",
@@ -6625,6 +6821,8 @@ gapi.load('client', () => {
                                     },
                                 },
                                 integralAdScience: {
+                                    customSegmentId: [
+                                        "Test string"                                    ],
                                     displayViewability: "Test string",
                                     excludedAdFraudRisk: "Test string",
                                     excludedAdultRisk: "Test string",
@@ -6729,6 +6927,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -6763,6 +6962,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -6848,6 +7051,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -6882,6 +7086,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -7085,6 +7293,57 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /** Activates a manual trigger. Each activation of the manual trigger must be at least 5 minutes apart, otherwise an error will be returned. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.activate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Creates a new manual trigger. Returns the newly created manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.create({
+            advertiserId: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
+        });
+        /** Deactivates a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.deactivate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Gets a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.get({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        });
+        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a manual trigger. Returns the updated manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.patch({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
         });
         /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
@@ -8353,6 +8612,7 @@ gapi.load('client', () => {
                                             "Test string"                                        ],
                                         avoidUnknownBrandSafetyCategory: true,
                                     },
+                                    customSegmentId: "Test string",
                                     displayViewability: {
                                         iab: "Test string",
                                         viewableDuring: "Test string",
@@ -8368,6 +8628,8 @@ gapi.load('client', () => {
                                     },
                                 },
                                 integralAdScience: {
+                                    customSegmentId: [
+                                        "Test string"                                    ],
                                     displayViewability: "Test string",
                                     excludedAdFraudRisk: "Test string",
                                     excludedAdultRisk: "Test string",
@@ -8472,6 +8734,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -8506,6 +8769,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -8591,6 +8858,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -8625,6 +8893,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -8828,6 +9100,57 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /** Activates a manual trigger. Each activation of the manual trigger must be at least 5 minutes apart, otherwise an error will be returned. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.activate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Creates a new manual trigger. Returns the newly created manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.create({
+            advertiserId: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
+        });
+        /** Deactivates a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.deactivate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Gets a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.get({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        });
+        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a manual trigger. Returns the updated manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.patch({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
         });
         /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
@@ -10096,6 +10419,7 @@ gapi.load('client', () => {
                                             "Test string"                                        ],
                                         avoidUnknownBrandSafetyCategory: true,
                                     },
+                                    customSegmentId: "Test string",
                                     displayViewability: {
                                         iab: "Test string",
                                         viewableDuring: "Test string",
@@ -10111,6 +10435,8 @@ gapi.load('client', () => {
                                     },
                                 },
                                 integralAdScience: {
+                                    customSegmentId: [
+                                        "Test string"                                    ],
                                     displayViewability: "Test string",
                                     excludedAdFraudRisk: "Test string",
                                     excludedAdultRisk: "Test string",
@@ -10215,6 +10541,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -10249,6 +10576,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -10334,6 +10665,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -10368,6 +10700,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -10571,6 +10907,57 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /** Activates a manual trigger. Each activation of the manual trigger must be at least 5 minutes apart, otherwise an error will be returned. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.activate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Creates a new manual trigger. Returns the newly created manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.create({
+            advertiserId: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
+        });
+        /** Deactivates a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.deactivate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Gets a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.get({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        });
+        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a manual trigger. Returns the updated manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.patch({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
         });
         /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
@@ -11843,6 +12230,7 @@ gapi.load('client', () => {
                                             "Test string"                                        ],
                                         avoidUnknownBrandSafetyCategory: true,
                                     },
+                                    customSegmentId: "Test string",
                                     displayViewability: {
                                         iab: "Test string",
                                         viewableDuring: "Test string",
@@ -11858,6 +12246,8 @@ gapi.load('client', () => {
                                     },
                                 },
                                 integralAdScience: {
+                                    customSegmentId: [
+                                        "Test string"                                    ],
                                     displayViewability: "Test string",
                                     excludedAdFraudRisk: "Test string",
                                     excludedAdultRisk: "Test string",
@@ -11962,6 +12352,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -11996,6 +12387,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -12081,6 +12476,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -12115,6 +12511,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -12318,6 +12718,57 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /** Activates a manual trigger. Each activation of the manual trigger must be at least 5 minutes apart, otherwise an error will be returned. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.activate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Creates a new manual trigger. Returns the newly created manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.create({
+            advertiserId: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
+        });
+        /** Deactivates a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.deactivate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Gets a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.get({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        });
+        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a manual trigger. Returns the updated manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.patch({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
         });
         /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
@@ -13635,6 +14086,7 @@ gapi.load('client', () => {
                                             "Test string"                                        ],
                                         avoidUnknownBrandSafetyCategory: true,
                                     },
+                                    customSegmentId: "Test string",
                                     displayViewability: {
                                         iab: "Test string",
                                         viewableDuring: "Test string",
@@ -13650,6 +14102,8 @@ gapi.load('client', () => {
                                     },
                                 },
                                 integralAdScience: {
+                                    customSegmentId: [
+                                        "Test string"                                    ],
                                     displayViewability: "Test string",
                                     excludedAdFraudRisk: "Test string",
                                     excludedAdultRisk: "Test string",
@@ -13754,6 +14208,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -13788,6 +14243,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -13873,6 +14332,7 @@ gapi.load('client', () => {
                     },
                 },
                 flightDateType: "Test string",
+                triggerId: "Test string",
             },
             frequencyCap: {
                 maxImpressions: 42,
@@ -13907,6 +14367,10 @@ gapi.load('client', () => {
             partnerRevenueModel: {
                 markupAmount: "Test string",
                 markupType: "Test string",
+            },
+            targetingExpansion: {
+                excludeFirstPartyAudience: true,
+                targetingExpansionLevel: "Test string",
             },
             updateTime: "Test string",
             warningMessages: [
@@ -14110,6 +14574,57 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /** Activates a manual trigger. Each activation of the manual trigger must be at least 5 minutes apart, otherwise an error will be returned. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.activate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Creates a new manual trigger. Returns the newly created manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.create({
+            advertiserId: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
+        });
+        /** Deactivates a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.deactivate({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        }, {
+        });
+        /** Gets a manual trigger. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.get({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+        });
+        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.list({
+            advertiserId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a manual trigger. Returns the updated manual trigger if successful. */
+        await gapi.client.displayvideo.advertisers.manualTriggers.patch({
+            advertiserId: "Test string",
+            triggerId: "Test string",
+            updateMask: "Test string",
+        }, {
+            activationDurationMinutes: "Test string",
+            advertiserId: "Test string",
+            displayName: "Test string",
+            latestActivationTime: "Test string",
+            name: "Test string",
+            state: "Test string",
+            triggerId: "Test string",
         });
         /** Creates a new negative keyword list. Returns the newly created negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.create({
@@ -14950,6 +15465,7 @@ gapi.load('client', () => {
                                             "Test string"                                        ],
                                         avoidUnknownBrandSafetyCategory: true,
                                     },
+                                    customSegmentId: "Test string",
                                     displayViewability: {
                                         iab: "Test string",
                                         viewableDuring: "Test string",
@@ -14965,6 +15481,8 @@ gapi.load('client', () => {
                                     },
                                 },
                                 integralAdScience: {
+                                    customSegmentId: [
+                                        "Test string"                                    ],
                                     displayViewability: "Test string",
                                     excludedAdFraudRisk: "Test string",
                                     excludedAdultRisk: "Test string",
