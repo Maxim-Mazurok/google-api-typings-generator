@@ -460,6 +460,7 @@ function getMethodReturn(
 const readmeTpl = new Template('readme.dot');
 const tsconfigTpl = new Template('tsconfig.dot');
 const tslintTpl = new Template('tslint.dot');
+const packageJsonTpl = new Template('package-json.dot');
 
 function isEmptySchema(schema: JsonSchema) {
   return _.isEmpty(schema.properties) && !schema.additionalProperties;
@@ -850,6 +851,14 @@ export class App {
     tslintTpl.write(
       path.join(destinationDirectory, 'tslint.json'),
       templateData
+    );
+    packageJsonTpl.write(
+      path.join(destinationDirectory, 'package.json'),
+      templateData
+    );
+    fs.copyFileSync(
+      path.join(__dirname, 'template', '.npmrc'),
+      path.join(destinationDirectory, '.npmrc')
     );
 
     this.writeTests(destinationDirectory, api);
