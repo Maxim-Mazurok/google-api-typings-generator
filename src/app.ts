@@ -625,9 +625,9 @@ export class App {
     );
 
     writer.writeLine(
-      `// Type definitions for non-npm package ${api.title} ${
+      `/* Type definitions for non-npm package ${api.title} ${
         api.version
-      } ${parseVersion(checkExists(api.version))}`
+      } ${parseVersion(checkExists(api.version))} */`
     );
     writer.writeLine(`// Project: ${api.documentationLink}`);
     this.config.owners.forEach((owner, index) =>
