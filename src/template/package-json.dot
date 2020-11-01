@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.{{=it.name}}",
-  "version": "0.0.{{=it.revision}}",
+  "version": "{{=it.majorAndMinorVersion}}.{{=it.revision}}",
   "description": "TypeScript typings for {{=it.title}} {{=it.version}}",
   "license": "MIT",
   "author": {

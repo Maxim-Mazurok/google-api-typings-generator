@@ -20,7 +20,10 @@ export class Template {
     this.template = doT.template(fs.readFileSync(filename, 'utf-8'));
   }
 
-  public write(filePath: string, api: RestDescription) {
+  public write(
+    filePath: string,
+    api: RestDescription & {majorAndMinorVersion?: string}
+  ) {
     const stream = fs.createWriteStream(filePath);
     const writer = new StreamWriter(stream);
 

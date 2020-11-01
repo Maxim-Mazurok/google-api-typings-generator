@@ -852,10 +852,10 @@ export class App {
       path.join(destinationDirectory, 'tslint.json'),
       templateData
     );
-    packageJsonTpl.write(
-      path.join(destinationDirectory, 'package.json'),
-      templateData
-    );
+    packageJsonTpl.write(path.join(destinationDirectory, 'package.json'), {
+      ...templateData,
+      majorAndMinorVersion: parseVersion(checkExists(api.version)),
+    });
     fs.copyFileSync(
       path.join(__dirname, 'template', '.npmrc'),
       path.join(destinationDirectory, '.npmrc')
