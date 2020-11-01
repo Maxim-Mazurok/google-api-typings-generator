@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.poly",
-  "version": "0.0.20201006",
+  "version": "1.0.20201006",
   "description": "TypeScript typings for Poly API v1",
   "license": "MIT",
   "author": {

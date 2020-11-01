@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.identitytoolkit",
-  "version": "0.0.20180723",
+  "version": "3.0.20180723",
   "description": "TypeScript typings for Google Identity Toolkit API v3",
   "license": "MIT",
   "author": {

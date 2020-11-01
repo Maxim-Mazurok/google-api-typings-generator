@@ -1,7 +1,7 @@
 {
-  "name": "gapi.client.digitalassetlinks",
-  "version": "1.0.20201017",
-  "description": "TypeScript typings for Digital Asset Links API v1",
+  "name": "gapi.client.kgsearch",
+  "version": "1.0.20201031",
+  "description": "TypeScript typings for Knowledge Graph Search API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",

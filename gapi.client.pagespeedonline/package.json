@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.pagespeedonline",
-  "version": "0.0.20201001",
+  "version": "5.0.20201001",
   "description": "TypeScript typings for PageSpeed Insights API v5",
   "license": "MIT",
   "author": {

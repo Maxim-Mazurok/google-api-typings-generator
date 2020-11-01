@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.bigqueryconnection",
-  "version": "0.0.20201022",
+  "version": "1.0.20201022",
   "description": "TypeScript typings for BigQuery Connection API v1beta1",
   "license": "MIT",
   "author": {

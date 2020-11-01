@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.abusiveexperiencereport",
-  "version": "0.0.20201026",
+  "version": "1.0.20201026",
   "description": "TypeScript typings for Abusive Experience Report API v1",
   "license": "MIT",
   "author": {

@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.verifiedaccess",
-  "version": "0.0.20200828",
+  "version": "1.0.20200828",
   "description": "TypeScript typings for Chrome Verified Access API v1",
   "license": "MIT",
   "author": {

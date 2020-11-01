@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.content",
-  "version": "0.0.20201029",
+  "version": "2.1.20201029",
   "description": "TypeScript typings for Content API for Shopping v2.1",
   "license": "MIT",
   "author": {

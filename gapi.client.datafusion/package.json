@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.datafusion",
-  "version": "0.0.20201008",
+  "version": "1.0.20201008",
   "description": "TypeScript typings for Cloud Data Fusion API v1",
   "license": "MIT",
   "author": {

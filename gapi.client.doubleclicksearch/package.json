@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.doubleclicksearch",
-  "version": "0.0.20201028",
+  "version": "2.0.20201028",
   "description": "TypeScript typings for Search Ads 360 API v2",
   "license": "MIT",
   "author": {

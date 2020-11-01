@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.adsense",
-  "version": "0.0.20201002",
+  "version": "1.4.20201002",
   "description": "TypeScript typings for AdSense Management API v1.4",
   "license": "MIT",
   "author": {

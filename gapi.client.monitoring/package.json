@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.monitoring",
-  "version": "0.0.20201024",
+  "version": "3.0.20201024",
   "description": "TypeScript typings for Cloud Monitoring API v3",
   "license": "MIT",
   "author": {

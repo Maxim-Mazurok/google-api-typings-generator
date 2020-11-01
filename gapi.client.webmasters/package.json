@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.webmasters",
-  "version": "0.0.20190428",
+  "version": "3.0.20190428",
   "description": "TypeScript typings for Search Console API v3",
   "license": "MIT",
   "author": {

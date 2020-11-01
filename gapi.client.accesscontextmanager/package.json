@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.accesscontextmanager",
-  "version": "0.0.20201010",
+  "version": "1.0.20201010",
   "description": "TypeScript typings for Access Context Manager API v1",
   "license": "MIT",
   "author": {

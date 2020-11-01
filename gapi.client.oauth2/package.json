@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.oauth2",
-  "version": "0.0.20200213",
+  "version": "2.0.20200213",
   "description": "TypeScript typings for Google OAuth2 API v2",
   "license": "MIT",
   "author": {

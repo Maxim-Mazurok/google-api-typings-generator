@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.analytics",
-  "version": "0.0.20190807",
+  "version": "3.0.20190807",
   "description": "TypeScript typings for Google Analytics API v3",
   "license": "MIT",
   "author": {

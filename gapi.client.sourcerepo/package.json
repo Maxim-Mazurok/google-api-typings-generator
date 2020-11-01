@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.sourcerepo",
-  "version": "0.0.20200920",
+  "version": "1.0.20200920",
   "description": "TypeScript typings for Cloud Source Repositories API v1",
   "license": "MIT",
   "author": {

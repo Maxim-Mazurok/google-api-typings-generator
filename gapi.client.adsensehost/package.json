@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.adsensehost",
-  "version": "0.0.20200930",
+  "version": "4.1.20200930",
   "description": "TypeScript typings for AdSense Host API v4.1",
   "license": "MIT",
   "author": {

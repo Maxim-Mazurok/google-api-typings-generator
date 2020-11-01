@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.bigtableadmin",
-  "version": "0.0.20200928",
+  "version": "2.0.20200928",
   "description": "TypeScript typings for Cloud Bigtable Admin API v2",
   "license": "MIT",
   "author": {

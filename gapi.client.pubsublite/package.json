@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.pubsublite",
-  "version": "0.0.20201027",
+  "version": "1.0.20201027",
   "description": "TypeScript typings for Pub/Sub Lite API v1",
   "license": "MIT",
   "author": {

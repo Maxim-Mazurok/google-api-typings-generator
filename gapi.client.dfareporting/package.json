@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.dfareporting",
-  "version": "0.0.20201012",
+  "version": "3.4.20201012",
   "description": "TypeScript typings for DCM/DFA Reporting And Trafficking API v3.4",
   "license": "MIT",
   "author": {

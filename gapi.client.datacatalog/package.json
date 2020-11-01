@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.datacatalog",
-  "version": "0.0.20201021",
+  "version": "1.0.20201021",
   "description": "TypeScript typings for Google Cloud Data Catalog API v1beta1",
   "license": "MIT",
   "author": {

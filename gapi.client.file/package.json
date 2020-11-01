@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.file",
-  "version": "0.0.20201001",
+  "version": "1.0.20201001",
   "description": "TypeScript typings for Cloud Filestore API v1",
   "license": "MIT",
   "author": {

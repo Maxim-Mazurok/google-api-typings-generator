@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.storagetransfer",
-  "version": "0.0.20201027",
+  "version": "1.0.20201027",
   "description": "TypeScript typings for Storage Transfer API v1",
   "license": "MIT",
   "author": {

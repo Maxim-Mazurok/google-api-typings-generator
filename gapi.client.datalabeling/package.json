@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.datalabeling",
-  "version": "0.0.20201029",
+  "version": "1.0.20201029",
   "description": "TypeScript typings for Data Labeling API v1beta1",
   "license": "MIT",
   "author": {

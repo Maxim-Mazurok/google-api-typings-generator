@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.siteverification",
-  "version": "0.0.20191119",
+  "version": "1.0.20191119",
   "description": "TypeScript typings for Google Site Verification API v1",
   "license": "MIT",
   "author": {

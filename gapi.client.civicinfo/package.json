@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.civicinfo",
-  "version": "0.0.20201022",
+  "version": "2.0.20201022",
   "description": "TypeScript typings for Google Civic Information API v2",
   "license": "MIT",
   "author": {

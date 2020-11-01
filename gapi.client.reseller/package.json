@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.reseller",
-  "version": "0.0.20191008",
+  "version": "1.0.20191008",
   "description": "TypeScript typings for Workspace Reseller API v1",
   "license": "MIT",
   "author": {
