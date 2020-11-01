@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {supportedApis} from '../bin/auto-update/config';
+import {supportedApis} from '../bin/auto-publish/config';
 import {excludedApis} from '../src/app';
 
 describe('Config validation', () => {

@@ -1,8 +1,8 @@
 import {ensureDirectoryExists} from '../src/utils';
 import {resolve} from 'path';
-import {SH} from './auto-update/sh';
-import {Settings as GitSettings, Git} from './auto-update/git';
-import {TypesBranchAndDirSettings} from './auto-update';
+import {SH} from './auto-publish/sh';
+import {Settings as GitSettings, Git} from './auto-publish/git';
+import {TypesBranchAndDirSettings} from './auto-publish';
 
 const pathToTypes = resolve(process.cwd(), process.argv[2]);
 

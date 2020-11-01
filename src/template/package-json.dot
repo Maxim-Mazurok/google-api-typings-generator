@@ -1,0 +1,15 @@
+{
+  "name": "gapi.client.{{=it.name}}",
+  "version": "0.0.{{=it.revision}}",
+  "description": "TypeScript typings for {{=it.title}} {{=it.version}}",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  }
+}

@@ -1,0 +1,31 @@
+name: Auto Open PRs
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  repository_dispatch:
+    types: [auto-open-prs]
+  workflow_dispatch: # for manual testing
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      # setup
+      - uses: actions/checkout@v2
+      - name: Read .nvmrc
+        id: nvm
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+      - name: Use Node.js ${{ steps.nvm.outputs.NVMRC }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
+      - name: Install dependencies
+        run: npm ci
+
+      # do the job
+      - name: Auto Publish to NPM
+        run: npm run auto-publish
+        env:
+          GH_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}
+          NPM_PUBLISH_AUTOMATION_TOKEN: ${{ secrets.NPM_PUBLISH_AUTOMATION_TOKEN }}
