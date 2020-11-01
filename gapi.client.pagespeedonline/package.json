@@ -1,0 +1,15 @@
+{
+  "name": "gapi.client.pagespeedonline",
+  "version": "0.0.20201001",
+  "description": "TypeScript typings for PageSpeed Insights API v5",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  }
+}

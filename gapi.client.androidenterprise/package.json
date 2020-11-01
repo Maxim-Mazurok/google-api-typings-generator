@@ -1,0 +1,15 @@
+{
+  "name": "gapi.client.androidenterprise",
+  "version": "0.0.20201024",
+  "description": "TypeScript typings for Google Play EMM API v1",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  }
+}

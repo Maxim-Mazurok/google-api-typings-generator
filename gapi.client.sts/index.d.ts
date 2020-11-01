@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Security Token Service API v1 1.0
+/* Type definitions for non-npm package Security Token Service API v1 1.0 */
 // Project: http://cloud.google.com/iam/docs/workload-identity-federation
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

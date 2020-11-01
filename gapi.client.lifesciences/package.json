@@ -1,0 +1,15 @@
+{
+  "name": "gapi.client.lifesciences",
+  "version": "0.0.20201019",
+  "description": "TypeScript typings for Cloud Life Sciences API v2beta",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  }
+}

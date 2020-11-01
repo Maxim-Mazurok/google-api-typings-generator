@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Error Reporting API v1beta1 1.0
+/* Type definitions for non-npm package Error Reporting API v1beta1 1.0 */
 // Project: https://cloud.google.com/error-reporting/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

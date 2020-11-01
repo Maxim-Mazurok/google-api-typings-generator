@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Gmail Postmaster Tools API v1beta1 1.0
+/* Type definitions for non-npm package Gmail Postmaster Tools API v1beta1 1.0 */
 // Project: https://developers.google.com/gmail/postmaster
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

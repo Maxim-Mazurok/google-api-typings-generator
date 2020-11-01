@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Web Security Scanner API v1 1.0
+/* Type definitions for non-npm package Web Security Scanner API v1 1.0 */
 // Project: https://cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

@@ -1,4 +1,4 @@
-// Type definitions for non-npm package DCM/DFA Reporting And Trafficking API v3.4 3.4
+/* Type definitions for non-npm package DCM/DFA Reporting And Trafficking API v3.4 3.4 */
 // Project: https://developers.google.com/doubleclick-advertisers/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

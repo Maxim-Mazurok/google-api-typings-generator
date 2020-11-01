@@ -1,4 +1,4 @@
-// Type definitions for non-npm package PageSpeed Insights API v5 5.0
+/* Type definitions for non-npm package PageSpeed Insights API v5 5.0 */
 // Project: https://developers.google.com/speed/docs/insights/v5/about
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

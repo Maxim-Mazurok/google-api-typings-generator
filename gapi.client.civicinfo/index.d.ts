@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Google Civic Information API v2 2.0
+/* Type definitions for non-npm package Google Civic Information API v2 2.0 */
 // Project: https://developers.google.com/civic-information/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

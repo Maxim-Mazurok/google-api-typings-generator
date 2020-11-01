@@ -1,4 +1,4 @@
-// Type definitions for non-npm package AdSense Management API v1.4 1.4
+/* Type definitions for non-npm package AdSense Management API v1.4 1.4 */
 // Project: https://developers.google.com/adsense/management/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

@@ -1,0 +1,15 @@
+{
+  "name": "gapi.client.monitoring",
+  "version": "0.0.20201024",
+  "description": "TypeScript typings for Cloud Monitoring API v3",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  }
+}

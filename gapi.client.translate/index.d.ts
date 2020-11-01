@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Cloud Translation API v3 3.0
+/* Type definitions for non-npm package Cloud Translation API v3 3.0 */
 // Project: https://cloud.google.com/translate/docs/quickstarts
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

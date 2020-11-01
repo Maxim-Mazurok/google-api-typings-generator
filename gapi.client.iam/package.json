@@ -1,0 +1,15 @@
+{
+  "name": "gapi.client.iam",
+  "version": "0.0.20201022",
+  "description": "TypeScript typings for Identity and Access Management (IAM) API v1",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  }
+}

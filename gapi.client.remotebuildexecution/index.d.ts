@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Remote Build Execution API v2 2.0
+/* Type definitions for non-npm package Remote Build Execution API v2 2.0 */
 // Project: https://cloud.google.com/remote-build-execution/docs/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

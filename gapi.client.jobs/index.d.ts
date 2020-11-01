@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Cloud Talent Solution API v3 3.0
+/* Type definitions for non-npm package Cloud Talent Solution API v3 3.0 */
 // Project: https://cloud.google.com/talent-solution/job-search/docs/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

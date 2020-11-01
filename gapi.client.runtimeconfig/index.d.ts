@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Cloud Runtime Configuration API v1 1.0
+/* Type definitions for non-npm package Cloud Runtime Configuration API v1 1.0 */
 // Project: https://cloud.google.com/deployment-manager/runtime-configurator/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

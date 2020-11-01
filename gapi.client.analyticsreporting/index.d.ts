@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Analytics Reporting API v4 4.0
+/* Type definitions for non-npm package Analytics Reporting API v4 4.0 */
 // Project: https://developers.google.com/analytics/devguides/reporting/core/v4/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

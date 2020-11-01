@@ -1,0 +1,15 @@
+{
+  "name": "gapi.client.prod_tt_sasportal",
+  "version": "0.0.20201029",
+  "description": "TypeScript typings for SAS Portal API (Testing) v1alpha1",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  }
+}

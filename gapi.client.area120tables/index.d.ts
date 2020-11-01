@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Area120 Tables API v1alpha1 1.0
+/* Type definitions for non-npm package Area120 Tables API v1alpha1 1.0 */
 // Project: https://tables.area120.google.com
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

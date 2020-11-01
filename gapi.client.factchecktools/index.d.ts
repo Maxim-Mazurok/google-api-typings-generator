@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Fact Check Tools API v1alpha1 1.0
+/* Type definitions for non-npm package Fact Check Tools API v1alpha1 1.0 */
 // Project: https://developers.google.com/fact-check/tools/api/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

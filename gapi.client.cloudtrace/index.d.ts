@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Cloud Trace API v2 2.0
+/* Type definitions for non-npm package Cloud Trace API v2 2.0 */
 // Project: https://cloud.google.com/trace
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

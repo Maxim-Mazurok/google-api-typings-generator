@@ -1,4 +1,4 @@
-// Type definitions for non-npm package DoubleClick Bid Manager API v1.1 1.1
+/* Type definitions for non-npm package DoubleClick Bid Manager API v1.1 1.1 */
 // Project: https://developers.google.com/bid-manager/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

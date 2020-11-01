@@ -1,0 +1,15 @@
+{
+  "name": "gapi.client.acceleratedmobilepageurl",
+  "version": "0.0.20201024",
+  "description": "TypeScript typings for Accelerated Mobile Pages (AMP) URL API v1",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  }
+}

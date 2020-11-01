@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Google Play Custom App Publishing API v1 1.0
+/* Type definitions for non-npm package Google Play Custom App Publishing API v1 1.0 */
 // Project: https://developers.google.com/android/work/play/custom-app-api/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

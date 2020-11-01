@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Google Play Android Developer API v3 3.0
+/* Type definitions for non-npm package Google Play Android Developer API v3 3.0 */
 // Project: https://developers.google.com/android-publisher
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

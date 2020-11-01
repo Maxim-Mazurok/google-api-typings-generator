@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Search Ads 360 API v2 2.0
+/* Type definitions for non-npm package Search Ads 360 API v2 2.0 */
 // Project: https://developers.google.com/search-ads
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>

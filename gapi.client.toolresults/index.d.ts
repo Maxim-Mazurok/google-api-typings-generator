@@ -1,4 +1,4 @@
-// Type definitions for non-npm package Cloud Tool Results API v1beta3 1.0
+/* Type definitions for non-npm package Cloud Tool Results API v1beta3 1.0 */
 // Project: https://firebase.google.com/docs/test-lab/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
 //                 Google API Typings Generator <https://github.com/google-api-typings-generator>
