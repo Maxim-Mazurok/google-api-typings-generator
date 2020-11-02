@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.docs",
-  "version": "1.0.20201027",
+  "version": "1.0.20201028",
   "description": "TypeScript typings for Google Docs API v1",
   "license": "MIT",
   "author": {
