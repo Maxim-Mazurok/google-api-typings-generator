@@ -4,7 +4,7 @@
 [![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=Maxim-Mazurok/google-api-typings-generator)](https://dependabot.com)
 
-[![Auto Open PRs](https://github.com/Maxim-Mazurok/google-api-typings-generator/workflows/Auto%20Open%20PRs/badge.svg)](https://github.com/Maxim-Mazurok/google-api-typings-generator/actions?query=workflow%3A%22Auto+Open+PRs%22)
+[![Auto Publish to NPM](https://github.com/Maxim-Mazurok/google-api-typings-generator/workflows/Auto%20Publish%20to%20NPM/badge.svg)](https://github.com/Maxim-Mazurok/google-api-typings-generator/actions?query=workflow%3A%22Auto+Open+PRs%22)
 [![Auto Generate Types](https://github.com/Maxim-Mazurok/google-api-typings-generator/workflows/Auto%20Generate%20Types/badge.svg)](https://github.com/Maxim-Mazurok/google-api-typings-generator/actions?query=workflow%3A%22Auto+Generate+Types%22)
 [![CI Test](https://github.com/Maxim-Mazurok/google-api-typings-generator/workflows/CI%20Test/badge.svg)](https://github.com/Maxim-Mazurok/google-api-typings-generator/actions?query=workflow%3A%22CI+Test%22)
 
@@ -17,7 +17,7 @@ Not to be mistaken with [NodeJS Server Client](https://github.com/googleapis/goo
 ## Fork Log:
 
 - ⚠️ This is the only maintained repo for GAPI type definitions (forked and detached from [Bolisov/google-api-typings-generator](https://github.com/Bolisov/google-api-typings-generator))
-- 🤖 Auto updates every hour; [details](#auto-publishs)
+- 🤖 Auto updates every hour; [details](#auto-updates)
 - Supports both `resource` and second-argument approaches; [details](#resource-vs-body)
 - Includes empty interfaces; [details](#empty-interfaces)
 - Works for arrays, aka `"repeated": true`; [details](#arrays--repeated-values)
@@ -122,9 +122,7 @@ npm run fix
 
 ### Auto Updates
 
-Every hour, type definitions are generated, linted, tested and PR is opened to DefinitelyTyped repository.
-
-All thanks to [this PR](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/74) and everyone who was involved.
+Every hour, type definitions are generated, linted, tested and published to NPM.
 
 ### Resource VS Body
 
