@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.script",
-  "version": "1.0.20201016",
+  "version": "1.0.20201023",
   "description": "TypeScript typings for Apps Script API v1",
   "license": "MIT",
   "author": {
