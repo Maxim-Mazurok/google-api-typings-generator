@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.oslogin",
-  "version": "1.0.20201024",
+  "version": "1.0.20201101",
   "description": "TypeScript typings for Cloud OS Login API v1",
   "license": "MIT",
   "author": {

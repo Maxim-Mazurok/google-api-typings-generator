@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.realtimebidding",
-  "version": "1.0.20201029",
+  "version": "1.0.20201031",
   "description": "TypeScript typings for Real-time Bidding API v1",
   "license": "MIT",
   "author": {
