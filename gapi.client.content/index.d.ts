@@ -2127,17 +2127,17 @@ declare namespace gapi.client {
         interface PosCustomBatchRequestEntry {
             /** An entry ID, unique within the batch request. */
             batchId?: number;
-            /** The inventory to submit. This should be set only if the method is `inventory`. */
+            /** The inventory to submit. Set this only if the method is `inventory`. */
             inventory?: PosInventory;
             /** The ID of the POS data provider. */
             merchantId?: string;
             /** The method of the batch entry. Acceptable values are: - "`delete`" - "`get`" - "`insert`" - "`inventory`" - "`sale`" */
             method?: string;
-            /** The sale information to submit. This should be set only if the method is `sale`. */
+            /** The sale information to submit. Set this only if the method is `sale`. */
             sale?: PosSale;
-            /** The store information to submit. This should be set only if the method is `insert`. */
+            /** The store information to submit. Set this only if the method is `insert`. */
             store?: PosStore;
-            /** The store code. This should be set only if the method is `delete` or `get`. */
+            /** The store code. Set this only if the method is `delete` or `get`. */
             storeCode?: string;
             /** The ID of the account for which to get/submit data. */
             targetMerchantId?: string;
@@ -2344,7 +2344,7 @@ declare namespace gapi.client {
             adsLabels?: string[];
             /** Allows advertisers to override the item URL when the product is shown within the context of Product Ads. */
             adsRedirect?: string;
-            /** Should be set to true if the item is targeted towards adults. */
+            /** Set to true if the item is targeted towards adults. */
             adult?: boolean;
             /** Target age group of the item. */
             ageGroup?: string;
@@ -2718,7 +2718,7 @@ declare namespace gapi.client {
             rate?: number;
             /** The geographic region to which the tax rate applies. */
             region?: string;
-            /** Should be set to true if tax is charged on shipping. */
+            /** Set to true if tax is charged on shipping. */
             taxShip?: boolean;
         }
         interface ProductUnitPricingBaseMeasure {
@@ -2932,9 +2932,9 @@ declare namespace gapi.client {
             merchantId?: string;
             /** Method of the batch request entry. Acceptable values are: - "`delete`" - "`get`" - "`insert`" */
             method?: string;
-            /** The return address to submit. This should be set only if the method is `insert`. */
+            /** The return address to submit. Set this only if the method is `insert`. */
             returnAddress?: ReturnAddress;
-            /** The return address ID. This should be set only if the method is `delete` or `get`. */
+            /** The return address ID. Set this only if the method is `delete` or `get`. */
             returnAddressId?: string;
         }
         interface ReturnaddressCustomBatchResponse {
@@ -2989,9 +2989,9 @@ declare namespace gapi.client {
             merchantId?: string;
             /** Method of the batch request entry. Acceptable values are: - "`delete`" - "`get`" - "`insert`" */
             method?: string;
-            /** The return policy to submit. This should be set only if the method is `insert`. */
+            /** The return policy to submit. Set this only if the method is `insert`. */
             returnPolicy?: ReturnPolicy;
-            /** The return policy ID. This should be set only if the method is `delete` or `get`. */
+            /** The return policy ID. Set this only if the method is `delete` or `get`. */
             returnPolicyId?: string;
         }
         interface ReturnpolicyCustomBatchResponse {
