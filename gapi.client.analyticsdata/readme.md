@@ -67,6 +67,11 @@ Returns metadata for dimensions and metrics available in reporting methods. Used
 await gapi.client.analyticsdata.properties.getMetadata({ name: "name",  });
 
 /*
+The Google Analytics Realtime API returns a customized report of realtime event data for your property. These reports show events and usage from the last 30 minutes.
+*/
+await gapi.client.analyticsdata.properties.runRealtimeReport({ property: "property",  });
+
+/*
 Returns multiple pivot reports in a batch. All reports must be for the same Entity.
 */
 await gapi.client.analyticsdata.v1alpha.batchRunPivotReports({  });

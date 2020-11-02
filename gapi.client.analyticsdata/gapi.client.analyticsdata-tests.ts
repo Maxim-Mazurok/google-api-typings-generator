@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201028
+// Revision: 20201030
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -40,6 +40,137 @@ gapi.load('client', () => {
          */
         await gapi.client.analyticsdata.properties.getMetadata({
             name: "Test string",
+        });
+        /** The Google Analytics Realtime API returns a customized report of realtime event data for your property. These reports show events and usage from the last 30 minutes. */
+        await gapi.client.analyticsdata.properties.runRealtimeReport({
+            property: "Test string",
+        }, {
+            dimensionFilter: {
+                andGroup: {
+                    expressions: undefined,
+                },
+                filter: {
+                    betweenFilter: {
+                        fromValue: {
+                            doubleValue: 42,
+                            int64Value: "Test string",
+                        },
+                        toValue: {
+                            doubleValue: 42,
+                            int64Value: "Test string",
+                        },
+                    },
+                    fieldName: "Test string",
+                    inListFilter: {
+                        caseSensitive: true,
+                        values: [
+                            "Test string"                        ],
+                    },
+                    nullFilter: true,
+                    numericFilter: {
+                        operation: "Test string",
+                        value: {
+                            doubleValue: 42,
+                            int64Value: "Test string",
+                        },
+                    },
+                    stringFilter: {
+                        caseSensitive: true,
+                        matchType: "Test string",
+                        value: "Test string",
+                    },
+                },
+                notExpression: undefined,
+                orGroup: {
+                    expressions: undefined,
+                },
+            },
+            dimensions: [
+                {
+                    dimensionExpression: {
+                        concatenate: {
+                            delimiter: "Test string",
+                            dimensionNames: [
+                                "Test string"                            ],
+                        },
+                        lowerCase: {
+                            dimensionName: "Test string",
+                        },
+                        upperCase: {
+                            dimensionName: "Test string",
+                        },
+                    },
+                    name: "Test string",
+                }            ],
+            limit: "Test string",
+            metricAggregations: [
+                "Test string"            ],
+            metricFilter: {
+                andGroup: {
+                    expressions: undefined,
+                },
+                filter: {
+                    betweenFilter: {
+                        fromValue: {
+                            doubleValue: 42,
+                            int64Value: "Test string",
+                        },
+                        toValue: {
+                            doubleValue: 42,
+                            int64Value: "Test string",
+                        },
+                    },
+                    fieldName: "Test string",
+                    inListFilter: {
+                        caseSensitive: true,
+                        values: [
+                            "Test string"                        ],
+                    },
+                    nullFilter: true,
+                    numericFilter: {
+                        operation: "Test string",
+                        value: {
+                            doubleValue: 42,
+                            int64Value: "Test string",
+                        },
+                    },
+                    stringFilter: {
+                        caseSensitive: true,
+                        matchType: "Test string",
+                        value: "Test string",
+                    },
+                },
+                notExpression: undefined,
+                orGroup: {
+                    expressions: undefined,
+                },
+            },
+            metrics: [
+                {
+                    expression: "Test string",
+                    invisible: true,
+                    name: "Test string",
+                }            ],
+            orderBys: [
+                {
+                    desc: true,
+                    dimension: {
+                        dimensionName: "Test string",
+                        orderType: "Test string",
+                    },
+                    metric: {
+                        metricName: "Test string",
+                    },
+                    pivot: {
+                        metricName: "Test string",
+                        pivotSelections: [
+                            {
+                                dimensionName: "Test string",
+                                dimensionValue: "Test string",
+                            }                        ],
+                    },
+                }            ],
+            returnPropertyQuota: true,
         });
         /** Returns multiple pivot reports in a batch. All reports must be for the same Entity. */
         await gapi.client.analyticsdata.v1alpha.batchRunPivotReports({
