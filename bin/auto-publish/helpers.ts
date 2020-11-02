@@ -4,6 +4,8 @@ import {Settings} from './index';
 import {ensureDirectoryExists} from '../../src/utils';
 import {Octokit} from '@octokit/rest';
 import {readdirSync} from 'fs';
+import {SpawnResult} from '@expo/spawn-async';
+import {basename} from 'path';
 
 export const createOctokit = ({auth, user, thisRepo}: GitSettings) =>
   new Octokit({
@@ -25,7 +27,21 @@ export class Helpers {
 
   npmPublish = async (cwd: string): Promise<void> => {
     const cmd = 'npm publish';
-    console.log(await this.sh.trySh(cmd, cwd));
+    try {
+      await this.sh.runSh(cmd, cwd);
+    } catch (exception) {
+      if (
+        (exception as SpawnResult).stderr.includes(
+          'You cannot publish over the previously published versions'
+        )
+      ) {
+        console.warn(
+          `Revision already published for ${basename(cwd)}, skipping...`
+        );
+      } else {
+        throw exception;
+      }
+    }
   };
 
   downloadTypesBranch = async (): Promise<void> => {

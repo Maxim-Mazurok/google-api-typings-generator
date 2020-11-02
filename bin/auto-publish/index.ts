@@ -5,10 +5,6 @@ import {Helpers} from './helpers';
 import {TYPE_PREFIX} from '../../src/utils';
 import {supportedApis} from './config';
 
-if (!process.env.GH_AUTH_TOKEN) {
-  throw new Error('Please, set env var: GH_AUTH_TOKEN');
-}
-
 if (!process.env.NPM_PUBLISH_AUTOMATION_TOKEN) {
   throw new Error('Please, set env var: NPM_PUBLISH_AUTOMATION_TOKEN');
 }
@@ -24,7 +20,7 @@ const settings: Settings = {
   typesDirName: 'types',
   typesBranchName: 'types',
   user: 'Maxim-Mazurok',
-  auth: process.env.GH_AUTH_TOKEN,
+  auth: process.env.GH_AUTH_TOKEN || '', // token is optional
   thisRepo: 'google-api-typings-generator',
 };
 
