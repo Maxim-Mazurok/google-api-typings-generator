@@ -1,11 +1,11 @@
-# TypeScript typings for DCM/DFA Reporting And Trafficking API v3.4
+# TypeScript typings for Campaign Manager 360 API v3.4
 
 Manage your DoubleClick Campaign Manager ad campaigns and reports.
 For detailed description please check [documentation](https://developers.google.com/doubleclick-advertisers/).
 
 ## Installing
 
-Install typings for DCM/DFA Reporting And Trafficking API:
+Install typings for Campaign Manager 360 API:
 
 ```
 npm install @types/gapi.client.dfareporting@v3.4 --save-dev
@@ -60,7 +60,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use DCM/DFA Reporting And Trafficking API resources:
+After that you can use Campaign Manager 360 API resources:
 
 ```typescript
 

@@ -1,7 +1,7 @@
 {
   "name": "gapi.client.dfareporting",
-  "version": "3.4.20201012",
-  "description": "TypeScript typings for DCM/DFA Reporting And Trafficking API v3.4",
+  "version": "3.4.20201102",
+  "description": "TypeScript typings for Campaign Manager 360 API v3.4",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",

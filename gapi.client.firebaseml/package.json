@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.firebaseml",
-  "version": "1.0.20201028",
+  "version": "1.0.20201030",
   "description": "TypeScript typings for Firebase ML API v1",
   "license": "MIT",
   "author": {

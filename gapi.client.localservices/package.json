@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.localservices",
-  "version": "1.0.20201029",
+  "version": "1.0.20201031",
   "description": "TypeScript typings for Local Services API v1",
   "license": "MIT",
   "author": {
