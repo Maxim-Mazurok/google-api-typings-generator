@@ -1,0 +1,15 @@
+{
+  "name": "gapi.client.dialogflow",
+  "version": "2.0.20201017",
+  "description": "TypeScript typings for Dialogflow API v2",
+  "license": "MIT",
+  "author": {
+    "email": "maxim@mazurok.com",
+    "name": "Maxim Mazurok",
+    "url": "https://maxim.mazurok.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  }
+}
