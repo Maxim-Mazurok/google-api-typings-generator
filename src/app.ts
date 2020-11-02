@@ -30,14 +30,7 @@ const typesMap: {[key: string]: string} = {
   string: 'string',
 };
 
-export const excludedApis = [
-  'dialogflow',
-  'replicapool',
-  'replicapoolupdater',
-  'apigee',
-  'vision',
-  'youtube',
-];
+export const excludedApis: string[] = ['apigee'];
 
 const irregularSpaces = [
   // eslint-disable-next-line no-control-regex
