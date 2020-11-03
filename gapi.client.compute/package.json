@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.compute",
-  "version": "1.0.20201007",
+  "version": "1.0.20201019",
   "description": "TypeScript typings for Compute Engine API v1",
   "license": "MIT",
   "author": {
