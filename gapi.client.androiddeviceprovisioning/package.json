@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.androiddeviceprovisioning",
-  "version": "1.0.20201027",
+  "version": "1.0.20201031",
   "description": "TypeScript typings for Android Device Provisioning Partner API v1",
   "license": "MIT",
   "author": {

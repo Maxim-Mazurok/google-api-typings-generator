@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.policytroubleshooter",
-  "version": "1.0.20201023",
+  "version": "1.0.20201031",
   "description": "TypeScript typings for Policy Troubleshooter API v1",
   "license": "MIT",
   "author": {
