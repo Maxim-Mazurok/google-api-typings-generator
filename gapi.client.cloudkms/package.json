@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.cloudkms",
-  "version": "1.0.20201016",
+  "version": "1.0.20201102",
   "description": "TypeScript typings for Cloud Key Management Service (KMS) API v1",
   "license": "MIT",
   "author": {
