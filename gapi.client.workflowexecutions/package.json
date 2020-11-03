@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.workflowexecutions",
-  "version": "1.0.20201022",
+  "version": "1.0.20201030",
   "description": "TypeScript typings for Workflow Executions API v1beta",
   "license": "MIT",
   "author": {
