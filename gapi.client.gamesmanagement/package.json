@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.gamesmanagement",
-  "version": "1.0.20201022",
+  "version": "1.0.20201029",
   "description": "TypeScript typings for Google Play Game Management v1management",
   "license": "MIT",
   "author": {
