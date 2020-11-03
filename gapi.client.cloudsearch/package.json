@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.cloudsearch",
-  "version": "1.0.20201013",
+  "version": "1.0.20201027",
   "description": "TypeScript typings for Cloud Search API v1",
   "license": "MIT",
   "author": {
