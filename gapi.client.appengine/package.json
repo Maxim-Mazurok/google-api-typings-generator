@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.appengine",
-  "version": "1.0.20201025",
+  "version": "1.0.20201028",
   "description": "TypeScript typings for App Engine Admin API v1",
   "license": "MIT",
   "author": {
