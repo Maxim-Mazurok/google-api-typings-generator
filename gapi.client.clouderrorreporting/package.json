@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.clouderrorreporting",
-  "version": "1.0.20201020",
+  "version": "1.0.20201028",
   "description": "TypeScript typings for Error Reporting API v1beta1",
   "license": "MIT",
   "author": {
