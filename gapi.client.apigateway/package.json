@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.apigateway",
-  "version": "1.0.20201022",
+  "version": "1.0.20201029",
   "description": "TypeScript typings for API Gateway API v1beta",
   "license": "MIT",
   "author": {

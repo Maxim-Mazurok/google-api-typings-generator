@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.indexing",
-  "version": "3.0.20201020",
+  "version": "3.0.20201027",
   "description": "TypeScript typings for Indexing API v3",
   "license": "MIT",
   "author": {

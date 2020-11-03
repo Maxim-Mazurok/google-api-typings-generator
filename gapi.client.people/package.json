@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.people",
-  "version": "1.0.20201028",
+  "version": "1.0.20201102",
   "description": "TypeScript typings for People API v1",
   "license": "MIT",
   "author": {
