@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.osconfig",
-  "version": "1.0.20201023",
+  "version": "1.0.20201030",
   "description": "TypeScript typings for OS Config API v1",
   "license": "MIT",
   "author": {
