@@ -11,5 +11,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/gapi.client": "*"
   }
 }
