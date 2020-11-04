@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.servicedirectory",
-  "version": "1.0.20201022",
+  "version": "1.0.20201029",
   "description": "TypeScript typings for Service Directory API v1beta1",
   "license": "MIT",
   "author": {
