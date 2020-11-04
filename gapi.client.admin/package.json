@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.admin",
-  "version": "1.0.20201027",
+  "version": "1.0.20201031",
   "description": "TypeScript typings for Admin SDK reports_v1",
   "license": "MIT",
   "author": {
