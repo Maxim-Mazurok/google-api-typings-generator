@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.customsearch",
-  "version": "1.0.20201031",
+  "version": "1.0.20201103",
   "description": "TypeScript typings for Custom Search API v1",
   "license": "MIT",
   "author": {

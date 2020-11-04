@@ -1,7 +1,7 @@
 {
-  "name": "gapi.client.cloudbuild",
-  "version": "1.0.20201029",
-  "description": "TypeScript typings for Cloud Build API v1",
+  "name": "gapi.client.securitycenter",
+  "version": "1.0.20201030",
+  "description": "TypeScript typings for Security Command Center API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
