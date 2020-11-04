@@ -1,7 +1,6 @@
 /* Type definitions for non-npm package Blogger API v3 v3 3.0 */
 // Project: https://developers.google.com/blogger/docs/3.0/getting_started
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
-//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
 //                 Nick Amoscato <https://github.com/namoscato>
 //                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped

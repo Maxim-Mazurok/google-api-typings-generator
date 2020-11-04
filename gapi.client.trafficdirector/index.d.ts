@@ -1,7 +1,6 @@
 /* Type definitions for non-npm package Traffic Director API v2 2.0 */
 // Project: https://www.envoyproxy.io/docs/envoy/latest/configuration/overview/v2_overview#management-server
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
-//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
 //                 Nick Amoscato <https://github.com/namoscato>
 //                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped

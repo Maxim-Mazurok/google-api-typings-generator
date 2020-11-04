@@ -1,7 +1,6 @@
 /* Type definitions for non-npm package Cloud Deployment Manager V2 API v2 2.0 */
 // Project: http://cloud.google.com/deployment-manager
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
-//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
 //                 Nick Amoscato <https://github.com/namoscato>
 //                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped

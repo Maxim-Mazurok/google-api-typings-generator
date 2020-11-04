@@ -1,7 +1,6 @@
 /* Type definitions for non-npm package Google Analytics Admin API v1alpha 1.0 */
 // Project: http://code.google.com/apis/analytics/docs/mgmt/home.html
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
-//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
 //                 Nick Amoscato <https://github.com/namoscato>
 //                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped

@@ -1,7 +1,6 @@
 /* Type definitions for non-npm package Cloud Tasks API v2 2.0 */
 // Project: https://cloud.google.com/tasks/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
-//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
 //                 Nick Amoscato <https://github.com/namoscato>
 //                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped

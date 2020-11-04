@@ -1,7 +1,6 @@
 /* Type definitions for non-npm package AdSense Host API v4.1 4.1 */
 // Project: https://developers.google.com/adsense/host/
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
-//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
 //                 Nick Amoscato <https://github.com/namoscato>
 //                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped

@@ -1,7 +1,6 @@
 /* Type definitions for non-npm package Ad Exchange Buyer API v1.4 1.4 */
 // Project: https://developers.google.com/ad-exchange/buyer-rest
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
-//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
 //                 Nick Amoscato <https://github.com/namoscato>
 //                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
