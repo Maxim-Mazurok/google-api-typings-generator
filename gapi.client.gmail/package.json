@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.gmail",
-  "version": "1.0.20201026",
+  "version": "1.0.20201102",
   "description": "TypeScript typings for Gmail API v1",
   "license": "MIT",
   "author": {

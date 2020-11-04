@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.youtube",
-  "version": "3.0.20201101",
+  "version": "3.0.20201104",
   "description": "TypeScript typings for YouTube Data API v3 v3",
   "license": "MIT",
   "author": {
