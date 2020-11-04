@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.deploymentmanager",
-  "version": "2.0.20201022",
+  "version": "2.0.20201102",
   "description": "TypeScript typings for Cloud Deployment Manager V2 API v2",
   "license": "MIT",
   "author": {

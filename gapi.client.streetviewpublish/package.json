@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.streetviewpublish",
-  "version": "1.0.20201102",
+  "version": "1.0.20201103",
   "description": "TypeScript typings for Street View Publish API v1",
   "license": "MIT",
   "author": {

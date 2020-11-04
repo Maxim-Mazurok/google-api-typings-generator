@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.servicenetworking",
-  "version": "1.0.20201102",
+  "version": "1.0.20201104",
   "description": "TypeScript typings for Service Networking API v1",
   "license": "MIT",
   "author": {
