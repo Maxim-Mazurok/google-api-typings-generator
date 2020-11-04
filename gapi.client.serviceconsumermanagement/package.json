@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.serviceconsumermanagement",
-  "version": "1.0.20201102",
+  "version": "1.0.20201103",
   "description": "TypeScript typings for Service Consumer Management API v1",
   "license": "MIT",
   "author": {
