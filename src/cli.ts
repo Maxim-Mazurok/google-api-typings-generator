@@ -43,7 +43,6 @@ console.info(`Output directory: ${params.out}`);
     bannedTypes: await getBannedTypes(),
     owners: [
       'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
-      'Google API Typings Generator <https://github.com/google-api-typings-generator>',
       'Nick Amoscato <https://github.com/namoscato>',
       'Declan Vong <https://github.com/declanvong>',
     ],
