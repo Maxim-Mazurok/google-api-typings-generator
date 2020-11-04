@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201027
+// Revision: 20201102
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -2508,6 +2508,15 @@ gapi.load('client', () => {
                                                 }                                            ],
                                             criteria: {
                                                 A: {
+                                                    condition: {
+                                                        type: "Test string",
+                                                        values: [
+                                                            {
+                                                                relativeDate: "Test string",
+                                                                userEnteredValue: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    visibleByDefault: true,
                                                     visibleValues: [
                                                         "Test string"                                                    ],
                                                 }                                            },
@@ -2525,6 +2534,15 @@ gapi.load('client', () => {
                                                         name: "Test string",
                                                     },
                                                     filterCriteria: {
+                                                        condition: {
+                                                            type: "Test string",
+                                                            values: [
+                                                                {
+                                                                    relativeDate: "Test string",
+                                                                    userEnteredValue: "Test string",
+                                                                }                                                            ],
+                                                        },
+                                                        visibleByDefault: true,
                                                         visibleValues: [
                                                             "Test string"                                                        ],
                                                     },
@@ -3469,6 +3487,15 @@ gapi.load('client', () => {
                                     }                                ],
                                 criteria: {
                                     A: {
+                                        condition: {
+                                            type: "Test string",
+                                            values: [
+                                                {
+                                                    relativeDate: "Test string",
+                                                    userEnteredValue: "Test string",
+                                                }                                            ],
+                                        },
+                                        visibleByDefault: true,
                                         visibleValues: [
                                             "Test string"                                        ],
                                     }                                },
@@ -3486,6 +3513,15 @@ gapi.load('client', () => {
                                             name: "Test string",
                                         },
                                         filterCriteria: {
+                                            condition: {
+                                                type: "Test string",
+                                                values: [
+                                                    {
+                                                        relativeDate: "Test string",
+                                                        userEnteredValue: "Test string",
+                                                    }                                                ],
+                                            },
+                                            visibleByDefault: true,
                                             visibleValues: [
                                                 "Test string"                                            ],
                                         },
@@ -4641,6 +4677,15 @@ gapi.load('client', () => {
                                                 }                                            ],
                                             criteria: {
                                                 A: {
+                                                    condition: {
+                                                        type: "Test string",
+                                                        values: [
+                                                            {
+                                                                relativeDate: "Test string",
+                                                                userEnteredValue: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    visibleByDefault: true,
                                                     visibleValues: [
                                                         "Test string"                                                    ],
                                                 }                                            },
@@ -4658,6 +4703,15 @@ gapi.load('client', () => {
                                                         name: "Test string",
                                                     },
                                                     filterCriteria: {
+                                                        condition: {
+                                                            type: "Test string",
+                                                            values: [
+                                                                {
+                                                                    relativeDate: "Test string",
+                                                                    userEnteredValue: "Test string",
+                                                                }                                                            ],
+                                                        },
+                                                        visibleByDefault: true,
                                                         visibleValues: [
                                                             "Test string"                                                        ],
                                                     },
@@ -9930,6 +9984,15 @@ gapi.load('client', () => {
                                                     }                                                ],
                                                 criteria: {
                                                     A: {
+                                                        condition: {
+                                                            type: "Test string",
+                                                            values: [
+                                                                {
+                                                                    relativeDate: "Test string",
+                                                                    userEnteredValue: "Test string",
+                                                                }                                                            ],
+                                                        },
+                                                        visibleByDefault: true,
                                                         visibleValues: [
                                                             "Test string"                                                        ],
                                                     }                                                },
@@ -9947,6 +10010,15 @@ gapi.load('client', () => {
                                                             name: "Test string",
                                                         },
                                                         filterCriteria: {
+                                                            condition: {
+                                                                type: "Test string",
+                                                                values: [
+                                                                    {
+                                                                        relativeDate: "Test string",
+                                                                        userEnteredValue: "Test string",
+                                                                    }                                                                ],
+                                                            },
+                                                            visibleByDefault: true,
                                                             visibleValues: [
                                                                 "Test string"                                                            ],
                                                         },

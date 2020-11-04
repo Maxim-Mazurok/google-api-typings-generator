@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.sheets",
-  "version": "4.0.20201027",
+  "version": "4.0.20201102",
   "description": "TypeScript typings for Google Sheets API v4",
   "license": "MIT",
   "author": {

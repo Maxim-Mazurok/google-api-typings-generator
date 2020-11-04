@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.dataflow",
-  "version": "1.0.20201016",
+  "version": "1.0.20201023",
   "description": "TypeScript typings for Dataflow API v1b3",
   "license": "MIT",
   "author": {
