@@ -1,7 +1,6 @@
 /* Type definitions for non-npm package Workflow Executions API v1beta 1.0 */
 // Project: https://cloud.google.com/workflows
 // Definitions by: Maxim Mazurok <https://github.com/Maxim-Mazurok>
-//                 Google API Typings Generator <https://github.com/google-api-typings-generator>
 //                 Nick Amoscato <https://github.com/namoscato>
 //                 Declan Vong <https://github.com/declanvong>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
