@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.datamigration",
-  "version": "1.0.20201027",
+  "version": "1.0.20201028",
   "description": "TypeScript typings for Database Migration API v1beta1",
   "license": "MIT",
   "author": {
