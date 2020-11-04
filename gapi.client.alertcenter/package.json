@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.alertcenter",
-  "version": "1.0.20201031",
+  "version": "1.0.20201102",
   "description": "TypeScript typings for G Suite Alert Center API v1beta1",
   "license": "MIT",
   "author": {
