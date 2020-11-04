@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.classroom",
-  "version": "1.0.20201022",
+  "version": "1.0.20201102",
   "description": "TypeScript typings for Google Classroom API v1",
   "license": "MIT",
   "author": {

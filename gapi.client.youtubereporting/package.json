@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.youtubereporting",
-  "version": "1.0.20201031",
+  "version": "1.0.20201103",
   "description": "TypeScript typings for YouTube Reporting API v1",
   "license": "MIT",
   "author": {
