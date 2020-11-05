@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.containeranalysis",
+  "name": "@maxim_mazurok/gapi.client.containeranalysis",
   "version": "1.0.20201030",
   "description": "TypeScript typings for Container Analysis API v1beta1",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }
