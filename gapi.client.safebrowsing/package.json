@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.safebrowsing",
+  "name": "@maxim_mazurok/gapi.client.safebrowsing",
   "version": "4.0.20201024",
   "description": "TypeScript typings for Safe Browsing API v4",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }

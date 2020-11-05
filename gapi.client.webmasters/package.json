@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.webmasters",
+  "name": "@maxim_mazurok/gapi.client.webmasters",
   "version": "3.0.20190428",
   "description": "TypeScript typings for Search Console API v3",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }

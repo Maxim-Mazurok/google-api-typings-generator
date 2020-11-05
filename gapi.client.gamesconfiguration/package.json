@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.gamesconfiguration",
+  "name": "@maxim_mazurok/gapi.client.gamesconfiguration",
   "version": "1.0.20201029",
   "description": "TypeScript typings for Google Play Game Services Publishing API v1configuration",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }

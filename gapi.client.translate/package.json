@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.translate",
+  "name": "@maxim_mazurok/gapi.client.translate",
   "version": "3.0.20201030",
   "description": "TypeScript typings for Cloud Translation API v3",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }

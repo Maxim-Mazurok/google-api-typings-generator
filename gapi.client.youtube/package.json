@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.youtube",
+  "name": "@maxim_mazurok/gapi.client.youtube",
   "version": "3.0.20201104",
   "description": "TypeScript typings for YouTube Data API v3 v3",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }

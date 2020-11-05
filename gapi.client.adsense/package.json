@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.adsense",
+  "name": "@maxim_mazurok/gapi.client.adsense",
   "version": "1.4.20201002",
   "description": "TypeScript typings for AdSense Management API v1.4",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }

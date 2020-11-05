@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.privateca",
+  "name": "@maxim_mazurok/gapi.client.privateca",
   "version": "1.0.20201102",
   "description": "TypeScript typings for Certificate Authority API v1beta1",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }

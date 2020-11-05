@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.playablelocations",
+  "name": "@maxim_mazurok/gapi.client.playablelocations",
   "version": "3.0.20201104",
   "description": "TypeScript typings for Playable Locations API v3",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }

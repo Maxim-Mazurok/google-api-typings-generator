@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.analyticsreporting",
+  "name": "@maxim_mazurok/gapi.client.analyticsreporting",
   "version": "4.0.20201029",
   "description": "TypeScript typings for Analytics Reporting API v4",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }

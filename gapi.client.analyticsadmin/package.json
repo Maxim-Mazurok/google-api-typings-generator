@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.analyticsadmin",
+  "name": "@maxim_mazurok/gapi.client.analyticsadmin",
   "version": "1.0.20201104",
   "description": "TypeScript typings for Google Analytics Admin API v1alpha",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }

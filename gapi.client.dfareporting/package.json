@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.dfareporting",
+  "name": "@maxim_mazurok/gapi.client.dfareporting",
   "version": "3.4.20201102",
   "description": "TypeScript typings for Campaign Manager 360 API v3.4",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }
