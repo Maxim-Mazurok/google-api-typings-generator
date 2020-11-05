@@ -1,6 +1,6 @@
 {
-  "name": "gapi.client.eventarc",
-  "version": "1.0.20201028",
+  "name": "@maxim_mazurok/gapi.client.eventarc",
+  "version": "1.0.20201103",
   "description": "TypeScript typings for Eventarc API v1beta1",
   "license": "MIT",
   "author": {
@@ -11,5 +11,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/gapi.client": "*"
   }
 }
