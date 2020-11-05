@@ -76,6 +76,11 @@ Lists log entries. Use this method to retrieve log entries that originated from 
 await gapi.client.logging.entries.list({  });
 
 /*
+Streaming read of log entries as they are ingested. Until the stream is terminated, it will continue reading logs.
+*/
+await gapi.client.logging.entries.tail({  });
+
+/*
 Writes log entries to Logging. This API method is the only way to send log entries to Logging. This method is used, directly or indirectly, by the Logging agent (fluentd) and all logging libraries configured to use Logging. A single request may contain log entries for a maximum of 1000 different resources (projects, organizations, billing accounts or folders)
 */
 await gapi.client.logging.entries.write({  });

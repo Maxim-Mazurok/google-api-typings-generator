@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201022
+// Revision: 20201101
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -50,6 +50,14 @@ gapi.load('client', () => {
             pageToken: "Test string",
             projectIds: [
                 "Test string"            ],
+            resourceNames: [
+                "Test string"            ],
+        });
+        /** Streaming read of log entries as they are ingested. Until the stream is terminated, it will continue reading logs. */
+        await gapi.client.logging.entries.tail({
+        }, {
+            bufferWindow: "Test string",
+            filter: "Test string",
             resourceNames: [
                 "Test string"            ],
         });
@@ -717,6 +725,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+            resourceNames: "Test string",
         });
         /** Lists the descriptors for monitored resource types used by Logging. */
         await gapi.client.logging.monitoredResourceDescriptors.list({
@@ -1320,6 +1329,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+            resourceNames: "Test string",
         });
         /**
          * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted to
@@ -2037,6 +2047,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
+            resourceNames: "Test string",
         });
         /**
          * Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted to
