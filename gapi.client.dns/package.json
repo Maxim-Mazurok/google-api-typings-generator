@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.dns",
-  "version": "1.0.20201021",
+  "version": "1.0.20201029",
   "description": "TypeScript typings for Cloud DNS API v1",
   "license": "MIT",
   "author": {
