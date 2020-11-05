@@ -1,5 +1,5 @@
 {
-  "name": "gapi.client.{{=it.name}}",
+  "name": "@maxim_mazurok/gapi.client.{{=it.name}}",
   "version": "{{=it.majorAndMinorVersion}}.{{=it.revision}}",
   "description": "TypeScript typings for {{=it.title}} {{=it.version}}",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
   },
   "types": "index.d.ts",
+  "private": false,
   "dependencies": {
     "@types/gapi.client": "*"
   }
