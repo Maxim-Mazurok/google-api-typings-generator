@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201017
+// Revision: 20201030
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -95,7 +95,6 @@ gapi.load('client', () => {
                         "Test string"                    ],
                 },
                 oauthSettings: {
-                    clientId: "Test string",
                     loginHint: "Test string",
                 },
                 policyDelegationSettings: {
