@@ -26,7 +26,7 @@ export class Helpers {
   }
 
   npmPublish = async (cwd: string): Promise<void> => {
-    const cmd = 'npm publish';
+    const cmd = 'npm publish --access public';
     try {
       await this.sh.runSh(cmd, cwd);
     } catch (exception) {
