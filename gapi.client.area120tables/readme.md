@@ -79,4 +79,14 @@ await gapi.client.area120tables.tables.get({ name: "name",  });
 Lists tables for the user.
 */
 await gapi.client.area120tables.tables.list({  });
+
+/*
+Gets a workspace. Returns NOT_FOUND if the workspace does not exist.
+*/
+await gapi.client.area120tables.workspaces.get({ name: "name",  });
+
+/*
+Lists workspaces for the user.
+*/
+await gapi.client.area120tables.workspaces.list({  });
 ```

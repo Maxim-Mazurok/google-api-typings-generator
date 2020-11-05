@@ -177,5 +177,14 @@ gapi.load('client', () => {
             values: {
                 A: 42            },
         });
+        /** Gets a workspace. Returns NOT_FOUND if the workspace does not exist. */
+        await gapi.client.area120tables.workspaces.get({
+            name: "Test string",
+        });
+        /** Lists workspaces for the user. */
+        await gapi.client.area120tables.workspaces.list({
+            pageSize: 42,
+            pageToken: "Test string",
+        });
     }
 });

@@ -89,6 +89,12 @@ declare namespace gapi.client {
             /** The list of tables. */
             tables?: Table[];
         }
+        interface ListWorkspacesResponse {
+            /** A token, which can be sent as `page_token` to retrieve the next page. If this field is empty, there are no subsequent pages. */
+            nextPageToken?: string;
+            /** The list of workspaces. */
+            workspaces?: Workspace[];
+        }
         interface LookupDetails {
             /** The name of the relationship column associated with the lookup. */
             relationshipColumn?: string;
@@ -120,6 +126,14 @@ declare namespace gapi.client {
             updateMask?: string;
             /** Optional. Column key to use for values in the row. Defaults to user entered name. */
             view?: string;
+        }
+        interface Workspace {
+            /** The human readable title of the workspace. */
+            displayName?: string;
+            /** The resource name of the workspace. Workspace names have the form `workspaces/{workspace}`. */
+            name?: string;
+            /** The list of tables in the workspace. */
+            tables?: Table[];
         }
         interface RowsResource {
             /** Creates multiple rows. */
@@ -519,7 +533,73 @@ declare namespace gapi.client {
             }): Request<ListTablesResponse>;
             rows: RowsResource;
         }
+        interface WorkspacesResource {
+            /** Gets a workspace. Returns NOT_FOUND if the workspace does not exist. */
+            get(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The name of the workspace to retrieve. Format: workspaces/{workspace} */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<Workspace>;
+            /** Lists workspaces for the user. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /**
+                 * The maximum number of workspaces to return. The service may return fewer than this value. If unspecified, at most 10 workspaces are returned. The maximum value is 25; values
+                 * above 25 are coerced to 25.
+                 */
+                pageSize?: number;
+                /**
+                 * A page token, received from a previous `ListWorkspaces` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListWorkspaces`
+                 * must match the call that provided the page token.
+                 */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<ListWorkspacesResponse>;
+        }
 
         const tables: TablesResource;
+
+        const workspaces: WorkspacesResource;
     }
 }
