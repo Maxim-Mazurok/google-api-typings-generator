@@ -22,11 +22,11 @@ export class SH {
       return result;
     } catch (exception) {
       console.log(exception);
-      throw this.error(exception);
+      throw SH.error(exception);
     }
   };
 
-  error = (exception: SpawnResult): Error =>
+  static error = (exception: SpawnResult): Error =>
     new Error(
       'An error occurred:\n' +
         `Error: ${exception.stderr}\n` +

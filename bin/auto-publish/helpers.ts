@@ -39,7 +39,7 @@ export class Helpers {
           `Revision already published for ${basename(cwd)}, skipping...`
         );
       } else {
-        throw exception;
+        throw SH.error(exception);
       }
     }
   };
