@@ -1,6 +1,6 @@
 {
   "name": "gapi.client.displayvideo",
-  "version": "1.0.20201030",
+  "version": "1.0.20201103",
   "description": "TypeScript typings for Display & Video 360 API v1",
   "license": "MIT",
   "author": {
