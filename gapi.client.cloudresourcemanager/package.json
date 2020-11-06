@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.localservices",
-  "version": "1.0.20201105",
-  "description": "TypeScript typings for Local Services API v1",
+  "name": "@maxim_mazurok/gapi.client.cloudresourcemanager",
+  "version": "2.0.20201027",
+  "description": "TypeScript typings for Cloud Resource Manager API v2",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
