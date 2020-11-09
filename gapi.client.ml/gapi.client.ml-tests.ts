@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201026
+// Revision: 20201029
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -616,6 +616,14 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
+        });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
             name: "Test string",
@@ -719,6 +727,14 @@ gapi.load('client', () => {
         /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
+        });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
         });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
@@ -824,6 +840,14 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
+        });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
             name: "Test string",
@@ -927,6 +951,14 @@ gapi.load('client', () => {
         /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
+        });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
         });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
@@ -1108,6 +1140,14 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
+        });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
             name: "Test string",
@@ -1211,6 +1251,14 @@ gapi.load('client', () => {
         /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
+        });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
         });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
@@ -1316,6 +1364,14 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
+        });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
             name: "Test string",
@@ -1419,6 +1475,14 @@ gapi.load('client', () => {
         /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
+        });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
         });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
@@ -3777,6 +3841,14 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
+        });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
             name: "Test string",
@@ -3880,6 +3952,14 @@ gapi.load('client', () => {
         /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
+        });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
         });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
@@ -3985,6 +4065,14 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
+        });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
             name: "Test string",
@@ -4088,6 +4176,14 @@ gapi.load('client', () => {
         /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
+        });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
         });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
@@ -4269,6 +4365,14 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
+        });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
             name: "Test string",
@@ -4372,6 +4476,14 @@ gapi.load('client', () => {
         /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
+        });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
         });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
@@ -4477,6 +4589,14 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
+        });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
             name: "Test string",
@@ -4580,6 +4700,14 @@ gapi.load('client', () => {
         /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
+        });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
         });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
@@ -6943,6 +7071,14 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
+        });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
             name: "Test string",
@@ -7046,6 +7182,14 @@ gapi.load('client', () => {
         /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
+        });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
         });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
@@ -7151,6 +7295,14 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
+        });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
             name: "Test string",
@@ -7254,6 +7406,14 @@ gapi.load('client', () => {
         /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
+        });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
         });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
@@ -7435,6 +7595,14 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
+        });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
             name: "Test string",
@@ -7538,6 +7706,14 @@ gapi.load('client', () => {
         /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
+        });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
         });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
@@ -7643,6 +7819,14 @@ gapi.load('client', () => {
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
         });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
+        });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({
             name: "Test string",
@@ -7746,6 +7930,14 @@ gapi.load('client', () => {
         /** Lists the trials associated with a study. */
         await gapi.client.ml.projects.locations.studies.trials.list({
             parent: "Test string",
+        });
+        /**
+         * Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page.
+         * https://en.wikipedia.org/wiki/Pareto_efficiency
+         */
+        await gapi.client.ml.projects.locations.studies.trials.listOptimalTrials({
+            parent: "Test string",
+        }, {
         });
         /** Stops a trial. */
         await gapi.client.ml.projects.locations.studies.trials.stop({

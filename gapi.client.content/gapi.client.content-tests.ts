@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201029
+// Revision: 20201104
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -736,7 +736,10 @@ gapi.load('client', () => {
             datafeedId: "Test string",
             merchantId: "Test string",
         });
-        /** Invokes a fetch for the datafeed in your Merchant Center account. */
+        /**
+         * Invokes a fetch for the datafeed in your Merchant Center account. If you need to call this method more than once per day, we recommend you use the Products service to update your
+         * product data.
+         */
         await gapi.client.content.datafeeds.fetchnow({
             datafeedId: "Test string",
             merchantId: "Test string",
@@ -1690,6 +1693,114 @@ gapi.load('client', () => {
             status: "Test string",
             trackingId: "Test string",
             undeliveredDate: "Test string",
+        });
+        /** Creates new order tracking signal. */
+        await gapi.client.content.ordertrackingsignals.create({
+            merchantId: "Test string",
+        }, {
+            customerShippingFee: {
+                currency: "Test string",
+                value: "Test string",
+            },
+            deliveryPostalCode: "Test string",
+            deliveryRegionCode: "Test string",
+            lineItems: [
+                {
+                    gtin: "Test string",
+                    lineItemId: "Test string",
+                    mpn: "Test string",
+                    productId: "Test string",
+                    quantity: "Test string",
+                }            ],
+            merchantId: "Test string",
+            orderCreatedTime: {
+                day: 42,
+                hours: 42,
+                minutes: 42,
+                month: 42,
+                nanos: 42,
+                seconds: 42,
+                timeZone: {
+                    id: "Test string",
+                    version: "Test string",
+                },
+                utcOffset: "Test string",
+                year: 42,
+            },
+            orderId: "Test string",
+            orderTrackingSignalId: "Test string",
+            shipmentLineItemMapping: [
+                {
+                    lineItemId: "Test string",
+                    quantity: "Test string",
+                    shipmentId: "Test string",
+                }            ],
+            shippingInfo: [
+                {
+                    actualDeliveryTime: {
+                        day: 42,
+                        hours: 42,
+                        minutes: 42,
+                        month: 42,
+                        nanos: 42,
+                        seconds: 42,
+                        timeZone: {
+                            id: "Test string",
+                            version: "Test string",
+                        },
+                        utcOffset: "Test string",
+                        year: 42,
+                    },
+                    carrierName: "Test string",
+                    carrierServiceName: "Test string",
+                    earliestDeliveryPromiseTime: {
+                        day: 42,
+                        hours: 42,
+                        minutes: 42,
+                        month: 42,
+                        nanos: 42,
+                        seconds: 42,
+                        timeZone: {
+                            id: "Test string",
+                            version: "Test string",
+                        },
+                        utcOffset: "Test string",
+                        year: 42,
+                    },
+                    latestDeliveryPromiseTime: {
+                        day: 42,
+                        hours: 42,
+                        minutes: 42,
+                        month: 42,
+                        nanos: 42,
+                        seconds: 42,
+                        timeZone: {
+                            id: "Test string",
+                            version: "Test string",
+                        },
+                        utcOffset: "Test string",
+                        year: 42,
+                    },
+                    originPostalCode: "Test string",
+                    originRegionCode: "Test string",
+                    shipmentId: "Test string",
+                    shippedTime: {
+                        day: 42,
+                        hours: 42,
+                        minutes: 42,
+                        month: 42,
+                        nanos: 42,
+                        seconds: 42,
+                        timeZone: {
+                            id: "Test string",
+                            version: "Test string",
+                        },
+                        utcOffset: "Test string",
+                        year: 42,
+                    },
+                    shippingStatus: "Test string",
+                    trackingId: "Test string",
+                }            ],
         });
         /** Batches multiple POS-related calls in a single request. */
         await gapi.client.content.pos.custombatch({

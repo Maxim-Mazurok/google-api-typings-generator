@@ -174,7 +174,7 @@ Deletes a datafeed configuration from your Merchant Center account.
 await gapi.client.content.datafeeds.delete({ datafeedId: "datafeedId", merchantId: "merchantId",  });
 
 /*
-Invokes a fetch for the datafeed in your Merchant Center account.
+Invokes a fetch for the datafeed in your Merchant Center account. If you need to call this method more than once per day, we recommend you use the Products service to update your product data.
 */
 await gapi.client.content.datafeeds.fetchnow({ datafeedId: "datafeedId", merchantId: "merchantId",  });
 
@@ -422,6 +422,11 @@ await gapi.client.content.orders.updatemerchantorderid({ merchantId: "merchantId
 Updates a shipment's status, carrier, and/or tracking ID.
 */
 await gapi.client.content.orders.updateshipment({ merchantId: "merchantId", orderId: "orderId",  });
+
+/*
+Creates new order tracking signal.
+*/
+await gapi.client.content.ordertrackingsignals.create({ merchantId: "merchantId",  });
 
 /*
 Batches multiple POS-related calls in a single request.
