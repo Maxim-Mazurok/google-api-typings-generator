@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201024
+// Revision: 20201104
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -100,6 +100,7 @@ gapi.load('client', () => {
                             autoInstallPriority: 42,
                             minimumVersionCode: 42,
                         },
+                        autoUpdateMode: "Test string",
                         managedConfiguration: {
                             configurationVariables: {
                                 mcmId: "Test string",
