@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201104
+// Revision: 20201106
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -512,12 +512,6 @@ gapi.load('client', () => {
                         }                    ],
                     returnPropertyQuota: true,
                 }            ],
-        });
-        /**
-         * Returns metadata for dimensions and metrics available in reporting methods. Used to explore the dimensions and metrics. Dimensions and metrics will be mostly added over time, but
-         * renames and deletions may occur. This method returns Universal Metadata. Universal Metadata are dimensions and metrics applicable to any property such as `country` and `totalUsers`.
-         */
-        await gapi.client.analyticsdata.v1alpha.getUniversalMetadata({
         });
         /**
          * Returns a customized pivot report of your Google Analytics event data. Pivot reports are more advanced and expressive formats than regular reports. In a pivot report, dimensions are

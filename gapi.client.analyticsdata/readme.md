@@ -82,11 +82,6 @@ Returns multiple reports in a batch. All reports must be for the same Entity.
 await gapi.client.analyticsdata.v1alpha.batchRunReports({  });
 
 /*
-Returns metadata for dimensions and metrics available in reporting methods. Used to explore the dimensions and metrics. Dimensions and metrics will be mostly added over time, but renames and deletions may occur. This method returns Universal Metadata. Universal Metadata are dimensions and metrics applicable to any property such as `country` and `totalUsers`.
-*/
-await gapi.client.analyticsdata.v1alpha.getUniversalMetadata({  });
-
-/*
 Returns a customized pivot report of your Google Analytics event data. Pivot reports are more advanced and expressive formats than regular reports. In a pivot report, dimensions are only visible if they are included in a pivot. Multiple pivots can be specified to further dissect your data.
 */
 await gapi.client.analyticsdata.v1alpha.runPivotReport({  });
