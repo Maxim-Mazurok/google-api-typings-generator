@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201104
+// Revision: 20201107
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -34,7 +34,7 @@ gapi.load('client', () => {
         await gapi.client.admob.accounts.get({
             name: "Test string",
         });
-        /** Generates an AdMob Mediation report based on the provided report specification. */
+        /** Generates an AdMob Mediation report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses. */
         await gapi.client.admob.accounts.mediationReport.generate({
             parent: "Test string",
         }, {
@@ -77,7 +77,7 @@ gapi.load('client', () => {
                 timeZone: "Test string",
             },
         });
-        /** Generates an AdMob Network report based on the provided report specification. */
+        /** Generates an AdMob Network report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses. */
         await gapi.client.admob.accounts.networkReport.generate({
             parent: "Test string",
         }, {
@@ -125,7 +125,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /** Generates an AdMob Mediation report based on the provided report specification. */
+        /** Generates an AdMob Mediation report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses. */
         await gapi.client.admob.accounts.mediationReport.generate({
             parent: "Test string",
         }, {
@@ -168,7 +168,7 @@ gapi.load('client', () => {
                 timeZone: "Test string",
             },
         });
-        /** Generates an AdMob Network report based on the provided report specification. */
+        /** Generates an AdMob Network report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses. */
         await gapi.client.admob.accounts.networkReport.generate({
             parent: "Test string",
         }, {
