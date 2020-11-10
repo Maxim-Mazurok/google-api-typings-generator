@@ -38,6 +38,9 @@ Don't forget to authenticate your client before sending any request to resources
 var client_id = '',
   scope = [ 
       // See your AdMob data
+      'https://www.googleapis.com/auth/admob.readonly',
+
+      // See your AdMob data
       'https://www.googleapis.com/auth/admob.report',
     ],
     immediate = true;

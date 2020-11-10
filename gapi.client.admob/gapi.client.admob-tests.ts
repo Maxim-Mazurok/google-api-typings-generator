@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201107
+// Revision: 20201110
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -15,6 +15,8 @@ gapi.load('client', () => {
         /** declare client_id registered in Google Developers Console */
         const client_id = '<<PUT YOUR CLIENT ID HERE>>';
         const scope = [
+            /** See your AdMob data */
+            'https://www.googleapis.com/auth/admob.readonly',
             /** See your AdMob data */
             'https://www.googleapis.com/auth/admob.report',
         ];
