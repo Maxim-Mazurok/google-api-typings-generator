@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.notebooks",
-  "version": "1.0.20201105",
-  "description": "TypeScript typings for Notebooks API v1",
+  "name": "@maxim_mazurok/gapi.client.transcoder",
+  "version": "1.0.20201111",
+  "description": "TypeScript typings for Transcoder API v1beta1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
