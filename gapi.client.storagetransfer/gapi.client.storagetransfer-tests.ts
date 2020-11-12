@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201027
+// Revision: 20201105
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -55,6 +55,13 @@ gapi.load('client', () => {
             },
             projectId: "Test string",
             schedule: {
+                endTimeOfDay: {
+                    hours: 42,
+                    minutes: 42,
+                    nanos: 42,
+                    seconds: 42,
+                },
+                repeatInterval: "Test string",
                 scheduleEndDate: {
                     day: 42,
                     month: 42,
@@ -126,8 +133,8 @@ gapi.load('client', () => {
             pageToken: "Test string",
         });
         /**
-         * Updates a transfer job. Updating a job's transfer spec does not affect transfer operations that are running already. Updating a job's schedule is not allowed. **Note:** The job's status
-         * field can be modified using this RPC (for example, to set a job's status to DELETED, DISABLED, or ENABLED).
+         * Updates a transfer job. Updating a job's transfer spec does not affect transfer operations that are running already. **Note:** The job's status field can be modified using this RPC (for
+         * example, to set a job's status to DELETED, DISABLED, or ENABLED).
          */
         await gapi.client.storagetransfer.transferJobs.patch({
             jobName: "Test string",
@@ -148,6 +155,13 @@ gapi.load('client', () => {
                 },
                 projectId: "Test string",
                 schedule: {
+                    endTimeOfDay: {
+                        hours: 42,
+                        minutes: 42,
+                        nanos: 42,
+                        seconds: 42,
+                    },
+                    repeatInterval: "Test string",
                     scheduleEndDate: {
                         day: 42,
                         month: 42,
