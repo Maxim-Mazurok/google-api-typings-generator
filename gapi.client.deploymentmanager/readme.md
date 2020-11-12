@@ -1,7 +1,7 @@
 # TypeScript typings for Cloud Deployment Manager V2 API v2
 
 The Google Cloud Deployment Manager v2 API provides services for configuring, deploying, and viewing Google Cloud services and APIs via templates which specify deployments of Cloud resources.
-For detailed description please check [documentation](http://cloud.google.com/deployment-manager).
+For detailed description please check [documentation](https://cloud.google.com/deployment-manager).
 
 ## Installing
 
