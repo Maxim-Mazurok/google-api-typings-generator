@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201110
+// Revision: 20201111
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -200,7 +200,7 @@ gapi.load('client', () => {
             syncToken: "Test string",
         });
         /**
-         * Create a new contact and return the person resource for that contact. The request throws a 400 error if more than one field is specified on a field that is a singleton for contact
+         * Create a new contact and return the person resource for that contact. The request returns a 400 error if more than one field is specified on a field that is a singleton for contact
          * sources: * biographies * birthdays * genders * names
          */
         await gapi.client.people.people.createContact({
@@ -976,7 +976,10 @@ gapi.load('client', () => {
                     value: "Test string",
                 }            ],
         });
-        /** Provides a list of the authenticated user's contacts. The request throws a 400 error if 'personFields' is not specified. */
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -992,7 +995,10 @@ gapi.load('client', () => {
         await gapi.client.people.people.deleteContact({
             resourceName: "Test string",
         });
-        /** Provides a list of the authenticated user's contacts. The request throws a 400 error if 'personFields' is not specified. */
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1010,26 +1016,10 @@ gapi.load('client', () => {
             resourceName: "Test string",
             sources: "Test string",
         });
-        /** Provides a list of the authenticated user's contacts. The request throws a 400 error if 'personFields' is not specified. */
-        await gapi.client.people.people.connections.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            personFields: "Test string",
-            "requestMask.includeField": "Test string",
-            requestSyncToken: true,
-            resourceName: "Test string",
-            sortOrder: "Test string",
-            sources: "Test string",
-            syncToken: "Test string",
-        });
-        /** Provides information about a person by specifying a resource name. Use `people/me` to indicate the authenticated user. The request throws a 400 error if 'personFields' is not specified. */
-        await gapi.client.people.people.get({
-            personFields: "Test string",
-            "requestMask.includeField": "Test string",
-            resourceName: "Test string",
-            sources: "Test string",
-        });
-        /** Provides a list of the authenticated user's contacts. The request throws a 400 error if 'personFields' is not specified. */
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1042,8 +1032,33 @@ gapi.load('client', () => {
             syncToken: "Test string",
         });
         /**
-         * Provides information about a list of specific people by specifying a list of requested resource names. Use `people/me` to indicate the authenticated user. The request throws a 400 error
-         * if 'personFields' is not specified.
+         * Provides information about a person by specifying a resource name. Use `people/me` to indicate the authenticated user. The request returns a 400 error if 'personFields' is not
+         * specified.
+         */
+        await gapi.client.people.people.get({
+            personFields: "Test string",
+            "requestMask.includeField": "Test string",
+            resourceName: "Test string",
+            sources: "Test string",
+        });
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         */
+        await gapi.client.people.people.connections.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            personFields: "Test string",
+            "requestMask.includeField": "Test string",
+            requestSyncToken: true,
+            resourceName: "Test string",
+            sortOrder: "Test string",
+            sources: "Test string",
+            syncToken: "Test string",
+        });
+        /**
+         * Provides information about a list of specific people by specifying a list of requested resource names. Use `people/me` to indicate the authenticated user. The request returns a 400
+         * error if 'personFields' is not specified.
          */
         await gapi.client.people.people.getBatchGet({
             personFields: "Test string",
@@ -1051,7 +1066,10 @@ gapi.load('client', () => {
             resourceNames: "Test string",
             sources: "Test string",
         });
-        /** Provides a list of the authenticated user's contacts. The request throws a 400 error if 'personFields' is not specified. */
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1073,7 +1091,10 @@ gapi.load('client', () => {
             sources: "Test string",
             syncToken: "Test string",
         });
-        /** Provides a list of the authenticated user's contacts. The request throws a 400 error if 'personFields' is not specified. */
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1094,7 +1115,10 @@ gapi.load('client', () => {
             readMask: "Test string",
             sources: "Test string",
         });
-        /** Provides a list of the authenticated user's contacts. The request throws a 400 error if 'personFields' is not specified. */
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1889,7 +1913,10 @@ gapi.load('client', () => {
                     value: "Test string",
                 }            ],
         });
-        /** Provides a list of the authenticated user's contacts. The request throws a 400 error if 'personFields' is not specified. */
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1910,7 +1937,10 @@ gapi.load('client', () => {
             sources: [
                 "Test string"            ],
         });
-        /** Provides a list of the authenticated user's contacts. The request throws a 400 error if 'personFields' is not specified. */
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
             pageToken: "Test string",

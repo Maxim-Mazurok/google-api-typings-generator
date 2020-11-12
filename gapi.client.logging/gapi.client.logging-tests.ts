@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201101
+// Revision: 20201105
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -208,7 +208,7 @@ gapi.load('client', () => {
         await gapi.client.logging.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -248,7 +248,7 @@ gapi.load('client', () => {
         await gapi.client.logging.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -265,7 +265,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Gets a bucket (Beta). */
+        /** Gets a bucket. */
         await gapi.client.logging.locations.buckets.get({
             name: "Test string",
         });
@@ -288,7 +288,7 @@ gapi.load('client', () => {
         await gapi.client.logging.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -305,7 +305,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Lists buckets (Beta). */
+        /** Lists buckets. */
         await gapi.client.logging.locations.buckets.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -330,7 +330,7 @@ gapi.load('client', () => {
         await gapi.client.logging.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -350,7 +350,7 @@ gapi.load('client', () => {
         /**
          * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the bucket
          * is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be modified after
-         * it is created. This method is in Beta.
+         * it is created.
          */
         await gapi.client.logging.locations.buckets.patch({
             name: "Test string",
@@ -383,7 +383,7 @@ gapi.load('client', () => {
         await gapi.client.logging.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -424,7 +424,7 @@ gapi.load('client', () => {
         await gapi.client.logging.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -480,7 +480,7 @@ gapi.load('client', () => {
         await gapi.client.logging.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -520,7 +520,7 @@ gapi.load('client', () => {
         await gapi.client.logging.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -537,7 +537,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Gets a bucket (Beta). */
+        /** Gets a bucket. */
         await gapi.client.logging.locations.buckets.get({
             name: "Test string",
         });
@@ -560,7 +560,7 @@ gapi.load('client', () => {
         await gapi.client.logging.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -577,7 +577,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Lists buckets (Beta). */
+        /** Lists buckets. */
         await gapi.client.logging.locations.buckets.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -602,7 +602,7 @@ gapi.load('client', () => {
         await gapi.client.logging.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -622,7 +622,7 @@ gapi.load('client', () => {
         /**
          * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the bucket
          * is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be modified after
-         * it is created. This method is in Beta.
+         * it is created.
          */
         await gapi.client.logging.locations.buckets.patch({
             name: "Test string",
@@ -655,7 +655,7 @@ gapi.load('client', () => {
         await gapi.client.logging.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -696,7 +696,7 @@ gapi.load('client', () => {
         await gapi.client.logging.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -812,7 +812,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -852,7 +852,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -869,7 +869,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Gets a bucket (Beta). */
+        /** Gets a bucket. */
         await gapi.client.logging.organizations.locations.buckets.get({
             name: "Test string",
         });
@@ -892,7 +892,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -909,7 +909,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Lists buckets (Beta). */
+        /** Lists buckets. */
         await gapi.client.logging.organizations.locations.buckets.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -934,7 +934,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -954,7 +954,7 @@ gapi.load('client', () => {
         /**
          * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the bucket
          * is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be modified after
-         * it is created. This method is in Beta.
+         * it is created.
          */
         await gapi.client.logging.organizations.locations.buckets.patch({
             name: "Test string",
@@ -987,7 +987,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1028,7 +1028,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1084,7 +1084,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1124,7 +1124,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1141,7 +1141,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Gets a bucket (Beta). */
+        /** Gets a bucket. */
         await gapi.client.logging.organizations.locations.buckets.get({
             name: "Test string",
         });
@@ -1164,7 +1164,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1181,7 +1181,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Lists buckets (Beta). */
+        /** Lists buckets. */
         await gapi.client.logging.organizations.locations.buckets.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1206,7 +1206,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1226,7 +1226,7 @@ gapi.load('client', () => {
         /**
          * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the bucket
          * is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be modified after
-         * it is created. This method is in Beta.
+         * it is created.
          */
         await gapi.client.logging.organizations.locations.buckets.patch({
             name: "Test string",
@@ -1259,7 +1259,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1300,7 +1300,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1530,7 +1530,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1570,7 +1570,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1587,7 +1587,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Gets a bucket (Beta). */
+        /** Gets a bucket. */
         await gapi.client.logging.organizations.locations.buckets.get({
             name: "Test string",
         });
@@ -1610,7 +1610,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1627,7 +1627,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Lists buckets (Beta). */
+        /** Lists buckets. */
         await gapi.client.logging.organizations.locations.buckets.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1652,7 +1652,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1672,7 +1672,7 @@ gapi.load('client', () => {
         /**
          * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the bucket
          * is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be modified after
-         * it is created. This method is in Beta.
+         * it is created.
          */
         await gapi.client.logging.organizations.locations.buckets.patch({
             name: "Test string",
@@ -1705,7 +1705,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1746,7 +1746,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1802,7 +1802,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1842,7 +1842,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1859,7 +1859,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Gets a bucket (Beta). */
+        /** Gets a bucket. */
         await gapi.client.logging.organizations.locations.buckets.get({
             name: "Test string",
         });
@@ -1882,7 +1882,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1899,7 +1899,7 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Lists buckets (Beta). */
+        /** Lists buckets. */
         await gapi.client.logging.organizations.locations.buckets.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1924,7 +1924,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -1944,7 +1944,7 @@ gapi.load('client', () => {
         /**
          * Updates a bucket. This method replaces the following fields in the existing bucket with values from the new bucket: retention_periodIf the retention period is decreased and the bucket
          * is locked, FAILED_PRECONDITION will be returned.If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION will be returned.A buckets region may not be modified after
-         * it is created. This method is in Beta.
+         * it is created.
          */
         await gapi.client.logging.organizations.locations.buckets.patch({
             name: "Test string",
@@ -1977,7 +1977,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",
@@ -2018,7 +2018,7 @@ gapi.load('client', () => {
         await gapi.client.logging.organizations.locations.buckets.views.get({
             name: "Test string",
         });
-        /** Lists views on a bucket.. */
+        /** Lists views on a bucket. */
         await gapi.client.logging.organizations.locations.buckets.views.list({
             pageSize: 42,
             pageToken: "Test string",

@@ -132,7 +132,7 @@ List all "Other contacts", that is contacts that are not in a contact group. "Ot
 await gapi.client.people.otherContacts.list({  });
 
 /*
-Create a new contact and return the person resource for that contact. The request throws a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies * birthdays * genders * names
+Create a new contact and return the person resource for that contact. The request returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies * birthdays * genders * names
 */
 await gapi.client.people.people.createContact({  });
 
@@ -147,12 +147,12 @@ Delete a contact's photo.
 await gapi.client.people.people.deleteContactPhoto({ resourceName: "resourceName",  });
 
 /*
-Provides information about a person by specifying a resource name. Use `people/me` to indicate the authenticated user. The request throws a 400 error if 'personFields' is not specified.
+Provides information about a person by specifying a resource name. Use `people/me` to indicate the authenticated user. The request returns a 400 error if 'personFields' is not specified.
 */
 await gapi.client.people.people.get({ resourceName: "resourceName",  });
 
 /*
-Provides information about a list of specific people by specifying a list of requested resource names. Use `people/me` to indicate the authenticated user. The request throws a 400 error if 'personFields' is not specified.
+Provides information about a list of specific people by specifying a list of requested resource names. Use `people/me` to indicate the authenticated user. The request returns a 400 error if 'personFields' is not specified.
 */
 await gapi.client.people.people.getBatchGet({  });
 
