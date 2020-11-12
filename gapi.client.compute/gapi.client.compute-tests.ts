@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201019
+// Revision: 20201022
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -2982,7 +2982,10 @@ gapi.load('client', () => {
             size: 42,
             zone: "Test string",
         });
-        /** Specifies the instance template to use when creating new instances in this group. The templates for existing instances in the group do not change unless you recreate them. */
+        /**
+         * Specifies the instance template to use when creating new instances in this group. The templates for existing instances in the group do not change unless you run recreateInstances, run
+         * applyUpdatesToInstances, or set the group's updatePolicy.type to PROACTIVE.
+         */
         await gapi.client.compute.instanceGroupManagers.setInstanceTemplate({
             instanceGroupManager: "Test string",
             project: "Test string",
@@ -5616,6 +5619,7 @@ gapi.load('client', () => {
             filter: {
                 cidrRanges: [
                     "Test string"                ],
+                direction: "Test string",
                 IPProtocols: [
                     "Test string"                ],
             },
@@ -5671,6 +5675,7 @@ gapi.load('client', () => {
             filter: {
                 cidrRanges: [
                     "Test string"                ],
+                direction: "Test string",
                 IPProtocols: [
                     "Test string"                ],
             },
@@ -10268,6 +10273,7 @@ gapi.load('client', () => {
                 {
                     drainNatIps: [
                         "Test string"                    ],
+                    enableEndpointIndependentMapping: true,
                     icmpIdleTimeoutSec: 42,
                     logConfig: {
                         enable: true,
@@ -10358,6 +10364,7 @@ gapi.load('client', () => {
                 {
                     drainNatIps: [
                         "Test string"                    ],
+                    enableEndpointIndependentMapping: true,
                     icmpIdleTimeoutSec: 42,
                     logConfig: {
                         enable: true,
@@ -10437,6 +10444,7 @@ gapi.load('client', () => {
                 {
                     drainNatIps: [
                         "Test string"                    ],
+                    enableEndpointIndependentMapping: true,
                     icmpIdleTimeoutSec: 42,
                     logConfig: {
                         enable: true,
@@ -10520,6 +10528,7 @@ gapi.load('client', () => {
                 {
                     drainNatIps: [
                         "Test string"                    ],
+                    enableEndpointIndependentMapping: true,
                     icmpIdleTimeoutSec: 42,
                     logConfig: {
                         enable: true,

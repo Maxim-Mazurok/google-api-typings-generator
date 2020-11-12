@@ -796,7 +796,7 @@ If the group is part of a backend service that has enabled connection draining, 
 await gapi.client.compute.instanceGroupManagers.resize({ instanceGroupManager: "instanceGroupManager", project: "project", size: 1, zone: "zone",  });
 
 /*
-Specifies the instance template to use when creating new instances in this group. The templates for existing instances in the group do not change unless you recreate them.
+Specifies the instance template to use when creating new instances in this group. The templates for existing instances in the group do not change unless you run recreateInstances, run applyUpdatesToInstances, or set the group's updatePolicy.type to PROACTIVE.
 */
 await gapi.client.compute.instanceGroupManagers.setInstanceTemplate({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
