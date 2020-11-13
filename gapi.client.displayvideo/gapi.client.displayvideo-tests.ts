@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201105
+// Revision: 20201112
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1589,7 +1589,7 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             triggerId: "Test string",
         });
-        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        /** Lists manual triggers that are accessible to the current user for a given advertiser ID. The order is defined by the order_by parameter. A single advertiser_id is required. */
         await gapi.client.displayvideo.advertisers.manualTriggers.list({
             advertiserId: "Test string",
             filter: "Test string",
@@ -3658,7 +3658,7 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             triggerId: "Test string",
         });
-        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        /** Lists manual triggers that are accessible to the current user for a given advertiser ID. The order is defined by the order_by parameter. A single advertiser_id is required. */
         await gapi.client.displayvideo.advertisers.manualTriggers.list({
             advertiserId: "Test string",
             filter: "Test string",
@@ -5469,7 +5469,7 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             triggerId: "Test string",
         });
-        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        /** Lists manual triggers that are accessible to the current user for a given advertiser ID. The order is defined by the order_by parameter. A single advertiser_id is required. */
         await gapi.client.displayvideo.advertisers.manualTriggers.list({
             advertiserId: "Test string",
             filter: "Test string",
@@ -7323,7 +7323,7 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             triggerId: "Test string",
         });
-        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        /** Lists manual triggers that are accessible to the current user for a given advertiser ID. The order is defined by the order_by parameter. A single advertiser_id is required. */
         await gapi.client.displayvideo.advertisers.manualTriggers.list({
             advertiserId: "Test string",
             filter: "Test string",
@@ -9130,7 +9130,7 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             triggerId: "Test string",
         });
-        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        /** Lists manual triggers that are accessible to the current user for a given advertiser ID. The order is defined by the order_by parameter. A single advertiser_id is required. */
         await gapi.client.displayvideo.advertisers.manualTriggers.list({
             advertiserId: "Test string",
             filter: "Test string",
@@ -10937,7 +10937,7 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             triggerId: "Test string",
         });
-        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        /** Lists manual triggers that are accessible to the current user for a given advertiser ID. The order is defined by the order_by parameter. A single advertiser_id is required. */
         await gapi.client.displayvideo.advertisers.manualTriggers.list({
             advertiserId: "Test string",
             filter: "Test string",
@@ -12748,7 +12748,7 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             triggerId: "Test string",
         });
-        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        /** Lists manual triggers that are accessible to the current user for a given advertiser ID. The order is defined by the order_by parameter. A single advertiser_id is required. */
         await gapi.client.displayvideo.advertisers.manualTriggers.list({
             advertiserId: "Test string",
             filter: "Test string",
@@ -14604,7 +14604,7 @@ gapi.load('client', () => {
             advertiserId: "Test string",
             triggerId: "Test string",
         });
-        /** Lists manual triggers that are accessible to the current user for a given advertiser id. The order is defined by the order_by parameter. A single advertiser_id is required. */
+        /** Lists manual triggers that are accessible to the current user for a given advertiser ID. The order is defined by the order_by parameter. A single advertiser_id is required. */
         await gapi.client.displayvideo.advertisers.manualTriggers.list({
             advertiserId: "Test string",
             filter: "Test string",
