@@ -89,13 +89,13 @@ The generated type definitions are linted via [`dtslint`](https://github.com/Mic
 
 A single project can be linted via:
 
-```
+```sh
 npm run dtslint types/<project-directory>
 ```
 
 All projects can be linted in parallel via:
 
-```
+```sh
 GAPI_MAX_PARALLEL=3 npm run lint
 ```
 
@@ -104,7 +104,7 @@ GAPI_MAX_PARALLEL=3 npm run lint
 Unit tests for this generator project are written with [Jasmine](https://jasmine.github.io/) and
 [Mocha](https://mochajs.org/). They can be run via:
 
-```
+```sh
 npm run test
 ```
 
@@ -117,6 +117,22 @@ To invoke the automatic code fixer, run:
 ```sh
 npm run fix
 ```
+
+### Publishing to DefinitelyTypes @types
+
+**Do not publish types to DT directly**
+
+We've [switched](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/49235) to publishing "real" types to npm as `@maxim_mazurok/gapi.client.*` and then referencing them in `@types/gapi.client.*` so that we can release updates automatically and quickly, without using too much human resources of DT.
+
+1. Run this script:
+
+   ```sh
+   npx ts-node ./src/dt/cli.ts -o ~/DefinitelyTyped/types
+   ```
+
+   , where `~/DefinitelyTyped` is the path to your local clone of [DT repo](https://github.com/DefinitelyTyped/DefinitelyTyped)
+
+1. Commit to your branch, push to your fork and open PR
 
 ## Details
 
