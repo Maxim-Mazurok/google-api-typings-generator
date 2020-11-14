@@ -3,7 +3,7 @@ import path from 'path';
 import request from 'request';
 import sortObject from 'deep-sort-object';
 import {ensureDirectoryExists, getTypeDirectory, parseVersion} from '../utils';
-import {Template} from './template-dt';
+import {Template} from './template';
 import {ProxySetting} from 'get-proxy-settings';
 import {excludedApis} from '../app';
 
