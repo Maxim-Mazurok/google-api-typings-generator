@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201023
+// Revision: 20201106
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -4043,6 +4043,9 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 parameters: {
                     A: "Test string"                },
+                transformNameMappings: {
+                    A: "Test string"                },
+                update: true,
             },
             validateOnly: true,
         });
@@ -11848,6 +11851,9 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 parameters: {
                     A: "Test string"                },
+                transformNameMappings: {
+                    A: "Test string"                },
+                update: true,
             },
             validateOnly: true,
         });
