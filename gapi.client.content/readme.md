@@ -524,6 +524,31 @@ Update the regional inventory of a product in your Merchant Center account. If a
 await gapi.client.content.regionalinventory.insert({ merchantId: "merchantId", productId: "productId",  });
 
 /*
+Creates a region definition in your Merchant Center account.
+*/
+await gapi.client.content.regions.create({ merchantId: "merchantId",  });
+
+/*
+Deletes a region definition from your Merchant Center account.
+*/
+await gapi.client.content.regions.delete({ merchantId: "merchantId", regionId: "regionId",  });
+
+/*
+Retrieves a region defined in your Merchant Center account.
+*/
+await gapi.client.content.regions.get({ merchantId: "merchantId", regionId: "regionId",  });
+
+/*
+Lists the regions in your Merchant Center account.
+*/
+await gapi.client.content.regions.list({ merchantId: "merchantId",  });
+
+/*
+Updates a region definition in your Merchant Center account.
+*/
+await gapi.client.content.regions.patch({ merchantId: "merchantId", regionId: "regionId",  });
+
+/*
 Creates a repricing rule for your Merchant Center account.
 */
 await gapi.client.content.repricingrules.create({ merchantId: "merchantId",  });

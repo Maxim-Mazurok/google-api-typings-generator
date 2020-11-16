@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201104
+// Revision: 20201113
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -2371,6 +2371,69 @@ gapi.load('client', () => {
                 value: "Test string",
             },
             salePriceEffectiveDate: "Test string",
+        });
+        /** Creates a region definition in your Merchant Center account. */
+        await gapi.client.content.regions.create({
+            merchantId: "Test string",
+            regionId: "Test string",
+        }, {
+            displayName: "Test string",
+            geotargetArea: {
+                geotargetCriteriaIds: [
+                    "Test string"                ],
+            },
+            merchantId: "Test string",
+            postalCodeArea: {
+                postalCodes: [
+                    {
+                        begin: "Test string",
+                        end: "Test string",
+                    }                ],
+                regionCode: "Test string",
+            },
+            regionalInventoryEligible: true,
+            regionId: "Test string",
+            shippingEligible: true,
+        });
+        /** Deletes a region definition from your Merchant Center account. */
+        await gapi.client.content.regions.delete({
+            merchantId: "Test string",
+            regionId: "Test string",
+        });
+        /** Retrieves a region defined in your Merchant Center account. */
+        await gapi.client.content.regions.get({
+            merchantId: "Test string",
+            regionId: "Test string",
+        });
+        /** Lists the regions in your Merchant Center account. */
+        await gapi.client.content.regions.list({
+            merchantId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Updates a region definition in your Merchant Center account. */
+        await gapi.client.content.regions.patch({
+            merchantId: "Test string",
+            regionId: "Test string",
+            updateMask: "Test string",
+        }, {
+            displayName: "Test string",
+            geotargetArea: {
+                geotargetCriteriaIds: [
+                    "Test string"                ],
+            },
+            merchantId: "Test string",
+            postalCodeArea: {
+                postalCodes: [
+                    {
+                        begin: "Test string",
+                        end: "Test string",
+                    }                ],
+                regionCode: "Test string",
+            },
+            regionalInventoryEligible: true,
+            regionId: "Test string",
+            shippingEligible: true,
         });
         /** Creates a repricing rule for your Merchant Center account. */
         await gapi.client.content.repricingrules.create({
