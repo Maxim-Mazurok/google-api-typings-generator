@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.vectortile",
-  "version": "1.0.20201112",
+  "version": "1.0.20201114",
   "description": "TypeScript typings for Semantic Tile API v1",
   "license": "MIT",
   "author": {
