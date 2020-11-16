@@ -40,12 +40,14 @@ process.on('unhandledRejection', reason => {
 
   // Do the job
   const allTypes = helpers.getAllTypes();
+  console.log({allTypes});
 
   for (const type of allTypes) {
     if (supportedTypes.indexOf(type) === -1) {
       continue;
     }
 
+    console.log(`Publishing ${type}...`);
     helpers.npmPublish(join(process.cwd(), settings.typesDirName, type));
   }
 })();
