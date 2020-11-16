@@ -8,7 +8,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('artifactregistry', 'v1beta1', () => {
+    gapi.client.load('artifactregistry', 'v1beta2', () => {
         /** now we can use gapi.client.artifactregistry */
 
         /** don't forget to authenticate your client before sending any request to resources: */

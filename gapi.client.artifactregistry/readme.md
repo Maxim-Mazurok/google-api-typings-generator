@@ -1,4 +1,4 @@
-# TypeScript typings for Artifact Registry API v1beta1
+# TypeScript typings for Artifact Registry API v1beta2
 
 Store and manage build artifacts in a scalable and integrated service built on Google infrastructure.
 For detailed description please check [documentation](https://cloud.google.com/artifacts/docs/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/a
 Install typings for Artifact Registry API:
 
 ```
-npm install @types/gapi.client.artifactregistry@v1beta1 --save-dev
+npm install @types/gapi.client.artifactregistry@v1beta2 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('artifactregistry', 'v1beta1', () => {
+gapi.client.load('artifactregistry', 'v1beta2', () => {
   // now we can use gapi.client.artifactregistry
   // ...
 });

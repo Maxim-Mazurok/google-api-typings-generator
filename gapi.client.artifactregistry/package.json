@@ -1,7 +1,7 @@
 {
   "name": "@maxim_mazurok/gapi.client.artifactregistry",
   "version": "1.0.20201107",
-  "description": "TypeScript typings for Artifact Registry API v1beta1",
+  "description": "TypeScript typings for Artifact Registry API v1beta2",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
