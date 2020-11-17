@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201106
+// Revision: 20201112
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -215,6 +215,7 @@ gapi.load('client', () => {
                     enabled: true,
                     lockedTime: "Test string",
                 },
+                publicAccessPrevention: "Test string",
                 uniformBucketLevelAccess: {
                     enabled: true,
                     lockedTime: "Test string",
@@ -365,6 +366,7 @@ gapi.load('client', () => {
                     enabled: true,
                     lockedTime: "Test string",
                 },
+                publicAccessPrevention: "Test string",
                 uniformBucketLevelAccess: {
                     enabled: true,
                     lockedTime: "Test string",
@@ -528,6 +530,7 @@ gapi.load('client', () => {
                     enabled: true,
                     lockedTime: "Test string",
                 },
+                publicAccessPrevention: "Test string",
                 uniformBucketLevelAccess: {
                     enabled: true,
                     lockedTime: "Test string",
