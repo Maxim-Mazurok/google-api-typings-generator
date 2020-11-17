@@ -84,7 +84,7 @@ List all users assigned licenses for a specific product SKU.
 await gapi.client.licensing.licenseAssignments.listForProductAndSku({ customerId: "customerId", productId: "productId", skuId: "skuId",  });
 
 /*
-Patch a Licensing info via Apiary Patch Orchestration
+Reassign a user's product SKU with a different SKU in the same product. This method supports patch semantics.
 */
 await gapi.client.licensing.licenseAssignments.patch({ productId: "productId", skuId: "skuId", userId: "userId",  });
 
