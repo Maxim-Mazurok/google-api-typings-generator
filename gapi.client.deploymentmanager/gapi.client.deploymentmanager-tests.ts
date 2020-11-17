@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201109
+// Revision: 20201113
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -238,7 +238,6 @@ gapi.load('client', () => {
         }, {
             bindings: [
                 {
-                    bindingId: "Test string",
                     condition: {
                         description: "Test string",
                         expression: "Test string",
@@ -263,7 +262,6 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
-                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
