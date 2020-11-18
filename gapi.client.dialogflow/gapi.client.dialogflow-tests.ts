@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201112
+// Revision: 20201116
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1440,6 +1440,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -2933,6 +2935,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -4427,6 +4431,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -5928,6 +5934,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -7429,6 +7437,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -8927,6 +8937,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -10421,6 +10433,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -11931,6 +11945,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -13455,6 +13471,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -14948,6 +14966,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -16442,6 +16462,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -17943,6 +17965,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -19444,6 +19468,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -20942,6 +20968,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -22436,6 +22464,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -23946,6 +23976,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -25485,6 +25517,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -26978,6 +27012,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -28472,6 +28508,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -29973,6 +30011,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -31474,6 +31514,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -32972,6 +33014,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -34466,6 +34510,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
@@ -35976,6 +36022,8 @@ gapi.load('client', () => {
                         name: "Test string",
                     }                ],
                 timeZone: "Test string",
+                webhookHeaders: {
+                    A: "Test string"                },
             },
         });
         /** Creates a context. If the specified context already exists, overrides the context. */
