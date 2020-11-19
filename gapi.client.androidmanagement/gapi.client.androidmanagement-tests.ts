@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201102
+// Revision: 20201112
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -266,6 +266,9 @@ gapi.load('client', () => {
             appliedPolicyName: "Test string",
             appliedPolicyVersion: "Test string",
             appliedState: "Test string",
+            commonCriteriaModeInfo: {
+                commonCriteriaModeStatus: "Test string",
+            },
             deviceSettings: {
                 adbEnabled: true,
                 developmentSettingsEnabled: true,
@@ -488,6 +491,7 @@ gapi.load('client', () => {
             addUserDisabled: true,
             adjustVolumeDisabled: true,
             advancedSecurityOverrides: {
+                commonCriteriaMode: "Test string",
                 untrustedAppsPolicy: "Test string",
             },
             alwaysOnVpnPackage: {
@@ -719,6 +723,7 @@ gapi.load('client', () => {
                     includeRemovedApps: true,
                 },
                 applicationReportsEnabled: true,
+                commonCriteriaModeEnabled: true,
                 deviceSettingsEnabled: true,
                 displayInfoEnabled: true,
                 hardwareStatusEnabled: true,
@@ -1015,6 +1020,9 @@ gapi.load('client', () => {
             appliedPolicyName: "Test string",
             appliedPolicyVersion: "Test string",
             appliedState: "Test string",
+            commonCriteriaModeInfo: {
+                commonCriteriaModeStatus: "Test string",
+            },
             deviceSettings: {
                 adbEnabled: true,
                 developmentSettingsEnabled: true,
@@ -1237,6 +1245,7 @@ gapi.load('client', () => {
             addUserDisabled: true,
             adjustVolumeDisabled: true,
             advancedSecurityOverrides: {
+                commonCriteriaMode: "Test string",
                 untrustedAppsPolicy: "Test string",
             },
             alwaysOnVpnPackage: {
@@ -1468,6 +1477,7 @@ gapi.load('client', () => {
                     includeRemovedApps: true,
                 },
                 applicationReportsEnabled: true,
+                commonCriteriaModeEnabled: true,
                 deviceSettingsEnabled: true,
                 displayInfoEnabled: true,
                 hardwareStatusEnabled: true,
@@ -1797,6 +1807,9 @@ gapi.load('client', () => {
             appliedPolicyName: "Test string",
             appliedPolicyVersion: "Test string",
             appliedState: "Test string",
+            commonCriteriaModeInfo: {
+                commonCriteriaModeStatus: "Test string",
+            },
             deviceSettings: {
                 adbEnabled: true,
                 developmentSettingsEnabled: true,
@@ -2019,6 +2032,7 @@ gapi.load('client', () => {
             addUserDisabled: true,
             adjustVolumeDisabled: true,
             advancedSecurityOverrides: {
+                commonCriteriaMode: "Test string",
                 untrustedAppsPolicy: "Test string",
             },
             alwaysOnVpnPackage: {
@@ -2250,6 +2264,7 @@ gapi.load('client', () => {
                     includeRemovedApps: true,
                 },
                 applicationReportsEnabled: true,
+                commonCriteriaModeEnabled: true,
                 deviceSettingsEnabled: true,
                 displayInfoEnabled: true,
                 hardwareStatusEnabled: true,
