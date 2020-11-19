@@ -1,7 +1,7 @@
 # TypeScript typings for Google Analytics Data API v1alpha
 
 Accesses report data in Google Analytics.
-For detailed description please check [documentation](https://developers.google.com/analytics/trusted-testing/analytics-data/).
+For detailed description please check [documentation](https://developers.google.com/analytics/devguides/reporting/data/v1/).
 
 ## Installing
 
