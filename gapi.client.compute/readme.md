@@ -537,6 +537,21 @@ This method is called on a best-effort basis. Specifically:
 await gapi.client.compute.globalOperations.wait({ operation: "operation", project: "project",  });
 
 /*
+Deletes the specified Operations resource.
+*/
+await gapi.client.compute.globalOrganizationOperations.delete({ operation: "operation",  });
+
+/*
+Retrieves the specified Operations resource. Gets a list of operations by making a `list()` request.
+*/
+await gapi.client.compute.globalOrganizationOperations.get({ operation: "operation",  });
+
+/*
+Retrieves a list of Operation resources contained within the specified organization.
+*/
+await gapi.client.compute.globalOrganizationOperations.list({  });
+
+/*
 Retrieves the list of all HealthCheck resources, regional and global, available to the specified project.
 */
 await gapi.client.compute.healthChecks.aggregatedList({ project: "project",  });
@@ -2406,7 +2421,7 @@ Retrieves an aggregated list of all usable subnetworks in the project.
 await gapi.client.compute.subnetworks.listUsable({ project: "project",  });
 
 /*
-Patches the specified subnetwork with the data included in the request. Only certain fields can up updated with a patch request as indicated in the field descriptions. You must specify the current fingerprint of the subnetwork resource being patched.
+Patches the specified subnetwork with the data included in the request. Only certain fields can be updated with a patch request as indicated in the field descriptions. You must specify the current fingerprint of the subnetwork resource being patched.
 */
 await gapi.client.compute.subnetworks.patch({ project: "project", region: "region", subnetwork: "subnetwork",  });
 

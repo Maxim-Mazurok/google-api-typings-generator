@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201022
+// Revision: 20201102
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1795,6 +1795,25 @@ gapi.load('client', () => {
         await gapi.client.compute.globalOperations.wait({
             operation: "Test string",
             project: "Test string",
+        });
+        /** Deletes the specified Operations resource. */
+        await gapi.client.compute.globalOrganizationOperations.delete({
+            operation: "Test string",
+            parentId: "Test string",
+        });
+        /** Retrieves the specified Operations resource. Gets a list of operations by making a `list()` request. */
+        await gapi.client.compute.globalOrganizationOperations.get({
+            operation: "Test string",
+            parentId: "Test string",
+        });
+        /** Retrieves a list of Operation resources contained within the specified organization. */
+        await gapi.client.compute.globalOrganizationOperations.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parentId: "Test string",
+            returnPartialSuccess: true,
         });
         /** Retrieves the list of all HealthCheck resources, regional and global, available to the specified project. */
         await gapi.client.compute.healthChecks.aggregatedList({
@@ -4460,6 +4479,7 @@ gapi.load('client', () => {
             cloudRouterIpAddress: "Test string",
             creationTimestamp: "Test string",
             customerRouterIpAddress: "Test string",
+            dataplaneVersion: 42,
             description: "Test string",
             edgeAvailabilityDomain: "Test string",
             googleReferenceId: "Test string",
@@ -4509,6 +4529,7 @@ gapi.load('client', () => {
             cloudRouterIpAddress: "Test string",
             creationTimestamp: "Test string",
             customerRouterIpAddress: "Test string",
+            dataplaneVersion: 42,
             description: "Test string",
             edgeAvailabilityDomain: "Test string",
             googleReferenceId: "Test string",
@@ -11155,7 +11176,7 @@ gapi.load('client', () => {
             returnPartialSuccess: true,
         });
         /**
-         * Patches the specified subnetwork with the data included in the request. Only certain fields can up updated with a patch request as indicated in the field descriptions. You must specify
+         * Patches the specified subnetwork with the data included in the request. Only certain fields can be updated with a patch request as indicated in the field descriptions. You must specify
          * the current fingerprint of the subnetwork resource being patched.
          */
         await gapi.client.compute.subnetworks.patch({
