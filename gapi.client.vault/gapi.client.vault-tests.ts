@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201030
+// Revision: 20201117
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -72,6 +72,9 @@ gapi.load('client', () => {
                     showConfidentialModeContent: true,
                 },
                 region: "Test string",
+                voiceOptions: {
+                    exportFormat: "Test string",
+                },
             },
             id: "Test string",
             matterId: "Test string",
@@ -115,6 +118,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             requester: {
                 displayName: "Test string",
@@ -211,6 +218,10 @@ gapi.load('client', () => {
                     endTime: "Test string",
                     startTime: "Test string",
                     terms: "Test string",
+                },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
                 },
             },
             updateTime: "Test string",
@@ -395,6 +406,10 @@ gapi.load('client', () => {
                     startTime: "Test string",
                     terms: "Test string",
                 },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             updateTime: "Test string",
         });
@@ -466,6 +481,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             savedQueryId: "Test string",
         });
@@ -519,6 +538,9 @@ gapi.load('client', () => {
                     showConfidentialModeContent: true,
                 },
                 region: "Test string",
+                voiceOptions: {
+                    exportFormat: "Test string",
+                },
             },
             id: "Test string",
             matterId: "Test string",
@@ -562,6 +584,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             requester: {
                 displayName: "Test string",
@@ -658,6 +684,10 @@ gapi.load('client', () => {
                     endTime: "Test string",
                     startTime: "Test string",
                     terms: "Test string",
+                },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
                 },
             },
             updateTime: "Test string",
@@ -842,6 +872,10 @@ gapi.load('client', () => {
                     startTime: "Test string",
                     terms: "Test string",
                 },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             updateTime: "Test string",
         });
@@ -913,6 +947,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             savedQueryId: "Test string",
         });
@@ -975,6 +1013,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             view: "Test string",
         });
@@ -1007,6 +1049,9 @@ gapi.load('client', () => {
                     showConfidentialModeContent: true,
                 },
                 region: "Test string",
+                voiceOptions: {
+                    exportFormat: "Test string",
+                },
             },
             id: "Test string",
             matterId: "Test string",
@@ -1050,6 +1095,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             requester: {
                 displayName: "Test string",
@@ -1146,6 +1195,10 @@ gapi.load('client', () => {
                     endTime: "Test string",
                     startTime: "Test string",
                     terms: "Test string",
+                },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
                 },
             },
             updateTime: "Test string",
@@ -1330,6 +1383,10 @@ gapi.load('client', () => {
                     startTime: "Test string",
                     terms: "Test string",
                 },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             updateTime: "Test string",
         });
@@ -1401,6 +1458,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             savedQueryId: "Test string",
         });
@@ -1462,6 +1523,9 @@ gapi.load('client', () => {
                     showConfidentialModeContent: true,
                 },
                 region: "Test string",
+                voiceOptions: {
+                    exportFormat: "Test string",
+                },
             },
             id: "Test string",
             matterId: "Test string",
@@ -1505,6 +1569,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             requester: {
                 displayName: "Test string",
@@ -1601,6 +1669,10 @@ gapi.load('client', () => {
                     endTime: "Test string",
                     startTime: "Test string",
                     terms: "Test string",
+                },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
                 },
             },
             updateTime: "Test string",
@@ -1785,6 +1857,10 @@ gapi.load('client', () => {
                     startTime: "Test string",
                     terms: "Test string",
                 },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             updateTime: "Test string",
         });
@@ -1856,6 +1932,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             savedQueryId: "Test string",
         });
@@ -1908,6 +1988,9 @@ gapi.load('client', () => {
                     showConfidentialModeContent: true,
                 },
                 region: "Test string",
+                voiceOptions: {
+                    exportFormat: "Test string",
+                },
             },
             id: "Test string",
             matterId: "Test string",
@@ -1951,6 +2034,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             requester: {
                 displayName: "Test string",
@@ -2047,6 +2134,10 @@ gapi.load('client', () => {
                     endTime: "Test string",
                     startTime: "Test string",
                     terms: "Test string",
+                },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
                 },
             },
             updateTime: "Test string",
@@ -2231,6 +2322,10 @@ gapi.load('client', () => {
                     startTime: "Test string",
                     terms: "Test string",
                 },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             updateTime: "Test string",
         });
@@ -2302,6 +2397,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             savedQueryId: "Test string",
         });
@@ -2355,6 +2454,9 @@ gapi.load('client', () => {
                     showConfidentialModeContent: true,
                 },
                 region: "Test string",
+                voiceOptions: {
+                    exportFormat: "Test string",
+                },
             },
             id: "Test string",
             matterId: "Test string",
@@ -2398,6 +2500,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             requester: {
                 displayName: "Test string",
@@ -2494,6 +2600,10 @@ gapi.load('client', () => {
                     endTime: "Test string",
                     startTime: "Test string",
                     terms: "Test string",
+                },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
                 },
             },
             updateTime: "Test string",
@@ -2678,6 +2788,10 @@ gapi.load('client', () => {
                     startTime: "Test string",
                     terms: "Test string",
                 },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             updateTime: "Test string",
         });
@@ -2749,6 +2863,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             savedQueryId: "Test string",
         });
@@ -2804,6 +2922,9 @@ gapi.load('client', () => {
                     showConfidentialModeContent: true,
                 },
                 region: "Test string",
+                voiceOptions: {
+                    exportFormat: "Test string",
+                },
             },
             id: "Test string",
             matterId: "Test string",
@@ -2847,6 +2968,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             requester: {
                 displayName: "Test string",
@@ -2943,6 +3068,10 @@ gapi.load('client', () => {
                     endTime: "Test string",
                     startTime: "Test string",
                     terms: "Test string",
+                },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
                 },
             },
             updateTime: "Test string",
@@ -3127,6 +3256,10 @@ gapi.load('client', () => {
                     startTime: "Test string",
                     terms: "Test string",
                 },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             updateTime: "Test string",
         });
@@ -3198,6 +3331,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             savedQueryId: "Test string",
         });
@@ -3252,6 +3389,9 @@ gapi.load('client', () => {
                     showConfidentialModeContent: true,
                 },
                 region: "Test string",
+                voiceOptions: {
+                    exportFormat: "Test string",
+                },
             },
             id: "Test string",
             matterId: "Test string",
@@ -3295,6 +3435,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             requester: {
                 displayName: "Test string",
@@ -3391,6 +3535,10 @@ gapi.load('client', () => {
                     endTime: "Test string",
                     startTime: "Test string",
                     terms: "Test string",
+                },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
                 },
             },
             updateTime: "Test string",
@@ -3575,6 +3723,10 @@ gapi.load('client', () => {
                     startTime: "Test string",
                     terms: "Test string",
                 },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             updateTime: "Test string",
         });
@@ -3646,6 +3798,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             savedQueryId: "Test string",
         });
@@ -3699,6 +3855,9 @@ gapi.load('client', () => {
                     showConfidentialModeContent: true,
                 },
                 region: "Test string",
+                voiceOptions: {
+                    exportFormat: "Test string",
+                },
             },
             id: "Test string",
             matterId: "Test string",
@@ -3742,6 +3901,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             requester: {
                 displayName: "Test string",
@@ -3838,6 +4001,10 @@ gapi.load('client', () => {
                     endTime: "Test string",
                     startTime: "Test string",
                     terms: "Test string",
+                },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
                 },
             },
             updateTime: "Test string",
@@ -4022,6 +4189,10 @@ gapi.load('client', () => {
                     startTime: "Test string",
                     terms: "Test string",
                 },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             updateTime: "Test string",
         });
@@ -4093,6 +4264,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             savedQueryId: "Test string",
         });
@@ -4146,6 +4321,9 @@ gapi.load('client', () => {
                     showConfidentialModeContent: true,
                 },
                 region: "Test string",
+                voiceOptions: {
+                    exportFormat: "Test string",
+                },
             },
             id: "Test string",
             matterId: "Test string",
@@ -4189,6 +4367,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             requester: {
                 displayName: "Test string",
@@ -4285,6 +4467,10 @@ gapi.load('client', () => {
                     endTime: "Test string",
                     startTime: "Test string",
                     terms: "Test string",
+                },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
                 },
             },
             updateTime: "Test string",
@@ -4469,6 +4655,10 @@ gapi.load('client', () => {
                     startTime: "Test string",
                     terms: "Test string",
                 },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             updateTime: "Test string",
         });
@@ -4540,6 +4730,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             savedQueryId: "Test string",
         });
@@ -4605,6 +4799,9 @@ gapi.load('client', () => {
                     showConfidentialModeContent: true,
                 },
                 region: "Test string",
+                voiceOptions: {
+                    exportFormat: "Test string",
+                },
             },
             id: "Test string",
             matterId: "Test string",
@@ -4648,6 +4845,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             requester: {
                 displayName: "Test string",
@@ -4744,6 +4945,10 @@ gapi.load('client', () => {
                     endTime: "Test string",
                     startTime: "Test string",
                     terms: "Test string",
+                },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
                 },
             },
             updateTime: "Test string",
@@ -4928,6 +5133,10 @@ gapi.load('client', () => {
                     startTime: "Test string",
                     terms: "Test string",
                 },
+                voiceQuery: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             updateTime: "Test string",
         });
@@ -4999,6 +5208,10 @@ gapi.load('client', () => {
                 },
                 terms: "Test string",
                 timeZone: "Test string",
+                voiceOptions: {
+                    coveredData: [
+                        "Test string"                    ],
+                },
             },
             savedQueryId: "Test string",
         });
