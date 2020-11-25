@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201112
+// Revision: 20201123
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -505,6 +505,7 @@ gapi.load('client', () => {
                 {
                     accessibleTrackIds: [
                         "Test string"                    ],
+                    autoUpdateMode: "Test string",
                     connectedWorkAndPersonalApp: "Test string",
                     defaultPermissionPolicy: "Test string",
                     delegatedScopes: [
@@ -527,6 +528,7 @@ gapi.load('client', () => {
                             policy: "Test string",
                         }                    ],
                 }            ],
+            autoDateAndTimeZone: "Test string",
             autoTimeRequired: true,
             blockApplicationsEnabled: true,
             bluetoothConfigDisabled: true,
@@ -1259,6 +1261,7 @@ gapi.load('client', () => {
                 {
                     accessibleTrackIds: [
                         "Test string"                    ],
+                    autoUpdateMode: "Test string",
                     connectedWorkAndPersonalApp: "Test string",
                     defaultPermissionPolicy: "Test string",
                     delegatedScopes: [
@@ -1281,6 +1284,7 @@ gapi.load('client', () => {
                             policy: "Test string",
                         }                    ],
                 }            ],
+            autoDateAndTimeZone: "Test string",
             autoTimeRequired: true,
             blockApplicationsEnabled: true,
             bluetoothConfigDisabled: true,
@@ -2046,6 +2050,7 @@ gapi.load('client', () => {
                 {
                     accessibleTrackIds: [
                         "Test string"                    ],
+                    autoUpdateMode: "Test string",
                     connectedWorkAndPersonalApp: "Test string",
                     defaultPermissionPolicy: "Test string",
                     delegatedScopes: [
@@ -2068,6 +2073,7 @@ gapi.load('client', () => {
                             policy: "Test string",
                         }                    ],
                 }            ],
+            autoDateAndTimeZone: "Test string",
             autoTimeRequired: true,
             blockApplicationsEnabled: true,
             bluetoothConfigDisabled: true,
