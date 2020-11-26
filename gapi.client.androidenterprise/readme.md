@@ -84,7 +84,7 @@ Sets whether a device's access to Google services is enabled or disabled. The de
 await gapi.client.androidenterprise.devices.setState({ deviceId: "deviceId", enterpriseId: "enterpriseId", userId: "userId",  });
 
 /*
-Updates the device policy
+Updates the device policy. To ensure the policy is properly enforced, you need to prevent unmanaged accounts from accessing Google Play by setting the allowed_accounts in the managed configuration for the Google Play package. See restrict accounts in Google Play.
 */
 await gapi.client.androidenterprise.devices.update({ deviceId: "deviceId", enterpriseId: "enterpriseId", userId: "userId",  });
 

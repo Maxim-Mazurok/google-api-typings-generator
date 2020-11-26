@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201121
+// Revision: 20201125
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -70,7 +70,10 @@ gapi.load('client', () => {
         }, {
             accountState: "Test string",
         });
-        /** Updates the device policy */
+        /**
+         * Updates the device policy. To ensure the policy is properly enforced, you need to prevent unmanaged accounts from accessing Google Play by setting the allowed_accounts in the managed
+         * configuration for the Google Play package. See restrict accounts in Google Play.
+         */
         await gapi.client.androidenterprise.devices.update({
             deviceId: "Test string",
             enterpriseId: "Test string",
