@@ -1,11 +1,11 @@
-# TypeScript typings for Admin SDK reports_v1
+# TypeScript typings for Admin SDK API reports_v1
 
 Admin SDK lets administrators of enterprise domains to view and manage resources like user, groups etc. It also provides audit and usage reports of domain.
 For detailed description please check [documentation](http://developers.google.com/admin-sdk/).
 
 ## Installing
 
-Install typings for Admin SDK:
+Install typings for Admin SDK API:
 
 ```
 npm install @types/gapi.client.admin@reports_v1 --save-dev
@@ -57,7 +57,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Admin SDK resources:
+After that you can use Admin SDK API resources:
 
 ```typescript
 
