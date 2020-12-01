@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20191008
+// Revision: 20201129
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -60,7 +60,7 @@ gapi.load('client', () => {
             },
             resourceUiUrl: "Test string",
         });
-        /** Update a customer account's settings. This method supports patch semantics. */
+        /** Patch a customer account's settings via Apiary Patch Orchestration */
         await gapi.client.reseller.customers.patch({
             customerId: "Test string",
         }, {
@@ -109,7 +109,8 @@ gapi.load('client', () => {
             resourceUiUrl: "Test string",
         });
         /** Returns all the details of the watch corresponding to the reseller. */
-        await gapi.client.reseller.resellernotify.getwatchdetails();
+        await gapi.client.reseller.resellernotify.getwatchdetails({
+        });
         /** Registers a Reseller for receiving notifications. */
         await gapi.client.reseller.resellernotify.register({
             serviceAccountEmailAddress: "Test string",

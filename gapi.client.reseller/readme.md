@@ -1,11 +1,11 @@
-# TypeScript typings for Workspace Reseller API v1
+# TypeScript typings for Google Workspace Reseller API v1
 
-Creates and manages your customers and their subscriptions.
+Perform common functions that are available on the Channel Services console at scale, like placing orders and viewing customer information
 For detailed description please check [documentation](https://developers.google.com/google-apps/reseller/).
 
 ## Installing
 
-Install typings for Workspace Reseller API:
+Install typings for Google Workspace Reseller API:
 
 ```
 npm install @types/gapi.client.reseller@v1 --save-dev
@@ -57,7 +57,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Workspace Reseller API resources:
+After that you can use Google Workspace Reseller API resources:
 
 ```typescript
 
@@ -72,7 +72,7 @@ Order a new customer's account.
 await gapi.client.reseller.customers.insert({  });
 
 /*
-Update a customer account's settings. This method supports patch semantics.
+Patch a customer account's settings via Apiary Patch Orchestration
 */
 await gapi.client.reseller.customers.patch({ customerId: "customerId",  });
 
