@@ -1,4 +1,4 @@
-# TypeScript typings for Cloud Talent Solution API v3
+# TypeScript typings for Cloud Talent Solution API v4
 
 Cloud Talent Solution provides the capability to create, read, update, and delete job postings, as well as search jobs based on keywords and filters. 
 For detailed description please check [documentation](https://cloud.google.com/talent-solution/job-search/docs/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/t
 Install typings for Cloud Talent Solution API:
 
 ```
-npm install @types/gapi.client.jobs@v3 --save-dev
+npm install @types/gapi.client.jobs@v4 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('jobs', 'v3', () => {
+gapi.client.load('jobs', 'v4', () => {
   // now we can use gapi.client.jobs
   // ...
 });
@@ -60,9 +60,4 @@ gapi.auth.authorize(
 After that you can use Cloud Talent Solution API resources:
 
 ```typescript
-
-/*
-Completes the specified prefix with keyword suggestions. Intended for use by a job search auto-complete search box.
-*/
-await gapi.client.jobs.projects.complete({ name: "name",  });
 ```
