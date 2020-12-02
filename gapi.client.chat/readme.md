@@ -38,9 +38,19 @@ After that you can use Hangouts Chat API resources:
 ```typescript
 
 /*
+Legacy path for creating message. Calling these will result in a BadRequest response.
+*/
+await gapi.client.chat.dms.messages({ parent: "parent",  });
+
+/*
 Downloads media. Download is supported on the URI `/v1/media/{+name}?alt=media`.
 */
 await gapi.client.chat.media.download({ resourceName: "resourceName",  });
+
+/*
+Legacy path for creating message. Calling these will result in a BadRequest response.
+*/
+await gapi.client.chat.rooms.messages({ parent: "parent",  });
 
 /*
 Returns a space.
