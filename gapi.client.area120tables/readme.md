@@ -51,6 +51,9 @@ var client_id = '',
 
       // View your Google Spreadsheets
       'https://www.googleapis.com/auth/spreadsheets.readonly',
+
+      // See, edit, create, and delete your tables in Tables by Area 120
+      'https://www.googleapis.com/auth/tables',
     ],
     immediate = true;
 // ...

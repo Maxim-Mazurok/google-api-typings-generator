@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201127
+// Revision: 20201201
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -25,6 +25,8 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/spreadsheets',
             /** View your Google Spreadsheets */
             'https://www.googleapis.com/auth/spreadsheets.readonly',
+            /** See, edit, create, and delete your tables in Tables by Area 120 */
+            'https://www.googleapis.com/auth/tables',
         ];
         const immediate = false;
         gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
