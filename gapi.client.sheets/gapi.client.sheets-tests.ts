@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201124
+// Revision: 20201130
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -189,6 +189,23 @@ gapi.load('client', () => {
                     },
                     addChart: {
                         chart: {
+                            border: {
+                                color: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                colorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
+                            },
                             chartId: 42,
                             position: {
                                 newSheet: true,
@@ -312,9 +329,66 @@ gapi.load('client', () => {
                                                 },
                                                 themeColor: "Test string",
                                             },
+                                            dataLabel: {
+                                                customLabelData: {
+                                                    aggregateType: "Test string",
+                                                    columnReference: {
+                                                        name: "Test string",
+                                                    },
+                                                    groupRule: {
+                                                        dateTimeRule: {
+                                                            type: "Test string",
+                                                        },
+                                                        histogramRule: {
+                                                            intervalSize: 42,
+                                                            maxValue: 42,
+                                                            minValue: 42,
+                                                        },
+                                                    },
+                                                    sourceRange: {
+                                                        sources: [
+                                                            {
+                                                                endColumnIndex: 42,
+                                                                endRowIndex: 42,
+                                                                sheetId: 42,
+                                                                startColumnIndex: 42,
+                                                                startRowIndex: 42,
+                                                            }                                                        ],
+                                                    },
+                                                },
+                                                placement: "Test string",
+                                                textFormat: {
+                                                    bold: true,
+                                                    fontFamily: "Test string",
+                                                    fontSize: 42,
+                                                    foregroundColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    foregroundColorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
+                                                    italic: true,
+                                                    strikethrough: true,
+                                                    underline: true,
+                                                },
+                                                type: "Test string",
+                                            },
                                             lineStyle: {
                                                 type: "Test string",
                                                 width: 42,
+                                            },
+                                            pointStyle: {
+                                                shape: "Test string",
+                                                size: 42,
                                             },
                                             series: {
                                                 aggregateType: "Test string",
@@ -342,11 +416,87 @@ gapi.load('client', () => {
                                                         }                                                    ],
                                                 },
                                             },
+                                            styleOverrides: [
+                                                {
+                                                    color: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
+                                                    index: 42,
+                                                    pointStyle: {
+                                                        shape: "Test string",
+                                                        size: 42,
+                                                    },
+                                                }                                            ],
                                             targetAxis: "Test string",
                                             type: "Test string",
                                         }                                    ],
                                     stackedType: "Test string",
                                     threeDimensional: true,
+                                    totalDataLabel: {
+                                        customLabelData: {
+                                            aggregateType: "Test string",
+                                            columnReference: {
+                                                name: "Test string",
+                                            },
+                                            groupRule: {
+                                                dateTimeRule: {
+                                                    type: "Test string",
+                                                },
+                                                histogramRule: {
+                                                    intervalSize: 42,
+                                                    maxValue: 42,
+                                                    minValue: 42,
+                                                },
+                                            },
+                                            sourceRange: {
+                                                sources: [
+                                                    {
+                                                        endColumnIndex: 42,
+                                                        endRowIndex: 42,
+                                                        sheetId: 42,
+                                                        startColumnIndex: 42,
+                                                        startRowIndex: 42,
+                                                    }                                                ],
+                                            },
+                                        },
+                                        placement: "Test string",
+                                        textFormat: {
+                                            bold: true,
+                                            fontFamily: "Test string",
+                                            fontSize: 42,
+                                            foregroundColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            foregroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
+                                            italic: true,
+                                            strikethrough: true,
+                                            underline: true,
+                                        },
+                                        type: "Test string",
+                                    },
                                 },
                                 bubbleChart: {
                                     bubbleBorderColor: {
@@ -1469,6 +1619,59 @@ gapi.load('client', () => {
                                                         }                                                    ],
                                                 },
                                             },
+                                            dataLabel: {
+                                                customLabelData: {
+                                                    aggregateType: "Test string",
+                                                    columnReference: {
+                                                        name: "Test string",
+                                                    },
+                                                    groupRule: {
+                                                        dateTimeRule: {
+                                                            type: "Test string",
+                                                        },
+                                                        histogramRule: {
+                                                            intervalSize: 42,
+                                                            maxValue: 42,
+                                                            minValue: 42,
+                                                        },
+                                                    },
+                                                    sourceRange: {
+                                                        sources: [
+                                                            {
+                                                                endColumnIndex: 42,
+                                                                endRowIndex: 42,
+                                                                sheetId: 42,
+                                                                startColumnIndex: 42,
+                                                                startRowIndex: 42,
+                                                            }                                                        ],
+                                                    },
+                                                },
+                                                placement: "Test string",
+                                                textFormat: {
+                                                    bold: true,
+                                                    fontFamily: "Test string",
+                                                    fontSize: 42,
+                                                    foregroundColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    foregroundColorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
+                                                    italic: true,
+                                                    strikethrough: true,
+                                                    underline: true,
+                                                },
+                                                type: "Test string",
+                                            },
                                             hideTrailingSubtotal: true,
                                             negativeColumnsStyle: {
                                                 color: {
@@ -1526,6 +1729,59 @@ gapi.load('client', () => {
                                             },
                                         }                                    ],
                                     stackedType: "Test string",
+                                    totalDataLabel: {
+                                        customLabelData: {
+                                            aggregateType: "Test string",
+                                            columnReference: {
+                                                name: "Test string",
+                                            },
+                                            groupRule: {
+                                                dateTimeRule: {
+                                                    type: "Test string",
+                                                },
+                                                histogramRule: {
+                                                    intervalSize: 42,
+                                                    maxValue: 42,
+                                                    minValue: 42,
+                                                },
+                                            },
+                                            sourceRange: {
+                                                sources: [
+                                                    {
+                                                        endColumnIndex: 42,
+                                                        endRowIndex: 42,
+                                                        sheetId: 42,
+                                                        startColumnIndex: 42,
+                                                        startRowIndex: 42,
+                                                    }                                                ],
+                                            },
+                                        },
+                                        placement: "Test string",
+                                        textFormat: {
+                                            bold: true,
+                                            fontFamily: "Test string",
+                                            fontSize: 42,
+                                            foregroundColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            foregroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
+                                            italic: true,
+                                            strikethrough: true,
+                                            underline: true,
+                                        },
+                                        type: "Test string",
+                                    },
                                 },
                             },
                         },
@@ -5106,9 +5362,66 @@ gapi.load('client', () => {
                                             },
                                             themeColor: "Test string",
                                         },
+                                        dataLabel: {
+                                            customLabelData: {
+                                                aggregateType: "Test string",
+                                                columnReference: {
+                                                    name: "Test string",
+                                                },
+                                                groupRule: {
+                                                    dateTimeRule: {
+                                                        type: "Test string",
+                                                    },
+                                                    histogramRule: {
+                                                        intervalSize: 42,
+                                                        maxValue: 42,
+                                                        minValue: 42,
+                                                    },
+                                                },
+                                                sourceRange: {
+                                                    sources: [
+                                                        {
+                                                            endColumnIndex: 42,
+                                                            endRowIndex: 42,
+                                                            sheetId: 42,
+                                                            startColumnIndex: 42,
+                                                            startRowIndex: 42,
+                                                        }                                                    ],
+                                                },
+                                            },
+                                            placement: "Test string",
+                                            textFormat: {
+                                                bold: true,
+                                                fontFamily: "Test string",
+                                                fontSize: 42,
+                                                foregroundColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                foregroundColorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
+                                                },
+                                                italic: true,
+                                                strikethrough: true,
+                                                underline: true,
+                                            },
+                                            type: "Test string",
+                                        },
                                         lineStyle: {
                                             type: "Test string",
                                             width: 42,
+                                        },
+                                        pointStyle: {
+                                            shape: "Test string",
+                                            size: 42,
                                         },
                                         series: {
                                             aggregateType: "Test string",
@@ -5136,11 +5449,87 @@ gapi.load('client', () => {
                                                     }                                                ],
                                             },
                                         },
+                                        styleOverrides: [
+                                            {
+                                                color: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                colorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
+                                                },
+                                                index: 42,
+                                                pointStyle: {
+                                                    shape: "Test string",
+                                                    size: 42,
+                                                },
+                                            }                                        ],
                                         targetAxis: "Test string",
                                         type: "Test string",
                                     }                                ],
                                 stackedType: "Test string",
                                 threeDimensional: true,
+                                totalDataLabel: {
+                                    customLabelData: {
+                                        aggregateType: "Test string",
+                                        columnReference: {
+                                            name: "Test string",
+                                        },
+                                        groupRule: {
+                                            dateTimeRule: {
+                                                type: "Test string",
+                                            },
+                                            histogramRule: {
+                                                intervalSize: 42,
+                                                maxValue: 42,
+                                                minValue: 42,
+                                            },
+                                        },
+                                        sourceRange: {
+                                            sources: [
+                                                {
+                                                    endColumnIndex: 42,
+                                                    endRowIndex: 42,
+                                                    sheetId: 42,
+                                                    startColumnIndex: 42,
+                                                    startRowIndex: 42,
+                                                }                                            ],
+                                        },
+                                    },
+                                    placement: "Test string",
+                                    textFormat: {
+                                        bold: true,
+                                        fontFamily: "Test string",
+                                        fontSize: 42,
+                                        foregroundColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        foregroundColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
+                                        italic: true,
+                                        strikethrough: true,
+                                        underline: true,
+                                    },
+                                    type: "Test string",
+                                },
                             },
                             bubbleChart: {
                                 bubbleBorderColor: {
@@ -6263,6 +6652,59 @@ gapi.load('client', () => {
                                                     }                                                ],
                                             },
                                         },
+                                        dataLabel: {
+                                            customLabelData: {
+                                                aggregateType: "Test string",
+                                                columnReference: {
+                                                    name: "Test string",
+                                                },
+                                                groupRule: {
+                                                    dateTimeRule: {
+                                                        type: "Test string",
+                                                    },
+                                                    histogramRule: {
+                                                        intervalSize: 42,
+                                                        maxValue: 42,
+                                                        minValue: 42,
+                                                    },
+                                                },
+                                                sourceRange: {
+                                                    sources: [
+                                                        {
+                                                            endColumnIndex: 42,
+                                                            endRowIndex: 42,
+                                                            sheetId: 42,
+                                                            startColumnIndex: 42,
+                                                            startRowIndex: 42,
+                                                        }                                                    ],
+                                                },
+                                            },
+                                            placement: "Test string",
+                                            textFormat: {
+                                                bold: true,
+                                                fontFamily: "Test string",
+                                                fontSize: 42,
+                                                foregroundColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                foregroundColorStyle: {
+                                                    rgbColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    themeColor: "Test string",
+                                                },
+                                                italic: true,
+                                                strikethrough: true,
+                                                underline: true,
+                                            },
+                                            type: "Test string",
+                                        },
                                         hideTrailingSubtotal: true,
                                         negativeColumnsStyle: {
                                             color: {
@@ -6320,6 +6762,59 @@ gapi.load('client', () => {
                                         },
                                     }                                ],
                                 stackedType: "Test string",
+                                totalDataLabel: {
+                                    customLabelData: {
+                                        aggregateType: "Test string",
+                                        columnReference: {
+                                            name: "Test string",
+                                        },
+                                        groupRule: {
+                                            dateTimeRule: {
+                                                type: "Test string",
+                                            },
+                                            histogramRule: {
+                                                intervalSize: 42,
+                                                maxValue: 42,
+                                                minValue: 42,
+                                            },
+                                        },
+                                        sourceRange: {
+                                            sources: [
+                                                {
+                                                    endColumnIndex: 42,
+                                                    endRowIndex: 42,
+                                                    sheetId: 42,
+                                                    startColumnIndex: 42,
+                                                    startRowIndex: 42,
+                                                }                                            ],
+                                        },
+                                    },
+                                    placement: "Test string",
+                                    textFormat: {
+                                        bold: true,
+                                        fontFamily: "Test string",
+                                        fontSize: 42,
+                                        foregroundColor: {
+                                            alpha: 42,
+                                            blue: 42,
+                                            green: 42,
+                                            red: 42,
+                                        },
+                                        foregroundColorStyle: {
+                                            rgbColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            themeColor: "Test string",
+                                        },
+                                        italic: true,
+                                        strikethrough: true,
+                                        underline: true,
+                                    },
+                                    type: "Test string",
+                                },
                             },
                         },
                     },
@@ -6687,6 +7182,27 @@ gapi.load('client', () => {
                             sheetId: 42,
                             startIndex: 42,
                         },
+                    },
+                    updateEmbeddedObjectBorder: {
+                        border: {
+                            color: {
+                                alpha: 42,
+                                blue: 42,
+                                green: 42,
+                                red: 42,
+                            },
+                            colorStyle: {
+                                rgbColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                themeColor: "Test string",
+                            },
+                        },
+                        fields: "Test string",
+                        objectId: 42,
                     },
                     updateEmbeddedObjectPosition: {
                         fields: "Test string",
@@ -8027,6 +8543,23 @@ gapi.load('client', () => {
                     },
                     charts: [
                         {
+                            border: {
+                                color: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                },
+                                colorStyle: {
+                                    rgbColor: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                    },
+                                    themeColor: "Test string",
+                                },
+                            },
                             chartId: 42,
                             position: {
                                 newSheet: true,
@@ -8150,9 +8683,66 @@ gapi.load('client', () => {
                                                 },
                                                 themeColor: "Test string",
                                             },
+                                            dataLabel: {
+                                                customLabelData: {
+                                                    aggregateType: "Test string",
+                                                    columnReference: {
+                                                        name: "Test string",
+                                                    },
+                                                    groupRule: {
+                                                        dateTimeRule: {
+                                                            type: "Test string",
+                                                        },
+                                                        histogramRule: {
+                                                            intervalSize: 42,
+                                                            maxValue: 42,
+                                                            minValue: 42,
+                                                        },
+                                                    },
+                                                    sourceRange: {
+                                                        sources: [
+                                                            {
+                                                                endColumnIndex: 42,
+                                                                endRowIndex: 42,
+                                                                sheetId: 42,
+                                                                startColumnIndex: 42,
+                                                                startRowIndex: 42,
+                                                            }                                                        ],
+                                                    },
+                                                },
+                                                placement: "Test string",
+                                                textFormat: {
+                                                    bold: true,
+                                                    fontFamily: "Test string",
+                                                    fontSize: 42,
+                                                    foregroundColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    foregroundColorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
+                                                    italic: true,
+                                                    strikethrough: true,
+                                                    underline: true,
+                                                },
+                                                type: "Test string",
+                                            },
                                             lineStyle: {
                                                 type: "Test string",
                                                 width: 42,
+                                            },
+                                            pointStyle: {
+                                                shape: "Test string",
+                                                size: 42,
                                             },
                                             series: {
                                                 aggregateType: "Test string",
@@ -8180,11 +8770,87 @@ gapi.load('client', () => {
                                                         }                                                    ],
                                                 },
                                             },
+                                            styleOverrides: [
+                                                {
+                                                    color: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    colorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
+                                                    index: 42,
+                                                    pointStyle: {
+                                                        shape: "Test string",
+                                                        size: 42,
+                                                    },
+                                                }                                            ],
                                             targetAxis: "Test string",
                                             type: "Test string",
                                         }                                    ],
                                     stackedType: "Test string",
                                     threeDimensional: true,
+                                    totalDataLabel: {
+                                        customLabelData: {
+                                            aggregateType: "Test string",
+                                            columnReference: {
+                                                name: "Test string",
+                                            },
+                                            groupRule: {
+                                                dateTimeRule: {
+                                                    type: "Test string",
+                                                },
+                                                histogramRule: {
+                                                    intervalSize: 42,
+                                                    maxValue: 42,
+                                                    minValue: 42,
+                                                },
+                                            },
+                                            sourceRange: {
+                                                sources: [
+                                                    {
+                                                        endColumnIndex: 42,
+                                                        endRowIndex: 42,
+                                                        sheetId: 42,
+                                                        startColumnIndex: 42,
+                                                        startRowIndex: 42,
+                                                    }                                                ],
+                                            },
+                                        },
+                                        placement: "Test string",
+                                        textFormat: {
+                                            bold: true,
+                                            fontFamily: "Test string",
+                                            fontSize: 42,
+                                            foregroundColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            foregroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
+                                            italic: true,
+                                            strikethrough: true,
+                                            underline: true,
+                                        },
+                                        type: "Test string",
+                                    },
                                 },
                                 bubbleChart: {
                                     bubbleBorderColor: {
@@ -9307,6 +9973,59 @@ gapi.load('client', () => {
                                                         }                                                    ],
                                                 },
                                             },
+                                            dataLabel: {
+                                                customLabelData: {
+                                                    aggregateType: "Test string",
+                                                    columnReference: {
+                                                        name: "Test string",
+                                                    },
+                                                    groupRule: {
+                                                        dateTimeRule: {
+                                                            type: "Test string",
+                                                        },
+                                                        histogramRule: {
+                                                            intervalSize: 42,
+                                                            maxValue: 42,
+                                                            minValue: 42,
+                                                        },
+                                                    },
+                                                    sourceRange: {
+                                                        sources: [
+                                                            {
+                                                                endColumnIndex: 42,
+                                                                endRowIndex: 42,
+                                                                sheetId: 42,
+                                                                startColumnIndex: 42,
+                                                                startRowIndex: 42,
+                                                            }                                                        ],
+                                                    },
+                                                },
+                                                placement: "Test string",
+                                                textFormat: {
+                                                    bold: true,
+                                                    fontFamily: "Test string",
+                                                    fontSize: 42,
+                                                    foregroundColor: {
+                                                        alpha: 42,
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                    foregroundColorStyle: {
+                                                        rgbColor: {
+                                                            alpha: 42,
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                        themeColor: "Test string",
+                                                    },
+                                                    italic: true,
+                                                    strikethrough: true,
+                                                    underline: true,
+                                                },
+                                                type: "Test string",
+                                            },
                                             hideTrailingSubtotal: true,
                                             negativeColumnsStyle: {
                                                 color: {
@@ -9364,6 +10083,59 @@ gapi.load('client', () => {
                                             },
                                         }                                    ],
                                     stackedType: "Test string",
+                                    totalDataLabel: {
+                                        customLabelData: {
+                                            aggregateType: "Test string",
+                                            columnReference: {
+                                                name: "Test string",
+                                            },
+                                            groupRule: {
+                                                dateTimeRule: {
+                                                    type: "Test string",
+                                                },
+                                                histogramRule: {
+                                                    intervalSize: 42,
+                                                    maxValue: 42,
+                                                    minValue: 42,
+                                                },
+                                            },
+                                            sourceRange: {
+                                                sources: [
+                                                    {
+                                                        endColumnIndex: 42,
+                                                        endRowIndex: 42,
+                                                        sheetId: 42,
+                                                        startColumnIndex: 42,
+                                                        startRowIndex: 42,
+                                                    }                                                ],
+                                            },
+                                        },
+                                        placement: "Test string",
+                                        textFormat: {
+                                            bold: true,
+                                            fontFamily: "Test string",
+                                            fontSize: 42,
+                                            foregroundColor: {
+                                                alpha: 42,
+                                                blue: 42,
+                                                green: 42,
+                                                red: 42,
+                                            },
+                                            foregroundColorStyle: {
+                                                rgbColor: {
+                                                    alpha: 42,
+                                                    blue: 42,
+                                                    green: 42,
+                                                    red: 42,
+                                                },
+                                                themeColor: "Test string",
+                                            },
+                                            italic: true,
+                                            strikethrough: true,
+                                            underline: true,
+                                        },
+                                        type: "Test string",
+                                    },
                                 },
                             },
                         }                    ],
