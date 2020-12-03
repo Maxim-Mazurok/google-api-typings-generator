@@ -6,6 +6,7 @@ import {ensureDirectoryExists, getTypeDirectory, parseVersion} from '../utils';
 import {Template} from './template';
 import {ProxySetting} from 'get-proxy-settings';
 import {excludedApis} from '../app';
+import {fallbackDocumentationLinks} from '../constants';
 
 type RestDescription = gapi.client.discovery.RestDescription;
 type DirectoryList = gapi.client.discovery.DirectoryList;
@@ -85,15 +86,17 @@ export class App {
       return;
     }
 
-    if (!api.documentationLink) {
-      return console.error(
-        `No documentationLink found for ${api.id}, can't write required Project header, aborting`
-      );
-    }
-
     api = sortObject(api);
     api.name = api.name!.toLocaleLowerCase();
     api.version = api.version!.toLocaleLowerCase();
+    api.documentationLink =
+      api.documentationLink ||
+      fallbackDocumentationLinks[api.name] ||
+      undefined;
+
+    if (!api.documentationLink) {
+      throw `No documentationLink found for ${api.id}, can't write required Project header, aborting`;
+    }
 
     const destinationDirectory = path.join(
       this.config.dtTypesDirectory,

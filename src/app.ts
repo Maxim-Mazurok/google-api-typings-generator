@@ -14,6 +14,7 @@ import {StreamWriter, TextWriter} from './writer';
 import {Template} from './template';
 import {ProxySetting} from 'get-proxy-settings';
 import {hasPrefixI} from './tslint';
+import {fallbackDocumentationLinks} from './constants';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
@@ -772,15 +773,17 @@ export class App {
       return;
     }
 
-    if (!api.documentationLink) {
-      return console.error(
-        `No documentationLink found for ${api.id}, can't write required Project header, aborting`
-      );
-    }
-
     api = sortObject(api);
     api.name = api.name!.toLocaleLowerCase();
     api.version = api.version!.toLocaleLowerCase();
+    api.documentationLink =
+      api.documentationLink ||
+      fallbackDocumentationLinks[api.name] ||
+      undefined;
+
+    if (!api.documentationLink) {
+      throw `No documentationLink found for ${api.id}, can't write required Project header, aborting`;
+    }
 
     const destinationDirectory = path.join(
       this.config.typesDirectory,
