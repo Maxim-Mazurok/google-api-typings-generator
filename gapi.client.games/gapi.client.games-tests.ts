@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201112
+// Revision: 20201125
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -96,6 +96,11 @@ gapi.load('client', () => {
             applicationId: "Test string",
             language: "Test string",
             platformType: "Test string",
+        });
+        /** Returns a URL for the requested end point type. */
+        await gapi.client.games.applications.getEndPoint({
+            applicationId: "Test string",
+            endPointType: "Test string",
         });
         /** Indicate that the currently authenticated user is playing your application. */
         await gapi.client.games.applications.played({

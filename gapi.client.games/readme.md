@@ -102,6 +102,11 @@ Retrieves the metadata of the application with the given ID. If the requested ap
 await gapi.client.games.applications.get({ applicationId: "applicationId",  });
 
 /*
+Returns a URL for the requested end point type.
+*/
+await gapi.client.games.applications.getEndPoint({  });
+
+/*
 Indicate that the currently authenticated user is playing your application.
 */
 await gapi.client.games.applications.played({  });
