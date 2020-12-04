@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201119
+// Revision: 20201201
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1359,7 +1359,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -2854,7 +2855,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -4350,7 +4352,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -5853,7 +5856,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -7356,7 +7360,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -8856,7 +8861,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -10352,7 +10358,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -11864,7 +11871,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -13390,7 +13398,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -14885,7 +14894,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -16381,7 +16391,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -17884,7 +17895,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -19387,7 +19399,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -20887,7 +20900,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -22383,7 +22397,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -23895,7 +23910,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -25436,7 +25452,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -26931,7 +26948,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -28427,7 +28445,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -29930,7 +29949,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -31433,7 +31453,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -32933,7 +32954,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -34429,7 +34451,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
@@ -35941,7 +35964,8 @@ gapi.load('client', () => {
         });
         /**
          * Processes a natural language query and returns structured, actionable data as a result. This method is not idempotent, because it may cause contexts and session entity types to be
-         * updated, which in turn might affect results of future queries.
+         * updated, which in turn might affect results of future queries. Note: Always use agent versions for production traffic. See [Versions and
+         * environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
          */
         await gapi.client.dialogflow.projects.agent.sessions.detectIntent({
             session: "Test string",
