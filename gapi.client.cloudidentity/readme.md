@@ -73,7 +73,7 @@ Cancels an unfinished device wipe. This operation can be used to cancel device w
 await gapi.client.cloudidentity.devices.cancelWipe({ name: "name",  });
 
 /*
-Creates a device. Only company-owned device may be created.
+Creates a device. Only company-owned device may be created. **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise for Education, and Cloud Identity Premium
 */
 await gapi.client.cloudidentity.devices.create({  });
 

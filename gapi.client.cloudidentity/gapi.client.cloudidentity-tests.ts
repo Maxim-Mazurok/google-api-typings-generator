@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201121
+// Revision: 20201203
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -65,7 +65,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -109,7 +112,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -153,7 +159,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -196,7 +205,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -239,7 +251,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -286,7 +301,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -339,7 +357,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -387,7 +408,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -412,7 +436,10 @@ gapi.load('client', () => {
             ownerType: "Test string",
             scoreReason: "Test string",
         });
-        /** Creates a device. Only company-owned device may be created. */
+        /**
+         * Creates a device. Only company-owned device may be created. **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise
+         * Plus, Enterprise for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.create({
             customer: "Test string",
         }, {
@@ -471,7 +498,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -515,7 +545,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -559,7 +592,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -602,7 +638,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -645,7 +684,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -692,7 +734,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -745,7 +790,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -793,7 +841,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -842,7 +893,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -886,7 +940,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -930,7 +987,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -973,7 +1033,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1016,7 +1079,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1063,7 +1129,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1116,7 +1185,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1164,7 +1236,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1213,7 +1288,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1257,7 +1335,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1301,7 +1382,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1344,7 +1428,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1387,7 +1474,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1434,7 +1524,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1487,7 +1580,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1535,7 +1631,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1588,7 +1687,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1632,7 +1734,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1676,7 +1781,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1719,7 +1827,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1762,7 +1873,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1809,7 +1923,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1862,7 +1979,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1910,7 +2030,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -1960,7 +2083,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -2004,7 +2130,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -2048,7 +2177,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -2091,7 +2223,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -2134,7 +2269,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -2181,7 +2319,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -2234,7 +2375,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -2282,7 +2426,10 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
         });
-        /** Updates the client state for the device user */
+        /**
+         * Updates the client state for the device user **Note**: This method is available only to customers who have one of the following SKUs: Enterprise Standard, Enterprise Plus, Enterprise
+         * for Education, and Cloud Identity Premium
+         */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.patch({
             customer: "Test string",
             name: "Test string",
@@ -2324,6 +2471,16 @@ gapi.load('client', () => {
             parent: "Test string",
             updateTime: "Test string",
         });
+        /**
+         * Check a potential member for membership in a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and
+         * Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A member has membership to a group as
+         * long as there is a single viewable transitive membership between the group and the member. The actor must have view permissions to at least one transitive membership between the member
+         * and group.
+         */
+        await gapi.client.cloudidentity.groups.memberships.checkTransitiveMembership({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Creates a `Membership`. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -2349,6 +2506,15 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.groups.memberships.get({
             name: "Test string",
         });
+        /**
+         * Get a membership graph of just a member or both a member and a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise
+         * for Education; and Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. Given a member, the
+         * response will contain all membership paths from the member. Given both a group and a member, the response will contain all membership paths between the group and the member.
+         */
+        await gapi.client.cloudidentity.groups.memberships.getMembershipGraph({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Lists the `Membership`s within a `Group`. */
         await gapi.client.cloudidentity.groups.memberships.list({
             pageSize: 42,
@@ -2372,11 +2538,42 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
+        });
+        /**
+         * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
+         * Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive group is any group that has a direct or
+         * indirect membership to the member. Actor must have view permissions all transitive groups.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveGroups({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            query: "Test string",
+        });
+        /**
+         * Search transitive memberships of a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud
+         * Identity Premium accounts. If the account of the group is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive membership is any direct or
+         * indirect membership of a group. Actor must have view permissions to all transitive memberships.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveMemberships({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Deletes a `Group`. */
         await gapi.client.cloudidentity.groups.delete({
             name: "Test string",
         });
+        /**
+         * Check a potential member for membership in a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and
+         * Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A member has membership to a group as
+         * long as there is a single viewable transitive membership between the group and the member. The actor must have view permissions to at least one transitive membership between the member
+         * and group.
+         */
+        await gapi.client.cloudidentity.groups.memberships.checkTransitiveMembership({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Creates a `Membership`. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -2402,6 +2599,15 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.groups.memberships.get({
             name: "Test string",
         });
+        /**
+         * Get a membership graph of just a member or both a member and a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise
+         * for Education; and Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. Given a member, the
+         * response will contain all membership paths from the member. Given both a group and a member, the response will contain all membership paths between the group and the member.
+         */
+        await gapi.client.cloudidentity.groups.memberships.getMembershipGraph({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Lists the `Membership`s within a `Group`. */
         await gapi.client.cloudidentity.groups.memberships.list({
             pageSize: 42,
@@ -2425,11 +2631,42 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
+        });
+        /**
+         * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
+         * Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive group is any group that has a direct or
+         * indirect membership to the member. Actor must have view permissions all transitive groups.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveGroups({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            query: "Test string",
+        });
+        /**
+         * Search transitive memberships of a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud
+         * Identity Premium accounts. If the account of the group is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive membership is any direct or
+         * indirect membership of a group. Actor must have view permissions to all transitive memberships.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveMemberships({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Retrieves a `Group`. */
         await gapi.client.cloudidentity.groups.get({
             name: "Test string",
         });
+        /**
+         * Check a potential member for membership in a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and
+         * Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A member has membership to a group as
+         * long as there is a single viewable transitive membership between the group and the member. The actor must have view permissions to at least one transitive membership between the member
+         * and group.
+         */
+        await gapi.client.cloudidentity.groups.memberships.checkTransitiveMembership({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Creates a `Membership`. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -2455,6 +2692,15 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.groups.memberships.get({
             name: "Test string",
         });
+        /**
+         * Get a membership graph of just a member or both a member and a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise
+         * for Education; and Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. Given a member, the
+         * response will contain all membership paths from the member. Given both a group and a member, the response will contain all membership paths between the group and the member.
+         */
+        await gapi.client.cloudidentity.groups.memberships.getMembershipGraph({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Lists the `Membership`s within a `Group`. */
         await gapi.client.cloudidentity.groups.memberships.list({
             pageSize: 42,
@@ -2478,6 +2724,27 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
+        });
+        /**
+         * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
+         * Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive group is any group that has a direct or
+         * indirect membership to the member. Actor must have view permissions all transitive groups.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveGroups({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            query: "Test string",
+        });
+        /**
+         * Search transitive memberships of a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud
+         * Identity Premium accounts. If the account of the group is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive membership is any direct or
+         * indirect membership of a group. Actor must have view permissions to all transitive memberships.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveMemberships({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Lists the `Group`s under a customer or namespace. */
         await gapi.client.cloudidentity.groups.list({
@@ -2486,6 +2753,16 @@ gapi.load('client', () => {
             parent: "Test string",
             view: "Test string",
         });
+        /**
+         * Check a potential member for membership in a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and
+         * Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A member has membership to a group as
+         * long as there is a single viewable transitive membership between the group and the member. The actor must have view permissions to at least one transitive membership between the member
+         * and group.
+         */
+        await gapi.client.cloudidentity.groups.memberships.checkTransitiveMembership({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Creates a `Membership`. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -2511,6 +2788,15 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.groups.memberships.get({
             name: "Test string",
         });
+        /**
+         * Get a membership graph of just a member or both a member and a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise
+         * for Education; and Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. Given a member, the
+         * response will contain all membership paths from the member. Given both a group and a member, the response will contain all membership paths between the group and the member.
+         */
+        await gapi.client.cloudidentity.groups.memberships.getMembershipGraph({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Lists the `Membership`s within a `Group`. */
         await gapi.client.cloudidentity.groups.memberships.list({
             pageSize: 42,
@@ -2534,12 +2820,43 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
+        });
+        /**
+         * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
+         * Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive group is any group that has a direct or
+         * indirect membership to the member. Actor must have view permissions all transitive groups.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveGroups({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            query: "Test string",
+        });
+        /**
+         * Search transitive memberships of a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud
+         * Identity Premium accounts. If the account of the group is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive membership is any direct or
+         * indirect membership of a group. Actor must have view permissions to all transitive memberships.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveMemberships({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Looks up the [resource name](https://cloud.google.com/apis/design/resource_names) of a `Group` by its `EntityKey`. */
         await gapi.client.cloudidentity.groups.lookup({
             "groupKey.id": "Test string",
             "groupKey.namespace": "Test string",
         });
+        /**
+         * Check a potential member for membership in a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and
+         * Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A member has membership to a group as
+         * long as there is a single viewable transitive membership between the group and the member. The actor must have view permissions to at least one transitive membership between the member
+         * and group.
+         */
+        await gapi.client.cloudidentity.groups.memberships.checkTransitiveMembership({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Creates a `Membership`. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -2565,6 +2882,15 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.groups.memberships.get({
             name: "Test string",
         });
+        /**
+         * Get a membership graph of just a member or both a member and a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise
+         * for Education; and Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. Given a member, the
+         * response will contain all membership paths from the member. Given both a group and a member, the response will contain all membership paths between the group and the member.
+         */
+        await gapi.client.cloudidentity.groups.memberships.getMembershipGraph({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Lists the `Membership`s within a `Group`. */
         await gapi.client.cloudidentity.groups.memberships.list({
             pageSize: 42,
@@ -2588,6 +2914,27 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
+        });
+        /**
+         * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
+         * Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive group is any group that has a direct or
+         * indirect membership to the member. Actor must have view permissions all transitive groups.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveGroups({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            query: "Test string",
+        });
+        /**
+         * Search transitive memberships of a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud
+         * Identity Premium accounts. If the account of the group is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive membership is any direct or
+         * indirect membership of a group. Actor must have view permissions to all transitive memberships.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveMemberships({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Updates a `Group`. */
         await gapi.client.cloudidentity.groups.patch({
@@ -2607,6 +2954,16 @@ gapi.load('client', () => {
             parent: "Test string",
             updateTime: "Test string",
         });
+        /**
+         * Check a potential member for membership in a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and
+         * Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A member has membership to a group as
+         * long as there is a single viewable transitive membership between the group and the member. The actor must have view permissions to at least one transitive membership between the member
+         * and group.
+         */
+        await gapi.client.cloudidentity.groups.memberships.checkTransitiveMembership({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Creates a `Membership`. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -2632,6 +2989,15 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.groups.memberships.get({
             name: "Test string",
         });
+        /**
+         * Get a membership graph of just a member or both a member and a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise
+         * for Education; and Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. Given a member, the
+         * response will contain all membership paths from the member. Given both a group and a member, the response will contain all membership paths between the group and the member.
+         */
+        await gapi.client.cloudidentity.groups.memberships.getMembershipGraph({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Lists the `Membership`s within a `Group`. */
         await gapi.client.cloudidentity.groups.memberships.list({
             pageSize: 42,
@@ -2655,6 +3021,27 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
+        });
+        /**
+         * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
+         * Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive group is any group that has a direct or
+         * indirect membership to the member. Actor must have view permissions all transitive groups.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveGroups({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            query: "Test string",
+        });
+        /**
+         * Search transitive memberships of a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud
+         * Identity Premium accounts. If the account of the group is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive membership is any direct or
+         * indirect membership of a group. Actor must have view permissions to all transitive memberships.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveMemberships({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
         /** Searches for `Group`s matching a specified query. */
         await gapi.client.cloudidentity.groups.search({
@@ -2663,6 +3050,16 @@ gapi.load('client', () => {
             query: "Test string",
             view: "Test string",
         });
+        /**
+         * Check a potential member for membership in a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and
+         * Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A member has membership to a group as
+         * long as there is a single viewable transitive membership between the group and the member. The actor must have view permissions to at least one transitive membership between the member
+         * and group.
+         */
+        await gapi.client.cloudidentity.groups.memberships.checkTransitiveMembership({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Creates a `Membership`. */
         await gapi.client.cloudidentity.groups.memberships.create({
             parent: "Test string",
@@ -2688,6 +3085,15 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.groups.memberships.get({
             name: "Test string",
         });
+        /**
+         * Get a membership graph of just a member or both a member and a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise
+         * for Education; and Cloud Identity Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. Given a member, the
+         * response will contain all membership paths from the member. Given both a group and a member, the response will contain all membership paths between the group and the member.
+         */
+        await gapi.client.cloudidentity.groups.memberships.getMembershipGraph({
+            parent: "Test string",
+            query: "Test string",
+        });
         /** Lists the `Membership`s within a `Group`. */
         await gapi.client.cloudidentity.groups.memberships.list({
             pageSize: 42,
@@ -2711,6 +3117,27 @@ gapi.load('client', () => {
                 }            ],
             removeRoles: [
                 "Test string"            ],
+        });
+        /**
+         * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
+         * Premium accounts. If the account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive group is any group that has a direct or
+         * indirect membership to the member. Actor must have view permissions all transitive groups.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveGroups({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            query: "Test string",
+        });
+        /**
+         * Search transitive memberships of a group. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud
+         * Identity Premium accounts. If the account of the group is not one of these, a 403 (PERMISSION_DENIED) HTTP status code will be returned. A transitive membership is any direct or
+         * indirect membership of a group. Actor must have view permissions to all transitive memberships.
+         */
+        await gapi.client.cloudidentity.groups.memberships.searchTransitiveMemberships({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
         });
     }
 });
