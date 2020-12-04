@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201203
+// Revision: 20201204
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -730,7 +730,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -837,7 +836,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -2801,7 +2799,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -2908,7 +2905,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -4614,7 +4610,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -4721,7 +4716,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -6470,7 +6464,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -6577,7 +6570,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -8279,7 +8271,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -8386,7 +8377,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -10088,7 +10078,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -10195,7 +10184,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -11901,7 +11889,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -12008,7 +11995,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -13759,7 +13745,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -13866,7 +13851,6 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
-            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
