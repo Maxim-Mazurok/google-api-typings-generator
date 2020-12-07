@@ -1,7 +1,7 @@
 # TypeScript typings for Traffic Director API v2
 
 
-For detailed description please check [documentation](https://www.envoyproxy.io/docs/envoy/latest/configuration/overview/v2_overview#management-server).
+For detailed description please check [documentation](https://cloud.google.com/traffic-director).
 
 ## Installing
 
