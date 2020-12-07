@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201113
+// Revision: 20201204
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -2462,6 +2462,7 @@ gapi.load('client', () => {
                     strAttributes: [
                         "Test string"                    ],
                 },
+                skipWhenOnPromotion: true,
             },
             languageCode: "Test string",
             merchantId: "Test string",
@@ -2525,6 +2526,7 @@ gapi.load('client', () => {
                     strAttributes: [
                         "Test string"                    ],
                 },
+                skipWhenOnPromotion: true,
             },
             languageCode: "Test string",
             merchantId: "Test string",
