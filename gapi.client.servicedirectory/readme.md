@@ -1,4 +1,4 @@
-# TypeScript typings for Service Directory API v1beta1
+# TypeScript typings for Service Directory API v1
 
 Service Directory is a platform for discovering, publishing, and connecting services. 
 For detailed description please check [documentation](https://cloud.google.com/service-directory).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/s
 Install typings for Service Directory API:
 
 ```
-npm install @types/gapi.client.servicedirectory@v1beta1 --save-dev
+npm install @types/gapi.client.servicedirectory@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('servicedirectory', 'v1beta1', () => {
+gapi.client.load('servicedirectory', 'v1', () => {
   // now we can use gapi.client.servicedirectory
   // ...
 });

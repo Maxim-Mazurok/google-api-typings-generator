@@ -8,7 +8,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('servicedirectory', 'v1beta1', () => {
+    gapi.client.load('servicedirectory', 'v1', () => {
         /** now we can use gapi.client.servicedirectory */
 
         /** don't forget to authenticate your client before sending any request to resources: */
