@@ -1,4 +1,4 @@
-# TypeScript typings for Dialogflow API v2
+# TypeScript typings for Dialogflow API v3
 
 Builds conversational interfaces (for example, chatbots, and voice-powered apps and devices).
 For detailed description please check [documentation](https://cloud.google.com/dialogflow/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/d
 Install typings for Dialogflow API:
 
 ```
-npm install @types/gapi.client.dialogflow@v2 --save-dev
+npm install @types/gapi.client.dialogflow@v3 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('dialogflow', 'v2', () => {
+gapi.client.load('dialogflow', 'v3', () => {
   // now we can use gapi.client.dialogflow
   // ...
 });
@@ -60,19 +60,4 @@ gapi.auth.authorize(
 After that you can use Dialogflow API resources:
 
 ```typescript
-
-/*
-Deletes the specified agent.
-*/
-await gapi.client.dialogflow.projects.deleteAgent({ parent: "parent",  });
-
-/*
-Retrieves the specified agent.
-*/
-await gapi.client.dialogflow.projects.getAgent({ parent: "parent",  });
-
-/*
-Creates/updates the specified agent.
-*/
-await gapi.client.dialogflow.projects.setAgent({ parent: "parent",  });
 ```
