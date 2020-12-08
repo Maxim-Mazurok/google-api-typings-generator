@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201125
+// Revision: 20201207
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -355,6 +355,11 @@ gapi.load('client', () => {
                 imei: "Test string",
                 meid: "Test string",
                 networkOperatorName: "Test string",
+                telephonyInfos: [
+                    {
+                        carrierName: "Test string",
+                        phoneNumber: "Test string",
+                    }                ],
                 wifiMacAddress: "Test string",
             },
             nonComplianceDetails: [
@@ -1111,6 +1116,11 @@ gapi.load('client', () => {
                 imei: "Test string",
                 meid: "Test string",
                 networkOperatorName: "Test string",
+                telephonyInfos: [
+                    {
+                        carrierName: "Test string",
+                        phoneNumber: "Test string",
+                    }                ],
                 wifiMacAddress: "Test string",
             },
             nonComplianceDetails: [
@@ -1900,6 +1910,11 @@ gapi.load('client', () => {
                 imei: "Test string",
                 meid: "Test string",
                 networkOperatorName: "Test string",
+                telephonyInfos: [
+                    {
+                        carrierName: "Test string",
+                        phoneNumber: "Test string",
+                    }                ],
                 wifiMacAddress: "Test string",
             },
             nonComplianceDetails: [
