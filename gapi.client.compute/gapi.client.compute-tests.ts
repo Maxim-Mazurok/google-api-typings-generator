@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201102
+// Revision: 20201122
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -346,11 +346,17 @@ gapi.load('client', () => {
         }, {
             bucketName: "Test string",
             cdnPolicy: {
+                cacheMode: "Test string",
+                clientTtl: 42,
+                defaultTtl: 42,
+                maxTtl: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
             },
             creationTimestamp: "Test string",
+            customResponseHeaders: [
+                "Test string"            ],
             description: "Test string",
             enableCdn: true,
             id: "Test string",
@@ -375,11 +381,17 @@ gapi.load('client', () => {
         }, {
             bucketName: "Test string",
             cdnPolicy: {
+                cacheMode: "Test string",
+                clientTtl: 42,
+                defaultTtl: 42,
+                maxTtl: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
             },
             creationTimestamp: "Test string",
+            customResponseHeaders: [
+                "Test string"            ],
             description: "Test string",
             enableCdn: true,
             id: "Test string",
@@ -395,11 +407,17 @@ gapi.load('client', () => {
         }, {
             bucketName: "Test string",
             cdnPolicy: {
+                cacheMode: "Test string",
+                clientTtl: 42,
+                defaultTtl: 42,
+                maxTtl: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
             },
             creationTimestamp: "Test string",
+            customResponseHeaders: [
+                "Test string"            ],
             description: "Test string",
             enableCdn: true,
             id: "Test string",
@@ -488,6 +506,10 @@ gapi.load('client', () => {
                     queryStringWhitelist: [
                         "Test string"                    ],
                 },
+                cacheMode: "Test string",
+                clientTtl: 42,
+                defaultTtl: 42,
+                maxTtl: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -516,6 +538,8 @@ gapi.load('client', () => {
             },
             creationTimestamp: "Test string",
             customRequestHeaders: [
+                "Test string"            ],
+            customResponseHeaders: [
                 "Test string"            ],
             description: "Test string",
             enableCDN: true,
@@ -620,6 +644,10 @@ gapi.load('client', () => {
                     queryStringWhitelist: [
                         "Test string"                    ],
                 },
+                cacheMode: "Test string",
+                clientTtl: 42,
+                defaultTtl: 42,
+                maxTtl: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -648,6 +676,8 @@ gapi.load('client', () => {
             },
             creationTimestamp: "Test string",
             customRequestHeaders: [
+                "Test string"            ],
+            customResponseHeaders: [
                 "Test string"            ],
             description: "Test string",
             enableCDN: true,
@@ -748,6 +778,10 @@ gapi.load('client', () => {
                     queryStringWhitelist: [
                         "Test string"                    ],
                 },
+                cacheMode: "Test string",
+                clientTtl: 42,
+                defaultTtl: 42,
+                maxTtl: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -776,6 +810,8 @@ gapi.load('client', () => {
             },
             creationTimestamp: "Test string",
             customRequestHeaders: [
+                "Test string"            ],
+            customResponseHeaders: [
                 "Test string"            ],
             description: "Test string",
             enableCDN: true,
@@ -3496,6 +3532,7 @@ gapi.load('client', () => {
                     name: "Test string",
                     network: "Test string",
                     networkIP: "Test string",
+                    nicType: "Test string",
                     subnetwork: "Test string",
                 }            ],
             privateIpv6GoogleAccess: "Test string",
@@ -3509,6 +3546,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             scheduling: {
                 automaticRestart: true,
+                locationHint: "Test string",
                 minNodeCpus: 42,
                 nodeAffinities: [
                     {
@@ -3764,6 +3802,7 @@ gapi.load('client', () => {
             zone: "Test string",
         }, {
             automaticRestart: true,
+            locationHint: "Test string",
             minNodeCpus: 42,
             nodeAffinities: [
                 {
@@ -4004,6 +4043,7 @@ gapi.load('client', () => {
                     name: "Test string",
                     network: "Test string",
                     networkIP: "Test string",
+                    nicType: "Test string",
                     subnetwork: "Test string",
                 }            ],
             privateIpv6GoogleAccess: "Test string",
@@ -4017,6 +4057,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             scheduling: {
                 automaticRestart: true,
+                locationHint: "Test string",
                 minNodeCpus: 42,
                 nodeAffinities: [
                     {
@@ -4113,6 +4154,7 @@ gapi.load('client', () => {
             name: "Test string",
             network: "Test string",
             networkIP: "Test string",
+            nicType: "Test string",
             subnetwork: "Test string",
         });
         /**
@@ -4280,6 +4322,7 @@ gapi.load('client', () => {
                         name: "Test string",
                         network: "Test string",
                         networkIP: "Test string",
+                        nicType: "Test string",
                         subnetwork: "Test string",
                     }                ],
                 privateIpv6GoogleAccess: "Test string",
@@ -4293,6 +4336,7 @@ gapi.load('client', () => {
                     "Test string"                ],
                 scheduling: {
                     automaticRestart: true,
+                    locationHint: "Test string",
                     minNodeCpus: 42,
                     nodeAffinities: [
                         {
@@ -4486,6 +4530,7 @@ gapi.load('client', () => {
             id: "Test string",
             interconnect: "Test string",
             kind: "Test string",
+            mtu: 42,
             name: "Test string",
             operationalStatus: "Test string",
             pairingKey: "Test string",
@@ -4536,6 +4581,7 @@ gapi.load('client', () => {
             id: "Test string",
             interconnect: "Test string",
             kind: "Test string",
+            mtu: 42,
             name: "Test string",
             operationalStatus: "Test string",
             pairingKey: "Test string",
@@ -5241,6 +5287,13 @@ gapi.load('client', () => {
             id: "Test string",
             kind: "Test string",
             maintenancePolicy: "Test string",
+            maintenanceWindow: {
+                maintenanceDuration: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                startTime: "Test string",
+            },
             name: "Test string",
             nodeTemplate: "Test string",
             selfLink: "Test string",
@@ -5287,6 +5340,13 @@ gapi.load('client', () => {
             id: "Test string",
             kind: "Test string",
             maintenancePolicy: "Test string",
+            maintenanceWindow: {
+                maintenanceDuration: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
+                startTime: "Test string",
+            },
             name: "Test string",
             nodeTemplate: "Test string",
             selfLink: "Test string",
@@ -5441,9 +5501,20 @@ gapi.load('client', () => {
             region: "Test string",
             requestId: "Test string",
         }, {
+            accelerators: [
+                {
+                    acceleratorCount: 42,
+                    acceleratorType: "Test string",
+                }            ],
             cpuOvercommitType: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
+            disks: [
+                {
+                    diskCount: 42,
+                    diskSizeGb: 42,
+                    diskType: "Test string",
+                }            ],
             id: "Test string",
             kind: "Test string",
             name: "Test string",
@@ -6070,6 +6141,10 @@ gapi.load('client', () => {
                     queryStringWhitelist: [
                         "Test string"                    ],
                 },
+                cacheMode: "Test string",
+                clientTtl: 42,
+                defaultTtl: 42,
+                maxTtl: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -6098,6 +6173,8 @@ gapi.load('client', () => {
             },
             creationTimestamp: "Test string",
             customRequestHeaders: [
+                "Test string"            ],
+            customResponseHeaders: [
                 "Test string"            ],
             description: "Test string",
             enableCDN: true,
@@ -6204,6 +6281,10 @@ gapi.load('client', () => {
                     queryStringWhitelist: [
                         "Test string"                    ],
                 },
+                cacheMode: "Test string",
+                clientTtl: 42,
+                defaultTtl: 42,
+                maxTtl: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -6232,6 +6313,8 @@ gapi.load('client', () => {
             },
             creationTimestamp: "Test string",
             customRequestHeaders: [
+                "Test string"            ],
+            customResponseHeaders: [
                 "Test string"            ],
             description: "Test string",
             enableCDN: true,
@@ -6325,6 +6408,10 @@ gapi.load('client', () => {
                     queryStringWhitelist: [
                         "Test string"                    ],
                 },
+                cacheMode: "Test string",
+                clientTtl: 42,
+                defaultTtl: 42,
+                maxTtl: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -6353,6 +6440,8 @@ gapi.load('client', () => {
             },
             creationTimestamp: "Test string",
             customRequestHeaders: [
+                "Test string"            ],
+            customResponseHeaders: [
                 "Test string"            ],
             description: "Test string",
             enableCDN: true,
@@ -7462,10 +7551,7 @@ gapi.load('client', () => {
                 }            ],
             zone: "Test string",
         });
-        /**
-         * Insert or patch (for the ones that already exist) per-instance configs for the managed instance group. perInstanceConfig.instance serves as a key used to distinguish whether to perform
-         * insert or patch.
-         */
+        /** Inserts or patches per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. */
         await gapi.client.compute.regionInstanceGroupManagers.patchPerInstanceConfigs({
             instanceGroupManager: "Test string",
             project: "Test string",
@@ -7545,10 +7631,7 @@ gapi.load('client', () => {
             targetPools: [
                 "Test string"            ],
         });
-        /**
-         * Insert or update (for the ones that already exist) per-instance configs for the managed instance group. perInstanceConfig.instance serves as a key used to distinguish whether to perform
-         * insert or patch.
-         */
+        /** Inserts or updates per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch. */
         await gapi.client.compute.regionInstanceGroupManagers.updatePerInstanceConfigs({
             instanceGroupManager: "Test string",
             project: "Test string",
@@ -10724,7 +10807,10 @@ gapi.load('client', () => {
             project: "Test string",
             returnPartialSuccess: true,
         });
-        /** Patches the specified policy with the data included in the request. */
+        /**
+         * Patches the specified policy with the data included in the request. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule,
+         * and removeRule instead.
+         */
         await gapi.client.compute.securityPolicies.patch({
             project: "Test string",
             requestId: "Test string",

@@ -1842,7 +1842,7 @@ Updates a managed instance group using the information that you specify in the r
 await gapi.client.compute.regionInstanceGroupManagers.patch({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
-Insert or patch (for the ones that already exist) per-instance configs for the managed instance group. perInstanceConfig.instance serves as a key used to distinguish whether to perform insert or patch.
+Inserts or patches per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch.
 */
 await gapi.client.compute.regionInstanceGroupManagers.patchPerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
@@ -1875,7 +1875,7 @@ Modifies the target pools to which all new instances in this group are assigned.
 await gapi.client.compute.regionInstanceGroupManagers.setTargetPools({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
-Insert or update (for the ones that already exist) per-instance configs for the managed instance group. perInstanceConfig.instance serves as a key used to distinguish whether to perform insert or patch.
+Inserts or updates per-instance configs for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch.
 */
 await gapi.client.compute.regionInstanceGroupManagers.updatePerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
@@ -2274,7 +2274,7 @@ Gets the current list of preconfigured Web Application Firewall (WAF) expression
 await gapi.client.compute.securityPolicies.listPreconfiguredExpressionSets({ project: "project",  });
 
 /*
-Patches the specified policy with the data included in the request.
+Patches the specified policy with the data included in the request. This cannot be used to be update the rules in the policy. Please use the per rule methods like addRule, patchRule, and removeRule instead.
 */
 await gapi.client.compute.securityPolicies.patch({ project: "project", securityPolicy: "securityPolicy",  });
 
