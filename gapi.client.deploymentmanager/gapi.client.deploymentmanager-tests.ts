@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201119
+// Revision: 20201203
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -147,7 +147,6 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
-            returnPartialSuccess: true,
         });
         /** Patches a deployment and all of the resources described by the deployment manifest. */
         await gapi.client.deploymentmanager.deployments.patch({
@@ -387,7 +386,6 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
-            returnPartialSuccess: true,
         });
         /** Gets information about a specific operation. */
         await gapi.client.deploymentmanager.operations.get({
@@ -401,7 +399,6 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
-            returnPartialSuccess: true,
         });
         /** Gets information about a single resource. */
         await gapi.client.deploymentmanager.resources.get({
@@ -417,7 +414,6 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
-            returnPartialSuccess: true,
         });
         /** Lists all resource types for Deployment Manager. */
         await gapi.client.deploymentmanager.types.list({
@@ -426,7 +422,6 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageToken: "Test string",
             project: "Test string",
-            returnPartialSuccess: true,
         });
     }
 });
