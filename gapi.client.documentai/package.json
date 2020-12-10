@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.videointelligence",
-  "version": "1.0.20201205",
-  "description": "TypeScript typings for Cloud Video Intelligence API v1",
+  "name": "@maxim_mazurok/gapi.client.documentai",
+  "version": "1.0.20201207",
+  "description": "TypeScript typings for Cloud Document AI API v1beta3",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
