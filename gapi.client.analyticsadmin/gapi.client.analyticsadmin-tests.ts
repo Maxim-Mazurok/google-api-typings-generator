@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201208
+// Revision: 20201210
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -136,7 +136,7 @@ gapi.load('client', () => {
             emailAddress: "Test string",
             name: "Test string",
         });
-        /** Lookup for a single Account. Throws "Target not found" if no such account found, or if caller does not have permissions to access it. */
+        /** Lookup for a single Account. */
         await gapi.client.analyticsadmin.accounts.get({
             name: "Test string",
         });
@@ -671,7 +671,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single AndroidAppDataStream Throws "Target not found" if no such android app data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
         });
@@ -775,7 +775,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single IosAppDataStream Throws "Target not found" if no such iOS app data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
         });
@@ -908,7 +908,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single WebDataStream Throws "Target not found" if no such web data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
@@ -989,7 +989,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single AndroidAppDataStream Throws "Target not found" if no such android app data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
         });
@@ -1093,7 +1093,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single IosAppDataStream Throws "Target not found" if no such iOS app data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
         });
@@ -1226,7 +1226,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single WebDataStream Throws "Target not found" if no such web data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
@@ -1284,7 +1284,7 @@ gapi.load('client', () => {
             urlQueryParameter: "Test string",
             videoEngagementEnabled: true,
         });
-        /** Lookup for a single "GA4" Property. Throws "Target not found" if no such property found, if property is not of the type "GA4", or if caller does not have permissions to access it. */
+        /** Lookup for a single "GA4" Property. */
         await gapi.client.analyticsadmin.properties.get({
             name: "Test string",
         });
@@ -1303,7 +1303,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single AndroidAppDataStream Throws "Target not found" if no such android app data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
         });
@@ -1407,7 +1407,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single IosAppDataStream Throws "Target not found" if no such iOS app data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
         });
@@ -1540,7 +1540,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single WebDataStream Throws "Target not found" if no such web data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
@@ -1623,7 +1623,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single AndroidAppDataStream Throws "Target not found" if no such android app data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
         });
@@ -1727,7 +1727,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single IosAppDataStream Throws "Target not found" if no such iOS app data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
         });
@@ -1860,7 +1860,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single WebDataStream Throws "Target not found" if no such web data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });
@@ -1948,7 +1948,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single AndroidAppDataStream Throws "Target not found" if no such android app data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single AndroidAppDataStream */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.get({
             name: "Test string",
         });
@@ -2052,7 +2052,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single IosAppDataStream Throws "Target not found" if no such iOS app data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single IosAppDataStream */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.get({
             name: "Test string",
         });
@@ -2185,7 +2185,7 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.webDataStreams.delete({
             name: "Test string",
         });
-        /** Lookup for a single WebDataStream Throws "Target not found" if no such web data stream found, or if the caller does not have permissions to access it. */
+        /** Lookup for a single WebDataStream */
         await gapi.client.analyticsadmin.properties.webDataStreams.get({
             name: "Test string",
         });

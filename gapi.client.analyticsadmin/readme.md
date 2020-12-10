@@ -73,7 +73,7 @@ Marks target Account as soft-deleted (ie: "trashed") and returns it. This API do
 await gapi.client.analyticsadmin.accounts.delete({ name: "name",  });
 
 /*
-Lookup for a single Account. Throws "Target not found" if no such account found, or if caller does not have permissions to access it.
+Lookup for a single Account.
 */
 await gapi.client.analyticsadmin.accounts.get({ name: "name",  });
 
@@ -113,7 +113,7 @@ Marks target Property as soft-deleted (ie: "trashed") and returns it. This API d
 await gapi.client.analyticsadmin.properties.delete({ name: "name",  });
 
 /*
-Lookup for a single "GA4" Property. Throws "Target not found" if no such property found, if property is not of the type "GA4", or if caller does not have permissions to access it.
+Lookup for a single "GA4" Property.
 */
 await gapi.client.analyticsadmin.properties.get({ name: "name",  });
 
