@@ -145,6 +145,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -273,6 +282,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -410,6 +428,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -519,6 +546,15 @@ gapi.load('client', () => {
                     updateTime: "Test string",
                     userId: "Test string",
                 },
+                recommendedChannels: [
+                    {
+                        frequencyRange: {
+                            highFrequencyMhz: 42,
+                            lowFrequencyMhz: 42,
+                        },
+                        score: 42,
+                    }                ],
+                recommendedPowerDbmPerMhz: 42,
                 serialNumber: "Test string",
                 state: "Test string",
             },
@@ -644,6 +680,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -785,6 +830,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -926,6 +980,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -1069,6 +1132,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -1212,6 +1284,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -1359,6 +1440,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -1507,6 +1597,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -1635,6 +1734,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -1772,6 +1880,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -1881,6 +1998,15 @@ gapi.load('client', () => {
                     updateTime: "Test string",
                     userId: "Test string",
                 },
+                recommendedChannels: [
+                    {
+                        frequencyRange: {
+                            highFrequencyMhz: 42,
+                            lowFrequencyMhz: 42,
+                        },
+                        score: 42,
+                    }                ],
+                recommendedPowerDbmPerMhz: 42,
                 serialNumber: "Test string",
                 state: "Test string",
             },
@@ -2006,6 +2132,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -2147,6 +2282,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -2288,6 +2432,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -2431,6 +2584,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -2574,6 +2736,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -2721,6 +2892,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -2874,6 +3054,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -3002,6 +3191,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -3139,6 +3337,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -3248,6 +3455,15 @@ gapi.load('client', () => {
                     updateTime: "Test string",
                     userId: "Test string",
                 },
+                recommendedChannels: [
+                    {
+                        frequencyRange: {
+                            highFrequencyMhz: 42,
+                            lowFrequencyMhz: 42,
+                        },
+                        score: 42,
+                    }                ],
+                recommendedPowerDbmPerMhz: 42,
                 serialNumber: "Test string",
                 state: "Test string",
             },
@@ -3373,6 +3589,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -3514,6 +3739,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -3655,6 +3889,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -3798,6 +4041,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -3941,6 +4193,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -4088,6 +4349,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -4246,6 +4516,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -4374,6 +4653,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -4511,6 +4799,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -4620,6 +4917,15 @@ gapi.load('client', () => {
                     updateTime: "Test string",
                     userId: "Test string",
                 },
+                recommendedChannels: [
+                    {
+                        frequencyRange: {
+                            highFrequencyMhz: 42,
+                            lowFrequencyMhz: 42,
+                        },
+                        score: 42,
+                    }                ],
+                recommendedPowerDbmPerMhz: 42,
                 serialNumber: "Test string",
                 state: "Test string",
             },
@@ -4751,6 +5057,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -4898,6 +5213,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -5045,6 +5369,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -5194,6 +5527,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -5343,6 +5685,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });
@@ -5496,6 +5847,15 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            recommendedChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
+            recommendedPowerDbmPerMhz: 42,
             serialNumber: "Test string",
             state: "Test string",
         });

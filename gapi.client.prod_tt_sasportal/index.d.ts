@@ -37,6 +37,12 @@ declare namespace gapi.client {
             /** Required. The devices that were imported. */
             devices?: SasPortalDevice[];
         }
+        interface SasPortalChannelWithScore {
+            /** The frequency range of the channel. */
+            frequencyRange?: SasPortalFrequencyRange;
+            /** The channel score, normalized to be in [0,1]. */
+            score?: number;
+        }
         interface SasPortalCreateSignedDeviceRequest {
             /** Required. JSON Web Token signed using a CPI private key. Payload must be the JSON encoding of the [Device]. The user_id field must be set. */
             encodedDevice?: string;
@@ -66,6 +72,10 @@ declare namespace gapi.client {
             name?: string;
             /** Configuration of the device, as specified via SAS Portal API. */
             preloadedConfig?: SasPortalDeviceConfig;
+            /** Output only. Recommended channels. */
+            recommendedChannels?: SasPortalChannelWithScore[];
+            /** Output only. Recommended power for the device. */
+            recommendedPowerDbmPerMhz?: number;
             /** A serial number assigned to the device by the device manufacturer. */
             serialNumber?: string;
             /** Output only. Device state. */
