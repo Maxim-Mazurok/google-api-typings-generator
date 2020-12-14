@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201202
+// Revision: 20201210
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -236,6 +236,53 @@ gapi.load('client', () => {
             spec: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -249,6 +296,53 @@ gapi.load('client', () => {
             status: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -290,6 +384,53 @@ gapi.load('client', () => {
             spec: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -303,6 +444,53 @@ gapi.load('client', () => {
             status: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -333,6 +521,53 @@ gapi.load('client', () => {
                     spec: {
                         accessLevels: [
                             "Test string"                        ],
+                        egressPolicies: [
+                            {
+                                egressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                },
+                                egressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
+                        ingressPolicies: [
+                            {
+                                ingressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                    sources: [
+                                        {
+                                            accessLevel: "Test string",
+                                            resource: "Test string",
+                                        }                                    ],
+                                },
+                                ingressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
                         resources: [
                             "Test string"                        ],
                         restrictedServices: [
@@ -346,6 +581,53 @@ gapi.load('client', () => {
                     status: {
                         accessLevels: [
                             "Test string"                        ],
+                        egressPolicies: [
+                            {
+                                egressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                },
+                                egressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
+                        ingressPolicies: [
+                            {
+                                ingressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                    sources: [
+                                        {
+                                            accessLevel: "Test string",
+                                            resource: "Test string",
+                                        }                                    ],
+                                },
+                                ingressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
                         resources: [
                             "Test string"                        ],
                         restrictedServices: [
@@ -559,6 +841,53 @@ gapi.load('client', () => {
             spec: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -572,6 +901,53 @@ gapi.load('client', () => {
             status: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -613,6 +989,53 @@ gapi.load('client', () => {
             spec: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -626,6 +1049,53 @@ gapi.load('client', () => {
             status: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -656,6 +1126,53 @@ gapi.load('client', () => {
                     spec: {
                         accessLevels: [
                             "Test string"                        ],
+                        egressPolicies: [
+                            {
+                                egressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                },
+                                egressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
+                        ingressPolicies: [
+                            {
+                                ingressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                    sources: [
+                                        {
+                                            accessLevel: "Test string",
+                                            resource: "Test string",
+                                        }                                    ],
+                                },
+                                ingressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
                         resources: [
                             "Test string"                        ],
                         restrictedServices: [
@@ -669,6 +1186,53 @@ gapi.load('client', () => {
                     status: {
                         accessLevels: [
                             "Test string"                        ],
+                        egressPolicies: [
+                            {
+                                egressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                },
+                                egressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
+                        ingressPolicies: [
+                            {
+                                ingressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                    sources: [
+                                        {
+                                            accessLevel: "Test string",
+                                            resource: "Test string",
+                                        }                                    ],
+                                },
+                                ingressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
                         resources: [
                             "Test string"                        ],
                         restrictedServices: [
@@ -882,6 +1446,53 @@ gapi.load('client', () => {
             spec: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -895,6 +1506,53 @@ gapi.load('client', () => {
             status: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -936,6 +1594,53 @@ gapi.load('client', () => {
             spec: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -949,6 +1654,53 @@ gapi.load('client', () => {
             status: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -979,6 +1731,53 @@ gapi.load('client', () => {
                     spec: {
                         accessLevels: [
                             "Test string"                        ],
+                        egressPolicies: [
+                            {
+                                egressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                },
+                                egressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
+                        ingressPolicies: [
+                            {
+                                ingressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                    sources: [
+                                        {
+                                            accessLevel: "Test string",
+                                            resource: "Test string",
+                                        }                                    ],
+                                },
+                                ingressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
                         resources: [
                             "Test string"                        ],
                         restrictedServices: [
@@ -992,6 +1791,53 @@ gapi.load('client', () => {
                     status: {
                         accessLevels: [
                             "Test string"                        ],
+                        egressPolicies: [
+                            {
+                                egressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                },
+                                egressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
+                        ingressPolicies: [
+                            {
+                                ingressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                    sources: [
+                                        {
+                                            accessLevel: "Test string",
+                                            resource: "Test string",
+                                        }                                    ],
+                                },
+                                ingressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
                         resources: [
                             "Test string"                        ],
                         restrictedServices: [
@@ -1207,6 +2053,53 @@ gapi.load('client', () => {
             spec: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -1220,6 +2113,53 @@ gapi.load('client', () => {
             status: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -1261,6 +2201,53 @@ gapi.load('client', () => {
             spec: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -1274,6 +2261,53 @@ gapi.load('client', () => {
             status: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -1304,6 +2338,53 @@ gapi.load('client', () => {
                     spec: {
                         accessLevels: [
                             "Test string"                        ],
+                        egressPolicies: [
+                            {
+                                egressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                },
+                                egressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
+                        ingressPolicies: [
+                            {
+                                ingressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                    sources: [
+                                        {
+                                            accessLevel: "Test string",
+                                            resource: "Test string",
+                                        }                                    ],
+                                },
+                                ingressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
                         resources: [
                             "Test string"                        ],
                         restrictedServices: [
@@ -1317,6 +2398,53 @@ gapi.load('client', () => {
                     status: {
                         accessLevels: [
                             "Test string"                        ],
+                        egressPolicies: [
+                            {
+                                egressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                },
+                                egressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
+                        ingressPolicies: [
+                            {
+                                ingressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                    sources: [
+                                        {
+                                            accessLevel: "Test string",
+                                            resource: "Test string",
+                                        }                                    ],
+                                },
+                                ingressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
                         resources: [
                             "Test string"                        ],
                         restrictedServices: [
@@ -1539,6 +2667,53 @@ gapi.load('client', () => {
             spec: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -1552,6 +2727,53 @@ gapi.load('client', () => {
             status: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -1593,6 +2815,53 @@ gapi.load('client', () => {
             spec: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -1606,6 +2875,53 @@ gapi.load('client', () => {
             status: {
                 accessLevels: [
                     "Test string"                ],
+                egressPolicies: [
+                    {
+                        egressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                        },
+                        egressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
+                ingressPolicies: [
+                    {
+                        ingressFrom: {
+                            identities: [
+                                "Test string"                            ],
+                            identityType: "Test string",
+                            sources: [
+                                {
+                                    accessLevel: "Test string",
+                                    resource: "Test string",
+                                }                            ],
+                        },
+                        ingressTo: {
+                            operations: [
+                                {
+                                    methodSelectors: [
+                                        {
+                                            method: "Test string",
+                                            permission: "Test string",
+                                        }                                    ],
+                                    serviceName: "Test string",
+                                }                            ],
+                            resources: [
+                                "Test string"                            ],
+                        },
+                    }                ],
                 resources: [
                     "Test string"                ],
                 restrictedServices: [
@@ -1636,6 +2952,53 @@ gapi.load('client', () => {
                     spec: {
                         accessLevels: [
                             "Test string"                        ],
+                        egressPolicies: [
+                            {
+                                egressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                },
+                                egressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
+                        ingressPolicies: [
+                            {
+                                ingressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                    sources: [
+                                        {
+                                            accessLevel: "Test string",
+                                            resource: "Test string",
+                                        }                                    ],
+                                },
+                                ingressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
                         resources: [
                             "Test string"                        ],
                         restrictedServices: [
@@ -1649,6 +3012,53 @@ gapi.load('client', () => {
                     status: {
                         accessLevels: [
                             "Test string"                        ],
+                        egressPolicies: [
+                            {
+                                egressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                },
+                                egressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
+                        ingressPolicies: [
+                            {
+                                ingressFrom: {
+                                    identities: [
+                                        "Test string"                                    ],
+                                    identityType: "Test string",
+                                    sources: [
+                                        {
+                                            accessLevel: "Test string",
+                                            resource: "Test string",
+                                        }                                    ],
+                                },
+                                ingressTo: {
+                                    operations: [
+                                        {
+                                            methodSelectors: [
+                                                {
+                                                    method: "Test string",
+                                                    permission: "Test string",
+                                                }                                            ],
+                                            serviceName: "Test string",
+                                        }                                    ],
+                                    resources: [
+                                        "Test string"                                    ],
+                                },
+                            }                        ],
                         resources: [
                             "Test string"                        ],
                         restrictedServices: [
