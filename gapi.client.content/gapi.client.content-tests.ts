@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201204
+// Revision: 20201211
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1351,6 +1351,7 @@ gapi.load('client', () => {
                         streetAddress: [
                             "Test string"                        ],
                     },
+                    isScheduledDelivery: true,
                     phoneNumber: "Test string",
                 },
                 enableOrderinvoices: true,
@@ -1689,6 +1690,10 @@ gapi.load('client', () => {
             lastPickupDate: "Test string",
             operationId: "Test string",
             readyPickupDate: "Test string",
+            scheduledDeliveryDetails: {
+                carrierPhoneNumber: "Test string",
+                scheduledDate: "Test string",
+            },
             shipmentId: "Test string",
             status: "Test string",
             trackingId: "Test string",
@@ -2291,11 +2296,31 @@ gapi.load('client', () => {
                     productId: "Test string",
                 }            ],
         });
+        /** Lists the metrics report for a given Repricing product. Reports of the last 3 days may not be complete. */
+        await gapi.client.content.productstatuses.repricingreports.list({
+            endDate: "Test string",
+            merchantId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            productId: "Test string",
+            ruleId: "Test string",
+            startDate: "Test string",
+        });
         /** Gets the status of a product from your Merchant Center account. */
         await gapi.client.content.productstatuses.get({
             destinations: "Test string",
             merchantId: "Test string",
             productId: "Test string",
+        });
+        /** Lists the metrics report for a given Repricing product. Reports of the last 3 days may not be complete. */
+        await gapi.client.content.productstatuses.repricingreports.list({
+            endDate: "Test string",
+            merchantId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            productId: "Test string",
+            ruleId: "Test string",
+            startDate: "Test string",
         });
         /** Lists the statuses of the products in your Merchant Center account. */
         await gapi.client.content.productstatuses.list({
@@ -2303,6 +2328,16 @@ gapi.load('client', () => {
             maxResults: 42,
             merchantId: "Test string",
             pageToken: "Test string",
+        });
+        /** Lists the metrics report for a given Repricing product. Reports of the last 3 days may not be complete. */
+        await gapi.client.content.productstatuses.repricingreports.list({
+            endDate: "Test string",
+            merchantId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            productId: "Test string",
+            ruleId: "Test string",
+            startDate: "Test string",
         });
         /** Retrieves a Merchant Center account's pubsub notification settings. */
         await gapi.client.content.pubsubnotificationsettings.get({
@@ -2440,6 +2475,10 @@ gapi.load('client', () => {
             merchantId: "Test string",
             ruleId: "Test string",
         }, {
+            cogsBasedRule: {
+                percentageDelta: 42,
+                priceDelta: "Test string",
+            },
             countryCode: "Test string",
             effectiveTimePeriod: {
                 fixedTimePeriods: [
@@ -2475,18 +2514,49 @@ gapi.load('client', () => {
                 useAutoPricingMinPrice: true,
             },
             ruleId: "Test string",
+            statsBasedRule: {
+                percentageDelta: 42,
+                priceDelta: "Test string",
+            },
             title: "Test string",
             type: "Test string",
+        });
+        /** Lists the metrics report for a given Repricing rule. Reports of the last 3 days may not be complete. */
+        await gapi.client.content.repricingrules.repricingreports.list({
+            endDate: "Test string",
+            merchantId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            ruleId: "Test string",
+            startDate: "Test string",
         });
         /** Deletes a repricing rule in your Merchant Center account. */
         await gapi.client.content.repricingrules.delete({
             merchantId: "Test string",
             ruleId: "Test string",
         });
+        /** Lists the metrics report for a given Repricing rule. Reports of the last 3 days may not be complete. */
+        await gapi.client.content.repricingrules.repricingreports.list({
+            endDate: "Test string",
+            merchantId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            ruleId: "Test string",
+            startDate: "Test string",
+        });
         /** Retrieves a repricing rule from your Merchant Center account. */
         await gapi.client.content.repricingrules.get({
             merchantId: "Test string",
             ruleId: "Test string",
+        });
+        /** Lists the metrics report for a given Repricing rule. Reports of the last 3 days may not be complete. */
+        await gapi.client.content.repricingrules.repricingreports.list({
+            endDate: "Test string",
+            merchantId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            ruleId: "Test string",
+            startDate: "Test string",
         });
         /** Lists the repricing rules in your Merchant Center account. */
         await gapi.client.content.repricingrules.list({
@@ -2496,6 +2566,15 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /** Lists the metrics report for a given Repricing rule. Reports of the last 3 days may not be complete. */
+        await gapi.client.content.repricingrules.repricingreports.list({
+            endDate: "Test string",
+            merchantId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            ruleId: "Test string",
+            startDate: "Test string",
+        });
         /**
          * Updates a repricing rule in your Merchant Center account. All mutable fields will be overwritten in each update request. In each update, you must provide all required mutable fields, or
          * an error will be thrown. If you do not provide an optional field in the update request, if that field currently exists, it will be deleted from the rule.
@@ -2504,6 +2583,10 @@ gapi.load('client', () => {
             merchantId: "Test string",
             ruleId: "Test string",
         }, {
+            cogsBasedRule: {
+                percentageDelta: 42,
+                priceDelta: "Test string",
+            },
             countryCode: "Test string",
             effectiveTimePeriod: {
                 fixedTimePeriods: [
@@ -2539,8 +2622,21 @@ gapi.load('client', () => {
                 useAutoPricingMinPrice: true,
             },
             ruleId: "Test string",
+            statsBasedRule: {
+                percentageDelta: 42,
+                priceDelta: "Test string",
+            },
             title: "Test string",
             type: "Test string",
+        });
+        /** Lists the metrics report for a given Repricing rule. Reports of the last 3 days may not be complete. */
+        await gapi.client.content.repricingrules.repricingreports.list({
+            endDate: "Test string",
+            merchantId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            ruleId: "Test string",
+            startDate: "Test string",
         });
         /** Batches multiple return address related calls in a single request. */
         await gapi.client.content.returnaddress.custombatch({
