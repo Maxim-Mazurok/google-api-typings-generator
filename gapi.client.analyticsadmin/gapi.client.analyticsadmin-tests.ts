@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201210
+// Revision: 20201213
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -21,7 +21,7 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/analytics.manage.users',
             /** View Google Analytics user permissions */
             'https://www.googleapis.com/auth/analytics.manage.users.readonly',
-            /** View your Google Analytics data */
+            /** See and download your Google Analytics data */
             'https://www.googleapis.com/auth/analytics.readonly',
         ];
         const immediate = false;
@@ -711,6 +711,8 @@ gapi.load('client', () => {
         });
         /** Lists FirebaseLinks on a property. Properties can have at most one FirebaseLink. */
         await gapi.client.analyticsadmin.properties.firebaseLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
         });
         /** Updates a FirebaseLink on a property */
@@ -1029,6 +1031,8 @@ gapi.load('client', () => {
         });
         /** Lists FirebaseLinks on a property. Properties can have at most one FirebaseLink. */
         await gapi.client.analyticsadmin.properties.firebaseLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
         });
         /** Updates a FirebaseLink on a property */
@@ -1343,6 +1347,8 @@ gapi.load('client', () => {
         });
         /** Lists FirebaseLinks on a property. Properties can have at most one FirebaseLink. */
         await gapi.client.analyticsadmin.properties.firebaseLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
         });
         /** Updates a FirebaseLink on a property */
@@ -1663,6 +1669,8 @@ gapi.load('client', () => {
         });
         /** Lists FirebaseLinks on a property. Properties can have at most one FirebaseLink. */
         await gapi.client.analyticsadmin.properties.firebaseLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
         });
         /** Updates a FirebaseLink on a property */
@@ -1988,6 +1996,8 @@ gapi.load('client', () => {
         });
         /** Lists FirebaseLinks on a property. Properties can have at most one FirebaseLink. */
         await gapi.client.analyticsadmin.properties.firebaseLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
         });
         /** Updates a FirebaseLink on a property */

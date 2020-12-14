@@ -46,7 +46,7 @@ var client_id = '',
       // View Google Analytics user permissions
       'https://www.googleapis.com/auth/analytics.manage.users.readonly',
 
-      // View your Google Analytics data
+      // See and download your Google Analytics data
       'https://www.googleapis.com/auth/analytics.readonly',
     ],
     immediate = true;
