@@ -4,14 +4,29 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201210
+// Revision: 20201213
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
     gapi.client.load('localservices', 'v1', () => {
         /** now we can use gapi.client.localservices */
 
-        run();
+        /** don't forget to authenticate your client before sending any request to resources: */
+        /** declare client_id registered in Google Developers Console */
+        const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+        const scope = [
+            /** Manage your AdWords campaigns */
+            'https://www.googleapis.com/auth/adwords',
+        ];
+        const immediate = false;
+        gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
+            if (authResult && !authResult.error) {
+                /** handle successful authorization */
+                run();
+            } else {
+                /** handle authorization error */
+            }
+        });
     });
 
     async function run() {
