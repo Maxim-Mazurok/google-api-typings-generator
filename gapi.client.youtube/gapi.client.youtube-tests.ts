@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201213
+// Revision: 20201214
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1867,8 +1867,6 @@ gapi.load('client', () => {
                 thumbnailsAvailability: "Test string",
             },
             projectDetails: {
-                tags: [
-                    "Test string"                ],
             },
             recordingDetails: {
                 location: {
@@ -2173,8 +2171,6 @@ gapi.load('client', () => {
                 thumbnailsAvailability: "Test string",
             },
             projectDetails: {
-                tags: [
-                    "Test string"                ],
             },
             recordingDetails: {
                 location: {
