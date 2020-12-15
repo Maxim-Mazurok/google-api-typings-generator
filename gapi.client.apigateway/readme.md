@@ -1,4 +1,4 @@
-# TypeScript typings for API Gateway API v1beta
+# TypeScript typings for API Gateway API v1
 
 
 For detailed description please check [documentation]( https://cloud.google.com/api-gateway/docs).
@@ -8,7 +8,7 @@ For detailed description please check [documentation]( https://cloud.google.com/
 Install typings for API Gateway API:
 
 ```
-npm install @types/gapi.client.apigateway@v1beta --save-dev
+npm install @types/gapi.client.apigateway@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('apigateway', 'v1beta', () => {
+gapi.client.load('apigateway', 'v1', () => {
   // now we can use gapi.client.apigateway
   // ...
 });

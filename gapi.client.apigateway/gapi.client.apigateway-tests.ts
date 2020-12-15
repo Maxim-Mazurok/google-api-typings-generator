@@ -4,11 +4,11 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201203
+// Revision: 20201211
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('apigateway', 'v1beta', () => {
+    gapi.client.load('apigateway', 'v1', () => {
         /** now we can use gapi.client.apigateway */
 
         /** don't forget to authenticate your client before sending any request to resources: */
