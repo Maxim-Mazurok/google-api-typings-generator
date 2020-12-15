@@ -42,6 +42,7 @@ gapi.load('client', () => {
             siteUrl: "Test string",
         }, {
             aggregationType: "Test string",
+            dataState: "Test string",
             dimensionFilterGroups: [
                 {
                     filters: [
