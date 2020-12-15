@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201202
+// Revision: 20201211
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -471,12 +471,924 @@ gapi.load('client', () => {
                 name: "Test string",
             },
         });
+        /** Legacy path for creating message. Calling these will result in a BadRequest response. */
+        await gapi.client.chat.dms.webhooks({
+            parent: "Test string",
+            threadKey: "Test string",
+        }, {
+            actionResponse: {
+                type: "Test string",
+                url: "Test string",
+            },
+            annotations: [
+                {
+                    length: 42,
+                    slashCommand: {
+                        bot: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                        commandId: "Test string",
+                        commandName: "Test string",
+                        triggersDialog: true,
+                        type: "Test string",
+                    },
+                    startIndex: 42,
+                    type: "Test string",
+                    userMention: {
+                        type: "Test string",
+                        user: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                    },
+                }            ],
+            argumentText: "Test string",
+            attachment: [
+                {
+                    attachmentDataRef: {
+                        resourceName: "Test string",
+                    },
+                    contentName: "Test string",
+                    contentType: "Test string",
+                    downloadUri: "Test string",
+                    driveDataRef: {
+                        driveFileId: "Test string",
+                    },
+                    name: "Test string",
+                    source: "Test string",
+                    thumbnailUri: "Test string",
+                }            ],
+            cards: [
+                {
+                    cardActions: [
+                        {
+                            actionLabel: "Test string",
+                            onClick: {
+                                action: {
+                                    actionMethodName: "Test string",
+                                    parameters: [
+                                        {
+                                            key: "Test string",
+                                            value: "Test string",
+                                        }                                    ],
+                                },
+                                openLink: {
+                                    url: "Test string",
+                                },
+                            },
+                        }                    ],
+                    header: {
+                        imageStyle: "Test string",
+                        imageUrl: "Test string",
+                        subtitle: "Test string",
+                        title: "Test string",
+                    },
+                    name: "Test string",
+                    sections: [
+                        {
+                            header: "Test string",
+                            widgets: [
+                                {
+                                    buttons: [
+                                        {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        }                                    ],
+                                    image: {
+                                        aspectRatio: 42,
+                                        imageUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                    },
+                                    keyValue: {
+                                        bottomLabel: "Test string",
+                                        button: {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        },
+                                        content: "Test string",
+                                        contentMultiline: true,
+                                        icon: "Test string",
+                                        iconUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                        topLabel: "Test string",
+                                    },
+                                    textParagraph: {
+                                        text: "Test string",
+                                    },
+                                }                            ],
+                        }                    ],
+                }            ],
+            createTime: "Test string",
+            fallbackText: "Test string",
+            name: "Test string",
+            previewText: "Test string",
+            sender: {
+                displayName: "Test string",
+                domainId: "Test string",
+                isAnonymous: true,
+                name: "Test string",
+                type: "Test string",
+            },
+            slashCommand: {
+                commandId: "Test string",
+            },
+            space: {
+                displayName: "Test string",
+                name: "Test string",
+                singleUserBotDm: true,
+                threaded: true,
+                type: "Test string",
+            },
+            text: "Test string",
+            thread: {
+                name: "Test string",
+            },
+        });
+        /** Legacy path for creating message. Calling these will result in a BadRequest response. */
+        await gapi.client.chat.dms.conversations.messages({
+            parent: "Test string",
+            threadKey: "Test string",
+        }, {
+            actionResponse: {
+                type: "Test string",
+                url: "Test string",
+            },
+            annotations: [
+                {
+                    length: 42,
+                    slashCommand: {
+                        bot: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                        commandId: "Test string",
+                        commandName: "Test string",
+                        triggersDialog: true,
+                        type: "Test string",
+                    },
+                    startIndex: 42,
+                    type: "Test string",
+                    userMention: {
+                        type: "Test string",
+                        user: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                    },
+                }            ],
+            argumentText: "Test string",
+            attachment: [
+                {
+                    attachmentDataRef: {
+                        resourceName: "Test string",
+                    },
+                    contentName: "Test string",
+                    contentType: "Test string",
+                    downloadUri: "Test string",
+                    driveDataRef: {
+                        driveFileId: "Test string",
+                    },
+                    name: "Test string",
+                    source: "Test string",
+                    thumbnailUri: "Test string",
+                }            ],
+            cards: [
+                {
+                    cardActions: [
+                        {
+                            actionLabel: "Test string",
+                            onClick: {
+                                action: {
+                                    actionMethodName: "Test string",
+                                    parameters: [
+                                        {
+                                            key: "Test string",
+                                            value: "Test string",
+                                        }                                    ],
+                                },
+                                openLink: {
+                                    url: "Test string",
+                                },
+                            },
+                        }                    ],
+                    header: {
+                        imageStyle: "Test string",
+                        imageUrl: "Test string",
+                        subtitle: "Test string",
+                        title: "Test string",
+                    },
+                    name: "Test string",
+                    sections: [
+                        {
+                            header: "Test string",
+                            widgets: [
+                                {
+                                    buttons: [
+                                        {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        }                                    ],
+                                    image: {
+                                        aspectRatio: 42,
+                                        imageUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                    },
+                                    keyValue: {
+                                        bottomLabel: "Test string",
+                                        button: {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        },
+                                        content: "Test string",
+                                        contentMultiline: true,
+                                        icon: "Test string",
+                                        iconUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                        topLabel: "Test string",
+                                    },
+                                    textParagraph: {
+                                        text: "Test string",
+                                    },
+                                }                            ],
+                        }                    ],
+                }            ],
+            createTime: "Test string",
+            fallbackText: "Test string",
+            name: "Test string",
+            previewText: "Test string",
+            sender: {
+                displayName: "Test string",
+                domainId: "Test string",
+                isAnonymous: true,
+                name: "Test string",
+                type: "Test string",
+            },
+            slashCommand: {
+                commandId: "Test string",
+            },
+            space: {
+                displayName: "Test string",
+                name: "Test string",
+                singleUserBotDm: true,
+                threaded: true,
+                type: "Test string",
+            },
+            text: "Test string",
+            thread: {
+                name: "Test string",
+            },
+        });
         /** Downloads media. Download is supported on the URI `/v1/media/{+name}?alt=media`. */
         await gapi.client.chat.media.download({
             resourceName: "Test string",
         });
         /** Legacy path for creating message. Calling these will result in a BadRequest response. */
         await gapi.client.chat.rooms.messages({
+            parent: "Test string",
+            threadKey: "Test string",
+        }, {
+            actionResponse: {
+                type: "Test string",
+                url: "Test string",
+            },
+            annotations: [
+                {
+                    length: 42,
+                    slashCommand: {
+                        bot: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                        commandId: "Test string",
+                        commandName: "Test string",
+                        triggersDialog: true,
+                        type: "Test string",
+                    },
+                    startIndex: 42,
+                    type: "Test string",
+                    userMention: {
+                        type: "Test string",
+                        user: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                    },
+                }            ],
+            argumentText: "Test string",
+            attachment: [
+                {
+                    attachmentDataRef: {
+                        resourceName: "Test string",
+                    },
+                    contentName: "Test string",
+                    contentType: "Test string",
+                    downloadUri: "Test string",
+                    driveDataRef: {
+                        driveFileId: "Test string",
+                    },
+                    name: "Test string",
+                    source: "Test string",
+                    thumbnailUri: "Test string",
+                }            ],
+            cards: [
+                {
+                    cardActions: [
+                        {
+                            actionLabel: "Test string",
+                            onClick: {
+                                action: {
+                                    actionMethodName: "Test string",
+                                    parameters: [
+                                        {
+                                            key: "Test string",
+                                            value: "Test string",
+                                        }                                    ],
+                                },
+                                openLink: {
+                                    url: "Test string",
+                                },
+                            },
+                        }                    ],
+                    header: {
+                        imageStyle: "Test string",
+                        imageUrl: "Test string",
+                        subtitle: "Test string",
+                        title: "Test string",
+                    },
+                    name: "Test string",
+                    sections: [
+                        {
+                            header: "Test string",
+                            widgets: [
+                                {
+                                    buttons: [
+                                        {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        }                                    ],
+                                    image: {
+                                        aspectRatio: 42,
+                                        imageUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                    },
+                                    keyValue: {
+                                        bottomLabel: "Test string",
+                                        button: {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        },
+                                        content: "Test string",
+                                        contentMultiline: true,
+                                        icon: "Test string",
+                                        iconUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                        topLabel: "Test string",
+                                    },
+                                    textParagraph: {
+                                        text: "Test string",
+                                    },
+                                }                            ],
+                        }                    ],
+                }            ],
+            createTime: "Test string",
+            fallbackText: "Test string",
+            name: "Test string",
+            previewText: "Test string",
+            sender: {
+                displayName: "Test string",
+                domainId: "Test string",
+                isAnonymous: true,
+                name: "Test string",
+                type: "Test string",
+            },
+            slashCommand: {
+                commandId: "Test string",
+            },
+            space: {
+                displayName: "Test string",
+                name: "Test string",
+                singleUserBotDm: true,
+                threaded: true,
+                type: "Test string",
+            },
+            text: "Test string",
+            thread: {
+                name: "Test string",
+            },
+        });
+        /** Legacy path for creating message. Calling these will result in a BadRequest response. */
+        await gapi.client.chat.rooms.conversations.messages({
+            parent: "Test string",
+            threadKey: "Test string",
+        }, {
+            actionResponse: {
+                type: "Test string",
+                url: "Test string",
+            },
+            annotations: [
+                {
+                    length: 42,
+                    slashCommand: {
+                        bot: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                        commandId: "Test string",
+                        commandName: "Test string",
+                        triggersDialog: true,
+                        type: "Test string",
+                    },
+                    startIndex: 42,
+                    type: "Test string",
+                    userMention: {
+                        type: "Test string",
+                        user: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                    },
+                }            ],
+            argumentText: "Test string",
+            attachment: [
+                {
+                    attachmentDataRef: {
+                        resourceName: "Test string",
+                    },
+                    contentName: "Test string",
+                    contentType: "Test string",
+                    downloadUri: "Test string",
+                    driveDataRef: {
+                        driveFileId: "Test string",
+                    },
+                    name: "Test string",
+                    source: "Test string",
+                    thumbnailUri: "Test string",
+                }            ],
+            cards: [
+                {
+                    cardActions: [
+                        {
+                            actionLabel: "Test string",
+                            onClick: {
+                                action: {
+                                    actionMethodName: "Test string",
+                                    parameters: [
+                                        {
+                                            key: "Test string",
+                                            value: "Test string",
+                                        }                                    ],
+                                },
+                                openLink: {
+                                    url: "Test string",
+                                },
+                            },
+                        }                    ],
+                    header: {
+                        imageStyle: "Test string",
+                        imageUrl: "Test string",
+                        subtitle: "Test string",
+                        title: "Test string",
+                    },
+                    name: "Test string",
+                    sections: [
+                        {
+                            header: "Test string",
+                            widgets: [
+                                {
+                                    buttons: [
+                                        {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        }                                    ],
+                                    image: {
+                                        aspectRatio: 42,
+                                        imageUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                    },
+                                    keyValue: {
+                                        bottomLabel: "Test string",
+                                        button: {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        },
+                                        content: "Test string",
+                                        contentMultiline: true,
+                                        icon: "Test string",
+                                        iconUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                        topLabel: "Test string",
+                                    },
+                                    textParagraph: {
+                                        text: "Test string",
+                                    },
+                                }                            ],
+                        }                    ],
+                }            ],
+            createTime: "Test string",
+            fallbackText: "Test string",
+            name: "Test string",
+            previewText: "Test string",
+            sender: {
+                displayName: "Test string",
+                domainId: "Test string",
+                isAnonymous: true,
+                name: "Test string",
+                type: "Test string",
+            },
+            slashCommand: {
+                commandId: "Test string",
+            },
+            space: {
+                displayName: "Test string",
+                name: "Test string",
+                singleUserBotDm: true,
+                threaded: true,
+                type: "Test string",
+            },
+            text: "Test string",
+            thread: {
+                name: "Test string",
+            },
+        });
+        /** Legacy path for creating message. Calling these will result in a BadRequest response. */
+        await gapi.client.chat.rooms.webhooks({
             parent: "Test string",
             threadKey: "Test string",
         }, {
@@ -1429,6 +2341,724 @@ gapi.load('client', () => {
         await gapi.client.chat.spaces.list({
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /** Returns a membership. */
+        await gapi.client.chat.spaces.members.get({
+            name: "Test string",
+        });
+        /** Lists human memberships in a space. */
+        await gapi.client.chat.spaces.members.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Creates a message. */
+        await gapi.client.chat.spaces.messages.create({
+            parent: "Test string",
+            threadKey: "Test string",
+        }, {
+            actionResponse: {
+                type: "Test string",
+                url: "Test string",
+            },
+            annotations: [
+                {
+                    length: 42,
+                    slashCommand: {
+                        bot: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                        commandId: "Test string",
+                        commandName: "Test string",
+                        triggersDialog: true,
+                        type: "Test string",
+                    },
+                    startIndex: 42,
+                    type: "Test string",
+                    userMention: {
+                        type: "Test string",
+                        user: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                    },
+                }            ],
+            argumentText: "Test string",
+            attachment: [
+                {
+                    attachmentDataRef: {
+                        resourceName: "Test string",
+                    },
+                    contentName: "Test string",
+                    contentType: "Test string",
+                    downloadUri: "Test string",
+                    driveDataRef: {
+                        driveFileId: "Test string",
+                    },
+                    name: "Test string",
+                    source: "Test string",
+                    thumbnailUri: "Test string",
+                }            ],
+            cards: [
+                {
+                    cardActions: [
+                        {
+                            actionLabel: "Test string",
+                            onClick: {
+                                action: {
+                                    actionMethodName: "Test string",
+                                    parameters: [
+                                        {
+                                            key: "Test string",
+                                            value: "Test string",
+                                        }                                    ],
+                                },
+                                openLink: {
+                                    url: "Test string",
+                                },
+                            },
+                        }                    ],
+                    header: {
+                        imageStyle: "Test string",
+                        imageUrl: "Test string",
+                        subtitle: "Test string",
+                        title: "Test string",
+                    },
+                    name: "Test string",
+                    sections: [
+                        {
+                            header: "Test string",
+                            widgets: [
+                                {
+                                    buttons: [
+                                        {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        }                                    ],
+                                    image: {
+                                        aspectRatio: 42,
+                                        imageUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                    },
+                                    keyValue: {
+                                        bottomLabel: "Test string",
+                                        button: {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        },
+                                        content: "Test string",
+                                        contentMultiline: true,
+                                        icon: "Test string",
+                                        iconUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                        topLabel: "Test string",
+                                    },
+                                    textParagraph: {
+                                        text: "Test string",
+                                    },
+                                }                            ],
+                        }                    ],
+                }            ],
+            createTime: "Test string",
+            fallbackText: "Test string",
+            name: "Test string",
+            previewText: "Test string",
+            sender: {
+                displayName: "Test string",
+                domainId: "Test string",
+                isAnonymous: true,
+                name: "Test string",
+                type: "Test string",
+            },
+            slashCommand: {
+                commandId: "Test string",
+            },
+            space: {
+                displayName: "Test string",
+                name: "Test string",
+                singleUserBotDm: true,
+                threaded: true,
+                type: "Test string",
+            },
+            text: "Test string",
+            thread: {
+                name: "Test string",
+            },
+        });
+        /** Gets the metadata of a message attachment. The attachment data is fetched using the media API. */
+        await gapi.client.chat.spaces.messages.attachments.get({
+            name: "Test string",
+        });
+        /** Deletes a message. */
+        await gapi.client.chat.spaces.messages.delete({
+            name: "Test string",
+        });
+        /** Gets the metadata of a message attachment. The attachment data is fetched using the media API. */
+        await gapi.client.chat.spaces.messages.attachments.get({
+            name: "Test string",
+        });
+        /** Returns a message. */
+        await gapi.client.chat.spaces.messages.get({
+            name: "Test string",
+        });
+        /** Gets the metadata of a message attachment. The attachment data is fetched using the media API. */
+        await gapi.client.chat.spaces.messages.attachments.get({
+            name: "Test string",
+        });
+        /** Updates a message. */
+        await gapi.client.chat.spaces.messages.update({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            actionResponse: {
+                type: "Test string",
+                url: "Test string",
+            },
+            annotations: [
+                {
+                    length: 42,
+                    slashCommand: {
+                        bot: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                        commandId: "Test string",
+                        commandName: "Test string",
+                        triggersDialog: true,
+                        type: "Test string",
+                    },
+                    startIndex: 42,
+                    type: "Test string",
+                    userMention: {
+                        type: "Test string",
+                        user: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                    },
+                }            ],
+            argumentText: "Test string",
+            attachment: [
+                {
+                    attachmentDataRef: {
+                        resourceName: "Test string",
+                    },
+                    contentName: "Test string",
+                    contentType: "Test string",
+                    downloadUri: "Test string",
+                    driveDataRef: {
+                        driveFileId: "Test string",
+                    },
+                    name: "Test string",
+                    source: "Test string",
+                    thumbnailUri: "Test string",
+                }            ],
+            cards: [
+                {
+                    cardActions: [
+                        {
+                            actionLabel: "Test string",
+                            onClick: {
+                                action: {
+                                    actionMethodName: "Test string",
+                                    parameters: [
+                                        {
+                                            key: "Test string",
+                                            value: "Test string",
+                                        }                                    ],
+                                },
+                                openLink: {
+                                    url: "Test string",
+                                },
+                            },
+                        }                    ],
+                    header: {
+                        imageStyle: "Test string",
+                        imageUrl: "Test string",
+                        subtitle: "Test string",
+                        title: "Test string",
+                    },
+                    name: "Test string",
+                    sections: [
+                        {
+                            header: "Test string",
+                            widgets: [
+                                {
+                                    buttons: [
+                                        {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        }                                    ],
+                                    image: {
+                                        aspectRatio: 42,
+                                        imageUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                    },
+                                    keyValue: {
+                                        bottomLabel: "Test string",
+                                        button: {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        },
+                                        content: "Test string",
+                                        contentMultiline: true,
+                                        icon: "Test string",
+                                        iconUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                        topLabel: "Test string",
+                                    },
+                                    textParagraph: {
+                                        text: "Test string",
+                                    },
+                                }                            ],
+                        }                    ],
+                }            ],
+            createTime: "Test string",
+            fallbackText: "Test string",
+            name: "Test string",
+            previewText: "Test string",
+            sender: {
+                displayName: "Test string",
+                domainId: "Test string",
+                isAnonymous: true,
+                name: "Test string",
+                type: "Test string",
+            },
+            slashCommand: {
+                commandId: "Test string",
+            },
+            space: {
+                displayName: "Test string",
+                name: "Test string",
+                singleUserBotDm: true,
+                threaded: true,
+                type: "Test string",
+            },
+            text: "Test string",
+            thread: {
+                name: "Test string",
+            },
+        });
+        /** Gets the metadata of a message attachment. The attachment data is fetched using the media API. */
+        await gapi.client.chat.spaces.messages.attachments.get({
+            name: "Test string",
+        });
+        /** Legacy path for creating message. Calling these will result in a BadRequest response. */
+        await gapi.client.chat.spaces.webhooks({
+            parent: "Test string",
+            threadKey: "Test string",
+        }, {
+            actionResponse: {
+                type: "Test string",
+                url: "Test string",
+            },
+            annotations: [
+                {
+                    length: 42,
+                    slashCommand: {
+                        bot: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                        commandId: "Test string",
+                        commandName: "Test string",
+                        triggersDialog: true,
+                        type: "Test string",
+                    },
+                    startIndex: 42,
+                    type: "Test string",
+                    userMention: {
+                        type: "Test string",
+                        user: {
+                            displayName: "Test string",
+                            domainId: "Test string",
+                            isAnonymous: true,
+                            name: "Test string",
+                            type: "Test string",
+                        },
+                    },
+                }            ],
+            argumentText: "Test string",
+            attachment: [
+                {
+                    attachmentDataRef: {
+                        resourceName: "Test string",
+                    },
+                    contentName: "Test string",
+                    contentType: "Test string",
+                    downloadUri: "Test string",
+                    driveDataRef: {
+                        driveFileId: "Test string",
+                    },
+                    name: "Test string",
+                    source: "Test string",
+                    thumbnailUri: "Test string",
+                }            ],
+            cards: [
+                {
+                    cardActions: [
+                        {
+                            actionLabel: "Test string",
+                            onClick: {
+                                action: {
+                                    actionMethodName: "Test string",
+                                    parameters: [
+                                        {
+                                            key: "Test string",
+                                            value: "Test string",
+                                        }                                    ],
+                                },
+                                openLink: {
+                                    url: "Test string",
+                                },
+                            },
+                        }                    ],
+                    header: {
+                        imageStyle: "Test string",
+                        imageUrl: "Test string",
+                        subtitle: "Test string",
+                        title: "Test string",
+                    },
+                    name: "Test string",
+                    sections: [
+                        {
+                            header: "Test string",
+                            widgets: [
+                                {
+                                    buttons: [
+                                        {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        }                                    ],
+                                    image: {
+                                        aspectRatio: 42,
+                                        imageUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                    },
+                                    keyValue: {
+                                        bottomLabel: "Test string",
+                                        button: {
+                                            imageButton: {
+                                                icon: "Test string",
+                                                iconUrl: "Test string",
+                                                name: "Test string",
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                            },
+                                            textButton: {
+                                                onClick: {
+                                                    action: {
+                                                        actionMethodName: "Test string",
+                                                        parameters: [
+                                                            {
+                                                                key: "Test string",
+                                                                value: "Test string",
+                                                            }                                                        ],
+                                                    },
+                                                    openLink: {
+                                                        url: "Test string",
+                                                    },
+                                                },
+                                                text: "Test string",
+                                            },
+                                        },
+                                        content: "Test string",
+                                        contentMultiline: true,
+                                        icon: "Test string",
+                                        iconUrl: "Test string",
+                                        onClick: {
+                                            action: {
+                                                actionMethodName: "Test string",
+                                                parameters: [
+                                                    {
+                                                        key: "Test string",
+                                                        value: "Test string",
+                                                    }                                                ],
+                                            },
+                                            openLink: {
+                                                url: "Test string",
+                                            },
+                                        },
+                                        topLabel: "Test string",
+                                    },
+                                    textParagraph: {
+                                        text: "Test string",
+                                    },
+                                }                            ],
+                        }                    ],
+                }            ],
+            createTime: "Test string",
+            fallbackText: "Test string",
+            name: "Test string",
+            previewText: "Test string",
+            sender: {
+                displayName: "Test string",
+                domainId: "Test string",
+                isAnonymous: true,
+                name: "Test string",
+                type: "Test string",
+            },
+            slashCommand: {
+                commandId: "Test string",
+            },
+            space: {
+                displayName: "Test string",
+                name: "Test string",
+                singleUserBotDm: true,
+                threaded: true,
+                type: "Test string",
+            },
+            text: "Test string",
+            thread: {
+                name: "Test string",
+            },
         });
         /** Returns a membership. */
         await gapi.client.chat.spaces.members.get({

@@ -43,6 +43,11 @@ Legacy path for creating message. Calling these will result in a BadRequest resp
 await gapi.client.chat.dms.messages({ parent: "parent",  });
 
 /*
+Legacy path for creating message. Calling these will result in a BadRequest response.
+*/
+await gapi.client.chat.dms.webhooks({ parent: "parent",  });
+
+/*
 Downloads media. Download is supported on the URI `/v1/media/{+name}?alt=media`.
 */
 await gapi.client.chat.media.download({ resourceName: "resourceName",  });
@@ -53,6 +58,11 @@ Legacy path for creating message. Calling these will result in a BadRequest resp
 await gapi.client.chat.rooms.messages({ parent: "parent",  });
 
 /*
+Legacy path for creating message. Calling these will result in a BadRequest response.
+*/
+await gapi.client.chat.rooms.webhooks({ parent: "parent",  });
+
+/*
 Returns a space.
 */
 await gapi.client.chat.spaces.get({ name: "name",  });
@@ -61,4 +71,9 @@ await gapi.client.chat.spaces.get({ name: "name",  });
 Lists spaces the caller is a member of.
 */
 await gapi.client.chat.spaces.list({  });
+
+/*
+Legacy path for creating message. Calling these will result in a BadRequest response.
+*/
+await gapi.client.chat.spaces.webhooks({ parent: "parent",  });
 ```
