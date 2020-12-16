@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201214
+// Revision: 20201216
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1482,13 +1482,6 @@ gapi.load('client', () => {
             videoLicense: "Test string",
             videoSyndicated: "Test string",
             videoType: "Test string",
-        });
-        /** Retrieves a list of sponsors that match the request criteria for a channel. */
-        await gapi.client.youtube.sponsors.list({
-            filter: "Test string",
-            maxResults: 42,
-            pageToken: "Test string",
-            part: "Test string",
         });
         /** Deletes a resource. */
         await gapi.client.youtube.subscriptions.delete({

@@ -352,11 +352,6 @@ Retrieves a list of search resources
 await gapi.client.youtube.search.list({ part: "part",  });
 
 /*
-Retrieves a list of sponsors that match the request criteria for a channel.
-*/
-await gapi.client.youtube.sponsors.list({ part: "part",  });
-
-/*
 Deletes a resource.
 */
 await gapi.client.youtube.subscriptions.delete({ id: "id",  });
