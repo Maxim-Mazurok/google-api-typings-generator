@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201126
+// Revision: 20201210
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -87,19 +87,23 @@ gapi.load('client', () => {
                         secretAccessKey: "Test string",
                     },
                     bucketName: "Test string",
+                    path: "Test string",
                 },
                 azureBlobStorageDataSource: {
                     azureCredentials: {
                         sasToken: "Test string",
                     },
                     container: "Test string",
+                    path: "Test string",
                     storageAccount: "Test string",
                 },
                 gcsDataSink: {
                     bucketName: "Test string",
+                    path: "Test string",
                 },
                 gcsDataSource: {
                     bucketName: "Test string",
+                    path: "Test string",
                 },
                 httpDataSource: {
                     listUrl: "Test string",
@@ -187,19 +191,23 @@ gapi.load('client', () => {
                             secretAccessKey: "Test string",
                         },
                         bucketName: "Test string",
+                        path: "Test string",
                     },
                     azureBlobStorageDataSource: {
                         azureCredentials: {
                             sasToken: "Test string",
                         },
                         container: "Test string",
+                        path: "Test string",
                         storageAccount: "Test string",
                     },
                     gcsDataSink: {
                         bucketName: "Test string",
+                        path: "Test string",
                     },
                     gcsDataSource: {
                         bucketName: "Test string",
+                        path: "Test string",
                     },
                     httpDataSource: {
                         listUrl: "Test string",
