@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201204
+// Revision: 20201211
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -171,6 +171,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -217,6 +218,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -259,6 +261,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -305,6 +308,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -351,6 +355,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -397,6 +402,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -441,6 +447,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -487,6 +494,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -534,6 +542,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -580,6 +589,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -650,6 +660,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -696,6 +707,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -741,6 +753,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -787,6 +800,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -960,6 +974,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1006,6 +1021,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1048,6 +1064,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1094,6 +1111,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1140,6 +1158,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1186,6 +1205,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1230,6 +1250,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1276,6 +1297,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1323,6 +1345,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1369,6 +1392,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1439,6 +1463,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1485,6 +1510,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1530,6 +1556,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
@@ -1576,6 +1603,7 @@ gapi.load('client', () => {
                     A: "Test string"                },
                 name: "Test string",
             },
+            severity: "Test string",
             sourceProperties: {
                 A: 42            },
             state: "Test string",
