@@ -36,7 +36,7 @@
     "@types/commander": "^2.12.2",
     "@types/dot": "^1.1.4",
     "@types/gapi.client.discovery": "^1.0.7",
-    "@types/lodash": "^4.14.165",
+    "@types/lodash": "^4.14.166",
     "@types/mocha": "^8.2.0",
     "@types/n-readlines": "^1.0.1",
     "@types/node": "^14.14.14",
