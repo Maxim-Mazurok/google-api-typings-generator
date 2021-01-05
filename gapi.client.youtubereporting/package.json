@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.youtubereporting",
-  "version": "1.0.20201221",
+  "version": "1.0.20201231",
   "description": "TypeScript typings for YouTube Reporting API v1",
   "license": "MIT",
   "author": {
