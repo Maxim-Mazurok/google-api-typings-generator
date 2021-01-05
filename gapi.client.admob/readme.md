@@ -67,7 +67,7 @@ Gets information about the specified AdMob publisher account.
 await gapi.client.admob.accounts.get({ name: "name",  });
 
 /*
-Lists the AdMob publisher account accessible with the client credential. Currently, all credentials have access to at most one AdMob account.
+List the AdMob publisher account accessible with the client credential. Currently, all credentials have access to at most one AdMob account.
 */
 await gapi.client.admob.accounts.list({  });
 ```

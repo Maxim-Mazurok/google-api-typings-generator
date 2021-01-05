@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201203
+// Revision: 20201231
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -122,7 +122,7 @@ gapi.load('client', () => {
                 timeZone: "Test string",
             },
         });
-        /** Lists the AdMob publisher account accessible with the client credential. Currently, all credentials have access to at most one AdMob account. */
+        /** List the AdMob publisher account accessible with the client credential. Currently, all credentials have access to at most one AdMob account. */
         await gapi.client.admob.accounts.list({
             pageSize: 42,
             pageToken: "Test string",
