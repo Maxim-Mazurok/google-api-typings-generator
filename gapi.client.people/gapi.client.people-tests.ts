@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201215
+// Revision: 20210105
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -978,7 +978,8 @@ gapi.load('client', () => {
         });
         /**
          * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
-         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
          */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
@@ -997,7 +998,8 @@ gapi.load('client', () => {
         });
         /**
          * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
-         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
          */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
@@ -1018,7 +1020,8 @@ gapi.load('client', () => {
         });
         /**
          * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
-         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
          */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
@@ -1043,7 +1046,8 @@ gapi.load('client', () => {
         });
         /**
          * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
-         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
          */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
@@ -1068,7 +1072,8 @@ gapi.load('client', () => {
         });
         /**
          * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
-         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
          */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
@@ -1093,7 +1098,8 @@ gapi.load('client', () => {
         });
         /**
          * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
-         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
          */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
@@ -1117,7 +1123,8 @@ gapi.load('client', () => {
         });
         /**
          * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
-         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
          */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
@@ -1915,7 +1922,8 @@ gapi.load('client', () => {
         });
         /**
          * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
-         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
          */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
@@ -1939,7 +1947,8 @@ gapi.load('client', () => {
         });
         /**
          * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
-         * and is expired. Sync tokens expire after 7 days. A request without `sync_token` should be made and all contacts should be synced.
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
          */
         await gapi.client.people.people.connections.list({
             pageSize: 42,
