@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201029
+// Revision: 20210106
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -17,7 +17,7 @@ gapi.load('client', () => {
         const scope = [
             /** View and manage your Google Analytics data */
             'https://www.googleapis.com/auth/analytics',
-            /** View your Google Analytics data */
+            /** See and download your Google Analytics data */
             'https://www.googleapis.com/auth/analytics.readonly',
         ];
         const immediate = false;

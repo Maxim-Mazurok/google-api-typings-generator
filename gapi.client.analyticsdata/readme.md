@@ -40,7 +40,7 @@ var client_id = '',
       // View and manage your Google Analytics data
       'https://www.googleapis.com/auth/analytics',
 
-      // View your Google Analytics data
+      // See and download your Google Analytics data
       'https://www.googleapis.com/auth/analytics.readonly',
     ],
     immediate = true;
