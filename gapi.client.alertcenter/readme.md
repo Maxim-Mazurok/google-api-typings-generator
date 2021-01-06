@@ -1,11 +1,11 @@
-# TypeScript typings for G Suite Alert Center API v1beta1
+# TypeScript typings for Google Workspace Alert Center API v1beta1
 
 Manages alerts on issues affecting your domain.
 For detailed description please check [documentation](https://developers.google.com/admin-sdk/alertcenter/).
 
 ## Installing
 
-Install typings for G Suite Alert Center API:
+Install typings for Google Workspace Alert Center API:
 
 ```
 npm install @types/gapi.client.alertcenter@v1beta1 --save-dev
@@ -54,7 +54,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use G Suite Alert Center API resources:
+After that you can use Google Workspace Alert Center API resources:
 
 ```typescript
 
