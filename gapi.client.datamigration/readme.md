@@ -1,7 +1,7 @@
 # TypeScript typings for Database Migration API v1beta1
 
 Manage Cloud Database Migration Service resources on Google Cloud Platform.
-For detailed description please check [documentation](https://cloud.google.com/datamigration/).
+For detailed description please check [documentation](https://cloud.google.com/database-migration/).
 
 ## Installing
 
