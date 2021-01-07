@@ -1,7 +1,7 @@
 # TypeScript typings for Security Command Center API v1
 
 Security Command Center API provides access to temporal views of assets and findings within an organization.
-For detailed description please check [documentation](https://console.cloud.google.com/apis/api/securitycenter.googleapis.com/overview).
+For detailed description please check [documentation](https://cloud.google.com/security-command-center).
 
 ## Installing
 

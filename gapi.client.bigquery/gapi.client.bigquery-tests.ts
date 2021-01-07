@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201103
+// Revision: 20210104
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -325,6 +325,7 @@ gapi.load('client', () => {
                         sourceUriPrefix: "Test string",
                     },
                     ignoreUnknownValues: true,
+                    jsonExtension: "Test string",
                     maxBadRecords: 42,
                     nullMarker: "Test string",
                     projectionFields: [
@@ -1226,6 +1227,14 @@ gapi.load('client', () => {
             },
             routineType: "Test string",
         });
+        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+        await gapi.client.bigquery.rowAccessPolicies.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
         /** Lists all row access policies on the specified table. */
         await gapi.client.bigquery.rowAccessPolicies.list({
             datasetId: "Test string",
@@ -1233,6 +1242,48 @@ gapi.load('client', () => {
             pageToken: "Test string",
             projectId: "Test string",
             tableId: "Test string",
+        });
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+        await gapi.client.bigquery.rowAccessPolicies.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
+         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
+         */
+        await gapi.client.bigquery.rowAccessPolicies.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
         });
         /** Streams data into BigQuery one record at a time without needing to run a load job. Requires the WRITER dataset role. */
         await gapi.client.bigquery.tabledata.insertAll({
@@ -1696,7 +1747,6 @@ gapi.load('client', () => {
                     }                ],
                 bindings: [
                     {
-                        bindingId: "Test string",
                         condition: {
                             description: "Test string",
                             expression: "Test string",
