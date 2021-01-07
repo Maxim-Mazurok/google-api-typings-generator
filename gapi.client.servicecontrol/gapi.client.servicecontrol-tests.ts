@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201207
+// Revision: 20201231
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -102,6 +102,7 @@ gapi.load('client', () => {
                     etag: "Test string",
                     labels: {
                         A: "Test string"                    },
+                    location: "Test string",
                     name: "Test string",
                     service: "Test string",
                     type: "Test string",
@@ -202,6 +203,7 @@ gapi.load('client', () => {
                         etag: "Test string",
                         labels: {
                             A: "Test string"                        },
+                        location: "Test string",
                         name: "Test string",
                         service: "Test string",
                         type: "Test string",
