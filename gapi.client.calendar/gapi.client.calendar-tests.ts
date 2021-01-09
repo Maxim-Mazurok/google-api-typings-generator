@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201210
+// Revision: 20201227
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -21,7 +21,7 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/calendar.events',
             /** View events on all your calendars */
             'https://www.googleapis.com/auth/calendar.events.readonly',
-            /** View your calendars */
+            /** See and download any calendar you can access using your Google Calendar */
             'https://www.googleapis.com/auth/calendar.readonly',
             /** View your Calendar settings */
             'https://www.googleapis.com/auth/calendar.settings.readonly',
