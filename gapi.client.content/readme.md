@@ -149,6 +149,36 @@ Updates the tax settings of the account. Any fields that are not provided are de
 await gapi.client.content.accounttax.update({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
+Uploads a collection to your Merchant Center account. If a collection with the same collectionId already exists, this method updates that entry. In each update, the collection is completely replaced by the fields in the body of the update request.
+*/
+await gapi.client.content.collections.create({ merchantId: "merchantId",  });
+
+/*
+Deletes a collection from your Merchant Center account.
+*/
+await gapi.client.content.collections.delete({ collectionId: "collectionId", merchantId: "merchantId",  });
+
+/*
+Retrieves a collection from your Merchant Center account.
+*/
+await gapi.client.content.collections.get({ collectionId: "collectionId", merchantId: "merchantId",  });
+
+/*
+Lists the collections in your Merchant Center account. The response might contain fewer items than specified by page_size. Rely on next_page_token to determine if there are more items to be requested.
+*/
+await gapi.client.content.collections.list({ merchantId: "merchantId",  });
+
+/*
+Gets the status of a collection from your Merchant Center account.
+*/
+await gapi.client.content.collectionstatuses.get({ collectionId: "collectionId", merchantId: "merchantId",  });
+
+/*
+Lists the statuses of the collections in your Merchant Center account.
+*/
+await gapi.client.content.collectionstatuses.list({ merchantId: "merchantId",  });
+
+/*
 Retrieves a single CSS domain by ID.
 */
 await gapi.client.content.csses.get({ cssDomainId: "cssDomainId", cssGroupId: "cssGroupId",  });

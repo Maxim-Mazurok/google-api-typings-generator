@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201211
+// Revision: 20210106
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -40,6 +40,7 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
         });
         /** Deletes a label and removes it from all accounts to which it was assigned. */
@@ -61,7 +62,36 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
+        });
+        /** Links return carrier to a merchant account. */
+        await gapi.client.content.accounts.returncarrier.create({
+            accountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
+        });
+        /** Delete a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.delete({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        });
+        /** Lists available return carriers in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.list({
+            accountId: "Test string",
+        });
+        /** Updates a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.patch({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
         });
         /** Claims the website of a Merchant Center sub-account. */
         await gapi.client.content.accounts.claimwebsite({
@@ -76,6 +106,7 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
         });
         /** Deletes a label and removes it from all accounts to which it was assigned. */
@@ -97,7 +128,36 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
+        });
+        /** Links return carrier to a merchant account. */
+        await gapi.client.content.accounts.returncarrier.create({
+            accountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
+        });
+        /** Delete a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.delete({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        });
+        /** Lists available return carriers in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.list({
+            accountId: "Test string",
+        });
+        /** Updates a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.patch({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
         });
         /** Retrieves, inserts, updates, and deletes multiple Merchant Center (sub-)accounts in a single request. */
         await gapi.client.content.accounts.custombatch({
@@ -111,6 +171,8 @@ gapi.load('client', () => {
                                 status: "Test string",
                             }                        ],
                         adultContent: true,
+                        automaticLabelIds: [
+                            "Test string"                        ],
                         businessInformation: {
                             address: {
                                 country: "Test string",
@@ -178,6 +240,7 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
         });
         /** Deletes a label and removes it from all accounts to which it was assigned. */
@@ -199,7 +262,36 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
+        });
+        /** Links return carrier to a merchant account. */
+        await gapi.client.content.accounts.returncarrier.create({
+            accountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
+        });
+        /** Delete a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.delete({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        });
+        /** Lists available return carriers in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.list({
+            accountId: "Test string",
+        });
+        /** Updates a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.patch({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
         });
         /** Deletes a Merchant Center sub-account. */
         await gapi.client.content.accounts.delete({
@@ -214,6 +306,7 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
         });
         /** Deletes a label and removes it from all accounts to which it was assigned. */
@@ -235,7 +328,36 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
+        });
+        /** Links return carrier to a merchant account. */
+        await gapi.client.content.accounts.returncarrier.create({
+            accountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
+        });
+        /** Delete a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.delete({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        });
+        /** Lists available return carriers in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.list({
+            accountId: "Test string",
+        });
+        /** Updates a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.patch({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
         });
         /** Retrieves a Merchant Center account. */
         await gapi.client.content.accounts.get({
@@ -250,6 +372,7 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
         });
         /** Deletes a label and removes it from all accounts to which it was assigned. */
@@ -271,7 +394,36 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
+        });
+        /** Links return carrier to a merchant account. */
+        await gapi.client.content.accounts.returncarrier.create({
+            accountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
+        });
+        /** Delete a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.delete({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        });
+        /** Lists available return carriers in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.list({
+            accountId: "Test string",
+        });
+        /** Updates a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.patch({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
         });
         /** Creates a Merchant Center sub-account. */
         await gapi.client.content.accounts.insert({
@@ -283,6 +435,8 @@ gapi.load('client', () => {
                     status: "Test string",
                 }            ],
             adultContent: true,
+            automaticLabelIds: [
+                "Test string"            ],
             businessInformation: {
                 address: {
                     country: "Test string",
@@ -332,6 +486,7 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
         });
         /** Deletes a label and removes it from all accounts to which it was assigned. */
@@ -353,7 +508,36 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
+        });
+        /** Links return carrier to a merchant account. */
+        await gapi.client.content.accounts.returncarrier.create({
+            accountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
+        });
+        /** Delete a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.delete({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        });
+        /** Lists available return carriers in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.list({
+            accountId: "Test string",
+        });
+        /** Updates a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.patch({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
         });
         /** Performs an action on a link between two Merchant Center accounts, namely accountId and linkedAccountId. */
         await gapi.client.content.accounts.link({
@@ -373,6 +557,7 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
         });
         /** Deletes a label and removes it from all accounts to which it was assigned. */
@@ -394,7 +579,36 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
+        });
+        /** Links return carrier to a merchant account. */
+        await gapi.client.content.accounts.returncarrier.create({
+            accountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
+        });
+        /** Delete a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.delete({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        });
+        /** Lists available return carriers in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.list({
+            accountId: "Test string",
+        });
+        /** Updates a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.patch({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
         });
         /** Lists the sub-accounts in your Merchant Center account. */
         await gapi.client.content.accounts.list({
@@ -411,6 +625,7 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
         });
         /** Deletes a label and removes it from all accounts to which it was assigned. */
@@ -432,7 +647,36 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
+        });
+        /** Links return carrier to a merchant account. */
+        await gapi.client.content.accounts.returncarrier.create({
+            accountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
+        });
+        /** Delete a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.delete({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        });
+        /** Lists available return carriers in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.list({
+            accountId: "Test string",
+        });
+        /** Updates a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.patch({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
         });
         /** Returns the list of accounts linked to your Merchant Center account. */
         await gapi.client.content.accounts.listlinks({
@@ -448,6 +692,7 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
         });
         /** Deletes a label and removes it from all accounts to which it was assigned. */
@@ -469,7 +714,36 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
+        });
+        /** Links return carrier to a merchant account. */
+        await gapi.client.content.accounts.returncarrier.create({
+            accountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
+        });
+        /** Delete a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.delete({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        });
+        /** Lists available return carriers in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.list({
+            accountId: "Test string",
+        });
+        /** Updates a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.patch({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
         });
         /** Updates a Merchant Center account. Any fields that are not provided are deleted from the resource. */
         await gapi.client.content.accounts.update({
@@ -482,6 +756,8 @@ gapi.load('client', () => {
                     status: "Test string",
                 }            ],
             adultContent: true,
+            automaticLabelIds: [
+                "Test string"            ],
             businessInformation: {
                 address: {
                     country: "Test string",
@@ -531,6 +807,7 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
         });
         /** Deletes a label and removes it from all accounts to which it was assigned. */
@@ -552,7 +829,36 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
+        });
+        /** Links return carrier to a merchant account. */
+        await gapi.client.content.accounts.returncarrier.create({
+            accountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
+        });
+        /** Delete a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.delete({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        });
+        /** Lists available return carriers in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.list({
+            accountId: "Test string",
+        });
+        /** Updates a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.patch({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
         });
         /** Updates labels that are assigned to the Merchant Center account by CSS user. */
         await gapi.client.content.accounts.updatelabels({
@@ -569,6 +875,7 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
         });
         /** Deletes a label and removes it from all accounts to which it was assigned. */
@@ -590,7 +897,36 @@ gapi.load('client', () => {
             accountId: "Test string",
             description: "Test string",
             labelId: "Test string",
+            labelType: "Test string",
             name: "Test string",
+        });
+        /** Links return carrier to a merchant account. */
+        await gapi.client.content.accounts.returncarrier.create({
+            accountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
+        });
+        /** Delete a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.delete({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        });
+        /** Lists available return carriers in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.list({
+            accountId: "Test string",
+        });
+        /** Updates a return carrier in the merchant account. */
+        await gapi.client.content.accounts.returncarrier.patch({
+            accountId: "Test string",
+            carrierAccountId: "Test string",
+        }, {
+            carrierAccountId: "Test string",
+            carrierAccountName: "Test string",
+            carrierAccountNumber: "Test string",
+            carrierCode: "Test string",
         });
         /** Retrieves multiple Merchant Center account statuses in a single request. */
         await gapi.client.content.accountstatuses.custombatch({
@@ -667,6 +1003,64 @@ gapi.load('client', () => {
                     shippingTaxed: true,
                     useGlobalRate: true,
                 }            ],
+        });
+        /**
+         * Uploads a collection to your Merchant Center account. If a collection with the same collectionId already exists, this method updates that entry. In each update, the collection is
+         * completely replaced by the fields in the body of the update request.
+         */
+        await gapi.client.content.collections.create({
+            merchantId: "Test string",
+        }, {
+            customLabel0: "Test string",
+            customLabel1: "Test string",
+            customLabel2: "Test string",
+            customLabel3: "Test string",
+            customLabel4: "Test string",
+            featuredProduct: [
+                {
+                    offerId: "Test string",
+                    x: 42,
+                    y: 42,
+                }            ],
+            headline: [
+                "Test string"            ],
+            id: "Test string",
+            imageLink: [
+                "Test string"            ],
+            language: "Test string",
+            link: "Test string",
+            mobileLink: "Test string",
+            productCountry: "Test string",
+        });
+        /** Deletes a collection from your Merchant Center account. */
+        await gapi.client.content.collections.delete({
+            collectionId: "Test string",
+            merchantId: "Test string",
+        });
+        /** Retrieves a collection from your Merchant Center account. */
+        await gapi.client.content.collections.get({
+            collectionId: "Test string",
+            merchantId: "Test string",
+        });
+        /**
+         * Lists the collections in your Merchant Center account. The response might contain fewer items than specified by page_size. Rely on next_page_token to determine if there are more items
+         * to be requested.
+         */
+        await gapi.client.content.collections.list({
+            merchantId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Gets the status of a collection from your Merchant Center account. */
+        await gapi.client.content.collectionstatuses.get({
+            collectionId: "Test string",
+            merchantId: "Test string",
+        });
+        /** Lists the statuses of the collections in your Merchant Center account. */
+        await gapi.client.content.collectionstatuses.list({
+            merchantId: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /** Retrieves a single CSS domain by ID. */
         await gapi.client.content.csses.get({
