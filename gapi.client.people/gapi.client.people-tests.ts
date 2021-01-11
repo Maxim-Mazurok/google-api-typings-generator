@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210107
+// Revision: 20210111
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -25,7 +25,7 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/directory.readonly',
             /** View your street addresses */
             'https://www.googleapis.com/auth/user.addresses.read',
-            /** View your complete date of birth */
+            /** See and download your exact date of birth */
             'https://www.googleapis.com/auth/user.birthday.read',
             /** View your email addresses */
             'https://www.googleapis.com/auth/user.emails.read',
@@ -33,7 +33,7 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/user.gender.read',
             /** See your education, work history and org info */
             'https://www.googleapis.com/auth/user.organization.read',
-            /** View your phone numbers */
+            /** See and download your personal phone numbers */
             'https://www.googleapis.com/auth/user.phonenumbers.read',
             /** View your email address */
             'https://www.googleapis.com/auth/userinfo.email',
