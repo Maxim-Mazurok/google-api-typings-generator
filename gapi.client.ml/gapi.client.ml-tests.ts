@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201207
+// Revision: 20201231
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1587,6 +1587,8 @@ gapi.load('client', () => {
                 isDefault: true,
                 labels: {
                     A: "Test string"                },
+                lastMigrationModelId: "Test string",
+                lastMigrationTime: "Test string",
                 lastUseTime: "Test string",
                 machineType: "Test string",
                 manualScaling: {
@@ -1676,6 +1678,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -1776,6 +1780,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -1867,6 +1873,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -1967,6 +1975,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -2058,6 +2068,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -2158,6 +2170,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -2250,6 +2264,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -2350,6 +2366,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -2447,6 +2465,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -2547,6 +2567,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -2632,6 +2654,8 @@ gapi.load('client', () => {
                 isDefault: true,
                 labels: {
                     A: "Test string"                },
+                lastMigrationModelId: "Test string",
+                lastMigrationTime: "Test string",
                 lastUseTime: "Test string",
                 machineType: "Test string",
                 manualScaling: {
@@ -2721,6 +2745,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -2821,6 +2847,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -2940,6 +2968,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -3040,6 +3070,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -3137,6 +3169,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -3237,6 +3271,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -4842,6 +4878,8 @@ gapi.load('client', () => {
                 isDefault: true,
                 labels: {
                     A: "Test string"                },
+                lastMigrationModelId: "Test string",
+                lastMigrationTime: "Test string",
                 lastUseTime: "Test string",
                 machineType: "Test string",
                 manualScaling: {
@@ -4931,6 +4969,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -5031,6 +5071,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -5122,6 +5164,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -5222,6 +5266,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -5313,6 +5359,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -5413,6 +5461,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -5505,6 +5555,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -5605,6 +5657,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -5702,6 +5756,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -5802,6 +5858,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -5887,6 +5945,8 @@ gapi.load('client', () => {
                 isDefault: true,
                 labels: {
                     A: "Test string"                },
+                lastMigrationModelId: "Test string",
+                lastMigrationTime: "Test string",
                 lastUseTime: "Test string",
                 machineType: "Test string",
                 manualScaling: {
@@ -5976,6 +6036,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -6076,6 +6138,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -6195,6 +6259,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -6295,6 +6361,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -6392,6 +6460,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -6492,6 +6562,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -8102,6 +8174,8 @@ gapi.load('client', () => {
                 isDefault: true,
                 labels: {
                     A: "Test string"                },
+                lastMigrationModelId: "Test string",
+                lastMigrationTime: "Test string",
                 lastUseTime: "Test string",
                 machineType: "Test string",
                 manualScaling: {
@@ -8191,6 +8265,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -8291,6 +8367,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -8382,6 +8460,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -8482,6 +8562,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -8573,6 +8655,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -8673,6 +8757,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -8765,6 +8851,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -8865,6 +8953,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -8962,6 +9052,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -9062,6 +9154,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -9147,6 +9241,8 @@ gapi.load('client', () => {
                 isDefault: true,
                 labels: {
                     A: "Test string"                },
+                lastMigrationModelId: "Test string",
+                lastMigrationTime: "Test string",
                 lastUseTime: "Test string",
                 machineType: "Test string",
                 manualScaling: {
@@ -9236,6 +9332,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -9336,6 +9434,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -9455,6 +9555,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -9555,6 +9657,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -9652,6 +9756,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
@@ -9752,6 +9858,8 @@ gapi.load('client', () => {
             isDefault: true,
             labels: {
                 A: "Test string"            },
+            lastMigrationModelId: "Test string",
+            lastMigrationTime: "Test string",
             lastUseTime: "Test string",
             machineType: "Test string",
             manualScaling: {
