@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210111
+// Revision: 20210112
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -434,11 +434,11 @@ gapi.load('client', () => {
             name: "Test string",
             updateMask: "Test string",
         }, {
-            countryCode: "Test string",
             createTime: "Test string",
             deleted: true,
             displayName: "Test string",
             name: "Test string",
+            regionCode: "Test string",
             updateTime: "Test string",
         });
         /**
@@ -537,11 +537,11 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.accounts.provisionAccountTicket({
         }, {
             account: {
-                countryCode: "Test string",
                 createTime: "Test string",
                 deleted: true,
                 displayName: "Test string",
                 name: "Test string",
+                regionCode: "Test string",
                 updateTime: "Test string",
             },
             redirectUri: "Test string",
@@ -735,7 +735,6 @@ gapi.load('client', () => {
             customerId: "Test string",
             emailAddress: "Test string",
             name: "Test string",
-            parent: "Test string",
             updateTime: "Test string",
         });
         /** Deletes a GoogleAdsLink on a property */
@@ -759,7 +758,6 @@ gapi.load('client', () => {
             customerId: "Test string",
             emailAddress: "Test string",
             name: "Test string",
-            parent: "Test string",
             updateTime: "Test string",
         });
         /** Creates an iOS app data stream with the specified location and attributes. */
@@ -949,23 +947,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateMask: "Test string",
         }, {
-            articlesAndBlogsEnabled: true,
-            contentViewsEnabled: true,
-            dataTaggedElementClicksEnabled: true,
-            excludedDomains: "Test string",
             fileDownloadsEnabled: true,
-            formInteractionsEnabled: true,
             name: "Test string",
             outboundClicksEnabled: true,
             pageChangesEnabled: true,
             pageLoadsEnabled: true,
             pageViewsEnabled: true,
-            productsAndEcommerceEnabled: true,
             scrollsEnabled: true,
             searchQueryParameter: "Test string",
             siteSearchEnabled: true,
             streamEnabled: true,
-            urlQueryParameter: "Test string",
+            uriQueryParameter: "Test string",
             videoEngagementEnabled: true,
         });
         /**
@@ -1055,7 +1047,6 @@ gapi.load('client', () => {
             customerId: "Test string",
             emailAddress: "Test string",
             name: "Test string",
-            parent: "Test string",
             updateTime: "Test string",
         });
         /** Deletes a GoogleAdsLink on a property */
@@ -1079,7 +1070,6 @@ gapi.load('client', () => {
             customerId: "Test string",
             emailAddress: "Test string",
             name: "Test string",
-            parent: "Test string",
             updateTime: "Test string",
         });
         /** Creates an iOS app data stream with the specified location and attributes. */
@@ -1269,23 +1259,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateMask: "Test string",
         }, {
-            articlesAndBlogsEnabled: true,
-            contentViewsEnabled: true,
-            dataTaggedElementClicksEnabled: true,
-            excludedDomains: "Test string",
             fileDownloadsEnabled: true,
-            formInteractionsEnabled: true,
             name: "Test string",
             outboundClicksEnabled: true,
             pageChangesEnabled: true,
             pageLoadsEnabled: true,
             pageViewsEnabled: true,
-            productsAndEcommerceEnabled: true,
             scrollsEnabled: true,
             searchQueryParameter: "Test string",
             siteSearchEnabled: true,
             streamEnabled: true,
-            urlQueryParameter: "Test string",
+            uriQueryParameter: "Test string",
             videoEngagementEnabled: true,
         });
         /** Lookup for a single "GA4" Property. */
@@ -1371,7 +1355,6 @@ gapi.load('client', () => {
             customerId: "Test string",
             emailAddress: "Test string",
             name: "Test string",
-            parent: "Test string",
             updateTime: "Test string",
         });
         /** Deletes a GoogleAdsLink on a property */
@@ -1395,7 +1378,6 @@ gapi.load('client', () => {
             customerId: "Test string",
             emailAddress: "Test string",
             name: "Test string",
-            parent: "Test string",
             updateTime: "Test string",
         });
         /** Creates an iOS app data stream with the specified location and attributes. */
@@ -1585,23 +1567,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateMask: "Test string",
         }, {
-            articlesAndBlogsEnabled: true,
-            contentViewsEnabled: true,
-            dataTaggedElementClicksEnabled: true,
-            excludedDomains: "Test string",
             fileDownloadsEnabled: true,
-            formInteractionsEnabled: true,
             name: "Test string",
             outboundClicksEnabled: true,
             pageChangesEnabled: true,
             pageLoadsEnabled: true,
             pageViewsEnabled: true,
-            productsAndEcommerceEnabled: true,
             scrollsEnabled: true,
             searchQueryParameter: "Test string",
             siteSearchEnabled: true,
             streamEnabled: true,
-            urlQueryParameter: "Test string",
+            uriQueryParameter: "Test string",
             videoEngagementEnabled: true,
         });
         /**
@@ -1693,7 +1669,6 @@ gapi.load('client', () => {
             customerId: "Test string",
             emailAddress: "Test string",
             name: "Test string",
-            parent: "Test string",
             updateTime: "Test string",
         });
         /** Deletes a GoogleAdsLink on a property */
@@ -1717,7 +1692,6 @@ gapi.load('client', () => {
             customerId: "Test string",
             emailAddress: "Test string",
             name: "Test string",
-            parent: "Test string",
             updateTime: "Test string",
         });
         /** Creates an iOS app data stream with the specified location and attributes. */
@@ -1907,23 +1881,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateMask: "Test string",
         }, {
-            articlesAndBlogsEnabled: true,
-            contentViewsEnabled: true,
-            dataTaggedElementClicksEnabled: true,
-            excludedDomains: "Test string",
             fileDownloadsEnabled: true,
-            formInteractionsEnabled: true,
             name: "Test string",
             outboundClicksEnabled: true,
             pageChangesEnabled: true,
             pageLoadsEnabled: true,
             pageViewsEnabled: true,
-            productsAndEcommerceEnabled: true,
             scrollsEnabled: true,
             searchQueryParameter: "Test string",
             siteSearchEnabled: true,
             streamEnabled: true,
-            urlQueryParameter: "Test string",
+            uriQueryParameter: "Test string",
             videoEngagementEnabled: true,
         });
         /** Updates a property. */
@@ -2020,7 +1988,6 @@ gapi.load('client', () => {
             customerId: "Test string",
             emailAddress: "Test string",
             name: "Test string",
-            parent: "Test string",
             updateTime: "Test string",
         });
         /** Deletes a GoogleAdsLink on a property */
@@ -2044,7 +2011,6 @@ gapi.load('client', () => {
             customerId: "Test string",
             emailAddress: "Test string",
             name: "Test string",
-            parent: "Test string",
             updateTime: "Test string",
         });
         /** Creates an iOS app data stream with the specified location and attributes. */
@@ -2234,23 +2200,17 @@ gapi.load('client', () => {
             name: "Test string",
             updateMask: "Test string",
         }, {
-            articlesAndBlogsEnabled: true,
-            contentViewsEnabled: true,
-            dataTaggedElementClicksEnabled: true,
-            excludedDomains: "Test string",
             fileDownloadsEnabled: true,
-            formInteractionsEnabled: true,
             name: "Test string",
             outboundClicksEnabled: true,
             pageChangesEnabled: true,
             pageLoadsEnabled: true,
             pageViewsEnabled: true,
-            productsAndEcommerceEnabled: true,
             scrollsEnabled: true,
             searchQueryParameter: "Test string",
             siteSearchEnabled: true,
             streamEnabled: true,
-            urlQueryParameter: "Test string",
+            uriQueryParameter: "Test string",
             videoEngagementEnabled: true,
         });
     }

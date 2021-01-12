@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201204
+// Revision: 20210106
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -55,6 +55,7 @@ gapi.load('client', () => {
                             additionalUserLabels: {
                                 A: "Test string"                            },
                             enableStreamingEngine: true,
+                            flexrsGoal: "Test string",
                             ipConfiguration: "Test string",
                             kmsKeyName: "Test string",
                             machineType: "Test string",
@@ -129,6 +130,7 @@ gapi.load('client', () => {
                             additionalUserLabels: {
                                 A: "Test string"                            },
                             enableStreamingEngine: true,
+                            flexrsGoal: "Test string",
                             ipConfiguration: "Test string",
                             kmsKeyName: "Test string",
                             machineType: "Test string",
@@ -207,6 +209,7 @@ gapi.load('client', () => {
                             additionalUserLabels: {
                                 A: "Test string"                            },
                             enableStreamingEngine: true,
+                            flexrsGoal: "Test string",
                             ipConfiguration: "Test string",
                             kmsKeyName: "Test string",
                             machineType: "Test string",
@@ -285,6 +288,7 @@ gapi.load('client', () => {
                             additionalUserLabels: {
                                 A: "Test string"                            },
                             enableStreamingEngine: true,
+                            flexrsGoal: "Test string",
                             ipConfiguration: "Test string",
                             kmsKeyName: "Test string",
                             machineType: "Test string",
@@ -367,6 +371,7 @@ gapi.load('client', () => {
                             additionalUserLabels: {
                                 A: "Test string"                            },
                             enableStreamingEngine: true,
+                            flexrsGoal: "Test string",
                             ipConfiguration: "Test string",
                             kmsKeyName: "Test string",
                             machineType: "Test string",
@@ -451,6 +456,7 @@ gapi.load('client', () => {
                             additionalUserLabels: {
                                 A: "Test string"                            },
                             enableStreamingEngine: true,
+                            flexrsGoal: "Test string",
                             ipConfiguration: "Test string",
                             kmsKeyName: "Test string",
                             machineType: "Test string",
@@ -1164,6 +1170,7 @@ gapi.load('client', () => {
             replacedByJobId: "Test string",
             replaceJobId: "Test string",
             requestedState: "Test string",
+            satisfiesPzs: true,
             stageStates: [
                 {
                     currentStateTime: "Test string",
@@ -3493,6 +3500,7 @@ gapi.load('client', () => {
             replacedByJobId: "Test string",
             replaceJobId: "Test string",
             requestedState: "Test string",
+            satisfiesPzs: true,
             stageStates: [
                 {
                     currentStateTime: "Test string",
@@ -3985,6 +3993,7 @@ gapi.load('client', () => {
                         additionalUserLabels: {
                             A: "Test string"                        },
                         enableStreamingEngine: true,
+                        flexrsGoal: "Test string",
                         ipConfiguration: "Test string",
                         kmsKeyName: "Test string",
                         machineType: "Test string",
@@ -4025,6 +4034,7 @@ gapi.load('client', () => {
                     additionalUserLabels: {
                         A: "Test string"                    },
                     enableStreamingEngine: true,
+                    flexrsGoal: "Test string",
                     ipConfiguration: "Test string",
                     kmsKeyName: "Test string",
                     machineType: "Test string",
@@ -4287,6 +4297,7 @@ gapi.load('client', () => {
             replacedByJobId: "Test string",
             replaceJobId: "Test string",
             requestedState: "Test string",
+            satisfiesPzs: true,
             stageStates: [
                 {
                     currentStateTime: "Test string",
@@ -7156,6 +7167,7 @@ gapi.load('client', () => {
             replacedByJobId: "Test string",
             replaceJobId: "Test string",
             requestedState: "Test string",
+            satisfiesPzs: true,
             stageStates: [
                 {
                     currentStateTime: "Test string",
@@ -7863,6 +7875,7 @@ gapi.load('client', () => {
                             additionalUserLabels: {
                                 A: "Test string"                            },
                             enableStreamingEngine: true,
+                            flexrsGoal: "Test string",
                             ipConfiguration: "Test string",
                             kmsKeyName: "Test string",
                             machineType: "Test string",
@@ -7937,6 +7950,7 @@ gapi.load('client', () => {
                             additionalUserLabels: {
                                 A: "Test string"                            },
                             enableStreamingEngine: true,
+                            flexrsGoal: "Test string",
                             ipConfiguration: "Test string",
                             kmsKeyName: "Test string",
                             machineType: "Test string",
@@ -8015,6 +8029,7 @@ gapi.load('client', () => {
                             additionalUserLabels: {
                                 A: "Test string"                            },
                             enableStreamingEngine: true,
+                            flexrsGoal: "Test string",
                             ipConfiguration: "Test string",
                             kmsKeyName: "Test string",
                             machineType: "Test string",
@@ -8093,6 +8108,7 @@ gapi.load('client', () => {
                             additionalUserLabels: {
                                 A: "Test string"                            },
                             enableStreamingEngine: true,
+                            flexrsGoal: "Test string",
                             ipConfiguration: "Test string",
                             kmsKeyName: "Test string",
                             machineType: "Test string",
@@ -8175,6 +8191,7 @@ gapi.load('client', () => {
                             additionalUserLabels: {
                                 A: "Test string"                            },
                             enableStreamingEngine: true,
+                            flexrsGoal: "Test string",
                             ipConfiguration: "Test string",
                             kmsKeyName: "Test string",
                             machineType: "Test string",
@@ -8259,6 +8276,7 @@ gapi.load('client', () => {
                             additionalUserLabels: {
                                 A: "Test string"                            },
                             enableStreamingEngine: true,
+                            flexrsGoal: "Test string",
                             ipConfiguration: "Test string",
                             kmsKeyName: "Test string",
                             machineType: "Test string",
@@ -8972,6 +8990,7 @@ gapi.load('client', () => {
             replacedByJobId: "Test string",
             replaceJobId: "Test string",
             requestedState: "Test string",
+            satisfiesPzs: true,
             stageStates: [
                 {
                     currentStateTime: "Test string",
@@ -11301,6 +11320,7 @@ gapi.load('client', () => {
             replacedByJobId: "Test string",
             replaceJobId: "Test string",
             requestedState: "Test string",
+            satisfiesPzs: true,
             stageStates: [
                 {
                     currentStateTime: "Test string",
@@ -11793,6 +11813,7 @@ gapi.load('client', () => {
                         additionalUserLabels: {
                             A: "Test string"                        },
                         enableStreamingEngine: true,
+                        flexrsGoal: "Test string",
                         ipConfiguration: "Test string",
                         kmsKeyName: "Test string",
                         machineType: "Test string",
@@ -11833,6 +11854,7 @@ gapi.load('client', () => {
                     additionalUserLabels: {
                         A: "Test string"                    },
                     enableStreamingEngine: true,
+                    flexrsGoal: "Test string",
                     ipConfiguration: "Test string",
                     kmsKeyName: "Test string",
                     machineType: "Test string",
@@ -12095,6 +12117,7 @@ gapi.load('client', () => {
             replacedByJobId: "Test string",
             replaceJobId: "Test string",
             requestedState: "Test string",
+            satisfiesPzs: true,
             stageStates: [
                 {
                     currentStateTime: "Test string",
@@ -14964,6 +14987,7 @@ gapi.load('client', () => {
             replacedByJobId: "Test string",
             replaceJobId: "Test string",
             requestedState: "Test string",
+            satisfiesPzs: true,
             stageStates: [
                 {
                     currentStateTime: "Test string",
