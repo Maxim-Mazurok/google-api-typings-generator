@@ -1,7 +1,7 @@
 # TypeScript typings for API Gateway API v1
 
 
-For detailed description please check [documentation]( https://cloud.google.com/api-gateway/docs).
+For detailed description please check [documentation](https://cloud.google.com/api-gateway/docs).
 
 ## Installing
 
