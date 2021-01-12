@@ -1,11 +1,11 @@
-# TypeScript typings for Recommendations AI v1beta1
+# TypeScript typings for Recommendations AI (Beta) v1beta1
 
-Recommendations AI service enables customers to build end-to-end personalized recommendation systems without requiring a high level of expertise in machine learning, recommendation system, or Google Cloud.
+Note that we now highly recommend new customers to use Retail API that incorporates the GA version of the Recommendations AI funtionalities. To enable Retail API, please visit https://console.cloud.google.com/apis/library/retail.googleapis.com. This is Recommendations AI service enables customers to build end-to-end personalized recommendation systems without requiring a high level of expertise in machine learning, recommendation system, or Google Cloud.
 For detailed description please check [documentation](https://cloud.google.com/recommendations-ai/docs).
 
 ## Installing
 
-Install typings for Recommendations AI:
+Install typings for Recommendations AI (Beta):
 
 ```
 npm install @types/gapi.client.recommendationengine@v1beta1 --save-dev
@@ -54,7 +54,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Recommendations AI resources:
+After that you can use Recommendations AI (Beta) resources:
 
 ```typescript
 ```
