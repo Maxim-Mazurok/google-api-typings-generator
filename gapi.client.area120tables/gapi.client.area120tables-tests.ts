@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210111
+// Revision: 20210112
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -58,6 +58,13 @@ gapi.load('client', () => {
                     },
                     view: "Test string",
                 }            ],
+        });
+        /** Deletes multiple rows. */
+        await gapi.client.area120tables.tables.rows.batchDelete({
+            parent: "Test string",
+        }, {
+            names: [
+                "Test string"            ],
         });
         /** Updates multiple rows. */
         await gapi.client.area120tables.tables.rows.batchUpdate({
@@ -128,6 +135,13 @@ gapi.load('client', () => {
                     },
                     view: "Test string",
                 }            ],
+        });
+        /** Deletes multiple rows. */
+        await gapi.client.area120tables.tables.rows.batchDelete({
+            parent: "Test string",
+        }, {
+            names: [
+                "Test string"            ],
         });
         /** Updates multiple rows. */
         await gapi.client.area120tables.tables.rows.batchUpdate({
