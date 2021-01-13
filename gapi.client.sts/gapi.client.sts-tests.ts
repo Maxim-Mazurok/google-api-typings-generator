@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201127
+// Revision: 20210109
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -18,9 +18,11 @@ gapi.load('client', () => {
         /** Exchanges a credential for a Google OAuth 2.0 access token. */
         await gapi.client.sts.v1.token({
         }, {
+            audience: "Test string",
             grantType: "Test string",
             options: "Test string",
             requestedTokenType: "Test string",
+            scope: "Test string",
             subjectToken: "Test string",
             subjectTokenType: "Test string",
         });
