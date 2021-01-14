@@ -1,7 +1,7 @@
 # TypeScript typings for Area120 Tables API v1alpha1
 
 
-For detailed description please check [documentation](https://tables.area120.google.com).
+For detailed description please check [documentation](https://support.google.com/area120-tables/answer/10011390).
 
 ## Installing
 

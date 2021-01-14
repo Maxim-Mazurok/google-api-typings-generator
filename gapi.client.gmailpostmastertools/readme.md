@@ -1,4 +1,4 @@
-# TypeScript typings for Gmail Postmaster Tools API v1beta1
+# TypeScript typings for Gmail Postmaster Tools API v1
 
 The Postmaster Tools API is a RESTful API that provides programmatic access to email traffic metrics (like spam reports, delivery errors etc) otherwise available through the Gmail Postmaster Tools UI currently.
 For detailed description please check [documentation](https://developers.google.com/gmail/postmaster).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://developers.google.
 Install typings for Gmail Postmaster Tools API:
 
 ```
-npm install @types/gapi.client.gmailpostmastertools@v1beta1 --save-dev
+npm install @types/gapi.client.gmailpostmastertools@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('gmailpostmastertools', 'v1beta1', () => {
+gapi.client.load('gmailpostmastertools', 'v1', () => {
   // now we can use gapi.client.gmailpostmastertools
   // ...
 });

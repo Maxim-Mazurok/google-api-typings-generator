@@ -8,7 +8,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('gmailpostmastertools', 'v1beta1', () => {
+    gapi.client.load('gmailpostmastertools', 'v1', () => {
         /** now we can use gapi.client.gmailpostmastertools */
 
         /** don't forget to authenticate your client before sending any request to resources: */
