@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201213
+// Revision: 20210109
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -56,6 +56,11 @@ gapi.load('client', () => {
             custom: {
             },
             displayName: "Test string",
+            istioCanonicalService: {
+                canonicalService: "Test string",
+                canonicalServiceNamespace: "Test string",
+                meshUid: "Test string",
+            },
             meshIstio: {
                 meshUid: "Test string",
                 serviceName: "Test string",
@@ -873,6 +878,11 @@ gapi.load('client', () => {
             custom: {
             },
             displayName: "Test string",
+            istioCanonicalService: {
+                canonicalService: "Test string",
+                canonicalServiceNamespace: "Test string",
+                meshUid: "Test string",
+            },
             meshIstio: {
                 meshUid: "Test string",
                 serviceName: "Test string",
