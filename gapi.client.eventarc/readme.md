@@ -1,4 +1,4 @@
-# TypeScript typings for Eventarc API v1beta1
+# TypeScript typings for Eventarc API v1
 
 
 For detailed description please check [documentation](https://cloud.google.com/eventarc).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/e
 Install typings for Eventarc API:
 
 ```
-npm install @types/gapi.client.eventarc@v1beta1 --save-dev
+npm install @types/gapi.client.eventarc@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('eventarc', 'v1beta1', () => {
+gapi.client.load('eventarc', 'v1', () => {
   // now we can use gapi.client.eventarc
   // ...
 });

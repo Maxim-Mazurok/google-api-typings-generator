@@ -4,11 +4,11 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210108
+// Revision: 20210113
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('eventarc', 'v1beta1', () => {
+    gapi.client.load('eventarc', 'v1', () => {
         /** now we can use gapi.client.eventarc */
 
         /** don't forget to authenticate your client before sending any request to resources: */
