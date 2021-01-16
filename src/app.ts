@@ -1,7 +1,8 @@
 import fs from 'fs';
+import {URL} from 'url';
 import _ from 'lodash';
 import path, {basename, join} from 'path';
-import got, {OptionsOfJSONResponseBody} from 'got';
+import got from 'got';
 import sortObject from 'deep-sort-object';
 import LineByLine from 'n-readlines';
 import {
@@ -15,7 +16,7 @@ import {Template} from './template';
 import {Protocol, ProxySetting} from 'get-proxy-settings';
 import {hasPrefixI} from './tslint';
 import {fallbackDocumentationLinks} from './constants';
-import {HttpProxyAgent, HttpsProxyAgent, HttpProxyAgentOptions} from 'hpagent';
+import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
@@ -729,14 +730,14 @@ export class App {
   }
 
   private async request<T extends object>(url: string): Promise<T> {
+    const protocol = new URL(url).protocol as "http:" | "https:";
+    const agentProtocol = protocol === 'http:' ? Protocol.Http : Protocol.Https;
+    const agent = agentProtocol === Protocol.Http ? HttpProxyAgent : HttpsProxyAgent;
     return (await got(url, {
       ...(this.config.proxy
         ? {
             agent: {
-              [this.config.proxy.protocol]: new (this.config.proxy.protocol ===
-              Protocol.Http
-                ? HttpProxyAgent
-                : HttpsProxyAgent)({
+              [agentProtocol]: new agent({
                 keepAlive: true,
                 keepAliveMsecs: 1000,
                 maxSockets: 256,
