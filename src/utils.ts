@@ -1,4 +1,8 @@
 import fs from 'fs';
+import {URL} from 'url';
+import {Protocol, ProxySetting} from 'get-proxy-settings';
+import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
+import got from 'got/dist/source';
 import path from 'path';
 import stripJsonComments from 'strip-json-comments';
 
@@ -71,4 +75,30 @@ export async function getBannedTypes(): Promise<string[]> {
   const tslintAll = await import('../node_modules/tslint/lib/configs/all');
   const options = tslintAll.rules['ban-types'].options;
   return options.length || options[0].length ? options.map(x => x[0]) : [];
+}
+
+export async function request<T extends object>(
+  url: string,
+  proxy: ProxySetting | undefined
+): Promise<T> {
+  const protocol = new URL(url).protocol as 'http:' | 'https:';
+  const agentProtocol = protocol === 'http:' ? Protocol.Http : Protocol.Https;
+  const agent =
+    agentProtocol === Protocol.Http ? HttpProxyAgent : HttpsProxyAgent;
+  return (await got(url, {
+    ...(proxy
+      ? {
+          agent: {
+            [agentProtocol]: new agent({
+              keepAlive: true,
+              keepAliveMsecs: 1000,
+              maxSockets: 256,
+              maxFreeSockets: 256,
+              scheduling: 'lifo',
+              proxy: proxy.toString(),
+            }),
+          },
+        }
+      : {}),
+  }).json()) as T;
 }
