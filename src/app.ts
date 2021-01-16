@@ -1,7 +1,7 @@
 import fs from 'fs';
 import _ from 'lodash';
 import path, {basename, join} from 'path';
-import got from 'got';
+import got, {OptionsOfJSONResponseBody} from 'got';
 import sortObject from 'deep-sort-object';
 import LineByLine from 'n-readlines';
 import {
@@ -12,9 +12,10 @@ import {
 } from './utils';
 import {StreamWriter, TextWriter} from './writer';
 import {Template} from './template';
-import {ProxySetting} from 'get-proxy-settings';
+import {Protocol, ProxySetting} from 'get-proxy-settings';
 import {hasPrefixI} from './tslint';
 import {fallbackDocumentationLinks} from './constants';
+import {HttpProxyAgent, HttpsProxyAgent, HttpProxyAgentOptions} from 'hpagent';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
@@ -732,7 +733,17 @@ export class App {
       ...(this.config.proxy
         ? {
             agent: {
-              [this.config.proxy.protocol]: this.config.proxy.toString(),
+              [this.config.proxy.protocol]: new (this.config.proxy.protocol ===
+              Protocol.Http
+                ? HttpProxyAgent
+                : HttpsProxyAgent)({
+                keepAlive: true,
+                keepAliveMsecs: 1000,
+                maxSockets: 256,
+                maxFreeSockets: 256,
+                scheduling: 'lifo',
+                proxy: this.config.proxy.toString(),
+              }),
             },
           }
         : {}),
