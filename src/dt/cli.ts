@@ -9,7 +9,7 @@ process.on('unhandledRejection', reason => {
   throw reason;
 });
 
-const params = program
+const options = program
   .version('0.0.1')
   .option(
     '-u, --url [url]',
@@ -21,9 +21,10 @@ const params = program
   )
   .option('-a, --all', 'include previous versions', false)
   .option('-o, --out [path]', 'output directory', App.parseOutPath)
-  .parse(process.argv);
+  .parse(process.argv)
+  .opts();
 
-console.info(`Output directory: ${params.out}`);
+console.info(`Output directory: ${options.out}`);
 
 (async () => {
   const proxy = await getProxySettings();
@@ -31,7 +32,7 @@ console.info(`Output directory: ${params.out}`);
 
   const app = new App({
     proxy: bestProxy,
-    dtTypesDirectory: params.out,
+    dtTypesDirectory: options.out,
     maxLineLength: getMaxLineLength(),
     owners: [
       'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
@@ -40,8 +41,8 @@ console.info(`Output directory: ${params.out}`);
     ],
   });
 
-  if (params.url) {
-    app.processService(params.url, true).then(
+  if (options.url) {
+    app.processService(options.url, true).then(
       () => console.log('Done'),
       error => {
         console.error(error);
@@ -49,7 +50,7 @@ console.info(`Output directory: ${params.out}`);
       }
     );
   } else {
-    app.discover(params.service, params.all || false).then(
+    app.discover(options.service, options.all || false).then(
       () => console.log('Done'),
       error => {
         console.error(error);
