@@ -1,8 +1,6 @@
 import fs from 'fs';
-import {URL} from 'url';
 import _ from 'lodash';
 import path, {basename, join} from 'path';
-import got from 'got';
 import sortObject from 'deep-sort-object';
 import LineByLine from 'n-readlines';
 import {
@@ -10,13 +8,13 @@ import {
   getResourceTypeName,
   getTypeDirectory,
   parseVersion,
+  request,
 } from './utils';
 import {StreamWriter, TextWriter} from './writer';
 import {Template} from './template';
-import {Protocol, ProxySetting} from 'get-proxy-settings';
+import {ProxySetting} from 'get-proxy-settings';
 import {hasPrefixI} from './tslint';
 import {fallbackDocumentationLinks} from './constants';
-import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
@@ -729,28 +727,6 @@ export class App {
     writer.end();
   }
 
-  private async request<T extends object>(url: string): Promise<T> {
-    const protocol = new URL(url).protocol as "http:" | "https:";
-    const agentProtocol = protocol === 'http:' ? Protocol.Http : Protocol.Https;
-    const agent = agentProtocol === Protocol.Http ? HttpProxyAgent : HttpsProxyAgent;
-    return (await got(url, {
-      ...(this.config.proxy
-        ? {
-            agent: {
-              [agentProtocol]: new agent({
-                keepAlive: true,
-                keepAliveMsecs: 1000,
-                maxSockets: 256,
-                maxFreeSockets: 256,
-                scheduling: 'lifo',
-                proxy: this.config.proxy.toString(),
-              }),
-            },
-          }
-        : {}),
-    }).json()) as T;
-  }
-
   async processService(
     url: string,
     actualVersion: boolean,
@@ -759,7 +735,7 @@ export class App {
     let api;
 
     try {
-      api = await this.request<RestDescription>(url);
+      api = await request<RestDescription>(url, this.config.proxy);
     } catch (e) {
       console.warn(e);
       return;
@@ -1127,8 +1103,9 @@ export class App {
   ) {
     console.log('Discovering Google services...');
 
-    const list = await this.request<DirectoryList>(
-      'https://www.googleapis.com/discovery/v1/apis'
+    const list = await request<DirectoryList>(
+      'https://www.googleapis.com/discovery/v1/apis',
+      this.config.proxy
     );
 
     const apis = list

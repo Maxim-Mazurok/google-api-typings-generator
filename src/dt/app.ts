@@ -1,8 +1,12 @@
 import _ from 'lodash';
 import path from 'path';
-import request from 'request';
 import sortObject from 'deep-sort-object';
-import {ensureDirectoryExists, getTypeDirectory, parseVersion} from '../utils';
+import {
+  ensureDirectoryExists,
+  getTypeDirectory,
+  parseVersion,
+  request,
+} from '../utils';
 import {Template} from './template';
 import {ProxySetting} from 'get-proxy-settings';
 import {excludedApis} from '../app';
@@ -44,43 +48,11 @@ export class App {
     return dir;
   }
 
-  private request(url: string): Promise<DirectoryList> {
-    return new Promise((resolve, reject) => {
-      request(
-        url,
-        {
-          gzip: true,
-          ...(this.config.proxy ? {proxy: this.config.proxy.toString()} : {}),
-        },
-        (error, response, body) => {
-          if (!error && response.statusCode === 200) {
-            try {
-              const api = JSON.parse(body) as DirectoryList;
-              resolve(api);
-            } catch (e) {
-              console.error(
-                `Caught an error: ${e.message}; while parsing JSON from ${url}: "${body}"`
-              );
-              reject(error);
-            }
-          } else {
-            console.error('Got an error: ', error);
-            if (response && response.statusCode) {
-              console.error(`with status code: ${response.statusCode}`);
-            }
-            console.error(`while fetching ${url}`);
-            reject(error);
-          }
-        }
-      );
-    });
-  }
-
   async processService(url: string, actualVersion: boolean) {
     let api;
 
     try {
-      api = (await this.request(url)) as RestDescription;
+      api = (await request(url, this.config.proxy)) as RestDescription;
     } catch (e) {
       console.warn(e);
       return;
@@ -130,8 +102,9 @@ export class App {
   async discover(service: string | undefined, allVersions = false) {
     console.log('Discovering Google services...');
 
-    const list: DirectoryList = await this.request(
-      'https://www.googleapis.com/discovery/v1/apis'
+    const list: DirectoryList = await request(
+      'https://www.googleapis.com/discovery/v1/apis',
+      this.config.proxy
     );
 
     const apis = list
