@@ -1,7 +1,7 @@
 # TypeScript typings for BigQuery Data Transfer API v1
 
 Schedule queries or transfer external data from SaaS applications to Google BigQuery on a regular basis.
-For detailed description please check [documentation](https://cloud.google.com/bigquery/).
+For detailed description please check [documentation](https://cloud.google.com/bigquery-transfer/).
 
 ## Installing
 
