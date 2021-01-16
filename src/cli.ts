@@ -7,7 +7,7 @@ process.on('unhandledRejection', reason => {
   throw reason;
 });
 
-const params = program
+const options = program
   .version('0.0.1')
   .option(
     '-u, --url [url]',
@@ -27,18 +27,19 @@ const params = program
     '--cache-discovery-json <directory>',
     'temporary directory to cache discovery service JSON'
   )
-  .parse(process.argv);
+  .parse(process.argv)
+  .opts();
 
-console.info(`Output directory: ${params.out}`);
+console.info(`Output directory: ${options.out}`);
 
 (async () => {
   const proxy = await getProxySettings();
   const bestProxy = proxy ? proxy.https || proxy.http : undefined;
 
   const app = new App({
-    discoveryJsonDirectory: params.cacheDiscoveryJson,
+    discoveryJsonDirectory: options.cacheDiscoveryJson,
     proxy: bestProxy,
-    typesDirectory: params.out,
+    typesDirectory: options.out,
     maxLineLength: getMaxLineLength(),
     bannedTypes: await getBannedTypes(),
     owners: [
@@ -48,8 +49,8 @@ console.info(`Output directory: ${params.out}`);
     ],
   });
 
-  if (params.url) {
-    app.processService(params.url, true, params.newRevisionsOnly).then(
+  if (options.url) {
+    app.processService(options.url, true, options.newRevisionsOnly).then(
       () => console.log('Done'),
       error => {
         console.error(error);
@@ -58,7 +59,7 @@ console.info(`Output directory: ${params.out}`);
     );
   } else {
     app
-      .discover(params.service, params.all || false, params.newRevisionsOnly)
+      .discover(options.service, options.all || false, options.newRevisionsOnly)
       .then(
         () => console.log('Done'),
         error => {
