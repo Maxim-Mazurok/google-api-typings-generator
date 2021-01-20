@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210108
+// Revision: 20210119
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -201,6 +201,7 @@ gapi.load('client', () => {
          * the desired scope, otherwise the request will be rejected.
          */
         await gapi.client.cloudasset.v1.searchAllIamPolicies({
+            assetTypes: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             query: "Test string",
