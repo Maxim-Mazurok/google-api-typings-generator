@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210119
+// Revision: 20210120
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -656,7 +656,11 @@ gapi.load('client', () => {
             timeZone: "Test string",
             updateTime: "Test string",
         });
-        /** Creates an android app stream with the specified location and attributes. */
+        /**
+         * Creates an Android app stream with the specified location and attributes. Note that an Android app stream must be linked to a Firebase app to receive traffic. To create a working app
+         * stream, make sure your property is linked to a Firebase project. Then, use the Firebase API to create a Firebase app, which will also create an appropriate data stream in Analytics (may
+         * take up to 24 hours).
+         */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.create({
             parent: "Test string",
         }, {
@@ -760,7 +764,11 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates an iOS app data stream with the specified location and attributes. */
+        /**
+         * Creates an iOS app stream with the specified location and attributes. Note that an iOS app stream must be linked to a Firebase app to receive traffic. To create a working app stream,
+         * make sure your property is linked to a Firebase project. Then, use the Firebase API to create a Firebase app, which will also create an appropriate data stream in Analytics (may take up
+         * to 24 hours).
+         */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.create({
             parent: "Test string",
         }, {
@@ -968,7 +976,11 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.delete({
             name: "Test string",
         });
-        /** Creates an android app stream with the specified location and attributes. */
+        /**
+         * Creates an Android app stream with the specified location and attributes. Note that an Android app stream must be linked to a Firebase app to receive traffic. To create a working app
+         * stream, make sure your property is linked to a Firebase project. Then, use the Firebase API to create a Firebase app, which will also create an appropriate data stream in Analytics (may
+         * take up to 24 hours).
+         */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.create({
             parent: "Test string",
         }, {
@@ -1072,7 +1084,11 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates an iOS app data stream with the specified location and attributes. */
+        /**
+         * Creates an iOS app stream with the specified location and attributes. Note that an iOS app stream must be linked to a Firebase app to receive traffic. To create a working app stream,
+         * make sure your property is linked to a Firebase project. Then, use the Firebase API to create a Firebase app, which will also create an appropriate data stream in Analytics (may take up
+         * to 24 hours).
+         */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.create({
             parent: "Test string",
         }, {
@@ -1276,7 +1292,11 @@ gapi.load('client', () => {
         await gapi.client.analyticsadmin.properties.get({
             name: "Test string",
         });
-        /** Creates an android app stream with the specified location and attributes. */
+        /**
+         * Creates an Android app stream with the specified location and attributes. Note that an Android app stream must be linked to a Firebase app to receive traffic. To create a working app
+         * stream, make sure your property is linked to a Firebase project. Then, use the Firebase API to create a Firebase app, which will also create an appropriate data stream in Analytics (may
+         * take up to 24 hours).
+         */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.create({
             parent: "Test string",
         }, {
@@ -1380,7 +1400,11 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates an iOS app data stream with the specified location and attributes. */
+        /**
+         * Creates an iOS app stream with the specified location and attributes. Note that an iOS app stream must be linked to a Firebase app to receive traffic. To create a working app stream,
+         * make sure your property is linked to a Firebase project. Then, use the Firebase API to create a Firebase app, which will also create an appropriate data stream in Analytics (may take up
+         * to 24 hours).
+         */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.create({
             parent: "Test string",
         }, {
@@ -1590,7 +1614,11 @@ gapi.load('client', () => {
             pageToken: "Test string",
             showDeleted: true,
         });
-        /** Creates an android app stream with the specified location and attributes. */
+        /**
+         * Creates an Android app stream with the specified location and attributes. Note that an Android app stream must be linked to a Firebase app to receive traffic. To create a working app
+         * stream, make sure your property is linked to a Firebase project. Then, use the Firebase API to create a Firebase app, which will also create an appropriate data stream in Analytics (may
+         * take up to 24 hours).
+         */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.create({
             parent: "Test string",
         }, {
@@ -1694,7 +1722,11 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates an iOS app data stream with the specified location and attributes. */
+        /**
+         * Creates an iOS app stream with the specified location and attributes. Note that an iOS app stream must be linked to a Firebase app to receive traffic. To create a working app stream,
+         * make sure your property is linked to a Firebase project. Then, use the Firebase API to create a Firebase app, which will also create an appropriate data stream in Analytics (may take up
+         * to 24 hours).
+         */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.create({
             parent: "Test string",
         }, {
@@ -1909,7 +1941,11 @@ gapi.load('client', () => {
             timeZone: "Test string",
             updateTime: "Test string",
         });
-        /** Creates an android app stream with the specified location and attributes. */
+        /**
+         * Creates an Android app stream with the specified location and attributes. Note that an Android app stream must be linked to a Firebase app to receive traffic. To create a working app
+         * stream, make sure your property is linked to a Firebase project. Then, use the Firebase API to create a Firebase app, which will also create an appropriate data stream in Analytics (may
+         * take up to 24 hours).
+         */
         await gapi.client.analyticsadmin.properties.androidAppDataStreams.create({
             parent: "Test string",
         }, {
@@ -2013,7 +2049,11 @@ gapi.load('client', () => {
             name: "Test string",
             updateTime: "Test string",
         });
-        /** Creates an iOS app data stream with the specified location and attributes. */
+        /**
+         * Creates an iOS app stream with the specified location and attributes. Note that an iOS app stream must be linked to a Firebase app to receive traffic. To create a working app stream,
+         * make sure your property is linked to a Firebase project. Then, use the Firebase API to create a Firebase app, which will also create an appropriate data stream in Analytics (may take up
+         * to 24 hours).
+         */
         await gapi.client.analyticsadmin.properties.iosAppDataStreams.create({
             parent: "Test string",
         }, {
