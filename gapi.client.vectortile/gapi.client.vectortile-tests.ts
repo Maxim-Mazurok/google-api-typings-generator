@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210116
+// Revision: 20210118
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -17,6 +17,7 @@ gapi.load('client', () => {
     async function run() {
         /** Gets a feature tile by its tile resource name. */
         await gapi.client.vectortile.featuretiles.get({
+            alwaysIncludeBuildingFootprints: true,
             "clientInfo.apiClient": "Test string",
             "clientInfo.applicationId": "Test string",
             "clientInfo.applicationVersion": "Test string",
