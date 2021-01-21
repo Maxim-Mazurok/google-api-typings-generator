@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210119
+// Revision: 20210120
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -54,6 +54,7 @@ gapi.load('client', () => {
     async function run() {
         /** Get a list of contact groups owned by the authenticated user by specifying a list of contact group resource names. */
         await gapi.client.people.contactGroups.batchGet({
+            groupFields: "Test string",
             maxMembers: 42,
             resourceNames: "Test string",
         });
@@ -73,6 +74,11 @@ gapi.load('client', () => {
         await gapi.client.people.contactGroups.create({
         }, {
             contactGroup: {
+                clientData: [
+                    {
+                        key: "Test string",
+                        value: "Test string",
+                    }                ],
                 etag: "Test string",
                 formattedName: "Test string",
                 groupType: "Test string",
@@ -86,6 +92,7 @@ gapi.load('client', () => {
                 name: "Test string",
                 resourceName: "Test string",
             },
+            readGroupFields: "Test string",
         });
         /**
          * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and
@@ -118,6 +125,7 @@ gapi.load('client', () => {
         });
         /** Get a specific contact group owned by the authenticated user by specifying a contact group resource name. */
         await gapi.client.people.contactGroups.get({
+            groupFields: "Test string",
             maxMembers: 42,
             resourceName: "Test string",
         });
@@ -135,6 +143,7 @@ gapi.load('client', () => {
         });
         /** List all contact groups owned by the authenticated user. Members of the contact groups are not populated. */
         await gapi.client.people.contactGroups.list({
+            groupFields: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             syncToken: "Test string",
@@ -156,6 +165,11 @@ gapi.load('client', () => {
             resourceName: "Test string",
         }, {
             contactGroup: {
+                clientData: [
+                    {
+                        key: "Test string",
+                        value: "Test string",
+                    }                ],
                 etag: "Test string",
                 formattedName: "Test string",
                 groupType: "Test string",
@@ -169,6 +183,8 @@ gapi.load('client', () => {
                 name: "Test string",
                 resourceName: "Test string",
             },
+            readGroupFields: "Test string",
+            updateGroupFields: "Test string",
         });
         /**
          * Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and
