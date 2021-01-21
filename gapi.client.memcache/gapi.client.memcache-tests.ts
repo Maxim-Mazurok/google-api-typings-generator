@@ -8,7 +8,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('memcache', 'v1beta2', () => {
+    gapi.client.load('memcache', 'v1', () => {
         /** now we can use gapi.client.memcache */
 
         /** don't forget to authenticate your client before sending any request to resources: */
