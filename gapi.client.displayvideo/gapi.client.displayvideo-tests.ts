@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210119
+// Revision: 20210121
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -730,6 +730,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -836,6 +837,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -1210,6 +1212,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -1334,6 +1342,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -2799,6 +2813,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -2905,6 +2920,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -3279,6 +3295,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -3403,6 +3425,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -4610,6 +4638,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -4716,6 +4745,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -5090,6 +5120,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -5214,6 +5250,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -6464,6 +6506,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -6570,6 +6613,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -6944,6 +6988,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -7068,6 +7118,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -8271,6 +8327,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -8377,6 +8434,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -8751,6 +8809,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -8875,6 +8939,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -10078,6 +10148,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -10184,6 +10255,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -10558,6 +10630,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -10682,6 +10760,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -11889,6 +11973,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -11995,6 +12080,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -12369,6 +12455,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -12493,6 +12585,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -13745,6 +13843,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -13851,6 +13950,7 @@ gapi.load('client', () => {
                 unlimited: true,
             },
             insertionOrderId: "Test string",
+            insertionOrderType: "Test string",
             integrationDetails: {
                 details: "Test string",
                 integrationCode: "Test string",
@@ -14225,6 +14325,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
@@ -14349,6 +14455,12 @@ gapi.load('client', () => {
                 "Test string"            ],
             lineItemId: "Test string",
             lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
             name: "Test string",
             pacing: {
                 dailyMaxImpressions: "Test string",
