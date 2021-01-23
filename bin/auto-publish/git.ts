@@ -26,11 +26,10 @@ export class Git {
     console.log(`Getting archive link for ${commitSHA}...`);
 
     const {user: owner, thisRepo: repo} = this.settings;
-    const response = await this.octokit.repos.downloadArchive({
+    const response = await this.octokit.repos.downloadTarballArchive({
       owner,
       repo,
       ref: commitSHA,
-      archive_format: 'tarball',
       method: 'HEAD',
     });
     return response.url;
