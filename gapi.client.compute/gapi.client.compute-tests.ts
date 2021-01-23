@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201122
+// Revision: 20201213
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -916,6 +916,7 @@ gapi.load('client', () => {
             licenses: [
                 "Test string"            ],
             name: "Test string",
+            satisfiesPzs: true,
             selfLink: "Test string",
             snapshotEncryptionKey: {
                 kmsKeyName: "Test string",
@@ -1001,6 +1002,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             resourcePolicies: [
                 "Test string"            ],
+            satisfiesPzs: true,
             selfLink: "Test string",
             sizeGb: "Test string",
             sourceDisk: "Test string",
@@ -1451,6 +1453,8 @@ gapi.load('client', () => {
             ipVersion: "Test string",
             isMirroringCollector: true,
             kind: "Test string",
+            labels: {
+                A: "Test string"            },
             loadBalancingScheme: "Test string",
             metadataFilters: [
                 {
@@ -1506,6 +1510,8 @@ gapi.load('client', () => {
             ipVersion: "Test string",
             isMirroringCollector: true,
             kind: "Test string",
+            labels: {
+                A: "Test string"            },
             loadBalancingScheme: "Test string",
             metadataFilters: [
                 {
@@ -1610,6 +1616,8 @@ gapi.load('client', () => {
             ipVersion: "Test string",
             isMirroringCollector: true,
             kind: "Test string",
+            labels: {
+                A: "Test string"            },
             loadBalancingScheme: "Test string",
             metadataFilters: [
                 {
@@ -1663,6 +1671,8 @@ gapi.load('client', () => {
             ipVersion: "Test string",
             isMirroringCollector: true,
             kind: "Test string",
+            labels: {
+                A: "Test string"            },
             loadBalancingScheme: "Test string",
             metadataFilters: [
                 {
@@ -3400,6 +3410,9 @@ gapi.load('client', () => {
             sourceInstanceTemplate: "Test string",
             zone: "Test string",
         }, {
+            advancedMachineFeatures: {
+                enableNestedVirtualization: true,
+            },
             canIpForward: true,
             confidentialInstanceConfig: {
                 enableConfidentialCompute: true,
@@ -3544,6 +3557,7 @@ gapi.load('client', () => {
             },
             resourcePolicies: [
                 "Test string"            ],
+            satisfiesPzs: true,
             scheduling: {
                 automaticRestart: true,
                 locationHint: "Test string",
@@ -3911,6 +3925,9 @@ gapi.load('client', () => {
             requestId: "Test string",
             zone: "Test string",
         }, {
+            advancedMachineFeatures: {
+                enableNestedVirtualization: true,
+            },
             canIpForward: true,
             confidentialInstanceConfig: {
                 enableConfidentialCompute: true,
@@ -4055,6 +4072,7 @@ gapi.load('client', () => {
             },
             resourcePolicies: [
                 "Test string"            ],
+            satisfiesPzs: true,
             scheduling: {
                 automaticRestart: true,
                 locationHint: "Test string",
@@ -4125,7 +4143,10 @@ gapi.load('client', () => {
         }, {
             enableDisplay: true,
         });
-        /** Updates an instance's network interface. This method follows PATCH semantics. */
+        /**
+         * Updates an instance's network interface. This method can only update an interface's alias IP range and attached network. See Modifying alias IP ranges for an existing instance for
+         * instructions on changing alias IP ranges. See Migrating a VM between networks for instructions on migrating an interface. This method follows PATCH semantics.
+         */
         await gapi.client.compute.instances.updateNetworkInterface({
             instance: "Test string",
             networkInterface: "Test string",
@@ -4205,6 +4226,9 @@ gapi.load('client', () => {
             kind: "Test string",
             name: "Test string",
             properties: {
+                advancedMachineFeatures: {
+                    enableNestedVirtualization: true,
+                },
                 canIpForward: true,
                 confidentialInstanceConfig: {
                     enableConfidentialCompute: true,
@@ -6623,6 +6647,7 @@ gapi.load('client', () => {
             licenses: [
                 "Test string"            ],
             name: "Test string",
+            satisfiesPzs: true,
             selfLink: "Test string",
             snapshotEncryptionKey: {
                 kmsKeyName: "Test string",
@@ -6705,6 +6730,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             resourcePolicies: [
                 "Test string"            ],
+            satisfiesPzs: true,
             selfLink: "Test string",
             sizeGb: "Test string",
             sourceDisk: "Test string",
@@ -8495,6 +8521,13 @@ gapi.load('client', () => {
             tests: [
                 {
                     description: "Test string",
+                    expectedOutputUrl: "Test string",
+                    expectedRedirectResponseCode: 42,
+                    headers: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
                     host: "Test string",
                     path: "Test string",
                     service: "Test string",
@@ -8969,6 +9002,13 @@ gapi.load('client', () => {
             tests: [
                 {
                     description: "Test string",
+                    expectedOutputUrl: "Test string",
+                    expectedRedirectResponseCode: 42,
+                    headers: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
                     host: "Test string",
                     path: "Test string",
                     service: "Test string",
@@ -9433,6 +9473,13 @@ gapi.load('client', () => {
             tests: [
                 {
                     description: "Test string",
+                    expectedOutputUrl: "Test string",
+                    expectedRedirectResponseCode: 42,
+                    headers: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
                     host: "Test string",
                     path: "Test string",
                     service: "Test string",
@@ -9897,6 +9944,13 @@ gapi.load('client', () => {
                 tests: [
                     {
                         description: "Test string",
+                        expectedOutputUrl: "Test string",
+                        expectedRedirectResponseCode: 42,
+                        headers: [
+                            {
+                                name: "Test string",
+                                value: "Test string",
+                            }                        ],
                         host: "Test string",
                         path: "Test string",
                         service: "Test string",
@@ -12453,6 +12507,13 @@ gapi.load('client', () => {
             tests: [
                 {
                     description: "Test string",
+                    expectedOutputUrl: "Test string",
+                    expectedRedirectResponseCode: 42,
+                    headers: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
                     host: "Test string",
                     path: "Test string",
                     service: "Test string",
@@ -12938,6 +12999,13 @@ gapi.load('client', () => {
             tests: [
                 {
                     description: "Test string",
+                    expectedOutputUrl: "Test string",
+                    expectedRedirectResponseCode: 42,
+                    headers: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
                     host: "Test string",
                     path: "Test string",
                     service: "Test string",
@@ -13401,6 +13469,13 @@ gapi.load('client', () => {
             tests: [
                 {
                     description: "Test string",
+                    expectedOutputUrl: "Test string",
+                    expectedRedirectResponseCode: 42,
+                    headers: [
+                        {
+                            name: "Test string",
+                            value: "Test string",
+                        }                    ],
                     host: "Test string",
                     path: "Test string",
                     service: "Test string",
@@ -13864,6 +13939,13 @@ gapi.load('client', () => {
                 tests: [
                     {
                         description: "Test string",
+                        expectedOutputUrl: "Test string",
+                        expectedRedirectResponseCode: 42,
+                        headers: [
+                            {
+                                name: "Test string",
+                                value: "Test string",
+                            }                        ],
                         host: "Test string",
                         path: "Test string",
                         service: "Test string",
