@@ -1067,7 +1067,7 @@ Updates the Display config for a VM instance. You can only use this method on a 
 await gapi.client.compute.instances.updateDisplayDevice({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
-Updates an instance's network interface. This method can only update an interface's alias IP range and attached network. See Modifying alias IP ranges for an existing instance for instructions on changing alias IP ranges. See Migrating a VM between networks for instructions on migrating an interface. This method follows PATCH semantics.
+Updates an instance's network interface. This method follows PATCH semantics.
 */
 await gapi.client.compute.instances.updateNetworkInterface({ instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  });
 
