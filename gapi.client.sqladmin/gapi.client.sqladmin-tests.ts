@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210111
+// Revision: 20210119
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -15,7 +15,7 @@ gapi.load('client', () => {
         /** declare client_id registered in Google Developers Console */
         const client_id = '<<PUT YOUR CLIENT ID HERE>>';
         const scope = [
-            /** View and manage your data across Google Cloud Platform services */
+            /** See, edit, configure, and delete your Google Cloud Platform data */
             'https://www.googleapis.com/auth/cloud-platform',
             /** Manage your Google SQL Service instances */
             'https://www.googleapis.com/auth/sqlservice.admin',
@@ -878,6 +878,7 @@ gapi.load('client', () => {
             instance: "Test string",
             project: "Test string",
         }, {
+            access_token: "Test string",
             public_key: "Test string",
         });
         /** Deletes the SSL certificate. For First Generation instances, the certificate remains valid until the instance is restarted. */
