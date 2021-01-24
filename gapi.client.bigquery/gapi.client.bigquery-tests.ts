@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210118
+// Revision: 20210106
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -953,9 +953,6 @@ gapi.load('client', () => {
                             daviesBouldinIndex: 42,
                             meanSquaredDistance: 42,
                         },
-                        dimensionalityReductionMetrics: {
-                            totalExplainedVarianceRatio: 42,
-                        },
                         multiClassClassificationMetrics: {
                             aggregateClassificationMetrics: {
                                 accuracy: 42,
@@ -1043,13 +1040,6 @@ gapi.load('client', () => {
                             evalLoss: 42,
                             index: 42,
                             learnRate: 42,
-                            principalComponentInfos: [
-                                {
-                                    cumulativeExplainedVarianceRatio: 42,
-                                    explainedVariance: 42,
-                                    explainedVarianceRatio: 42,
-                                    principalComponentId: "Test string",
-                                }                            ],
                             trainingLoss: 42,
                         }                    ],
                     startTime: "Test string",
