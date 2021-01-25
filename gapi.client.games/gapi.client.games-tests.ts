@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210114
+// Revision: 20210121
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -252,6 +252,7 @@ gapi.load('client', () => {
         await gapi.client.games.snapshotsExtended.resolveSnapshotHead({
             snapshotName: "Test string",
         }, {
+            maxConflictsPerSnapshot: 42,
             resolutionPolicy: "Test string",
         });
         /** Returns engagement and spend statistics in this application for the currently authenticated user. */
