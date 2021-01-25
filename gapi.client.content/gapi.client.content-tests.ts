@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210113
+// Revision: 20210120
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -2690,7 +2690,7 @@ gapi.load('client', () => {
                     productId: "Test string",
                 }            ],
         });
-        /** Lists the metrics report for a given Repricing product. Reports of the last 3 days may not be complete. */
+        /** Lists the metrics report for a given Repricing product. */
         await gapi.client.content.productstatuses.repricingreports.list({
             endDate: "Test string",
             merchantId: "Test string",
@@ -2706,7 +2706,7 @@ gapi.load('client', () => {
             merchantId: "Test string",
             productId: "Test string",
         });
-        /** Lists the metrics report for a given Repricing product. Reports of the last 3 days may not be complete. */
+        /** Lists the metrics report for a given Repricing product. */
         await gapi.client.content.productstatuses.repricingreports.list({
             endDate: "Test string",
             merchantId: "Test string",
@@ -2723,7 +2723,7 @@ gapi.load('client', () => {
             merchantId: "Test string",
             pageToken: "Test string",
         });
-        /** Lists the metrics report for a given Repricing product. Reports of the last 3 days may not be complete. */
+        /** Lists the metrics report for a given Repricing product. */
         await gapi.client.content.productstatuses.repricingreports.list({
             endDate: "Test string",
             merchantId: "Test string",
@@ -2915,7 +2915,7 @@ gapi.load('client', () => {
             title: "Test string",
             type: "Test string",
         });
-        /** Lists the metrics report for a given Repricing rule. Reports of the last 3 days may not be complete. */
+        /** Lists the metrics report for a given Repricing rule. */
         await gapi.client.content.repricingrules.repricingreports.list({
             endDate: "Test string",
             merchantId: "Test string",
@@ -2929,7 +2929,7 @@ gapi.load('client', () => {
             merchantId: "Test string",
             ruleId: "Test string",
         });
-        /** Lists the metrics report for a given Repricing rule. Reports of the last 3 days may not be complete. */
+        /** Lists the metrics report for a given Repricing rule. */
         await gapi.client.content.repricingrules.repricingreports.list({
             endDate: "Test string",
             merchantId: "Test string",
@@ -2943,7 +2943,7 @@ gapi.load('client', () => {
             merchantId: "Test string",
             ruleId: "Test string",
         });
-        /** Lists the metrics report for a given Repricing rule. Reports of the last 3 days may not be complete. */
+        /** Lists the metrics report for a given Repricing rule. */
         await gapi.client.content.repricingrules.repricingreports.list({
             endDate: "Test string",
             merchantId: "Test string",
@@ -2960,7 +2960,7 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
-        /** Lists the metrics report for a given Repricing rule. Reports of the last 3 days may not be complete. */
+        /** Lists the metrics report for a given Repricing rule. */
         await gapi.client.content.repricingrules.repricingreports.list({
             endDate: "Test string",
             merchantId: "Test string",
@@ -3023,7 +3023,7 @@ gapi.load('client', () => {
             title: "Test string",
             type: "Test string",
         });
-        /** Lists the metrics report for a given Repricing rule. Reports of the last 3 days may not be complete. */
+        /** Lists the metrics report for a given Repricing rule. */
         await gapi.client.content.repricingrules.repricingreports.list({
             endDate: "Test string",
             merchantId: "Test string",
