@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210108
+// Revision: 20210122
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -216,6 +216,27 @@ gapi.load('client', () => {
             },
             description: "Test string",
             globalPolicyEvaluationMode: "Test string",
+            istioServiceIdentityAdmissionRules: {
+                A: {
+                    enforcementMode: "Test string",
+                    evaluationMode: "Test string",
+                    requireAttestationsBy: [
+                        "Test string"                    ],
+                }            },
+            kubernetesNamespaceAdmissionRules: {
+                A: {
+                    enforcementMode: "Test string",
+                    evaluationMode: "Test string",
+                    requireAttestationsBy: [
+                        "Test string"                    ],
+                }            },
+            kubernetesServiceAccountAdmissionRules: {
+                A: {
+                    enforcementMode: "Test string",
+                    evaluationMode: "Test string",
+                    requireAttestationsBy: [
+                        "Test string"                    ],
+                }            },
             name: "Test string",
             updateTime: "Test string",
         });
