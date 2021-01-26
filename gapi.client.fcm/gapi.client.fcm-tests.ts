@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210111
+// Revision: 20210125
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -15,7 +15,7 @@ gapi.load('client', () => {
         /** declare client_id registered in Google Developers Console */
         const client_id = '<<PUT YOUR CLIENT ID HERE>>';
         const scope = [
-            /** See, edit, configure, and delete your Google Cloud Platform data */
+            /** View and manage your data across Google Cloud Platform services */
             'https://www.googleapis.com/auth/cloud-platform',
         ];
         const immediate = false;
