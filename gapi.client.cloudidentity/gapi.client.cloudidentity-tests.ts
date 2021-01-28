@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210115
+// Revision: 20210124
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -2461,6 +2461,17 @@ gapi.load('client', () => {
             createTime: "Test string",
             description: "Test string",
             displayName: "Test string",
+            dynamicGroupMetadata: {
+                queries: [
+                    {
+                        query: "Test string",
+                        resourceType: "Test string",
+                    }                ],
+                status: {
+                    status: "Test string",
+                    statusTime: "Test string",
+                },
+            },
             groupKey: {
                 id: "Test string",
                 namespace: "Test string",
@@ -2493,6 +2504,9 @@ gapi.load('client', () => {
             },
             roles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             type: "Test string",
@@ -2534,10 +2548,23 @@ gapi.load('client', () => {
         }, {
             addRoles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             removeRoles: [
                 "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        expiryDetail: {
+                            expireTime: "Test string",
+                        },
+                        name: "Test string",
+                    },
+                }            ],
         });
         /**
          * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
@@ -2586,6 +2613,9 @@ gapi.load('client', () => {
             },
             roles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             type: "Test string",
@@ -2627,10 +2657,23 @@ gapi.load('client', () => {
         }, {
             addRoles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             removeRoles: [
                 "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        expiryDetail: {
+                            expireTime: "Test string",
+                        },
+                        name: "Test string",
+                    },
+                }            ],
         });
         /**
          * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
@@ -2679,6 +2722,9 @@ gapi.load('client', () => {
             },
             roles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             type: "Test string",
@@ -2720,10 +2766,23 @@ gapi.load('client', () => {
         }, {
             addRoles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             removeRoles: [
                 "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        expiryDetail: {
+                            expireTime: "Test string",
+                        },
+                        name: "Test string",
+                    },
+                }            ],
         });
         /**
          * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
@@ -2775,6 +2834,9 @@ gapi.load('client', () => {
             },
             roles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             type: "Test string",
@@ -2816,10 +2878,23 @@ gapi.load('client', () => {
         }, {
             addRoles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             removeRoles: [
                 "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        expiryDetail: {
+                            expireTime: "Test string",
+                        },
+                        name: "Test string",
+                    },
+                }            ],
         });
         /**
          * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
@@ -2869,6 +2944,9 @@ gapi.load('client', () => {
             },
             roles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             type: "Test string",
@@ -2910,10 +2988,23 @@ gapi.load('client', () => {
         }, {
             addRoles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             removeRoles: [
                 "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        expiryDetail: {
+                            expireTime: "Test string",
+                        },
+                        name: "Test string",
+                    },
+                }            ],
         });
         /**
          * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
@@ -2944,6 +3035,17 @@ gapi.load('client', () => {
             createTime: "Test string",
             description: "Test string",
             displayName: "Test string",
+            dynamicGroupMetadata: {
+                queries: [
+                    {
+                        query: "Test string",
+                        resourceType: "Test string",
+                    }                ],
+                status: {
+                    status: "Test string",
+                    statusTime: "Test string",
+                },
+            },
             groupKey: {
                 id: "Test string",
                 namespace: "Test string",
@@ -2976,6 +3078,9 @@ gapi.load('client', () => {
             },
             roles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             type: "Test string",
@@ -3017,10 +3122,23 @@ gapi.load('client', () => {
         }, {
             addRoles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             removeRoles: [
                 "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        expiryDetail: {
+                            expireTime: "Test string",
+                        },
+                        name: "Test string",
+                    },
+                }            ],
         });
         /**
          * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
@@ -3072,6 +3190,9 @@ gapi.load('client', () => {
             },
             roles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             type: "Test string",
@@ -3113,10 +3234,23 @@ gapi.load('client', () => {
         }, {
             addRoles: [
                 {
+                    expiryDetail: {
+                        expireTime: "Test string",
+                    },
                     name: "Test string",
                 }            ],
             removeRoles: [
                 "Test string"            ],
+            updateRolesParams: [
+                {
+                    fieldMask: "Test string",
+                    membershipRole: {
+                        expiryDetail: {
+                            expireTime: "Test string",
+                        },
+                        name: "Test string",
+                    },
+                }            ],
         });
         /**
          * Search transitive groups of a member. **Note:** This feature is only available to Google Workspace Enterprise Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
