@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.clouddebugger",
-  "version": "2.0.20210122",
-  "description": "TypeScript typings for Cloud Debugger API v2",
+  "name": "@maxim_mazurok/gapi.client.networkconnectivity",
+  "version": "1.0.20210128",
+  "description": "TypeScript typings for Network Connectivity API v1alpha1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
