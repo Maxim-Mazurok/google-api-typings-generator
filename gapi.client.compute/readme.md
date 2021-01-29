@@ -358,6 +358,96 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.externalVpnGateways.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
+Inserts an association for the specified firewall policy.
+*/
+await gapi.client.compute.firewallPolicies.addAssociation({ firewallPolicy: "firewallPolicy",  });
+
+/*
+Inserts a rule into a firewall policy.
+*/
+await gapi.client.compute.firewallPolicies.addRule({ firewallPolicy: "firewallPolicy",  });
+
+/*
+Copies rules to the specified firewall policy.
+*/
+await gapi.client.compute.firewallPolicies.cloneRules({ firewallPolicy: "firewallPolicy",  });
+
+/*
+Deletes the specified policy.
+*/
+await gapi.client.compute.firewallPolicies.delete({ firewallPolicy: "firewallPolicy",  });
+
+/*
+Returns the specified firewall policy.
+*/
+await gapi.client.compute.firewallPolicies.get({ firewallPolicy: "firewallPolicy",  });
+
+/*
+Gets an association with the specified name.
+*/
+await gapi.client.compute.firewallPolicies.getAssociation({ firewallPolicy: "firewallPolicy",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.
+*/
+await gapi.client.compute.firewallPolicies.getIamPolicy({ resource: "resource",  });
+
+/*
+Gets a rule of the specified priority.
+*/
+await gapi.client.compute.firewallPolicies.getRule({ firewallPolicy: "firewallPolicy",  });
+
+/*
+Creates a new policy in the specified project using the data included in the request.
+*/
+await gapi.client.compute.firewallPolicies.insert({  });
+
+/*
+Lists all the policies that have been configured for the specified project.
+*/
+await gapi.client.compute.firewallPolicies.list({  });
+
+/*
+Lists associations of a specified target, i.e., organization or folder.
+*/
+await gapi.client.compute.firewallPolicies.listAssociations({  });
+
+/*
+Moves the specified firewall policy.
+*/
+await gapi.client.compute.firewallPolicies.move({ firewallPolicy: "firewallPolicy",  });
+
+/*
+Patches the specified policy with the data included in the request.
+*/
+await gapi.client.compute.firewallPolicies.patch({ firewallPolicy: "firewallPolicy",  });
+
+/*
+Patches a rule of the specified priority.
+*/
+await gapi.client.compute.firewallPolicies.patchRule({ firewallPolicy: "firewallPolicy",  });
+
+/*
+Removes an association for the specified firewall policy.
+*/
+await gapi.client.compute.firewallPolicies.removeAssociation({ firewallPolicy: "firewallPolicy",  });
+
+/*
+Deletes a rule of the specified priority.
+*/
+await gapi.client.compute.firewallPolicies.removeRule({ firewallPolicy: "firewallPolicy",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy.
+*/
+await gapi.client.compute.firewallPolicies.setIamPolicy({ resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.firewallPolicies.testIamPermissions({ resource: "resource",  });
+
+/*
 Deletes the specified firewall.
 */
 await gapi.client.compute.firewalls.delete({ firewall: "firewall", project: "project",  });
@@ -418,6 +508,11 @@ Updates the specified forwarding rule with the data included in the request. Thi
 await gapi.client.compute.forwardingRules.patch({ forwardingRule: "forwardingRule", project: "project", region: "region",  });
 
 /*
+Sets the labels on the specified resource. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.forwardingRules.setLabels({ project: "project", region: "region", resource: "resource",  });
+
+/*
 Changes target URL for forwarding rule. The new target should be of the same type as the old target.
 */
 await gapi.client.compute.forwardingRules.setTarget({ forwardingRule: "forwardingRule", project: "project", region: "region",  });
@@ -466,6 +561,11 @@ await gapi.client.compute.globalForwardingRules.list({ project: "project",  });
 Updates the specified forwarding rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules. Currently, you can only patch the network_tier field.
 */
 await gapi.client.compute.globalForwardingRules.patch({ forwardingRule: "forwardingRule", project: "project",  });
+
+/*
+Sets the labels on the specified resource. To learn more about labels, read the Labeling Resources documentation.
+*/
+await gapi.client.compute.globalForwardingRules.setLabels({ project: "project", resource: "resource",  });
 
 /*
 Changes target URL for the GlobalForwardingRule resource. The new target should be of the same type as the old target.
@@ -2524,6 +2624,11 @@ await gapi.client.compute.targetHttpsProxies.insert({ project: "project",  });
 Retrieves the list of TargetHttpsProxy resources available to the specified project.
 */
 await gapi.client.compute.targetHttpsProxies.list({ project: "project",  });
+
+/*
+Patches the specified TargetHttpsProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. (== suppress_warning http-rest-shadowed ==)
+*/
+await gapi.client.compute.targetHttpsProxies.patch({ project: "project", targetHttpsProxy: "targetHttpsProxy",  });
 
 /*
 Sets the QUIC override policy for TargetHttpsProxy.

@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201213
+// Revision: 20210111
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -915,6 +915,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             licenses: [
                 "Test string"            ],
+            locationHint: "Test string",
             name: "Test string",
             satisfiesPzs: true,
             selfLink: "Test string",
@@ -994,6 +995,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             licenses: [
                 "Test string"            ],
+            locationHint: "Test string",
             name: "Test string",
             options: "Test string",
             physicalBlockSizeBytes: "Test string",
@@ -1023,6 +1025,7 @@ gapi.load('client', () => {
                 sha256: "Test string",
             },
             sourceSnapshotId: "Test string",
+            sourceStorageObject: "Test string",
             status: "Test string",
             type: "Test string",
             users: [
@@ -1255,6 +1258,355 @@ gapi.load('client', () => {
             permissions: [
                 "Test string"            ],
         });
+        /** Inserts an association for the specified firewall policy. */
+        await gapi.client.compute.firewallPolicies.addAssociation({
+            firewallPolicy: "Test string",
+            replaceExistingAssociation: true,
+            requestId: "Test string",
+        }, {
+            attachmentTarget: "Test string",
+            displayName: "Test string",
+            firewallPolicyId: "Test string",
+            name: "Test string",
+        });
+        /** Inserts a rule into a firewall policy. */
+        await gapi.client.compute.firewallPolicies.addRule({
+            firewallPolicy: "Test string",
+            requestId: "Test string",
+        }, {
+            action: "Test string",
+            description: "Test string",
+            direction: "Test string",
+            disabled: true,
+            enableLogging: true,
+            kind: "Test string",
+            match: {
+                destIpRanges: [
+                    "Test string"                ],
+                layer4Configs: [
+                    {
+                        ipProtocol: "Test string",
+                        ports: [
+                            "Test string"                        ],
+                    }                ],
+                srcIpRanges: [
+                    "Test string"                ],
+                srcSecureLabels: [
+                    "Test string"                ],
+            },
+            priority: 42,
+            ruleTupleCount: 42,
+            targetResources: [
+                "Test string"            ],
+            targetSecureLabels: [
+                "Test string"            ],
+            targetServiceAccounts: [
+                "Test string"            ],
+        });
+        /** Copies rules to the specified firewall policy. */
+        await gapi.client.compute.firewallPolicies.cloneRules({
+            firewallPolicy: "Test string",
+            requestId: "Test string",
+            sourceFirewallPolicy: "Test string",
+        });
+        /** Deletes the specified policy. */
+        await gapi.client.compute.firewallPolicies.delete({
+            firewallPolicy: "Test string",
+            requestId: "Test string",
+        });
+        /** Returns the specified firewall policy. */
+        await gapi.client.compute.firewallPolicies.get({
+            firewallPolicy: "Test string",
+        });
+        /** Gets an association with the specified name. */
+        await gapi.client.compute.firewallPolicies.getAssociation({
+            firewallPolicy: "Test string",
+            name: "Test string",
+        });
+        /** Gets the access control policy for a resource. May be empty if no such policy or resource exists. */
+        await gapi.client.compute.firewallPolicies.getIamPolicy({
+            optionsRequestedPolicyVersion: 42,
+            resource: "Test string",
+        });
+        /** Gets a rule of the specified priority. */
+        await gapi.client.compute.firewallPolicies.getRule({
+            firewallPolicy: "Test string",
+            priority: 42,
+        });
+        /** Creates a new policy in the specified project using the data included in the request. */
+        await gapi.client.compute.firewallPolicies.insert({
+            parentId: "Test string",
+            requestId: "Test string",
+        }, {
+            associations: [
+                {
+                    attachmentTarget: "Test string",
+                    displayName: "Test string",
+                    firewallPolicyId: "Test string",
+                    name: "Test string",
+                }            ],
+            creationTimestamp: "Test string",
+            description: "Test string",
+            displayName: "Test string",
+            fingerprint: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            rules: [
+                {
+                    action: "Test string",
+                    description: "Test string",
+                    direction: "Test string",
+                    disabled: true,
+                    enableLogging: true,
+                    kind: "Test string",
+                    match: {
+                        destIpRanges: [
+                            "Test string"                        ],
+                        layer4Configs: [
+                            {
+                                ipProtocol: "Test string",
+                                ports: [
+                                    "Test string"                                ],
+                            }                        ],
+                        srcIpRanges: [
+                            "Test string"                        ],
+                        srcSecureLabels: [
+                            "Test string"                        ],
+                    },
+                    priority: 42,
+                    ruleTupleCount: 42,
+                    targetResources: [
+                        "Test string"                    ],
+                    targetSecureLabels: [
+                        "Test string"                    ],
+                    targetServiceAccounts: [
+                        "Test string"                    ],
+                }            ],
+            ruleTupleCount: 42,
+            selfLink: "Test string",
+            selfLinkWithId: "Test string",
+        });
+        /** Lists all the policies that have been configured for the specified project. */
+        await gapi.client.compute.firewallPolicies.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            parentId: "Test string",
+            returnPartialSuccess: true,
+        });
+        /** Lists associations of a specified target, i.e., organization or folder. */
+        await gapi.client.compute.firewallPolicies.listAssociations({
+            targetResource: "Test string",
+        });
+        /** Moves the specified firewall policy. */
+        await gapi.client.compute.firewallPolicies.move({
+            firewallPolicy: "Test string",
+            parentId: "Test string",
+            requestId: "Test string",
+        });
+        /** Patches the specified policy with the data included in the request. */
+        await gapi.client.compute.firewallPolicies.patch({
+            firewallPolicy: "Test string",
+            requestId: "Test string",
+        }, {
+            associations: [
+                {
+                    attachmentTarget: "Test string",
+                    displayName: "Test string",
+                    firewallPolicyId: "Test string",
+                    name: "Test string",
+                }            ],
+            creationTimestamp: "Test string",
+            description: "Test string",
+            displayName: "Test string",
+            fingerprint: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            name: "Test string",
+            parent: "Test string",
+            rules: [
+                {
+                    action: "Test string",
+                    description: "Test string",
+                    direction: "Test string",
+                    disabled: true,
+                    enableLogging: true,
+                    kind: "Test string",
+                    match: {
+                        destIpRanges: [
+                            "Test string"                        ],
+                        layer4Configs: [
+                            {
+                                ipProtocol: "Test string",
+                                ports: [
+                                    "Test string"                                ],
+                            }                        ],
+                        srcIpRanges: [
+                            "Test string"                        ],
+                        srcSecureLabels: [
+                            "Test string"                        ],
+                    },
+                    priority: 42,
+                    ruleTupleCount: 42,
+                    targetResources: [
+                        "Test string"                    ],
+                    targetSecureLabels: [
+                        "Test string"                    ],
+                    targetServiceAccounts: [
+                        "Test string"                    ],
+                }            ],
+            ruleTupleCount: 42,
+            selfLink: "Test string",
+            selfLinkWithId: "Test string",
+        });
+        /** Patches a rule of the specified priority. */
+        await gapi.client.compute.firewallPolicies.patchRule({
+            firewallPolicy: "Test string",
+            priority: 42,
+            requestId: "Test string",
+        }, {
+            action: "Test string",
+            description: "Test string",
+            direction: "Test string",
+            disabled: true,
+            enableLogging: true,
+            kind: "Test string",
+            match: {
+                destIpRanges: [
+                    "Test string"                ],
+                layer4Configs: [
+                    {
+                        ipProtocol: "Test string",
+                        ports: [
+                            "Test string"                        ],
+                    }                ],
+                srcIpRanges: [
+                    "Test string"                ],
+                srcSecureLabels: [
+                    "Test string"                ],
+            },
+            priority: 42,
+            ruleTupleCount: 42,
+            targetResources: [
+                "Test string"            ],
+            targetSecureLabels: [
+                "Test string"            ],
+            targetServiceAccounts: [
+                "Test string"            ],
+        });
+        /** Removes an association for the specified firewall policy. */
+        await gapi.client.compute.firewallPolicies.removeAssociation({
+            firewallPolicy: "Test string",
+            name: "Test string",
+            requestId: "Test string",
+        });
+        /** Deletes a rule of the specified priority. */
+        await gapi.client.compute.firewallPolicies.removeRule({
+            firewallPolicy: "Test string",
+            priority: 42,
+            requestId: "Test string",
+        });
+        /** Sets the access control policy on the specified resource. Replaces any existing policy. */
+        await gapi.client.compute.firewallPolicies.setIamPolicy({
+            resource: "Test string",
+        }, {
+            bindings: [
+                {
+                    bindingId: "Test string",
+                    condition: {
+                        description: "Test string",
+                        expression: "Test string",
+                        location: "Test string",
+                        title: "Test string",
+                    },
+                    members: [
+                        "Test string"                    ],
+                    role: "Test string",
+                }            ],
+            etag: "Test string",
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                ignoreChildExemptions: true,
+                                logType: "Test string",
+                            }                        ],
+                        exemptedMembers: [
+                            "Test string"                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        bindingId: "Test string",
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                iamOwned: true,
+                rules: [
+                    {
+                        action: "Test string",
+                        conditions: [
+                            {
+                                iam: "Test string",
+                                op: "Test string",
+                                svc: "Test string",
+                                sys: "Test string",
+                                values: [
+                                    "Test string"                                ],
+                            }                        ],
+                        description: "Test string",
+                        ins: [
+                            "Test string"                        ],
+                        logConfigs: [
+                            {
+                                cloudAudit: {
+                                    authorizationLoggingOptions: {
+                                        permissionType: "Test string",
+                                    },
+                                    logName: "Test string",
+                                },
+                                counter: {
+                                    customFields: [
+                                        {
+                                            name: "Test string",
+                                            value: "Test string",
+                                        }                                    ],
+                                    field: "Test string",
+                                    metric: "Test string",
+                                },
+                                dataAccess: {
+                                    logMode: "Test string",
+                                },
+                            }                        ],
+                        notIns: [
+                            "Test string"                        ],
+                        permissions: [
+                            "Test string"                        ],
+                    }                ],
+                version: 42,
+            },
+        });
+        /** Returns permissions that a caller has on the specified resource. */
+        await gapi.client.compute.firewallPolicies.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
+        });
         /** Deletes the specified firewall. */
         await gapi.client.compute.firewalls.delete({
             firewall: "Test string",
@@ -1453,6 +1805,7 @@ gapi.load('client', () => {
             ipVersion: "Test string",
             isMirroringCollector: true,
             kind: "Test string",
+            labelFingerprint: "Test string",
             labels: {
                 A: "Test string"            },
             loadBalancingScheme: "Test string",
@@ -1510,6 +1863,7 @@ gapi.load('client', () => {
             ipVersion: "Test string",
             isMirroringCollector: true,
             kind: "Test string",
+            labelFingerprint: "Test string",
             labels: {
                 A: "Test string"            },
             loadBalancingScheme: "Test string",
@@ -1534,6 +1888,17 @@ gapi.load('client', () => {
             serviceName: "Test string",
             subnetwork: "Test string",
             target: "Test string",
+        });
+        /** Sets the labels on the specified resource. To learn more about labels, read the Labeling Resources documentation. */
+        await gapi.client.compute.forwardingRules.setLabels({
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+            resource: "Test string",
+        }, {
+            labelFingerprint: "Test string",
+            labels: {
+                A: "Test string"            },
         });
         /** Changes target URL for forwarding rule. The new target should be of the same type as the old target. */
         await gapi.client.compute.forwardingRules.setTarget({
@@ -1616,6 +1981,7 @@ gapi.load('client', () => {
             ipVersion: "Test string",
             isMirroringCollector: true,
             kind: "Test string",
+            labelFingerprint: "Test string",
             labels: {
                 A: "Test string"            },
             loadBalancingScheme: "Test string",
@@ -1671,6 +2037,7 @@ gapi.load('client', () => {
             ipVersion: "Test string",
             isMirroringCollector: true,
             kind: "Test string",
+            labelFingerprint: "Test string",
             labels: {
                 A: "Test string"            },
             loadBalancingScheme: "Test string",
@@ -1695,6 +2062,15 @@ gapi.load('client', () => {
             serviceName: "Test string",
             subnetwork: "Test string",
             target: "Test string",
+        });
+        /** Sets the labels on the specified resource. To learn more about labels, read the Labeling Resources documentation. */
+        await gapi.client.compute.globalForwardingRules.setLabels({
+            project: "Test string",
+            resource: "Test string",
+        }, {
+            labelFingerprint: "Test string",
+            labels: {
+                A: "Test string"            },
         });
         /** Changes target URL for the GlobalForwardingRule resource. The new target should be of the same type as the old target. */
         await gapi.client.compute.globalForwardingRules.setTarget({
@@ -6646,6 +7022,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             licenses: [
                 "Test string"            ],
+            locationHint: "Test string",
             name: "Test string",
             satisfiesPzs: true,
             selfLink: "Test string",
@@ -6722,6 +7099,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             licenses: [
                 "Test string"            ],
+            locationHint: "Test string",
             name: "Test string",
             options: "Test string",
             physicalBlockSizeBytes: "Test string",
@@ -6751,6 +7129,7 @@ gapi.load('client', () => {
                 sha256: "Test string",
             },
             sourceSnapshotId: "Test string",
+            sourceStorageObject: "Test string",
             status: "Test string",
             type: "Test string",
             users: [
@@ -11647,6 +12026,31 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
             returnPartialSuccess: true,
+        });
+        /**
+         * Patches the specified TargetHttpsProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. (==
+         * suppress_warning http-rest-shadowed ==)
+         */
+        await gapi.client.compute.targetHttpsProxies.patch({
+            project: "Test string",
+            requestId: "Test string",
+            targetHttpsProxy: "Test string",
+        }, {
+            authorizationPolicy: "Test string",
+            creationTimestamp: "Test string",
+            description: "Test string",
+            id: "Test string",
+            kind: "Test string",
+            name: "Test string",
+            proxyBind: true,
+            quicOverride: "Test string",
+            region: "Test string",
+            selfLink: "Test string",
+            serverTlsPolicy: "Test string",
+            sslCertificates: [
+                "Test string"            ],
+            sslPolicy: "Test string",
+            urlMap: "Test string",
         });
         /** Sets the QUIC override policy for TargetHttpsProxy. */
         await gapi.client.compute.targetHttpsProxies.setQuicOverride({
