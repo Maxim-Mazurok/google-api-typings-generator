@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210127
+// Revision: 20210129
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -6659,7 +6659,7 @@ gapi.load('client', () => {
             encodedDevice: "Test string",
             installerId: "Test string",
         });
-        /** Generates a secret to be used with the ValidateInstaller method */
+        /** Generates a secret to be used with the ValidateInstaller. */
         await gapi.client.prod_tt_sasportal.installer.generateSecret({
         }, {
         });
