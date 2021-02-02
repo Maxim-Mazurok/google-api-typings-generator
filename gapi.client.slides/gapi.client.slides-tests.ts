@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210125
+// Revision: 20210128
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -634,6 +634,11 @@ gapi.load('client', () => {
                         fields: "Test string",
                         objectId: "Test string",
                         shapeProperties: {
+                            autofit: {
+                                autofitType: "Test string",
+                                fontScale: 42,
+                                lineSpacingReduction: 42,
+                            },
                             contentAlignment: "Test string",
                             link: {
                                 pageObjectId: "Test string",
@@ -1065,6 +1070,11 @@ gapi.load('client', () => {
                                     type: "Test string",
                                 },
                                 shapeProperties: {
+                                    autofit: {
+                                        autofitType: "Test string",
+                                        fontScale: 42,
+                                        lineSpacingReduction: 42,
+                                    },
                                     contentAlignment: "Test string",
                                     link: {
                                         pageObjectId: "Test string",
@@ -2050,6 +2060,11 @@ gapi.load('client', () => {
                                     type: "Test string",
                                 },
                                 shapeProperties: {
+                                    autofit: {
+                                        autofitType: "Test string",
+                                        fontScale: 42,
+                                        lineSpacingReduction: 42,
+                                    },
                                     contentAlignment: "Test string",
                                     link: {
                                         pageObjectId: "Test string",
@@ -3033,6 +3048,11 @@ gapi.load('client', () => {
                                 type: "Test string",
                             },
                             shapeProperties: {
+                                autofit: {
+                                    autofitType: "Test string",
+                                    fontScale: 42,
+                                    lineSpacingReduction: 42,
+                                },
                                 contentAlignment: "Test string",
                                 link: {
                                     pageObjectId: "Test string",
@@ -4029,6 +4049,11 @@ gapi.load('client', () => {
                                     type: "Test string",
                                 },
                                 shapeProperties: {
+                                    autofit: {
+                                        autofitType: "Test string",
+                                        fontScale: 42,
+                                        lineSpacingReduction: 42,
+                                    },
                                     contentAlignment: "Test string",
                                     link: {
                                         pageObjectId: "Test string",
