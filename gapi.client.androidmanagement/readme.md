@@ -64,19 +64,9 @@ Creates an enterprise. This is the last step in the enterprise signup flow.
 await gapi.client.androidmanagement.enterprises.create({  });
 
 /*
-This feature is not generally available yet. Deletes an enterprise.
-*/
-await gapi.client.androidmanagement.enterprises.delete({ name: "name",  });
-
-/*
 Gets an enterprise.
 */
 await gapi.client.androidmanagement.enterprises.get({ name: "name",  });
-
-/*
-This feature is not generally available yet. Lists enterprises that are managed by an EMM. Only partial views are returned.
-*/
-await gapi.client.androidmanagement.enterprises.list({  });
 
 /*
 Updates an enterprise.

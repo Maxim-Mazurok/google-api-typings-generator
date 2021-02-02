@@ -73,7 +73,7 @@ declare namespace gapi.client {
              * tracks. If the list contains no track IDs, devices only have access to the app’s production track. More details about each track are available in AppTrackInfo.
              */
             accessibleTrackIds?: string[];
-            /** This feature is not generally available yet. */
+            /** This feature is not generally available. */
             autoUpdateMode?: string;
             /** Controls whether the app can communicate with itself across a device’s work and personal profiles, subject to user consent. */
             connectedWorkAndPersonalApp?: string;
@@ -202,22 +202,6 @@ declare namespace gapi.client {
             nonComplianceDetailCondition?: NonComplianceDetailCondition;
             /** If set, the rule includes a mitigating action to disable apps specified in the list, but app data is preserved. */
             packageNamesToDisable?: string[];
-        }
-        interface ContactInfo {
-            /** Email address for a point of contact, which will be used to send important announcements related to managed Google Play. */
-            contactEmail?: string;
-            /** The email of the data protection officer. The email is validated but not verified. */
-            dataProtectionOfficerEmail?: string;
-            /** The name of the data protection officer. */
-            dataProtectionOfficerName?: string;
-            /** The phone number of the data protection officer The phone number is validated but not verified. */
-            dataProtectionOfficerPhone?: string;
-            /** The email of the EU representative. The email is validated but not verified. */
-            euRepresentativeEmail?: string;
-            /** The name of the EU representative. */
-            euRepresentativeName?: string;
-            /** The phone number of the EU representative. The phone number is validated but not verified. */
-            euRepresentativePhone?: string;
         }
         interface Date {
             /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
@@ -388,8 +372,6 @@ declare namespace gapi.client {
         interface Enterprise {
             /** Deprecated and unused. */
             appAutoApprovalEnabled?: boolean;
-            /** This feature is not generally available yet. The enterprise contact info of an EMM owned enterprise */
-            contactInfo?: ContactInfo;
             /** The types of Google Pub/Sub notifications enabled for the enterprise. */
             enabledNotificationTypes?: string[];
             /** The name of the enterprise displayed to users. */
@@ -523,12 +505,6 @@ declare namespace gapi.client {
             /** The list of devices. */
             devices?: Device[];
             /** If there are more results, a token to retrieve next page of results. */
-            nextPageToken?: string;
-        }
-        interface ListEnterprisesResponse {
-            /** This feature is not generally available yet. The list of enterprises. */
-            enterprises?: Enterprise[];
-            /** This feature is not generally available yet. If there are more results, a token to retrieve next page of results. */
             nextPageToken?: string;
         }
         interface ListOperationsResponse {
@@ -2050,8 +2026,6 @@ declare namespace gapi.client {
                 "$.xgafv"?: string;
                 /** OAuth access token. */
                 access_token?: string;
-                /** This feature is not generally available yet. Whether the managed Google Play Agreement is presented and agreed. */
-                agreementAccepted?: boolean;
                 /** Data format for response. */
                 alt?: string;
                 /** JSONP */
@@ -2084,8 +2058,6 @@ declare namespace gapi.client {
                 "$.xgafv"?: string;
                 /** OAuth access token. */
                 access_token?: string;
-                /** This feature is not generally available yet. Whether the managed Google Play Agreement is presented and agreed. */
-                agreementAccepted?: boolean;
                 /** Data format for response. */
                 alt?: string;
                 /** JSONP */
@@ -2112,33 +2084,6 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: Enterprise): Request<Enterprise>;
-            /** This feature is not generally available yet. Deletes an enterprise. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** This feature is not generally available yet. The name of the enterprise in the form enterprises/{enterpriseId}. */
-                name: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-            }): Request<{}>;
             /** Gets an enterprise. */
             get(request?: {
                 /** V1 error format. */
@@ -2166,39 +2111,6 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<Enterprise>;
-            /** This feature is not generally available yet. Lists enterprises that are managed by an EMM. Only partial views are returned. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?: string;
-                /** OAuth access token. */
-                access_token?: string;
-                /** Data format for response. */
-                alt?: string;
-                /** JSONP */
-                callback?: string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?: string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?: string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?: string;
-                /** This feature is not generally available yet. The requested page size. The actual page size may be fixed to a min or max value. */
-                pageSize?: number;
-                /** This feature is not generally available yet. A token identifying a page of results returned by the server. */
-                pageToken?: string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?: boolean;
-                /** Required. This feature is not generally available yet. The ID of the Cloud project of the EMM the enterprises belongs to. */
-                projectId?: string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?: string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?: string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?: string;
-                /** This feature is not generally available yet. View that specify that partial response should be returned. */
-                view?: string;
-            }): Request<ListEnterprisesResponse>;
             /** Updates an enterprise. */
             patch(request: {
                 /** V1 error format. */
