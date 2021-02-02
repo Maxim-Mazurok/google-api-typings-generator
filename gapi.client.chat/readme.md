@@ -1,11 +1,11 @@
-# TypeScript typings for Hangouts Chat API v1
+# TypeScript typings for Google Chat API v1
 
-Enables bots to fetch information and perform actions in Hangouts Chat.
+Enables bots to fetch information and perform actions in Google Chat.
 For detailed description please check [documentation](https://developers.google.com/hangouts/chat).
 
 ## Installing
 
-Install typings for Hangouts Chat API:
+Install typings for Google Chat API:
 
 ```
 npm install @types/gapi.client.chat@v1 --save-dev
@@ -33,7 +33,7 @@ gapi.client.load('chat', 'v1', () => {
 
 
 
-After that you can use Hangouts Chat API resources:
+After that you can use Google Chat API resources:
 
 ```typescript
 
