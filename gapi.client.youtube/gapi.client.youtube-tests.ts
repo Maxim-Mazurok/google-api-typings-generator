@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210127
+// Revision: 20210130
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -707,16 +707,6 @@ gapi.load('client', () => {
             onBehalfOfContentOwnerChannel: "Test string",
             part: "Test string",
             streamId: "Test string",
-        });
-        /** Slate and recording control of the live broadcast. Support actions: slate on/off, recording start/stop/pause/resume. Design doc: goto/yt-api-liveBroadcast-control */
-        await gapi.client.youtube.liveBroadcasts.control({
-            displaySlate: true,
-            id: "Test string",
-            offsetTimeMs: "Test string",
-            onBehalfOfContentOwner: "Test string",
-            onBehalfOfContentOwnerChannel: "Test string",
-            part: "Test string",
-            walltime: "Test string",
         });
         /** Delete a given broadcast. */
         await gapi.client.youtube.liveBroadcasts.delete({

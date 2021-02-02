@@ -207,11 +207,6 @@ Bind a broadcast to a stream.
 await gapi.client.youtube.liveBroadcasts.bind({ id: "id", part: "part",  });
 
 /*
-Slate and recording control of the live broadcast. Support actions: slate on/off, recording start/stop/pause/resume. Design doc: goto/yt-api-liveBroadcast-control
-*/
-await gapi.client.youtube.liveBroadcasts.control({ id: "id", part: "part",  });
-
-/*
 Delete a given broadcast.
 */
 await gapi.client.youtube.liveBroadcasts.delete({ id: "id",  });
