@@ -38,7 +38,7 @@ After that you can use Security Token Service API resources:
 ```typescript
 
 /*
-Exchanges a credential for a Google OAuth 2.0 access token.
+Exchanges a credential for a Google OAuth 2.0 access token. The token asserts an external identity within a workload identity pool, or it applies a Credential Access Boundary to a Google access token.
 */
 await gapi.client.sts.v1.token({  });
 ```
