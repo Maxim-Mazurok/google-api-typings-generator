@@ -40,7 +40,7 @@ var client_id = '',
       // See, edit, create, and delete all of your Google Drive files
       'https://www.googleapis.com/auth/drive',
 
-      // View and manage its own configuration data in your Google Drive
+      // See, create, and delete its own configuration data in your Google Drive
       'https://www.googleapis.com/auth/drive.appdata',
 
       // View and manage Google Drive files and folders that you have opened or created with this app
