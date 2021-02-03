@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210122
+// Revision: 20210129
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -392,6 +392,10 @@ gapi.load('client', () => {
         }, {
             permissions: [
                 "Test string"            ],
+        });
+        /** Gets the current system policy in the specified location. */
+        await gapi.client.binaryauthorization.systempolicy.getPolicy({
+            name: "Test string",
         });
     }
 });
