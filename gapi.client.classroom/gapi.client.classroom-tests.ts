@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210125
+// Revision: 20210201
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -19,11 +19,11 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/classroom.announcements',
             /** View announcements in Google Classroom */
             'https://www.googleapis.com/auth/classroom.announcements.readonly',
-            /** Manage your Google Classroom classes */
+            /** See, edit, create, and permanently delete your Google Classroom classes */
             'https://www.googleapis.com/auth/classroom.courses',
             /** View your Google Classroom classes */
             'https://www.googleapis.com/auth/classroom.courses.readonly',
-            /** Manage your course work and view your grades in Google Classroom */
+            /** See, create and edit coursework items including assignments, questions, and grades */
             'https://www.googleapis.com/auth/classroom.coursework.me',
             /** View your course work and grades in Google Classroom */
             'https://www.googleapis.com/auth/classroom.coursework.me.readonly',
