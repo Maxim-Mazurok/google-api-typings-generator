@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210123
+// Revision: 20210131
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -959,6 +959,7 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
                     A: 42                },
@@ -999,6 +1000,7 @@ gapi.load('client', () => {
                         sdkHarnessContainerImages: [
                             {
                                 containerImage: "Test string",
+                                environmentId: "Test string",
                                 useSingleCorePerContainer: true,
                             }                        ],
                         subnetwork: "Test string",
@@ -3289,6 +3291,7 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
                     A: 42                },
@@ -3329,6 +3332,7 @@ gapi.load('client', () => {
                         sdkHarnessContainerImages: [
                             {
                                 containerImage: "Test string",
+                                environmentId: "Test string",
                                 useSingleCorePerContainer: true,
                             }                        ],
                         subnetwork: "Test string",
@@ -4086,6 +4090,7 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
                     A: 42                },
@@ -4126,6 +4131,7 @@ gapi.load('client', () => {
                         sdkHarnessContainerImages: [
                             {
                                 containerImage: "Test string",
+                                environmentId: "Test string",
                                 useSingleCorePerContainer: true,
                             }                        ],
                         subnetwork: "Test string",
@@ -6956,6 +6962,7 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
                     A: 42                },
@@ -6996,6 +7003,7 @@ gapi.load('client', () => {
                         sdkHarnessContainerImages: [
                             {
                                 containerImage: "Test string",
+                                environmentId: "Test string",
                                 useSingleCorePerContainer: true,
                             }                        ],
                         subnetwork: "Test string",
@@ -8779,6 +8787,7 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
                     A: 42                },
@@ -8819,6 +8828,7 @@ gapi.load('client', () => {
                         sdkHarnessContainerImages: [
                             {
                                 containerImage: "Test string",
+                                environmentId: "Test string",
                                 useSingleCorePerContainer: true,
                             }                        ],
                         subnetwork: "Test string",
@@ -11109,6 +11119,7 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
                     A: 42                },
@@ -11149,6 +11160,7 @@ gapi.load('client', () => {
                         sdkHarnessContainerImages: [
                             {
                                 containerImage: "Test string",
+                                environmentId: "Test string",
                                 useSingleCorePerContainer: true,
                             }                        ],
                         subnetwork: "Test string",
@@ -11906,6 +11918,7 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
                     A: 42                },
@@ -11946,6 +11959,7 @@ gapi.load('client', () => {
                         sdkHarnessContainerImages: [
                             {
                                 containerImage: "Test string",
+                                environmentId: "Test string",
                                 useSingleCorePerContainer: true,
                             }                        ],
                         subnetwork: "Test string",
@@ -14776,6 +14790,7 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
                     A: 42                },
@@ -14816,6 +14831,7 @@ gapi.load('client', () => {
                         sdkHarnessContainerImages: [
                             {
                                 containerImage: "Test string",
+                                environmentId: "Test string",
                                 useSingleCorePerContainer: true,
                             }                        ],
                         subnetwork: "Test string",
