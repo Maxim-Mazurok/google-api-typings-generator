@@ -79,7 +79,7 @@ Returns a requested deployment.
 await gapi.client.sasportal.deployments.get({ name: "name",  });
 
 /*
-Generates a secret to be used with the ValidateInstaller method
+Generates a secret to be used with the ValidateInstaller.
 */
 await gapi.client.sasportal.installer.generateSecret({  });
 
