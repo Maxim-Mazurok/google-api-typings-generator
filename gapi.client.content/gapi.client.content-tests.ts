@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210128
+// Revision: 20210203
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -3116,6 +3116,10 @@ gapi.load('client', () => {
                             type: "Test string",
                         },
                         returnPolicyId: "Test string",
+                        returnShippingFee: {
+                            currency: "Test string",
+                            value: "Test string",
+                        },
                         seasonalOverrides: [
                             {
                                 endDate: "Test string",
@@ -3157,6 +3161,10 @@ gapi.load('client', () => {
                 type: "Test string",
             },
             returnPolicyId: "Test string",
+            returnShippingFee: {
+                currency: "Test string",
+                value: "Test string",
+            },
             seasonalOverrides: [
                 {
                     endDate: "Test string",
