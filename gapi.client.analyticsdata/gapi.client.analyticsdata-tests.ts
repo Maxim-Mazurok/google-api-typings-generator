@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210205
+// Revision: 20210206
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -66,7 +66,6 @@ gapi.load('client', () => {
                         values: [
                             "Test string"                        ],
                     },
-                    nullFilter: true,
                     numericFilter: {
                         operation: "Test string",
                         value: {
@@ -126,7 +125,6 @@ gapi.load('client', () => {
                         values: [
                             "Test string"                        ],
                     },
-                    nullFilter: true,
                     numericFilter: {
                         operation: "Test string",
                         value: {
@@ -228,7 +226,6 @@ gapi.load('client', () => {
                                 values: [
                                     "Test string"                                ],
                             },
-                            nullFilter: true,
                             numericFilter: {
                                 operation: "Test string",
                                 value: {
@@ -289,7 +286,6 @@ gapi.load('client', () => {
                                 values: [
                                     "Test string"                                ],
                             },
-                            nullFilter: true,
                             numericFilter: {
                                 operation: "Test string",
                                 value: {
@@ -401,7 +397,6 @@ gapi.load('client', () => {
                                 values: [
                                     "Test string"                                ],
                             },
-                            nullFilter: true,
                             numericFilter: {
                                 operation: "Test string",
                                 value: {
@@ -465,7 +460,6 @@ gapi.load('client', () => {
                                 values: [
                                     "Test string"                                ],
                             },
-                            nullFilter: true,
                             numericFilter: {
                                 operation: "Test string",
                                 value: {
@@ -567,7 +561,6 @@ gapi.load('client', () => {
                         values: [
                             "Test string"                        ],
                     },
-                    nullFilter: true,
                     numericFilter: {
                         operation: "Test string",
                         value: {
@@ -628,7 +621,6 @@ gapi.load('client', () => {
                         values: [
                             "Test string"                        ],
                     },
-                    nullFilter: true,
                     numericFilter: {
                         operation: "Test string",
                         value: {
@@ -738,7 +730,6 @@ gapi.load('client', () => {
                         values: [
                             "Test string"                        ],
                     },
-                    nullFilter: true,
                     numericFilter: {
                         operation: "Test string",
                         value: {
@@ -802,7 +793,6 @@ gapi.load('client', () => {
                         values: [
                             "Test string"                        ],
                     },
-                    nullFilter: true,
                     numericFilter: {
                         operation: "Test string",
                         value: {
