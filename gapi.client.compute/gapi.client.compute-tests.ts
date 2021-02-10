@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210111
+// Revision: 20210129
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -999,6 +999,7 @@ gapi.load('client', () => {
             name: "Test string",
             options: "Test string",
             physicalBlockSizeBytes: "Test string",
+            provisionedIops: "Test string",
             region: "Test string",
             replicaZones: [
                 "Test string"            ],
@@ -1824,8 +1825,15 @@ gapi.load('client', () => {
             portRange: "Test string",
             ports: [
                 "Test string"            ],
+            pscConnectionId: "Test string",
             region: "Test string",
             selfLink: "Test string",
+            serviceDirectoryRegistrations: [
+                {
+                    namespace: "Test string",
+                    service: "Test string",
+                    serviceDirectoryRegion: "Test string",
+                }            ],
             serviceLabel: "Test string",
             serviceName: "Test string",
             subnetwork: "Test string",
@@ -1882,8 +1890,15 @@ gapi.load('client', () => {
             portRange: "Test string",
             ports: [
                 "Test string"            ],
+            pscConnectionId: "Test string",
             region: "Test string",
             selfLink: "Test string",
+            serviceDirectoryRegistrations: [
+                {
+                    namespace: "Test string",
+                    service: "Test string",
+                    serviceDirectoryRegion: "Test string",
+                }            ],
             serviceLabel: "Test string",
             serviceName: "Test string",
             subnetwork: "Test string",
@@ -2000,8 +2015,15 @@ gapi.load('client', () => {
             portRange: "Test string",
             ports: [
                 "Test string"            ],
+            pscConnectionId: "Test string",
             region: "Test string",
             selfLink: "Test string",
+            serviceDirectoryRegistrations: [
+                {
+                    namespace: "Test string",
+                    service: "Test string",
+                    serviceDirectoryRegion: "Test string",
+                }            ],
             serviceLabel: "Test string",
             serviceName: "Test string",
             subnetwork: "Test string",
@@ -2056,8 +2078,15 @@ gapi.load('client', () => {
             portRange: "Test string",
             ports: [
                 "Test string"            ],
+            pscConnectionId: "Test string",
             region: "Test string",
             selfLink: "Test string",
+            serviceDirectoryRegistrations: [
+                {
+                    namespace: "Test string",
+                    service: "Test string",
+                    serviceDirectoryRegion: "Test string",
+                }            ],
             serviceLabel: "Test string",
             serviceName: "Test string",
             subnetwork: "Test string",
@@ -2727,6 +2756,7 @@ gapi.load('client', () => {
                 sha1Checksum: "Test string",
                 source: "Test string",
             },
+            satisfiesPzs: true,
             selfLink: "Test string",
             shieldedInstanceInitialState: {
                 dbs: [
@@ -2834,6 +2864,7 @@ gapi.load('client', () => {
                 sha1Checksum: "Test string",
                 source: "Test string",
             },
+            satisfiesPzs: true,
             selfLink: "Test string",
             shieldedInstanceInitialState: {
                 dbs: [
@@ -3668,6 +3699,7 @@ gapi.load('client', () => {
                 labels: {
                     A: "Test string"                },
                 onUpdateAction: "Test string",
+                provisionedIops: "Test string",
                 resourcePolicies: [
                     "Test string"                ],
                 sourceImage: "Test string",
@@ -3741,6 +3773,13 @@ gapi.load('client', () => {
         /** Returns the specified Instance resource. Gets a list of available instances by making a list() request. */
         await gapi.client.compute.instances.get({
             instance: "Test string",
+            project: "Test string",
+            zone: "Test string",
+        });
+        /** Returns effective firewalls applied to an interface of the instance. */
+        await gapi.client.compute.instances.getEffectiveFirewalls({
+            instance: "Test string",
+            networkInterface: "Test string",
             project: "Test string",
             zone: "Test string",
         });
@@ -3822,6 +3861,7 @@ gapi.load('client', () => {
                         labels: {
                             A: "Test string"                        },
                         onUpdateAction: "Test string",
+                        provisionedIops: "Test string",
                         resourcePolicies: [
                             "Test string"                        ],
                         sourceImage: "Test string",
@@ -4337,6 +4377,7 @@ gapi.load('client', () => {
                         labels: {
                             A: "Test string"                        },
                         onUpdateAction: "Test string",
+                        provisionedIops: "Test string",
                         resourcePolicies: [
                             "Test string"                        ],
                         sourceImage: "Test string",
@@ -4635,6 +4676,7 @@ gapi.load('client', () => {
                             labels: {
                                 A: "Test string"                            },
                             onUpdateAction: "Test string",
+                            provisionedIops: "Test string",
                             resourcePolicies: [
                                 "Test string"                            ],
                             sourceImage: "Test string",
@@ -5490,6 +5532,11 @@ gapi.load('client', () => {
             network: "Test string",
             project: "Test string",
         });
+        /** Returns the effective firewalls on a given network. */
+        await gapi.client.compute.networks.getEffectiveFirewalls({
+            network: "Test string",
+            project: "Test string",
+        });
         /** Creates a network in the specified project using the data included in the request. */
         await gapi.client.compute.networks.insert({
             project: "Test string",
@@ -5686,6 +5733,7 @@ gapi.load('client', () => {
             fingerprint: "Test string",
             id: "Test string",
             kind: "Test string",
+            locationHint: "Test string",
             maintenancePolicy: "Test string",
             maintenanceWindow: {
                 maintenanceDuration: {
@@ -5739,6 +5787,7 @@ gapi.load('client', () => {
             fingerprint: "Test string",
             id: "Test string",
             kind: "Test string",
+            locationHint: "Test string",
             maintenancePolicy: "Test string",
             maintenanceWindow: {
                 maintenanceDuration: {
@@ -6946,6 +6995,7 @@ gapi.load('client', () => {
                     id: "Test string",
                     kind: "Test string",
                     name: "Test string",
+                    satisfiesPzs: true,
                     selfLink: "Test string",
                     specificReservation: {
                         count: "Test string",
@@ -6960,6 +7010,7 @@ gapi.load('client', () => {
                                     diskSizeGb: "Test string",
                                     interface: "Test string",
                                 }                            ],
+                            locationHint: "Test string",
                             machineType: "Test string",
                             minCpuPlatform: "Test string",
                         },
@@ -7103,6 +7154,7 @@ gapi.load('client', () => {
             name: "Test string",
             options: "Test string",
             physicalBlockSizeBytes: "Test string",
+            provisionedIops: "Test string",
             region: "Test string",
             replicaZones: [
                 "Test string"            ],
@@ -10378,6 +10430,7 @@ gapi.load('client', () => {
             id: "Test string",
             kind: "Test string",
             name: "Test string",
+            satisfiesPzs: true,
             selfLink: "Test string",
             specificReservation: {
                 count: "Test string",
@@ -10392,6 +10445,7 @@ gapi.load('client', () => {
                             diskSizeGb: "Test string",
                             interface: "Test string",
                         }                    ],
+                    locationHint: "Test string",
                     machineType: "Test string",
                     minCpuPlatform: "Test string",
                 },
@@ -10566,9 +10620,26 @@ gapi.load('client', () => {
                 vmCount: 42,
             },
             id: "Test string",
+            instanceSchedulePolicy: {
+                expirationTime: "Test string",
+                startTime: "Test string",
+                timeZone: "Test string",
+                vmStartSchedule: {
+                    schedule: "Test string",
+                },
+                vmStopSchedule: {
+                    schedule: "Test string",
+                },
+            },
             kind: "Test string",
             name: "Test string",
             region: "Test string",
+            resourceStatus: {
+                instanceSchedulePolicy: {
+                    lastRunStartTime: "Test string",
+                    nextRunStartTime: "Test string",
+                },
+            },
             selfLink: "Test string",
             snapshotSchedulePolicy: {
                 retentionPolicy: {
@@ -12351,6 +12422,7 @@ gapi.load('client', () => {
             id: "Test string",
             kind: "Test string",
             name: "Test string",
+            proxyBind: true,
             proxyHeader: "Test string",
             selfLink: "Test string",
             service: "Test string",

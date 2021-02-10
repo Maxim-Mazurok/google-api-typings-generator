@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210201
+// Revision: 20210207
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -23,7 +23,7 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/drive.file',
             /** View and manage metadata of files in your Google Drive */
             'https://www.googleapis.com/auth/drive.metadata',
-            /** View metadata for files in your Google Drive */
+            /** See information about your Google Drive files */
             'https://www.googleapis.com/auth/drive.metadata.readonly',
             /** View the photos, videos and albums in your Google Photos */
             'https://www.googleapis.com/auth/drive.photos.readonly',

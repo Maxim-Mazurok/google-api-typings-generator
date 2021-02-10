@@ -49,7 +49,7 @@ var client_id = '',
       // View and manage metadata of files in your Google Drive
       'https://www.googleapis.com/auth/drive.metadata',
 
-      // View metadata for files in your Google Drive
+      // See information about your Google Drive files
       'https://www.googleapis.com/auth/drive.metadata.readonly',
 
       // View the photos, videos and albums in your Google Photos

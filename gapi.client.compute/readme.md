@@ -1017,6 +1017,11 @@ Returns the specified Instance resource. Gets a list of available instances by m
 await gapi.client.compute.instances.get({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
+Returns effective firewalls applied to an interface of the instance.
+*/
+await gapi.client.compute.instances.getEffectiveFirewalls({ instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  });
+
+/*
 Returns the specified guest attributes entry.
 */
 await gapi.client.compute.instances.getGuestAttributes({ instance: "instance", project: "project", zone: "zone",  });
@@ -1400,6 +1405,11 @@ await gapi.client.compute.networks.delete({ network: "network", project: "projec
 Returns the specified network. Gets a list of available networks by making a list() request.
 */
 await gapi.client.compute.networks.get({ network: "network", project: "project",  });
+
+/*
+Returns the effective firewalls on a given network.
+*/
+await gapi.client.compute.networks.getEffectiveFirewalls({ network: "network", project: "project",  });
 
 /*
 Creates a network in the specified project using the data included in the request.
