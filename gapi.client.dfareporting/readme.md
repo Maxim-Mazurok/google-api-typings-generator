@@ -1,6 +1,6 @@
 # TypeScript typings for Campaign Manager 360 API v3.4
 
-Manage your DoubleClick Campaign Manager ad campaigns and reports.
+Build applications to efficiently manage large or complex trafficking, reporting, and attribution workflows for Campaign Manager 360.
 For detailed description please check [documentation](https://developers.google.com/doubleclick-advertisers/).
 
 ## Installing
