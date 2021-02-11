@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210208
+// Revision: 20210209
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -91,6 +91,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -217,6 +222,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -343,6 +353,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -472,6 +487,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -600,6 +620,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -735,6 +760,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -857,6 +887,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -994,6 +1029,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -1103,6 +1143,11 @@ gapi.load('client', () => {
                 },
                 displayName: "Test string",
                 fccId: "Test string",
+                grantRangeAllowlists: [
+                    {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    }                ],
                 grants: [
                     {
                         channelType: "Test string",
@@ -1247,6 +1292,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -1408,6 +1458,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -1569,6 +1624,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -1733,6 +1793,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -1896,6 +1961,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -2063,6 +2133,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -2218,6 +2293,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -2344,6 +2424,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -2470,6 +2555,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -2599,6 +2689,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -2727,6 +2822,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -2862,6 +2962,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -2984,6 +3089,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -3121,6 +3231,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -3230,6 +3345,11 @@ gapi.load('client', () => {
                 },
                 displayName: "Test string",
                 fccId: "Test string",
+                grantRangeAllowlists: [
+                    {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    }                ],
                 grants: [
                     {
                         channelType: "Test string",
@@ -3374,6 +3494,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -3535,6 +3660,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -3696,6 +3826,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -3860,6 +3995,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -4023,6 +4163,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -4190,6 +4335,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -4350,6 +4500,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -4476,6 +4631,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -4602,6 +4762,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -4731,6 +4896,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -4859,6 +5029,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -4994,6 +5169,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -5116,6 +5296,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -5253,6 +5438,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -5362,6 +5552,11 @@ gapi.load('client', () => {
                 },
                 displayName: "Test string",
                 fccId: "Test string",
+                grantRangeAllowlists: [
+                    {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    }                ],
                 grants: [
                     {
                         channelType: "Test string",
@@ -5506,6 +5701,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -5667,6 +5867,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -5828,6 +6033,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -5992,6 +6202,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -6155,6 +6370,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -6322,6 +6542,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -6479,6 +6704,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -6588,6 +6818,11 @@ gapi.load('client', () => {
                 },
                 displayName: "Test string",
                 fccId: "Test string",
+                grantRangeAllowlists: [
+                    {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    }                ],
                 grants: [
                     {
                         channelType: "Test string",
@@ -6723,6 +6958,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -6849,6 +7089,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -6978,6 +7223,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -7106,6 +7356,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -7241,6 +7496,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -7363,6 +7623,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -7500,6 +7765,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -7609,6 +7879,11 @@ gapi.load('client', () => {
                 },
                 displayName: "Test string",
                 fccId: "Test string",
+                grantRangeAllowlists: [
+                    {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    }                ],
                 grants: [
                     {
                         channelType: "Test string",
@@ -7753,6 +8028,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -7914,6 +8194,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -8075,6 +8360,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -8239,6 +8529,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -8402,6 +8697,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
@@ -8569,6 +8869,11 @@ gapi.load('client', () => {
             },
             displayName: "Test string",
             fccId: "Test string",
+            grantRangeAllowlists: [
+                {
+                    highFrequencyMhz: 42,
+                    lowFrequencyMhz: 42,
+                }            ],
             grants: [
                 {
                     channelType: "Test string",
