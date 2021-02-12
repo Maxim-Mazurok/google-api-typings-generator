@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210130
+// Revision: 20210205
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -110,6 +110,7 @@ gapi.load('client', () => {
                     updateTime: "Test string",
                 },
                 response: {
+                    backendLatency: "Test string",
                     code: "Test string",
                     headers: {
                         A: "Test string"                    },
@@ -212,6 +213,7 @@ gapi.load('client', () => {
                         updateTime: "Test string",
                     },
                     response: {
+                        backendLatency: "Test string",
                         code: "Test string",
                         headers: {
                             A: "Test string"                        },
