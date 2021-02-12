@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210129
+// Revision: 20210209
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -82,6 +82,9 @@ gapi.load('client', () => {
                                 "Test string"                            ],
                             productSet: "Test string",
                         },
+                        textDetectionParams: {
+                            enableTextDetectionConfidenceScore: true,
+                        },
                         webDetectionParams: {
                             includeGeoResults: true,
                         },
@@ -147,6 +150,9 @@ gapi.load('client', () => {
                             productCategories: [
                                 "Test string"                            ],
                             productSet: "Test string",
+                        },
+                        textDetectionParams: {
+                            enableTextDetectionConfidenceScore: true,
                         },
                         webDetectionParams: {
                             includeGeoResults: true,
@@ -221,6 +227,9 @@ gapi.load('client', () => {
                                 "Test string"                            ],
                             productSet: "Test string",
                         },
+                        textDetectionParams: {
+                            enableTextDetectionConfidenceScore: true,
+                        },
                         webDetectionParams: {
                             includeGeoResults: true,
                         },
@@ -290,6 +299,9 @@ gapi.load('client', () => {
                             productCategories: [
                                 "Test string"                            ],
                             productSet: "Test string",
+                        },
+                        textDetectionParams: {
+                            enableTextDetectionConfidenceScore: true,
                         },
                         webDetectionParams: {
                             includeGeoResults: true,
