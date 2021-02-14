@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210128
+// Revision: 20210204
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -64,6 +64,16 @@ gapi.load('client', () => {
         }, {
             access: [
                 {
+                    dataset: {
+                        dataset: {
+                            datasetId: "Test string",
+                            projectId: "Test string",
+                        },
+                        target_types: [
+                            {
+                                targetType: "Test string",
+                            }                        ],
+                    },
                     domain: "Test string",
                     groupByEmail: "Test string",
                     iamMember: "Test string",
@@ -121,6 +131,16 @@ gapi.load('client', () => {
         }, {
             access: [
                 {
+                    dataset: {
+                        dataset: {
+                            datasetId: "Test string",
+                            projectId: "Test string",
+                        },
+                        target_types: [
+                            {
+                                targetType: "Test string",
+                            }                        ],
+                    },
                     domain: "Test string",
                     groupByEmail: "Test string",
                     iamMember: "Test string",
@@ -170,6 +190,16 @@ gapi.load('client', () => {
         }, {
             access: [
                 {
+                    dataset: {
+                        dataset: {
+                            datasetId: "Test string",
+                            projectId: "Test string",
+                        },
+                        target_types: [
+                            {
+                                targetType: "Test string",
+                            }                        ],
+                    },
                     domain: "Test string",
                     groupByEmail: "Test string",
                     iamMember: "Test string",
