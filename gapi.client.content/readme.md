@@ -579,6 +579,11 @@ Updates a region definition in your Merchant Center account.
 await gapi.client.content.regions.patch({ merchantId: "merchantId", regionId: "regionId",  });
 
 /*
+Retrieves merchant performance mertrics matching the search query and optionally segmented by selected dimensions.
+*/
+await gapi.client.content.reports.search({ merchantId: "merchantId",  });
+
+/*
 Creates a repricing rule for your Merchant Center account.
 */
 await gapi.client.content.repricingrules.create({ merchantId: "merchantId",  });

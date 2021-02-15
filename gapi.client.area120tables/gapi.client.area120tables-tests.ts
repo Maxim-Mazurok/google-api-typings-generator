@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210211
+// Revision: 20210213
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -101,6 +101,7 @@ gapi.load('client', () => {
         });
         /** Lists rows in a table. Returns NOT_FOUND if the table does not exist. */
         await gapi.client.area120tables.tables.rows.list({
+            filter: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
@@ -178,6 +179,7 @@ gapi.load('client', () => {
         });
         /** Lists rows in a table. Returns NOT_FOUND if the table does not exist. */
         await gapi.client.area120tables.tables.rows.list({
+            filter: "Test string",
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",

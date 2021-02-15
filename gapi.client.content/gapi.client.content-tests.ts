@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210210
+// Revision: 20210211
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -2863,6 +2863,14 @@ gapi.load('client', () => {
             regionalInventoryEligible: true,
             regionId: "Test string",
             shippingEligible: true,
+        });
+        /** Retrieves merchant performance mertrics matching the search query and optionally segmented by selected dimensions. */
+        await gapi.client.content.reports.search({
+            merchantId: "Test string",
+        }, {
+            pageSize: 42,
+            pageToken: "Test string",
+            query: "Test string",
         });
         /** Creates a repricing rule for your Merchant Center account. */
         await gapi.client.content.repricingrules.create({
