@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210209
+// Revision: 20210211
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -15,7 +15,7 @@ gapi.load('client', () => {
         /** declare client_id registered in Google Developers Console */
         const client_id = '<<PUT YOUR CLIENT ID HERE>>';
         const scope = [
-            /** View and manage your Google Docs documents */
+            /** See, create, and edit all Google Docs documents you have access to */
             'https://www.googleapis.com/auth/documents',
             /** View your Google Docs documents */
             'https://www.googleapis.com/auth/documents.readonly',

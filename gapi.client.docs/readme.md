@@ -37,7 +37,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // View and manage your Google Docs documents
+      // See, create, and edit all Google Docs documents you have access to
       'https://www.googleapis.com/auth/documents',
 
       // View your Google Docs documents
