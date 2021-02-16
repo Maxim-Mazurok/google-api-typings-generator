@@ -1,4 +1,4 @@
-# TypeScript typings for Workflow Executions API v1beta
+# TypeScript typings for Workflow Executions API v1
 
 Execute workflows created with Workflows API.
 For detailed description please check [documentation](https://cloud.google.com/workflows).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/w
 Install typings for Workflow Executions API:
 
 ```
-npm install @types/gapi.client.workflowexecutions@v1beta --save-dev
+npm install @types/gapi.client.workflowexecutions@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('workflowexecutions', 'v1beta', () => {
+gapi.client.load('workflowexecutions', 'v1', () => {
   // now we can use gapi.client.workflowexecutions
   // ...
 });
