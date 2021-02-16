@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210204
+// Revision: 20210211
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -15,7 +15,7 @@ gapi.load('client', () => {
         /** declare client_id registered in Google Developers Console */
         const client_id = '<<PUT YOUR CLIENT ID HERE>>';
         const scope = [
-            /** View and manage its own configuration data in your Google Drive */
+            /** See, create, and delete its own configuration data in your Google Drive */
             'https://www.googleapis.com/auth/drive.appdata',
             /** Create, edit, and delete your Google Play Games activity */
             'https://www.googleapis.com/auth/games',

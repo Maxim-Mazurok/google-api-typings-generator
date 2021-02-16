@@ -37,7 +37,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // View and manage its own configuration data in your Google Drive
+      // See, create, and delete its own configuration data in your Google Drive
       'https://www.googleapis.com/auth/drive.appdata',
 
       // Create, edit, and delete your Google Play Games activity
