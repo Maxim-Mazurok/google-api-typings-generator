@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210204
+// Revision: 20210211
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -232,6 +232,15 @@ gapi.load('client', () => {
             updateTransferJobFieldMask: "Test string",
         });
         /**
+         * Attempts to start a new TransferOperation for the current TransferJob. A TransferJob has a maximum of one active TransferOperation. If this method is called while a TransferOperation is
+         * active, an error wil be returned.
+         */
+        await gapi.client.storagetransfer.transferJobs.run({
+            jobName: "Test string",
+        }, {
+            projectId: "Test string",
+        });
+        /**
          * Cancels a transfer. Use the transferOperations.get method to check if the cancellation succeeded or if the operation completed despite the `cancel` request. When you cancel an
          * operation, the currently running transfer is interrupted. For recurring transfer jobs, the next instance of the transfer job will still run. For example, if your job is configured to
          * run every day at 1pm and you cancel Monday's operation at 1:05pm, Monday's transfer will stop. However, a transfer job will still be attempted on Tuesday. This applies only to currently
@@ -248,7 +257,7 @@ gapi.load('client', () => {
         await gapi.client.storagetransfer.transferOperations.get({
             name: "Test string",
         });
-        /** Lists transfer operations. */
+        /** Lists transfer operations. Operations are ordered by their creation time in reverse chronological order. */
         await gapi.client.storagetransfer.transferOperations.list({
             filter: "Test string",
             name: "Test string",
