@@ -8,7 +8,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('cloudresourcemanager', 'v2', () => {
+    gapi.client.load('cloudresourcemanager', 'v3', () => {
         /** now we can use gapi.client.cloudresourcemanager */
 
         /** don't forget to authenticate your client before sending any request to resources: */
@@ -33,102 +33,130 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Creates a Folder in the resource hierarchy. Returns an Operation which can be used to track the progress of the folder creation workflow. Upon success the Operation.response field will
-         * be populated with the created Folder. In order to succeed, the addition of this new Folder must not violate the Folder naming, height or fanout constraints. + The Folder's display_name
-         * must be distinct from all other Folders that share its parent. + The addition of the Folder must not cause the active Folder hierarchy to exceed a height of 10. Note, the full active +
-         * deleted Folder hierarchy is allowed to reach a height of 20; this provides additional headroom when moving folders that contain deleted folders. + The addition of the Folder must not
-         * cause the total number of Folders under its parent to exceed 300. If the operation fails due to a folder constraint violation, some errors may be returned by the CreateFolder request,
-         * with status code FAILED_PRECONDITION and an error description. Other folder constraint violations will be communicated in the Operation, with the specific PreconditionFailure returned
-         * via the details list in the Operation.error field. The caller must have `resourcemanager.folders.create` permission on the identified parent.
+         * Create a Lien which applies to the resource denoted by the `parent` field. Callers of this method will require permission on the `parent` resource. For example, applying to
+         * `projects/1234` requires permission `resourcemanager.projects.updateLiens`. NOTE: Some resources may limit the number of Liens which may be applied.
          */
-        await gapi.client.cloudresourcemanager.folders.create({
-            parent: "Test string",
+        await gapi.client.cloudresourcemanager.liens.create({
         }, {
             createTime: "Test string",
-            displayName: "Test string",
-            lifecycleState: "Test string",
             name: "Test string",
+            origin: "Test string",
+            parent: "Test string",
+            reason: "Test string",
+            restrictions: [
+                "Test string"            ],
+        });
+        /**
+         * Delete a Lien by `name`. Callers of this method will require permission on the `parent` resource. For example, a Lien with a `parent` of `projects/1234` requires permission
+         * `resourcemanager.projects.updateLiens`.
+         */
+        await gapi.client.cloudresourcemanager.liens.delete({
+            name: "Test string",
+        });
+        /**
+         * Retrieve a Lien by `name`. Callers of this method will require permission on the `parent` resource. For example, a Lien with a `parent` of `projects/1234` requires permission requires
+         * permission `resourcemanager.projects.get` or `resourcemanager.projects.updateLiens`.
+         */
+        await gapi.client.cloudresourcemanager.liens.get({
+            name: "Test string",
+        });
+        /**
+         * List all Liens applied to the `parent` resource. Callers of this method will require permission on the `parent` resource. For example, a Lien with a `parent` of `projects/1234` requires
+         * permission `resourcemanager.projects.get`.
+         */
+        await gapi.client.cloudresourcemanager.liens.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+        await gapi.client.cloudresourcemanager.operations.get({
+            name: "Test string",
+        });
+        /** Creates a TagBinding between a TagValue and a cloud resource (currently project, folder, or organization). */
+        await gapi.client.cloudresourcemanager.tagBindings.create({
+            validateOnly: true,
+        }, {
+            name: "Test string",
+            parent: "Test string",
+            tagValue: "Test string",
+        });
+        /** Deletes a TagBinding. */
+        await gapi.client.cloudresourcemanager.tagBindings.delete({
+            name: "Test string",
+        });
+        /**
+         * Lists the TagBindings for the given cloud resource, as specified with `parent`. NOTE: The `parent` field is expected to be a full resource name:
+         * https://cloud.google.com/apis/design/resource_names#full_resource_name
+         */
+        await gapi.client.cloudresourcemanager.tagBindings.list({
+            pageSize: 42,
+            pageToken: "Test string",
             parent: "Test string",
         });
         /**
-         * Requests deletion of a Folder. The Folder is moved into the DELETE_REQUESTED state immediately, and is deleted approximately 30 days later. This method may only be called on an empty
-         * Folder in the ACTIVE state, where a Folder is empty if it doesn't contain any Folders or Projects in the ACTIVE state. The caller must have `resourcemanager.folders.delete` permission
-         * on the identified folder.
+         * Creates a new TagKey. If another request with the same parameters is sent while the original request is in process, the second request will receive an error. A maximum of 300 TagKeys
+         * can exist under a parent at any given time.
          */
-        await gapi.client.cloudresourcemanager.folders.delete({
+        await gapi.client.cloudresourcemanager.tagKeys.create({
+            validateOnly: true,
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            etag: "Test string",
+            name: "Test string",
+            namespacedName: "Test string",
+            parent: "Test string",
+            shortName: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a TagKey. The TagKey cannot be deleted if it has any child TagValues. */
+        await gapi.client.cloudresourcemanager.tagKeys.delete({
+            etag: "Test string",
+            name: "Test string",
+            validateOnly: true,
+        });
+        /** Retrieves a TagKey. This method will return `PERMISSION_DENIED` if the key does not exist or the user does not have permission to view it. */
+        await gapi.client.cloudresourcemanager.tagKeys.get({
             name: "Test string",
         });
         /**
-         * Retrieves a Folder identified by the supplied resource name. Valid Folder resource names have the format `folders/{folder_id}` (for example, `folders/1234`). The caller must have
-         * `resourcemanager.folders.get` permission on the identified folder.
+         * Gets the access control policy for a TagKey. The returned policy may be empty if no such policy or resource exists. The `resource` field should be the TagKey's resource name. For
+         * example, "tagKeys/1234". The caller must have `cloudresourcemanager.googleapis.com/tagKeys.getIamPolicy` permission on the specified TagKey.
          */
-        await gapi.client.cloudresourcemanager.folders.get({
-            name: "Test string",
-        });
-        /**
-         * Gets the access control policy for a Folder. The returned policy may be empty if no such policy or resource exists. The `resource` field should be the Folder's resource name, e.g.
-         * "folders/1234". The caller must have `resourcemanager.folders.getIamPolicy` permission on the identified folder.
-         */
-        await gapi.client.cloudresourcemanager.folders.getIamPolicy({
+        await gapi.client.cloudresourcemanager.tagKeys.getIamPolicy({
             resource: "Test string",
         }, {
             options: {
                 requestedPolicyVersion: 42,
             },
         });
-        /**
-         * Lists the Folders that are direct descendants of supplied parent resource. List provides a strongly consistent view of the Folders underneath the specified parent resource. List returns
-         * Folders sorted based upon the (ascending) lexical ordering of their display_name. The caller must have `resourcemanager.folders.list` permission on the identified parent.
-         */
-        await gapi.client.cloudresourcemanager.folders.list({
+        /** Lists all TagKeys for a parent resource. */
+        await gapi.client.cloudresourcemanager.tagKeys.list({
             pageSize: 42,
             pageToken: "Test string",
             parent: "Test string",
-            showDeleted: true,
         });
-        /**
-         * Moves a Folder under a new resource parent. Returns an Operation which can be used to track the progress of the folder move workflow. Upon success the Operation.response field will be
-         * populated with the moved Folder. Upon failure, a FolderOperationError categorizing the failure cause will be returned - if the failure occurs synchronously then the FolderOperationError
-         * will be returned via the Status.details field and if it occurs asynchronously then the FolderOperation will be returned via the Operation.error field. In addition, the
-         * Operation.metadata field will be populated with a FolderOperation message as an aid to stateless clients. Folder moves will be rejected if they violate either the naming, height or
-         * fanout constraints described in the CreateFolder documentation. The caller must have `resourcemanager.folders.move` permission on the folder's current and proposed new parent.
-         */
-        await gapi.client.cloudresourcemanager.folders.move({
-            name: "Test string",
-        }, {
-            destinationParent: "Test string",
-        });
-        /**
-         * Updates a Folder, changing its display_name. Changes to the folder display_name will be rejected if they violate either the display_name formatting rules or naming constraints described
-         * in the CreateFolder documentation. The Folder's display name must start and end with a letter or digit, may contain letters, digits, spaces, hyphens and underscores and can be between 3
-         * and 30 characters. This is captured by the regular expression: `\p{L}\p{N}{1,28}[\p{L}\p{N}]`. The caller must have `resourcemanager.folders.update` permission on the identified folder.
-         * If the update fails due to the unique name constraint then a PreconditionFailure explaining this violation will be returned in the Status.details field.
-         */
-        await gapi.client.cloudresourcemanager.folders.patch({
+        /** Updates the attributes of the TagKey resource. */
+        await gapi.client.cloudresourcemanager.tagKeys.patch({
             name: "Test string",
             updateMask: "Test string",
+            validateOnly: true,
         }, {
             createTime: "Test string",
-            displayName: "Test string",
-            lifecycleState: "Test string",
+            description: "Test string",
+            etag: "Test string",
             name: "Test string",
+            namespacedName: "Test string",
             parent: "Test string",
+            shortName: "Test string",
+            updateTime: "Test string",
         });
         /**
-         * Search for folders that match specific filter criteria. Search provides an eventually consistent view of the folders a user has access to which meet the specified filter criteria. This
-         * will only return folders on which the caller has the permission `resourcemanager.folders.get`.
+         * Sets the access control policy on a TagKey, replacing any existing policy. The `resource` field should be the TagKey's resource name. For example, "tagKeys/1234". The caller must have
+         * `resourcemanager.tagKeys.setIamPolicy` permission on the identified tagValue.
          */
-        await gapi.client.cloudresourcemanager.folders.search({
-        }, {
-            pageSize: 42,
-            pageToken: "Test string",
-            query: "Test string",
-        });
-        /**
-         * Sets the access control policy on a Folder, replacing any existing policy. The `resource` field should be the Folder's resource name, e.g. "folders/1234". The caller must have
-         * `resourcemanager.folders.setIamPolicy` permission on the identified folder.
-         */
-        await gapi.client.cloudresourcemanager.folders.setIamPolicy({
+        await gapi.client.cloudresourcemanager.tagKeys.setIamPolicy({
             resource: "Test string",
         }, {
             policy: {
@@ -160,27 +188,117 @@ gapi.load('client', () => {
             updateMask: "Test string",
         });
         /**
-         * Returns permissions that a caller has on the specified Folder. The `resource` field should be the Folder's resource name, e.g. "folders/1234". There are no permissions required for
-         * making this API call.
+         * Returns permissions that a caller has on the specified TagKey. The `resource` field should be the TagKey's resource name. For example, "tagKeys/1234". There are no permissions required
+         * for making this API call.
          */
-        await gapi.client.cloudresourcemanager.folders.testIamPermissions({
+        await gapi.client.cloudresourcemanager.tagKeys.testIamPermissions({
             resource: "Test string",
         }, {
             permissions: [
                 "Test string"            ],
         });
         /**
-         * Cancels the deletion request for a Folder. This method may only be called on a Folder in the DELETE_REQUESTED state. In order to succeed, the Folder's parent must be in the ACTIVE
-         * state. In addition, reintroducing the folder into the tree must not violate folder naming, height and fanout constraints described in the CreateFolder documentation. The caller must
-         * have `resourcemanager.folders.undelete` permission on the identified folder.
+         * Creates a TagValue as a child of the specified TagKey. If a another request with the same parameters is sent while the original request is in process the second request will receive an
+         * error. A maximum of 300 TagValues can exist under a TagKey at any given time.
          */
-        await gapi.client.cloudresourcemanager.folders.undelete({
-            name: "Test string",
+        await gapi.client.cloudresourcemanager.tagValues.create({
+            validateOnly: true,
         }, {
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.cloudresourcemanager.operations.get({
+            createTime: "Test string",
+            description: "Test string",
+            etag: "Test string",
             name: "Test string",
+            namespacedName: "Test string",
+            parent: "Test string",
+            shortName: "Test string",
+            updateTime: "Test string",
+        });
+        /** Deletes a TagValue. The TagValue cannot have any bindings when it is deleted. */
+        await gapi.client.cloudresourcemanager.tagValues.delete({
+            etag: "Test string",
+            name: "Test string",
+            validateOnly: true,
+        });
+        /** Retrieves TagValue. If the TagValue or namespaced name does not exist, or if the user does not have permission to view it, this method will return `PERMISSION_DENIED`. */
+        await gapi.client.cloudresourcemanager.tagValues.get({
+            name: "Test string",
+        });
+        /**
+         * Gets the access control policy for a TagValue. The returned policy may be empty if no such policy or resource exists. The `resource` field should be the TagValue's resource name. For
+         * example: `tagValues/1234`. The caller must have the `cloudresourcemanager.googleapis.com/tagValues.getIamPolicy` permission on the identified TagValue to get the access control policy.
+         */
+        await gapi.client.cloudresourcemanager.tagValues.getIamPolicy({
+            resource: "Test string",
+        }, {
+            options: {
+                requestedPolicyVersion: 42,
+            },
+        });
+        /** Lists all TagValues for a specific TagKey. */
+        await gapi.client.cloudresourcemanager.tagValues.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates the attributes of the TagValue resource. */
+        await gapi.client.cloudresourcemanager.tagValues.patch({
+            name: "Test string",
+            updateMask: "Test string",
+            validateOnly: true,
+        }, {
+            createTime: "Test string",
+            description: "Test string",
+            etag: "Test string",
+            name: "Test string",
+            namespacedName: "Test string",
+            parent: "Test string",
+            shortName: "Test string",
+            updateTime: "Test string",
+        });
+        /**
+         * Sets the access control policy on a TagValue, replacing any existing policy. The `resource` field should be the TagValue's resource name. For example: `tagValues/1234`. The caller must
+         * have `resourcemanager.tagValues.setIamPolicy` permission on the identified tagValue.
+         */
+        await gapi.client.cloudresourcemanager.tagValues.setIamPolicy({
+            resource: "Test string",
+        }, {
+            policy: {
+                auditConfigs: [
+                    {
+                        auditLogConfigs: [
+                            {
+                                exemptedMembers: [
+                                    "Test string"                                ],
+                                logType: "Test string",
+                            }                        ],
+                        service: "Test string",
+                    }                ],
+                bindings: [
+                    {
+                        condition: {
+                            description: "Test string",
+                            expression: "Test string",
+                            location: "Test string",
+                            title: "Test string",
+                        },
+                        members: [
+                            "Test string"                        ],
+                        role: "Test string",
+                    }                ],
+                etag: "Test string",
+                version: 42,
+            },
+            updateMask: "Test string",
+        });
+        /**
+         * Returns permissions that a caller has on the specified TagValue. The `resource` field should be the TagValue's resource name. For example: `tagValues/1234`. There are no permissions
+         * required for making this API call.
+         */
+        await gapi.client.cloudresourcemanager.tagValues.testIamPermissions({
+            resource: "Test string",
+        }, {
+            permissions: [
+                "Test string"            ],
         });
     }
 });
