@@ -8,7 +8,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('workflows', 'v1beta', () => {
+    gapi.client.load('workflows', 'v1', () => {
         /** now we can use gapi.client.workflows */
 
         /** don't forget to authenticate your client before sending any request to resources: */

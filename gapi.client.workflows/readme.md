@@ -1,4 +1,4 @@
-# TypeScript typings for Workflows API v1beta
+# TypeScript typings for Workflows API v1
 
 Orchestrate Workflows consisting of Google Cloud APIs, SaaS APIs or private API endpoints.
 For detailed description please check [documentation](https://cloud.google.com/workflows).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/w
 Install typings for Workflows API:
 
 ```
-npm install @types/gapi.client.workflows@v1beta --save-dev
+npm install @types/gapi.client.workflows@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('workflows', 'v1beta', () => {
+gapi.client.load('workflows', 'v1', () => {
   // now we can use gapi.client.workflows
   // ...
 });
