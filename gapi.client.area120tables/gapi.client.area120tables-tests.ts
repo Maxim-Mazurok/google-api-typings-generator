@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210216
+// Revision: 20210217
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -52,7 +52,9 @@ gapi.load('client', () => {
                 {
                     parent: "Test string",
                     row: {
+                        createTime: "Test string",
                         name: "Test string",
+                        updateTime: "Test string",
                         values: {
                             A: 42                        },
                     },
@@ -73,7 +75,9 @@ gapi.load('client', () => {
             requests: [
                 {
                     row: {
+                        createTime: "Test string",
                         name: "Test string",
+                        updateTime: "Test string",
                         values: {
                             A: 42                        },
                     },
@@ -86,7 +90,9 @@ gapi.load('client', () => {
             parent: "Test string",
             view: "Test string",
         }, {
+            createTime: "Test string",
             name: "Test string",
+            updateTime: "Test string",
             values: {
                 A: 42            },
         });
@@ -113,7 +119,9 @@ gapi.load('client', () => {
             updateMask: "Test string",
             view: "Test string",
         }, {
+            createTime: "Test string",
             name: "Test string",
+            updateTime: "Test string",
             values: {
                 A: 42            },
         });
@@ -130,7 +138,9 @@ gapi.load('client', () => {
                 {
                     parent: "Test string",
                     row: {
+                        createTime: "Test string",
                         name: "Test string",
+                        updateTime: "Test string",
                         values: {
                             A: 42                        },
                     },
@@ -151,7 +161,9 @@ gapi.load('client', () => {
             requests: [
                 {
                     row: {
+                        createTime: "Test string",
                         name: "Test string",
+                        updateTime: "Test string",
                         values: {
                             A: 42                        },
                     },
@@ -164,7 +176,9 @@ gapi.load('client', () => {
             parent: "Test string",
             view: "Test string",
         }, {
+            createTime: "Test string",
             name: "Test string",
+            updateTime: "Test string",
             values: {
                 A: 42            },
         });
@@ -191,7 +205,9 @@ gapi.load('client', () => {
             updateMask: "Test string",
             view: "Test string",
         }, {
+            createTime: "Test string",
             name: "Test string",
+            updateTime: "Test string",
             values: {
                 A: 42            },
         });
