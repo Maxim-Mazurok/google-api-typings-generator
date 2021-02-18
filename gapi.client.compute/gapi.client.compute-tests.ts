@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210129
+// Revision: 20210209
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -3745,6 +3745,192 @@ gapi.load('client', () => {
             },
             source: "Test string",
             type: "Test string",
+        });
+        /** Creates multiple instances. Count specifies the number of instances to create. */
+        await gapi.client.compute.instances.bulkInsert({
+            project: "Test string",
+            requestId: "Test string",
+            zone: "Test string",
+        }, {
+            count: "Test string",
+            instanceProperties: {
+                advancedMachineFeatures: {
+                    enableNestedVirtualization: true,
+                },
+                canIpForward: true,
+                confidentialInstanceConfig: {
+                    enableConfidentialCompute: true,
+                },
+                description: "Test string",
+                disks: [
+                    {
+                        autoDelete: true,
+                        boot: true,
+                        deviceName: "Test string",
+                        diskEncryptionKey: {
+                            kmsKeyName: "Test string",
+                            kmsKeyServiceAccount: "Test string",
+                            rawKey: "Test string",
+                            sha256: "Test string",
+                        },
+                        diskSizeGb: "Test string",
+                        guestOsFeatures: [
+                            {
+                                type: "Test string",
+                            }                        ],
+                        index: 42,
+                        initializeParams: {
+                            description: "Test string",
+                            diskName: "Test string",
+                            diskSizeGb: "Test string",
+                            diskType: "Test string",
+                            labels: {
+                                A: "Test string"                            },
+                            onUpdateAction: "Test string",
+                            provisionedIops: "Test string",
+                            resourcePolicies: [
+                                "Test string"                            ],
+                            sourceImage: "Test string",
+                            sourceImageEncryptionKey: {
+                                kmsKeyName: "Test string",
+                                kmsKeyServiceAccount: "Test string",
+                                rawKey: "Test string",
+                                sha256: "Test string",
+                            },
+                            sourceSnapshot: "Test string",
+                            sourceSnapshotEncryptionKey: {
+                                kmsKeyName: "Test string",
+                                kmsKeyServiceAccount: "Test string",
+                                rawKey: "Test string",
+                                sha256: "Test string",
+                            },
+                        },
+                        interface: "Test string",
+                        kind: "Test string",
+                        licenses: [
+                            "Test string"                        ],
+                        mode: "Test string",
+                        shieldedInstanceInitialState: {
+                            dbs: [
+                                {
+                                    content: "Test string",
+                                    fileType: "Test string",
+                                }                            ],
+                            dbxs: [
+                                {
+                                    content: "Test string",
+                                    fileType: "Test string",
+                                }                            ],
+                            keks: [
+                                {
+                                    content: "Test string",
+                                    fileType: "Test string",
+                                }                            ],
+                            pk: {
+                                content: "Test string",
+                                fileType: "Test string",
+                            },
+                        },
+                        source: "Test string",
+                        type: "Test string",
+                    }                ],
+                guestAccelerators: [
+                    {
+                        acceleratorCount: 42,
+                        acceleratorType: "Test string",
+                    }                ],
+                labels: {
+                    A: "Test string"                },
+                machineType: "Test string",
+                metadata: {
+                    fingerprint: "Test string",
+                    items: [
+                        {
+                            key: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    kind: "Test string",
+                },
+                minCpuPlatform: "Test string",
+                networkInterfaces: [
+                    {
+                        accessConfigs: [
+                            {
+                                kind: "Test string",
+                                name: "Test string",
+                                natIP: "Test string",
+                                networkTier: "Test string",
+                                publicPtrDomainName: "Test string",
+                                setPublicPtr: true,
+                                type: "Test string",
+                            }                        ],
+                        aliasIpRanges: [
+                            {
+                                ipCidrRange: "Test string",
+                                subnetworkRangeName: "Test string",
+                            }                        ],
+                        fingerprint: "Test string",
+                        ipv6Address: "Test string",
+                        kind: "Test string",
+                        name: "Test string",
+                        network: "Test string",
+                        networkIP: "Test string",
+                        nicType: "Test string",
+                        subnetwork: "Test string",
+                    }                ],
+                privateIpv6GoogleAccess: "Test string",
+                reservationAffinity: {
+                    consumeReservationType: "Test string",
+                    key: "Test string",
+                    values: [
+                        "Test string"                    ],
+                },
+                resourcePolicies: [
+                    "Test string"                ],
+                scheduling: {
+                    automaticRestart: true,
+                    locationHint: "Test string",
+                    minNodeCpus: 42,
+                    nodeAffinities: [
+                        {
+                            key: "Test string",
+                            operator: "Test string",
+                            values: [
+                                "Test string"                            ],
+                        }                    ],
+                    onHostMaintenance: "Test string",
+                    preemptible: true,
+                },
+                serviceAccounts: [
+                    {
+                        email: "Test string",
+                        scopes: [
+                            "Test string"                        ],
+                    }                ],
+                shieldedInstanceConfig: {
+                    enableIntegrityMonitoring: true,
+                    enableSecureBoot: true,
+                    enableVtpm: true,
+                },
+                tags: {
+                    fingerprint: "Test string",
+                    items: [
+                        "Test string"                    ],
+                },
+            },
+            locationPolicy: {
+                locations: {
+                    A: {
+                        preference: "Test string",
+                    }                },
+            },
+            minCount: "Test string",
+            namePattern: "Test string",
+            perInstanceProperties: {
+                A: {
+                    name: "Test string",
+                }            },
+            sourceInstanceTemplate: "Test string",
         });
         /** Deletes the specified Instance resource. For more information, see Stopping or Deleting an Instance. */
         await gapi.client.compute.instances.delete({
@@ -8158,6 +8344,192 @@ gapi.load('client', () => {
                     name: "Test string",
                     port: 42,
                 }            ],
+        });
+        /** Creates multiple instances in a given region. Count specifies the number of instances to create. */
+        await gapi.client.compute.regionInstances.bulkInsert({
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        }, {
+            count: "Test string",
+            instanceProperties: {
+                advancedMachineFeatures: {
+                    enableNestedVirtualization: true,
+                },
+                canIpForward: true,
+                confidentialInstanceConfig: {
+                    enableConfidentialCompute: true,
+                },
+                description: "Test string",
+                disks: [
+                    {
+                        autoDelete: true,
+                        boot: true,
+                        deviceName: "Test string",
+                        diskEncryptionKey: {
+                            kmsKeyName: "Test string",
+                            kmsKeyServiceAccount: "Test string",
+                            rawKey: "Test string",
+                            sha256: "Test string",
+                        },
+                        diskSizeGb: "Test string",
+                        guestOsFeatures: [
+                            {
+                                type: "Test string",
+                            }                        ],
+                        index: 42,
+                        initializeParams: {
+                            description: "Test string",
+                            diskName: "Test string",
+                            diskSizeGb: "Test string",
+                            diskType: "Test string",
+                            labels: {
+                                A: "Test string"                            },
+                            onUpdateAction: "Test string",
+                            provisionedIops: "Test string",
+                            resourcePolicies: [
+                                "Test string"                            ],
+                            sourceImage: "Test string",
+                            sourceImageEncryptionKey: {
+                                kmsKeyName: "Test string",
+                                kmsKeyServiceAccount: "Test string",
+                                rawKey: "Test string",
+                                sha256: "Test string",
+                            },
+                            sourceSnapshot: "Test string",
+                            sourceSnapshotEncryptionKey: {
+                                kmsKeyName: "Test string",
+                                kmsKeyServiceAccount: "Test string",
+                                rawKey: "Test string",
+                                sha256: "Test string",
+                            },
+                        },
+                        interface: "Test string",
+                        kind: "Test string",
+                        licenses: [
+                            "Test string"                        ],
+                        mode: "Test string",
+                        shieldedInstanceInitialState: {
+                            dbs: [
+                                {
+                                    content: "Test string",
+                                    fileType: "Test string",
+                                }                            ],
+                            dbxs: [
+                                {
+                                    content: "Test string",
+                                    fileType: "Test string",
+                                }                            ],
+                            keks: [
+                                {
+                                    content: "Test string",
+                                    fileType: "Test string",
+                                }                            ],
+                            pk: {
+                                content: "Test string",
+                                fileType: "Test string",
+                            },
+                        },
+                        source: "Test string",
+                        type: "Test string",
+                    }                ],
+                guestAccelerators: [
+                    {
+                        acceleratorCount: 42,
+                        acceleratorType: "Test string",
+                    }                ],
+                labels: {
+                    A: "Test string"                },
+                machineType: "Test string",
+                metadata: {
+                    fingerprint: "Test string",
+                    items: [
+                        {
+                            key: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    kind: "Test string",
+                },
+                minCpuPlatform: "Test string",
+                networkInterfaces: [
+                    {
+                        accessConfigs: [
+                            {
+                                kind: "Test string",
+                                name: "Test string",
+                                natIP: "Test string",
+                                networkTier: "Test string",
+                                publicPtrDomainName: "Test string",
+                                setPublicPtr: true,
+                                type: "Test string",
+                            }                        ],
+                        aliasIpRanges: [
+                            {
+                                ipCidrRange: "Test string",
+                                subnetworkRangeName: "Test string",
+                            }                        ],
+                        fingerprint: "Test string",
+                        ipv6Address: "Test string",
+                        kind: "Test string",
+                        name: "Test string",
+                        network: "Test string",
+                        networkIP: "Test string",
+                        nicType: "Test string",
+                        subnetwork: "Test string",
+                    }                ],
+                privateIpv6GoogleAccess: "Test string",
+                reservationAffinity: {
+                    consumeReservationType: "Test string",
+                    key: "Test string",
+                    values: [
+                        "Test string"                    ],
+                },
+                resourcePolicies: [
+                    "Test string"                ],
+                scheduling: {
+                    automaticRestart: true,
+                    locationHint: "Test string",
+                    minNodeCpus: 42,
+                    nodeAffinities: [
+                        {
+                            key: "Test string",
+                            operator: "Test string",
+                            values: [
+                                "Test string"                            ],
+                        }                    ],
+                    onHostMaintenance: "Test string",
+                    preemptible: true,
+                },
+                serviceAccounts: [
+                    {
+                        email: "Test string",
+                        scopes: [
+                            "Test string"                        ],
+                    }                ],
+                shieldedInstanceConfig: {
+                    enableIntegrityMonitoring: true,
+                    enableSecureBoot: true,
+                    enableVtpm: true,
+                },
+                tags: {
+                    fingerprint: "Test string",
+                    items: [
+                        "Test string"                    ],
+                },
+            },
+            locationPolicy: {
+                locations: {
+                    A: {
+                        preference: "Test string",
+                    }                },
+            },
+            minCount: "Test string",
+            namePattern: "Test string",
+            perInstanceProperties: {
+                A: {
+                    name: "Test string",
+                }            },
+            sourceInstanceTemplate: "Test string",
         });
         /** Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service. */
         await gapi.client.compute.regionNetworkEndpointGroups.delete({

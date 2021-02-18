@@ -997,6 +997,11 @@ Attaches an existing Disk resource to an instance. You must first create the dis
 await gapi.client.compute.instances.attachDisk({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
+Creates multiple instances. Count specifies the number of instances to create.
+*/
+await gapi.client.compute.instances.bulkInsert({ project: "project", zone: "zone",  });
+
+/*
 Deletes the specified Instance resource. For more information, see Stopping or Deleting an Instance.
 */
 await gapi.client.compute.instances.delete({ instance: "instance", project: "project", zone: "zone",  });
@@ -2008,6 +2013,11 @@ await gapi.client.compute.regionInstanceGroups.listInstances({ instanceGroup: "i
 Sets the named ports for the specified regional instance group.
 */
 await gapi.client.compute.regionInstanceGroups.setNamedPorts({ instanceGroup: "instanceGroup", project: "project", region: "region",  });
+
+/*
+Creates multiple instances in a given region. Count specifies the number of instances to create.
+*/
+await gapi.client.compute.regionInstances.bulkInsert({ project: "project", region: "region",  });
 
 /*
 Deletes the specified network endpoint group. Note that the NEG cannot be deleted if it is configured as a backend of a backend service.
