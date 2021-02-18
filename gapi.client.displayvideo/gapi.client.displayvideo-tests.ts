@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210209
+// Revision: 20210218
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -19,7 +19,7 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/display-video',
             /** Create, see, and edit Display & Video 360 Campaign entities and see billing invoices */
             'https://www.googleapis.com/auth/display-video-mediaplanning',
-            /** New Service: https://www.googleapis.com/auth/display-video-user-management */
+            /** Private Service: https://www.googleapis.com/auth/display-video-user-management */
             'https://www.googleapis.com/auth/display-video-user-management',
             /** View and manage your reports in DoubleClick Bid Manager */
             'https://www.googleapis.com/auth/doubleclickbidmanager',
@@ -434,6 +434,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -449,6 +450,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -599,6 +601,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -614,6 +617,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -676,6 +680,15 @@ gapi.load('client', () => {
             updateTime: "Test string",
             vastTagUrl: "Test string",
             vpaid: true,
+        });
+        /** Lists assigned targeting options of an insertion order across targeting types. */
+        await gapi.client.displayvideo.advertisers.insertionOrders.bulkListInsertionOrderAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            insertionOrderId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
@@ -958,10 +971,12 @@ gapi.load('client', () => {
                                 negative: true,
                             },
                             contentInstreamPositionDetails: {
+                                adType: "Test string",
                                 contentInstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
                             contentOutstreamPositionDetails: {
+                                adType: "Test string",
                                 contentOutstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -1026,6 +1041,7 @@ gapi.load('client', () => {
                                 negativeKeywordListId: "Test string",
                             },
                             onScreenPositionDetails: {
+                                adType: "Test string",
                                 onScreenPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -1953,10 +1969,12 @@ gapi.load('client', () => {
                                 negative: true,
                             },
                             contentInstreamPositionDetails: {
+                                adType: "Test string",
                                 contentInstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
                             contentOutstreamPositionDetails: {
+                                adType: "Test string",
                                 contentOutstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -2021,6 +2039,7 @@ gapi.load('client', () => {
                                 negativeKeywordListId: "Test string",
                             },
                             onScreenPositionDetails: {
+                                adType: "Test string",
                                 onScreenPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -2517,6 +2536,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -2532,6 +2552,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -2682,6 +2703,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -2697,6 +2719,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -2759,6 +2782,15 @@ gapi.load('client', () => {
             updateTime: "Test string",
             vastTagUrl: "Test string",
             vpaid: true,
+        });
+        /** Lists assigned targeting options of an insertion order across targeting types. */
+        await gapi.client.displayvideo.advertisers.insertionOrders.bulkListInsertionOrderAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            insertionOrderId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
@@ -3041,10 +3073,12 @@ gapi.load('client', () => {
                                 negative: true,
                             },
                             contentInstreamPositionDetails: {
+                                adType: "Test string",
                                 contentInstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
                             contentOutstreamPositionDetails: {
+                                adType: "Test string",
                                 contentOutstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -3109,6 +3143,7 @@ gapi.load('client', () => {
                                 negativeKeywordListId: "Test string",
                             },
                             onScreenPositionDetails: {
+                                adType: "Test string",
                                 onScreenPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -4342,6 +4377,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -4357,6 +4393,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -4507,6 +4544,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -4522,6 +4560,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -4584,6 +4623,15 @@ gapi.load('client', () => {
             updateTime: "Test string",
             vastTagUrl: "Test string",
             vpaid: true,
+        });
+        /** Lists assigned targeting options of an insertion order across targeting types. */
+        await gapi.client.displayvideo.advertisers.insertionOrders.bulkListInsertionOrderAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            insertionOrderId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
@@ -4866,10 +4914,12 @@ gapi.load('client', () => {
                                 negative: true,
                             },
                             contentInstreamPositionDetails: {
+                                adType: "Test string",
                                 contentInstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
                             contentOutstreamPositionDetails: {
+                                adType: "Test string",
                                 contentOutstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -4934,6 +4984,7 @@ gapi.load('client', () => {
                                 negativeKeywordListId: "Test string",
                             },
                             onScreenPositionDetails: {
+                                adType: "Test string",
                                 onScreenPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -6210,6 +6261,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -6225,6 +6277,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -6375,6 +6428,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -6390,6 +6444,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -6452,6 +6507,15 @@ gapi.load('client', () => {
             updateTime: "Test string",
             vastTagUrl: "Test string",
             vpaid: true,
+        });
+        /** Lists assigned targeting options of an insertion order across targeting types. */
+        await gapi.client.displayvideo.advertisers.insertionOrders.bulkListInsertionOrderAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            insertionOrderId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
@@ -6734,10 +6798,12 @@ gapi.load('client', () => {
                                 negative: true,
                             },
                             contentInstreamPositionDetails: {
+                                adType: "Test string",
                                 contentInstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
                             contentOutstreamPositionDetails: {
+                                adType: "Test string",
                                 contentOutstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -6802,6 +6868,7 @@ gapi.load('client', () => {
                                 negativeKeywordListId: "Test string",
                             },
                             onScreenPositionDetails: {
+                                adType: "Test string",
                                 onScreenPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -8031,6 +8098,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -8046,6 +8114,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -8196,6 +8265,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -8211,6 +8281,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -8273,6 +8344,15 @@ gapi.load('client', () => {
             updateTime: "Test string",
             vastTagUrl: "Test string",
             vpaid: true,
+        });
+        /** Lists assigned targeting options of an insertion order across targeting types. */
+        await gapi.client.displayvideo.advertisers.insertionOrders.bulkListInsertionOrderAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            insertionOrderId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
@@ -8555,10 +8635,12 @@ gapi.load('client', () => {
                                 negative: true,
                             },
                             contentInstreamPositionDetails: {
+                                adType: "Test string",
                                 contentInstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
                             contentOutstreamPositionDetails: {
+                                adType: "Test string",
                                 contentOutstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -8623,6 +8705,7 @@ gapi.load('client', () => {
                                 negativeKeywordListId: "Test string",
                             },
                             onScreenPositionDetails: {
+                                adType: "Test string",
                                 onScreenPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -9852,6 +9935,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -9867,6 +9951,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -10017,6 +10102,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -10032,6 +10118,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -10094,6 +10181,15 @@ gapi.load('client', () => {
             updateTime: "Test string",
             vastTagUrl: "Test string",
             vpaid: true,
+        });
+        /** Lists assigned targeting options of an insertion order across targeting types. */
+        await gapi.client.displayvideo.advertisers.insertionOrders.bulkListInsertionOrderAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            insertionOrderId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
@@ -10376,10 +10472,12 @@ gapi.load('client', () => {
                                 negative: true,
                             },
                             contentInstreamPositionDetails: {
+                                adType: "Test string",
                                 contentInstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
                             contentOutstreamPositionDetails: {
+                                adType: "Test string",
                                 contentOutstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -10444,6 +10542,7 @@ gapi.load('client', () => {
                                 negativeKeywordListId: "Test string",
                             },
                             onScreenPositionDetails: {
+                                adType: "Test string",
                                 onScreenPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -11677,6 +11776,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -11692,6 +11792,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -11842,6 +11943,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -11857,6 +11959,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -11919,6 +12022,15 @@ gapi.load('client', () => {
             updateTime: "Test string",
             vastTagUrl: "Test string",
             vpaid: true,
+        });
+        /** Lists assigned targeting options of an insertion order across targeting types. */
+        await gapi.client.displayvideo.advertisers.insertionOrders.bulkListInsertionOrderAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            insertionOrderId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
@@ -12201,10 +12313,12 @@ gapi.load('client', () => {
                                 negative: true,
                             },
                             contentInstreamPositionDetails: {
+                                adType: "Test string",
                                 contentInstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
                             contentOutstreamPositionDetails: {
+                                adType: "Test string",
                                 contentOutstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -12269,6 +12383,7 @@ gapi.load('client', () => {
                                 negativeKeywordListId: "Test string",
                             },
                             onScreenPositionDetails: {
+                                adType: "Test string",
                                 onScreenPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -13547,6 +13662,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -13562,6 +13678,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -13712,6 +13829,7 @@ gapi.load('client', () => {
             lineItemIds: [
                 "Test string"            ],
             mediaDuration: "Test string",
+            mp3Audio: true,
             name: "Test string",
             notes: "Test string",
             obaIcon: {
@@ -13727,6 +13845,7 @@ gapi.load('client', () => {
                 resourceUrl: "Test string",
                 viewTrackingUrl: "Test string",
             },
+            oggAudio: true,
             progressOffset: {
                 percentage: "Test string",
                 seconds: "Test string",
@@ -13789,6 +13908,15 @@ gapi.load('client', () => {
             updateTime: "Test string",
             vastTagUrl: "Test string",
             vpaid: true,
+        });
+        /** Lists assigned targeting options of an insertion order across targeting types. */
+        await gapi.client.displayvideo.advertisers.insertionOrders.bulkListInsertionOrderAssignedTargetingOptions({
+            advertiserId: "Test string",
+            filter: "Test string",
+            insertionOrderId: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /** Creates a new insertion order. Returns the newly created insertion order if successful. */
         await gapi.client.displayvideo.advertisers.insertionOrders.create({
@@ -14071,10 +14199,12 @@ gapi.load('client', () => {
                                 negative: true,
                             },
                             contentInstreamPositionDetails: {
+                                adType: "Test string",
                                 contentInstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
                             contentOutstreamPositionDetails: {
+                                adType: "Test string",
                                 contentOutstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -14139,6 +14269,7 @@ gapi.load('client', () => {
                                 negativeKeywordListId: "Test string",
                             },
                             onScreenPositionDetails: {
+                                adType: "Test string",
                                 onScreenPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -15462,10 +15593,12 @@ gapi.load('client', () => {
                                 negative: true,
                             },
                             contentInstreamPositionDetails: {
+                                adType: "Test string",
                                 contentInstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
                             contentOutstreamPositionDetails: {
+                                adType: "Test string",
                                 contentOutstreamPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },
@@ -15530,6 +15663,7 @@ gapi.load('client', () => {
                                 negativeKeywordListId: "Test string",
                             },
                             onScreenPositionDetails: {
+                                adType: "Test string",
                                 onScreenPosition: "Test string",
                                 targetingOptionId: "Test string",
                             },

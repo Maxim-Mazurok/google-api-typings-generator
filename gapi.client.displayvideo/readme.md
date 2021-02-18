@@ -43,7 +43,7 @@ var client_id = '',
       // Create, see, and edit Display & Video 360 Campaign entities and see billing invoices
       'https://www.googleapis.com/auth/display-video-mediaplanning',
 
-      // New Service: https://www.googleapis.com/auth/display-video-user-management
+      // Private Service: https://www.googleapis.com/auth/display-video-user-management
       'https://www.googleapis.com/auth/display-video-user-management',
 
       // View and manage your reports in DoubleClick Bid Manager
