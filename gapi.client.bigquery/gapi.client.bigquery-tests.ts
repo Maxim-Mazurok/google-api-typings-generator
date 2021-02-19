@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210204
+// Revision: 20210215
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -578,6 +578,10 @@ gapi.load('client', () => {
                     cacheHit: true,
                     ddlAffectedRowAccessPolicyCount: "Test string",
                     ddlOperationPerformed: "Test string",
+                    ddlTargetDataset: {
+                        datasetId: "Test string",
+                        projectId: "Test string",
+                    },
                     ddlTargetRoutine: {
                         datasetId: "Test string",
                         projectId: "Test string",
