@@ -36,7 +36,7 @@
     "@types/dot": "^1.1.4",
     "@types/gapi.client.discovery": "^1.0.7",
     "@types/lodash": "^4.14.168",
-    "@types/mocha": "^8.2.0",
+    "@types/mocha": "^8.2.1",
     "@types/n-readlines": "^1.0.1",
     "@types/node": "^14.14.31",
     "@types/request": "2.48.5",
