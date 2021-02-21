@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210206
+// Revision: 20210213
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -36,7 +36,7 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /** Atomically update the ResourceRecordSet collection. */
+        /** Atomically updates the ResourceRecordSet collection. */
         await gapi.client.dns.changes.create({
             clientOperationId: "Test string",
             managedZone: "Test string",
@@ -70,14 +70,14 @@ gapi.load('client', () => {
             startTime: "Test string",
             status: "Test string",
         });
-        /** Fetch the representation of an existing Change. */
+        /** Fetches the representation of an existing Change. */
         await gapi.client.dns.changes.get({
             changeId: "Test string",
             clientOperationId: "Test string",
             managedZone: "Test string",
             project: "Test string",
         });
-        /** Enumerate Changes to a ResourceRecordSet collection. */
+        /** Enumerates Changes to a ResourceRecordSet collection. */
         await gapi.client.dns.changes.list({
             managedZone: "Test string",
             maxResults: 42,
@@ -102,14 +102,14 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
         });
-        /** Fetch the representation of an existing Operation. */
+        /** Fetches the representation of an existing Operation. */
         await gapi.client.dns.managedZoneOperations.get({
             clientOperationId: "Test string",
             managedZone: "Test string",
             operation: "Test string",
             project: "Test string",
         });
-        /** Enumerate Operations for the given ManagedZone. */
+        /** Enumerates Operations for the given ManagedZone. */
         await gapi.client.dns.managedZoneOperations.list({
             managedZone: "Test string",
             maxResults: 42,
@@ -336,7 +336,7 @@ gapi.load('client', () => {
             },
             visibility: "Test string",
         });
-        /** Create a new Policy */
+        /** Creates a new Policy */
         await gapi.client.dns.policies.create({
             clientOperationId: "Test string",
             project: "Test string",
@@ -362,19 +362,19 @@ gapi.load('client', () => {
                     networkUrl: "Test string",
                 }            ],
         });
-        /** Delete a previously created Policy. Will fail if the policy is still being referenced by a network. */
+        /** Delete a previously created Policy. Fails if the policy is still being referenced by a network. */
         await gapi.client.dns.policies.delete({
             clientOperationId: "Test string",
             policy: "Test string",
             project: "Test string",
         });
-        /** Fetch the representation of an existing Policy. */
+        /** Fetches the representation of an existing Policy. */
         await gapi.client.dns.policies.get({
             clientOperationId: "Test string",
             policy: "Test string",
             project: "Test string",
         });
-        /** Enumerate all Policies associated with a project. */
+        /** Enumerates all Policies associated with a project. */
         await gapi.client.dns.policies.list({
             maxResults: 42,
             pageToken: "Test string",
@@ -439,7 +439,7 @@ gapi.load('client', () => {
             clientOperationId: "Test string",
             project: "Test string",
         });
-        /** Enumerate ResourceRecordSets that have been created but not yet deleted. */
+        /** Enumerate ResourceRecordSets that you have created but not yet deleted. */
         await gapi.client.dns.resourceRecordSets.list({
             managedZone: "Test string",
             maxResults: 42,

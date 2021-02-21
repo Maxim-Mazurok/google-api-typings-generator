@@ -68,17 +68,17 @@ After that you can use Cloud DNS API resources:
 ```typescript
 
 /*
-Atomically update the ResourceRecordSet collection.
+Atomically updates the ResourceRecordSet collection.
 */
 await gapi.client.dns.changes.create({ managedZone: "managedZone", project: "project",  });
 
 /*
-Fetch the representation of an existing Change.
+Fetches the representation of an existing Change.
 */
 await gapi.client.dns.changes.get({ changeId: "changeId", managedZone: "managedZone", project: "project",  });
 
 /*
-Enumerate Changes to a ResourceRecordSet collection.
+Enumerates Changes to a ResourceRecordSet collection.
 */
 await gapi.client.dns.changes.list({ managedZone: "managedZone", project: "project",  });
 
@@ -93,12 +93,12 @@ Enumerate DnsKeys to a ResourceRecordSet collection.
 await gapi.client.dns.dnsKeys.list({ managedZone: "managedZone", project: "project",  });
 
 /*
-Fetch the representation of an existing Operation.
+Fetches the representation of an existing Operation.
 */
 await gapi.client.dns.managedZoneOperations.get({ managedZone: "managedZone", operation: "operation", project: "project",  });
 
 /*
-Enumerate Operations for the given ManagedZone.
+Enumerates Operations for the given ManagedZone.
 */
 await gapi.client.dns.managedZoneOperations.list({ managedZone: "managedZone", project: "project",  });
 
@@ -133,22 +133,22 @@ Update an existing ManagedZone.
 await gapi.client.dns.managedZones.update({ managedZone: "managedZone", project: "project",  });
 
 /*
-Create a new Policy
+Creates a new Policy
 */
 await gapi.client.dns.policies.create({ project: "project",  });
 
 /*
-Delete a previously created Policy. Will fail if the policy is still being referenced by a network.
+Delete a previously created Policy. Fails if the policy is still being referenced by a network.
 */
 await gapi.client.dns.policies.delete({ policy: "policy", project: "project",  });
 
 /*
-Fetch the representation of an existing Policy.
+Fetches the representation of an existing Policy.
 */
 await gapi.client.dns.policies.get({ policy: "policy", project: "project",  });
 
 /*
-Enumerate all Policies associated with a project.
+Enumerates all Policies associated with a project.
 */
 await gapi.client.dns.policies.list({ project: "project",  });
 
@@ -168,7 +168,7 @@ Fetch the representation of an existing Project.
 await gapi.client.dns.projects.get({ project: "project",  });
 
 /*
-Enumerate ResourceRecordSets that have been created but not yet deleted.
+Enumerate ResourceRecordSets that you have created but not yet deleted.
 */
 await gapi.client.dns.resourceRecordSets.list({ managedZone: "managedZone", project: "project",  });
 ```
