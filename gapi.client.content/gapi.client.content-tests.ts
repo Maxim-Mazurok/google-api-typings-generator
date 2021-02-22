@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210211
+// Revision: 20210220
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -3188,6 +3188,97 @@ gapi.load('client', () => {
         /** Lists the return policies of the Merchant Center account. */
         await gapi.client.content.returnpolicy.list({
             merchantId: "Test string",
+        });
+        /** Creates a new return policy. */
+        await gapi.client.content.returnpolicyonline.create({
+            merchantId: "Test string",
+        }, {
+            countries: [
+                "Test string"            ],
+            itemConditions: [
+                "Test string"            ],
+            label: "Test string",
+            name: "Test string",
+            policy: {
+                days: "Test string",
+                type: "Test string",
+            },
+            restockingFee: {
+                fixedFee: {
+                    currency: "Test string",
+                    value: "Test string",
+                },
+                microPercent: 42,
+            },
+            returnMethods: [
+                "Test string"            ],
+            returnPolicyId: "Test string",
+            returnPolicyUri: "Test string",
+            returnReasonCategoryInfo: [
+                {
+                    returnLabelSource: "Test string",
+                    returnReasonCategory: "Test string",
+                    returnShippingFee: {
+                        fixedFee: {
+                            currency: "Test string",
+                            value: "Test string",
+                        },
+                        type: "Test string",
+                    },
+                }            ],
+        });
+        /** Deletes an existing return policy. */
+        await gapi.client.content.returnpolicyonline.delete({
+            merchantId: "Test string",
+            returnPolicyId: "Test string",
+        });
+        /** Gets an existing return policy. */
+        await gapi.client.content.returnpolicyonline.get({
+            merchantId: "Test string",
+            returnPolicyId: "Test string",
+        });
+        /** Lists all existing return policies. */
+        await gapi.client.content.returnpolicyonline.list({
+            merchantId: "Test string",
+        });
+        /** Updates an existing return policy. */
+        await gapi.client.content.returnpolicyonline.patch({
+            merchantId: "Test string",
+            returnPolicyId: "Test string",
+        }, {
+            countries: [
+                "Test string"            ],
+            itemConditions: [
+                "Test string"            ],
+            label: "Test string",
+            name: "Test string",
+            policy: {
+                days: "Test string",
+                type: "Test string",
+            },
+            restockingFee: {
+                fixedFee: {
+                    currency: "Test string",
+                    value: "Test string",
+                },
+                microPercent: 42,
+            },
+            returnMethods: [
+                "Test string"            ],
+            returnPolicyId: "Test string",
+            returnPolicyUri: "Test string",
+            returnReasonCategoryInfo: [
+                {
+                    returnLabelSource: "Test string",
+                    returnReasonCategory: "Test string",
+                    returnShippingFee: {
+                        fixedFee: {
+                            currency: "Test string",
+                            value: "Test string",
+                        },
+                        type: "Test string",
+                    },
+                }            ],
         });
         /** Retrieves a settlement report from your Merchant Center account. */
         await gapi.client.content.settlementreports.get({

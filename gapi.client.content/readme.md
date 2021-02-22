@@ -659,6 +659,31 @@ Lists the return policies of the Merchant Center account.
 await gapi.client.content.returnpolicy.list({ merchantId: "merchantId",  });
 
 /*
+Creates a new return policy.
+*/
+await gapi.client.content.returnpolicyonline.create({ merchantId: "merchantId",  });
+
+/*
+Deletes an existing return policy.
+*/
+await gapi.client.content.returnpolicyonline.delete({ merchantId: "merchantId", returnPolicyId: "returnPolicyId",  });
+
+/*
+Gets an existing return policy.
+*/
+await gapi.client.content.returnpolicyonline.get({ merchantId: "merchantId", returnPolicyId: "returnPolicyId",  });
+
+/*
+Lists all existing return policies.
+*/
+await gapi.client.content.returnpolicyonline.list({ merchantId: "merchantId",  });
+
+/*
+Updates an existing return policy.
+*/
+await gapi.client.content.returnpolicyonline.patch({ merchantId: "merchantId", returnPolicyId: "returnPolicyId",  });
+
+/*
 Retrieves a settlement report from your Merchant Center account.
 */
 await gapi.client.content.settlementreports.get({ merchantId: "merchantId", settlementId: "settlementId",  });
