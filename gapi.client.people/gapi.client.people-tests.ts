@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210218
+// Revision: 20210222
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -214,6 +214,12 @@ gapi.load('client', () => {
             readMask: "Test string",
             requestSyncToken: true,
             syncToken: "Test string",
+        });
+        /** Provides a list of contacts in the authenticated user's other contacts that matches the search query. */
+        await gapi.client.people.otherContacts.search({
+            pageSize: 42,
+            query: "Test string",
+            readMask: "Test string",
         });
         /**
          * Create a new contact and return the person resource for that contact. The request returns a 400 error if more than one field is specified on a field that is a singleton for contact
@@ -1111,6 +1117,28 @@ gapi.load('client', () => {
             requestSyncToken: true,
             sources: "Test string",
             syncToken: "Test string",
+        });
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
+         */
+        await gapi.client.people.people.connections.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            personFields: "Test string",
+            "requestMask.includeField": "Test string",
+            requestSyncToken: true,
+            resourceName: "Test string",
+            sortOrder: "Test string",
+            sources: "Test string",
+            syncToken: "Test string",
+        });
+        /** Provides a list of contacts in the authenticated user's grouped contacts that matches the search query. */
+        await gapi.client.people.people.searchContacts({
+            pageSize: 42,
+            query: "Test string",
+            readMask: "Test string",
         });
         /**
          * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified

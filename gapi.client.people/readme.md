@@ -132,6 +132,11 @@ List all "Other contacts", that is contacts that are not in a contact group. "Ot
 await gapi.client.people.otherContacts.list({  });
 
 /*
+Provides a list of contacts in the authenticated user's other contacts that matches the search query.
+*/
+await gapi.client.people.otherContacts.search({  });
+
+/*
 Create a new contact and return the person resource for that contact. The request returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies * birthdays * genders * names
 */
 await gapi.client.people.people.createContact({  });
@@ -160,6 +165,11 @@ await gapi.client.people.people.getBatchGet({  });
 Provides a list of domain profiles and domain contacts in the authenticated user's domain directory.
 */
 await gapi.client.people.people.listDirectoryPeople({  });
+
+/*
+Provides a list of contacts in the authenticated user's grouped contacts that matches the search query.
+*/
+await gapi.client.people.people.searchContacts({  });
 
 /*
 Provides a list of domain profiles and domain contacts in the authenticated user's domain directory that match the search query.
