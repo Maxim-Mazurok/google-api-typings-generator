@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210215
+// Revision: 20210222
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -54,8 +54,8 @@ gapi.load('client', () => {
             name: "Test string",
         });
         /**
-         * Retrieve a Lien by `name`. Callers of this method will require permission on the `parent` resource. For example, a Lien with a `parent` of `projects/1234` requires permission requires
-         * permission `resourcemanager.projects.get` or `resourcemanager.projects.updateLiens`.
+         * Retrieve a Lien by `name`. Callers of this method will require permission on the `parent` resource. For example, a Lien with a `parent` of `projects/1234` requires permission
+         * `resourcemanager.projects.get`
          */
         await gapi.client.cloudresourcemanager.liens.get({
             name: "Test string",

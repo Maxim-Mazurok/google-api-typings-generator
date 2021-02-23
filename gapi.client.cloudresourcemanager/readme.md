@@ -72,7 +72,7 @@ Delete a Lien by `name`. Callers of this method will require permission on the `
 await gapi.client.cloudresourcemanager.liens.delete({ name: "name",  });
 
 /*
-Retrieve a Lien by `name`. Callers of this method will require permission on the `parent` resource. For example, a Lien with a `parent` of `projects/1234` requires permission requires permission `resourcemanager.projects.get` or `resourcemanager.projects.updateLiens`.
+Retrieve a Lien by `name`. Callers of this method will require permission on the `parent` resource. For example, a Lien with a `parent` of `projects/1234` requires permission `resourcemanager.projects.get`
 */
 await gapi.client.cloudresourcemanager.liens.get({ name: "name",  });
 
