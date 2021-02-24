@@ -149,6 +149,16 @@ Updates the tax settings of the account. Any fields that are not provided are de
 await gapi.client.content.accounttax.update({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
+Retrieves a status of BoG program for your Merchant Center account.
+*/
+await gapi.client.content.buyongoogleprograms.get({ merchantId: "merchantId", regionCode: "regionCode",  });
+
+/*
+Onboards BoG in your Merchant Center account. By using this method, you agree to the Terms of Service.
+*/
+await gapi.client.content.buyongoogleprograms.onboard({ merchantId: "merchantId", regionCode: "regionCode",  });
+
+/*
 Uploads a collection to your Merchant Center account. If a collection with the same collectionId already exists, this method updates that entry. In each update, the collection is completely replaced by the fields in the body of the update request.
 */
 await gapi.client.content.collections.create({ merchantId: "merchantId",  });

@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210222
+// Revision: 20210223
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1003,6 +1003,18 @@ gapi.load('client', () => {
                     shippingTaxed: true,
                     useGlobalRate: true,
                 }            ],
+        });
+        /** Retrieves a status of BoG program for your Merchant Center account. */
+        await gapi.client.content.buyongoogleprograms.get({
+            merchantId: "Test string",
+            regionCode: "Test string",
+        });
+        /** Onboards BoG in your Merchant Center account. By using this method, you agree to the Terms of Service. */
+        await gapi.client.content.buyongoogleprograms.onboard({
+            merchantId: "Test string",
+            regionCode: "Test string",
+        }, {
+            customerServiceEmail: "Test string",
         });
         /**
          * Uploads a collection to your Merchant Center account. If a collection with the same collectionId already exists, this method updates that entry. In each update, the collection is
