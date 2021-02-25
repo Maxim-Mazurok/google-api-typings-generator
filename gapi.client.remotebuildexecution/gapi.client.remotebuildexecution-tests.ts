@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210213
+// Revision: 20210224
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -32,8 +32,8 @@ gapi.load('client', () => {
     async function run() {
         /**
          * Retrieve a cached execution result. Implementations SHOULD ensure that any blobs referenced from the ContentAddressableStorage are available at the time of returning the ActionResult
-         * and will be for some period of time afterwards. The TTLs of the referenced blobs SHOULD be increased if necessary and applicable. Errors: * `NOT_FOUND`: The requested `ActionResult` is
-         * not in the cache.
+         * and will be for some period of time afterwards. The lifetimes of the referenced blobs SHOULD be increased if necessary and applicable. Errors: * `NOT_FOUND`: The requested
+         * `ActionResult` is not in the cache.
          */
         await gapi.client.remotebuildexecution.actionResults.get({
             hash: "Test string",
@@ -45,9 +45,9 @@ gapi.load('client', () => {
         });
         /**
          * Upload a new execution result. In order to allow the server to perform access control based on the type of action, and to assist with client debugging, the client MUST first upload the
-         * Action that produced the result, along with its Command, into the `ContentAddressableStorage`. Errors: * `INVALID_ARGUMENT`: One or more arguments are invalid. * `FAILED_PRECONDITION`:
-         * One or more errors occurred in updating the action result, such as a missing command or action. * `RESOURCE_EXHAUSTED`: There is insufficient storage space to add the entry to the
-         * cache.
+         * Action that produced the result, along with its Command, into the `ContentAddressableStorage`. Server implementations MAY modify the `UpdateActionResultRequest.action_result` and return
+         * an equivalent value. Errors: * `INVALID_ARGUMENT`: One or more arguments are invalid. * `FAILED_PRECONDITION`: One or more errors occurred in updating the action result, such as a
+         * missing command or action. * `RESOURCE_EXHAUSTED`: There is insufficient storage space to add the entry to the cache.
          */
         await gapi.client.remotebuildexecution.actionResults.update({
             hash: "Test string",
@@ -56,6 +56,9 @@ gapi.load('client', () => {
             sizeBytes: "Test string",
         }, {
             executionMetadata: {
+                auxiliaryMetadata: [
+                    {
+                        A: 42                    }                ],
                 executionCompletedTimestamp: "Test string",
                 executionStartTimestamp: "Test string",
                 inputFetchCompletedTimestamp: "Test string",
@@ -78,11 +81,15 @@ gapi.load('client', () => {
                 }            ],
             outputDirectorySymlinks: [
                 {
-                    nodeProperties: [
-                        {
-                            name: "Test string",
-                            value: "Test string",
-                        }                    ],
+                    nodeProperties: {
+                        mtime: "Test string",
+                        properties: [
+                            {
+                                name: "Test string",
+                                value: "Test string",
+                            }                        ],
+                        unixMode: 42,
+                    },
                     path: "Test string",
                     target: "Test string",
                 }            ],
@@ -94,30 +101,42 @@ gapi.load('client', () => {
                         sizeBytes: "Test string",
                     },
                     isExecutable: true,
-                    nodeProperties: [
-                        {
-                            name: "Test string",
-                            value: "Test string",
-                        }                    ],
+                    nodeProperties: {
+                        mtime: "Test string",
+                        properties: [
+                            {
+                                name: "Test string",
+                                value: "Test string",
+                            }                        ],
+                        unixMode: 42,
+                    },
                     path: "Test string",
                 }            ],
             outputFileSymlinks: [
                 {
-                    nodeProperties: [
-                        {
-                            name: "Test string",
-                            value: "Test string",
-                        }                    ],
+                    nodeProperties: {
+                        mtime: "Test string",
+                        properties: [
+                            {
+                                name: "Test string",
+                                value: "Test string",
+                            }                        ],
+                        unixMode: 42,
+                    },
                     path: "Test string",
                     target: "Test string",
                 }            ],
             outputSymlinks: [
                 {
-                    nodeProperties: [
-                        {
-                            name: "Test string",
-                            value: "Test string",
-                        }                    ],
+                    nodeProperties: {
+                        mtime: "Test string",
+                        properties: [
+                            {
+                                name: "Test string",
+                                value: "Test string",
+                            }                        ],
+                        unixMode: 42,
+                    },
                     path: "Test string",
                     target: "Test string",
                 }            ],
@@ -149,7 +168,8 @@ gapi.load('client', () => {
          * worker. * `DEADLINE_EXCEEDED`: The execution timed out. * `CANCELLED`: The operation was cancelled by the client. This status is only possible if the server implements the Operations
          * API CancelOperation method, and it was called for the current execution. In the case of a missing input or command, the server SHOULD additionally send a PreconditionFailure error
          * detail where, for each requested blob not present in the CAS, there is a `Violation` with a `type` of `MISSING` and a `subject` of `"blobs/{hash}/{size}"` indicating the digest of the
-         * missing blob.
+         * missing blob. The server does not need to guarantee that a call to this method leads to at most one execution of the action. The server MAY execute the action multiple times,
+         * potentially in parallel. These redundant executions MAY continue to run, even if the operation is completed.
          */
         await gapi.client.remotebuildexecution.actions.execute({
             instanceName: "Test string",
@@ -202,7 +222,7 @@ gapi.load('client', () => {
         });
         /**
          * Determine if blobs are present in the CAS. Clients can use this API before uploading blobs to determine which ones are already present in the CAS and do not need to be uploaded again.
-         * Servers SHOULD increase the TTLs of the referenced blobs if necessary and applicable. There are no method-specific errors.
+         * Servers SHOULD increase the lifetimes of the referenced blobs if necessary and applicable. There are no method-specific errors.
          */
         await gapi.client.remotebuildexecution.blobs.findMissing({
             instanceName: "Test string",
