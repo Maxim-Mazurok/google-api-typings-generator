@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210203
+// Revision: 20210217
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -959,6 +959,8 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                serviceOptions: [
+                    "Test string"                ],
                 shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
@@ -3291,6 +3293,8 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                serviceOptions: [
+                    "Test string"                ],
                 shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
@@ -4090,6 +4094,8 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                serviceOptions: [
+                    "Test string"                ],
                 shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
@@ -6962,6 +6968,8 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                serviceOptions: [
+                    "Test string"                ],
                 shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
@@ -8787,6 +8795,8 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                serviceOptions: [
+                    "Test string"                ],
                 shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
@@ -11119,6 +11129,8 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                serviceOptions: [
+                    "Test string"                ],
                 shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
@@ -11918,6 +11930,8 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                serviceOptions: [
+                    "Test string"                ],
                 shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
@@ -14790,6 +14804,8 @@ gapi.load('client', () => {
                     A: 42                },
                 serviceAccountEmail: "Test string",
                 serviceKmsKeyName: "Test string",
+                serviceOptions: [
+                    "Test string"                ],
                 shuffleMode: "Test string",
                 tempStoragePrefix: "Test string",
                 userAgent: {
