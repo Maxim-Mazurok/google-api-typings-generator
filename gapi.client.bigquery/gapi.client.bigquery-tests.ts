@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210215
+// Revision: 20210219
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -358,6 +358,10 @@ gapi.load('client', () => {
                     jsonExtension: "Test string",
                     maxBadRecords: 42,
                     nullMarker: "Test string",
+                    parquetOptions: {
+                        enableListInference: true,
+                        enumAsString: true,
+                    },
                     projectionFields: [
                         "Test string"                    ],
                     quote: "Test string",
@@ -508,6 +512,10 @@ gapi.load('client', () => {
                             },
                             ignoreUnknownValues: true,
                             maxBadRecords: 42,
+                            parquetOptions: {
+                                enableListInference: true,
+                                enumAsString: true,
+                            },
                             schema: {
                                 fields: [
                                     {
@@ -1436,6 +1444,10 @@ gapi.load('client', () => {
                 },
                 ignoreUnknownValues: true,
                 maxBadRecords: 42,
+                parquetOptions: {
+                    enableListInference: true,
+                    enumAsString: true,
+                },
                 schema: {
                     fields: [
                         {
@@ -1640,6 +1652,10 @@ gapi.load('client', () => {
                 },
                 ignoreUnknownValues: true,
                 maxBadRecords: 42,
+                parquetOptions: {
+                    enableListInference: true,
+                    enumAsString: true,
+                },
                 schema: {
                     fields: [
                         {
@@ -1879,6 +1895,10 @@ gapi.load('client', () => {
                 },
                 ignoreUnknownValues: true,
                 maxBadRecords: 42,
+                parquetOptions: {
+                    enableListInference: true,
+                    enumAsString: true,
+                },
                 schema: {
                     fields: [
                         {
