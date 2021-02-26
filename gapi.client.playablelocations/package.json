@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.playablelocations",
-  "version": "3.0.20210224",
+  "version": "3.0.20210225",
   "description": "TypeScript typings for Playable Locations API v3",
   "license": "MIT",
   "author": {
