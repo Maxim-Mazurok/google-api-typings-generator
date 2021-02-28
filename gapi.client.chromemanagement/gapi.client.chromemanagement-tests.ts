@@ -4,14 +4,29 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210226
+// Revision: 20210227
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
     gapi.client.load('chromemanagement', 'v1', () => {
         /** now we can use gapi.client.chromemanagement */
 
-        run();
+        /** don't forget to authenticate your client before sending any request to resources: */
+        /** declare client_id registered in Google Developers Console */
+        const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+        const scope = [
+            /** See reports about devices and Chrome browsers managed within your organization */
+            'https://www.googleapis.com/auth/chrome.management.reports.readonly',
+        ];
+        const immediate = false;
+        gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
+            if (authResult && !authResult.error) {
+                /** handle successful authorization */
+                run();
+            } else {
+                /** handle authorization error */
+            }
+        });
     });
 
     async function run() {
