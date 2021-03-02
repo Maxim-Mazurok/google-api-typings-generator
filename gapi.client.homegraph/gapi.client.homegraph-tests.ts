@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210219
+// Revision: 20210226
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -76,6 +76,19 @@ gapi.load('client', () => {
                     states: {
                         A: 42                    },
                 },
+            },
+            requestId: "Test string",
+        });
+        /**
+         * Sends an account linking suggestion to users associated with any potential Cast devices detected by third-party devices. This request must be authorized using service account
+         * credentials from your Actions console project.
+         */
+        await gapi.client.homegraph.devices.requestLink({
+        }, {
+            payload: {
+                detectionTime: "Test string",
+                potentialCastDeviceIds: [
+                    "Test string"                ],
             },
             requestId: "Test string",
         });

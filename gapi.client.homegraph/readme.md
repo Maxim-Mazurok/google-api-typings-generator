@@ -74,6 +74,11 @@ Reports device state and optionally sends device notifications. Called by your s
 await gapi.client.homegraph.devices.reportStateAndNotification({  });
 
 /*
+Sends an account linking suggestion to users associated with any potential Cast devices detected by third-party devices. This request must be authorized using service account credentials from your Actions console project.
+*/
+await gapi.client.homegraph.devices.requestLink({  });
+
+/*
 Requests Google to send an `action.devices.SYNC` [intent](https://developers.google.com/assistant/smarthome/reference/intent/sync) to your smart home Action to update device metadata for the given user. The third-party user's identity is passed via the `agent_user_id` (see RequestSyncDevicesRequest). This request must be authorized using service account credentials from your Actions console project.
 */
 await gapi.client.homegraph.devices.requestSync({  });
