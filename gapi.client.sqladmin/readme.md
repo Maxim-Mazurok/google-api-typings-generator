@@ -37,7 +37,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // See, edit, configure, and delete your Google Cloud Platform data
+      // View and manage your data across Google Cloud Platform services
       'https://www.googleapis.com/auth/cloud-platform',
 
       // Manage your Google SQL Service instances
@@ -212,7 +212,7 @@ Stops the replication in the read replica instance.
 await gapi.client.sqladmin.instances.stopReplica({ instance: "instance", project: "project",  });
 
 /*
-Truncate MySQL general and slow query log tables
+Truncate MySQL general and slow query log tables MySQL only.
 */
 await gapi.client.sqladmin.instances.truncateLog({ instance: "instance", project: "project",  });
 
