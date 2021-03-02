@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210225
+// Revision: 20210226
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -32,6 +32,14 @@ gapi.load('client', () => {
     async function run() {
         /** Returns information about the authenticated user. */
         await gapi.client.content.accounts.authinfo({
+        });
+        /** Uploads credentials for the Merchant Center account. If credentials already exist for this Merchant Center account and purpose, this method updates them. */
+        await gapi.client.content.accounts.credentials.create({
+            accountId: "Test string",
+        }, {
+            accessToken: "Test string",
+            expiresIn: "Test string",
+            purpose: "Test string",
         });
         /** Creates a new label, not assigned to any account. */
         await gapi.client.content.accounts.labels.create({
@@ -98,6 +106,14 @@ gapi.load('client', () => {
             accountId: "Test string",
             merchantId: "Test string",
             overwrite: true,
+        });
+        /** Uploads credentials for the Merchant Center account. If credentials already exist for this Merchant Center account and purpose, this method updates them. */
+        await gapi.client.content.accounts.credentials.create({
+            accountId: "Test string",
+        }, {
+            accessToken: "Test string",
+            expiresIn: "Test string",
+            purpose: "Test string",
         });
         /** Creates a new label, not assigned to any account. */
         await gapi.client.content.accounts.labels.create({
@@ -233,6 +249,14 @@ gapi.load('client', () => {
                     view: "Test string",
                 }            ],
         });
+        /** Uploads credentials for the Merchant Center account. If credentials already exist for this Merchant Center account and purpose, this method updates them. */
+        await gapi.client.content.accounts.credentials.create({
+            accountId: "Test string",
+        }, {
+            accessToken: "Test string",
+            expiresIn: "Test string",
+            purpose: "Test string",
+        });
         /** Creates a new label, not assigned to any account. */
         await gapi.client.content.accounts.labels.create({
             accountId: "Test string",
@@ -299,6 +323,14 @@ gapi.load('client', () => {
             force: true,
             merchantId: "Test string",
         });
+        /** Uploads credentials for the Merchant Center account. If credentials already exist for this Merchant Center account and purpose, this method updates them. */
+        await gapi.client.content.accounts.credentials.create({
+            accountId: "Test string",
+        }, {
+            accessToken: "Test string",
+            expiresIn: "Test string",
+            purpose: "Test string",
+        });
         /** Creates a new label, not assigned to any account. */
         await gapi.client.content.accounts.labels.create({
             accountId: "Test string",
@@ -364,6 +396,14 @@ gapi.load('client', () => {
             accountId: "Test string",
             merchantId: "Test string",
             view: "Test string",
+        });
+        /** Uploads credentials for the Merchant Center account. If credentials already exist for this Merchant Center account and purpose, this method updates them. */
+        await gapi.client.content.accounts.credentials.create({
+            accountId: "Test string",
+        }, {
+            accessToken: "Test string",
+            expiresIn: "Test string",
+            purpose: "Test string",
         });
         /** Creates a new label, not assigned to any account. */
         await gapi.client.content.accounts.labels.create({
@@ -479,6 +519,14 @@ gapi.load('client', () => {
                     status: "Test string",
                 }            ],
         });
+        /** Uploads credentials for the Merchant Center account. If credentials already exist for this Merchant Center account and purpose, this method updates them. */
+        await gapi.client.content.accounts.credentials.create({
+            accountId: "Test string",
+        }, {
+            accessToken: "Test string",
+            expiresIn: "Test string",
+            purpose: "Test string",
+        });
         /** Creates a new label, not assigned to any account. */
         await gapi.client.content.accounts.labels.create({
             accountId: "Test string",
@@ -550,6 +598,14 @@ gapi.load('client', () => {
             services: [
                 "Test string"            ],
         });
+        /** Uploads credentials for the Merchant Center account. If credentials already exist for this Merchant Center account and purpose, this method updates them. */
+        await gapi.client.content.accounts.credentials.create({
+            accountId: "Test string",
+        }, {
+            accessToken: "Test string",
+            expiresIn: "Test string",
+            purpose: "Test string",
+        });
         /** Creates a new label, not assigned to any account. */
         await gapi.client.content.accounts.labels.create({
             accountId: "Test string",
@@ -618,6 +674,14 @@ gapi.load('client', () => {
             pageToken: "Test string",
             view: "Test string",
         });
+        /** Uploads credentials for the Merchant Center account. If credentials already exist for this Merchant Center account and purpose, this method updates them. */
+        await gapi.client.content.accounts.credentials.create({
+            accountId: "Test string",
+        }, {
+            accessToken: "Test string",
+            expiresIn: "Test string",
+            purpose: "Test string",
+        });
         /** Creates a new label, not assigned to any account. */
         await gapi.client.content.accounts.labels.create({
             accountId: "Test string",
@@ -684,6 +748,14 @@ gapi.load('client', () => {
             maxResults: 42,
             merchantId: "Test string",
             pageToken: "Test string",
+        });
+        /** Uploads credentials for the Merchant Center account. If credentials already exist for this Merchant Center account and purpose, this method updates them. */
+        await gapi.client.content.accounts.credentials.create({
+            accountId: "Test string",
+        }, {
+            accessToken: "Test string",
+            expiresIn: "Test string",
+            purpose: "Test string",
         });
         /** Creates a new label, not assigned to any account. */
         await gapi.client.content.accounts.labels.create({
@@ -800,6 +872,14 @@ gapi.load('client', () => {
                     status: "Test string",
                 }            ],
         });
+        /** Uploads credentials for the Merchant Center account. If credentials already exist for this Merchant Center account and purpose, this method updates them. */
+        await gapi.client.content.accounts.credentials.create({
+            accountId: "Test string",
+        }, {
+            accessToken: "Test string",
+            expiresIn: "Test string",
+            purpose: "Test string",
+        });
         /** Creates a new label, not assigned to any account. */
         await gapi.client.content.accounts.labels.create({
             accountId: "Test string",
@@ -867,6 +947,14 @@ gapi.load('client', () => {
         }, {
             labelIds: [
                 "Test string"            ],
+        });
+        /** Uploads credentials for the Merchant Center account. If credentials already exist for this Merchant Center account and purpose, this method updates them. */
+        await gapi.client.content.accounts.credentials.create({
+            accountId: "Test string",
+        }, {
+            accessToken: "Test string",
+            expiresIn: "Test string",
+            purpose: "Test string",
         });
         /** Creates a new label, not assigned to any account. */
         await gapi.client.content.accounts.labels.create({
@@ -1009,7 +1097,7 @@ gapi.load('client', () => {
             merchantId: "Test string",
             regionCode: "Test string",
         });
-        /** Onboards BoG in your Merchant Center account. By using this method, you agree to the Terms of Service. */
+        /** Onboards BoG in your Merchant Center account. By using this method, you agree to the [Terms of Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest). */
         await gapi.client.content.buyongoogleprograms.onboard({
             merchantId: "Test string",
             regionCode: "Test string",

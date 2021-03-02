@@ -154,7 +154,7 @@ Retrieves a status of BoG program for your Merchant Center account.
 await gapi.client.content.buyongoogleprograms.get({ merchantId: "merchantId", regionCode: "regionCode",  });
 
 /*
-Onboards BoG in your Merchant Center account. By using this method, you agree to the Terms of Service.
+Onboards BoG in your Merchant Center account. By using this method, you agree to the [Terms of Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest).
 */
 await gapi.client.content.buyongoogleprograms.onboard({ merchantId: "merchantId", regionCode: "regionCode",  });
 
