@@ -133,12 +133,12 @@ Update an existing ManagedZone.
 await gapi.client.dns.managedZones.update({ managedZone: "managedZone", project: "project",  });
 
 /*
-Creates a new Policy
+Creates a new Policy.
 */
 await gapi.client.dns.policies.create({ project: "project",  });
 
 /*
-Delete a previously created Policy. Fails if the policy is still being referenced by a network.
+Deletes a previously created Policy. Fails if the policy is still being referenced by a network.
 */
 await gapi.client.dns.policies.delete({ policy: "policy", project: "project",  });
 
@@ -168,7 +168,7 @@ Fetch the representation of an existing Project.
 await gapi.client.dns.projects.get({ project: "project",  });
 
 /*
-Enumerate ResourceRecordSets that you have created but not yet deleted.
+Enumerates ResourceRecordSets that you have created but not yet deleted.
 */
 await gapi.client.dns.resourceRecordSets.list({ managedZone: "managedZone", project: "project",  });
 ```

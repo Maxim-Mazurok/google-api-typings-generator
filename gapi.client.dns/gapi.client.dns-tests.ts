@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210213
+// Revision: 20210227
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -336,7 +336,7 @@ gapi.load('client', () => {
             },
             visibility: "Test string",
         });
-        /** Creates a new Policy */
+        /** Creates a new Policy. */
         await gapi.client.dns.policies.create({
             clientOperationId: "Test string",
             project: "Test string",
@@ -362,7 +362,7 @@ gapi.load('client', () => {
                     networkUrl: "Test string",
                 }            ],
         });
-        /** Delete a previously created Policy. Fails if the policy is still being referenced by a network. */
+        /** Deletes a previously created Policy. Fails if the policy is still being referenced by a network. */
         await gapi.client.dns.policies.delete({
             clientOperationId: "Test string",
             policy: "Test string",
@@ -439,7 +439,7 @@ gapi.load('client', () => {
             clientOperationId: "Test string",
             project: "Test string",
         });
-        /** Enumerate ResourceRecordSets that you have created but not yet deleted. */
+        /** Enumerates ResourceRecordSets that you have created but not yet deleted. */
         await gapi.client.dns.resourceRecordSets.list({
             managedZone: "Test string",
             maxResults: 42,
