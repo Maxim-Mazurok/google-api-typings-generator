@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210222
+// Revision: 20210301
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -27,9 +27,9 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/gmail.addons.current.message.readonly',
             /** Manage drafts and send emails */
             'https://www.googleapis.com/auth/gmail.compose',
-            /** Insert mail into your mailbox */
+            /** Add emails into your Gmail mailbox */
             'https://www.googleapis.com/auth/gmail.insert',
-            /** Manage mailbox labels */
+            /** See and edit your email labels */
             'https://www.googleapis.com/auth/gmail.labels',
             /** View your email message metadata such as labels and headers, but not the email body */
             'https://www.googleapis.com/auth/gmail.metadata',
@@ -39,7 +39,7 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/gmail.readonly',
             /** Send email on your behalf */
             'https://www.googleapis.com/auth/gmail.send',
-            /** Manage your basic mail settings */
+            /** See, edit, create, or change your email settings and filters in Gmail */
             'https://www.googleapis.com/auth/gmail.settings.basic',
             /** Manage your sensitive mail settings, including who can manage your mail */
             'https://www.googleapis.com/auth/gmail.settings.sharing',

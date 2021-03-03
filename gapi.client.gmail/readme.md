@@ -55,10 +55,10 @@ var client_id = '',
       // Manage drafts and send emails
       'https://www.googleapis.com/auth/gmail.compose',
 
-      // Insert mail into your mailbox
+      // Add emails into your Gmail mailbox
       'https://www.googleapis.com/auth/gmail.insert',
 
-      // Manage mailbox labels
+      // See and edit your email labels
       'https://www.googleapis.com/auth/gmail.labels',
 
       // View your email message metadata such as labels and headers, but not the email body
@@ -73,7 +73,7 @@ var client_id = '',
       // Send email on your behalf
       'https://www.googleapis.com/auth/gmail.send',
 
-      // Manage your basic mail settings
+      // See, edit, create, or change your email settings and filters in Gmail
       'https://www.googleapis.com/auth/gmail.settings.basic',
 
       // Manage your sensitive mail settings, including who can manage your mail
