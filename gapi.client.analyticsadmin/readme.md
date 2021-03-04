@@ -98,6 +98,11 @@ Requests a ticket for creating an account.
 await gapi.client.analyticsadmin.accounts.provisionAccountTicket({  });
 
 /*
+Searches through all changes to an account or its children given the specified set of filters.
+*/
+await gapi.client.analyticsadmin.accounts.searchChangeHistoryEvents({ account: "account",  });
+
+/*
 Returns summaries of all accounts accessible by the caller.
 */
 await gapi.client.analyticsadmin.accountSummaries.list({  });

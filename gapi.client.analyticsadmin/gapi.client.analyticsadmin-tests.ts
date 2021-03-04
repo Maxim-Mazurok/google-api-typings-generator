@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210303
+// Revision: 20210304
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -545,6 +545,114 @@ gapi.load('client', () => {
                 updateTime: "Test string",
             },
             redirectUri: "Test string",
+        });
+        /**
+         * Lists all user links on an account or property, including implicit ones that come from effective permissions granted by groups or organization admin roles. If a returned user link does
+         * not have direct permissions, they cannot be removed from the account or property directly with the DeleteUserLink command. They have to be removed from the group/etc that gives them
+         * permissions, which is currently only usable/discoverable in the GA or GMP UIs.
+         */
+        await gapi.client.analyticsadmin.accounts.userLinks.audit({
+            parent: "Test string",
+        }, {
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Creates information about multiple users' links to an account or property. This method is transactional. If any UserLink cannot be created, none of the UserLinks will be created. */
+        await gapi.client.analyticsadmin.accounts.userLinks.batchCreate({
+            parent: "Test string",
+        }, {
+            notifyNewUsers: true,
+            requests: [
+                {
+                    notifyNewUser: true,
+                    parent: "Test string",
+                    userLink: {
+                        directRoles: [
+                            "Test string"                        ],
+                        emailAddress: "Test string",
+                        name: "Test string",
+                    },
+                }            ],
+        });
+        /** Deletes information about multiple users' links to an account or property. */
+        await gapi.client.analyticsadmin.accounts.userLinks.batchDelete({
+            parent: "Test string",
+        }, {
+            requests: [
+                {
+                    name: "Test string",
+                }            ],
+        });
+        /** Gets information about multiple users' links to an account or property. */
+        await gapi.client.analyticsadmin.accounts.userLinks.batchGet({
+            names: "Test string",
+            parent: "Test string",
+        });
+        /** Updates information about multiple users' links to an account or property. */
+        await gapi.client.analyticsadmin.accounts.userLinks.batchUpdate({
+            parent: "Test string",
+        }, {
+            requests: [
+                {
+                    userLink: {
+                        directRoles: [
+                            "Test string"                        ],
+                        emailAddress: "Test string",
+                        name: "Test string",
+                    },
+                }            ],
+        });
+        /**
+         * Creates a user link on an account or property. If the user with the specified email already has permissions on the account or property, then the user's existing permissions will be
+         * unioned with the permissions specified in the new UserLink.
+         */
+        await gapi.client.analyticsadmin.accounts.userLinks.create({
+            notifyNewUser: true,
+            parent: "Test string",
+        }, {
+            directRoles: [
+                "Test string"            ],
+            emailAddress: "Test string",
+            name: "Test string",
+        });
+        /** Deletes a user link on an account or property. */
+        await gapi.client.analyticsadmin.accounts.userLinks.delete({
+            name: "Test string",
+        });
+        /** Gets information about a user's link to an account or property. */
+        await gapi.client.analyticsadmin.accounts.userLinks.get({
+            name: "Test string",
+        });
+        /** Lists all user links on an account or property. */
+        await gapi.client.analyticsadmin.accounts.userLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a user link on an account or property. */
+        await gapi.client.analyticsadmin.accounts.userLinks.patch({
+            name: "Test string",
+        }, {
+            directRoles: [
+                "Test string"            ],
+            emailAddress: "Test string",
+            name: "Test string",
+        });
+        /** Searches through all changes to an account or its children given the specified set of filters. */
+        await gapi.client.analyticsadmin.accounts.searchChangeHistoryEvents({
+            account: "Test string",
+        }, {
+            action: [
+                "Test string"            ],
+            actorEmail: [
+                "Test string"            ],
+            earliestChangeTime: "Test string",
+            latestChangeTime: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            property: "Test string",
+            resourceType: [
+                "Test string"            ],
         });
         /**
          * Lists all user links on an account or property, including implicit ones that come from effective permissions granted by groups or organization admin roles. If a returned user link does
