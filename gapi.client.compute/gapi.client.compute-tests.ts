@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210209
+// Revision: 20210301
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -738,7 +738,7 @@ gapi.load('client', () => {
             sessionAffinity: "Test string",
             timeoutSec: 42,
         });
-        /** Sets the security policy for the specified backend service. */
+        /** Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview */
         await gapi.client.compute.backendServices.setSecurityPolicy({
             backendService: "Test string",
             project: "Test string",
@@ -3878,6 +3878,7 @@ gapi.load('client', () => {
                         nicType: "Test string",
                         subnetwork: "Test string",
                     }                ],
+                postKeyRevocationActionType: "Test string",
                 privateIpv6GoogleAccess: "Test string",
                 reservationAffinity: {
                     consumeReservationType: "Test string",
@@ -4150,6 +4151,7 @@ gapi.load('client', () => {
                     nicType: "Test string",
                     subnetwork: "Test string",
                 }            ],
+            postKeyRevocationActionType: "Test string",
             privateIpv6GoogleAccess: "Test string",
             reservationAffinity: {
                 consumeReservationType: "Test string",
@@ -4666,6 +4668,7 @@ gapi.load('client', () => {
                     nicType: "Test string",
                     subnetwork: "Test string",
                 }            ],
+            postKeyRevocationActionType: "Test string",
             privateIpv6GoogleAccess: "Test string",
             reservationAffinity: {
                 consumeReservationType: "Test string",
@@ -4953,6 +4956,7 @@ gapi.load('client', () => {
                         nicType: "Test string",
                         subnetwork: "Test string",
                     }                ],
+                postKeyRevocationActionType: "Test string",
                 privateIpv6GoogleAccess: "Test string",
                 reservationAffinity: {
                     consumeReservationType: "Test string",
@@ -8477,6 +8481,7 @@ gapi.load('client', () => {
                         nicType: "Test string",
                         subnetwork: "Test string",
                     }                ],
+                postKeyRevocationActionType: "Test string",
                 privateIpv6GoogleAccess: "Test string",
                 reservationAffinity: {
                     consumeReservationType: "Test string",
@@ -8811,6 +8816,7 @@ gapi.load('client', () => {
             authorizationPolicy: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
+            fingerprint: "Test string",
             id: "Test string",
             kind: "Test string",
             name: "Test string",
@@ -12448,6 +12454,7 @@ gapi.load('client', () => {
             authorizationPolicy: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
+            fingerprint: "Test string",
             id: "Test string",
             kind: "Test string",
             name: "Test string",
@@ -12482,6 +12489,7 @@ gapi.load('client', () => {
             authorizationPolicy: "Test string",
             creationTimestamp: "Test string",
             description: "Test string",
+            fingerprint: "Test string",
             id: "Test string",
             kind: "Test string",
             name: "Test string",

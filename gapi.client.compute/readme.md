@@ -238,7 +238,7 @@ Patches the specified BackendService resource with the data included in the requ
 await gapi.client.compute.backendServices.patch({ backendService: "backendService", project: "project",  });
 
 /*
-Sets the security policy for the specified backend service.
+Sets the Google Cloud Armor security policy for the specified backend service. For more information, see Google Cloud Armor Overview
 */
 await gapi.client.compute.backendServices.setSecurityPolicy({ backendService: "backendService", project: "project",  });
 
