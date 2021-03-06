@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210217
+// Revision: 20210301
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -950,6 +950,9 @@ gapi.load('client', () => {
             environment: {
                 clusterManagerApiService: "Test string",
                 dataset: "Test string",
+                debugOptions: {
+                    enableHotKeyLogging: true,
+                },
                 experiments: [
                     "Test string"                ],
                 flexResourceSchedulingGoal: "Test string",
@@ -3284,6 +3287,9 @@ gapi.load('client', () => {
             environment: {
                 clusterManagerApiService: "Test string",
                 dataset: "Test string",
+                debugOptions: {
+                    enableHotKeyLogging: true,
+                },
                 experiments: [
                     "Test string"                ],
                 flexResourceSchedulingGoal: "Test string",
@@ -4085,6 +4091,9 @@ gapi.load('client', () => {
             environment: {
                 clusterManagerApiService: "Test string",
                 dataset: "Test string",
+                debugOptions: {
+                    enableHotKeyLogging: true,
+                },
                 experiments: [
                     "Test string"                ],
                 flexResourceSchedulingGoal: "Test string",
@@ -6959,6 +6968,9 @@ gapi.load('client', () => {
             environment: {
                 clusterManagerApiService: "Test string",
                 dataset: "Test string",
+                debugOptions: {
+                    enableHotKeyLogging: true,
+                },
                 experiments: [
                     "Test string"                ],
                 flexResourceSchedulingGoal: "Test string",
@@ -8786,6 +8798,9 @@ gapi.load('client', () => {
             environment: {
                 clusterManagerApiService: "Test string",
                 dataset: "Test string",
+                debugOptions: {
+                    enableHotKeyLogging: true,
+                },
                 experiments: [
                     "Test string"                ],
                 flexResourceSchedulingGoal: "Test string",
@@ -11120,6 +11135,9 @@ gapi.load('client', () => {
             environment: {
                 clusterManagerApiService: "Test string",
                 dataset: "Test string",
+                debugOptions: {
+                    enableHotKeyLogging: true,
+                },
                 experiments: [
                     "Test string"                ],
                 flexResourceSchedulingGoal: "Test string",
@@ -11921,6 +11939,9 @@ gapi.load('client', () => {
             environment: {
                 clusterManagerApiService: "Test string",
                 dataset: "Test string",
+                debugOptions: {
+                    enableHotKeyLogging: true,
+                },
                 experiments: [
                     "Test string"                ],
                 flexResourceSchedulingGoal: "Test string",
@@ -14795,6 +14816,9 @@ gapi.load('client', () => {
             environment: {
                 clusterManagerApiService: "Test string",
                 dataset: "Test string",
+                debugOptions: {
+                    enableHotKeyLogging: true,
+                },
                 experiments: [
                     "Test string"                ],
                 flexResourceSchedulingGoal: "Test string",
