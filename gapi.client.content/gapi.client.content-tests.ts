@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210226
+// Revision: 20210303
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1097,7 +1097,11 @@ gapi.load('client', () => {
             merchantId: "Test string",
             regionCode: "Test string",
         });
-        /** Onboards BoG in your Merchant Center account. By using this method, you agree to the [Terms of Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest). */
+        /**
+         * Onboards BoG in your Merchant Center account. By using this method, you agree to the [Terms of Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest). Calling
+         * this method is only possible if the authenticated account is the same as the merchant id in the request. Calling this method multiple times will only accept Terms of Service if the
+         * latest version is not currently signed.
+         */
         await gapi.client.content.buyongoogleprograms.onboard({
             merchantId: "Test string",
             regionCode: "Test string",
