@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210301
+// Revision: 20210302
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -1300,6 +1300,111 @@ gapi.load('client', () => {
                                         },
                                     },
                                     pageBreak: {
+                                        suggestedDeletionIds: [
+                                            "Test string"                                        ],
+                                        suggestedInsertionIds: [
+                                            "Test string"                                        ],
+                                        suggestedTextStyleChanges: {
+                                            A: {
+                                                textStyle: {
+                                                    backgroundColor: {
+                                                        color: {
+                                                            rgbColor: {
+                                                                blue: 42,
+                                                                green: 42,
+                                                                red: 42,
+                                                            },
+                                                        },
+                                                    },
+                                                    baselineOffset: "Test string",
+                                                    bold: true,
+                                                    fontSize: {
+                                                        magnitude: 42,
+                                                        unit: "Test string",
+                                                    },
+                                                    foregroundColor: {
+                                                        color: {
+                                                            rgbColor: {
+                                                                blue: 42,
+                                                                green: 42,
+                                                                red: 42,
+                                                            },
+                                                        },
+                                                    },
+                                                    italic: true,
+                                                    link: {
+                                                        bookmarkId: "Test string",
+                                                        headingId: "Test string",
+                                                        url: "Test string",
+                                                    },
+                                                    smallCaps: true,
+                                                    strikethrough: true,
+                                                    underline: true,
+                                                    weightedFontFamily: {
+                                                        fontFamily: "Test string",
+                                                        weight: 42,
+                                                    },
+                                                },
+                                                textStyleSuggestionState: {
+                                                    backgroundColorSuggested: true,
+                                                    baselineOffsetSuggested: true,
+                                                    boldSuggested: true,
+                                                    fontSizeSuggested: true,
+                                                    foregroundColorSuggested: true,
+                                                    italicSuggested: true,
+                                                    linkSuggested: true,
+                                                    smallCapsSuggested: true,
+                                                    strikethroughSuggested: true,
+                                                    underlineSuggested: true,
+                                                    weightedFontFamilySuggested: true,
+                                                },
+                                            }                                        },
+                                        textStyle: {
+                                            backgroundColor: {
+                                                color: {
+                                                    rgbColor: {
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                },
+                                            },
+                                            baselineOffset: "Test string",
+                                            bold: true,
+                                            fontSize: {
+                                                magnitude: 42,
+                                                unit: "Test string",
+                                            },
+                                            foregroundColor: {
+                                                color: {
+                                                    rgbColor: {
+                                                        blue: 42,
+                                                        green: 42,
+                                                        red: 42,
+                                                    },
+                                                },
+                                            },
+                                            italic: true,
+                                            link: {
+                                                bookmarkId: "Test string",
+                                                headingId: "Test string",
+                                                url: "Test string",
+                                            },
+                                            smallCaps: true,
+                                            strikethrough: true,
+                                            underline: true,
+                                            weightedFontFamily: {
+                                                fontFamily: "Test string",
+                                                weight: 42,
+                                            },
+                                        },
+                                    },
+                                    person: {
+                                        personId: "Test string",
+                                        personProperties: {
+                                            email: "Test string",
+                                            name: "Test string",
+                                        },
                                         suggestedDeletionIds: [
                                             "Test string"                                        ],
                                         suggestedInsertionIds: [
@@ -2944,6 +3049,111 @@ gapi.load('client', () => {
                                                 },
                                             },
                                         },
+                                        person: {
+                                            personId: "Test string",
+                                            personProperties: {
+                                                email: "Test string",
+                                                name: "Test string",
+                                            },
+                                            suggestedDeletionIds: [
+                                                "Test string"                                            ],
+                                            suggestedInsertionIds: [
+                                                "Test string"                                            ],
+                                            suggestedTextStyleChanges: {
+                                                A: {
+                                                    textStyle: {
+                                                        backgroundColor: {
+                                                            color: {
+                                                                rgbColor: {
+                                                                    blue: 42,
+                                                                    green: 42,
+                                                                    red: 42,
+                                                                },
+                                                            },
+                                                        },
+                                                        baselineOffset: "Test string",
+                                                        bold: true,
+                                                        fontSize: {
+                                                            magnitude: 42,
+                                                            unit: "Test string",
+                                                        },
+                                                        foregroundColor: {
+                                                            color: {
+                                                                rgbColor: {
+                                                                    blue: 42,
+                                                                    green: 42,
+                                                                    red: 42,
+                                                                },
+                                                            },
+                                                        },
+                                                        italic: true,
+                                                        link: {
+                                                            bookmarkId: "Test string",
+                                                            headingId: "Test string",
+                                                            url: "Test string",
+                                                        },
+                                                        smallCaps: true,
+                                                        strikethrough: true,
+                                                        underline: true,
+                                                        weightedFontFamily: {
+                                                            fontFamily: "Test string",
+                                                            weight: 42,
+                                                        },
+                                                    },
+                                                    textStyleSuggestionState: {
+                                                        backgroundColorSuggested: true,
+                                                        baselineOffsetSuggested: true,
+                                                        boldSuggested: true,
+                                                        fontSizeSuggested: true,
+                                                        foregroundColorSuggested: true,
+                                                        italicSuggested: true,
+                                                        linkSuggested: true,
+                                                        smallCapsSuggested: true,
+                                                        strikethroughSuggested: true,
+                                                        underlineSuggested: true,
+                                                        weightedFontFamilySuggested: true,
+                                                    },
+                                                }                                            },
+                                            textStyle: {
+                                                backgroundColor: {
+                                                    color: {
+                                                        rgbColor: {
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                    },
+                                                },
+                                                baselineOffset: "Test string",
+                                                bold: true,
+                                                fontSize: {
+                                                    magnitude: 42,
+                                                    unit: "Test string",
+                                                },
+                                                foregroundColor: {
+                                                    color: {
+                                                        rgbColor: {
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                    },
+                                                },
+                                                italic: true,
+                                                link: {
+                                                    bookmarkId: "Test string",
+                                                    headingId: "Test string",
+                                                    url: "Test string",
+                                                },
+                                                smallCaps: true,
+                                                strikethrough: true,
+                                                underline: true,
+                                                weightedFontFamily: {
+                                                    fontFamily: "Test string",
+                                                    weight: 42,
+                                                },
+                                            },
+                                        },
                                         startIndex: 42,
                                         textRun: {
                                             content: "Test string",
@@ -4432,6 +4642,111 @@ gapi.load('client', () => {
                                                 },
                                             },
                                         },
+                                        person: {
+                                            personId: "Test string",
+                                            personProperties: {
+                                                email: "Test string",
+                                                name: "Test string",
+                                            },
+                                            suggestedDeletionIds: [
+                                                "Test string"                                            ],
+                                            suggestedInsertionIds: [
+                                                "Test string"                                            ],
+                                            suggestedTextStyleChanges: {
+                                                A: {
+                                                    textStyle: {
+                                                        backgroundColor: {
+                                                            color: {
+                                                                rgbColor: {
+                                                                    blue: 42,
+                                                                    green: 42,
+                                                                    red: 42,
+                                                                },
+                                                            },
+                                                        },
+                                                        baselineOffset: "Test string",
+                                                        bold: true,
+                                                        fontSize: {
+                                                            magnitude: 42,
+                                                            unit: "Test string",
+                                                        },
+                                                        foregroundColor: {
+                                                            color: {
+                                                                rgbColor: {
+                                                                    blue: 42,
+                                                                    green: 42,
+                                                                    red: 42,
+                                                                },
+                                                            },
+                                                        },
+                                                        italic: true,
+                                                        link: {
+                                                            bookmarkId: "Test string",
+                                                            headingId: "Test string",
+                                                            url: "Test string",
+                                                        },
+                                                        smallCaps: true,
+                                                        strikethrough: true,
+                                                        underline: true,
+                                                        weightedFontFamily: {
+                                                            fontFamily: "Test string",
+                                                            weight: 42,
+                                                        },
+                                                    },
+                                                    textStyleSuggestionState: {
+                                                        backgroundColorSuggested: true,
+                                                        baselineOffsetSuggested: true,
+                                                        boldSuggested: true,
+                                                        fontSizeSuggested: true,
+                                                        foregroundColorSuggested: true,
+                                                        italicSuggested: true,
+                                                        linkSuggested: true,
+                                                        smallCapsSuggested: true,
+                                                        strikethroughSuggested: true,
+                                                        underlineSuggested: true,
+                                                        weightedFontFamilySuggested: true,
+                                                    },
+                                                }                                            },
+                                            textStyle: {
+                                                backgroundColor: {
+                                                    color: {
+                                                        rgbColor: {
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                    },
+                                                },
+                                                baselineOffset: "Test string",
+                                                bold: true,
+                                                fontSize: {
+                                                    magnitude: 42,
+                                                    unit: "Test string",
+                                                },
+                                                foregroundColor: {
+                                                    color: {
+                                                        rgbColor: {
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                    },
+                                                },
+                                                italic: true,
+                                                link: {
+                                                    bookmarkId: "Test string",
+                                                    headingId: "Test string",
+                                                    url: "Test string",
+                                                },
+                                                smallCaps: true,
+                                                strikethrough: true,
+                                                underline: true,
+                                                weightedFontFamily: {
+                                                    fontFamily: "Test string",
+                                                    weight: 42,
+                                                },
+                                            },
+                                        },
                                         startIndex: 42,
                                         textRun: {
                                             content: "Test string",
@@ -5821,6 +6136,111 @@ gapi.load('client', () => {
                                             },
                                         },
                                         pageBreak: {
+                                            suggestedDeletionIds: [
+                                                "Test string"                                            ],
+                                            suggestedInsertionIds: [
+                                                "Test string"                                            ],
+                                            suggestedTextStyleChanges: {
+                                                A: {
+                                                    textStyle: {
+                                                        backgroundColor: {
+                                                            color: {
+                                                                rgbColor: {
+                                                                    blue: 42,
+                                                                    green: 42,
+                                                                    red: 42,
+                                                                },
+                                                            },
+                                                        },
+                                                        baselineOffset: "Test string",
+                                                        bold: true,
+                                                        fontSize: {
+                                                            magnitude: 42,
+                                                            unit: "Test string",
+                                                        },
+                                                        foregroundColor: {
+                                                            color: {
+                                                                rgbColor: {
+                                                                    blue: 42,
+                                                                    green: 42,
+                                                                    red: 42,
+                                                                },
+                                                            },
+                                                        },
+                                                        italic: true,
+                                                        link: {
+                                                            bookmarkId: "Test string",
+                                                            headingId: "Test string",
+                                                            url: "Test string",
+                                                        },
+                                                        smallCaps: true,
+                                                        strikethrough: true,
+                                                        underline: true,
+                                                        weightedFontFamily: {
+                                                            fontFamily: "Test string",
+                                                            weight: 42,
+                                                        },
+                                                    },
+                                                    textStyleSuggestionState: {
+                                                        backgroundColorSuggested: true,
+                                                        baselineOffsetSuggested: true,
+                                                        boldSuggested: true,
+                                                        fontSizeSuggested: true,
+                                                        foregroundColorSuggested: true,
+                                                        italicSuggested: true,
+                                                        linkSuggested: true,
+                                                        smallCapsSuggested: true,
+                                                        strikethroughSuggested: true,
+                                                        underlineSuggested: true,
+                                                        weightedFontFamilySuggested: true,
+                                                    },
+                                                }                                            },
+                                            textStyle: {
+                                                backgroundColor: {
+                                                    color: {
+                                                        rgbColor: {
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                    },
+                                                },
+                                                baselineOffset: "Test string",
+                                                bold: true,
+                                                fontSize: {
+                                                    magnitude: 42,
+                                                    unit: "Test string",
+                                                },
+                                                foregroundColor: {
+                                                    color: {
+                                                        rgbColor: {
+                                                            blue: 42,
+                                                            green: 42,
+                                                            red: 42,
+                                                        },
+                                                    },
+                                                },
+                                                italic: true,
+                                                link: {
+                                                    bookmarkId: "Test string",
+                                                    headingId: "Test string",
+                                                    url: "Test string",
+                                                },
+                                                smallCaps: true,
+                                                strikethrough: true,
+                                                underline: true,
+                                                weightedFontFamily: {
+                                                    fontFamily: "Test string",
+                                                    weight: 42,
+                                                },
+                                            },
+                                        },
+                                        person: {
+                                            personId: "Test string",
+                                            personProperties: {
+                                                email: "Test string",
+                                                name: "Test string",
+                                            },
                                             suggestedDeletionIds: [
                                                 "Test string"                                            ],
                                             suggestedInsertionIds: [
