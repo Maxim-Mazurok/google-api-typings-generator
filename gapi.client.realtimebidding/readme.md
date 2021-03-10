@@ -59,7 +59,27 @@ After that you can use Real-time Bidding API resources:
 ```typescript
 
 /*
+Gets a bidder account by its name.
+*/
+await gapi.client.realtimebidding.bidders.get({ name: "name",  });
+
+/*
+Lists all the bidder accounts that belong to the caller.
+*/
+await gapi.client.realtimebidding.bidders.list({  });
+
+/*
+Gets a buyer account by its name.
+*/
+await gapi.client.realtimebidding.buyers.get({ name: "name",  });
+
+/*
 Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google adds the user to a user list.
 */
 await gapi.client.realtimebidding.buyers.getRemarketingTag({ name: "name",  });
+
+/*
+Lists all buyer account information the calling buyer user or service account is permissioned to manage.
+*/
+await gapi.client.realtimebidding.buyers.list({  });
 ```

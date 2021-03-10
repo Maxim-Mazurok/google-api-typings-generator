@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210309
+// Revision: 20210310
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -30,12 +30,2188 @@ gapi.load('client', () => {
     });
 
     async function run() {
+        /** Gets a bidder account by its name. */
+        await gapi.client.realtimebidding.bidders.get({
+            name: "Test string",
+        });
+        /** Lists creatives. */
+        await gapi.client.realtimebidding.bidders.creatives.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Watches all creatives pertaining to a bidder. It is sufficient to invoke this endpoint once per bidder. A Pub/Sub topic will be created and notifications will be pushed to the topic
+         * when any of the bidder's creatives change status. All of the bidder's service accounts will have access to read from the topic. Subsequent invocations of this method will return the
+         * existing Pub/Sub configuration.
+         */
+        await gapi.client.realtimebidding.bidders.creatives.watch({
+            parent: "Test string",
+        }, {
+        });
+        /** Gets a bidder endpoint by its name. */
+        await gapi.client.realtimebidding.bidders.endpoints.get({
+            name: "Test string",
+        });
+        /** Lists all the bidder's endpoints. */
+        await gapi.client.realtimebidding.bidders.endpoints.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Activates a pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.activate({
+            name: "Test string",
+        }, {
+        });
+        /** Adds targeted apps to the pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.addTargetedApps({
+            pretargetingConfig: "Test string",
+        }, {
+            appIds: [
+                "Test string"            ],
+            targetingMode: "Test string",
+        });
+        /** Adds targeted publishers to the pretargeting config. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.addTargetedPublishers({
+            pretargetingConfig: "Test string",
+        }, {
+            publisherIds: [
+                "Test string"            ],
+            targetingMode: "Test string",
+        });
+        /** Adds targeted sites to the pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.addTargetedSites({
+            pretargetingConfig: "Test string",
+        }, {
+            sites: [
+                "Test string"            ],
+            targetingMode: "Test string",
+        });
+        /**
+         * Creates a pretargeting configuration. A pretargeting configuration's state (PretargetingConfig.state) is active upon creation, and it will start to affect traffic shortly after. A
+         * bidder may create a maximum of 10 pretargeting configurations. Attempts to exceed this maximum results in a 400 bad request error.
+         */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.create({
+            parent: "Test string",
+        }, {
+            allowedUserTargetingModes: [
+                "Test string"            ],
+            appTargeting: {
+                mobileAppCategoryTargeting: {
+                    excludedIds: [
+                        "Test string"                    ],
+                    includedIds: [
+                        "Test string"                    ],
+                },
+                mobileAppTargeting: {
+                    targetingMode: "Test string",
+                    values: [
+                        "Test string"                    ],
+                },
+            },
+            billingId: "Test string",
+            displayName: "Test string",
+            excludedContentLabelIds: [
+                "Test string"            ],
+            geoTargeting: {
+                excludedIds: [
+                    "Test string"                ],
+                includedIds: [
+                    "Test string"                ],
+            },
+            includedCreativeDimensions: [
+                {
+                    height: "Test string",
+                    width: "Test string",
+                }            ],
+            includedEnvironments: [
+                "Test string"            ],
+            includedFormats: [
+                "Test string"            ],
+            includedLanguages: [
+                "Test string"            ],
+            includedMobileOperatingSystemIds: [
+                "Test string"            ],
+            includedPlatforms: [
+                "Test string"            ],
+            includedUserIdTypes: [
+                "Test string"            ],
+            interstitialTargeting: "Test string",
+            invalidGeoIds: [
+                "Test string"            ],
+            maximumQps: "Test string",
+            minimumViewabilityDecile: 42,
+            name: "Test string",
+            publisherTargeting: {
+                targetingMode: "Test string",
+                values: [
+                    "Test string"                ],
+            },
+            state: "Test string",
+            userListTargeting: {
+                excludedIds: [
+                    "Test string"                ],
+                includedIds: [
+                    "Test string"                ],
+            },
+            verticalTargeting: {
+                excludedIds: [
+                    "Test string"                ],
+                includedIds: [
+                    "Test string"                ],
+            },
+            webTargeting: {
+                targetingMode: "Test string",
+                values: [
+                    "Test string"                ],
+            },
+        });
+        /** Deletes a pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.delete({
+            name: "Test string",
+        });
+        /** Gets a pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.get({
+            name: "Test string",
+        });
+        /** Lists all pretargeting configurations for a single bidder. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            allowedUserTargetingModes: [
+                "Test string"            ],
+            appTargeting: {
+                mobileAppCategoryTargeting: {
+                    excludedIds: [
+                        "Test string"                    ],
+                    includedIds: [
+                        "Test string"                    ],
+                },
+                mobileAppTargeting: {
+                    targetingMode: "Test string",
+                    values: [
+                        "Test string"                    ],
+                },
+            },
+            billingId: "Test string",
+            displayName: "Test string",
+            excludedContentLabelIds: [
+                "Test string"            ],
+            geoTargeting: {
+                excludedIds: [
+                    "Test string"                ],
+                includedIds: [
+                    "Test string"                ],
+            },
+            includedCreativeDimensions: [
+                {
+                    height: "Test string",
+                    width: "Test string",
+                }            ],
+            includedEnvironments: [
+                "Test string"            ],
+            includedFormats: [
+                "Test string"            ],
+            includedLanguages: [
+                "Test string"            ],
+            includedMobileOperatingSystemIds: [
+                "Test string"            ],
+            includedPlatforms: [
+                "Test string"            ],
+            includedUserIdTypes: [
+                "Test string"            ],
+            interstitialTargeting: "Test string",
+            invalidGeoIds: [
+                "Test string"            ],
+            maximumQps: "Test string",
+            minimumViewabilityDecile: 42,
+            name: "Test string",
+            publisherTargeting: {
+                targetingMode: "Test string",
+                values: [
+                    "Test string"                ],
+            },
+            state: "Test string",
+            userListTargeting: {
+                excludedIds: [
+                    "Test string"                ],
+                includedIds: [
+                    "Test string"                ],
+            },
+            verticalTargeting: {
+                excludedIds: [
+                    "Test string"                ],
+                includedIds: [
+                    "Test string"                ],
+            },
+            webTargeting: {
+                targetingMode: "Test string",
+                values: [
+                    "Test string"                ],
+            },
+        });
+        /** Removes targeted apps from the pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.removeTargetedApps({
+            pretargetingConfig: "Test string",
+        }, {
+            appIds: [
+                "Test string"            ],
+        });
+        /** Removes targeted publishers from the pretargeting config. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.removeTargetedPublishers({
+            pretargetingConfig: "Test string",
+        }, {
+            publisherIds: [
+                "Test string"            ],
+        });
+        /** Removes targeted sites from the pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.removeTargetedSites({
+            pretargetingConfig: "Test string",
+        }, {
+            sites: [
+                "Test string"            ],
+        });
+        /** Suspends a pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.suspend({
+            name: "Test string",
+        }, {
+        });
+        /** Lists all the bidder accounts that belong to the caller. */
+        await gapi.client.realtimebidding.bidders.list({
+            pageSize: 42,
+            pageToken: "Test string",
+        });
+        /** Lists creatives. */
+        await gapi.client.realtimebidding.bidders.creatives.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            view: "Test string",
+        });
+        /**
+         * Watches all creatives pertaining to a bidder. It is sufficient to invoke this endpoint once per bidder. A Pub/Sub topic will be created and notifications will be pushed to the topic
+         * when any of the bidder's creatives change status. All of the bidder's service accounts will have access to read from the topic. Subsequent invocations of this method will return the
+         * existing Pub/Sub configuration.
+         */
+        await gapi.client.realtimebidding.bidders.creatives.watch({
+            parent: "Test string",
+        }, {
+        });
+        /** Gets a bidder endpoint by its name. */
+        await gapi.client.realtimebidding.bidders.endpoints.get({
+            name: "Test string",
+        });
+        /** Lists all the bidder's endpoints. */
+        await gapi.client.realtimebidding.bidders.endpoints.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Activates a pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.activate({
+            name: "Test string",
+        }, {
+        });
+        /** Adds targeted apps to the pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.addTargetedApps({
+            pretargetingConfig: "Test string",
+        }, {
+            appIds: [
+                "Test string"            ],
+            targetingMode: "Test string",
+        });
+        /** Adds targeted publishers to the pretargeting config. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.addTargetedPublishers({
+            pretargetingConfig: "Test string",
+        }, {
+            publisherIds: [
+                "Test string"            ],
+            targetingMode: "Test string",
+        });
+        /** Adds targeted sites to the pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.addTargetedSites({
+            pretargetingConfig: "Test string",
+        }, {
+            sites: [
+                "Test string"            ],
+            targetingMode: "Test string",
+        });
+        /**
+         * Creates a pretargeting configuration. A pretargeting configuration's state (PretargetingConfig.state) is active upon creation, and it will start to affect traffic shortly after. A
+         * bidder may create a maximum of 10 pretargeting configurations. Attempts to exceed this maximum results in a 400 bad request error.
+         */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.create({
+            parent: "Test string",
+        }, {
+            allowedUserTargetingModes: [
+                "Test string"            ],
+            appTargeting: {
+                mobileAppCategoryTargeting: {
+                    excludedIds: [
+                        "Test string"                    ],
+                    includedIds: [
+                        "Test string"                    ],
+                },
+                mobileAppTargeting: {
+                    targetingMode: "Test string",
+                    values: [
+                        "Test string"                    ],
+                },
+            },
+            billingId: "Test string",
+            displayName: "Test string",
+            excludedContentLabelIds: [
+                "Test string"            ],
+            geoTargeting: {
+                excludedIds: [
+                    "Test string"                ],
+                includedIds: [
+                    "Test string"                ],
+            },
+            includedCreativeDimensions: [
+                {
+                    height: "Test string",
+                    width: "Test string",
+                }            ],
+            includedEnvironments: [
+                "Test string"            ],
+            includedFormats: [
+                "Test string"            ],
+            includedLanguages: [
+                "Test string"            ],
+            includedMobileOperatingSystemIds: [
+                "Test string"            ],
+            includedPlatforms: [
+                "Test string"            ],
+            includedUserIdTypes: [
+                "Test string"            ],
+            interstitialTargeting: "Test string",
+            invalidGeoIds: [
+                "Test string"            ],
+            maximumQps: "Test string",
+            minimumViewabilityDecile: 42,
+            name: "Test string",
+            publisherTargeting: {
+                targetingMode: "Test string",
+                values: [
+                    "Test string"                ],
+            },
+            state: "Test string",
+            userListTargeting: {
+                excludedIds: [
+                    "Test string"                ],
+                includedIds: [
+                    "Test string"                ],
+            },
+            verticalTargeting: {
+                excludedIds: [
+                    "Test string"                ],
+                includedIds: [
+                    "Test string"                ],
+            },
+            webTargeting: {
+                targetingMode: "Test string",
+                values: [
+                    "Test string"                ],
+            },
+        });
+        /** Deletes a pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.delete({
+            name: "Test string",
+        });
+        /** Gets a pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.get({
+            name: "Test string",
+        });
+        /** Lists all pretargeting configurations for a single bidder. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            allowedUserTargetingModes: [
+                "Test string"            ],
+            appTargeting: {
+                mobileAppCategoryTargeting: {
+                    excludedIds: [
+                        "Test string"                    ],
+                    includedIds: [
+                        "Test string"                    ],
+                },
+                mobileAppTargeting: {
+                    targetingMode: "Test string",
+                    values: [
+                        "Test string"                    ],
+                },
+            },
+            billingId: "Test string",
+            displayName: "Test string",
+            excludedContentLabelIds: [
+                "Test string"            ],
+            geoTargeting: {
+                excludedIds: [
+                    "Test string"                ],
+                includedIds: [
+                    "Test string"                ],
+            },
+            includedCreativeDimensions: [
+                {
+                    height: "Test string",
+                    width: "Test string",
+                }            ],
+            includedEnvironments: [
+                "Test string"            ],
+            includedFormats: [
+                "Test string"            ],
+            includedLanguages: [
+                "Test string"            ],
+            includedMobileOperatingSystemIds: [
+                "Test string"            ],
+            includedPlatforms: [
+                "Test string"            ],
+            includedUserIdTypes: [
+                "Test string"            ],
+            interstitialTargeting: "Test string",
+            invalidGeoIds: [
+                "Test string"            ],
+            maximumQps: "Test string",
+            minimumViewabilityDecile: 42,
+            name: "Test string",
+            publisherTargeting: {
+                targetingMode: "Test string",
+                values: [
+                    "Test string"                ],
+            },
+            state: "Test string",
+            userListTargeting: {
+                excludedIds: [
+                    "Test string"                ],
+                includedIds: [
+                    "Test string"                ],
+            },
+            verticalTargeting: {
+                excludedIds: [
+                    "Test string"                ],
+                includedIds: [
+                    "Test string"                ],
+            },
+            webTargeting: {
+                targetingMode: "Test string",
+                values: [
+                    "Test string"                ],
+            },
+        });
+        /** Removes targeted apps from the pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.removeTargetedApps({
+            pretargetingConfig: "Test string",
+        }, {
+            appIds: [
+                "Test string"            ],
+        });
+        /** Removes targeted publishers from the pretargeting config. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.removeTargetedPublishers({
+            pretargetingConfig: "Test string",
+        }, {
+            publisherIds: [
+                "Test string"            ],
+        });
+        /** Removes targeted sites from the pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.removeTargetedSites({
+            pretargetingConfig: "Test string",
+        }, {
+            sites: [
+                "Test string"            ],
+        });
+        /** Suspends a pretargeting configuration. */
+        await gapi.client.realtimebidding.bidders.pretargetingConfigs.suspend({
+            name: "Test string",
+        }, {
+        });
+        /** Gets a buyer account by its name. */
+        await gapi.client.realtimebidding.buyers.get({
+            name: "Test string",
+        });
+        /** Creates a creative. */
+        await gapi.client.realtimebidding.buyers.creatives.create({
+            parent: "Test string",
+        }, {
+            accountId: "Test string",
+            adChoicesDestinationUrl: "Test string",
+            advertiserName: "Test string",
+            agencyId: "Test string",
+            apiUpdateTime: "Test string",
+            creativeFormat: "Test string",
+            creativeId: "Test string",
+            creativeServingDecision: {
+                chinaPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                dealsPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                detectedAdvertisers: [
+                    {
+                        advertiserId: "Test string",
+                        advertiserName: "Test string",
+                        brandId: "Test string",
+                        brandName: "Test string",
+                    }                ],
+                detectedAttributes: [
+                    "Test string"                ],
+                detectedClickThroughUrls: [
+                    "Test string"                ],
+                detectedDomains: [
+                    "Test string"                ],
+                detectedLanguages: [
+                    "Test string"                ],
+                detectedProductCategories: [
+                    42                ],
+                detectedSensitiveCategories: [
+                    42                ],
+                detectedVendorIds: [
+                    42                ],
+                lastStatusUpdate: "Test string",
+                networkPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                platformPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                russiaPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+            },
+            dealIds: [
+                "Test string"            ],
+            declaredAttributes: [
+                "Test string"            ],
+            declaredClickThroughUrls: [
+                "Test string"            ],
+            declaredRestrictedCategories: [
+                "Test string"            ],
+            declaredVendorIds: [
+                42            ],
+            html: {
+                height: 42,
+                snippet: "Test string",
+                width: 42,
+            },
+            impressionTrackingUrls: [
+                "Test string"            ],
+            name: "Test string",
+            native: {
+                advertiserName: "Test string",
+                appIcon: {
+                    height: 42,
+                    url: "Test string",
+                    width: 42,
+                },
+                body: "Test string",
+                callToAction: "Test string",
+                clickLinkUrl: "Test string",
+                clickTrackingUrl: "Test string",
+                headline: "Test string",
+                image: {
+                    height: 42,
+                    url: "Test string",
+                    width: 42,
+                },
+                logo: {
+                    height: 42,
+                    url: "Test string",
+                    width: 42,
+                },
+                priceDisplayText: "Test string",
+                starRating: 42,
+                videoUrl: "Test string",
+            },
+            restrictedCategories: [
+                "Test string"            ],
+            version: 42,
+            video: {
+                videoMetadata: {
+                    duration: "Test string",
+                    isValidVast: true,
+                    isVpaid: true,
+                    mediaFiles: [
+                        {
+                            bitrate: "Test string",
+                            mimeType: "Test string",
+                        }                    ],
+                    skipOffset: "Test string",
+                    vastVersion: "Test string",
+                },
+                videoUrl: "Test string",
+                videoVastXml: "Test string",
+            },
+        });
+        /** Gets a creative. */
+        await gapi.client.realtimebidding.buyers.creatives.get({
+            name: "Test string",
+            view: "Test string",
+        });
+        /** Lists creatives. */
+        await gapi.client.realtimebidding.buyers.creatives.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            view: "Test string",
+        });
+        /** Updates a creative. */
+        await gapi.client.realtimebidding.buyers.creatives.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            accountId: "Test string",
+            adChoicesDestinationUrl: "Test string",
+            advertiserName: "Test string",
+            agencyId: "Test string",
+            apiUpdateTime: "Test string",
+            creativeFormat: "Test string",
+            creativeId: "Test string",
+            creativeServingDecision: {
+                chinaPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                dealsPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                detectedAdvertisers: [
+                    {
+                        advertiserId: "Test string",
+                        advertiserName: "Test string",
+                        brandId: "Test string",
+                        brandName: "Test string",
+                    }                ],
+                detectedAttributes: [
+                    "Test string"                ],
+                detectedClickThroughUrls: [
+                    "Test string"                ],
+                detectedDomains: [
+                    "Test string"                ],
+                detectedLanguages: [
+                    "Test string"                ],
+                detectedProductCategories: [
+                    42                ],
+                detectedSensitiveCategories: [
+                    42                ],
+                detectedVendorIds: [
+                    42                ],
+                lastStatusUpdate: "Test string",
+                networkPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                platformPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                russiaPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+            },
+            dealIds: [
+                "Test string"            ],
+            declaredAttributes: [
+                "Test string"            ],
+            declaredClickThroughUrls: [
+                "Test string"            ],
+            declaredRestrictedCategories: [
+                "Test string"            ],
+            declaredVendorIds: [
+                42            ],
+            html: {
+                height: 42,
+                snippet: "Test string",
+                width: 42,
+            },
+            impressionTrackingUrls: [
+                "Test string"            ],
+            name: "Test string",
+            native: {
+                advertiserName: "Test string",
+                appIcon: {
+                    height: 42,
+                    url: "Test string",
+                    width: 42,
+                },
+                body: "Test string",
+                callToAction: "Test string",
+                clickLinkUrl: "Test string",
+                clickTrackingUrl: "Test string",
+                headline: "Test string",
+                image: {
+                    height: 42,
+                    url: "Test string",
+                    width: 42,
+                },
+                logo: {
+                    height: 42,
+                    url: "Test string",
+                    width: 42,
+                },
+                priceDisplayText: "Test string",
+                starRating: 42,
+                videoUrl: "Test string",
+            },
+            restrictedCategories: [
+                "Test string"            ],
+            version: 42,
+            video: {
+                videoMetadata: {
+                    duration: "Test string",
+                    isValidVast: true,
+                    isVpaid: true,
+                    mediaFiles: [
+                        {
+                            bitrate: "Test string",
+                            mimeType: "Test string",
+                        }                    ],
+                    skipOffset: "Test string",
+                    vastVersion: "Test string",
+                },
+                videoUrl: "Test string",
+                videoVastXml: "Test string",
+            },
+        });
+        /** Change the status of a user list to CLOSED. This prevents new users from being added to the user list. */
+        await gapi.client.realtimebidding.buyers.userLists.close({
+            name: "Test string",
+        }, {
+        });
+        /** Create a new user list. */
+        await gapi.client.realtimebidding.buyers.userLists.create({
+            parent: "Test string",
+        }, {
+            description: "Test string",
+            displayName: "Test string",
+            membershipDurationDays: "Test string",
+            name: "Test string",
+            status: "Test string",
+            urlRestriction: {
+                endDate: {
+                    day: 42,
+                    month: 42,
+                    year: 42,
+                },
+                restrictionType: "Test string",
+                startDate: {
+                    day: 42,
+                    month: 42,
+                    year: 42,
+                },
+                url: "Test string",
+            },
+        });
+        /** Gets a user list by its name. */
+        await gapi.client.realtimebidding.buyers.userLists.get({
+            name: "Test string",
+        });
+        /**
+         * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google adds
+         * the user to a user list.
+         */
+        await gapi.client.realtimebidding.buyers.userLists.getRemarketingTag({
+            name: "Test string",
+        });
+        /** Lists the user lists visible to the current user. */
+        await gapi.client.realtimebidding.buyers.userLists.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Change the status of a user list to OPEN. This allows new users to be added to the user list. */
+        await gapi.client.realtimebidding.buyers.userLists.open({
+            name: "Test string",
+        }, {
+        });
+        /** Update the given user list. Only user lists with URLRestrictions can be updated. */
+        await gapi.client.realtimebidding.buyers.userLists.update({
+            name: "Test string",
+        }, {
+            description: "Test string",
+            displayName: "Test string",
+            membershipDurationDays: "Test string",
+            name: "Test string",
+            status: "Test string",
+            urlRestriction: {
+                endDate: {
+                    day: 42,
+                    month: 42,
+                    year: 42,
+                },
+                restrictionType: "Test string",
+                startDate: {
+                    day: 42,
+                    month: 42,
+                    year: 42,
+                },
+                url: "Test string",
+            },
+        });
         /**
          * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google adds
          * the user to a user list.
          */
         await gapi.client.realtimebidding.buyers.getRemarketingTag({
             name: "Test string",
+        });
+        /** Creates a creative. */
+        await gapi.client.realtimebidding.buyers.creatives.create({
+            parent: "Test string",
+        }, {
+            accountId: "Test string",
+            adChoicesDestinationUrl: "Test string",
+            advertiserName: "Test string",
+            agencyId: "Test string",
+            apiUpdateTime: "Test string",
+            creativeFormat: "Test string",
+            creativeId: "Test string",
+            creativeServingDecision: {
+                chinaPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                dealsPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                detectedAdvertisers: [
+                    {
+                        advertiserId: "Test string",
+                        advertiserName: "Test string",
+                        brandId: "Test string",
+                        brandName: "Test string",
+                    }                ],
+                detectedAttributes: [
+                    "Test string"                ],
+                detectedClickThroughUrls: [
+                    "Test string"                ],
+                detectedDomains: [
+                    "Test string"                ],
+                detectedLanguages: [
+                    "Test string"                ],
+                detectedProductCategories: [
+                    42                ],
+                detectedSensitiveCategories: [
+                    42                ],
+                detectedVendorIds: [
+                    42                ],
+                lastStatusUpdate: "Test string",
+                networkPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                platformPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                russiaPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+            },
+            dealIds: [
+                "Test string"            ],
+            declaredAttributes: [
+                "Test string"            ],
+            declaredClickThroughUrls: [
+                "Test string"            ],
+            declaredRestrictedCategories: [
+                "Test string"            ],
+            declaredVendorIds: [
+                42            ],
+            html: {
+                height: 42,
+                snippet: "Test string",
+                width: 42,
+            },
+            impressionTrackingUrls: [
+                "Test string"            ],
+            name: "Test string",
+            native: {
+                advertiserName: "Test string",
+                appIcon: {
+                    height: 42,
+                    url: "Test string",
+                    width: 42,
+                },
+                body: "Test string",
+                callToAction: "Test string",
+                clickLinkUrl: "Test string",
+                clickTrackingUrl: "Test string",
+                headline: "Test string",
+                image: {
+                    height: 42,
+                    url: "Test string",
+                    width: 42,
+                },
+                logo: {
+                    height: 42,
+                    url: "Test string",
+                    width: 42,
+                },
+                priceDisplayText: "Test string",
+                starRating: 42,
+                videoUrl: "Test string",
+            },
+            restrictedCategories: [
+                "Test string"            ],
+            version: 42,
+            video: {
+                videoMetadata: {
+                    duration: "Test string",
+                    isValidVast: true,
+                    isVpaid: true,
+                    mediaFiles: [
+                        {
+                            bitrate: "Test string",
+                            mimeType: "Test string",
+                        }                    ],
+                    skipOffset: "Test string",
+                    vastVersion: "Test string",
+                },
+                videoUrl: "Test string",
+                videoVastXml: "Test string",
+            },
+        });
+        /** Gets a creative. */
+        await gapi.client.realtimebidding.buyers.creatives.get({
+            name: "Test string",
+            view: "Test string",
+        });
+        /** Lists creatives. */
+        await gapi.client.realtimebidding.buyers.creatives.list({
+            filter: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+            view: "Test string",
+        });
+        /** Updates a creative. */
+        await gapi.client.realtimebidding.buyers.creatives.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            accountId: "Test string",
+            adChoicesDestinationUrl: "Test string",
+            advertiserName: "Test string",
+            agencyId: "Test string",
+            apiUpdateTime: "Test string",
+            creativeFormat: "Test string",
+            creativeId: "Test string",
+            creativeServingDecision: {
+                chinaPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                dealsPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                detectedAdvertisers: [
+                    {
+                        advertiserId: "Test string",
+                        advertiserName: "Test string",
+                        brandId: "Test string",
+                        brandName: "Test string",
+                    }                ],
+                detectedAttributes: [
+                    "Test string"                ],
+                detectedClickThroughUrls: [
+                    "Test string"                ],
+                detectedDomains: [
+                    "Test string"                ],
+                detectedLanguages: [
+                    "Test string"                ],
+                detectedProductCategories: [
+                    42                ],
+                detectedSensitiveCategories: [
+                    42                ],
+                detectedVendorIds: [
+                    42                ],
+                lastStatusUpdate: "Test string",
+                networkPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                platformPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+                russiaPolicyCompliance: {
+                    status: "Test string",
+                    topics: [
+                        {
+                            evidences: [
+                                {
+                                    destinationNotCrawlable: {
+                                        crawledUrl: "Test string",
+                                        crawlTime: "Test string",
+                                        reason: "Test string",
+                                    },
+                                    destinationNotWorking: {
+                                        dnsError: "Test string",
+                                        expandedUrl: "Test string",
+                                        httpError: 42,
+                                        invalidPage: "Test string",
+                                        lastCheckTime: "Test string",
+                                        platform: "Test string",
+                                        redirectionError: "Test string",
+                                        urlRejected: "Test string",
+                                    },
+                                    destinationUrl: {
+                                        destinationUrl: "Test string",
+                                    },
+                                    domainCall: {
+                                        topHttpCallDomains: [
+                                            {
+                                                domain: "Test string",
+                                                httpCallCount: 42,
+                                            }                                        ],
+                                        totalHttpCallCount: 42,
+                                    },
+                                    downloadSize: {
+                                        topUrlDownloadSizeBreakdowns: [
+                                            {
+                                                downloadSizeKb: 42,
+                                                normalizedUrl: "Test string",
+                                            }                                        ],
+                                        totalDownloadSizeKb: 42,
+                                    },
+                                    httpCall: {
+                                        urls: [
+                                            "Test string"                                        ],
+                                    },
+                                    httpCookie: {
+                                        cookieNames: [
+                                            "Test string"                                        ],
+                                        maxCookieCount: 42,
+                                    },
+                                }                            ],
+                            helpCenterUrl: "Test string",
+                            policyTopic: "Test string",
+                        }                    ],
+                },
+            },
+            dealIds: [
+                "Test string"            ],
+            declaredAttributes: [
+                "Test string"            ],
+            declaredClickThroughUrls: [
+                "Test string"            ],
+            declaredRestrictedCategories: [
+                "Test string"            ],
+            declaredVendorIds: [
+                42            ],
+            html: {
+                height: 42,
+                snippet: "Test string",
+                width: 42,
+            },
+            impressionTrackingUrls: [
+                "Test string"            ],
+            name: "Test string",
+            native: {
+                advertiserName: "Test string",
+                appIcon: {
+                    height: 42,
+                    url: "Test string",
+                    width: 42,
+                },
+                body: "Test string",
+                callToAction: "Test string",
+                clickLinkUrl: "Test string",
+                clickTrackingUrl: "Test string",
+                headline: "Test string",
+                image: {
+                    height: 42,
+                    url: "Test string",
+                    width: 42,
+                },
+                logo: {
+                    height: 42,
+                    url: "Test string",
+                    width: 42,
+                },
+                priceDisplayText: "Test string",
+                starRating: 42,
+                videoUrl: "Test string",
+            },
+            restrictedCategories: [
+                "Test string"            ],
+            version: 42,
+            video: {
+                videoMetadata: {
+                    duration: "Test string",
+                    isValidVast: true,
+                    isVpaid: true,
+                    mediaFiles: [
+                        {
+                            bitrate: "Test string",
+                            mimeType: "Test string",
+                        }                    ],
+                    skipOffset: "Test string",
+                    vastVersion: "Test string",
+                },
+                videoUrl: "Test string",
+                videoVastXml: "Test string",
+            },
+        });
+        /** Change the status of a user list to CLOSED. This prevents new users from being added to the user list. */
+        await gapi.client.realtimebidding.buyers.userLists.close({
+            name: "Test string",
+        }, {
+        });
+        /** Create a new user list. */
+        await gapi.client.realtimebidding.buyers.userLists.create({
+            parent: "Test string",
+        }, {
+            description: "Test string",
+            displayName: "Test string",
+            membershipDurationDays: "Test string",
+            name: "Test string",
+            status: "Test string",
+            urlRestriction: {
+                endDate: {
+                    day: 42,
+                    month: 42,
+                    year: 42,
+                },
+                restrictionType: "Test string",
+                startDate: {
+                    day: 42,
+                    month: 42,
+                    year: 42,
+                },
+                url: "Test string",
+            },
+        });
+        /** Gets a user list by its name. */
+        await gapi.client.realtimebidding.buyers.userLists.get({
+            name: "Test string",
+        });
+        /**
+         * Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google adds
+         * the user to a user list.
+         */
+        await gapi.client.realtimebidding.buyers.userLists.getRemarketingTag({
+            name: "Test string",
+        });
+        /** Lists the user lists visible to the current user. */
+        await gapi.client.realtimebidding.buyers.userLists.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Change the status of a user list to OPEN. This allows new users to be added to the user list. */
+        await gapi.client.realtimebidding.buyers.userLists.open({
+            name: "Test string",
+        }, {
+        });
+        /** Update the given user list. Only user lists with URLRestrictions can be updated. */
+        await gapi.client.realtimebidding.buyers.userLists.update({
+            name: "Test string",
+        }, {
+            description: "Test string",
+            displayName: "Test string",
+            membershipDurationDays: "Test string",
+            name: "Test string",
+            status: "Test string",
+            urlRestriction: {
+                endDate: {
+                    day: 42,
+                    month: 42,
+                    year: 42,
+                },
+                restrictionType: "Test string",
+                startDate: {
+                    day: 42,
+                    month: 42,
+                    year: 42,
+                },
+                url: "Test string",
+            },
+        });
+        /** Lists all buyer account information the calling buyer user or service account is permissioned to manage. */
+        await gapi.client.realtimebidding.buyers.list({
+            pageSize: 42,
+            pageToken: "Test string",
         });
         /** Creates a creative. */
         await gapi.client.realtimebidding.buyers.creatives.create({
