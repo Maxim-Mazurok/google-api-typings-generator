@@ -37,7 +37,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // Manage messages in groups on your domain
+      // Upload messages to any Google group in your domain
       'https://www.googleapis.com/auth/apps.groups.migration',
     ],
     immediate = true;
