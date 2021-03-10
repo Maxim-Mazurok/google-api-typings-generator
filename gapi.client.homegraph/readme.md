@@ -37,7 +37,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // New Service: https://www.googleapis.com/auth/homegraph
+      // Private Service: https://www.googleapis.com/auth/homegraph
       'https://www.googleapis.com/auth/homegraph',
     ],
     immediate = true;

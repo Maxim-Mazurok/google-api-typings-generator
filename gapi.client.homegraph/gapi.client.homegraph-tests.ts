@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210226
+// Revision: 20210303
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -15,7 +15,7 @@ gapi.load('client', () => {
         /** declare client_id registered in Google Developers Console */
         const client_id = '<<PUT YOUR CLIENT ID HERE>>';
         const scope = [
-            /** New Service: https://www.googleapis.com/auth/homegraph */
+            /** Private Service: https://www.googleapis.com/auth/homegraph */
             'https://www.googleapis.com/auth/homegraph',
         ];
         const immediate = false;
