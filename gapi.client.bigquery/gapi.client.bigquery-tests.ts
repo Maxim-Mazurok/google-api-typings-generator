@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210219
+// Revision: 20210303
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -420,6 +420,7 @@ gapi.load('client', () => {
                             value: "Test string",
                         }                    ],
                     createDisposition: "Test string",
+                    createSession: true,
                     defaultDataset: {
                         datasetId: "Test string",
                         projectId: "Test string",
@@ -794,6 +795,7 @@ gapi.load('client', () => {
                     key: "Test string",
                     value: "Test string",
                 }            ],
+            createSession: true,
             defaultDataset: {
                 datasetId: "Test string",
                 projectId: "Test string",
@@ -857,6 +859,7 @@ gapi.load('client', () => {
             modelId: "Test string",
             projectId: "Test string",
         }, {
+            bestTrialId: "Test string",
             creationTime: "Test string",
             description: "Test string",
             encryptionConfiguration: {
@@ -1202,6 +1205,19 @@ gapi.load('client', () => {
                 "Test string"            ],
             language: "Test string",
             lastModifiedTime: "Test string",
+            returnTableType: {
+                columns: [
+                    {
+                        name: "Test string",
+                        type: {
+                            arrayElementType: undefined,
+                            structType: {
+                                fields: undefined,
+                            },
+                            typeKind: "Test string",
+                        },
+                    }                ],
+            },
             returnType: {
                 arrayElementType: undefined,
                 structType: {
@@ -1261,6 +1277,19 @@ gapi.load('client', () => {
                 "Test string"            ],
             language: "Test string",
             lastModifiedTime: "Test string",
+            returnTableType: {
+                columns: [
+                    {
+                        name: "Test string",
+                        type: {
+                            arrayElementType: undefined,
+                            structType: {
+                                fields: undefined,
+                            },
+                            typeKind: "Test string",
+                        },
+                    }                ],
+            },
             returnType: {
                 arrayElementType: undefined,
                 structType: {
