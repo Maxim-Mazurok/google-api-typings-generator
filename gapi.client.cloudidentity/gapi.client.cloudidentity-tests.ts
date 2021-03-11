@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210302
+// Revision: 20210310
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -44,11 +44,13 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.cancelWipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Approves device to access user data. */
         await gapi.client.cloudidentity.devices.deviceUsers.approve({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -95,6 +97,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.block({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -141,6 +144,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -185,6 +189,7 @@ gapi.load('client', () => {
         });
         /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
         await gapi.client.cloudidentity.devices.deviceUsers.delete({
+            customer: "Test string",
             name: "Test string",
         });
         /** Gets the client state for the device user */
@@ -230,6 +235,7 @@ gapi.load('client', () => {
         });
         /** Retrieves the specified DeviceUser */
         await gapi.client.cloudidentity.devices.deviceUsers.get({
+            customer: "Test string",
             name: "Test string",
         });
         /** Gets the client state for the device user */
@@ -275,6 +281,7 @@ gapi.load('client', () => {
         });
         /** Lists/Searches DeviceUsers. */
         await gapi.client.cloudidentity.devices.deviceUsers.list({
+            customer: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -386,6 +393,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.wipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -433,6 +441,7 @@ gapi.load('client', () => {
          * Plus, Enterprise for Education, and Cloud Identity Premium
          */
         await gapi.client.cloudidentity.devices.create({
+            customer: "Test string",
         }, {
             androidSpecificAttributes: {
                 enabledUnknownSources: true,
@@ -474,6 +483,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.approve({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -520,6 +530,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.block({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -566,6 +577,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -610,6 +622,7 @@ gapi.load('client', () => {
         });
         /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
         await gapi.client.cloudidentity.devices.deviceUsers.delete({
+            customer: "Test string",
             name: "Test string",
         });
         /** Gets the client state for the device user */
@@ -655,6 +668,7 @@ gapi.load('client', () => {
         });
         /** Retrieves the specified DeviceUser */
         await gapi.client.cloudidentity.devices.deviceUsers.get({
+            customer: "Test string",
             name: "Test string",
         });
         /** Gets the client state for the device user */
@@ -700,6 +714,7 @@ gapi.load('client', () => {
         });
         /** Lists/Searches DeviceUsers. */
         await gapi.client.cloudidentity.devices.deviceUsers.list({
+            customer: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -811,6 +826,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.wipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -855,12 +871,14 @@ gapi.load('client', () => {
         });
         /** Deletes the specified device. */
         await gapi.client.cloudidentity.devices.delete({
+            customer: "Test string",
             name: "Test string",
         });
         /** Approves device to access user data. */
         await gapi.client.cloudidentity.devices.deviceUsers.approve({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -907,6 +925,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.block({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -953,6 +972,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -997,6 +1017,7 @@ gapi.load('client', () => {
         });
         /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
         await gapi.client.cloudidentity.devices.deviceUsers.delete({
+            customer: "Test string",
             name: "Test string",
         });
         /** Gets the client state for the device user */
@@ -1042,6 +1063,7 @@ gapi.load('client', () => {
         });
         /** Retrieves the specified DeviceUser */
         await gapi.client.cloudidentity.devices.deviceUsers.get({
+            customer: "Test string",
             name: "Test string",
         });
         /** Gets the client state for the device user */
@@ -1087,6 +1109,7 @@ gapi.load('client', () => {
         });
         /** Lists/Searches DeviceUsers. */
         await gapi.client.cloudidentity.devices.deviceUsers.list({
+            customer: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -1198,6 +1221,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.wipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -1242,12 +1266,14 @@ gapi.load('client', () => {
         });
         /** Retrieves the specified device. */
         await gapi.client.cloudidentity.devices.get({
+            customer: "Test string",
             name: "Test string",
         });
         /** Approves device to access user data. */
         await gapi.client.cloudidentity.devices.deviceUsers.approve({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -1294,6 +1320,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.block({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -1340,6 +1367,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -1384,6 +1412,7 @@ gapi.load('client', () => {
         });
         /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
         await gapi.client.cloudidentity.devices.deviceUsers.delete({
+            customer: "Test string",
             name: "Test string",
         });
         /** Gets the client state for the device user */
@@ -1429,6 +1458,7 @@ gapi.load('client', () => {
         });
         /** Retrieves the specified DeviceUser */
         await gapi.client.cloudidentity.devices.deviceUsers.get({
+            customer: "Test string",
             name: "Test string",
         });
         /** Gets the client state for the device user */
@@ -1474,6 +1504,7 @@ gapi.load('client', () => {
         });
         /** Lists/Searches DeviceUsers. */
         await gapi.client.cloudidentity.devices.deviceUsers.list({
+            customer: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -1585,6 +1616,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.wipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -1629,6 +1661,7 @@ gapi.load('client', () => {
         });
         /** Lists/Searches devices. */
         await gapi.client.cloudidentity.devices.list({
+            customer: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -1639,6 +1672,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.approve({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -1685,6 +1719,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.block({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -1731,6 +1766,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -1775,6 +1811,7 @@ gapi.load('client', () => {
         });
         /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
         await gapi.client.cloudidentity.devices.deviceUsers.delete({
+            customer: "Test string",
             name: "Test string",
         });
         /** Gets the client state for the device user */
@@ -1820,6 +1857,7 @@ gapi.load('client', () => {
         });
         /** Retrieves the specified DeviceUser */
         await gapi.client.cloudidentity.devices.deviceUsers.get({
+            customer: "Test string",
             name: "Test string",
         });
         /** Gets the client state for the device user */
@@ -1865,6 +1903,7 @@ gapi.load('client', () => {
         });
         /** Lists/Searches DeviceUsers. */
         await gapi.client.cloudidentity.devices.deviceUsers.list({
+            customer: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -1976,6 +2015,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.wipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -2022,11 +2062,13 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.wipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Approves device to access user data. */
         await gapi.client.cloudidentity.devices.deviceUsers.approve({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -2073,6 +2115,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.block({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -2119,6 +2162,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.cancelWipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
@@ -2163,6 +2207,7 @@ gapi.load('client', () => {
         });
         /** Deletes the specified DeviceUser. This also revokes the user's access to device data. */
         await gapi.client.cloudidentity.devices.deviceUsers.delete({
+            customer: "Test string",
             name: "Test string",
         });
         /** Gets the client state for the device user */
@@ -2208,6 +2253,7 @@ gapi.load('client', () => {
         });
         /** Retrieves the specified DeviceUser */
         await gapi.client.cloudidentity.devices.deviceUsers.get({
+            customer: "Test string",
             name: "Test string",
         });
         /** Gets the client state for the device user */
@@ -2253,6 +2299,7 @@ gapi.load('client', () => {
         });
         /** Lists/Searches DeviceUsers. */
         await gapi.client.cloudidentity.devices.deviceUsers.list({
+            customer: "Test string",
             filter: "Test string",
             orderBy: "Test string",
             pageSize: 42,
@@ -2364,6 +2411,7 @@ gapi.load('client', () => {
         await gapi.client.cloudidentity.devices.deviceUsers.wipe({
             name: "Test string",
         }, {
+            customer: "Test string",
         });
         /** Gets the client state for the device user */
         await gapi.client.cloudidentity.devices.deviceUsers.clientStates.get({
