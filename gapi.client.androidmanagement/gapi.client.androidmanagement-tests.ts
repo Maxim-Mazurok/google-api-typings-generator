@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210309
+// Revision: 20210311
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -615,6 +615,17 @@ gapi.load('client', () => {
             name: "Test string",
             networkEscapeHatchEnabled: true,
             networkResetDisabled: true,
+            oncCertificateProviders: [
+                {
+                    certificateReferences: [
+                        "Test string"                    ],
+                    contentProviderEndpoint: {
+                        packageName: "Test string",
+                        signingCertsSha256: [
+                            "Test string"                        ],
+                        uri: "Test string",
+                    },
+                }            ],
             openNetworkConfiguration: {
                 A: 42            },
             outgoingBeamDisabled: true,
@@ -1376,6 +1387,17 @@ gapi.load('client', () => {
             name: "Test string",
             networkEscapeHatchEnabled: true,
             networkResetDisabled: true,
+            oncCertificateProviders: [
+                {
+                    certificateReferences: [
+                        "Test string"                    ],
+                    contentProviderEndpoint: {
+                        packageName: "Test string",
+                        signingCertsSha256: [
+                            "Test string"                        ],
+                        uri: "Test string",
+                    },
+                }            ],
             openNetworkConfiguration: {
                 A: 42            },
             outgoingBeamDisabled: true,
@@ -2137,6 +2159,17 @@ gapi.load('client', () => {
             name: "Test string",
             networkEscapeHatchEnabled: true,
             networkResetDisabled: true,
+            oncCertificateProviders: [
+                {
+                    certificateReferences: [
+                        "Test string"                    ],
+                    contentProviderEndpoint: {
+                        packageName: "Test string",
+                        signingCertsSha256: [
+                            "Test string"                        ],
+                        uri: "Test string",
+                    },
+                }            ],
             openNetworkConfiguration: {
                 A: 42            },
             outgoingBeamDisabled: true,
@@ -2901,6 +2934,17 @@ gapi.load('client', () => {
             name: "Test string",
             networkEscapeHatchEnabled: true,
             networkResetDisabled: true,
+            oncCertificateProviders: [
+                {
+                    certificateReferences: [
+                        "Test string"                    ],
+                    contentProviderEndpoint: {
+                        packageName: "Test string",
+                        signingCertsSha256: [
+                            "Test string"                        ],
+                        uri: "Test string",
+                    },
+                }            ],
             openNetworkConfiguration: {
                 A: 42            },
             outgoingBeamDisabled: true,
@@ -3704,6 +3748,17 @@ gapi.load('client', () => {
             name: "Test string",
             networkEscapeHatchEnabled: true,
             networkResetDisabled: true,
+            oncCertificateProviders: [
+                {
+                    certificateReferences: [
+                        "Test string"                    ],
+                    contentProviderEndpoint: {
+                        packageName: "Test string",
+                        signingCertsSha256: [
+                            "Test string"                        ],
+                        uri: "Test string",
+                    },
+                }            ],
             openNetworkConfiguration: {
                 A: 42            },
             outgoingBeamDisabled: true,

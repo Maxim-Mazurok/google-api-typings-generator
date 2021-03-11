@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210310
+// Revision: 20210311
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -559,6 +559,14 @@ gapi.load('client', () => {
             creativeFormat: "Test string",
             creativeId: "Test string",
             creativeServingDecision: {
+                adTechnologyProviders: {
+                    detectedGvlIds: [
+                        "Test string"                    ],
+                    detectedProviderIds: [
+                        "Test string"                    ],
+                    unidentifiedProviderDomains: [
+                        "Test string"                    ],
+                },
                 chinaPolicyCompliance: {
                     status: "Test string",
                     topics: [
@@ -942,6 +950,14 @@ gapi.load('client', () => {
             creativeFormat: "Test string",
             creativeId: "Test string",
             creativeServingDecision: {
+                adTechnologyProviders: {
+                    detectedGvlIds: [
+                        "Test string"                    ],
+                    detectedProviderIds: [
+                        "Test string"                    ],
+                    unidentifiedProviderDomains: [
+                        "Test string"                    ],
+                },
                 chinaPolicyCompliance: {
                     status: "Test string",
                     topics: [
@@ -1393,6 +1409,14 @@ gapi.load('client', () => {
             creativeFormat: "Test string",
             creativeId: "Test string",
             creativeServingDecision: {
+                adTechnologyProviders: {
+                    detectedGvlIds: [
+                        "Test string"                    ],
+                    detectedProviderIds: [
+                        "Test string"                    ],
+                    unidentifiedProviderDomains: [
+                        "Test string"                    ],
+                },
                 chinaPolicyCompliance: {
                     status: "Test string",
                     topics: [
@@ -1776,6 +1800,14 @@ gapi.load('client', () => {
             creativeFormat: "Test string",
             creativeId: "Test string",
             creativeServingDecision: {
+                adTechnologyProviders: {
+                    detectedGvlIds: [
+                        "Test string"                    ],
+                    detectedProviderIds: [
+                        "Test string"                    ],
+                    unidentifiedProviderDomains: [
+                        "Test string"                    ],
+                },
                 chinaPolicyCompliance: {
                     status: "Test string",
                     topics: [
@@ -2225,6 +2257,14 @@ gapi.load('client', () => {
             creativeFormat: "Test string",
             creativeId: "Test string",
             creativeServingDecision: {
+                adTechnologyProviders: {
+                    detectedGvlIds: [
+                        "Test string"                    ],
+                    detectedProviderIds: [
+                        "Test string"                    ],
+                    unidentifiedProviderDomains: [
+                        "Test string"                    ],
+                },
                 chinaPolicyCompliance: {
                     status: "Test string",
                     topics: [
@@ -2608,6 +2648,14 @@ gapi.load('client', () => {
             creativeFormat: "Test string",
             creativeId: "Test string",
             creativeServingDecision: {
+                adTechnologyProviders: {
+                    detectedGvlIds: [
+                        "Test string"                    ],
+                    detectedProviderIds: [
+                        "Test string"                    ],
+                    unidentifiedProviderDomains: [
+                        "Test string"                    ],
+                },
                 chinaPolicyCompliance: {
                     status: "Test string",
                     topics: [
