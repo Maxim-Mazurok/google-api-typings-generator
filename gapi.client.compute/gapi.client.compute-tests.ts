@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210301
+// Revision: 20210310
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -15,7 +15,7 @@ gapi.load('client', () => {
         /** declare client_id registered in Google Developers Console */
         const client_id = '<<PUT YOUR CLIENT ID HERE>>';
         const scope = [
-            /** View and manage your data across Google Cloud Platform services */
+            /** See, edit, configure, and delete your Google Cloud Platform data */
             'https://www.googleapis.com/auth/cloud-platform',
             /** View and manage your Google Compute Engine resources */
             'https://www.googleapis.com/auth/compute',
@@ -180,6 +180,15 @@ gapi.load('client', () => {
                     },
                     timeWindowSec: 42,
                 },
+                scalingSchedules: {
+                    A: {
+                        description: "Test string",
+                        disabled: true,
+                        durationSec: 42,
+                        minRequiredReplicas: 42,
+                        schedule: "Test string",
+                        timeZone: "Test string",
+                    }                },
             },
             creationTimestamp: "Test string",
             description: "Test string",
@@ -188,6 +197,12 @@ gapi.load('client', () => {
             name: "Test string",
             recommendedSize: 42,
             region: "Test string",
+            scalingScheduleStatus: {
+                A: {
+                    lastStartTime: "Test string",
+                    nextStartTime: "Test string",
+                    state: "Test string",
+                }            },
             selfLink: "Test string",
             status: "Test string",
             statusDetails: [
@@ -242,6 +257,15 @@ gapi.load('client', () => {
                     },
                     timeWindowSec: 42,
                 },
+                scalingSchedules: {
+                    A: {
+                        description: "Test string",
+                        disabled: true,
+                        durationSec: 42,
+                        minRequiredReplicas: 42,
+                        schedule: "Test string",
+                        timeZone: "Test string",
+                    }                },
             },
             creationTimestamp: "Test string",
             description: "Test string",
@@ -250,6 +274,12 @@ gapi.load('client', () => {
             name: "Test string",
             recommendedSize: 42,
             region: "Test string",
+            scalingScheduleStatus: {
+                A: {
+                    lastStartTime: "Test string",
+                    nextStartTime: "Test string",
+                    state: "Test string",
+                }            },
             selfLink: "Test string",
             status: "Test string",
             statusDetails: [
@@ -294,6 +324,15 @@ gapi.load('client', () => {
                     },
                     timeWindowSec: 42,
                 },
+                scalingSchedules: {
+                    A: {
+                        description: "Test string",
+                        disabled: true,
+                        durationSec: 42,
+                        minRequiredReplicas: 42,
+                        schedule: "Test string",
+                        timeZone: "Test string",
+                    }                },
             },
             creationTimestamp: "Test string",
             description: "Test string",
@@ -302,6 +341,12 @@ gapi.load('client', () => {
             name: "Test string",
             recommendedSize: 42,
             region: "Test string",
+            scalingScheduleStatus: {
+                A: {
+                    lastStartTime: "Test string",
+                    nextStartTime: "Test string",
+                    state: "Test string",
+                }            },
             selfLink: "Test string",
             status: "Test string",
             statusDetails: [
@@ -346,10 +391,21 @@ gapi.load('client', () => {
         }, {
             bucketName: "Test string",
             cdnPolicy: {
+                bypassCacheOnRequestHeaders: [
+                    {
+                        headerName: "Test string",
+                    }                ],
                 cacheMode: "Test string",
                 clientTtl: 42,
                 defaultTtl: 42,
                 maxTtl: 42,
+                negativeCaching: true,
+                negativeCachingPolicy: [
+                    {
+                        code: 42,
+                        ttl: 42,
+                    }                ],
+                serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -381,10 +437,21 @@ gapi.load('client', () => {
         }, {
             bucketName: "Test string",
             cdnPolicy: {
+                bypassCacheOnRequestHeaders: [
+                    {
+                        headerName: "Test string",
+                    }                ],
                 cacheMode: "Test string",
                 clientTtl: 42,
                 defaultTtl: 42,
                 maxTtl: 42,
+                negativeCaching: true,
+                negativeCachingPolicy: [
+                    {
+                        code: 42,
+                        ttl: 42,
+                    }                ],
+                serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -407,10 +474,21 @@ gapi.load('client', () => {
         }, {
             bucketName: "Test string",
             cdnPolicy: {
+                bypassCacheOnRequestHeaders: [
+                    {
+                        headerName: "Test string",
+                    }                ],
                 cacheMode: "Test string",
                 clientTtl: 42,
                 defaultTtl: 42,
                 maxTtl: 42,
+                negativeCaching: true,
+                negativeCachingPolicy: [
+                    {
+                        code: 42,
+                        ttl: 42,
+                    }                ],
+                serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -497,6 +575,10 @@ gapi.load('client', () => {
                     maxUtilization: 42,
                 }            ],
             cdnPolicy: {
+                bypassCacheOnRequestHeaders: [
+                    {
+                        headerName: "Test string",
+                    }                ],
                 cacheKeyPolicy: {
                     includeHost: true,
                     includeProtocol: true,
@@ -510,6 +592,13 @@ gapi.load('client', () => {
                 clientTtl: 42,
                 defaultTtl: 42,
                 maxTtl: 42,
+                negativeCaching: true,
+                negativeCachingPolicy: [
+                    {
+                        code: 42,
+                        ttl: 42,
+                    }                ],
+                serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -564,6 +653,10 @@ gapi.load('client', () => {
             logConfig: {
                 enable: true,
                 sampleRate: 42,
+            },
+            maxStreamDuration: {
+                nanos: 42,
+                seconds: "Test string",
             },
             name: "Test string",
             network: "Test string",
@@ -635,6 +728,10 @@ gapi.load('client', () => {
                     maxUtilization: 42,
                 }            ],
             cdnPolicy: {
+                bypassCacheOnRequestHeaders: [
+                    {
+                        headerName: "Test string",
+                    }                ],
                 cacheKeyPolicy: {
                     includeHost: true,
                     includeProtocol: true,
@@ -648,6 +745,13 @@ gapi.load('client', () => {
                 clientTtl: 42,
                 defaultTtl: 42,
                 maxTtl: 42,
+                negativeCaching: true,
+                negativeCachingPolicy: [
+                    {
+                        code: 42,
+                        ttl: 42,
+                    }                ],
+                serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -702,6 +806,10 @@ gapi.load('client', () => {
             logConfig: {
                 enable: true,
                 sampleRate: 42,
+            },
+            maxStreamDuration: {
+                nanos: 42,
+                seconds: "Test string",
             },
             name: "Test string",
             network: "Test string",
@@ -769,6 +877,10 @@ gapi.load('client', () => {
                     maxUtilization: 42,
                 }            ],
             cdnPolicy: {
+                bypassCacheOnRequestHeaders: [
+                    {
+                        headerName: "Test string",
+                    }                ],
                 cacheKeyPolicy: {
                     includeHost: true,
                     includeProtocol: true,
@@ -782,6 +894,13 @@ gapi.load('client', () => {
                 clientTtl: 42,
                 defaultTtl: 42,
                 maxTtl: 42,
+                negativeCaching: true,
+                negativeCachingPolicy: [
+                    {
+                        code: 42,
+                        ttl: 42,
+                    }                ],
+                serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -836,6 +955,10 @@ gapi.load('client', () => {
             logConfig: {
                 enable: true,
                 sampleRate: 42,
+            },
+            maxStreamDuration: {
+                nanos: 42,
+                seconds: "Test string",
             },
             name: "Test string",
             network: "Test string",
@@ -1269,6 +1392,7 @@ gapi.load('client', () => {
             displayName: "Test string",
             firewallPolicyId: "Test string",
             name: "Test string",
+            shortName: "Test string",
         });
         /** Inserts a rule into a firewall policy. */
         await gapi.client.compute.firewallPolicies.addRule({
@@ -1345,6 +1469,7 @@ gapi.load('client', () => {
                     displayName: "Test string",
                     firewallPolicyId: "Test string",
                     name: "Test string",
+                    shortName: "Test string",
                 }            ],
             creationTimestamp: "Test string",
             description: "Test string",
@@ -1388,6 +1513,7 @@ gapi.load('client', () => {
             ruleTupleCount: 42,
             selfLink: "Test string",
             selfLinkWithId: "Test string",
+            shortName: "Test string",
         });
         /** Lists all the policies that have been configured for the specified project. */
         await gapi.client.compute.firewallPolicies.list({
@@ -1419,6 +1545,7 @@ gapi.load('client', () => {
                     displayName: "Test string",
                     firewallPolicyId: "Test string",
                     name: "Test string",
+                    shortName: "Test string",
                 }            ],
             creationTimestamp: "Test string",
             description: "Test string",
@@ -1462,6 +1589,7 @@ gapi.load('client', () => {
             ruleTupleCount: 42,
             selfLink: "Test string",
             selfLinkWithId: "Test string",
+            shortName: "Test string",
         });
         /** Patches a rule of the specified priority. */
         await gapi.client.compute.firewallPolicies.patchRule({
@@ -2265,6 +2393,86 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parentId: "Test string",
             returnPartialSuccess: true,
+        });
+        /** Deletes the specified global PublicDelegatedPrefix. */
+        await gapi.client.compute.globalPublicDelegatedPrefixes.delete({
+            project: "Test string",
+            publicDelegatedPrefix: "Test string",
+            requestId: "Test string",
+        });
+        /** Returns the specified global PublicDelegatedPrefix resource. */
+        await gapi.client.compute.globalPublicDelegatedPrefixes.get({
+            project: "Test string",
+            publicDelegatedPrefix: "Test string",
+        });
+        /** Creates a global PublicDelegatedPrefix in the specified project using the parameters that are included in the request. */
+        await gapi.client.compute.globalPublicDelegatedPrefixes.insert({
+            project: "Test string",
+            requestId: "Test string",
+        }, {
+            creationTimestamp: "Test string",
+            description: "Test string",
+            fingerprint: "Test string",
+            id: "Test string",
+            ipCidrRange: "Test string",
+            isLiveMigration: true,
+            kind: "Test string",
+            name: "Test string",
+            parentPrefix: "Test string",
+            publicDelegatedSubPrefixs: [
+                {
+                    delegateeProject: "Test string",
+                    description: "Test string",
+                    ipCidrRange: "Test string",
+                    isAddress: true,
+                    name: "Test string",
+                    region: "Test string",
+                    status: "Test string",
+                }            ],
+            region: "Test string",
+            selfLink: "Test string",
+            status: "Test string",
+        });
+        /** Lists the global PublicDelegatedPrefixes for a project. */
+        await gapi.client.compute.globalPublicDelegatedPrefixes.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+            returnPartialSuccess: true,
+        });
+        /**
+         * Patches the specified global PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing
+         * rules.
+         */
+        await gapi.client.compute.globalPublicDelegatedPrefixes.patch({
+            project: "Test string",
+            publicDelegatedPrefix: "Test string",
+            requestId: "Test string",
+        }, {
+            creationTimestamp: "Test string",
+            description: "Test string",
+            fingerprint: "Test string",
+            id: "Test string",
+            ipCidrRange: "Test string",
+            isLiveMigration: true,
+            kind: "Test string",
+            name: "Test string",
+            parentPrefix: "Test string",
+            publicDelegatedSubPrefixs: [
+                {
+                    delegateeProject: "Test string",
+                    description: "Test string",
+                    ipCidrRange: "Test string",
+                    isAddress: true,
+                    name: "Test string",
+                    region: "Test string",
+                    status: "Test string",
+                }            ],
+            region: "Test string",
+            selfLink: "Test string",
+            status: "Test string",
         });
         /** Retrieves the list of all HealthCheck resources, regional and global, available to the specified project. */
         await gapi.client.compute.healthChecks.aggregatedList({
@@ -5158,9 +5366,12 @@ gapi.load('client', () => {
             dataplaneVersion: 42,
             description: "Test string",
             edgeAvailabilityDomain: "Test string",
+            encryption: "Test string",
             googleReferenceId: "Test string",
             id: "Test string",
             interconnect: "Test string",
+            ipsecInternalAddresses: [
+                "Test string"            ],
             kind: "Test string",
             mtu: 42,
             name: "Test string",
@@ -5209,9 +5420,12 @@ gapi.load('client', () => {
             dataplaneVersion: 42,
             description: "Test string",
             edgeAvailabilityDomain: "Test string",
+            encryption: "Test string",
             googleReferenceId: "Test string",
             id: "Test string",
             interconnect: "Test string",
+            ipsecInternalAddresses: [
+                "Test string"            ],
             kind: "Test string",
             mtu: 42,
             name: "Test string",
@@ -6549,6 +6763,169 @@ gapi.load('client', () => {
             bucketName: "Test string",
             reportNamePrefix: "Test string",
         });
+        /** Deletes the specified PublicAdvertisedPrefix */
+        await gapi.client.compute.publicAdvertisedPrefixes.delete({
+            project: "Test string",
+            publicAdvertisedPrefix: "Test string",
+            requestId: "Test string",
+        });
+        /** Returns the specified PublicAdvertisedPrefix resource. */
+        await gapi.client.compute.publicAdvertisedPrefixes.get({
+            project: "Test string",
+            publicAdvertisedPrefix: "Test string",
+        });
+        /** Creates a PublicAdvertisedPrefix in the specified project using the parameters that are included in the request. */
+        await gapi.client.compute.publicAdvertisedPrefixes.insert({
+            project: "Test string",
+            requestId: "Test string",
+        }, {
+            creationTimestamp: "Test string",
+            description: "Test string",
+            dnsVerificationIp: "Test string",
+            fingerprint: "Test string",
+            id: "Test string",
+            ipCidrRange: "Test string",
+            kind: "Test string",
+            name: "Test string",
+            publicDelegatedPrefixs: [
+                {
+                    ipRange: "Test string",
+                    name: "Test string",
+                    project: "Test string",
+                    region: "Test string",
+                    status: "Test string",
+                }            ],
+            selfLink: "Test string",
+            sharedSecret: "Test string",
+            status: "Test string",
+        });
+        /** Lists the PublicAdvertisedPrefixes for a project. */
+        await gapi.client.compute.publicAdvertisedPrefixes.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+            returnPartialSuccess: true,
+        });
+        /** Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. */
+        await gapi.client.compute.publicAdvertisedPrefixes.patch({
+            project: "Test string",
+            publicAdvertisedPrefix: "Test string",
+            requestId: "Test string",
+        }, {
+            creationTimestamp: "Test string",
+            description: "Test string",
+            dnsVerificationIp: "Test string",
+            fingerprint: "Test string",
+            id: "Test string",
+            ipCidrRange: "Test string",
+            kind: "Test string",
+            name: "Test string",
+            publicDelegatedPrefixs: [
+                {
+                    ipRange: "Test string",
+                    name: "Test string",
+                    project: "Test string",
+                    region: "Test string",
+                    status: "Test string",
+                }            ],
+            selfLink: "Test string",
+            sharedSecret: "Test string",
+            status: "Test string",
+        });
+        /** Lists all PublicDelegatedPrefix resources owned by the specific project across all scopes. */
+        await gapi.client.compute.publicDelegatedPrefixes.aggregatedList({
+            filter: "Test string",
+            includeAllScopes: true,
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+            returnPartialSuccess: true,
+        });
+        /** Deletes the specified PublicDelegatedPrefix in the given region. */
+        await gapi.client.compute.publicDelegatedPrefixes.delete({
+            project: "Test string",
+            publicDelegatedPrefix: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        });
+        /** Returns the specified PublicDelegatedPrefix resource in the given region. */
+        await gapi.client.compute.publicDelegatedPrefixes.get({
+            project: "Test string",
+            publicDelegatedPrefix: "Test string",
+            region: "Test string",
+        });
+        /** Creates a PublicDelegatedPrefix in the specified project in the given region using the parameters that are included in the request. */
+        await gapi.client.compute.publicDelegatedPrefixes.insert({
+            project: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        }, {
+            creationTimestamp: "Test string",
+            description: "Test string",
+            fingerprint: "Test string",
+            id: "Test string",
+            ipCidrRange: "Test string",
+            isLiveMigration: true,
+            kind: "Test string",
+            name: "Test string",
+            parentPrefix: "Test string",
+            publicDelegatedSubPrefixs: [
+                {
+                    delegateeProject: "Test string",
+                    description: "Test string",
+                    ipCidrRange: "Test string",
+                    isAddress: true,
+                    name: "Test string",
+                    region: "Test string",
+                    status: "Test string",
+                }            ],
+            region: "Test string",
+            selfLink: "Test string",
+            status: "Test string",
+        });
+        /** Lists the PublicDelegatedPrefixes for a project in the given region. */
+        await gapi.client.compute.publicDelegatedPrefixes.list({
+            filter: "Test string",
+            maxResults: 42,
+            orderBy: "Test string",
+            pageToken: "Test string",
+            project: "Test string",
+            region: "Test string",
+            returnPartialSuccess: true,
+        });
+        /** Patches the specified PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. */
+        await gapi.client.compute.publicDelegatedPrefixes.patch({
+            project: "Test string",
+            publicDelegatedPrefix: "Test string",
+            region: "Test string",
+            requestId: "Test string",
+        }, {
+            creationTimestamp: "Test string",
+            description: "Test string",
+            fingerprint: "Test string",
+            id: "Test string",
+            ipCidrRange: "Test string",
+            isLiveMigration: true,
+            kind: "Test string",
+            name: "Test string",
+            parentPrefix: "Test string",
+            publicDelegatedSubPrefixs: [
+                {
+                    delegateeProject: "Test string",
+                    description: "Test string",
+                    ipCidrRange: "Test string",
+                    isAddress: true,
+                    name: "Test string",
+                    region: "Test string",
+                    status: "Test string",
+                }            ],
+            region: "Test string",
+            selfLink: "Test string",
+            status: "Test string",
+        });
         /** Deletes the specified autoscaler. */
         await gapi.client.compute.regionAutoscalers.delete({
             autoscaler: "Test string",
@@ -6595,6 +6972,15 @@ gapi.load('client', () => {
                     },
                     timeWindowSec: 42,
                 },
+                scalingSchedules: {
+                    A: {
+                        description: "Test string",
+                        disabled: true,
+                        durationSec: 42,
+                        minRequiredReplicas: 42,
+                        schedule: "Test string",
+                        timeZone: "Test string",
+                    }                },
             },
             creationTimestamp: "Test string",
             description: "Test string",
@@ -6603,6 +6989,12 @@ gapi.load('client', () => {
             name: "Test string",
             recommendedSize: 42,
             region: "Test string",
+            scalingScheduleStatus: {
+                A: {
+                    lastStartTime: "Test string",
+                    nextStartTime: "Test string",
+                    state: "Test string",
+                }            },
             selfLink: "Test string",
             status: "Test string",
             statusDetails: [
@@ -6657,6 +7049,15 @@ gapi.load('client', () => {
                     },
                     timeWindowSec: 42,
                 },
+                scalingSchedules: {
+                    A: {
+                        description: "Test string",
+                        disabled: true,
+                        durationSec: 42,
+                        minRequiredReplicas: 42,
+                        schedule: "Test string",
+                        timeZone: "Test string",
+                    }                },
             },
             creationTimestamp: "Test string",
             description: "Test string",
@@ -6665,6 +7066,12 @@ gapi.load('client', () => {
             name: "Test string",
             recommendedSize: 42,
             region: "Test string",
+            scalingScheduleStatus: {
+                A: {
+                    lastStartTime: "Test string",
+                    nextStartTime: "Test string",
+                    state: "Test string",
+                }            },
             selfLink: "Test string",
             status: "Test string",
             statusDetails: [
@@ -6709,6 +7116,15 @@ gapi.load('client', () => {
                     },
                     timeWindowSec: 42,
                 },
+                scalingSchedules: {
+                    A: {
+                        description: "Test string",
+                        disabled: true,
+                        durationSec: 42,
+                        minRequiredReplicas: 42,
+                        schedule: "Test string",
+                        timeZone: "Test string",
+                    }                },
             },
             creationTimestamp: "Test string",
             description: "Test string",
@@ -6717,6 +7133,12 @@ gapi.load('client', () => {
             name: "Test string",
             recommendedSize: 42,
             region: "Test string",
+            scalingScheduleStatus: {
+                A: {
+                    lastStartTime: "Test string",
+                    nextStartTime: "Test string",
+                    state: "Test string",
+                }            },
             selfLink: "Test string",
             status: "Test string",
             statusDetails: [
@@ -6771,6 +7193,10 @@ gapi.load('client', () => {
                     maxUtilization: 42,
                 }            ],
             cdnPolicy: {
+                bypassCacheOnRequestHeaders: [
+                    {
+                        headerName: "Test string",
+                    }                ],
                 cacheKeyPolicy: {
                     includeHost: true,
                     includeProtocol: true,
@@ -6784,6 +7210,13 @@ gapi.load('client', () => {
                 clientTtl: 42,
                 defaultTtl: 42,
                 maxTtl: 42,
+                negativeCaching: true,
+                negativeCachingPolicy: [
+                    {
+                        code: 42,
+                        ttl: 42,
+                    }                ],
+                serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -6838,6 +7271,10 @@ gapi.load('client', () => {
             logConfig: {
                 enable: true,
                 sampleRate: 42,
+            },
+            maxStreamDuration: {
+                nanos: 42,
+                seconds: "Test string",
             },
             name: "Test string",
             network: "Test string",
@@ -6911,6 +7348,10 @@ gapi.load('client', () => {
                     maxUtilization: 42,
                 }            ],
             cdnPolicy: {
+                bypassCacheOnRequestHeaders: [
+                    {
+                        headerName: "Test string",
+                    }                ],
                 cacheKeyPolicy: {
                     includeHost: true,
                     includeProtocol: true,
@@ -6924,6 +7365,13 @@ gapi.load('client', () => {
                 clientTtl: 42,
                 defaultTtl: 42,
                 maxTtl: 42,
+                negativeCaching: true,
+                negativeCachingPolicy: [
+                    {
+                        code: 42,
+                        ttl: 42,
+                    }                ],
+                serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -6978,6 +7426,10 @@ gapi.load('client', () => {
             logConfig: {
                 enable: true,
                 sampleRate: 42,
+            },
+            maxStreamDuration: {
+                nanos: 42,
+                seconds: "Test string",
             },
             name: "Test string",
             network: "Test string",
@@ -7038,6 +7490,10 @@ gapi.load('client', () => {
                     maxUtilization: 42,
                 }            ],
             cdnPolicy: {
+                bypassCacheOnRequestHeaders: [
+                    {
+                        headerName: "Test string",
+                    }                ],
                 cacheKeyPolicy: {
                     includeHost: true,
                     includeProtocol: true,
@@ -7051,6 +7507,13 @@ gapi.load('client', () => {
                 clientTtl: 42,
                 defaultTtl: 42,
                 maxTtl: 42,
+                negativeCaching: true,
+                negativeCachingPolicy: [
+                    {
+                        code: 42,
+                        ttl: 42,
+                    }                ],
+                serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
                     "Test string"                ],
@@ -7105,6 +7568,10 @@ gapi.load('client', () => {
             logConfig: {
                 enable: true,
                 sampleRate: 42,
+            },
+            maxStreamDuration: {
+                nanos: 42,
+                seconds: "Test string",
             },
             name: "Test string",
             network: "Test string",
@@ -8908,6 +9375,10 @@ gapi.load('client', () => {
                         percentage: 42,
                     },
                 },
+                maxStreamDuration: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
                 requestMirrorPolicy: {
                     backendService: "Test string",
                 },
@@ -9022,6 +9493,10 @@ gapi.load('client', () => {
                                 percentage: 42,
                             },
                         },
+                        maxStreamDuration: {
+                            nanos: 42,
+                            seconds: "Test string",
+                        },
                         requestMirrorPolicy: {
                             backendService: "Test string",
                         },
@@ -9127,6 +9602,10 @@ gapi.load('client', () => {
                                         },
                                         percentage: 42,
                                     },
+                                },
+                                maxStreamDuration: {
+                                    nanos: 42,
+                                    seconds: "Test string",
                                 },
                                 requestMirrorPolicy: {
                                     backendService: "Test string",
@@ -9269,6 +9748,10 @@ gapi.load('client', () => {
                                         },
                                         percentage: 42,
                                     },
+                                },
+                                maxStreamDuration: {
+                                    nanos: 42,
+                                    seconds: "Test string",
                                 },
                                 requestMirrorPolicy: {
                                     backendService: "Test string",
@@ -9389,6 +9872,10 @@ gapi.load('client', () => {
                         percentage: 42,
                     },
                 },
+                maxStreamDuration: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
                 requestMirrorPolicy: {
                     backendService: "Test string",
                 },
@@ -9503,6 +9990,10 @@ gapi.load('client', () => {
                                 percentage: 42,
                             },
                         },
+                        maxStreamDuration: {
+                            nanos: 42,
+                            seconds: "Test string",
+                        },
                         requestMirrorPolicy: {
                             backendService: "Test string",
                         },
@@ -9608,6 +10099,10 @@ gapi.load('client', () => {
                                         },
                                         percentage: 42,
                                     },
+                                },
+                                maxStreamDuration: {
+                                    nanos: 42,
+                                    seconds: "Test string",
                                 },
                                 requestMirrorPolicy: {
                                     backendService: "Test string",
@@ -9750,6 +10245,10 @@ gapi.load('client', () => {
                                         },
                                         percentage: 42,
                                     },
+                                },
+                                maxStreamDuration: {
+                                    nanos: 42,
+                                    seconds: "Test string",
                                 },
                                 requestMirrorPolicy: {
                                     backendService: "Test string",
@@ -9860,6 +10359,10 @@ gapi.load('client', () => {
                         percentage: 42,
                     },
                 },
+                maxStreamDuration: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
                 requestMirrorPolicy: {
                     backendService: "Test string",
                 },
@@ -9974,6 +10477,10 @@ gapi.load('client', () => {
                                 percentage: 42,
                             },
                         },
+                        maxStreamDuration: {
+                            nanos: 42,
+                            seconds: "Test string",
+                        },
                         requestMirrorPolicy: {
                             backendService: "Test string",
                         },
@@ -10079,6 +10586,10 @@ gapi.load('client', () => {
                                         },
                                         percentage: 42,
                                     },
+                                },
+                                maxStreamDuration: {
+                                    nanos: 42,
+                                    seconds: "Test string",
                                 },
                                 requestMirrorPolicy: {
                                     backendService: "Test string",
@@ -10222,6 +10733,10 @@ gapi.load('client', () => {
                                         percentage: 42,
                                     },
                                 },
+                                maxStreamDuration: {
+                                    nanos: 42,
+                                    seconds: "Test string",
+                                },
                                 requestMirrorPolicy: {
                                     backendService: "Test string",
                                 },
@@ -10330,6 +10845,10 @@ gapi.load('client', () => {
                             },
                             percentage: 42,
                         },
+                    },
+                    maxStreamDuration: {
+                        nanos: 42,
+                        seconds: "Test string",
                     },
                     requestMirrorPolicy: {
                         backendService: "Test string",
@@ -10445,6 +10964,10 @@ gapi.load('client', () => {
                                     percentage: 42,
                                 },
                             },
+                            maxStreamDuration: {
+                                nanos: 42,
+                                seconds: "Test string",
+                            },
                             requestMirrorPolicy: {
                                 backendService: "Test string",
                             },
@@ -10550,6 +11073,10 @@ gapi.load('client', () => {
                                             },
                                             percentage: 42,
                                         },
+                                    },
+                                    maxStreamDuration: {
+                                        nanos: 42,
+                                        seconds: "Test string",
                                     },
                                     requestMirrorPolicy: {
                                         backendService: "Test string",
@@ -10692,6 +11219,10 @@ gapi.load('client', () => {
                                             },
                                             percentage: 42,
                                         },
+                                    },
+                                    maxStreamDuration: {
+                                        nanos: 42,
+                                        seconds: "Test string",
                                     },
                                     requestMirrorPolicy: {
                                         backendService: "Test string",
@@ -11244,6 +11775,7 @@ gapi.load('client', () => {
                 }            ],
             creationTimestamp: "Test string",
             description: "Test string",
+            encryptedInterconnectRouter: true,
             id: "Test string",
             interfaces: [
                 {
@@ -11335,6 +11867,7 @@ gapi.load('client', () => {
                 }            ],
             creationTimestamp: "Test string",
             description: "Test string",
+            encryptedInterconnectRouter: true,
             id: "Test string",
             interfaces: [
                 {
@@ -11415,6 +11948,7 @@ gapi.load('client', () => {
                 }            ],
             creationTimestamp: "Test string",
             description: "Test string",
+            encryptedInterconnectRouter: true,
             id: "Test string",
             interfaces: [
                 {
@@ -11499,6 +12033,7 @@ gapi.load('client', () => {
                 }            ],
             creationTimestamp: "Test string",
             description: "Test string",
+            encryptedInterconnectRouter: true,
             id: "Test string",
             interfaces: [
                 {
@@ -12941,6 +13476,10 @@ gapi.load('client', () => {
                         percentage: 42,
                     },
                 },
+                maxStreamDuration: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
                 requestMirrorPolicy: {
                     backendService: "Test string",
                 },
@@ -13055,6 +13594,10 @@ gapi.load('client', () => {
                                 percentage: 42,
                             },
                         },
+                        maxStreamDuration: {
+                            nanos: 42,
+                            seconds: "Test string",
+                        },
                         requestMirrorPolicy: {
                             backendService: "Test string",
                         },
@@ -13160,6 +13703,10 @@ gapi.load('client', () => {
                                         },
                                         percentage: 42,
                                     },
+                                },
+                                maxStreamDuration: {
+                                    nanos: 42,
+                                    seconds: "Test string",
                                 },
                                 requestMirrorPolicy: {
                                     backendService: "Test string",
@@ -13302,6 +13849,10 @@ gapi.load('client', () => {
                                         },
                                         percentage: 42,
                                     },
+                                },
+                                maxStreamDuration: {
+                                    nanos: 42,
+                                    seconds: "Test string",
                                 },
                                 requestMirrorPolicy: {
                                     backendService: "Test string",
@@ -13433,6 +13984,10 @@ gapi.load('client', () => {
                         percentage: 42,
                     },
                 },
+                maxStreamDuration: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
                 requestMirrorPolicy: {
                     backendService: "Test string",
                 },
@@ -13547,6 +14102,10 @@ gapi.load('client', () => {
                                 percentage: 42,
                             },
                         },
+                        maxStreamDuration: {
+                            nanos: 42,
+                            seconds: "Test string",
+                        },
                         requestMirrorPolicy: {
                             backendService: "Test string",
                         },
@@ -13652,6 +14211,10 @@ gapi.load('client', () => {
                                         },
                                         percentage: 42,
                                     },
+                                },
+                                maxStreamDuration: {
+                                    nanos: 42,
+                                    seconds: "Test string",
                                 },
                                 requestMirrorPolicy: {
                                     backendService: "Test string",
@@ -13794,6 +14357,10 @@ gapi.load('client', () => {
                                         },
                                         percentage: 42,
                                     },
+                                },
+                                maxStreamDuration: {
+                                    nanos: 42,
+                                    seconds: "Test string",
                                 },
                                 requestMirrorPolicy: {
                                     backendService: "Test string",
@@ -13903,6 +14470,10 @@ gapi.load('client', () => {
                         percentage: 42,
                     },
                 },
+                maxStreamDuration: {
+                    nanos: 42,
+                    seconds: "Test string",
+                },
                 requestMirrorPolicy: {
                     backendService: "Test string",
                 },
@@ -14017,6 +14588,10 @@ gapi.load('client', () => {
                                 percentage: 42,
                             },
                         },
+                        maxStreamDuration: {
+                            nanos: 42,
+                            seconds: "Test string",
+                        },
                         requestMirrorPolicy: {
                             backendService: "Test string",
                         },
@@ -14122,6 +14697,10 @@ gapi.load('client', () => {
                                         },
                                         percentage: 42,
                                     },
+                                },
+                                maxStreamDuration: {
+                                    nanos: 42,
+                                    seconds: "Test string",
                                 },
                                 requestMirrorPolicy: {
                                     backendService: "Test string",
@@ -14265,6 +14844,10 @@ gapi.load('client', () => {
                                         percentage: 42,
                                     },
                                 },
+                                maxStreamDuration: {
+                                    nanos: 42,
+                                    seconds: "Test string",
+                                },
                                 requestMirrorPolicy: {
                                     backendService: "Test string",
                                 },
@@ -14372,6 +14955,10 @@ gapi.load('client', () => {
                             },
                             percentage: 42,
                         },
+                    },
+                    maxStreamDuration: {
+                        nanos: 42,
+                        seconds: "Test string",
                     },
                     requestMirrorPolicy: {
                         backendService: "Test string",
@@ -14487,6 +15074,10 @@ gapi.load('client', () => {
                                     percentage: 42,
                                 },
                             },
+                            maxStreamDuration: {
+                                nanos: 42,
+                                seconds: "Test string",
+                            },
                             requestMirrorPolicy: {
                                 backendService: "Test string",
                             },
@@ -14592,6 +15183,10 @@ gapi.load('client', () => {
                                             },
                                             percentage: 42,
                                         },
+                                    },
+                                    maxStreamDuration: {
+                                        nanos: 42,
+                                        seconds: "Test string",
                                     },
                                     requestMirrorPolicy: {
                                         backendService: "Test string",
@@ -14735,6 +15330,10 @@ gapi.load('client', () => {
                                             percentage: 42,
                                         },
                                     },
+                                    maxStreamDuration: {
+                                        nanos: 42,
+                                        seconds: "Test string",
+                                    },
                                     requestMirrorPolicy: {
                                         backendService: "Test string",
                                     },
@@ -14857,6 +15456,7 @@ gapi.load('client', () => {
             vpnInterfaces: [
                 {
                     id: 42,
+                    interconnectAttachment: "Test string",
                     ipAddress: "Test string",
                 }            ],
         });

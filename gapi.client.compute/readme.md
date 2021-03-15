@@ -37,7 +37,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // View and manage your data across Google Cloud Platform services
+      // See, edit, configure, and delete your Google Cloud Platform data
       'https://www.googleapis.com/auth/cloud-platform',
 
       // View and manage your Google Compute Engine resources
@@ -650,6 +650,31 @@ await gapi.client.compute.globalOrganizationOperations.get({ operation: "operati
 Retrieves a list of Operation resources contained within the specified organization.
 */
 await gapi.client.compute.globalOrganizationOperations.list({  });
+
+/*
+Deletes the specified global PublicDelegatedPrefix.
+*/
+await gapi.client.compute.globalPublicDelegatedPrefixes.delete({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix",  });
+
+/*
+Returns the specified global PublicDelegatedPrefix resource.
+*/
+await gapi.client.compute.globalPublicDelegatedPrefixes.get({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix",  });
+
+/*
+Creates a global PublicDelegatedPrefix in the specified project using the parameters that are included in the request.
+*/
+await gapi.client.compute.globalPublicDelegatedPrefixes.insert({ project: "project",  });
+
+/*
+Lists the global PublicDelegatedPrefixes for a project.
+*/
+await gapi.client.compute.globalPublicDelegatedPrefixes.list({ project: "project",  });
+
+/*
+Patches the specified global PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
+*/
+await gapi.client.compute.globalPublicDelegatedPrefixes.patch({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix",  });
 
 /*
 Retrieves the list of all HealthCheck resources, regional and global, available to the specified project.
@@ -1670,6 +1695,61 @@ await gapi.client.compute.projects.setDefaultNetworkTier({ project: "project",  
 Enables the usage export feature and sets the usage export bucket where reports are stored. If you provide an empty request body using this method, the usage export feature will be disabled.
 */
 await gapi.client.compute.projects.setUsageExportBucket({ project: "project",  });
+
+/*
+Deletes the specified PublicAdvertisedPrefix
+*/
+await gapi.client.compute.publicAdvertisedPrefixes.delete({ project: "project", publicAdvertisedPrefix: "publicAdvertisedPrefix",  });
+
+/*
+Returns the specified PublicAdvertisedPrefix resource.
+*/
+await gapi.client.compute.publicAdvertisedPrefixes.get({ project: "project", publicAdvertisedPrefix: "publicAdvertisedPrefix",  });
+
+/*
+Creates a PublicAdvertisedPrefix in the specified project using the parameters that are included in the request.
+*/
+await gapi.client.compute.publicAdvertisedPrefixes.insert({ project: "project",  });
+
+/*
+Lists the PublicAdvertisedPrefixes for a project.
+*/
+await gapi.client.compute.publicAdvertisedPrefixes.list({ project: "project",  });
+
+/*
+Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
+*/
+await gapi.client.compute.publicAdvertisedPrefixes.patch({ project: "project", publicAdvertisedPrefix: "publicAdvertisedPrefix",  });
+
+/*
+Lists all PublicDelegatedPrefix resources owned by the specific project across all scopes.
+*/
+await gapi.client.compute.publicDelegatedPrefixes.aggregatedList({ project: "project",  });
+
+/*
+Deletes the specified PublicDelegatedPrefix in the given region.
+*/
+await gapi.client.compute.publicDelegatedPrefixes.delete({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix", region: "region",  });
+
+/*
+Returns the specified PublicDelegatedPrefix resource in the given region.
+*/
+await gapi.client.compute.publicDelegatedPrefixes.get({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix", region: "region",  });
+
+/*
+Creates a PublicDelegatedPrefix in the specified project in the given region using the parameters that are included in the request.
+*/
+await gapi.client.compute.publicDelegatedPrefixes.insert({ project: "project", region: "region",  });
+
+/*
+Lists the PublicDelegatedPrefixes for a project in the given region.
+*/
+await gapi.client.compute.publicDelegatedPrefixes.list({ project: "project", region: "region",  });
+
+/*
+Patches the specified PublicDelegatedPrefix resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
+*/
+await gapi.client.compute.publicDelegatedPrefixes.patch({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix", region: "region",  });
 
 /*
 Deletes the specified autoscaler.
