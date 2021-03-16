@@ -137,6 +137,21 @@ Provides a list of contacts in the authenticated user's other contacts that matc
 await gapi.client.people.otherContacts.search({  });
 
 /*
+Create a batch of new contacts and return the PersonResponses for the newly created contacts.
+*/
+await gapi.client.people.people.batchCreateContacts({  });
+
+/*
+Delete a batch of contacts. Any non-contact data will not be deleted.
+*/
+await gapi.client.people.people.batchDeleteContacts({  });
+
+/*
+Update a batch of contacts and return a map of resource names to PersonResponses for the updated contacts.
+*/
+await gapi.client.people.people.batchUpdateContacts({  });
+
+/*
 Create a new contact and return the person resource for that contact. The request returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies * birthdays * genders * names
 */
 await gapi.client.people.people.createContact({  });

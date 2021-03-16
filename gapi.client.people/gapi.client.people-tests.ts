@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210311
+// Revision: 20210315
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -220,6 +220,1619 @@ gapi.load('client', () => {
             pageSize: 42,
             query: "Test string",
             readMask: "Test string",
+        });
+        /** Create a batch of new contacts and return the PersonResponses for the newly created contacts. */
+        await gapi.client.people.people.batchCreateContacts({
+        }, {
+            contacts: [
+                {
+                    contactPerson: {
+                        addresses: [
+                            {
+                                city: "Test string",
+                                country: "Test string",
+                                countryCode: "Test string",
+                                extendedAddress: "Test string",
+                                formattedType: "Test string",
+                                formattedValue: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                poBox: "Test string",
+                                postalCode: "Test string",
+                                region: "Test string",
+                                streetAddress: "Test string",
+                                type: "Test string",
+                            }                        ],
+                        ageRange: "Test string",
+                        ageRanges: [
+                            {
+                                ageRange: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                            }                        ],
+                        biographies: [
+                            {
+                                contentType: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        birthdays: [
+                            {
+                                date: {
+                                    day: 42,
+                                    month: 42,
+                                    year: 42,
+                                },
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                text: "Test string",
+                            }                        ],
+                        braggingRights: [
+                            {
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        calendarUrls: [
+                            {
+                                formattedType: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                type: "Test string",
+                                url: "Test string",
+                            }                        ],
+                        clientData: [
+                            {
+                                key: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        coverPhotos: [
+                            {
+                                default: true,
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                url: "Test string",
+                            }                        ],
+                        emailAddresses: [
+                            {
+                                displayName: "Test string",
+                                formattedType: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                type: "Test string",
+                                value: "Test string",
+                            }                        ],
+                        etag: "Test string",
+                        events: [
+                            {
+                                date: {
+                                    day: 42,
+                                    month: 42,
+                                    year: 42,
+                                },
+                                formattedType: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                type: "Test string",
+                            }                        ],
+                        externalIds: [
+                            {
+                                formattedType: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                type: "Test string",
+                                value: "Test string",
+                            }                        ],
+                        fileAses: [
+                            {
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        genders: [
+                            {
+                                addressMeAs: "Test string",
+                                formattedValue: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        imClients: [
+                            {
+                                formattedProtocol: "Test string",
+                                formattedType: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                protocol: "Test string",
+                                type: "Test string",
+                                username: "Test string",
+                            }                        ],
+                        interests: [
+                            {
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        locales: [
+                            {
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        locations: [
+                            {
+                                buildingId: "Test string",
+                                current: true,
+                                deskCode: "Test string",
+                                floor: "Test string",
+                                floorSection: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                type: "Test string",
+                                value: "Test string",
+                            }                        ],
+                        memberships: [
+                            {
+                                contactGroupMembership: {
+                                    contactGroupId: "Test string",
+                                    contactGroupResourceName: "Test string",
+                                },
+                                domainMembership: {
+                                    inViewerDomain: true,
+                                },
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                            }                        ],
+                        metadata: {
+                            deleted: true,
+                            linkedPeopleResourceNames: [
+                                "Test string"                            ],
+                            objectType: "Test string",
+                            previousResourceNames: [
+                                "Test string"                            ],
+                            sources: [
+                                {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                }                            ],
+                        },
+                        miscKeywords: [
+                            {
+                                formattedType: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                type: "Test string",
+                                value: "Test string",
+                            }                        ],
+                        names: [
+                            {
+                                displayName: "Test string",
+                                displayNameLastFirst: "Test string",
+                                familyName: "Test string",
+                                givenName: "Test string",
+                                honorificPrefix: "Test string",
+                                honorificSuffix: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                middleName: "Test string",
+                                phoneticFamilyName: "Test string",
+                                phoneticFullName: "Test string",
+                                phoneticGivenName: "Test string",
+                                phoneticHonorificPrefix: "Test string",
+                                phoneticHonorificSuffix: "Test string",
+                                phoneticMiddleName: "Test string",
+                                unstructuredName: "Test string",
+                            }                        ],
+                        nicknames: [
+                            {
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                type: "Test string",
+                                value: "Test string",
+                            }                        ],
+                        occupations: [
+                            {
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        organizations: [
+                            {
+                                current: true,
+                                department: "Test string",
+                                domain: "Test string",
+                                endDate: {
+                                    day: 42,
+                                    month: 42,
+                                    year: 42,
+                                },
+                                formattedType: "Test string",
+                                jobDescription: "Test string",
+                                location: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                name: "Test string",
+                                phoneticName: "Test string",
+                                startDate: {
+                                    day: 42,
+                                    month: 42,
+                                    year: 42,
+                                },
+                                symbol: "Test string",
+                                title: "Test string",
+                                type: "Test string",
+                            }                        ],
+                        phoneNumbers: [
+                            {
+                                canonicalForm: "Test string",
+                                formattedType: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                type: "Test string",
+                                value: "Test string",
+                            }                        ],
+                        photos: [
+                            {
+                                default: true,
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                url: "Test string",
+                            }                        ],
+                        relations: [
+                            {
+                                formattedType: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                person: "Test string",
+                                type: "Test string",
+                            }                        ],
+                        relationshipInterests: [
+                            {
+                                formattedValue: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        relationshipStatuses: [
+                            {
+                                formattedValue: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        residences: [
+                            {
+                                current: true,
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        resourceName: "Test string",
+                        sipAddresses: [
+                            {
+                                formattedType: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                type: "Test string",
+                                value: "Test string",
+                            }                        ],
+                        skills: [
+                            {
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        taglines: [
+                            {
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                        urls: [
+                            {
+                                formattedType: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                type: "Test string",
+                                value: "Test string",
+                            }                        ],
+                        userDefined: [
+                            {
+                                key: "Test string",
+                                metadata: {
+                                    primary: true,
+                                    source: {
+                                        etag: "Test string",
+                                        id: "Test string",
+                                        profileMetadata: {
+                                            objectType: "Test string",
+                                            userTypes: [
+                                                "Test string"                                            ],
+                                        },
+                                        type: "Test string",
+                                        updateTime: "Test string",
+                                    },
+                                    verified: true,
+                                },
+                                value: "Test string",
+                            }                        ],
+                    },
+                }            ],
+            readMask: "Test string",
+            sources: [
+                "Test string"            ],
+        });
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
+         */
+        await gapi.client.people.people.connections.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            personFields: "Test string",
+            "requestMask.includeField": "Test string",
+            requestSyncToken: true,
+            resourceName: "Test string",
+            sortOrder: "Test string",
+            sources: "Test string",
+            syncToken: "Test string",
+        });
+        /** Delete a batch of contacts. Any non-contact data will not be deleted. */
+        await gapi.client.people.people.batchDeleteContacts({
+        }, {
+            resourceNames: [
+                "Test string"            ],
+        });
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
+         */
+        await gapi.client.people.people.connections.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            personFields: "Test string",
+            "requestMask.includeField": "Test string",
+            requestSyncToken: true,
+            resourceName: "Test string",
+            sortOrder: "Test string",
+            sources: "Test string",
+            syncToken: "Test string",
+        });
+        /** Update a batch of contacts and return a map of resource names to PersonResponses for the updated contacts. */
+        await gapi.client.people.people.batchUpdateContacts({
+        }, {
+            contacts: {
+                A: {
+                    addresses: [
+                        {
+                            city: "Test string",
+                            country: "Test string",
+                            countryCode: "Test string",
+                            extendedAddress: "Test string",
+                            formattedType: "Test string",
+                            formattedValue: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            poBox: "Test string",
+                            postalCode: "Test string",
+                            region: "Test string",
+                            streetAddress: "Test string",
+                            type: "Test string",
+                        }                    ],
+                    ageRange: "Test string",
+                    ageRanges: [
+                        {
+                            ageRange: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                        }                    ],
+                    biographies: [
+                        {
+                            contentType: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    birthdays: [
+                        {
+                            date: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            text: "Test string",
+                        }                    ],
+                    braggingRights: [
+                        {
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    calendarUrls: [
+                        {
+                            formattedType: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            type: "Test string",
+                            url: "Test string",
+                        }                    ],
+                    clientData: [
+                        {
+                            key: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    coverPhotos: [
+                        {
+                            default: true,
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            url: "Test string",
+                        }                    ],
+                    emailAddresses: [
+                        {
+                            displayName: "Test string",
+                            formattedType: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            type: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    etag: "Test string",
+                    events: [
+                        {
+                            date: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            formattedType: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            type: "Test string",
+                        }                    ],
+                    externalIds: [
+                        {
+                            formattedType: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            type: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    fileAses: [
+                        {
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    genders: [
+                        {
+                            addressMeAs: "Test string",
+                            formattedValue: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    imClients: [
+                        {
+                            formattedProtocol: "Test string",
+                            formattedType: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            protocol: "Test string",
+                            type: "Test string",
+                            username: "Test string",
+                        }                    ],
+                    interests: [
+                        {
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    locales: [
+                        {
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    locations: [
+                        {
+                            buildingId: "Test string",
+                            current: true,
+                            deskCode: "Test string",
+                            floor: "Test string",
+                            floorSection: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            type: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    memberships: [
+                        {
+                            contactGroupMembership: {
+                                contactGroupId: "Test string",
+                                contactGroupResourceName: "Test string",
+                            },
+                            domainMembership: {
+                                inViewerDomain: true,
+                            },
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                        }                    ],
+                    metadata: {
+                        deleted: true,
+                        linkedPeopleResourceNames: [
+                            "Test string"                        ],
+                        objectType: "Test string",
+                        previousResourceNames: [
+                            "Test string"                        ],
+                        sources: [
+                            {
+                                etag: "Test string",
+                                id: "Test string",
+                                profileMetadata: {
+                                    objectType: "Test string",
+                                    userTypes: [
+                                        "Test string"                                    ],
+                                },
+                                type: "Test string",
+                                updateTime: "Test string",
+                            }                        ],
+                    },
+                    miscKeywords: [
+                        {
+                            formattedType: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            type: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    names: [
+                        {
+                            displayName: "Test string",
+                            displayNameLastFirst: "Test string",
+                            familyName: "Test string",
+                            givenName: "Test string",
+                            honorificPrefix: "Test string",
+                            honorificSuffix: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            middleName: "Test string",
+                            phoneticFamilyName: "Test string",
+                            phoneticFullName: "Test string",
+                            phoneticGivenName: "Test string",
+                            phoneticHonorificPrefix: "Test string",
+                            phoneticHonorificSuffix: "Test string",
+                            phoneticMiddleName: "Test string",
+                            unstructuredName: "Test string",
+                        }                    ],
+                    nicknames: [
+                        {
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            type: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    occupations: [
+                        {
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    organizations: [
+                        {
+                            current: true,
+                            department: "Test string",
+                            domain: "Test string",
+                            endDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            formattedType: "Test string",
+                            jobDescription: "Test string",
+                            location: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            name: "Test string",
+                            phoneticName: "Test string",
+                            startDate: {
+                                day: 42,
+                                month: 42,
+                                year: 42,
+                            },
+                            symbol: "Test string",
+                            title: "Test string",
+                            type: "Test string",
+                        }                    ],
+                    phoneNumbers: [
+                        {
+                            canonicalForm: "Test string",
+                            formattedType: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            type: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    photos: [
+                        {
+                            default: true,
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            url: "Test string",
+                        }                    ],
+                    relations: [
+                        {
+                            formattedType: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            person: "Test string",
+                            type: "Test string",
+                        }                    ],
+                    relationshipInterests: [
+                        {
+                            formattedValue: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    relationshipStatuses: [
+                        {
+                            formattedValue: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    residences: [
+                        {
+                            current: true,
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    resourceName: "Test string",
+                    sipAddresses: [
+                        {
+                            formattedType: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            type: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    skills: [
+                        {
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    taglines: [
+                        {
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                    urls: [
+                        {
+                            formattedType: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            type: "Test string",
+                            value: "Test string",
+                        }                    ],
+                    userDefined: [
+                        {
+                            key: "Test string",
+                            metadata: {
+                                primary: true,
+                                source: {
+                                    etag: "Test string",
+                                    id: "Test string",
+                                    profileMetadata: {
+                                        objectType: "Test string",
+                                        userTypes: [
+                                            "Test string"                                        ],
+                                    },
+                                    type: "Test string",
+                                    updateTime: "Test string",
+                                },
+                                verified: true,
+                            },
+                            value: "Test string",
+                        }                    ],
+                }            },
+            readMask: "Test string",
+            sources: [
+                "Test string"            ],
+            updateMask: "Test string",
+        });
+        /**
+         * Provides a list of the authenticated user's contacts. The request returns a 400 error if `personFields` is not specified. The request returns a 410 error if `sync_token` is specified
+         * and is expired. Sync tokens expire after 7 days to prevent data drift between clients and the server. To handle a sync token expired error, a request should be sent without `sync_token`
+         * to get all contacts.
+         */
+        await gapi.client.people.people.connections.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            personFields: "Test string",
+            "requestMask.includeField": "Test string",
+            requestSyncToken: true,
+            resourceName: "Test string",
+            sortOrder: "Test string",
+            sources: "Test string",
+            syncToken: "Test string",
         });
         /**
          * Create a new contact and return the person resource for that contact. The request returns a 400 error if more than one field is specified on a field that is a singleton for contact
