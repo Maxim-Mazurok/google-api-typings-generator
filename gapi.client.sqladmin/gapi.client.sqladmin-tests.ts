@@ -15,7 +15,7 @@ gapi.load('client', () => {
         /** declare client_id registered in Google Developers Console */
         const client_id = '<<PUT YOUR CLIENT ID HERE>>';
         const scope = [
-            /** See, edit, configure, and delete your Google Cloud Platform data */
+            /** View and manage your data across Google Cloud Platform services */
             'https://www.googleapis.com/auth/cloud-platform',
             /** Manage your Google SQL Service instances */
             'https://www.googleapis.com/auth/sqlservice.admin',
