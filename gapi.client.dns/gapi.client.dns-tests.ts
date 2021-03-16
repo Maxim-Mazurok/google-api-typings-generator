@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210303
+// Revision: 20210309
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -86,7 +86,7 @@ gapi.load('client', () => {
             sortBy: "Test string",
             sortOrder: "Test string",
         });
-        /** Fetch the representation of an existing DnsKey. */
+        /** Fetches the representation of an existing DnsKey. */
         await gapi.client.dns.dnsKeys.get({
             clientOperationId: "Test string",
             digestType: "Test string",
@@ -94,7 +94,7 @@ gapi.load('client', () => {
             managedZone: "Test string",
             project: "Test string",
         });
-        /** Enumerate DnsKeys to a ResourceRecordSet collection. */
+        /** Enumerates DnsKeys to a ResourceRecordSet collection. */
         await gapi.client.dns.dnsKeys.list({
             digestType: "Test string",
             managedZone: "Test string",
@@ -117,7 +117,7 @@ gapi.load('client', () => {
             project: "Test string",
             sortBy: "Test string",
         });
-        /** Create a new ManagedZone. */
+        /** Creates a new ManagedZone. */
         await gapi.client.dns.managedZones.create({
             clientOperationId: "Test string",
             project: "Test string",
@@ -183,26 +183,26 @@ gapi.load('client', () => {
             },
             visibility: "Test string",
         });
-        /** Delete a previously created ManagedZone. */
+        /** Deletes a previously created ManagedZone. */
         await gapi.client.dns.managedZones.delete({
             clientOperationId: "Test string",
             managedZone: "Test string",
             project: "Test string",
         });
-        /** Fetch the representation of an existing ManagedZone. */
+        /** Fetches the representation of an existing ManagedZone. */
         await gapi.client.dns.managedZones.get({
             clientOperationId: "Test string",
             managedZone: "Test string",
             project: "Test string",
         });
-        /** Enumerate ManagedZones that have been created but not yet deleted. */
+        /** Enumerates ManagedZones that have been created but not yet deleted. */
         await gapi.client.dns.managedZones.list({
             dnsName: "Test string",
             maxResults: 42,
             pageToken: "Test string",
             project: "Test string",
         });
-        /** Apply a partial update to an existing ManagedZone. */
+        /** Applies a partial update to an existing ManagedZone. */
         await gapi.client.dns.managedZones.patch({
             clientOperationId: "Test string",
             managedZone: "Test string",
@@ -269,7 +269,7 @@ gapi.load('client', () => {
             },
             visibility: "Test string",
         });
-        /** Update an existing ManagedZone. */
+        /** Updates an existing ManagedZone. */
         await gapi.client.dns.managedZones.update({
             clientOperationId: "Test string",
             managedZone: "Test string",
@@ -380,7 +380,7 @@ gapi.load('client', () => {
             pageToken: "Test string",
             project: "Test string",
         });
-        /** Apply a partial update to an existing Policy. */
+        /** Applies a partial update to an existing Policy. */
         await gapi.client.dns.policies.patch({
             clientOperationId: "Test string",
             policy: "Test string",
@@ -407,7 +407,7 @@ gapi.load('client', () => {
                     networkUrl: "Test string",
                 }            ],
         });
-        /** Update an existing Policy. */
+        /** Updates an existing Policy. */
         await gapi.client.dns.policies.update({
             clientOperationId: "Test string",
             policy: "Test string",

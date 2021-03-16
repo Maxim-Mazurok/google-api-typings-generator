@@ -83,12 +83,12 @@ Enumerates Changes to a ResourceRecordSet collection.
 await gapi.client.dns.changes.list({ managedZone: "managedZone", project: "project",  });
 
 /*
-Fetch the representation of an existing DnsKey.
+Fetches the representation of an existing DnsKey.
 */
 await gapi.client.dns.dnsKeys.get({ dnsKeyId: "dnsKeyId", managedZone: "managedZone", project: "project",  });
 
 /*
-Enumerate DnsKeys to a ResourceRecordSet collection.
+Enumerates DnsKeys to a ResourceRecordSet collection.
 */
 await gapi.client.dns.dnsKeys.list({ managedZone: "managedZone", project: "project",  });
 
@@ -103,32 +103,32 @@ Enumerates Operations for the given ManagedZone.
 await gapi.client.dns.managedZoneOperations.list({ managedZone: "managedZone", project: "project",  });
 
 /*
-Create a new ManagedZone.
+Creates a new ManagedZone.
 */
 await gapi.client.dns.managedZones.create({ project: "project",  });
 
 /*
-Delete a previously created ManagedZone.
+Deletes a previously created ManagedZone.
 */
 await gapi.client.dns.managedZones.delete({ managedZone: "managedZone", project: "project",  });
 
 /*
-Fetch the representation of an existing ManagedZone.
+Fetches the representation of an existing ManagedZone.
 */
 await gapi.client.dns.managedZones.get({ managedZone: "managedZone", project: "project",  });
 
 /*
-Enumerate ManagedZones that have been created but not yet deleted.
+Enumerates ManagedZones that have been created but not yet deleted.
 */
 await gapi.client.dns.managedZones.list({ project: "project",  });
 
 /*
-Apply a partial update to an existing ManagedZone.
+Applies a partial update to an existing ManagedZone.
 */
 await gapi.client.dns.managedZones.patch({ managedZone: "managedZone", project: "project",  });
 
 /*
-Update an existing ManagedZone.
+Updates an existing ManagedZone.
 */
 await gapi.client.dns.managedZones.update({ managedZone: "managedZone", project: "project",  });
 
@@ -153,12 +153,12 @@ Enumerates all Policies associated with a project.
 await gapi.client.dns.policies.list({ project: "project",  });
 
 /*
-Apply a partial update to an existing Policy.
+Applies a partial update to an existing Policy.
 */
 await gapi.client.dns.policies.patch({ policy: "policy", project: "project",  });
 
 /*
-Update an existing Policy.
+Updates an existing Policy.
 */
 await gapi.client.dns.policies.update({ policy: "policy", project: "project",  });
 
