@@ -1,14 +1,14 @@
-# TypeScript typings for Chrome Management API v1
+# TypeScript typings for GKE Hub v1
 
-The Chrome Management API is a suite of services that allows Chrome administrators to view, manage and gain insights on their Chrome OS and Chrome Browser devices.
-For detailed description please check [documentation](http://developers.google.com/chrome/management/).
+
+For detailed description please check [documentation](https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster).
 
 ## Installing
 
-Install typings for Chrome Management API:
+Install typings for GKE Hub:
 
 ```
-npm install @types/gapi.client.chromemanagement@v1 --save-dev
+npm install @types/gapi.client.gkehub@v1 --save-dev
 ```
 
 ## Usage
@@ -25,8 +25,8 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('chromemanagement', 'v1', () => {
-  // now we can use gapi.client.chromemanagement
+gapi.client.load('gkehub', 'v1', () => {
+  // now we can use gapi.client.gkehub
   // ...
 });
 ```
@@ -37,8 +37,8 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // See reports about devices and Chrome browsers managed within your organization
-      'https://www.googleapis.com/auth/chrome.management.reports.readonly',
+      // View and manage your data across Google Cloud Platform services
+      'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
 // ...
@@ -54,7 +54,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use Chrome Management API resources:
+After that you can use GKE Hub resources:
 
 ```typescript
 ```
