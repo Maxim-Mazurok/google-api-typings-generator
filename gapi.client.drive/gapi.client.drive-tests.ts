@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210308
+// Revision: 20210315
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -19,7 +19,7 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/drive',
             /** See, create, and delete its own configuration data in your Google Drive */
             'https://www.googleapis.com/auth/drive.appdata',
-            /** View and manage Google Drive files and folders that you have opened or created with this app */
+            /** See, edit, create, and delete only the specific Google Drive files you use with this app */
             'https://www.googleapis.com/auth/drive.file',
             /** View and manage metadata of files in your Google Drive */
             'https://www.googleapis.com/auth/drive.metadata',
