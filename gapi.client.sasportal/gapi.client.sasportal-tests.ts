@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210308
+// Revision: 20210315
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -87,6 +87,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -218,6 +226,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -349,6 +365,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -483,6 +507,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -616,6 +648,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -756,6 +796,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -883,6 +931,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -1025,6 +1081,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -1139,6 +1203,14 @@ gapi.load('client', () => {
                     updateTime: "Test string",
                     userId: "Test string",
                 },
+                currentChannels: [
+                    {
+                        frequencyRange: {
+                            highFrequencyMhz: 42,
+                            lowFrequencyMhz: 42,
+                        },
+                        score: 42,
+                    }                ],
                 deviceMetadata: {
                 },
                 displayName: "Test string",
@@ -1288,6 +1360,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -1454,6 +1534,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -1620,6 +1708,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -1789,6 +1885,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -1957,6 +2061,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -2129,6 +2241,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -2289,6 +2409,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -2420,6 +2548,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -2551,6 +2687,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -2685,6 +2829,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -2818,6 +2970,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -2958,6 +3118,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -3085,6 +3253,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -3227,6 +3403,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -3341,6 +3525,14 @@ gapi.load('client', () => {
                     updateTime: "Test string",
                     userId: "Test string",
                 },
+                currentChannels: [
+                    {
+                        frequencyRange: {
+                            highFrequencyMhz: 42,
+                            lowFrequencyMhz: 42,
+                        },
+                        score: 42,
+                    }                ],
                 deviceMetadata: {
                 },
                 displayName: "Test string",
@@ -3490,6 +3682,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -3656,6 +3856,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -3822,6 +4030,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -3991,6 +4207,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -4159,6 +4383,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -4331,6 +4563,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -4496,6 +4736,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -4627,6 +4875,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -4758,6 +5014,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -4892,6 +5156,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -5025,6 +5297,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -5165,6 +5445,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -5292,6 +5580,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -5434,6 +5730,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -5548,6 +5852,14 @@ gapi.load('client', () => {
                     updateTime: "Test string",
                     userId: "Test string",
                 },
+                currentChannels: [
+                    {
+                        frequencyRange: {
+                            highFrequencyMhz: 42,
+                            lowFrequencyMhz: 42,
+                        },
+                        score: 42,
+                    }                ],
                 deviceMetadata: {
                 },
                 displayName: "Test string",
@@ -5697,6 +6009,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -5863,6 +6183,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -6029,6 +6357,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -6198,6 +6534,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -6366,6 +6710,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -6538,6 +6890,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -6700,6 +7060,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -6814,6 +7182,14 @@ gapi.load('client', () => {
                     updateTime: "Test string",
                     userId: "Test string",
                 },
+                currentChannels: [
+                    {
+                        frequencyRange: {
+                            highFrequencyMhz: 42,
+                            lowFrequencyMhz: 42,
+                        },
+                        score: 42,
+                    }                ],
                 deviceMetadata: {
                 },
                 displayName: "Test string",
@@ -6954,6 +7330,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -7085,6 +7469,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -7219,6 +7611,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -7352,6 +7752,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -7492,6 +7900,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -7619,6 +8035,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -7761,6 +8185,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -7875,6 +8307,14 @@ gapi.load('client', () => {
                     updateTime: "Test string",
                     userId: "Test string",
                 },
+                currentChannels: [
+                    {
+                        frequencyRange: {
+                            highFrequencyMhz: 42,
+                            lowFrequencyMhz: 42,
+                        },
+                        score: 42,
+                    }                ],
                 deviceMetadata: {
                 },
                 displayName: "Test string",
@@ -8024,6 +8464,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -8190,6 +8638,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -8356,6 +8812,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -8525,6 +8989,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -8693,6 +9165,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
@@ -8865,6 +9345,14 @@ gapi.load('client', () => {
                 updateTime: "Test string",
                 userId: "Test string",
             },
+            currentChannels: [
+                {
+                    frequencyRange: {
+                        highFrequencyMhz: 42,
+                        lowFrequencyMhz: 42,
+                    },
+                    score: 42,
+                }            ],
             deviceMetadata: {
             },
             displayName: "Test string",
