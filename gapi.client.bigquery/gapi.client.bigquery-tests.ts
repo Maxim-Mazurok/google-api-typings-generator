@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210303
+// Revision: 20210313
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -21,7 +21,7 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/bigquery.insertdata',
             /** View your data in Google BigQuery */
             'https://www.googleapis.com/auth/bigquery.readonly',
-            /** View and manage your data across Google Cloud Platform services */
+            /** See, edit, configure, and delete your Google Cloud Platform data */
             'https://www.googleapis.com/auth/cloud-platform',
             /** View your data across Google Cloud Platform services */
             'https://www.googleapis.com/auth/cloud-platform.read-only',
@@ -382,12 +382,15 @@ gapi.load('client', () => {
                                 },
                                 description: "Test string",
                                 fields: undefined,
+                                maxLength: "Test string",
                                 mode: "Test string",
                                 name: "Test string",
                                 policyTags: {
                                     names: [
                                         "Test string"                                    ],
                                 },
+                                precision: "Test string",
+                                scale: "Test string",
                                 type: "Test string",
                             }                        ],
                     },
@@ -526,12 +529,15 @@ gapi.load('client', () => {
                                         },
                                         description: "Test string",
                                         fields: undefined,
+                                        maxLength: "Test string",
                                         mode: "Test string",
                                         name: "Test string",
                                         policyTags: {
                                             names: [
                                                 "Test string"                                            ],
                                         },
+                                        precision: "Test string",
+                                        scale: "Test string",
                                         type: "Test string",
                                     }                                ],
                             },
@@ -680,12 +686,15 @@ gapi.load('client', () => {
                                 },
                                 description: "Test string",
                                 fields: undefined,
+                                maxLength: "Test string",
                                 mode: "Test string",
                                 name: "Test string",
                                 policyTags: {
                                     names: [
                                         "Test string"                                    ],
                                 },
+                                precision: "Test string",
+                                scale: "Test string",
                                 type: "Test string",
                             }                        ],
                     },
@@ -745,6 +754,9 @@ gapi.load('client', () => {
                             startLine: 42,
                             text: "Test string",
                         }                    ],
+                },
+                sessionInfoTemplate: {
+                    sessionId: "Test string",
                 },
                 startTime: "Test string",
                 totalBytesProcessed: "Test string",
@@ -1486,12 +1498,15 @@ gapi.load('client', () => {
                             },
                             description: "Test string",
                             fields: undefined,
+                            maxLength: "Test string",
                             mode: "Test string",
                             name: "Test string",
                             policyTags: {
                                 names: [
                                     "Test string"                                ],
                             },
+                            precision: "Test string",
+                            scale: "Test string",
                             type: "Test string",
                         }                    ],
                 },
@@ -1566,12 +1581,15 @@ gapi.load('client', () => {
                         },
                         description: "Test string",
                         fields: undefined,
+                        maxLength: "Test string",
                         mode: "Test string",
                         name: "Test string",
                         policyTags: {
                             names: [
                                 "Test string"                            ],
                         },
+                        precision: "Test string",
+                        scale: "Test string",
                         type: "Test string",
                     }                ],
             },
@@ -1694,12 +1712,15 @@ gapi.load('client', () => {
                             },
                             description: "Test string",
                             fields: undefined,
+                            maxLength: "Test string",
                             mode: "Test string",
                             name: "Test string",
                             policyTags: {
                                 names: [
                                     "Test string"                                ],
                             },
+                            precision: "Test string",
+                            scale: "Test string",
                             type: "Test string",
                         }                    ],
                 },
@@ -1774,12 +1795,15 @@ gapi.load('client', () => {
                         },
                         description: "Test string",
                         fields: undefined,
+                        maxLength: "Test string",
                         mode: "Test string",
                         name: "Test string",
                         policyTags: {
                             names: [
                                 "Test string"                            ],
                         },
+                        precision: "Test string",
+                        scale: "Test string",
                         type: "Test string",
                     }                ],
             },
@@ -1937,12 +1961,15 @@ gapi.load('client', () => {
                             },
                             description: "Test string",
                             fields: undefined,
+                            maxLength: "Test string",
                             mode: "Test string",
                             name: "Test string",
                             policyTags: {
                                 names: [
                                     "Test string"                                ],
                             },
+                            precision: "Test string",
+                            scale: "Test string",
                             type: "Test string",
                         }                    ],
                 },
@@ -2017,12 +2044,15 @@ gapi.load('client', () => {
                         },
                         description: "Test string",
                         fields: undefined,
+                        maxLength: "Test string",
                         mode: "Test string",
                         name: "Test string",
                         policyTags: {
                             names: [
                                 "Test string"                            ],
                         },
+                        precision: "Test string",
+                        scale: "Test string",
                         type: "Test string",
                     }                ],
             },
