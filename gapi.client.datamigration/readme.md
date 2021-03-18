@@ -1,4 +1,4 @@
-# TypeScript typings for Database Migration API v1beta1
+# TypeScript typings for Database Migration API v1
 
 Manage Cloud Database Migration Service resources on Google Cloud Platform.
 For detailed description please check [documentation](https://cloud.google.com/database-migration/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/d
 Install typings for Database Migration API:
 
 ```
-npm install @types/gapi.client.datamigration@v1beta1 --save-dev
+npm install @types/gapi.client.datamigration@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('datamigration', 'v1beta1', () => {
+gapi.client.load('datamigration', 'v1', () => {
   // now we can use gapi.client.datamigration
   // ...
 });
