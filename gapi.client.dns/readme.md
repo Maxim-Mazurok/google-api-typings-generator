@@ -163,7 +163,7 @@ Updates an existing Policy.
 await gapi.client.dns.policies.update({ policy: "policy", project: "project",  });
 
 /*
-Fetch the representation of an existing Project.
+Fetches the representation of an existing Project.
 */
 await gapi.client.dns.projects.get({ project: "project",  });
 

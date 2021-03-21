@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210309
+// Revision: 20210314
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -434,7 +434,7 @@ gapi.load('client', () => {
                     networkUrl: "Test string",
                 }            ],
         });
-        /** Fetch the representation of an existing Project. */
+        /** Fetches the representation of an existing Project. */
         await gapi.client.dns.projects.get({
             clientOperationId: "Test string",
             project: "Test string",
