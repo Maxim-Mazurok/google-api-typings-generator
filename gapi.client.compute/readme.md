@@ -914,7 +914,7 @@ Inserts or patches per-instance configs for the managed instance group. perInsta
 await gapi.client.compute.instanceGroupManagers.patchPerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
-Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current instance template for the managed instance group. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.
+Flags the specified VM instances in the managed instance group to be immediately recreated. Each instance is recreated using the group's current configuration. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of each instance by checking its currentAction field; for more information, see Checking the status of managed instances.
 
 If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
 
@@ -1027,7 +1027,7 @@ Creates multiple instances. Count specifies the number of instances to create.
 await gapi.client.compute.instances.bulkInsert({ project: "project", zone: "zone",  });
 
 /*
-Deletes the specified Instance resource. For more information, see Stopping or Deleting an Instance.
+Deletes the specified Instance resource. For more information, see Deleting an instance.
 */
 await gapi.client.compute.instances.delete({ instance: "instance", project: "project", zone: "zone",  });
 
@@ -2042,7 +2042,7 @@ Inserts or patches per-instance configs for the managed instance group. perInsta
 await gapi.client.compute.regionInstanceGroupManagers.patchPerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
-Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current instance template for the managed instance group. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.
+Flags the specified VM instances in the managed instance group to be immediately recreated. Each instance is recreated using the group's current configuration. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of each instance by checking its currentAction field; for more information, see Checking the status of managed instances.
 
 If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
 

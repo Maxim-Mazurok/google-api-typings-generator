@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210310
+// Revision: 20210316
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -156,6 +156,7 @@ gapi.load('client', () => {
             autoscalingPolicy: {
                 coolDownPeriodSec: 42,
                 cpuUtilization: {
+                    predictiveMethod: "Test string",
                     utilizationTarget: 42,
                 },
                 customMetricUtilizations: [
@@ -233,6 +234,7 @@ gapi.load('client', () => {
             autoscalingPolicy: {
                 coolDownPeriodSec: 42,
                 cpuUtilization: {
+                    predictiveMethod: "Test string",
                     utilizationTarget: 42,
                 },
                 customMetricUtilizations: [
@@ -300,6 +302,7 @@ gapi.load('client', () => {
             autoscalingPolicy: {
                 coolDownPeriodSec: 42,
                 cpuUtilization: {
+                    predictiveMethod: "Test string",
                     utilizationTarget: 42,
                 },
                 customMetricUtilizations: [
@@ -405,6 +408,7 @@ gapi.load('client', () => {
                         code: 42,
                         ttl: 42,
                     }                ],
+                requestCoalescing: true,
                 serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
@@ -451,6 +455,7 @@ gapi.load('client', () => {
                         code: 42,
                         ttl: 42,
                     }                ],
+                requestCoalescing: true,
                 serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
@@ -488,6 +493,7 @@ gapi.load('client', () => {
                         code: 42,
                         ttl: 42,
                     }                ],
+                requestCoalescing: true,
                 serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
@@ -598,6 +604,7 @@ gapi.load('client', () => {
                         code: 42,
                         ttl: 42,
                     }                ],
+                requestCoalescing: true,
                 serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
@@ -751,6 +758,7 @@ gapi.load('client', () => {
                         code: 42,
                         ttl: 42,
                     }                ],
+                requestCoalescing: true,
                 serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
@@ -900,6 +908,7 @@ gapi.load('client', () => {
                         code: 42,
                         ttl: 42,
                     }                ],
+                requestCoalescing: true,
                 serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
@@ -3379,6 +3388,7 @@ gapi.load('client', () => {
             },
             description: "Test string",
             distributionPolicy: {
+                targetShape: "Test string",
                 zones: [
                     {
                         zone: "Test string",
@@ -3527,6 +3537,7 @@ gapi.load('client', () => {
             },
             description: "Test string",
             distributionPolicy: {
+                targetShape: "Test string",
                 zones: [
                     {
                         zone: "Test string",
@@ -3622,9 +3633,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current instance template for the managed
-         * instance group. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of the recreating action
-         * with the listmanagedinstances method.
+         * Flags the specified VM instances in the managed instance group to be immediately recreated. Each instance is recreated using the group's current configuration. This operation is marked
+         * as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of each instance by checking its currentAction field; for more
+         * information, see Checking the status of managed instances.
          *
          * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is
          * removed or deleted.
@@ -4141,7 +4152,7 @@ gapi.load('client', () => {
                 }            },
             sourceInstanceTemplate: "Test string",
         });
-        /** Deletes the specified Instance resource. For more information, see Stopping or Deleting an Instance. */
+        /** Deletes the specified Instance resource. For more information, see Deleting an instance. */
         await gapi.client.compute.instances.delete({
             instance: "Test string",
             project: "Test string",
@@ -6948,6 +6959,7 @@ gapi.load('client', () => {
             autoscalingPolicy: {
                 coolDownPeriodSec: 42,
                 cpuUtilization: {
+                    predictiveMethod: "Test string",
                     utilizationTarget: 42,
                 },
                 customMetricUtilizations: [
@@ -7025,6 +7037,7 @@ gapi.load('client', () => {
             autoscalingPolicy: {
                 coolDownPeriodSec: 42,
                 cpuUtilization: {
+                    predictiveMethod: "Test string",
                     utilizationTarget: 42,
                 },
                 customMetricUtilizations: [
@@ -7092,6 +7105,7 @@ gapi.load('client', () => {
             autoscalingPolicy: {
                 coolDownPeriodSec: 42,
                 cpuUtilization: {
+                    predictiveMethod: "Test string",
                     utilizationTarget: 42,
                 },
                 customMetricUtilizations: [
@@ -7216,6 +7230,7 @@ gapi.load('client', () => {
                         code: 42,
                         ttl: 42,
                     }                ],
+                requestCoalescing: true,
                 serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
@@ -7371,6 +7386,7 @@ gapi.load('client', () => {
                         code: 42,
                         ttl: 42,
                     }                ],
+                requestCoalescing: true,
                 serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
@@ -7513,6 +7529,7 @@ gapi.load('client', () => {
                         code: 42,
                         ttl: 42,
                     }                ],
+                requestCoalescing: true,
                 serveWhileStale: 42,
                 signedUrlCacheMaxAgeSec: "Test string",
                 signedUrlKeyNames: [
@@ -8448,6 +8465,7 @@ gapi.load('client', () => {
             },
             description: "Test string",
             distributionPolicy: {
+                targetShape: "Test string",
                 zones: [
                     {
                         zone: "Test string",
@@ -8595,6 +8613,7 @@ gapi.load('client', () => {
             },
             description: "Test string",
             distributionPolicy: {
+                targetShape: "Test string",
                 zones: [
                     {
                         zone: "Test string",
@@ -8690,9 +8709,9 @@ gapi.load('client', () => {
                 }            ],
         });
         /**
-         * Flags the specified instances in the managed instance group to be immediately recreated. The instances are deleted and recreated using the current instance template for the managed
-         * instance group. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of the recreating action
-         * with the listmanagedinstances method.
+         * Flags the specified VM instances in the managed instance group to be immediately recreated. Each instance is recreated using the group's current configuration. This operation is marked
+         * as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of each instance by checking its currentAction field; for more
+         * information, see Checking the status of managed instances.
          *
          * If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is
          * removed or deleted.
