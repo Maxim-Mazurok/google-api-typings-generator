@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210312
+// Revision: 20210318
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -50,6 +50,15 @@ gapi.load('client', () => {
         }, {
             filename: "Test string",
         });
+        /** Lists assigned targeting options of a campaign across targeting types. */
+        await gapi.client.displayvideo.advertisers.campaigns.bulkListCampaignAssignedTargetingOptions({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
@@ -213,6 +222,19 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            partnerId: "Test string",
+        });
         /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
@@ -261,6 +283,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Lists channels for a partner or advertiser. */
@@ -314,6 +349,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Updates a channel. Returns the updated channel if successful. */
@@ -371,6 +419,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Creates a new creative. Returns the newly created creative if successful. */
@@ -902,6 +963,7 @@ gapi.load('client', () => {
                             },
                             appDetails: {
                                 appId: "Test string",
+                                appPlatform: "Test string",
                                 displayName: "Test string",
                                 negative: true,
                             },
@@ -1268,6 +1330,23 @@ gapi.load('client', () => {
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
             lineItemId: "Test string",
+        });
+        /**
+         * Creates a new line item with settings (including targeting) inherited from the insertion order. Returns the newly created line item if successful. There are default values based on the
+         * three fields: * The insertion order's InsertionOrderType * The insertion order's InsertionOrderAutomationType * The given line_item_type
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.generateDefault({
+            advertiserId: "Test string",
+        }, {
+            displayName: "Test string",
+            insertionOrderId: "Test string",
+            lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
         });
         /** Gets a line item. */
         await gapi.client.displayvideo.advertisers.lineItems.get({
@@ -1690,6 +1769,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
@@ -1734,6 +1827,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
@@ -1780,6 +1887,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
@@ -1825,6 +1946,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
@@ -1876,6 +2011,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /**
          * Bulk edits targeting options under a single advertiser. The operation will delete the assigned targeting options provided in
@@ -1900,6 +2049,7 @@ gapi.load('client', () => {
                             },
                             appDetails: {
                                 appId: "Test string",
+                                appPlatform: "Test string",
                                 displayName: "Test string",
                                 negative: true,
                             },
@@ -2152,6 +2302,15 @@ gapi.load('client', () => {
         }, {
             filename: "Test string",
         });
+        /** Lists assigned targeting options of a campaign across targeting types. */
+        await gapi.client.displayvideo.advertisers.campaigns.bulkListCampaignAssignedTargetingOptions({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
@@ -2315,6 +2474,19 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            partnerId: "Test string",
+        });
         /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
@@ -2363,6 +2535,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Lists channels for a partner or advertiser. */
@@ -2416,6 +2601,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Updates a channel. Returns the updated channel if successful. */
@@ -2473,6 +2671,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Creates a new creative. Returns the newly created creative if successful. */
@@ -3004,6 +3215,7 @@ gapi.load('client', () => {
                             },
                             appDetails: {
                                 appId: "Test string",
+                                appPlatform: "Test string",
                                 displayName: "Test string",
                                 negative: true,
                             },
@@ -3370,6 +3582,23 @@ gapi.load('client', () => {
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
             lineItemId: "Test string",
+        });
+        /**
+         * Creates a new line item with settings (including targeting) inherited from the insertion order. Returns the newly created line item if successful. There are default values based on the
+         * three fields: * The insertion order's InsertionOrderType * The insertion order's InsertionOrderAutomationType * The given line_item_type
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.generateDefault({
+            advertiserId: "Test string",
+        }, {
+            displayName: "Test string",
+            insertionOrderId: "Test string",
+            lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
         });
         /** Gets a line item. */
         await gapi.client.displayvideo.advertisers.lineItems.get({
@@ -3792,6 +4021,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
@@ -3836,6 +4079,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
@@ -3882,6 +4139,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
@@ -3927,6 +4198,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
@@ -3978,6 +4263,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Lists assigned targeting options of an advertiser across targeting types. */
         await gapi.client.displayvideo.advertisers.bulkListAdvertiserAssignedTargetingOptions({
@@ -3993,6 +4292,15 @@ gapi.load('client', () => {
         }, {
             filename: "Test string",
         });
+        /** Lists assigned targeting options of a campaign across targeting types. */
+        await gapi.client.displayvideo.advertisers.campaigns.bulkListCampaignAssignedTargetingOptions({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
@@ -4156,6 +4464,19 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            partnerId: "Test string",
+        });
         /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
@@ -4204,6 +4525,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Lists channels for a partner or advertiser. */
@@ -4257,6 +4591,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Updates a channel. Returns the updated channel if successful. */
@@ -4314,6 +4661,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Creates a new creative. Returns the newly created creative if successful. */
@@ -4845,6 +5205,7 @@ gapi.load('client', () => {
                             },
                             appDetails: {
                                 appId: "Test string",
+                                appPlatform: "Test string",
                                 displayName: "Test string",
                                 negative: true,
                             },
@@ -5211,6 +5572,23 @@ gapi.load('client', () => {
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
             lineItemId: "Test string",
+        });
+        /**
+         * Creates a new line item with settings (including targeting) inherited from the insertion order. Returns the newly created line item if successful. There are default values based on the
+         * three fields: * The insertion order's InsertionOrderType * The insertion order's InsertionOrderAutomationType * The given line_item_type
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.generateDefault({
+            advertiserId: "Test string",
+        }, {
+            displayName: "Test string",
+            insertionOrderId: "Test string",
+            lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
         });
         /** Gets a line item. */
         await gapi.client.displayvideo.advertisers.lineItems.get({
@@ -5633,6 +6011,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
@@ -5677,6 +6069,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
@@ -5723,6 +6129,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
@@ -5768,6 +6188,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
@@ -5819,6 +6253,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Creates a new advertiser. Returns the newly created advertiser if successful. This method can take up to 180 seconds to complete. */
         await gapi.client.displayvideo.advertisers.create({
@@ -5877,6 +6325,15 @@ gapi.load('client', () => {
         }, {
             filename: "Test string",
         });
+        /** Lists assigned targeting options of a campaign across targeting types. */
+        await gapi.client.displayvideo.advertisers.campaigns.bulkListCampaignAssignedTargetingOptions({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
@@ -6040,6 +6497,19 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            partnerId: "Test string",
+        });
         /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
@@ -6088,6 +6558,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Lists channels for a partner or advertiser. */
@@ -6141,6 +6624,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Updates a channel. Returns the updated channel if successful. */
@@ -6198,6 +6694,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Creates a new creative. Returns the newly created creative if successful. */
@@ -6729,6 +7238,7 @@ gapi.load('client', () => {
                             },
                             appDetails: {
                                 appId: "Test string",
+                                appPlatform: "Test string",
                                 displayName: "Test string",
                                 negative: true,
                             },
@@ -7095,6 +7605,23 @@ gapi.load('client', () => {
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
             lineItemId: "Test string",
+        });
+        /**
+         * Creates a new line item with settings (including targeting) inherited from the insertion order. Returns the newly created line item if successful. There are default values based on the
+         * three fields: * The insertion order's InsertionOrderType * The insertion order's InsertionOrderAutomationType * The given line_item_type
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.generateDefault({
+            advertiserId: "Test string",
+        }, {
+            displayName: "Test string",
+            insertionOrderId: "Test string",
+            lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
         });
         /** Gets a line item. */
         await gapi.client.displayvideo.advertisers.lineItems.get({
@@ -7517,6 +8044,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
@@ -7561,6 +8102,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
@@ -7607,6 +8162,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
@@ -7652,6 +8221,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
@@ -7703,6 +8286,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Deletes an advertiser. Deleting an advertiser will delete all of its child resources, for example, campaigns, insertion orders and line items. A deleted advertiser cannot be recovered. */
         await gapi.client.displayvideo.advertisers.delete({
@@ -7714,6 +8311,15 @@ gapi.load('client', () => {
         }, {
             filename: "Test string",
         });
+        /** Lists assigned targeting options of a campaign across targeting types. */
+        await gapi.client.displayvideo.advertisers.campaigns.bulkListCampaignAssignedTargetingOptions({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
@@ -7877,6 +8483,19 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            partnerId: "Test string",
+        });
         /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
@@ -7925,6 +8544,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Lists channels for a partner or advertiser. */
@@ -7978,6 +8610,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Updates a channel. Returns the updated channel if successful. */
@@ -8035,6 +8680,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Creates a new creative. Returns the newly created creative if successful. */
@@ -8566,6 +9224,7 @@ gapi.load('client', () => {
                             },
                             appDetails: {
                                 appId: "Test string",
+                                appPlatform: "Test string",
                                 displayName: "Test string",
                                 negative: true,
                             },
@@ -8932,6 +9591,23 @@ gapi.load('client', () => {
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
             lineItemId: "Test string",
+        });
+        /**
+         * Creates a new line item with settings (including targeting) inherited from the insertion order. Returns the newly created line item if successful. There are default values based on the
+         * three fields: * The insertion order's InsertionOrderType * The insertion order's InsertionOrderAutomationType * The given line_item_type
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.generateDefault({
+            advertiserId: "Test string",
+        }, {
+            displayName: "Test string",
+            insertionOrderId: "Test string",
+            lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
         });
         /** Gets a line item. */
         await gapi.client.displayvideo.advertisers.lineItems.get({
@@ -9354,6 +10030,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
@@ -9398,6 +10088,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
@@ -9444,6 +10148,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
@@ -9489,6 +10207,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
@@ -9540,6 +10272,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Gets an advertiser. */
         await gapi.client.displayvideo.advertisers.get({
@@ -9551,6 +10297,15 @@ gapi.load('client', () => {
         }, {
             filename: "Test string",
         });
+        /** Lists assigned targeting options of a campaign across targeting types. */
+        await gapi.client.displayvideo.advertisers.campaigns.bulkListCampaignAssignedTargetingOptions({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
@@ -9714,6 +10469,19 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            partnerId: "Test string",
+        });
         /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
@@ -9762,6 +10530,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Lists channels for a partner or advertiser. */
@@ -9815,6 +10596,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Updates a channel. Returns the updated channel if successful. */
@@ -9872,6 +10666,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Creates a new creative. Returns the newly created creative if successful. */
@@ -10403,6 +11210,7 @@ gapi.load('client', () => {
                             },
                             appDetails: {
                                 appId: "Test string",
+                                appPlatform: "Test string",
                                 displayName: "Test string",
                                 negative: true,
                             },
@@ -10769,6 +11577,23 @@ gapi.load('client', () => {
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
             lineItemId: "Test string",
+        });
+        /**
+         * Creates a new line item with settings (including targeting) inherited from the insertion order. Returns the newly created line item if successful. There are default values based on the
+         * three fields: * The insertion order's InsertionOrderType * The insertion order's InsertionOrderAutomationType * The given line_item_type
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.generateDefault({
+            advertiserId: "Test string",
+        }, {
+            displayName: "Test string",
+            insertionOrderId: "Test string",
+            lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
         });
         /** Gets a line item. */
         await gapi.client.displayvideo.advertisers.lineItems.get({
@@ -11191,6 +12016,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
@@ -11235,6 +12074,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
@@ -11281,6 +12134,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
@@ -11326,6 +12193,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
@@ -11377,6 +12258,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Lists advertisers that are accessible to the current user. The order is defined by the order_by parameter. A single partner_id is required. Cross-partner listing is not supported. */
         await gapi.client.displayvideo.advertisers.list({
@@ -11392,6 +12287,15 @@ gapi.load('client', () => {
         }, {
             filename: "Test string",
         });
+        /** Lists assigned targeting options of a campaign across targeting types. */
+        await gapi.client.displayvideo.advertisers.campaigns.bulkListCampaignAssignedTargetingOptions({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
@@ -11555,6 +12459,19 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            partnerId: "Test string",
+        });
         /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
@@ -11603,6 +12520,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Lists channels for a partner or advertiser. */
@@ -11656,6 +12586,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Updates a channel. Returns the updated channel if successful. */
@@ -11713,6 +12656,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Creates a new creative. Returns the newly created creative if successful. */
@@ -12244,6 +13200,7 @@ gapi.load('client', () => {
                             },
                             appDetails: {
                                 appId: "Test string",
+                                appPlatform: "Test string",
                                 displayName: "Test string",
                                 negative: true,
                             },
@@ -12610,6 +13567,23 @@ gapi.load('client', () => {
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
             lineItemId: "Test string",
+        });
+        /**
+         * Creates a new line item with settings (including targeting) inherited from the insertion order. Returns the newly created line item if successful. There are default values based on the
+         * three fields: * The insertion order's InsertionOrderType * The insertion order's InsertionOrderAutomationType * The given line_item_type
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.generateDefault({
+            advertiserId: "Test string",
+        }, {
+            displayName: "Test string",
+            insertionOrderId: "Test string",
+            lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
         });
         /** Gets a line item. */
         await gapi.client.displayvideo.advertisers.lineItems.get({
@@ -13032,6 +14006,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
@@ -13076,6 +14064,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
@@ -13122,6 +14124,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
@@ -13167,6 +14183,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
@@ -13218,6 +14248,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Updates an existing advertiser. Returns the updated advertiser if successful. */
         await gapi.client.displayvideo.advertisers.patch({
@@ -13278,6 +14322,15 @@ gapi.load('client', () => {
         }, {
             filename: "Test string",
         });
+        /** Lists assigned targeting options of a campaign across targeting types. */
+        await gapi.client.displayvideo.advertisers.campaigns.bulkListCampaignAssignedTargetingOptions({
+            advertiserId: "Test string",
+            campaignId: "Test string",
+            filter: "Test string",
+            orderBy: "Test string",
+            pageSize: 42,
+            pageToken: "Test string",
+        });
         /** Creates a new campaign. Returns the newly created campaign if successful. */
         await gapi.client.displayvideo.advertisers.campaigns.create({
             advertiserId: "Test string",
@@ -13441,6 +14494,19 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            partnerId: "Test string",
+        });
         /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.advertisers.channels.get({
             advertiserId: "Test string",
@@ -13489,6 +14555,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Lists channels for a partner or advertiser. */
@@ -13542,6 +14621,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Updates a channel. Returns the updated channel if successful. */
@@ -13599,6 +14691,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.advertisers.channels.sites.replace({
+            advertiserId: "Test string",
+            channelId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Creates a new creative. Returns the newly created creative if successful. */
@@ -14130,6 +15235,7 @@ gapi.load('client', () => {
                             },
                             appDetails: {
                                 appId: "Test string",
+                                appPlatform: "Test string",
                                 displayName: "Test string",
                                 negative: true,
                             },
@@ -14496,6 +15602,23 @@ gapi.load('client', () => {
         await gapi.client.displayvideo.advertisers.lineItems.delete({
             advertiserId: "Test string",
             lineItemId: "Test string",
+        });
+        /**
+         * Creates a new line item with settings (including targeting) inherited from the insertion order. Returns the newly created line item if successful. There are default values based on the
+         * three fields: * The insertion order's InsertionOrderType * The insertion order's InsertionOrderAutomationType * The given line_item_type
+         */
+        await gapi.client.displayvideo.advertisers.lineItems.generateDefault({
+            advertiserId: "Test string",
+        }, {
+            displayName: "Test string",
+            insertionOrderId: "Test string",
+            lineItemType: "Test string",
+            mobileApp: {
+                appId: "Test string",
+                displayName: "Test string",
+                platform: "Test string",
+                publisher: "Test string",
+            },
         });
         /** Gets a line item. */
         await gapi.client.displayvideo.advertisers.lineItems.get({
@@ -14918,6 +16041,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Deletes a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.delete({
             advertiserId: "Test string",
@@ -14962,6 +16099,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Gets a negative keyword list given an advertiser ID and a negative keyword list ID. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.get({
@@ -15008,6 +16159,20 @@ gapi.load('client', () => {
             pageSize: 42,
             pageToken: "Test string",
         });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
+        });
         /** Lists negative keyword lists based on a given advertiser id. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.list({
             advertiserId: "Test string",
@@ -15053,6 +16218,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Updates a negative keyword list. Returns the updated negative keyword list if successful. */
         await gapi.client.displayvideo.advertisers.negativeKeywordLists.patch({
@@ -15104,6 +16283,20 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+        });
+        /**
+         * Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keywords with keywords provided in
+         * ReplaceNegativeKeywordsRequest.new_negative_keywords.
+         */
+        await gapi.client.displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace({
+            advertiserId: "Test string",
+            negativeKeywordListId: "Test string",
+        }, {
+            newNegativeKeywords: [
+                {
+                    keywordValue: "Test string",
+                    name: "Test string",
+                }            ],
         });
         /** Gets a combined audience. */
         await gapi.client.displayvideo.combinedAudiences.get({
@@ -15524,6 +16717,7 @@ gapi.load('client', () => {
                             },
                             appDetails: {
                                 appId: "Test string",
+                                appPlatform: "Test string",
                                 displayName: "Test string",
                                 negative: true,
                             },
@@ -15825,6 +17019,19 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.partners.channels.sites.replace({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            partnerId: "Test string",
+        });
         /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.partners.channels.get({
             advertiserId: "Test string",
@@ -15873,6 +17080,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.partners.channels.sites.replace({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Lists channels for a partner or advertiser. */
@@ -15926,6 +17146,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.partners.channels.sites.replace({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Updates a channel. Returns the updated channel if successful. */
@@ -15983,6 +17216,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.partners.channels.sites.replace({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Gets a partner. */
@@ -16044,6 +17290,19 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.partners.channels.sites.replace({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            partnerId: "Test string",
+        });
         /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.partners.channels.get({
             advertiserId: "Test string",
@@ -16092,6 +17351,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.partners.channels.sites.replace({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Lists channels for a partner or advertiser. */
@@ -16145,6 +17417,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.partners.channels.sites.replace({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Updates a channel. Returns the updated channel if successful. */
@@ -16202,6 +17487,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.partners.channels.sites.replace({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Lists partners that are accessible to the current user. The order is defined by the order_by parameter. */
@@ -16266,6 +17564,19 @@ gapi.load('client', () => {
             pageToken: "Test string",
             partnerId: "Test string",
         });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.partners.channels.sites.replace({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
+            partnerId: "Test string",
+        });
         /** Gets a channel for a partner or advertiser. */
         await gapi.client.displayvideo.partners.channels.get({
             advertiserId: "Test string",
@@ -16314,6 +17625,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.partners.channels.sites.replace({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Lists channels for a partner or advertiser. */
@@ -16367,6 +17691,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.partners.channels.sites.replace({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /** Updates a channel. Returns the updated channel if successful. */
@@ -16424,6 +17761,19 @@ gapi.load('client', () => {
             orderBy: "Test string",
             pageSize: 42,
             pageToken: "Test string",
+            partnerId: "Test string",
+        });
+        /** Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites. */
+        await gapi.client.displayvideo.partners.channels.sites.replace({
+            channelId: "Test string",
+            partnerId: "Test string",
+        }, {
+            advertiserId: "Test string",
+            newSites: [
+                {
+                    name: "Test string",
+                    urlOrAppId: "Test string",
+                }            ],
             partnerId: "Test string",
         });
         /**
