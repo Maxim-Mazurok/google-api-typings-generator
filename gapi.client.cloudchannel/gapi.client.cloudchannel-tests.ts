@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210317
+// Revision: 20210319
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -75,6 +75,141 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
          * Returns a requested ChannelPartnerLink resource. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is
          * different from the reseller account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: ChannelPartnerLink resource not found
          * because of an invalid channel partner link name. Return value: The ChannelPartnerLink resource.
@@ -82,6 +217,141 @@ gapi.load('client', () => {
         await gapi.client.cloudchannel.accounts.channelPartnerLinks.get({
             name: "Test string",
             view: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * List ChannelPartnerLinks belonging to a distributor. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is
@@ -93,6 +363,141 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
             view: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Updates a channel partner link. Distributors call this method to change a link's status. For example, to suspend a partner link. You must be a distributor to call this method. Possible
@@ -128,6 +533,141 @@ gapi.load('client', () => {
                 updateTime: "Test string",
             },
             updateMask: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
@@ -2559,6 +3099,141 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
          * Returns a requested ChannelPartnerLink resource. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is
          * different from the reseller account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: ChannelPartnerLink resource not found
          * because of an invalid channel partner link name. Return value: The ChannelPartnerLink resource.
@@ -2566,6 +3241,141 @@ gapi.load('client', () => {
         await gapi.client.cloudchannel.accounts.channelPartnerLinks.get({
             name: "Test string",
             view: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * List ChannelPartnerLinks belonging to a distributor. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is
@@ -2577,6 +3387,141 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
             view: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Updates a channel partner link. Distributors call this method to change a link's status. For example, to suspend a partner link. You must be a distributor to call this method. Possible
@@ -2612,6 +3557,141 @@ gapi.load('client', () => {
                 updateTime: "Test string",
             },
             updateMask: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
@@ -5048,6 +6128,141 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
          * Returns a requested ChannelPartnerLink resource. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is
          * different from the reseller account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: ChannelPartnerLink resource not found
          * because of an invalid channel partner link name. Return value: The ChannelPartnerLink resource.
@@ -5055,6 +6270,141 @@ gapi.load('client', () => {
         await gapi.client.cloudchannel.accounts.channelPartnerLinks.get({
             name: "Test string",
             view: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * List ChannelPartnerLinks belonging to a distributor. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is
@@ -5066,6 +6416,141 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
             view: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Updates a channel partner link. Distributors call this method to change a link's status. For example, to suspend a partner link. You must be a distributor to call this method. Possible
@@ -5101,6 +6586,141 @@ gapi.load('client', () => {
                 updateTime: "Test string",
             },
             updateMask: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
@@ -7537,6 +9157,141 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
          * Returns a requested ChannelPartnerLink resource. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is
          * different from the reseller account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: ChannelPartnerLink resource not found
          * because of an invalid channel partner link name. Return value: The ChannelPartnerLink resource.
@@ -7544,6 +9299,141 @@ gapi.load('client', () => {
         await gapi.client.cloudchannel.accounts.channelPartnerLinks.get({
             name: "Test string",
             view: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * List ChannelPartnerLinks belonging to a distributor. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is
@@ -7555,6 +9445,141 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
             view: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Updates a channel partner link. Distributors call this method to change a link's status. For example, to suspend a partner link. You must be a distributor to call this method. Possible
@@ -7590,6 +9615,141 @@ gapi.load('client', () => {
                 updateTime: "Test string",
             },
             updateMask: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
@@ -10022,6 +12182,141 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
          * Returns a requested ChannelPartnerLink resource. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is
          * different from the reseller account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: ChannelPartnerLink resource not found
          * because of an invalid channel partner link name. Return value: The ChannelPartnerLink resource.
@@ -10029,6 +12324,141 @@ gapi.load('client', () => {
         await gapi.client.cloudchannel.accounts.channelPartnerLinks.get({
             name: "Test string",
             view: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * List ChannelPartnerLinks belonging to a distributor. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is
@@ -10040,6 +12470,141 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
             view: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Updates a channel partner link. Distributors call this method to change a link's status. For example, to suspend a partner link. You must be a distributor to call this method. Possible
@@ -10075,6 +12640,141 @@ gapi.load('client', () => {
                 updateTime: "Test string",
             },
             updateMask: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
@@ -12508,6 +15208,141 @@ gapi.load('client', () => {
             updateTime: "Test string",
         });
         /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
          * Returns a requested ChannelPartnerLink resource. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is
          * different from the reseller account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: ChannelPartnerLink resource not found
          * because of an invalid channel partner link name. Return value: The ChannelPartnerLink resource.
@@ -12515,6 +15350,141 @@ gapi.load('client', () => {
         await gapi.client.cloudchannel.accounts.channelPartnerLinks.get({
             name: "Test string",
             view: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * List ChannelPartnerLinks belonging to a distributor. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is
@@ -12526,6 +15496,141 @@ gapi.load('client', () => {
             pageToken: "Test string",
             parent: "Test string",
             view: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Updates a channel partner link. Distributors call this method to change a link's status. For example, to suspend a partner link. You must be a distributor to call this method. Possible
@@ -12561,6 +15666,141 @@ gapi.load('client', () => {
                 updateTime: "Test string",
             },
             updateMask: "Test string",
+        });
+        /**
+         * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
+         * reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Domain field value doesn't match the primary email domain. Return value:
+         * The newly created Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.create({
+            parent: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
+        });
+        /**
+         * Deletes the given Customer permanently and irreversibly. Possible error codes: * PERMISSION_DENIED: The account making the request does not own this customer. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. * FAILED_PRECONDITION: The customer has existing entitlements. * NOT_FOUND: No Customer resource found for the name in the request.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.delete({
+            name: "Test string",
+        });
+        /**
+         * Returns a requested Customer resource. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. *
+         * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The customer resource doesn't exist. Usually the result of an invalid name parameter. Return value:
+         * The Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.get({
+            name: "Test string",
+        });
+        /**
+         * List Customers. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT:
+         * Required request parameters are missing or invalid. Return value: List of Customers, or an empty list if there are no customers.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Updates an existing Customer resource for the reseller or distributor. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller
+         * account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: No Customer resource found for the name in the request. Return value:
+         * The updated Customer resource.
+         */
+        await gapi.client.cloudchannel.accounts.channelPartnerLinks.customers.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            alternateEmail: "Test string",
+            channelPartnerId: "Test string",
+            cloudIdentityId: "Test string",
+            cloudIdentityInfo: {
+                adminConsoleUri: "Test string",
+                alternateEmail: "Test string",
+                customerType: "Test string",
+                eduData: {
+                    instituteSize: "Test string",
+                    instituteType: "Test string",
+                    website: "Test string",
+                },
+                isDomainVerified: true,
+                languageCode: "Test string",
+                phoneNumber: "Test string",
+                primaryDomain: "Test string",
+            },
+            createTime: "Test string",
+            domain: "Test string",
+            languageCode: "Test string",
+            name: "Test string",
+            orgDisplayName: "Test string",
+            orgPostalAddress: {
+                addressLines: [
+                    "Test string"                ],
+                administrativeArea: "Test string",
+                languageCode: "Test string",
+                locality: "Test string",
+                organization: "Test string",
+                postalCode: "Test string",
+                recipients: [
+                    "Test string"                ],
+                regionCode: "Test string",
+                revision: 42,
+                sortingCode: "Test string",
+                sublocality: "Test string",
+            },
+            primaryContactInfo: {
+                displayName: "Test string",
+                email: "Test string",
+                firstName: "Test string",
+                lastName: "Test string",
+                phone: "Test string",
+                title: "Test string",
+            },
+            updateTime: "Test string",
         });
         /**
          * Creates a new Customer resource under the reseller or distributor account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the
