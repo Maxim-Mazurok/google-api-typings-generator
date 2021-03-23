@@ -88,11 +88,6 @@ Deletes a managed service. This method will change the service to the `Soft-Dele
 await gapi.client.servicemanagement.services.delete({ serviceName: "serviceName",  });
 
 /*
-Enables a service for a project, so it can be used for the project. See [Cloud Auth Guide](https://cloud.google.com/docs/authentication) for more information. Operation
-*/
-await gapi.client.servicemanagement.services.enable({ serviceName: "serviceName",  });
-
-/*
 Generates and returns a report (errors, warnings and changes from existing configurations) associated with GenerateConfigReportRequest.new_value If GenerateConfigReportRequest.old_value is specified, GenerateConfigReportRequest will contain a single ChangeReport based on the comparison between GenerateConfigReportRequest.new_value and GenerateConfigReportRequest.old_value. If GenerateConfigReportRequest.old_value is not specified, this method will compare GenerateConfigReportRequest.new_value with the last pushed service configuration.
 */
 await gapi.client.servicemanagement.services.generateConfigReport({  });
