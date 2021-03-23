@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20201017
+// Revision: 20210322
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -19,7 +19,7 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/cloud-billing',
             /** View your Google Cloud Platform billing accounts */
             'https://www.googleapis.com/auth/cloud-billing.readonly',
-            /** View and manage your data across Google Cloud Platform services */
+            /** See, edit, configure, and delete your Google Cloud Platform data */
             'https://www.googleapis.com/auth/cloud-platform',
         ];
         const immediate = false;
@@ -35,9 +35,11 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Creates a billing account. This method can only be used to create [billing subaccounts](https://cloud.google.com/billing/docs/concepts) by Google Cloud resellers. When creating a
-         * subaccount, the current authenticated user must have the `billing.accounts.update` IAM permission on the master account, which is typically given to billing account
-         * [administrators](https://cloud.google.com/billing/docs/how-to/billing-access). This method will return an error if the master account has not been provisioned as a reseller account.
+         * This method creates [billing subaccounts](https://cloud.google.com/billing/docs/concepts#subaccounts). Google Cloud resellers should use the Channel Services APIs,
+         * [accounts.customers.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers/create) and
+         * [accounts.customers.entitlements.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers.entitlements/create). When creating a subaccount, the current
+         * authenticated user must have the `billing.accounts.update` IAM permission on the parent account, which is typically given to billing account
+         * [administrators](https://cloud.google.com/billing/docs/how-to/billing-access). This method will return an error if the parent account has not been provisioned as a reseller account.
          */
         await gapi.client.cloudbilling.billingAccounts.create({
         }, {
