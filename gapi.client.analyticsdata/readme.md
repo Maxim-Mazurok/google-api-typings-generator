@@ -1,4 +1,4 @@
-# TypeScript typings for Google Analytics Data API v1alpha
+# TypeScript typings for Google Analytics Data API v1beta
 
 Accesses report data in Google Analytics.
 For detailed description please check [documentation](https://developers.google.com/analytics/devguides/reporting/data/v1/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://developers.google.
 Install typings for Google Analytics Data API:
 
 ```
-npm install @types/gapi.client.analyticsdata@v1alpha --save-dev
+npm install @types/gapi.client.analyticsdata@v1beta --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('analyticsdata', 'v1alpha', () => {
+gapi.client.load('analyticsdata', 'v1beta', () => {
   // now we can use gapi.client.analyticsdata
   // ...
 });
@@ -62,9 +62,24 @@ After that you can use Google Analytics Data API resources:
 ```typescript
 
 /*
+Returns multiple pivot reports in a batch. All reports must be for the same GA4 Property.
+*/
+await gapi.client.analyticsdata.properties.batchRunPivotReports({ property: "property",  });
+
+/*
+Returns multiple reports in a batch. All reports must be for the same GA4 Property.
+*/
+await gapi.client.analyticsdata.properties.batchRunReports({ property: "property",  });
+
+/*
 Returns metadata for dimensions and metrics available in reporting methods. Used to explore the dimensions and metrics. In this method, a Google Analytics GA4 Property Identifier is specified in the request, and the metadata response includes Custom dimensions and metrics as well as Universal metadata. For example if a custom metric with parameter name `levels_unlocked` is registered to a property, the Metadata response will contain `customEvent:levels_unlocked`. Universal metadata are dimensions and metrics applicable to any property such as `country` and `totalUsers`.
 */
 await gapi.client.analyticsdata.properties.getMetadata({ name: "name",  });
+
+/*
+Returns a customized pivot report of your Google Analytics event data. Pivot reports are more advanced and expressive formats than regular reports. In a pivot report, dimensions are only visible if they are included in a pivot. Multiple pivots can be specified to further dissect your data.
+*/
+await gapi.client.analyticsdata.properties.runPivotReport({ property: "property",  });
 
 /*
 The Google Analytics Realtime API returns a customized report of realtime event data for your property. These reports show events and usage from the last 30 minutes.
@@ -72,22 +87,7 @@ The Google Analytics Realtime API returns a customized report of realtime event 
 await gapi.client.analyticsdata.properties.runRealtimeReport({ property: "property",  });
 
 /*
-Returns multiple pivot reports in a batch. All reports must be for the same Entity.
-*/
-await gapi.client.analyticsdata.v1alpha.batchRunPivotReports({  });
-
-/*
-Returns multiple reports in a batch. All reports must be for the same Entity.
-*/
-await gapi.client.analyticsdata.v1alpha.batchRunReports({  });
-
-/*
-Returns a customized pivot report of your Google Analytics event data. Pivot reports are more advanced and expressive formats than regular reports. In a pivot report, dimensions are only visible if they are included in a pivot. Multiple pivots can be specified to further dissect your data.
-*/
-await gapi.client.analyticsdata.v1alpha.runPivotReport({  });
-
-/*
 Returns a customized report of your Google Analytics event data. Reports contain statistics derived from data collected by the Google Analytics tracking code. The data returned from the API is as a table with columns for the requested dimensions and metrics. Metrics are individual measurements of user activity on your property, such as active users or event count. Dimensions break down metrics across some common criteria, such as country or event name.
 */
-await gapi.client.analyticsdata.v1alpha.runReport({  });
+await gapi.client.analyticsdata.properties.runReport({ property: "property",  });
 ```
