@@ -37,7 +37,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // View and manage your data across Google Cloud Platform services
+      // See, edit, configure, and delete your Google Cloud Platform data
       'https://www.googleapis.com/auth/cloud-platform',
 
       // View and write monitoring data for all of your Google and third-party Cloud and API projects

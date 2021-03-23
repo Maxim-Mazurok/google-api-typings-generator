@@ -40,7 +40,7 @@ var client_id = '',
       // View and manage your applications deployed on Google App Engine
       'https://www.googleapis.com/auth/appengine.admin',
 
-      // View and manage your data across Google Cloud Platform services
+      // See, edit, configure, and delete your Google Cloud Platform data
       'https://www.googleapis.com/auth/cloud-platform',
 
       // View your data across Google Cloud Platform services

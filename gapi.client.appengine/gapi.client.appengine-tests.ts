@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210315
+// Revision: 20210319
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -17,7 +17,7 @@ gapi.load('client', () => {
         const scope = [
             /** View and manage your applications deployed on Google App Engine */
             'https://www.googleapis.com/auth/appengine.admin',
-            /** View and manage your data across Google Cloud Platform services */
+            /** See, edit, configure, and delete your Google Cloud Platform data */
             'https://www.googleapis.com/auth/cloud-platform',
             /** View your data across Google Cloud Platform services */
             'https://www.googleapis.com/auth/cloud-platform.read-only',
