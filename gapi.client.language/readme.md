@@ -40,7 +40,7 @@ var client_id = '',
       // Apply machine learning models to reveal the structure and meaning of text
       'https://www.googleapis.com/auth/cloud-language',
 
-      // View and manage your data across Google Cloud Platform services
+      // See, edit, configure, and delete your Google Cloud Platform data
       'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
