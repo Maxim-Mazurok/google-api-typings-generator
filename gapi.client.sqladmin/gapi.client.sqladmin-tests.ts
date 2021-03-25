@@ -4,7 +4,7 @@
 * In case of any problems please post issue to https://github.com/Maxim-Mazurok/google-api-typings-generator
 **/
 
-// Revision: 20210310
+// Revision: 20210321
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
@@ -905,7 +905,7 @@ gapi.load('client', () => {
             instance: "Test string",
             project: "Test string",
         });
-        /** Lists all available machine types (tiers) for Cloud SQL, for example, db-n1-standard-1. For related information, see Pricing. */
+        /** Lists all available machine types (tiers) for Cloud SQL, for example, db-custom-1-3840. For related information, see Pricing. */
         await gapi.client.sqladmin.tiers.list({
             project: "Test string",
         });

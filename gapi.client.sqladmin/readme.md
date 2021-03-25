@@ -257,7 +257,7 @@ Lists all of the current SSL certificates for the instance.
 await gapi.client.sqladmin.sslCerts.list({ instance: "instance", project: "project",  });
 
 /*
-Lists all available machine types (tiers) for Cloud SQL, for example, db-n1-standard-1. For related information, see Pricing.
+Lists all available machine types (tiers) for Cloud SQL, for example, db-custom-1-3840. For related information, see Pricing.
 */
 await gapi.client.sqladmin.tiers.list({ project: "project",  });
 
