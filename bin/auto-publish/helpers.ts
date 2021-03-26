@@ -1,7 +1,7 @@
 import {SH} from './sh';
 import {Git, Settings as GitSettings} from './git';
 import {Settings} from './index';
-import {ensureDirectoryExists} from '../../src/utils';
+import {ensureDirectoryExists, sleep} from '../../src/utils';
 import {Octokit} from '@octokit/rest';
 import {readdirSync} from 'fs';
 import {SpawnResult} from '@expo/spawn-async';
@@ -25,19 +25,39 @@ export class Helpers {
     this.settings = settings;
   }
 
-  npmPublish = async (cwd: string): Promise<void> => {
+  npmPublish = async (
+    cwd: string,
+    retries = 3,
+    retryTimeout = 3000 // ms
+  ): Promise<void> => {
+    retries--;
     const cmd = 'npm publish --access public';
+    const apiName = basename(cwd);
     try {
       await this.sh.runSh(cmd, cwd);
     } catch (exception) {
+      const error = (exception as SpawnResult).stderr;
       if (
-        (exception as SpawnResult).stderr.includes(
+        error.includes(
           'You cannot publish over the previously published versions'
         )
       ) {
+        console.warn(`Revision already published for ${apiName}, skipping...`);
+      } else if (
+        (error.includes('503 Service Unavailable') ||
+          error.includes('404 Not Found')) &&
+        retries > 0
+      ) {
+        const errorCode = error.includes('503 Service Unavailable')
+          ? '503'
+          : error.includes('404 Not Found')
+          ? '404'
+          : 'UNKNOWN';
         console.warn(
-          `Revision already published for ${basename(cwd)}, skipping...`
+          `NPM returned ${errorCode} for ${apiName}, retrying in ${retryTimeout}ms...`
         );
+        await sleep(retryTimeout);
+        this.npmPublish(cwd, retries);
       } else {
         throw SH.error(exception);
       }
