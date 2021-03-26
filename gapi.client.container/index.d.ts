@@ -103,7 +103,7 @@ declare namespace gapi.client {
             enabled?: boolean;
         }
         interface CancelOperationRequest {
-            /** The name (project, location, operation id) of the operation to cancel. Specified in the format `projects/∗/locations/∗/operations/*`. */
+            /** The name (project, location, operation id) of the operation to cancel. Specified in the format `projects/*‍/locations/*‍/operations/*`. */
             name?: string;
             /** Deprecated. The server-assigned `name` of the operation. This field has been deprecated and replaced by the name field. */
             operationId?: string;
@@ -393,7 +393,7 @@ declare namespace gapi.client {
         interface CompleteIPRotationRequest {
             /** Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
             clusterId?: string;
-            /** The name (project, location, cluster id) of the cluster to complete IP rotation. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster id) of the cluster to complete IP rotation. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://developers.google.com/console/help/new/#projectnumber). This field has been deprecated and replaced
@@ -417,7 +417,7 @@ declare namespace gapi.client {
         interface CreateClusterRequest {
             /** Required. A [cluster resource](https://cloud.google.com/container-engine/reference/rest/v1/projects.locations.clusters) */
             cluster?: Cluster;
-            /** The parent (project and location) where the cluster will be created. Specified in the format `projects/∗/locations/*`. */
+            /** The parent (project and location) where the cluster will be created. Specified in the format `projects/*‍/locations/*`. */
             parent?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://support.google.com/cloud/answer/6158840). This field has been deprecated and replaced by the parent
@@ -435,7 +435,7 @@ declare namespace gapi.client {
             clusterId?: string;
             /** Required. The node pool to create. */
             nodePool?: NodePool;
-            /** The parent (project, location, cluster id) where the node pool will be created. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The parent (project, location, cluster id) where the node pool will be created. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             parent?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://developers.google.com/console/help/new/#projectnumber). This field has been deprecated and replaced
@@ -1063,7 +1063,7 @@ declare namespace gapi.client {
         interface RollbackNodePoolUpgradeRequest {
             /** Deprecated. The name of the cluster to rollback. This field has been deprecated and replaced by the name field. */
             clusterId?: string;
-            /** The name (project, location, cluster, node pool id) of the node poll to rollback upgrade. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+            /** The name (project, location, cluster, node pool id) of the node poll to rollback upgrade. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
             name?: string;
             /** Deprecated. The name of the node pool to rollback. This field has been deprecated and replaced by the name field. */
             nodePoolId?: string;
@@ -1101,7 +1101,7 @@ declare namespace gapi.client {
             addonsConfig?: AddonsConfig;
             /** Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
             clusterId?: string;
-            /** The name (project, location, cluster) of the cluster to set addons. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster) of the cluster to set addons. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://support.google.com/cloud/answer/6158840). This field has been deprecated and replaced by the name
@@ -1123,7 +1123,7 @@ declare namespace gapi.client {
              * latest fingerprint.
              */
             labelFingerprint?: string;
-            /** The name (project, location, cluster id) of the cluster to set labels. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster id) of the cluster to set labels. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://developers.google.com/console/help/new/#projectnumber). This field has been deprecated and replaced
@@ -1143,7 +1143,7 @@ declare namespace gapi.client {
             clusterId?: string;
             /** Required. Whether ABAC authorization will be enabled in the cluster. */
             enabled?: boolean;
-            /** The name (project, location, cluster id) of the cluster to set legacy abac. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster id) of the cluster to set legacy abac. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://support.google.com/cloud/answer/6158840). This field has been deprecated and replaced by the name
@@ -1165,7 +1165,7 @@ declare namespace gapi.client {
              * include the cluster's primary zone.
              */
             locations?: string[];
-            /** The name (project, location, cluster) of the cluster to set locations. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster) of the cluster to set locations. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://support.google.com/cloud/answer/6158840). This field has been deprecated and replaced by the name
@@ -1187,7 +1187,7 @@ declare namespace gapi.client {
              * cluster. If left as an empty string,`logging.googleapis.com/kubernetes` will be used for GKE 1.14+ or `logging.googleapis.com` for earlier versions.
              */
             loggingService?: string;
-            /** The name (project, location, cluster) of the cluster to set logging. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster) of the cluster to set logging. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://support.google.com/cloud/answer/6158840). This field has been deprecated and replaced by the name
@@ -1205,7 +1205,7 @@ declare namespace gapi.client {
             clusterId?: string;
             /** Required. The maintenance policy to be set for the cluster. An empty field clears the existing maintenance policy. */
             maintenancePolicy?: MaintenancePolicy;
-            /** The name (project, location, cluster id) of the cluster to set maintenance policy. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster id) of the cluster to set maintenance policy. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /** Required. The Google Developers Console [project ID or project number](https://support.google.com/cloud/answer/6158840). */
             projectId?: string;
@@ -1217,7 +1217,7 @@ declare namespace gapi.client {
             action?: string;
             /** Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
             clusterId?: string;
-            /** The name (project, location, cluster) of the cluster to set auth. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster) of the cluster to set auth. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://support.google.com/cloud/answer/6158840). This field has been deprecated and replaced by the name
@@ -1241,7 +1241,7 @@ declare namespace gapi.client {
              * from the cluster. If left as an empty string,`monitoring.googleapis.com/kubernetes` will be used for GKE 1.14+ or `monitoring.googleapis.com` for earlier versions.
              */
             monitoringService?: string;
-            /** The name (project, location, cluster) of the cluster to set monitoring. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster) of the cluster to set monitoring. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://support.google.com/cloud/answer/6158840). This field has been deprecated and replaced by the name
@@ -1257,7 +1257,7 @@ declare namespace gapi.client {
         interface SetNetworkPolicyRequest {
             /** Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
             clusterId?: string;
-            /** The name (project, location, cluster id) of the cluster to set networking policy. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster id) of the cluster to set networking policy. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /** Required. Configuration options for the NetworkPolicy feature. */
             networkPolicy?: NetworkPolicy;
@@ -1277,7 +1277,7 @@ declare namespace gapi.client {
             autoscaling?: NodePoolAutoscaling;
             /** Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
             clusterId?: string;
-            /** The name (project, location, cluster, node pool) of the node pool to set autoscaler settings. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+            /** The name (project, location, cluster, node pool) of the node pool to set autoscaler settings. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
             name?: string;
             /** Deprecated. The name of the node pool to upgrade. This field has been deprecated and replaced by the name field. */
             nodePoolId?: string;
@@ -1297,7 +1297,7 @@ declare namespace gapi.client {
             clusterId?: string;
             /** Required. NodeManagement configuration for the node pool. */
             management?: NodeManagement;
-            /** The name (project, location, cluster, node pool id) of the node pool to set management properties. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+            /** The name (project, location, cluster, node pool id) of the node pool to set management properties. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
             name?: string;
             /** Deprecated. The name of the node pool to update. This field has been deprecated and replaced by the name field. */
             nodePoolId?: string;
@@ -1315,7 +1315,7 @@ declare namespace gapi.client {
         interface SetNodePoolSizeRequest {
             /** Deprecated. The name of the cluster to update. This field has been deprecated and replaced by the name field. */
             clusterId?: string;
-            /** The name (project, location, cluster, node pool id) of the node pool to set size. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+            /** The name (project, location, cluster, node pool id) of the node pool to set size. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
             name?: string;
             /** Required. The desired node count for the pool. */
             nodeCount?: number;
@@ -1351,7 +1351,7 @@ declare namespace gapi.client {
         interface StartIPRotationRequest {
             /** Deprecated. The name of the cluster. This field has been deprecated and replaced by the name field. */
             clusterId?: string;
-            /** The name (project, location, cluster id) of the cluster to start IP rotation. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster id) of the cluster to start IP rotation. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://developers.google.com/console/help/new/#projectnumber). This field has been deprecated and replaced
@@ -1394,7 +1394,7 @@ declare namespace gapi.client {
         interface UpdateClusterRequest {
             /** Deprecated. The name of the cluster to upgrade. This field has been deprecated and replaced by the name field. */
             clusterId?: string;
-            /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://support.google.com/cloud/answer/6158840). This field has been deprecated and replaced by the name
@@ -1418,7 +1418,7 @@ declare namespace gapi.client {
              * in the 1.X.Y version - "1.X.Y-gke.N": picks an explicit Kubernetes version - "-": picks the default Kubernetes version
              */
             masterVersion?: string;
-            /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+            /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
             name?: string;
             /**
              * Deprecated. The Google Developers Console [project ID or project number](https://support.google.com/cloud/answer/6158840). This field has been deprecated and replaced by the name
@@ -1445,7 +1445,7 @@ declare namespace gapi.client {
              * a node pool will result in nodes being either created or removed from the node pool, depending on whether locations are being added or removed.
              */
             locations?: string[];
-            /** The name (project, location, cluster, node pool) of the node pool to update. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+            /** The name (project, location, cluster, node pool) of the node pool to update. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
             name?: string;
             /** Deprecated. The name of the node pool to upgrade. This field has been deprecated and replaced by the name field. */
             nodePoolId?: string;
@@ -1586,7 +1586,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The parent (project, location, cluster id) where the node pool will be created. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The parent (project, location, cluster id) where the node pool will be created. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1614,7 +1614,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The parent (project, location, cluster id) where the node pool will be created. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The parent (project, location, cluster id) where the node pool will be created. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1642,7 +1642,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool id) of the node pool to delete. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool id) of the node pool to delete. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name: string;
                 /** Deprecated. The name of the node pool to delete. This field has been deprecated and replaced by the name field. */
                 nodePoolId?: string;
@@ -1683,7 +1683,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool id) of the node pool to get. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool id) of the node pool to get. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name: string;
                 /** Deprecated. The name of the node pool. This field has been deprecated and replaced by the name field. */
                 nodePoolId?: string;
@@ -1726,7 +1726,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The parent (project, location, cluster id) where the node pools will be listed. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The parent (project, location, cluster id) where the node pools will be listed. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1761,7 +1761,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool id) of the node poll to rollback upgrade. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool id) of the node poll to rollback upgrade. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1789,7 +1789,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool id) of the node poll to rollback upgrade. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool id) of the node poll to rollback upgrade. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1817,7 +1817,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool) of the node pool to set autoscaler settings. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool) of the node pool to set autoscaler settings. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1845,7 +1845,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool) of the node pool to set autoscaler settings. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool) of the node pool to set autoscaler settings. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1873,7 +1873,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool id) of the node pool to set management properties. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool id) of the node pool to set management properties. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1901,7 +1901,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool id) of the node pool to set management properties. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool id) of the node pool to set management properties. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1929,7 +1929,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool id) of the node pool to set size. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool id) of the node pool to set size. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1957,7 +1957,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool id) of the node pool to set size. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool id) of the node pool to set size. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1985,7 +1985,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool) of the node pool to update. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool) of the node pool to update. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2013,7 +2013,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool) of the node pool to update. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool) of the node pool to update. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2048,7 +2048,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The cluster (project, location, cluster id) to get the discovery document for. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The cluster (project, location, cluster id) to get the discovery document for. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -2075,7 +2075,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster id) of the cluster to complete IP rotation. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster id) of the cluster to complete IP rotation. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2103,7 +2103,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster id) of the cluster to complete IP rotation. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster id) of the cluster to complete IP rotation. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2138,7 +2138,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The parent (project and location) where the cluster will be created. Specified in the format `projects/∗/locations/*`. */
+                /** The parent (project and location) where the cluster will be created. Specified in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -2166,7 +2166,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The parent (project and location) where the cluster will be created. Specified in the format `projects/∗/locations/*`. */
+                /** The parent (project and location) where the cluster will be created. Specified in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -2197,7 +2197,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to delete. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to delete. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2236,7 +2236,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to retrieve. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to retrieve. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2275,7 +2275,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The cluster (project, location, cluster id) to get keys for. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The cluster (project, location, cluster id) to get keys for. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -2302,7 +2302,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The parent (project and location) where the clusters will be listed. Specified in the format `projects/∗/locations/*`. Location "-" matches all zones and all regions. */
+                /** The parent (project and location) where the clusters will be listed. Specified in the format `projects/*‍/locations/*`. Location "-" matches all zones and all regions. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -2337,7 +2337,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to set addons. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to set addons. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2365,7 +2365,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to set addons. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to set addons. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2393,7 +2393,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster id) of the cluster to set legacy abac. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster id) of the cluster to set legacy abac. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2421,7 +2421,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster id) of the cluster to set legacy abac. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster id) of the cluster to set legacy abac. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2452,7 +2452,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to set locations. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to set locations. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2480,7 +2480,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to set locations. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to set locations. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2508,7 +2508,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to set logging. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to set logging. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2536,7 +2536,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to set logging. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to set logging. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2564,7 +2564,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster id) of the cluster to set maintenance policy. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster id) of the cluster to set maintenance policy. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2592,7 +2592,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster id) of the cluster to set maintenance policy. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster id) of the cluster to set maintenance policy. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2620,7 +2620,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to set auth. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to set auth. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2648,7 +2648,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to set auth. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to set auth. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2676,7 +2676,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to set monitoring. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to set monitoring. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2704,7 +2704,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to set monitoring. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to set monitoring. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2732,7 +2732,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster id) of the cluster to set networking policy. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster id) of the cluster to set networking policy. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2760,7 +2760,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster id) of the cluster to set networking policy. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster id) of the cluster to set networking policy. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2788,7 +2788,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster id) of the cluster to set labels. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster id) of the cluster to set labels. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2816,7 +2816,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster id) of the cluster to set labels. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster id) of the cluster to set labels. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2844,7 +2844,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster id) of the cluster to start IP rotation. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster id) of the cluster to start IP rotation. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2872,7 +2872,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster id) of the cluster to start IP rotation. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster id) of the cluster to start IP rotation. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2900,7 +2900,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2928,7 +2928,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2956,7 +2956,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2984,7 +2984,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to update. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3016,7 +3016,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, operation id) of the operation to cancel. Specified in the format `projects/∗/locations/∗/operations/*`. */
+                /** The name (project, location, operation id) of the operation to cancel. Specified in the format `projects/*‍/locations/*‍/operations/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3044,7 +3044,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, operation id) of the operation to cancel. Specified in the format `projects/∗/locations/∗/operations/*`. */
+                /** The name (project, location, operation id) of the operation to cancel. Specified in the format `projects/*‍/locations/*‍/operations/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3072,7 +3072,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, operation id) of the operation to get. Specified in the format `projects/∗/locations/∗/operations/*`. */
+                /** The name (project, location, operation id) of the operation to get. Specified in the format `projects/*‍/locations/*‍/operations/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3113,7 +3113,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The parent (project and location) where the operations will be listed. Specified in the format `projects/∗/locations/*`. Location "-" matches all zones and all regions. */
+                /** The parent (project and location) where the operations will be listed. Specified in the format `projects/*‍/locations/*`. Location "-" matches all zones and all regions. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -3150,7 +3150,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project and location) of the server config to get, specified in the format `projects/∗/locations/*`. */
+                /** The name (project and location) of the server config to get, specified in the format `projects/*‍/locations/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -3349,7 +3349,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool id) of the node pool to delete. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool id) of the node pool to delete. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name?: string;
                 /** Deprecated. The name of the node pool to delete. This field has been deprecated and replaced by the name field. */
                 nodePoolId: string;
@@ -3390,7 +3390,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster, node pool id) of the node pool to get. Specified in the format `projects/∗/locations/∗/clusters/∗/nodePools/*`. */
+                /** The name (project, location, cluster, node pool id) of the node pool to get. Specified in the format `projects/*‍/locations/*‍/clusters/*‍/nodePools/*`. */
                 name?: string;
                 /** Deprecated. The name of the node pool. This field has been deprecated and replaced by the name field. */
                 nodePoolId: string;
@@ -3433,7 +3433,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The parent (project, location, cluster id) where the node pools will be listed. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The parent (project, location, cluster id) where the node pools will be listed. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -4024,7 +4024,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to delete. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to delete. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -4063,7 +4063,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, cluster) of the cluster to retrieve. Specified in the format `projects/∗/locations/∗/clusters/*`. */
+                /** The name (project, location, cluster) of the cluster to retrieve. Specified in the format `projects/*‍/locations/*‍/clusters/*`. */
                 name?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -4178,7 +4178,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The parent (project and location) where the clusters will be listed. Specified in the format `projects/∗/locations/*`. Location "-" matches all zones and all regions. */
+                /** The parent (project and location) where the clusters will be listed. Specified in the format `projects/*‍/locations/*`. Location "-" matches all zones and all regions. */
                 parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -5043,7 +5043,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project, location, operation id) of the operation to get. Specified in the format `projects/∗/locations/∗/operations/*`. */
+                /** The name (project, location, operation id) of the operation to get. Specified in the format `projects/*‍/locations/*‍/operations/*`. */
                 name?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -5084,7 +5084,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The parent (project and location) where the operations will be listed. Specified in the format `projects/∗/locations/*`. Location "-" matches all zones and all regions. */
+                /** The parent (project and location) where the operations will be listed. Specified in the format `projects/*‍/locations/*`. Location "-" matches all zones and all regions. */
                 parent?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -5121,7 +5121,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The name (project and location) of the server config to get, specified in the format `projects/∗/locations/*`. */
+                /** The name (project and location) of the server config to get, specified in the format `projects/*‍/locations/*`. */
                 name?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
