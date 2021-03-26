@@ -233,7 +233,7 @@ declare namespace gapi.client {
             data?: { [P in string]: string };
             /** Input only. Template for FCM SDK feature options to use across all platforms. */
             fcmOptions?: FcmOptions;
-            /** Output Only. The identifier of the message sent, in the format of `projects/∗/messages/{message_id}`. */
+            /** Output Only. The identifier of the message sent, in the format of `projects/*‍/messages/{message_id}`. */
             name?: string;
             /** Input only. Basic notification template to use across all platforms. */
             notification?: Notification;

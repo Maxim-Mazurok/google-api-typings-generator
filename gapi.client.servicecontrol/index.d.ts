@@ -73,7 +73,7 @@ declare namespace gapi.client {
             numResponseItems?: string;
             /**
              * The operation request. This may not include all request parameters, such as those that are too large, privacy-sensitive, or duplicated elsewhere in the log record. It should never
-             * include user-generated data, such as file contents. When the JSON object represented here has a proto equivalent, the proto name will be indicated in the `@type` property.
+             * include user-generated data, such as file contents. When the JSON object represented here has a proto equivalent, the proto name will be indicated in the `@‍type` property.
              */
             request?: { [P in string]: any };
             /** Metadata about the operation. */
@@ -88,12 +88,12 @@ declare namespace gapi.client {
             /**
              * The resource's original state before mutation. Present only for operations which have successfully modified the targeted resource(s). In general, this field should contain all
              * changed fields, except those that are already been included in `request`, `response`, `metadata` or `service_data` fields. When the JSON object represented here has a proto
-             * equivalent, the proto name will be indicated in the `@type` property.
+             * equivalent, the proto name will be indicated in the `@‍type` property.
              */
             resourceOriginalState?: { [P in string]: any };
             /**
              * The operation response. This may not include all response elements, such as those that are too large, privacy-sensitive, or duplicated elsewhere in the log record. It should never
-             * include user-generated data, such as file contents. When the JSON object represented here has a proto equivalent, the proto name will be indicated in the `@type` property.
+             * include user-generated data, such as file contents. When the JSON object represented here has a proto equivalent, the proto name will be indicated in the `@‍type` property.
              */
             response?: { [P in string]: any };
             /** Deprecated. Use the `metadata` field instead. Other service-specific data about the request, response, and other activities. */
@@ -158,7 +158,7 @@ declare namespace gapi.client {
             serviceAccountKeyName?: string;
             /**
              * The third party identification (if any) of the authenticated user making the request. When the JSON object represented here has a proto equivalent, the proto name will be indicated
-             * in the `@type` property.
+             * in the `@‍type` property.
              */
             thirdPartyPrincipal?: { [P in string]: any };
         }

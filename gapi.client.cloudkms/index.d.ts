@@ -138,7 +138,7 @@ declare namespace gapi.client {
             createTime?: string;
             /** Labels with user-defined metadata. For more information, see [Labeling Keys](https://cloud.google.com/kms/docs/labeling-keys). */
             labels?: { [P in string]: string };
-            /** Output only. The resource name for this CryptoKey in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/*`. */
+            /** Output only. The resource name for this CryptoKey in the format `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*`. */
             name?: string;
             /**
              * At next_rotation_time, the Key Management Service will automatically: 1. Create a new version of this CryptoKey. 2. Mark the new version as primary. Key rotations performed manually
@@ -188,7 +188,7 @@ declare namespace gapi.client {
             importJob?: string;
             /** Output only. The time at which this CryptoKeyVersion's key material was imported. */
             importTime?: string;
-            /** Output only. The resource name for this CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/*`. */
+            /** Output only. The resource name for this CryptoKeyVersion in the format `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*‍/cryptoKeyVersions/*`. */
             name?: string;
             /** Output only. The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion. */
             protectionLevel?: string;
@@ -356,7 +356,7 @@ declare namespace gapi.client {
             generateTime?: string;
             /** Required. Immutable. The wrapping method to be used for incoming key material. */
             importMethod?: string;
-            /** Output only. The resource name for this ImportJob in the format `projects/∗/locations/∗/keyRings/∗/importJobs/*`. */
+            /** Output only. The resource name for this ImportJob in the format `projects/*‍/locations/*‍/keyRings/*‍/importJobs/*`. */
             name?: string;
             /** Required. Immutable. The protection level of the ImportJob. This must match the protection_level of the version_template on the CryptoKey you attempt to import into. */
             protectionLevel?: string;
@@ -376,7 +376,7 @@ declare namespace gapi.client {
         interface KeyRing {
             /** Output only. The time at which this KeyRing was created. */
             createTime?: string;
-            /** Output only. The resource name for the KeyRing in the format `projects/∗/locations/∗/keyRings/*`. */
+            /** Output only. The resource name for the KeyRing in the format `projects/*‍/locations/*‍/keyRings/*`. */
             name?: string;
         }
         interface ListCryptoKeysResponse {
@@ -893,7 +893,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Optional pagination token, returned earlier via ListCryptoKeyVersionsResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the CryptoKey to list, in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/*`. */
+                /** Required. The resource name of the CryptoKey to list, in the format `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -923,7 +923,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/*`. */
+                /** Output only. The resource name for this CryptoKeyVersion in the format `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*‍/cryptoKeyVersions/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -953,7 +953,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/*`. */
+                /** Output only. The resource name for this CryptoKeyVersion in the format `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*‍/cryptoKeyVersions/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1302,7 +1302,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Optional pagination token, returned earlier via ListCryptoKeysResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the KeyRing to list, in the format `projects/∗/locations/∗/keyRings/*`. */
+                /** Required. The resource name of the KeyRing to list, in the format `projects/*‍/locations/*‍/keyRings/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1329,7 +1329,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CryptoKey in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/*`. */
+                /** Output only. The resource name for this CryptoKey in the format `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1359,7 +1359,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CryptoKey in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/*`. */
+                /** Output only. The resource name for this CryptoKey in the format `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1646,7 +1646,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Optional pagination token, returned earlier via ListImportJobsResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the KeyRing to list, in the format `projects/∗/locations/∗/keyRings/*`. */
+                /** Required. The resource name of the KeyRing to list, in the format `projects/*‍/locations/*‍/keyRings/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1736,7 +1736,7 @@ declare namespace gapi.client {
                 keyRingId?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/∗/locations/*`. */
+                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1766,7 +1766,7 @@ declare namespace gapi.client {
                 keyRingId?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/∗/locations/*`. */
+                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1871,7 +1871,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Optional pagination token, returned earlier via ListKeyRingsResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/∗/locations/*`. */
+                /** Required. The resource name of the location associated with the KeyRings, in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;

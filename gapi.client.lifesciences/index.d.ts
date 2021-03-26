@@ -94,8 +94,8 @@ declare namespace gapi.client {
             /**
              * A list of mounts to make available to the action. In addition to the values specified here, every action has a special virtual disk mounted under `/google` that contains log files
              * and other operational components. - /google/logs All logs written during the pipeline execution. - /google/logs/output The combined standard output and standard error of all actions
-             * run as part of the pipeline execution. - /google/logs/action/∗/stdout The complete contents of each individual action's standard output. - /google/logs/action/∗/stderr The complete
-             * contents of each individual action's standard error output.
+             * run as part of the pipeline execution. - /google/logs/action/*‍/stdout The complete contents of each individual action's standard output. - /google/logs/action/*‍/stderr The
+             * complete contents of each individual action's standard error output.
              */
             mounts?: Mount[];
             /**
@@ -280,7 +280,7 @@ declare namespace gapi.client {
             network?: string;
             /**
              * If the specified network is configured for custom subnet creation, the name of the subnetwork to attach the instance to must be specified here. The value is prefixed with
-             * `regions/∗/subnetworks/` unless it contains a `/`, in which case it is assumed to be a fully specified subnetwork resource URL. If the `*` character appears in the value, it is
+             * `regions/*‍/subnetworks/` unless it contains a `/`, in which case it is assumed to be a fully specified subnetwork resource URL. If the `*` character appears in the value, it is
              * replaced with the region that the virtual machine has been allocated in.
              */
             subnetwork?: string;

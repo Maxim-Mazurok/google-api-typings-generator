@@ -57,7 +57,7 @@ declare namespace gapi.client {
              * down and no charges will be incurred until traffic to the model resumes. If `min_nodes` is not specified and AutoScaling is used with a [Compute Engine (N1) machine
              * type](/ml-engine/docs/machine-types-online-prediction), `min_nodes` defaults to 1. `min_nodes` must be at least 1 for use with a Compute Engine machine type. You can set `min_nodes`
              * when creating the model version, and you can also update `min_nodes` for an existing version: update_body.json: { 'autoScaling': { 'minNodes': 5 } } HTTP request: PATCH
-             * https://ml.googleapis.com/v1/{name=projects/∗/models/∗/versions/*}?update_mask=autoScaling.minNodes -d @./update_body.json
+             * https://ml.googleapis.com/v1/{name=projects/*‍/models/*‍/versions/*}?update_mask=autoScaling.minNodes -d @./update_body.json
              */
             minNodes?: number;
         }
@@ -938,7 +938,7 @@ declare namespace gapi.client {
              * must set `machineType` to a [legacy (MLS1) machine type](/ml-engine/docs/machine-types-online-prediction). The following code sample provides the Predictor interface: class
              * Predictor(object): """Interface for constructing custom predictors.""" def predict(self, instances, **kwargs): """Performs custom prediction. Instances are the decoded values from
              * the request. They have already been deserialized from JSON. Args: instances: A list of prediction input instances. **kwargs: A dictionary of keyword args provided as additional
-             * fields on the predict request body. Returns: A list of outputs containing the prediction results. This list must be JSON serializable. """ raise NotImplementedError() @classmethod
+             * fields on the predict request body. Returns: A list of outputs containing the prediction results. This list must be JSON serializable. """ raise NotImplementedError() @‍classmethod
              * def from_path(cls, model_dir): """Creates an instance of Predictor using the given path. Loading of the predictor should be done in this method. Args: model_dir: The local directory
              * that contains the exported model file along with any additional files uploaded when creating the version resource. Returns: An instance implementing this Predictor class. """ raise
              * NotImplementedError() Learn more about [the Predictor interface and custom prediction routines](/ml-engine/docs/tensorflow/custom-prediction-routines).
@@ -2977,7 +2977,7 @@ declare namespace gapi.client {
             }): Request<GoogleLongrunning__Operation>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
-             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * to override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
              * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
              * ensure the name binding is the parent resource, without the operations collection id.
              */

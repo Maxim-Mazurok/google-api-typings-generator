@@ -343,7 +343,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. Parent resource of the API Config, of the form: `projects/∗/locations/global/apis/*` */
+                /** Required. Parent resource of the API Config, of the form: `projects/*‍/locations/global/apis/*` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -373,7 +373,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. Parent resource of the API Config, of the form: `projects/∗/locations/global/apis/*` */
+                /** Required. Parent resource of the API Config, of the form: `projects/*‍/locations/global/apis/*` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -399,7 +399,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Resource name of the form: `projects/∗/locations/global/apis/∗/configs/*` */
+                /** Required. Resource name of the form: `projects/*‍/locations/global/apis/*‍/configs/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -426,7 +426,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Resource name of the form: `projects/∗/locations/global/apis/∗/configs/*` */
+                /** Required. Resource name of the form: `projects/*‍/locations/global/apis/*‍/configs/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -498,7 +498,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Page token. */
                 pageToken?: string;
-                /** Required. Parent resource of the API Config, of the form: `projects/∗/locations/global/apis/*` */
+                /** Required. Parent resource of the API Config, of the form: `projects/*‍/locations/global/apis/*` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -654,7 +654,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. Parent resource of the API, of the form: `projects/∗/locations/global` */
+                /** Required. Parent resource of the API, of the form: `projects/*‍/locations/global` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -684,7 +684,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. Parent resource of the API, of the form: `projects/∗/locations/global` */
+                /** Required. Parent resource of the API, of the form: `projects/*‍/locations/global` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -710,7 +710,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Resource name of the form: `projects/∗/locations/global/apis/*` */
+                /** Required. Resource name of the form: `projects/*‍/locations/global/apis/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -737,7 +737,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Resource name of the form: `projects/∗/locations/global/apis/*` */
+                /** Required. Resource name of the form: `projects/*‍/locations/global/apis/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -807,7 +807,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Page token. */
                 pageToken?: string;
-                /** Required. Parent resource of the API, of the form: `projects/∗/locations/global` */
+                /** Required. Parent resource of the API, of the form: `projects/*‍/locations/global` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -964,7 +964,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. Parent resource of the Gateway, of the form: `projects/∗/locations/*` */
+                /** Required. Parent resource of the Gateway, of the form: `projects/*‍/locations/*` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -994,7 +994,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. Parent resource of the Gateway, of the form: `projects/∗/locations/*` */
+                /** Required. Parent resource of the Gateway, of the form: `projects/*‍/locations/*` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1020,7 +1020,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Resource name of the form: `projects/∗/locations/∗/gateways/*` */
+                /** Required. Resource name of the form: `projects/*‍/locations/*‍/gateways/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1047,7 +1047,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Resource name of the form: `projects/∗/locations/∗/gateways/*` */
+                /** Required. Resource name of the form: `projects/*‍/locations/*‍/gateways/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1117,7 +1117,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Page token. */
                 pageToken?: string;
-                /** Required. Parent resource of the Gateway, of the form: `projects/∗/locations/*` */
+                /** Required. Parent resource of the Gateway, of the form: `projects/*‍/locations/*` */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1375,7 +1375,7 @@ declare namespace gapi.client {
             }): Request<ApigatewayOperation>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
-             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * to override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
              * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
              * ensure the name binding is the parent resource, without the operations collection id.
              */

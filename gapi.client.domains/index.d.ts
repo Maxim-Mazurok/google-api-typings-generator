@@ -392,7 +392,7 @@ declare namespace gapi.client {
              * the `ConfigureManagementSettings` method.
              */
             managementSettings?: ManagementSettings;
-            /** Output only. Name of the `Registration` resource, in the format `projects/∗/locations/∗/registrations/`. */
+            /** Output only. Name of the `Registration` resource, in the format `projects/*‍/locations/*‍/registrations/`. */
             name?: string;
             /**
              * Output only. Pending contact settings for the `Registration`. Updates to the `contact_settings` field that change its `registrant_contact` or `privacy` fields require email
@@ -480,7 +480,7 @@ declare namespace gapi.client {
             }): Request<Operation>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
-             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * to override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
              * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
              * ensure the name binding is the parent resource, without the operations collection id.
              */
@@ -538,7 +538,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. The name of the `Registration` whose contact settings are being updated, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` whose contact settings are being updated, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 registration: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -566,7 +566,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. The name of the `Registration` whose contact settings are being updated, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` whose contact settings are being updated, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 registration: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -594,7 +594,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. The name of the `Registration` whose DNS settings are being updated, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` whose DNS settings are being updated, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 registration: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -622,7 +622,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. The name of the `Registration` whose DNS settings are being updated, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` whose DNS settings are being updated, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 registration: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -650,7 +650,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. The name of the `Registration` whose management settings are being updated, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` whose management settings are being updated, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 registration: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -678,7 +678,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. The name of the `Registration` whose management settings are being updated, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` whose management settings are being updated, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 registration: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -703,7 +703,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The name of the `Registration` to delete, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` to delete, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -735,7 +735,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The name of the `Registration` to export, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` to export, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -763,7 +763,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The name of the `Registration` to export, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` to export, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -791,7 +791,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The name of the `Registration` to get, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` to get, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -865,7 +865,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** When set to the `next_page_token` from a prior response, provides the next page of results. */
                 pageToken?: string;
-                /** Required. The project and location from which to list `Registration`s, specified in the format `projects/∗/locations/*`. */
+                /** Required. The project and location from which to list `Registration`s, specified in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -893,7 +893,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. Name of the `Registration` resource, in the format `projects/∗/locations/∗/registrations/`. */
+                /** Output only. Name of the `Registration` resource, in the format `projects/*‍/locations/*‍/registrations/`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -923,7 +923,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. Name of the `Registration` resource, in the format `projects/∗/locations/∗/registrations/`. */
+                /** Output only. Name of the `Registration` resource, in the format `projects/*‍/locations/*‍/registrations/`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -960,7 +960,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The parent resource of the `Registration`. Must be in the format `projects/∗/locations/*`. */
+                /** Required. The parent resource of the `Registration`. Must be in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -988,7 +988,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The parent resource of the `Registration`. Must be in the format `projects/∗/locations/*`. */
+                /** Required. The parent resource of the `Registration`. Must be in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1020,7 +1020,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. The name of the `Registration` whose authorization code is being reset, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` whose authorization code is being reset, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 registration: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -1048,7 +1048,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. The name of the `Registration` whose authorization code is being reset, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` whose authorization code is being reset, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 registration: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -1079,7 +1079,7 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. The name of the `Registration` whose authorization code is being retrieved, in the format `projects/∗/locations/∗/registrations/*`. */
+                /** Required. The name of the `Registration` whose authorization code is being retrieved, in the format `projects/*‍/locations/*‍/registrations/*`. */
                 registration: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -1102,7 +1102,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The location. Must be in the format `projects/∗/locations/*`. */
+                /** Required. The location. Must be in the format `projects/*‍/locations/*`. */
                 location: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1132,7 +1132,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The location. Must be in the format `projects/∗/locations/*`. */
+                /** Required. The location. Must be in the format `projects/*‍/locations/*`. */
                 location: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;

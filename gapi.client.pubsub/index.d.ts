@@ -410,7 +410,7 @@ declare namespace gapi.client {
         interface Topic {
             /**
              * The resource name of the Cloud KMS CryptoKey to be used to protect access to messages published on this topic. The expected format is
-             * `projects/∗/locations/∗/keyRings/∗/cryptoKeys/*`.
+             * `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*`.
              */
             kmsKeyName?: string;
             /** See [Creating and managing labels] (https://cloud.google.com/pubsub/docs/labels). */

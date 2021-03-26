@@ -29,19 +29,19 @@ declare namespace gapi.client {
             partialFailures?: GoogleRpcStatus[];
         }
         interface GoogleCloudDatalabelingV1alpha1ExportDataOperationMetadata {
-            /** Output only. The name of annotated dataset in format "projects/∗/datasets/∗/annotatedDatasets/*". */
+            /** Output only. The name of annotated dataset in format "projects/*‍/datasets/*‍/annotatedDatasets/*". */
             annotatedDataset?: string;
             /** Output only. Timestamp when export dataset request was created. */
             createTime?: string;
-            /** Output only. The name of dataset to be exported. "projects/∗/datasets/*" */
+            /** Output only. The name of dataset to be exported. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Output only. Partial failures encountered. E.g. single files that couldn't be read. Status details field will contain standard GCP error details. */
             partialFailures?: GoogleRpcStatus[];
         }
         interface GoogleCloudDatalabelingV1alpha1ExportDataOperationResponse {
-            /** Output only. The name of annotated dataset in format "projects/∗/datasets/∗/annotatedDatasets/*". */
+            /** Output only. The name of annotated dataset in format "projects/*‍/datasets/*‍/annotatedDatasets/*". */
             annotatedDataset?: string;
-            /** Ouptut only. The name of dataset. "projects/∗/datasets/*" */
+            /** Ouptut only. The name of dataset. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Output only. Number of examples exported successfully. */
             exportCount?: number;
@@ -94,7 +94,7 @@ declare namespace gapi.client {
         interface GoogleCloudDatalabelingV1alpha1ImportDataOperationMetadata {
             /** Output only. Timestamp when import dataset request was created. */
             createTime?: string;
-            /** Output only. The name of imported dataset. "projects/∗/datasets/*" */
+            /** Output only. The name of imported dataset. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Output only. Partial failures encountered. E.g. single files that couldn't be read. Status details field will contain standard GCP error details. */
             partialFailures?: GoogleRpcStatus[];
@@ -132,11 +132,11 @@ declare namespace gapi.client {
             basicConfig?: GoogleCloudDatalabelingV1alpha1HumanAnnotationConfig;
         }
         interface GoogleCloudDatalabelingV1alpha1LabelOperationMetadata {
-            /** Output only. The name of annotated dataset in format "projects/∗/datasets/∗/annotatedDatasets/*". */
+            /** Output only. The name of annotated dataset in format "projects/*‍/datasets/*‍/annotatedDatasets/*". */
             annotatedDataset?: string;
             /** Output only. Timestamp when labeling request was created. */
             createTime?: string;
-            /** Output only. The name of dataset to be labeled. "projects/∗/datasets/*" */
+            /** Output only. The name of dataset to be labeled. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Details of label image bounding box operation. */
             imageBoundingBoxDetails?: GoogleCloudDatalabelingV1alpha1LabelImageBoundingBoxOperationMetadata;
@@ -615,19 +615,19 @@ declare namespace gapi.client {
             modelCreatedExamples?: GoogleCloudDatalabelingV1beta1Example[];
         }
         interface GoogleCloudDatalabelingV1beta1ExportDataOperationMetadata {
-            /** Output only. The name of annotated dataset in format "projects/∗/datasets/∗/annotatedDatasets/*". */
+            /** Output only. The name of annotated dataset in format "projects/*‍/datasets/*‍/annotatedDatasets/*". */
             annotatedDataset?: string;
             /** Output only. Timestamp when export dataset request was created. */
             createTime?: string;
-            /** Output only. The name of dataset to be exported. "projects/∗/datasets/*" */
+            /** Output only. The name of dataset to be exported. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Output only. Partial failures encountered. E.g. single files that couldn't be read. Status details field will contain standard GCP error details. */
             partialFailures?: GoogleRpcStatus[];
         }
         interface GoogleCloudDatalabelingV1beta1ExportDataOperationResponse {
-            /** Output only. The name of annotated dataset in format "projects/∗/datasets/∗/annotatedDatasets/*". */
+            /** Output only. The name of annotated dataset in format "projects/*‍/datasets/*‍/annotatedDatasets/*". */
             annotatedDataset?: string;
-            /** Ouptut only. The name of dataset. "projects/∗/datasets/*" */
+            /** Ouptut only. The name of dataset. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Output only. Number of examples exported successfully. */
             exportCount?: number;
@@ -771,7 +771,7 @@ declare namespace gapi.client {
         interface GoogleCloudDatalabelingV1beta1ImportDataOperationMetadata {
             /** Output only. Timestamp when import dataset request was created. */
             createTime?: string;
-            /** Output only. The name of imported dataset. "projects/∗/datasets/*" */
+            /** Output only. The name of imported dataset. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Output only. Partial failures encountered. E.g. single files that couldn't be read. Status details field will contain standard GCP error details. */
             partialFailures?: GoogleRpcStatus[];
@@ -869,11 +869,11 @@ declare namespace gapi.client {
             basicConfig?: GoogleCloudDatalabelingV1beta1HumanAnnotationConfig;
         }
         interface GoogleCloudDatalabelingV1beta1LabelOperationMetadata {
-            /** Output only. The name of annotated dataset in format "projects/∗/datasets/∗/annotatedDatasets/*". */
+            /** Output only. The name of annotated dataset in format "projects/*‍/datasets/*‍/annotatedDatasets/*". */
             annotatedDataset?: string;
             /** Output only. Timestamp when labeling request was created. */
             createTime?: string;
-            /** Output only. The name of dataset to be labeled. "projects/∗/datasets/*" */
+            /** Output only. The name of dataset to be labeled. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Details of label image bounding box operation. */
             imageBoundingBoxDetails?: GoogleCloudDatalabelingV1beta1LabelImageBoundingBoxOperationMetadata;
@@ -1244,19 +1244,19 @@ declare namespace gapi.client {
             partialFailures?: GoogleRpcStatus[];
         }
         interface GoogleCloudDatalabelingV1p1alpha1ExportDataOperationMetadata {
-            /** Output only. The name of annotated dataset in format "projects/∗/datasets/∗/annotatedDatasets/*". */
+            /** Output only. The name of annotated dataset in format "projects/*‍/datasets/*‍/annotatedDatasets/*". */
             annotatedDataset?: string;
             /** Output only. Timestamp when export dataset request was created. */
             createTime?: string;
-            /** Output only. The name of dataset to be exported. "projects/∗/datasets/*" */
+            /** Output only. The name of dataset to be exported. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Output only. Partial failures encountered. E.g. single files that couldn't be read. Status details field will contain standard GCP error details. */
             partialFailures?: GoogleRpcStatus[];
         }
         interface GoogleCloudDatalabelingV1p1alpha1ExportDataOperationResponse {
-            /** Output only. The name of annotated dataset in format "projects/∗/datasets/∗/annotatedDatasets/*". */
+            /** Output only. The name of annotated dataset in format "projects/*‍/datasets/*‍/annotatedDatasets/*". */
             annotatedDataset?: string;
-            /** Ouptut only. The name of dataset. "projects/∗/datasets/*" */
+            /** Ouptut only. The name of dataset. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Output only. Number of examples exported successfully. */
             exportCount?: number;
@@ -1280,7 +1280,7 @@ declare namespace gapi.client {
         interface GoogleCloudDatalabelingV1p1alpha1GenerateAnalysisReportOperationMetadata {
             /** Timestamp when generate report request was created. */
             createTime?: string;
-            /** The name of the dataset for which the analysis report is generated. Format: "projects/∗/datasets/*" */
+            /** The name of the dataset for which the analysis report is generated. Format: "projects/*‍/datasets/*" */
             dataset?: string;
         }
         interface GoogleCloudDatalabelingV1p1alpha1HumanAnnotationConfig {
@@ -1315,7 +1315,7 @@ declare namespace gapi.client {
         interface GoogleCloudDatalabelingV1p1alpha1ImportDataOperationMetadata {
             /** Output only. Timestamp when import dataset request was created. */
             createTime?: string;
-            /** Output only. The name of imported dataset. "projects/∗/datasets/*" */
+            /** Output only. The name of imported dataset. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Output only. Partial failures encountered. E.g. single files that couldn't be read. Status details field will contain standard GCP error details. */
             partialFailures?: GoogleRpcStatus[];
@@ -1353,11 +1353,11 @@ declare namespace gapi.client {
             basicConfig?: GoogleCloudDatalabelingV1p1alpha1HumanAnnotationConfig;
         }
         interface GoogleCloudDatalabelingV1p1alpha1LabelOperationMetadata {
-            /** Output only. The name of annotated dataset in format "projects/∗/datasets/∗/annotatedDatasets/*". */
+            /** Output only. The name of annotated dataset in format "projects/*‍/datasets/*‍/annotatedDatasets/*". */
             annotatedDataset?: string;
             /** Output only. Timestamp when labeling request was created. */
             createTime?: string;
-            /** Output only. The name of dataset to be labeled. "projects/∗/datasets/*" */
+            /** Output only. The name of dataset to be labeled. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Details of label image bounding box operation. */
             imageBoundingBoxDetails?: GoogleCloudDatalabelingV1p1alpha1LabelImageBoundingBoxOperationMetadata;
@@ -1434,19 +1434,19 @@ declare namespace gapi.client {
             partialFailures?: GoogleRpcStatus[];
         }
         interface GoogleCloudDatalabelingV1p2alpha1ExportDataOperationMetadata {
-            /** Output only. The name of annotated dataset in format "projects/∗/datasets/∗/annotatedDatasets/*". */
+            /** Output only. The name of annotated dataset in format "projects/*‍/datasets/*‍/annotatedDatasets/*". */
             annotatedDataset?: string;
             /** Output only. Timestamp when export dataset request was created. */
             createTime?: string;
-            /** Output only. The name of dataset to be exported. "projects/∗/datasets/*" */
+            /** Output only. The name of dataset to be exported. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Output only. Partial failures encountered. E.g. single files that couldn't be read. Status details field will contain standard GCP error details. */
             partialFailures?: GoogleRpcStatus[];
         }
         interface GoogleCloudDatalabelingV1p2alpha1ExportDataOperationResponse {
-            /** Output only. The name of annotated dataset in format "projects/∗/datasets/∗/annotatedDatasets/*". */
+            /** Output only. The name of annotated dataset in format "projects/*‍/datasets/*‍/annotatedDatasets/*". */
             annotatedDataset?: string;
-            /** Ouptut only. The name of dataset. "projects/∗/datasets/*" */
+            /** Ouptut only. The name of dataset. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Output only. Number of examples exported successfully. */
             exportCount?: number;
@@ -1499,7 +1499,7 @@ declare namespace gapi.client {
         interface GoogleCloudDatalabelingV1p2alpha1ImportDataOperationMetadata {
             /** Output only. Timestamp when import dataset request was created. */
             createTime?: string;
-            /** Output only. The name of imported dataset. "projects/∗/datasets/*" */
+            /** Output only. The name of imported dataset. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Output only. Partial failures encountered. E.g. single files that couldn't be read. Status details field will contain standard GCP error details. */
             partialFailures?: GoogleRpcStatus[];
@@ -1537,11 +1537,11 @@ declare namespace gapi.client {
             basicConfig?: GoogleCloudDatalabelingV1p2alpha1HumanAnnotationConfig;
         }
         interface GoogleCloudDatalabelingV1p2alpha1LabelOperationMetadata {
-            /** Output only. The name of annotated dataset in format "projects/∗/datasets/∗/annotatedDatasets/*". */
+            /** Output only. The name of annotated dataset in format "projects/*‍/datasets/*‍/annotatedDatasets/*". */
             annotatedDataset?: string;
             /** Output only. Timestamp when labeling request was created. */
             createTime?: string;
-            /** Output only. The name of dataset to be labeled. "projects/∗/datasets/*" */
+            /** Output only. The name of dataset to be labeled. "projects/*‍/datasets/*" */
             dataset?: string;
             /** Details of label image bounding box operation. */
             imageBoundingBoxDetails?: GoogleCloudDatalabelingV1p2alpha1LabelImageBoundingBoxOperationMetadata;
@@ -3493,7 +3493,7 @@ declare namespace gapi.client {
             }): Request<GoogleLongrunningOperation>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
-             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * to override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
              * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
              * ensure the name binding is the parent resource, without the operations collection id.
              */

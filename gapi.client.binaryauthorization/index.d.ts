@@ -26,7 +26,7 @@ declare namespace gapi.client {
             /** Required. How this admission rule will be evaluated. */
             evaluationMode?: string;
             /**
-             * Optional. The resource names of the attestors that must attest to a container image, in the format `projects/∗/attestors/*`. Each attestor must exist before a policy can reference
+             * Optional. The resource names of the attestors that must attest to a container image, in the format `projects/*‍/attestors/*`. Each attestor must exist before a policy can reference
              * it. To add an attestor to a policy the principal issuing the policy change request must be able to read the attestor resource. Note: this field must be non-empty when the
              * evaluation_mode field specifies REQUIRE_ATTESTATION, otherwise it must be empty.
              */
@@ -54,7 +54,7 @@ declare namespace gapi.client {
         interface Attestor {
             /** Optional. A descriptive comment. This field may be updated. The field may be displayed in chooser dialogs. */
             description?: string;
-            /** Required. The resource name, in the format: `projects/∗/attestors/*`. This field may not be updated. */
+            /** Required. The resource name, in the format: `projects/*‍/attestors/*`. This field may not be updated. */
             name?: string;
             /** Output only. Time when the attestor was last updated. */
             updateTime?: string;
@@ -190,7 +190,7 @@ declare namespace gapi.client {
             kubernetesNamespaceAdmissionRules?: { [P in string]: AdmissionRule };
             /** Optional. Per-kubernetes-service-account admission rules. Service account spec format: `namespace:serviceaccount`. e.g. 'test-ns:default' */
             kubernetesServiceAccountAdmissionRules?: { [P in string]: AdmissionRule };
-            /** Output only. The resource name, in the format `projects/∗/policy`. There is at most one policy per project. */
+            /** Output only. The resource name, in the format `projects/*‍/policy`. There is at most one policy per project. */
             name?: string;
             /** Output only. Time when the policy was last updated. */
             updateTime?: string;
@@ -237,7 +237,7 @@ declare namespace gapi.client {
              */
             delegationServiceAccountEmail?: string;
             /**
-             * Required. The Grafeas resource name of a Attestation.Authority Note, created by the user, in the format: `projects/∗/notes/*`. This field may not be updated. An attestation by this
+             * Required. The Grafeas resource name of a Attestation.Authority Note, created by the user, in the format: `projects/*‍/notes/*`. This field may not be updated. An attestation by this
              * attestor is stored as a Grafeas Attestation.Authority Occurrence that names a container image and that links to this Note. Grafeas is an external dependency.
              */
             noteReference?: string;
@@ -342,7 +342,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The name of the attestors to delete, in the format `projects/∗/attestors/*`. */
+                /** Required. The name of the attestors to delete, in the format `projects/*‍/attestors/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -369,7 +369,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The name of the attestor to retrieve, in the format `projects/∗/attestors/*`. */
+                /** Required. The name of the attestor to retrieve, in the format `projects/*‍/attestors/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -522,7 +522,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name, in the format: `projects/∗/attestors/*`. This field may not be updated. */
+                /** Required. The resource name, in the format: `projects/*‍/attestors/*`. This field may not be updated. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -550,7 +550,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name, in the format: `projects/∗/attestors/*`. This field may not be updated. */
+                /** Required. The resource name, in the format: `projects/*‍/attestors/*`. This field may not be updated. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -572,7 +572,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /** Required. The resource name of the Attestor of the occurrence, in the format `projects/∗/attestors/*`. */
+                /** Required. The resource name of the Attestor of the occurrence, in the format `projects/*‍/attestors/*`. */
                 attestor: string;
                 /** JSONP */
                 callback?: string;
@@ -600,7 +600,7 @@ declare namespace gapi.client {
                 access_token?: string;
                 /** Data format for response. */
                 alt?: string;
-                /** Required. The resource name of the Attestor of the occurrence, in the format `projects/∗/attestors/*`. */
+                /** Required. The resource name of the Attestor of the occurrence, in the format `projects/*‍/attestors/*`. */
                 attestor: string;
                 /** JSONP */
                 callback?: string;
@@ -733,7 +733,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the policy to retrieve, in the format `projects/∗/policy`. */
+                /** Required. The resource name of the policy to retrieve, in the format `projects/*‍/policy`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -763,7 +763,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name, in the format `projects/∗/policy`. There is at most one policy per project. */
+                /** Output only. The resource name, in the format `projects/*‍/policy`. There is at most one policy per project. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -791,7 +791,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name, in the format `projects/∗/policy`. There is at most one policy per project. */
+                /** Output only. The resource name, in the format `projects/*‍/policy`. There is at most one policy per project. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -823,7 +823,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name, in the format `locations/∗/policy`. Note that the system policy is not associated with a project. */
+                /** Required. The resource name, in the format `locations/*‍/policy`. Note that the system policy is not associated with a project. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;

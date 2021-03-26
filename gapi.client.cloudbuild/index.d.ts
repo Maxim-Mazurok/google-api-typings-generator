@@ -330,7 +330,7 @@ declare namespace gapi.client {
              * Values can be at most 64 KB in size. There can be at most 100 secret values across all of a build's secrets.
              */
             envMap?: { [P in string]: string };
-            /** Resource name of Cloud KMS crypto key to decrypt the encrypted value. In format: projects/∗/locations/∗/keyRings/∗/cryptoKeys/* */
+            /** Resource name of Cloud KMS crypto key to decrypt the encrypted value. In format: projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/* */
             kmsKeyName?: string;
         }
         interface ListBuildsResponse {
@@ -491,7 +491,7 @@ declare namespace gapi.client {
         interface SecretManagerSecret {
             /** Environment variable name to associate with the secret. Secret environment variables must be unique across all of a build's secrets, and must be used by at least one build step. */
             env?: string;
-            /** Resource name of the SecretVersion. In format: projects/∗/secrets/∗/versions/* */
+            /** Resource name of the SecretVersion. In format: projects/*‍/secrets/*‍/versions/* */
             versionName?: string;
         }
         interface Secrets {

@@ -131,7 +131,7 @@ declare namespace gapi.client {
              * slot capacity specified above at most.
              */
             ignoreIdleSlots?: boolean;
-            /** The resource name of the reservation, e.g., `projects/∗/locations/∗/reservations/team1-prod`. */
+            /** The resource name of the reservation, e.g., `projects/*‍/locations/*‍/reservations/team1-prod`. */
             name?: string;
             /**
              * Minimum slots available to this reservation. A slot is a unit of computational power in BigQuery, and serves as the unit of parallelism. Queries using this reservation might use
@@ -208,7 +208,7 @@ declare namespace gapi.client {
             }): Request<{}>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
-             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * to override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
              * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
              * ensure the name binding is the parent resource, without the operations collection id.
              */
@@ -928,7 +928,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The resource name of the reservation, e.g., `projects/∗/locations/∗/reservations/team1-prod`. */
+                /** The resource name of the reservation, e.g., `projects/*‍/locations/*‍/reservations/team1-prod`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -958,7 +958,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** The resource name of the reservation, e.g., `projects/∗/locations/∗/reservations/team1-prod`. */
+                /** The resource name of the reservation, e.g., `projects/*‍/locations/*‍/reservations/team1-prod`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1009,7 +1009,7 @@ declare namespace gapi.client {
              * Otherwise assignments created on the closest ancestor will be returned. 3. Assignments for different JobTypes will all be returned. The same logic applies if the request is about a
              * folder. If the request is about an organization, then assignments created on the organization will be returned (organization doesn't have ancestors). Comparing to ListAssignments,
              * there are some behavior differences: 1. permission on the assignee will be verified in this API. 2. Hierarchy lookup (project->folder->organization) happens in this API. 3. Parent
-             * here is `projects/∗/locations/*`, instead of `projects/∗/locations/*reservations/*`.
+             * here is `projects/*‍/locations/*`, instead of `projects/*‍/locations/*reservations/*`.
              */
             searchAllAssignments(request?: {
                 /** V1 error format. */
@@ -1048,7 +1048,7 @@ declare namespace gapi.client {
              * Otherwise assignments created on the closest ancestor will be returned. 3. Assignments for different JobTypes will all be returned. The same logic applies if the request is about a
              * folder. If the request is about an organization, then assignments created on the organization will be returned (organization doesn't have ancestors). Comparing to ListAssignments,
              * there are some behavior differences: 1. permission on the assignee will be verified in this API. 2. Hierarchy lookup (project->folder->organization) happens in this API. 3. Parent
-             * here is `projects/∗/locations/*`, instead of `projects/∗/locations/*reservations/*`. **Note** "-" cannot be used for projects nor locations.
+             * here is `projects/*‍/locations/*`, instead of `projects/*‍/locations/*reservations/*`. **Note** "-" cannot be used for projects nor locations.
              */
             searchAssignments(request?: {
                 /** V1 error format. */

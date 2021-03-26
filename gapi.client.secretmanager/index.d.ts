@@ -21,7 +21,7 @@ declare namespace gapi.client {
 
     namespace secretmanager {
         interface AccessSecretVersionResponse {
-            /** The resource name of the SecretVersion in the format `projects/∗/secrets/∗/versions/*`. */
+            /** The resource name of the SecretVersion in the format `projects/*‍/secrets/*‍/versions/*`. */
             name?: string;
             /** Secret payload */
             payload?: SecretPayload;
@@ -84,14 +84,14 @@ declare namespace gapi.client {
             /**
              * Required. The resource name of the Cloud KMS CryptoKey used to encrypt secret payloads. For secrets using the UserManaged replication policy type, Cloud KMS CryptoKeys must reside
              * in the same location as the replica location. For secrets using the Automatic replication policy type, Cloud KMS CryptoKeys must reside in `global`. The expected format is
-             * `projects/∗/locations/∗/keyRings/∗/cryptoKeys/*`.
+             * `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*`.
              */
             kmsKeyName?: string;
         }
         interface CustomerManagedEncryptionStatus {
             /**
              * Required. The resource name of the Cloud KMS CryptoKeyVersion used to encrypt the secret payload, in the following format:
-             * `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/versions/*`.
+             * `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*‍/versions/*`.
              */
             kmsKeyVersionName?: string;
         }
@@ -224,7 +224,7 @@ declare namespace gapi.client {
              * expression: `[\p{Ll}\p{Lo}\p{N}_-]{0,63}` No more than 64 labels can be assigned to a given resource.
              */
             labels?: { [P in string]: string };
-            /** Output only. The resource name of the Secret in the format `projects/∗/secrets/*`. */
+            /** Output only. The resource name of the Secret in the format `projects/*‍/secrets/*`. */
             name?: string;
             /** Required. Immutable. The replication policy of the secret data attached to the Secret. The replication policy cannot be changed after the Secret has been created. */
             replication?: Replication;
@@ -245,8 +245,8 @@ declare namespace gapi.client {
             /** Output only. The time this SecretVersion was destroyed. Only present if state is DESTROYED. */
             destroyTime?: string;
             /**
-             * Output only. The resource name of the SecretVersion in the format `projects/∗/secrets/∗/versions/*`. SecretVersion IDs in a Secret start at 1 and are incremented for each subsequent
-             * version of the secret.
+             * Output only. The resource name of the SecretVersion in the format `projects/*‍/secrets/*‍/versions/*`. SecretVersion IDs in a Secret start at 1 and are incremented for each
+             * subsequent version of the secret.
              */
             name?: string;
             /** The replication status of the SecretVersion. */
@@ -279,7 +279,7 @@ declare namespace gapi.client {
         }
         interface Topic {
             /**
-             * Required. The resource name of the Pub/Sub topic that will be published to, in the following format: `projects/∗/topics/*`. For publication to succeed, the Secret Manager P4SA must
+             * Required. The resource name of the Pub/Sub topic that will be published to, in the following format: `projects/*‍/topics/*`. For publication to succeed, the Secret Manager P4SA must
              * have `pubsub.publisher` permissions on the topic.
              */
             name?: string;
@@ -358,7 +358,7 @@ declare namespace gapi.client {
             }): Request<ListLocationsResponse>;
         }
         interface VersionsResource {
-            /** Accesses a SecretVersion. This call returns the secret data. `projects/∗/secrets/∗/versions/latest` is an alias to the `latest` SecretVersion. */
+            /** Accesses a SecretVersion. This call returns the secret data. `projects/*‍/secrets/*‍/versions/latest` is an alias to the `latest` SecretVersion. */
             access(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -372,7 +372,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the SecretVersion in the format `projects/∗/secrets/∗/versions/*`. */
+                /** Required. The resource name of the SecretVersion in the format `projects/*‍/secrets/*‍/versions/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -399,7 +399,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the SecretVersion to destroy in the format `projects/∗/secrets/∗/versions/*`. */
+                /** Required. The resource name of the SecretVersion to destroy in the format `projects/*‍/secrets/*‍/versions/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -427,7 +427,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the SecretVersion to destroy in the format `projects/∗/secrets/∗/versions/*`. */
+                /** Required. The resource name of the SecretVersion to destroy in the format `projects/*‍/secrets/*‍/versions/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -455,7 +455,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the SecretVersion to disable in the format `projects/∗/secrets/∗/versions/*`. */
+                /** Required. The resource name of the SecretVersion to disable in the format `projects/*‍/secrets/*‍/versions/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -483,7 +483,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the SecretVersion to disable in the format `projects/∗/secrets/∗/versions/*`. */
+                /** Required. The resource name of the SecretVersion to disable in the format `projects/*‍/secrets/*‍/versions/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -511,7 +511,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the SecretVersion to enable in the format `projects/∗/secrets/∗/versions/*`. */
+                /** Required. The resource name of the SecretVersion to enable in the format `projects/*‍/secrets/*‍/versions/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -539,7 +539,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the SecretVersion to enable in the format `projects/∗/secrets/∗/versions/*`. */
+                /** Required. The resource name of the SecretVersion to enable in the format `projects/*‍/secrets/*‍/versions/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -553,7 +553,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: EnableSecretVersionRequest): Request<SecretVersion>;
-            /** Gets metadata for a SecretVersion. `projects/∗/secrets/∗/versions/latest` is an alias to the `latest` SecretVersion. */
+            /** Gets metadata for a SecretVersion. `projects/*‍/secrets/*‍/versions/latest` is an alias to the `latest` SecretVersion. */
             get(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -568,7 +568,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. The resource name of the SecretVersion in the format `projects/∗/secrets/∗/versions/*`. `projects/∗/secrets/∗/versions/latest` is an alias to the `latest`
+                 * Required. The resource name of the SecretVersion in the format `projects/*‍/secrets/*‍/versions/*`. `projects/*‍/secrets/*‍/versions/latest` is an alias to the `latest`
                  * SecretVersion.
                  */
                 name: string;
@@ -606,7 +606,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Pagination token, returned earlier via ListSecretVersionsResponse.next_page_token][]. */
                 pageToken?: string;
-                /** Required. The resource name of the Secret associated with the SecretVersions to list, in the format `projects/∗/secrets/*`. */
+                /** Required. The resource name of the Secret associated with the SecretVersions to list, in the format `projects/*‍/secrets/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -635,7 +635,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The resource name of the Secret to associate with the SecretVersion in the format `projects/∗/secrets/*`. */
+                /** Required. The resource name of the Secret to associate with the SecretVersion in the format `projects/*‍/secrets/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -663,7 +663,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The resource name of the Secret to associate with the SecretVersion in the format `projects/∗/secrets/*`. */
+                /** Required. The resource name of the Secret to associate with the SecretVersion in the format `projects/*‍/secrets/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -755,7 +755,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the Secret to delete in the format `projects/∗/secrets/*`. */
+                /** Required. The resource name of the Secret to delete in the format `projects/*‍/secrets/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -782,7 +782,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the Secret, in the format `projects/∗/secrets/*`. */
+                /** Required. The resource name of the Secret, in the format `projects/*‍/secrets/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -876,7 +876,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name of the Secret in the format `projects/∗/secrets/*`. */
+                /** Output only. The resource name of the Secret in the format `projects/*‍/secrets/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -906,7 +906,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name of the Secret in the format `projects/∗/secrets/*`. */
+                /** Output only. The resource name of the Secret in the format `projects/*‍/secrets/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;

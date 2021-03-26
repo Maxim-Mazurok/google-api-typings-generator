@@ -347,7 +347,7 @@ declare namespace gapi.client {
             instanceDetailsSummary?: PatchJobInstanceDetailsSummary;
             /** Instances to patch. */
             instanceFilter?: PatchInstanceFilter;
-            /** Unique identifier for this patch job in the form `projects/∗/patchJobs/*` */
+            /** Unique identifier for this patch job in the form `projects/*‍/patchJobs/*` */
             name?: string;
             /** Patch configuration being applied. */
             patchConfig?: PatchConfig;
@@ -369,7 +369,7 @@ declare namespace gapi.client {
             failureReason?: string;
             /** The unique identifier for the instance. This identifier is defined by the server. */
             instanceSystemId?: string;
-            /** The instance name in the form `projects/∗/zones/∗/instances/*` */
+            /** The instance name in the form `projects/*‍/zones/*‍/instances/*` */
             name?: string;
             /** Current state of instance patch. */
             state?: string;
@@ -549,7 +549,7 @@ declare namespace gapi.client {
             }): Request<{}>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
-             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * to override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
              * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
              * ensure the name binding is the parent resource, without the operations collection id.
              */
@@ -667,7 +667,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the patch deployment in the form `projects/∗/patchDeployments/*`. */
+                /** Required. The resource name of the patch deployment in the form `projects/*‍/patchDeployments/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -694,7 +694,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name of the patch deployment in the form `projects/∗/patchDeployments/*`. */
+                /** Required. The resource name of the patch deployment in the form `projects/*‍/patchDeployments/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -762,7 +762,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** A pagination token returned from a previous call that indicates where this listing should continue from. */
                 pageToken?: string;
-                /** Required. The parent for the instances are in the form of `projects/∗/patchJobs/*`. */
+                /** Required. The parent for the instances are in the form of `projects/*‍/patchJobs/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -789,7 +789,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Name of the patch in the form `projects/∗/patchJobs/*` */
+                /** Required. Name of the patch in the form `projects/*‍/patchJobs/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -817,7 +817,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Name of the patch in the form `projects/∗/patchJobs/*` */
+                /** Required. Name of the patch in the form `projects/*‍/patchJobs/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -901,7 +901,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. Name of the patch in the form `projects/∗/patchJobs/*` */
+                /** Required. Name of the patch in the form `projects/*‍/patchJobs/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;

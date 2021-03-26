@@ -468,7 +468,7 @@ declare namespace gapi.client {
             description?: string;
             /**
              * Immutable. Product identifier, which is the final component of name. For example, this field is "id_1", if name is
-             * `projects/∗/locations/global/catalogs/default_catalog/branches/default_branch/products/id_1`. This field must be a UTF-8 encoded string with a length limit of 128 characters.
+             * `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/id_1`. This field must be a UTF-8 encoded string with a length limit of 128 characters.
              * Otherwise, an INVALID_ARGUMENT error is returned. Google Merchant Center property [id](https://support.google.com/merchants/answer/6324405). Schema.org Property
              * [Product.sku](https://schema.org/sku).
              */
@@ -479,7 +479,7 @@ declare namespace gapi.client {
              */
             images?: GoogleCloudRetailV2Image[];
             /**
-             * Immutable. Full resource name of the product, such as `projects/∗/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. The branch ID must be
+             * Immutable. Full resource name of the product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. The branch ID must be
              * "default_branch".
              */
             name?: string;
@@ -810,7 +810,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The parent catalog resource name, such as `projects/∗/locations/global/catalogs/default_catalog/branches/default_branch`. */
+                /** Required. The parent catalog resource name, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -844,7 +844,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The parent catalog resource name, such as `projects/∗/locations/global/catalogs/default_catalog/branches/default_branch`. */
+                /** Required. The parent catalog resource name, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -877,7 +877,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. Full resource name of Product, such as `projects/∗/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not
+                 * Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not
                  * have permission to delete the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. If the Product to delete does not exist, a NOT_FOUND error
                  * is returned. The Product to delete can neither be a Product.Type.COLLECTION Product member nor a Product.Type.PRIMARY Product with more than one variants. Otherwise, an
                  * INVALID_ARGUMENT error is returned. All inventory information for the named Product will be deleted.
@@ -909,7 +909,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Required. Full resource name of Product, such as `projects/∗/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not
+                 * Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not
                  * have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. If the requested Product does not exist, a NOT_FOUND error
                  * is returned.
                  */
@@ -1007,7 +1007,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Immutable. Full resource name of the product, such as `projects/∗/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. The branch ID must be
+                 * Immutable. Full resource name of the product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. The branch ID must be
                  * "default_branch".
                  */
                 name: string;
@@ -1045,7 +1045,7 @@ declare namespace gapi.client {
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
                 /**
-                 * Immutable. Full resource name of the product, such as `projects/∗/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. The branch ID must be
+                 * Immutable. Full resource name of the product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. The branch ID must be
                  * "default_branch".
                  */
                 name: string;
@@ -1101,7 +1101,7 @@ declare namespace gapi.client {
             }): Request<GoogleLongrunningOperation>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
-             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * to override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
              * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
              * ensure the name binding is the parent resource, without the operations collection id.
              */
@@ -1156,7 +1156,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. Full resource name of the format: {name=projects/∗/locations/global/catalogs/default_catalog/placements/*} The ID of the Recommendations AI placement. Before you can
+                 * Required. Full resource name of the format: {name=projects/*‍/locations/global/catalogs/default_catalog/placements/*} The ID of the Recommendations AI placement. Before you can
                  * request predictions from your model, you must create at least one placement for it. For more information, see [Managing
                  * placements](https://cloud.google.com/retail/recommendations-ai/docs/manage-placements). The full list of available placements can be seen at
                  * https://console.cloud.google.com/recommendation/catalogs/default_catalog/placements
@@ -1189,7 +1189,7 @@ declare namespace gapi.client {
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
                 /**
-                 * Required. Full resource name of the format: {name=projects/∗/locations/global/catalogs/default_catalog/placements/*} The ID of the Recommendations AI placement. Before you can
+                 * Required. Full resource name of the format: {name=projects/*‍/locations/global/catalogs/default_catalog/placements/*} The ID of the Recommendations AI placement. Before you can
                  * request predictions from your model, you must create at least one placement for it. For more information, see [Managing
                  * placements](https://cloud.google.com/retail/recommendations-ai/docs/manage-placements). The full list of available placements can be seen at
                  * https://console.cloud.google.com/recommendation/catalogs/default_catalog/placements
@@ -1623,7 +1623,7 @@ declare namespace gapi.client {
             }): Request<GoogleLongrunningOperation>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
-             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * to override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
              * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
              * ensure the name binding is the parent resource, without the operations collection id.
              */

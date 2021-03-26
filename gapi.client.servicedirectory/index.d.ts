@@ -60,7 +60,7 @@ declare namespace gapi.client {
              * `metadata` field in the v1beta1 API. They have the same syntax and read/write to the same location in Service Directory.
              */
             annotations?: { [P in string]: string };
-            /** Immutable. The resource name for the endpoint in the format `projects/∗/locations/∗/namespaces/∗/services/∗/endpoints/*`. */
+            /** Immutable. The resource name for the endpoint in the format `projects/*‍/locations/*‍/namespaces/*‍/services/*‍/endpoints/*`. */
             name?: string;
             /** Optional. Service Directory rejects values outside of `[0, 65535]`. */
             port?: number;
@@ -129,7 +129,7 @@ declare namespace gapi.client {
              * characters.
              */
             labels?: { [P in string]: string };
-            /** Immutable. The resource name for the namespace in the format `projects/∗/locations/∗/namespaces/*`. */
+            /** Immutable. The resource name for the namespace in the format `projects/*‍/locations/*‍/namespaces/*`. */
             name?: string;
         }
         interface Policy {
@@ -190,7 +190,7 @@ declare namespace gapi.client {
             annotations?: { [P in string]: string };
             /** Output only. Endpoints associated with this service. Returned on LookupService.ResolveService. Control plane clients should use RegistrationService.ListEndpoints. */
             endpoints?: Endpoint[];
-            /** Immutable. The resource name for the service in the format `projects/∗/locations/∗/namespaces/∗/services/*`. */
+            /** Immutable. The resource name for the service in the format `projects/*‍/locations/*‍/namespaces/*‍/services/*`. */
             name?: string;
         }
         interface SetIamPolicyRequest {
@@ -395,7 +395,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the endpoint in the format `projects/∗/locations/∗/namespaces/∗/services/∗/endpoints/*`. */
+                /** Immutable. The resource name for the endpoint in the format `projects/*‍/locations/*‍/namespaces/*‍/services/*‍/endpoints/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -425,7 +425,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the endpoint in the format `projects/∗/locations/∗/namespaces/∗/services/∗/endpoints/*`. */
+                /** Immutable. The resource name for the endpoint in the format `projects/*‍/locations/*‍/namespaces/*‍/services/*‍/endpoints/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -653,7 +653,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the service in the format `projects/∗/locations/∗/namespaces/∗/services/*`. */
+                /** Immutable. The resource name for the service in the format `projects/*‍/locations/*‍/namespaces/*‍/services/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -683,7 +683,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the service in the format `projects/∗/locations/∗/namespaces/∗/services/*`. */
+                /** Immutable. The resource name for the service in the format `projects/*‍/locations/*‍/namespaces/*‍/services/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1024,7 +1024,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the namespace in the format `projects/∗/locations/∗/namespaces/*`. */
+                /** Immutable. The resource name for the namespace in the format `projects/*‍/locations/*‍/namespaces/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1054,7 +1054,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Immutable. The resource name for the namespace in the format `projects/∗/locations/∗/namespaces/*`. */
+                /** Immutable. The resource name for the namespace in the format `projects/*‍/locations/*‍/namespaces/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;

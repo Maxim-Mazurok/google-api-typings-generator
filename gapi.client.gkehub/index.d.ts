@@ -197,7 +197,7 @@ declare namespace gapi.client {
              */
             lastConnectionTime?: string;
             /**
-             * Output only. The full, unique name of this Membership resource in the format `projects/∗/locations/∗/memberships/{membership_id}`, set during creation. `membership_id` must be a
+             * Output only. The full, unique name of this Membership resource in the format `projects/*‍/locations/*‍/memberships/{membership_id}`, set during creation. `membership_id` must be a
              * valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric
              * character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters.
              */
@@ -341,7 +341,7 @@ declare namespace gapi.client {
                 membershipId?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/∗/locations/*`. */
+                /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -383,7 +383,7 @@ declare namespace gapi.client {
                 membershipId?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/∗/locations/*`. */
+                /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -417,7 +417,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The Membership resource name in the format `projects/∗/locations/∗/memberships/*`. */
+                /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -456,7 +456,7 @@ declare namespace gapi.client {
                 isUpgrade?: boolean;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The Membership resource name the Agent will associate with, in the format `projects/∗/locations/∗/memberships/*`. */
+                /** Required. The Membership resource name the Agent will associate with, in the format `projects/*‍/locations/*‍/memberships/*`. */
                 name: string;
                 /**
                  * Optional. Namespace for GKE Connect agent resources. Defaults to `gke-connect`. The Connect Agent is authorized automatically when run in the default namespace. Otherwise,
@@ -497,7 +497,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The Membership resource name in the format `projects/∗/locations/∗/memberships/*`. */
+                /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -571,7 +571,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Token returned by previous call to `ListMemberships` which specifies the position in the list from where to continue listing the resources. */
                 pageToken?: string;
-                /** Required. The parent (project and location) where the Memberships will be listed. Specified in the format `projects/∗/locations/*`. */
+                /** Required. The parent (project and location) where the Memberships will be listed. Specified in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -596,7 +596,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The Membership resource name in the format `projects/∗/locations/∗/memberships/*`. */
+                /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -634,7 +634,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The Membership resource name in the format `projects/∗/locations/∗/memberships/*`. */
+                /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -839,7 +839,7 @@ declare namespace gapi.client {
             }): Request<Operation>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
-             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * to override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
              * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
              * ensure the name binding is the parent resource, without the operations collection id.
              */

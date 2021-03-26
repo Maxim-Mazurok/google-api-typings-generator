@@ -108,7 +108,7 @@ declare namespace gapi.client {
              * instances value than your function can tolerate. See the [Max Instances](https://cloud.google.com/functions/docs/max-instances) Guide for more details.
              */
             maxInstances?: number;
-            /** A user-defined name of the function. Function names must be unique globally and match pattern `projects/∗/locations/∗/functions/*` */
+            /** A user-defined name of the function. Function names must be unique globally and match pattern `projects/*‍/locations/*‍/functions/*` */
             name?: string;
             /**
              * The VPC Network that this cloud function can connect to. It can be either the fully-qualified URI, or the short name of the network resource. If the short network name is used, the
@@ -143,7 +143,7 @@ declare namespace gapi.client {
             versionId?: string;
             /**
              * The VPC Network Connector that this cloud function can connect to. It can be either the fully-qualified URI, or the short name of the network connector resource. The format of this
-             * field is `projects/∗/locations/∗/connectors/*` This field is mutually exclusive with `network` field and will eventually replace it. See [the VPC
+             * field is `projects/*‍/locations/*‍/connectors/*` This field is mutually exclusive with `network` field and will eventually replace it. See [the VPC
              * documentation](https://cloud.google.com/compute/docs/vpc) for more information on connecting Cloud projects.
              */
             vpcConnector?: string;
@@ -153,7 +153,7 @@ declare namespace gapi.client {
         interface EventTrigger {
             /**
              * Required. The type of event to observe. For example: `providers/cloud.storage/eventTypes/object.change` and `providers/cloud.pubsub/eventTypes/topic.publish`. Event types match
-             * pattern `providers/∗/eventTypes/*.*`. The pattern contains: 1. namespace: For example, `cloud.storage` and `google.firebase.analytics`. 2. resource type: The type of resource on
+             * pattern `providers/*‍/eventTypes/*.*`. The pattern contains: 1. namespace: For example, `cloud.storage` and `google.firebase.analytics`. 2. resource type: The type of resource on
              * which event occurs. For example, the Google Cloud Storage API includes the type `object`. 3. action: The action that generates the event. For example, action for a Google Cloud
              * Storage Object is 'change'. These parts are lower case.
              */
@@ -331,9 +331,9 @@ declare namespace gapi.client {
             deployedUrl?: string;
             /**
              * The URL pointing to the hosted repository where the function is defined. There are supported Cloud Source Repository URLs in the following formats: To refer to a specific commit:
-             * `https://source.developers.google.com/projects/∗/repos/∗/revisions/∗/paths/*` To refer to a moveable alias (branch):
-             * `https://source.developers.google.com/projects/∗/repos/∗/moveable-aliases/∗/paths/*` In particular, to refer to HEAD use `master` moveable alias. To refer to a specific fixed alias
-             * (tag): `https://source.developers.google.com/projects/∗/repos/∗/fixed-aliases/∗/paths/*` You may omit `paths/*` if you want to use the main directory.
+             * `https://source.developers.google.com/projects/*‍/repos/*‍/revisions/*‍/paths/*` To refer to a moveable alias (branch):
+             * `https://source.developers.google.com/projects/*‍/repos/*‍/moveable-aliases/*‍/paths/*` In particular, to refer to HEAD use `master` moveable alias. To refer to a specific fixed
+             * alias (tag): `https://source.developers.google.com/projects/*‍/repos/*‍/fixed-aliases/*‍/paths/*` You may omit `paths/*` if you want to use the main directory.
              */
             url?: string;
         }
@@ -389,7 +389,7 @@ declare namespace gapi.client {
             }): Request<Operation>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
-             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * to override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
              * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
              * ensure the name binding is the parent resource, without the operations collection id.
              */
@@ -506,7 +506,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The project and location in which the function should be created, specified in the format `projects/∗/locations/*` */
+                /** Required. The project and location in which the function should be created, specified in the format `projects/*‍/locations/*` */
                 location: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -534,7 +534,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The project and location in which the function should be created, specified in the format `projects/∗/locations/*` */
+                /** Required. The project and location in which the function should be created, specified in the format `projects/*‍/locations/*` */
                 location: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -657,7 +657,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The project and location in which the Google Cloud Storage signed URL should be generated, specified in the format `projects/∗/locations/*`. */
+                /** The project and location in which the Google Cloud Storage signed URL should be generated, specified in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -685,7 +685,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** The project and location in which the Google Cloud Storage signed URL should be generated, specified in the format `projects/∗/locations/*`. */
+                /** The project and location in which the Google Cloud Storage signed URL should be generated, specified in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -781,7 +781,7 @@ declare namespace gapi.client {
                  */
                 pageToken?: string;
                 /**
-                 * The project and location from which the function should be listed, specified in the format `projects/∗/locations/*` If you want to list functions in all locations, use "-" in
+                 * The project and location from which the function should be listed, specified in the format `projects/*‍/locations/*` If you want to list functions in all locations, use "-" in
                  * place of a location. When listing functions in all locations, if one or more location(s) are unreachable, the response will contain functions from all reachable locations along
                  * with the names of any unreachable locations.
                  */
@@ -809,7 +809,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** A user-defined name of the function. Function names must be unique globally and match pattern `projects/∗/locations/∗/functions/*` */
+                /** A user-defined name of the function. Function names must be unique globally and match pattern `projects/*‍/locations/*‍/functions/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -839,7 +839,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** A user-defined name of the function. Function names must be unique globally and match pattern `projects/∗/locations/∗/functions/*` */
+                /** A user-defined name of the function. Function names must be unique globally and match pattern `projects/*‍/locations/*‍/functions/*` */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
