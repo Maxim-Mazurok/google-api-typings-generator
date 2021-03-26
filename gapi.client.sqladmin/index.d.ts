@@ -522,8 +522,8 @@ declare namespace gapi.client {
             /** Whether the instance is assigned a public IP address or not. */
             ipv4Enabled?: boolean;
             /**
-             * The resource link for the VPC network from which the Cloud SQL instance is accessible for private IP. For example, ∗/projects/myProject/global/networks/default*. This setting can be
-             * updated, but it cannot be removed after it is set.
+             * The resource link for the VPC network from which the Cloud SQL instance is accessible for private IP. For example, *‍/projects/myProject/global/networks/default*. This setting can
+             * be updated, but it cannot be removed after it is set.
              */
             privateNetwork?: string;
             /** Whether SSL connections over IP are enforced or not. */
