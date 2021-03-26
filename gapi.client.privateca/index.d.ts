@@ -136,7 +136,7 @@ declare namespace gapi.client {
              * be truncated if it would extend past the life of any certificate authority in the issuing chain.
              */
             lifetime?: string;
-            /** Output only. The resource path for this Certificate in the format `projects/∗/locations/∗/certificateAuthorities/∗/certificates/*`. */
+            /** Output only. The resource path for this Certificate in the format `projects/*‍/locations/*‍/certificateAuthorities/*‍/certificates/*`. */
             name?: string;
             /** Output only. The pem-encoded, signed X.509 certificate. */
             pemCertificate?: string;
@@ -179,7 +179,7 @@ declare namespace gapi.client {
             labels?: { [P in string]: string };
             /** Required. The desired lifetime of the CA certificate. Used to create the "not_before_time" and "not_after_time" fields inside an X.509 certificate. */
             lifetime?: string;
-            /** Output only. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+            /** Output only. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
             name?: string;
             /**
              * Output only. This CertificateAuthority's certificate chain, including the current CertificateAuthority's certificate. Ordered such that the root issuer is the final element
@@ -268,7 +268,7 @@ declare namespace gapi.client {
             createTime?: string;
             /** Optional. Labels with user-defined metadata. */
             labels?: { [P in string]: string };
-            /** Output only. The resource path for this CertificateRevocationList in the format `projects/∗/locations/∗/certificateAuthorities/∗/ certificateRevocationLists/*`. */
+            /** Output only. The resource path for this CertificateRevocationList in the format `projects/*‍/locations/*‍/certificateAuthorities/*‍/ certificateRevocationLists/*`. */
             name?: string;
             /** Output only. The PEM-encoded X.509 CRL. */
             pemCrl?: string;
@@ -383,8 +383,8 @@ declare namespace gapi.client {
             /** Required. The algorithm to use for creating a managed Cloud KMS key for a for a simplified experience. All managed keys will be have their ProtectionLevel as `HSM`. */
             algorithm?: string;
             /**
-             * Required. The resource name for an existing Cloud KMS CryptoKeyVersion in the format `projects/∗/locations/∗/keyRings/∗/cryptoKeys/∗/cryptoKeyVersions/*`. This option enables full
-             * flexibility in the key's capabilities and properties.
+             * Required. The resource name for an existing Cloud KMS CryptoKeyVersion in the format `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*‍/cryptoKeyVersions/*`. This option enables
+             * full flexibility in the key's capabilities and properties.
              */
             cloudKmsKeyVersion?: string;
         }
@@ -545,7 +545,7 @@ declare namespace gapi.client {
             description?: string;
             /** Optional. Labels with user-defined metadata. */
             labels?: { [P in string]: string };
-            /** Output only. The resource path for this ReusableConfig in the format `projects/∗/locations/∗/reusableConfigs/*`. */
+            /** Output only. The resource path for this ReusableConfig in the format `projects/*‍/locations/*‍/reusableConfigs/*`. */
             name?: string;
             /** Output only. The time at which this ReusableConfig was updated. */
             updateTime?: string;
@@ -565,7 +565,7 @@ declare namespace gapi.client {
             policyIds?: ObjectId[];
         }
         interface ReusableConfigWrapper {
-            /** Required. A resource path to a ReusableConfig in the format `projects/∗/locations/∗/reusableConfigs/*`. */
+            /** Required. A resource path to a ReusableConfig in the format `projects/*‍/locations/*‍/reusableConfigs/*`. */
             reusableConfig?: string;
             /** Required. A user-specified inline ReusableConfigValues. */
             reusableConfigValues?: ReusableConfigValues;
@@ -589,7 +589,7 @@ declare namespace gapi.client {
             requestId?: string;
         }
         interface RevokedCertificate {
-            /** The resource path for the Certificate in the format `projects/∗/locations/∗/certificateAuthorities/∗/certificates/*`. */
+            /** The resource path for the Certificate in the format `projects/*‍/locations/*‍/certificateAuthorities/*‍/certificates/*`. */
             certificate?: string;
             /** The serial number of the Certificate. */
             hexSerialNumber?: string;
@@ -686,7 +686,7 @@ declare namespace gapi.client {
         interface SubordinateConfig {
             /**
              * Required. This can refer to a CertificateAuthority in the same project that was used to create a subordinate CertificateAuthority. This field is used for information and usability
-             * purposes only. The resource name is in the format `projects/∗/locations/∗/certificateAuthorities/*`.
+             * purposes only. The resource name is in the format `projects/*‍/locations/*‍/certificateAuthorities/*`.
              */
             certificateAuthority?: string;
             /** Required. Contains the PEM certificate chain for the issuers of this CertificateAuthority, but not pem certificate for this CA itself. */
@@ -803,7 +803,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Pagination token, returned earlier via ListCertificateRevocationListsResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the location associated with the CertificateRevocationLists, in the format `projects/∗/locations/∗/certificateauthorities/*`. */
+                /** Required. The resource name of the location associated with the CertificateRevocationLists, in the format `projects/*‍/locations/*‍/certificateauthorities/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -828,7 +828,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource path for this CertificateRevocationList in the format `projects/∗/locations/∗/certificateAuthorities/∗/ certificateRevocationLists/*`. */
+                /** Output only. The resource path for this CertificateRevocationList in the format `projects/*‍/locations/*‍/certificateAuthorities/*‍/ certificateRevocationLists/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -866,7 +866,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource path for this CertificateRevocationList in the format `projects/∗/locations/∗/certificateAuthorities/∗/ certificateRevocationLists/*`. */
+                /** Output only. The resource path for this CertificateRevocationList in the format `projects/*‍/locations/*‍/certificateAuthorities/*‍/ certificateRevocationLists/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -972,7 +972,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The resource name of the location and CertificateAuthority associated with the Certificate, in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name of the location and CertificateAuthority associated with the Certificate, in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1013,7 +1013,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The resource name of the location and CertificateAuthority associated with the Certificate, in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name of the location and CertificateAuthority associated with the Certificate, in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1093,7 +1093,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Pagination token, returned earlier via ListCertificatesResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the location associated with the Certificates, in the format `projects/∗/locations/∗/certificateauthorities/*`. */
+                /** Required. The resource name of the location associated with the Certificates, in the format `projects/*‍/locations/*‍/certificateauthorities/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1118,7 +1118,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource path for this Certificate in the format `projects/∗/locations/∗/certificateAuthorities/∗/certificates/*`. */
+                /** Output only. The resource path for this Certificate in the format `projects/*‍/locations/*‍/certificateAuthorities/*‍/certificates/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1156,7 +1156,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource path for this Certificate in the format `projects/∗/locations/∗/certificateAuthorities/∗/certificates/*`. */
+                /** Output only. The resource path for this Certificate in the format `projects/*‍/locations/*‍/certificateAuthorities/*‍/certificates/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1194,7 +1194,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this Certificate in the format `projects/∗/locations/∗/certificateAuthorities/∗/certificates/*`. */
+                /** Required. The resource name for this Certificate in the format `projects/*‍/locations/*‍/certificateAuthorities/*‍/certificates/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1222,7 +1222,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this Certificate in the format `projects/∗/locations/∗/certificateAuthorities/∗/certificates/*`. */
+                /** Required. The resource name for this Certificate in the format `projects/*‍/locations/*‍/certificateAuthorities/*‍/certificates/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1255,7 +1255,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1283,7 +1283,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1315,7 +1315,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The resource name of the location associated with the CertificateAuthorities, in the format `projects/∗/locations/*`. */
+                /** Required. The resource name of the location associated with the CertificateAuthorities, in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1353,7 +1353,7 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** Required. The resource name of the location associated with the CertificateAuthorities, in the format `projects/∗/locations/*`. */
+                /** Required. The resource name of the location associated with the CertificateAuthorities, in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1387,7 +1387,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1415,7 +1415,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1443,7 +1443,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1471,7 +1471,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1502,7 +1502,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1602,7 +1602,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Pagination token, returned earlier via ListCertificateAuthoritiesResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the location associated with the CertificateAuthorities, in the format `projects/∗/locations/*`. */
+                /** Required. The resource name of the location associated with the CertificateAuthorities, in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
@@ -1627,7 +1627,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Output only. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1665,7 +1665,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Output only. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Output only. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1703,7 +1703,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1731,7 +1731,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1759,7 +1759,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1787,7 +1787,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The resource name for this CertificateAuthority in the format `projects/∗/locations/∗/certificateAuthorities/*`. */
+                /** Required. The resource name for this CertificateAuthority in the format `projects/*‍/locations/*‍/certificateAuthorities/*`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -1984,7 +1984,7 @@ declare namespace gapi.client {
             }): Request<Operation>;
             /**
              * Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services
-             * to override the binding to use different resource name schemes, such as `users/∗/operations`. To override the binding, API services can add a binding such as
+             * to override the binding to use different resource name schemes, such as `users/*‍/operations`. To override the binding, API services can add a binding such as
              * `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must
              * ensure the name binding is the parent resource, without the operations collection id.
              */
@@ -2109,7 +2109,7 @@ declare namespace gapi.client {
                 pageSize?: number;
                 /** Optional. Pagination token, returned earlier via ListReusableConfigsResponse.next_page_token. */
                 pageToken?: string;
-                /** Required. The resource name of the location associated with the ReusableConfigs, in the format `projects/∗/locations/*`. */
+                /** Required. The resource name of the location associated with the ReusableConfigs, in the format `projects/*‍/locations/*`. */
                 parent: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
