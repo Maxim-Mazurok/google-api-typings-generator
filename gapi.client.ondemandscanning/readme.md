@@ -1,4 +1,4 @@
-# TypeScript typings for On-Demand Scanning API v1beta1
+# TypeScript typings for On-Demand Scanning API v1
 
 A service to scan container images for vulnerabilities.
 For detailed description please check [documentation](https://cloud.google.com/container-analysis/docs/on-demand-scanning/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/c
 Install typings for On-Demand Scanning API:
 
 ```
-npm install @types/gapi.client.ondemandscanning@v1beta1 --save-dev
+npm install @types/gapi.client.ondemandscanning@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('ondemandscanning', 'v1beta1', () => {
+gapi.client.load('ondemandscanning', 'v1', () => {
   // now we can use gapi.client.ondemandscanning
   // ...
 });
