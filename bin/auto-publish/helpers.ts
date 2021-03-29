@@ -33,6 +33,8 @@ export class Helpers {
     retries--;
     const cmd = 'npm publish --access public';
     const apiName = basename(cwd);
+    const error505 = '503 Service Unavailable';
+    const error404 = '404 Not Found';
     try {
       await this.sh.runSh(cmd, cwd);
     } catch (exception) {
@@ -44,19 +46,18 @@ export class Helpers {
       ) {
         console.warn(`Revision already published for ${apiName}, skipping...`);
       } else if (
-        (error.includes('503 Service Unavailable') ||
-          error.includes('404 Not Found')) &&
+        (error.includes(error505) || error.includes(error404)) &&
         retries > 0
       ) {
-        const errorCode = error.includes('503 Service Unavailable')
-          ? '503'
-          : error.includes('404 Not Found')
-          ? '404'
-          : 'UNKNOWN';
+        const errorCodeAndMessage = error.includes(error505)
+          ? error505
+          : error.includes(error404)
+          ? error404
+          : error;
         console.warn(
-          `NPM returned ${errorCode} for ${apiName}, retrying in ${retryTimeout}ms...`
+          `NPM returned ${errorCodeAndMessage} for ${apiName}, retrying in ${retryTimeout}ms...`
         );
-        await sleep(retryTimeout);
+        sleep(retryTimeout);
         this.npmPublish(cwd, retries);
       } else {
         throw SH.error(exception);
