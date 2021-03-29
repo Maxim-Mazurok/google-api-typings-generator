@@ -106,6 +106,6 @@ export async function request<T extends object>(
 /**
  * @param ms Milliseconds to wait
  */
-export const sleep(ms: number) {
+export const sleep = (ms: number) => {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
-}
+};
