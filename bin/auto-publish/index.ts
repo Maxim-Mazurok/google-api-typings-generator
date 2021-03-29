@@ -48,6 +48,6 @@ process.on('unhandledRejection', reason => {
     }
 
     console.log(`Publishing ${type}...`);
-    helpers.npmPublish(join(process.cwd(), settings.typesDirName, type));
+    await helpers.npmPublish(join(process.cwd(), settings.typesDirName, type));
   }
 })();

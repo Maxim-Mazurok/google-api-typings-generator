@@ -1,6 +1,7 @@
 import {SH} from './sh';
 import {Octokit} from '@octokit/rest';
 import {createOctokit} from './helpers';
+import {sleep} from '../../src/utils';
 
 export interface Settings {
   user: string; // user who commits
@@ -22,17 +23,28 @@ export class Git {
     this.octokit = createOctokit({auth, user, thisRepo});
   }
 
-  getArchiveLink = async (commitSHA: string): Promise<string> => {
+  getArchiveLink = async (
+    commitSHA: string,
+    retries = 3,
+    retryTimeout = 3000 // ms
+  ): Promise<string> => {
+    retries--;
     console.log(`Getting archive link for ${commitSHA}...`);
 
     const {user: owner, thisRepo: repo} = this.settings;
-    const response = await this.octokit.repos.downloadTarballArchive({
-      owner,
-      repo,
-      ref: commitSHA,
-      method: 'HEAD',
-    });
-    return response.url;
+    try {
+      const response = await this.octokit.repos.downloadTarballArchive({
+        owner,
+        repo,
+        ref: commitSHA,
+        method: 'HEAD',
+      });
+      return response.url;
+    } catch (e) {
+      console.error(e);
+      sleep(retryTimeout);
+      return this.getArchiveLink(commitSHA, retries);
+    }
   };
 
   getLatestCommitHash = async ({
