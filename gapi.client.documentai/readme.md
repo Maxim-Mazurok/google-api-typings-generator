@@ -1,4 +1,4 @@
-# TypeScript typings for Cloud Document AI API v1beta3
+# TypeScript typings for Cloud Document AI API v1
 
 Service to parse structured information from unstructured or semi-structured documents using state-of-the-art Google AI such as natural language, computer vision, translation, and AutoML.
 For detailed description please check [documentation](https://cloud.google.com/document-ai/docs/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/d
 Install typings for Cloud Document AI API:
 
 ```
-npm install @types/gapi.client.documentai@v1beta3 --save-dev
+npm install @types/gapi.client.documentai@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('documentai', 'v1beta3', () => {
+gapi.client.load('documentai', 'v1', () => {
   // now we can use gapi.client.documentai
   // ...
 });
@@ -37,7 +37,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // View and manage your data across Google Cloud Platform services
+      // See, edit, configure, and delete your Google Cloud Platform data
       'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
@@ -57,4 +57,19 @@ gapi.auth.authorize(
 After that you can use Cloud Document AI API resources:
 
 ```typescript
+
+/*
+Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+*/
+await gapi.client.documentai.operations.cancel({ name: "name",  });
+
+/*
+Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+*/
+await gapi.client.documentai.operations.delete({ name: "name",  });
+
+/*
+Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding allows API services to override the binding to use different resource name schemes, such as `users/*/operations`. To override the binding, API services can add a binding such as `"/v1/{name=users/*}/operations"` to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection id.
+*/
+await gapi.client.documentai.operations.list({ name: "name",  });
 ```
