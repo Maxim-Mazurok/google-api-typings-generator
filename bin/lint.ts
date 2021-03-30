@@ -15,9 +15,12 @@ const path = process.argv[2];
 
 console.log(`Reading project directories in ${path}...`);
 
+const dtslintCommand = {start: 'dtslint "', end: '"'};
 const scripts = readdirSync(path, {withFileTypes: true})
   .filter(dir => dir.isDirectory())
-  .map(dir => `dtslint "${join(path, dir.name)}"`);
+  .map(
+    dir => `${dtslintCommand.start}${join(path, dir.name)}${dtslintCommand.end}`
+  );
 
 const options = {
   maxParallel: MAX_PARALLEL,
@@ -35,12 +38,21 @@ runAll([scripts.shift()], options) // run first synchronously to install TypeScr
   .catch(error => {
     if (error.results) {
       const results: Array<{name: string; code: number}> = error.results;
-      const failedType = results.find(result => result.code === 1);
+      const failedTypeCommand = results.find(result => result.code === 1);
 
-      if (failedType) {
-        console.log(
-          `::set-output name=FAILED_TYPE::${basename(failedType.name)}`
+      if (failedTypeCommand !== undefined) {
+        const failedTypeMatches = failedTypeCommand.name.match(
+          new RegExp(`${dtslintCommand.start}(.*)${dtslintCommand.end}`)
         );
+
+        if (failedTypeMatches !== null) {
+          const failedType = failedTypeMatches[1];
+          console.log(`::set-output name=FAILED_TYPE::${basename(failedType)}`);
+        } else {
+          console.error('Unable to match failedType', {failedTypeMatches});
+        }
+      } else {
+        console.error('Unable to find failedTypeCommand', {results});
       }
     }
 
