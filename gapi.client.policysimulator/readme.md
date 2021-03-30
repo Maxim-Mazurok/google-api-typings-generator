@@ -1,4 +1,4 @@
-# TypeScript typings for Policy Simulator API v1beta1
+# TypeScript typings for Policy Simulator API v1
 
  Policy Simulator is a collection of endpoints for creating, running, and viewing a Replay. A `Replay` is a type of simulation that lets you see how your members' access to resources might change if you changed your IAM policy. During a `Replay`, Policy Simulator re-evaluates, or replays, past access attempts under both the current policy and your proposed policy, and compares those results to determine how your members' access might change under the proposed policy.
 For detailed description please check [documentation](https://cloud.google.com/iam/docs/simulating-access).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/i
 Install typings for Policy Simulator API:
 
 ```
-npm install @types/gapi.client.policysimulator@v1beta1 --save-dev
+npm install @types/gapi.client.policysimulator@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('policysimulator', 'v1beta1', () => {
+gapi.client.load('policysimulator', 'v1', () => {
   // now we can use gapi.client.policysimulator
   // ...
 });
