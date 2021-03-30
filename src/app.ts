@@ -236,7 +236,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
   }
 
   comment(text = '') {
-    if (!text || text === '') {
+    if (!text || text.trim() === '') {
       return;
     }
 
@@ -282,6 +282,17 @@ class TypescriptTextWriter implements TypescriptTextWriter {
       lines = lines.map(line => line.replace(irregularSpace, ' '));
     }
 
+    const longestLineLength = Math.max(...lines.map(x => x.length));
+
+    const extraLines: {prepend?: string; append?: string} = {};
+
+    if (longestLineLength > maxLineLength) {
+      // it's most likely has a URL that we shouldn't break
+      extraLines.prepend = '// tslint:disable:max-line-length';
+      extraLines.append = '// tslint:enable:max-line-length';
+    }
+
+    extraLines.prepend && this.writer.writeLine(extraLines.prepend);
     if (lines.length === 1) {
       this.writer.writeLine(
         `${jsdocComment.start} ${lines[0]} ${jsdocComment.end}`
@@ -293,6 +304,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
       );
       this.writer.writeLine(` ${jsdocComment.end}`);
     }
+    extraLines.append && this.writer.writeLine(extraLines.append);
   }
 
   method(
