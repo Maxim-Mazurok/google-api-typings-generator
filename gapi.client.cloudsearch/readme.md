@@ -103,6 +103,16 @@ Provides suggestions for autocompleting the query. **Note:** This API requires a
 await gapi.client.cloudsearch.query.suggest({  });
 
 /*
+Get customer settings. **Note:** This API requires an admin account to execute.
+*/
+await gapi.client.cloudsearch.settings.getCustomer({  });
+
+/*
+Update customer settings. **Note:** This API requires an admin account to execute.
+*/
+await gapi.client.cloudsearch.settings.updateCustomer({  });
+
+/*
 Gets indexed item statistics aggreggated across all data sources. This API only returns statistics for previous dates; it doesn't return statistics for the current day. **Note:** This API requires a standard end user account to execute.
 */
 await gapi.client.cloudsearch.stats.getIndex({  });
