@@ -132,22 +132,22 @@ List all "Other contacts", that is contacts that are not in a contact group. "Ot
 await gapi.client.people.otherContacts.list({  });
 
 /*
-Provides a list of contacts in the authenticated user's other contacts that matches the search query.
+Provides a list of contacts in the authenticated user's other contacts that matches the search query. The query matches on a contact's `names`, `emailAddresses`, and `phoneNumbers` fields that are from the OTHER_CONTACT source.
 */
 await gapi.client.people.otherContacts.search({  });
 
 /*
-Create a batch of new contacts and return the PersonResponses for the newly created contacts.
+Create a batch of new contacts and return the PersonResponses for the newly created contacts. Limited to 10 parallel requests per user.
 */
 await gapi.client.people.people.batchCreateContacts({  });
 
 /*
-Delete a batch of contacts. Any non-contact data will not be deleted.
+Delete a batch of contacts. Any non-contact data will not be deleted. Limited to 10 parallel requests per user.
 */
 await gapi.client.people.people.batchDeleteContacts({  });
 
 /*
-Update a batch of contacts and return a map of resource names to PersonResponses for the updated contacts.
+Update a batch of contacts and return a map of resource names to PersonResponses for the updated contacts. Limited to 10 parallel requests per user.
 */
 await gapi.client.people.people.batchUpdateContacts({  });
 
@@ -182,7 +182,7 @@ Provides a list of domain profiles and domain contacts in the authenticated user
 await gapi.client.people.people.listDirectoryPeople({  });
 
 /*
-Provides a list of contacts in the authenticated user's grouped contacts that matches the search query.
+Provides a list of contacts in the authenticated user's grouped contacts that matches the search query. The query matches on a contact's `names`, `nickNames`, `emailAddresses`, `phoneNumbers`, and `organizations` fields that are from the CONTACT" source.
 */
 await gapi.client.people.people.searchContacts({  });
 
