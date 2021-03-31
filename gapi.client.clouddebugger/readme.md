@@ -40,7 +40,7 @@ var client_id = '',
       // Use Stackdriver Debugger
       'https://www.googleapis.com/auth/cloud_debugger',
 
-      // View and manage your data across Google Cloud Platform services
+      // See, edit, configure, and delete your Google Cloud Platform data
       'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
