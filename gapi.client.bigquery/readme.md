@@ -115,6 +115,11 @@ Requests that a job be cancelled. This call will return immediately, and the cli
 await gapi.client.bigquery.jobs.cancel({ jobId: "jobId", projectId: "projectId",  });
 
 /*
+Requests that a job is deleted. This call will return when the job is deleted. This method is available in limited preview.
+*/
+await gapi.client.bigquery.jobs.delete({ jobId: "jobId", projectId: "projectId",  });
+
+/*
 Returns information about a specific job. Job information is available for a six month period after creation. Requires that you're the person who ran the job, or have the Is Owner project role.
 */
 await gapi.client.bigquery.jobs.get({ jobId: "jobId", projectId: "projectId",  });
