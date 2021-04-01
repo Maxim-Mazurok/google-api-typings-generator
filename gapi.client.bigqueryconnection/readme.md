@@ -40,7 +40,7 @@ var client_id = '',
       // View and manage your data in Google BigQuery
       'https://www.googleapis.com/auth/bigquery',
 
-      // View and manage your data across Google Cloud Platform services
+      // See, edit, configure, and delete your Google Cloud Platform data
       'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
