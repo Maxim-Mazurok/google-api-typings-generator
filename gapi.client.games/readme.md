@@ -202,11 +202,6 @@ Retrieves a list of snapshots created by your application for the player corresp
 await gapi.client.games.snapshots.list({ playerId: "playerId",  });
 
 /*
-Resolves any potential conflicts according to the resolution policy specified in the request and returns the snapshot head after the resolution.
-*/
-await gapi.client.games.snapshotsExtended.resolveSnapshotHead({ snapshotName: "snapshotName",  });
-
-/*
 Returns engagement and spend statistics in this application for the currently authenticated user.
 */
 await gapi.client.games.stats.get({  });
