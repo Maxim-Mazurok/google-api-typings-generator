@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.acceleratedmobilepageurl",
+  "name": "@maxim_mazurok/gapi.client.mybusinesslodging",
   "version": "1.0.20210406",
-  "description": "TypeScript typings for Accelerated Mobile Pages (AMP) URL API v1",
+  "description": "TypeScript typings for My Business Lodging API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
