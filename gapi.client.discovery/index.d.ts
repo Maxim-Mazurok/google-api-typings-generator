@@ -197,8 +197,6 @@ declare namespace gapi.client {
             description?: string;
             /** Whether this method requires an ETag to be specified. The ETag is sent as an HTTP If-Match or If-None-Match header. */
             etagRequired?: boolean;
-            /** The URI path of this REST method in (RFC 6570) format without level 2 features ({+var}). Supplementary to the path property. */
-            flatPath?: string;
             /** HTTP method used by this method. */
             httpMethod?: string;
             /** A unique ID for this method. This property can be used to match methods between different versions of Discovery. */
