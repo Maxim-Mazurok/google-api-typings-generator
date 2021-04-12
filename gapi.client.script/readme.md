@@ -88,7 +88,7 @@ var client_id = '',
       // See, edit, create, and delete your spreadsheets in Google Drive
       'https://www.googleapis.com/auth/spreadsheets',
 
-      // View your email address
+      // See your primary Google Account email address
       'https://www.googleapis.com/auth/userinfo.email',
     ],
     immediate = true;
