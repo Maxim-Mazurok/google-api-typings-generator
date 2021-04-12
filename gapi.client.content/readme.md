@@ -149,14 +149,29 @@ Updates the tax settings of the account. Any fields that are not provided are de
 await gapi.client.content.accounttax.update({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
-Retrieves a status of BoG program for your Merchant Center account.
+Reactivates the BoG program in your Merchant Center account. Moves the program to the active state when allowed, e.g. when paused. Important: This method is only whitelisted for selected merchants.
+*/
+await gapi.client.content.buyongoogleprograms.activate({ merchantId: "merchantId", regionCode: "regionCode",  });
+
+/*
+Retrieves a status of the BoG program for your Merchant Center account.
 */
 await gapi.client.content.buyongoogleprograms.get({ merchantId: "merchantId", regionCode: "regionCode",  });
 
 /*
-Onboards BoG in your Merchant Center account. By using this method, you agree to the [Terms of Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest). Calling this method is only possible if the authenticated account is the same as the merchant id in the request. Calling this method multiple times will only accept Terms of Service if the latest version is not currently signed.
+Onboards the BoG program in your Merchant Center account. By using this method, you agree to the [Terms of Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest). Calling this method is only possible if the authenticated account is the same as the merchant id in the request. Calling this method multiple times will only accept Terms of Service if the latest version is not currently signed.
 */
 await gapi.client.content.buyongoogleprograms.onboard({ merchantId: "merchantId", regionCode: "regionCode",  });
+
+/*
+Pauses the BoG program in your Merchant Center account. Important: This method is only whitelisted for selected merchants.
+*/
+await gapi.client.content.buyongoogleprograms.pause({ merchantId: "merchantId", regionCode: "regionCode",  });
+
+/*
+Requests review and then activates the BoG program in your Merchant Center account for the first time. Moves the program to the REVIEW_PENDING state. Important: This method is only whitelisted for selected merchants.
+*/
+await gapi.client.content.buyongoogleprograms.requestreview({ merchantId: "merchantId", regionCode: "regionCode",  });
 
 /*
 Uploads a collection to your Merchant Center account. If a collection with the same collectionId already exists, this method updates that entry. In each update, the collection is completely replaced by the fields in the body of the update request.
