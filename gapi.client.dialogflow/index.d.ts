@@ -321,7 +321,7 @@ declare namespace gapi.client {
             singleUtterance?: boolean;
         }
         interface GoogleCloudDialogflowCxV3beta1Intent {
-            /** Optional. Human readable description for better understanding an intent like its scope, content, result etc. Maximum character limit: 140 characters. */
+            /** Human readable description for better understanding an intent like its scope, content, result etc. Maximum character limit: 140 characters. */
             description?: string;
             /** Required. The human-readable name of the intent, unique within the agent. */
             displayName?: string;
@@ -331,10 +331,10 @@ declare namespace gapi.client {
              */
             isFallback?: boolean;
             /**
-             * Optional. The key/value metadata to label an intent. Labels can contain lowercase letters, digits and the symbols '-' and '_'. International characters are allowed, including
-             * letters from unicase alphabets. Keys must start with a letter. Keys and values can be no longer than 63 characters and no more than 128 bytes. Prefix "sys-" is reserved for
-             * Dialogflow defined labels. Currently allowed Dialogflow defined labels include: * sys-head * sys-contextual The above labels do not require value. "sys-head" means the intent is a
-             * head intent. "sys-contextual" means the intent is a contextual intent.
+             * The key/value metadata to label an intent. Labels can contain lowercase letters, digits and the symbols '-' and '_'. International characters are allowed, including letters from
+             * unicase alphabets. Keys must start with a letter. Keys and values can be no longer than 63 characters and no more than 128 bytes. Prefix "sys-" is reserved for Dialogflow defined
+             * labels. Currently allowed Dialogflow defined labels include: * sys-head * sys-contextual The above labels do not require value. "sys-head" means the intent is a head intent.
+             * "sys-contextual" means the intent is a contextual intent.
              */
             labels?: { [P in string]: string };
             /**
@@ -652,6 +652,8 @@ declare namespace gapi.client {
             fulfillmentInfo?: GoogleCloudDialogflowCxV3beta1WebhookRequestFulfillmentInfo;
             /** Information about the last matched intent. */
             intentInfo?: GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo;
+            /** The language code specified in the original request. */
+            languageCode?: string;
             /** The list of rich message responses to present to the user. Webhook can choose to append or replace this list in WebhookResponse.fulfillment_response; */
             messages?: GoogleCloudDialogflowCxV3beta1ResponseMessage[];
             /** Information about page status. */
@@ -1191,7 +1193,7 @@ declare namespace gapi.client {
             singleUtterance?: boolean;
         }
         interface GoogleCloudDialogflowCxV3Intent {
-            /** Optional. Human readable description for better understanding an intent like its scope, content, result etc. Maximum character limit: 140 characters. */
+            /** Human readable description for better understanding an intent like its scope, content, result etc. Maximum character limit: 140 characters. */
             description?: string;
             /** Required. The human-readable name of the intent, unique within the agent. */
             displayName?: string;
@@ -1201,10 +1203,10 @@ declare namespace gapi.client {
              */
             isFallback?: boolean;
             /**
-             * Optional. The key/value metadata to label an intent. Labels can contain lowercase letters, digits and the symbols '-' and '_'. International characters are allowed, including
-             * letters from unicase alphabets. Keys must start with a letter. Keys and values can be no longer than 63 characters and no more than 128 bytes. Prefix "sys." is reserved for
-             * Dialogflow defined labels. Currently allowed Dialogflow defined labels include: * sys.head * sys.contextual The above labels do not require value. "sys.head" means the intent is a
-             * head intent. "sys.contextual" means the intent is a contextual intent.
+             * The key/value metadata to label an intent. Labels can contain lowercase letters, digits and the symbols '-' and '_'. International characters are allowed, including letters from
+             * unicase alphabets. Keys must start with a letter. Keys and values can be no longer than 63 characters and no more than 128 bytes. Prefix "sys." is reserved for Dialogflow defined
+             * labels. Currently allowed Dialogflow defined labels include: * sys.head * sys.contextual The above labels do not require value. "sys.head" means the intent is a head intent.
+             * "sys.contextual" means the intent is a contextual intent.
              */
             labels?: { [P in string]: string };
             /**
@@ -1372,8 +1374,8 @@ declare namespace gapi.client {
         }
         interface GoogleCloudDialogflowCxV3LoadVersionRequest {
             /**
-             * This field is used to prevent accidental overwrite of other agent resources in the draft version, which can potentially impact other flow's behavior. If
-             * `allow_override_agent_resources` is false, conflicted agent-level resources will not be overridden (i.e. intents, entities, webhooks).
+             * This field is used to prevent accidental overwrite of other agent resources, which can potentially impact other flow's behavior. If `allow_override_agent_resources` is false,
+             * conflicted agent-level resources will not be overridden (i.e. intents, entities, webhooks).
              */
             allowOverrideAgentResources?: boolean;
         }
@@ -2038,6 +2040,8 @@ declare namespace gapi.client {
             fulfillmentInfo?: GoogleCloudDialogflowCxV3WebhookRequestFulfillmentInfo;
             /** Information about the last matched intent. */
             intentInfo?: GoogleCloudDialogflowCxV3WebhookRequestIntentInfo;
+            /** The language code specified in the original request. */
+            languageCode?: string;
             /** The list of rich message responses to present to the user. Webhook can choose to append or replace this list in WebhookResponse.fulfillment_response; */
             messages?: GoogleCloudDialogflowCxV3ResponseMessage[];
             /** Information about page status. */
@@ -5636,7 +5640,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<GoogleCloudDialogflowCxV3ListVersionsResponse>;
-            /** Loads a specified version to draft version. */
+            /** Loads resources in the specified version to the draft flow. */
             load(request: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -5650,7 +5654,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The Version to be loaded to draft version. Format: `projects//locations//agents//flows//versions/`. */
+                /** Required. The Version to be loaded to draft flow. Format: `projects//locations//agents//flows//versions/`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -5678,7 +5682,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** Required. The Version to be loaded to draft version. Format: `projects//locations//agents//flows//versions/`. */
+                /** Required. The Version to be loaded to draft flow. Format: `projects//locations//agents//flows//versions/`. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
