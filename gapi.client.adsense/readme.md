@@ -1,14 +1,14 @@
-# TypeScript typings for AdSense Management API v1.4
+# TypeScript typings for AdSense Management API v2
 
-Accesses AdSense publishers' inventory and generates performance reports.
-For detailed description please check [documentation](https://developers.google.com/adsense/management/).
+The AdSense Management API allows publishers to access their inventory and run earnings and performance reports.
+For detailed description please check [documentation](http://code.google.com/apis/adsense/management/).
 
 ## Installing
 
 Install typings for AdSense Management API:
 
 ```
-npm install @types/gapi.client.adsense@v1.4 --save-dev
+npm install @types/gapi.client.adsense@v2 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('adsense', 'v1.4', () => {
+gapi.client.load('adsense', 'v2', () => {
   // now we can use gapi.client.adsense
   // ...
 });
@@ -62,77 +62,17 @@ After that you can use AdSense Management API resources:
 ```typescript
 
 /*
-Get information about the selected AdSense account.
+Gets information about the selected AdSense account.
 */
-await gapi.client.adsense.accounts.get({ accountId: "accountId",  });
+await gapi.client.adsense.accounts.get({ name: "name",  });
 
 /*
-List all accounts available to this AdSense account.
+Lists all accounts available to this user.
 */
 await gapi.client.adsense.accounts.list({  });
 
 /*
-List all ad clients in this AdSense account.
+Lists all accounts directly managed by the given AdSense account.
 */
-await gapi.client.adsense.adclients.list({  });
-
-/*
-Gets the specified ad unit in the specified ad client.
-*/
-await gapi.client.adsense.adunits.get({ adClientId: "adClientId", adUnitId: "adUnitId",  });
-
-/*
-Get ad code for the specified ad unit.
-*/
-await gapi.client.adsense.adunits.getAdCode({ adClientId: "adClientId", adUnitId: "adUnitId",  });
-
-/*
-List all ad units in the specified ad client for this AdSense account.
-*/
-await gapi.client.adsense.adunits.list({ adClientId: "adClientId",  });
-
-/*
-Dismiss (delete) the specified alert from the publisher's AdSense account.
-*/
-await gapi.client.adsense.alerts.delete({ alertId: "alertId",  });
-
-/*
-List the alerts for this AdSense account.
-*/
-await gapi.client.adsense.alerts.list({  });
-
-/*
-Get the specified custom channel from the specified ad client.
-*/
-await gapi.client.adsense.customchannels.get({ adClientId: "adClientId", customChannelId: "customChannelId",  });
-
-/*
-List all custom channels in the specified ad client for this AdSense account.
-*/
-await gapi.client.adsense.customchannels.list({ adClientId: "adClientId",  });
-
-/*
-List the payments for this AdSense account.
-*/
-await gapi.client.adsense.payments.list({  });
-
-/*
-Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify "alt=csv" as a query parameter.
-*/
-await gapi.client.adsense.reports.generate({ endDate: "endDate", startDate: "startDate",  });
-
-/*
-Get a specific saved ad style from the user's account.
-*/
-await gapi.client.adsense.savedadstyles.get({ savedAdStyleId: "savedAdStyleId",  });
-
-/*
-List all saved ad styles in the user's account.
-*/
-await gapi.client.adsense.savedadstyles.list({  });
-
-/*
-List all URL channels in the specified ad client for this AdSense account.
-*/
-await gapi.client.adsense.urlchannels.list({ adClientId: "adClientId",  });
+await gapi.client.adsense.accounts.listChildAccounts({ parent: "parent",  });
 ```
