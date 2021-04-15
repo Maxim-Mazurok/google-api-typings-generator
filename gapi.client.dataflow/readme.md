@@ -46,7 +46,7 @@ var client_id = '',
       // View your Google Compute Engine resources
       'https://www.googleapis.com/auth/compute.readonly',
 
-      // View your email address
+      // See your primary Google Account email address
       'https://www.googleapis.com/auth/userinfo.email',
     ],
     immediate = true;
