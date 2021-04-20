@@ -39,12 +39,6 @@ var client_id = '',
   scope = [ 
       // See, edit, configure, and delete your Google Cloud Platform data
       'https://www.googleapis.com/auth/cloud-platform',
-
-      // View your data across Google Cloud Platform services
-      'https://www.googleapis.com/auth/cloud-platform.read-only',
-
-      // Manage your Google API service configuration
-      'https://www.googleapis.com/auth/service.management',
     ],
     immediate = true;
 // ...
