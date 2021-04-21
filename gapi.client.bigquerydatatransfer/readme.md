@@ -40,9 +40,6 @@ var client_id = '',
       // View and manage your data in Google BigQuery
       'https://www.googleapis.com/auth/bigquery',
 
-      // View your data in Google BigQuery
-      'https://www.googleapis.com/auth/bigquery.readonly',
-
       // See, edit, configure, and delete your Google Cloud Platform data
       'https://www.googleapis.com/auth/cloud-platform',
 
