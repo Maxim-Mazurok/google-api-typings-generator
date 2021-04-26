@@ -1,7 +1,7 @@
 # TypeScript typings for OS Config API v1
 
 OS management tools that can be used for patch management, patch compliance, and configuration management on VM instances.
-For detailed description please check [documentation](https://cloud.google.com/compute/docs/manage-os).
+For detailed description please check [documentation](https://cloud.google.com/compute/docs/osconfig/rest).
 
 ## Installing
 
