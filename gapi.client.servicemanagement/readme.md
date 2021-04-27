@@ -108,7 +108,7 @@ Gets the access control policy for a resource. Returns an empty policy if the re
 await gapi.client.servicemanagement.services.getIamPolicy({ resource: "resource",  });
 
 /*
-Lists managed services. Returns all public services. For authenticated users, also returns all services the calling user has "servicemanagement.services.get" permission for. **BETA:** If the caller specifies the `consumer_id`, it returns only the services enabled on the consumer. The `consumer_id` must have the format of "project:{PROJECT-ID}".
+Lists managed services. Returns all public services. For authenticated users, also returns all services the calling user has "servicemanagement.services.get" permission for.
 */
 await gapi.client.servicemanagement.services.list({  });
 
