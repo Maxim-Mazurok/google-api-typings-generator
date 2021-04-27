@@ -324,8 +324,6 @@ declare namespace gapi.client {
         interface ClusterUpdate {
             /** Configurations for the various addons available to run in the cluster. */
             desiredAddonsConfig?: AddonsConfig;
-            /** The desired Autopilot configuration for the cluster. */
-            desiredAutopilot?: Autopilot;
             /** The desired configuration options for the Binary Authorization feature. */
             desiredBinaryAuthorization?: BinaryAuthorization;
             /** Cluster-level autoscaling configuration. */
