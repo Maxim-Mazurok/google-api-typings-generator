@@ -1,6 +1,6 @@
 # TypeScript typings for Workflows API v1
 
-Orchestrate Workflows consisting of Google Cloud APIs, SaaS APIs or private API endpoints.
+Manage workflow definitions. To execute workflows and manage executions, see the Workflows Executions API.
 For detailed description please check [documentation](https://cloud.google.com/workflows).
 
 ## Installing
