@@ -77,15 +77,16 @@ export async function getBannedTypes(): Promise<string[]> {
   return options.length || options[0].length ? options.map(x => x[0]) : [];
 }
 
-export async function request<T extends object>(
+export async function request<T extends object | string>(
   url: string,
-  proxy: ProxySetting | undefined
+  proxy: ProxySetting | undefined,
+  responseType: 'json' | 'text' = 'json'
 ): Promise<T> {
   const protocol = new URL(url).protocol as 'http:' | 'https:';
   const agentProtocol = protocol === 'http:' ? Protocol.Http : Protocol.Https;
   const agent =
     agentProtocol === Protocol.Http ? HttpProxyAgent : HttpsProxyAgent;
-  return (await got(url, {
+  const response = got(url, {
     ...(proxy
       ? {
           agent: {
@@ -100,7 +101,8 @@ export async function request<T extends object>(
           },
         }
       : {}),
-  }).json()) as T;
+  });
+  return (await response[responseType]()) as T;
 }
 
 /**
