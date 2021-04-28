@@ -59,16 +59,6 @@ After that you can use DoubleClick Bid Manager API resources:
 ```typescript
 
 /*
-Retrieves line items in CSV format. YouTube & partners line items are not supported.
-*/
-await gapi.client.doubleclickbidmanager.lineitems.downloadlineitems({  });
-
-/*
-Uploads line items in CSV format. YouTube & partners line items are not supported.
-*/
-await gapi.client.doubleclickbidmanager.lineitems.uploadlineitems({  });
-
-/*
 Creates a query.
 */
 await gapi.client.doubleclickbidmanager.queries.createquery({  });
@@ -97,9 +87,4 @@ await gapi.client.doubleclickbidmanager.queries.runquery({ queryId: "queryId",  
 Retrieves stored reports.
 */
 await gapi.client.doubleclickbidmanager.reports.listreports({ queryId: "queryId",  });
-
-/*
-Retrieves entities in SDF format.
-*/
-await gapi.client.doubleclickbidmanager.sdf.download({  });
 ```
