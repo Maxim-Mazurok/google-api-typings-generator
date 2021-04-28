@@ -152,7 +152,7 @@ Gets the specified model resource by model ID.
 await gapi.client.bigquery.models.get({ datasetId: "datasetId", modelId: "modelId", projectId: "projectId",  });
 
 /*
-Lists all models in the specified dataset. Requires the READER dataset role.
+Lists all models in the specified dataset. Requires the READER dataset role. After retrieving the list of models, you can get information about a particular model by calling the models.get method.
 */
 await gapi.client.bigquery.models.list({ datasetId: "datasetId", projectId: "projectId",  });
 
