@@ -7,8 +7,8 @@
   },
   "license": "MIT",
   "author": {
-    "email": "maxim@mazurok.com",
     "name": "Maxim Mazurok",
+    "email": "maxim@mazurok.com",
     "url": "https://maxim.mazurok.com"
   },
   "scripts": {
@@ -28,7 +28,8 @@
     "start": "ts-node src/cli.ts --out ./types",
     "pretest": "npm run compile",
     "test": "mocha",
-    "posttest": "npm run check"
+    "posttest": "npm run check",
+    "start-dt": "npx rimraf ~/DefinitelyTyped/types/gapi.client.* && ts-node src/dt/cli.ts --out ~/DefinitelyTyped/types"
   },
   "dependencies": {
     "@expo/spawn-async": "^1.5.0",

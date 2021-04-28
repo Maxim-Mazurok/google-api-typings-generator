@@ -203,3 +203,26 @@ While we do generate typings for Google APIs, we can't generate `gapi` typings f
 [@types/gapi](https://www.npmjs.com/package/@types/gapi) and you also should.
 
 **Server-side** libraries are open-sourced and are available [here](https://github.com/googleapis/google-api-nodejs-client). Since they are written in TS, you don't need any additional type definitions to use them.
+
+## Troubleshooting
+
+### npm install - 404 Not Found
+
+The error looks like this (see [#483](https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/483)):
+
+```
+$ npm install @types/gapi.client.YOUR_API@v2 --save-dev
+npm ERR! code E404
+npm ERR! 404 Not Found - GET https://registry.npmjs.org/@types%2fgapi.client.YOUR_API - Not found
+npm ERR! 404
+npm ERR! 404  '@types/gapi.client.YOUR_API@v2' is not in the npm registry.
+npm ERR! 404 You should bug the author to publish it (or use the name yourself!)
+```
+
+It's most likely caused by your API package not being published to NPM yet.
+
+To fix this - [open an issue](https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/new) and I'll [update](https://github.com/Maxim-Mazurok/google-api-typings-generator/blob/master/bin/apis-sync-helper.ts) the [list of supported APIs](https://github.com/Maxim-Mazurok/google-api-typings-generator/blob/master/bin/auto-publish/config.ts).
+
+Later on, when [#401](https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/401) is closed - this process will be automated.
+
+Also, you can [use these types](https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/85#issuecomment-601133279) from the [types branch](https://github.com/Maxim-Mazurok/google-api-typings-generator/tree/types)
