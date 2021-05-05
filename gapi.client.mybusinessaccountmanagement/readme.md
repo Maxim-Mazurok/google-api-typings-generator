@@ -60,5 +60,5 @@ await gapi.client.mybusinessaccountmanagement.accounts.patch({ name: "name",  })
 /*
 Moves a location from an account that the user owns to another account that the same user administers. The user must be an owner of the account the location is currently associated with and must also be at least a manager of the destination account.
 */
-await gapi.client.mybusinessaccountmanagement.locations.transferLocation({ locationsId: "locationsId",  });
+await gapi.client.mybusinessaccountmanagement.locations.transfer({ name: "name",  });
 ```
