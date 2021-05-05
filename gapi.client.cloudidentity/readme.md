@@ -46,7 +46,7 @@ var client_id = '',
       // See any Cloud Identity Groups that you can access, including group members and their emails
       'https://www.googleapis.com/auth/cloud-identity.groups.readonly',
 
-      // View and manage your data across Google Cloud Platform services
+      // See, edit, configure, and delete your Google Cloud Platform data
       'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
@@ -113,7 +113,7 @@ Retrieves a `Group`.
 await gapi.client.cloudidentity.groups.get({ name: "name",  });
 
 /*
-Lists the `Group`s under a customer or namespace.
+Lists the `Group` resources under a customer or namespace.
 */
 await gapi.client.cloudidentity.groups.list({  });
 
@@ -128,7 +128,7 @@ Updates a `Group`.
 await gapi.client.cloudidentity.groups.patch({ name: "name",  });
 
 /*
-Searches for `Group`s matching a specified query.
+Searches for `Group` resources matching a specified query.
 */
 await gapi.client.cloudidentity.groups.search({  });
 ```

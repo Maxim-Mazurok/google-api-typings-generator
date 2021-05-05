@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.iamcredentials",
-  "version": "1.0.20210430",
-  "description": "TypeScript typings for IAM Service Account Credentials API v1",
+  "name": "@maxim_mazurok/gapi.client.baremetalsolution",
+  "version": "1.0.20210501",
+  "description": "TypeScript typings for Bare Metal Solution API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
