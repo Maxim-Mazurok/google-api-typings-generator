@@ -130,7 +130,7 @@ declare namespace gapi.client {
             freeTrialEndTime?: string;
             /** Output only. Response only. Resource name of the subscription. It will have the format of "partners/{partner_id}/subscriptions/{subscription_id}" */
             name?: string;
-            /** Required. Identifier of the end-user in partner’s system. */
+            /** Required. Identifier of the end-user in partner’s system. The value is restricted to 63 ASCII characters at the maximum. */
             partnerUserToken?: string;
             /** Required. Resource name that identifies one or more subscription products. The format will be 'partners/{partner_id}/products/{product_id}'. */
             products?: string[];
@@ -336,7 +336,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. Identifies the subscription resource on the Partner side. If a subscription was previously created with the same subscription_id, we will directly return that one. */
+                /**
+                 * Required. Identifies the subscription resource on the Partner side. The value is restricted to 63 ASCII characters at the maximum. If a subscription was previously created with
+                 * the same subscription_id, we will directly return that one.
+                 */
                 subscriptionId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -366,7 +369,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. Identifies the subscription resource on the Partner side. If a subscription was previously created with the same subscription_id, we will directly return that one. */
+                /**
+                 * Required. Identifies the subscription resource on the Partner side. The value is restricted to 63 ASCII characters at the maximum. If a subscription was previously created with
+                 * the same subscription_id, we will directly return that one.
+                 */
                 subscriptionId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -541,7 +547,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. Identifies the subscription resource on the Partner side. If a subscription was previously created with the same subscription_id, we will directly return that one. */
+                /**
+                 * Required. Identifies the subscription resource on the Partner side. The value is restricted to 63 ASCII characters at the maximum. If a subscription was previously created with
+                 * the same subscription_id, we will directly return that one.
+                 */
                 subscriptionId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -571,7 +580,10 @@ declare namespace gapi.client {
                 prettyPrint?: boolean;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** Required. Identifies the subscription resource on the Partner side. If a subscription was previously created with the same subscription_id, we will directly return that one. */
+                /**
+                 * Required. Identifies the subscription resource on the Partner side. The value is restricted to 63 ASCII characters at the maximum. If a subscription was previously created with
+                 * the same subscription_id, we will directly return that one.
+                 */
                 subscriptionId?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
