@@ -27,6 +27,7 @@
     "precheck",
     "readlines",
     "repos",
-    "rsync"
+    "rsync",
+    "uncommenting"
   ]
 }
