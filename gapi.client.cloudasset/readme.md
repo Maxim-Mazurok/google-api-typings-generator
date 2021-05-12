@@ -59,6 +59,11 @@ After that you can use Cloud Asset API resources:
 ```typescript
 
 /*
+Lists assets with time and resource types and returns paged results in response.
+*/
+await gapi.client.cloudasset.assets.list({ parent: "parent",  });
+
+/*
 Creates a feed in a parent project/folder/organization to listen to its asset updates.
 */
 await gapi.client.cloudasset.feeds.create({ parent: "parent",  });
