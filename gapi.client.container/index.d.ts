@@ -332,8 +332,6 @@ declare namespace gapi.client {
             desiredClusterAutoscaling?: ClusterAutoscaling;
             /** Configuration of etcd encryption. */
             desiredDatabaseEncryption?: DatabaseEncryption;
-            /** The desired datapath provider for the cluster. */
-            desiredDatapathProvider?: string;
             /** The desired status of whether to disable default sNAT for this cluster. */
             desiredDefaultSnatStatus?: DefaultSnatStatus;
             /** The desired image type for the node pool. NOTE: Set the "desired_node_pool" field as well. */
@@ -723,8 +721,6 @@ declare namespace gapi.client {
             stringValue?: string;
         }
         interface NetworkConfig {
-            /** The desired datapath provider for this cluster. By default, uses the IPTables-based kube-proxy implementation. */
-            datapathProvider?: string;
             /**
              * Whether the cluster disables default in-node sNAT rules. In-node sNAT rules will be disabled when default_snat_status is disabled. When disabled is set to false, default IP
              * masquerade rules will be applied to the nodes to prevent sNAT on cluster internal traffic.
