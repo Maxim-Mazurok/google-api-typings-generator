@@ -64,7 +64,7 @@ var client_id = '',
       // View your email message metadata such as labels and headers, but not the email body
       'https://www.googleapis.com/auth/gmail.metadata',
 
-      // View and modify but not delete your email
+      // Read, compose, and send emails from your Gmail account
       'https://www.googleapis.com/auth/gmail.modify',
 
       // View your email messages and settings
