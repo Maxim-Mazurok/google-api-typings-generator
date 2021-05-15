@@ -2,9 +2,13 @@ name: 'Code Scanning - Action'
 
 on:
   push:
+    branches: [master]
   pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [master]
   schedule:
     - cron: '30 1 * * 0'
+  workflow_dispatch: # for manual testing
 
 jobs:
   CodeQL-Build:
