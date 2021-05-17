@@ -544,6 +544,11 @@ Lists the products in your Merchant Center account. The response might contain f
 await gapi.client.content.products.list({ merchantId: "merchantId",  });
 
 /*
+Updates an existing product in your Merchant Center account. Only updates attributes provided in the request.
+*/
+await gapi.client.content.products.update({ merchantId: "merchantId", productId: "productId",  });
+
+/*
 Gets the statuses of multiple products in a single request.
 */
 await gapi.client.content.productstatuses.custombatch({  });
