@@ -123,6 +123,11 @@ Lookup for a single "GA4" Property.
 await gapi.client.analyticsadmin.properties.get({ name: "name",  });
 
 /*
+Lookup for Google Signals settings for a property.
+*/
+await gapi.client.analyticsadmin.properties.getGoogleSignalsSettings({ name: "name",  });
+
+/*
 Returns child Properties under the specified parent Account. Only "GA4" properties will be returned. Properties will be excluded if the caller does not have access. Soft-deleted (ie: "trashed") properties are excluded by default. Returns an empty list if no relevant properties are found.
 */
 await gapi.client.analyticsadmin.properties.list({  });
@@ -131,4 +136,9 @@ await gapi.client.analyticsadmin.properties.list({  });
 Updates a property.
 */
 await gapi.client.analyticsadmin.properties.patch({ name: "name",  });
+
+/*
+Updates Google Signals settings for a property.
+*/
+await gapi.client.analyticsadmin.properties.updateGoogleSignalsSettings({ name: "name",  });
 ```
