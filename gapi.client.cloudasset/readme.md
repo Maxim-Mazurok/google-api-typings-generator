@@ -104,6 +104,11 @@ Analyzes IAM policies asynchronously to answer which identities have what access
 await gapi.client.cloudasset.v1.analyzeIamPolicyLongrunning({ scope: "scope",  });
 
 /*
+Analyze moving a resource to a specified destination without kicking off the actual move. The analysis is best effort depending on the user's permissions of viewing different hierarchical policies and configurations. The policies and configuration are subject to change before the actual resource migration takes place.
+*/
+await gapi.client.cloudasset.v1.analyzeMove({ resource: "resource",  });
+
+/*
 Batch gets the update history of assets that overlap a time window. For IAM_POLICY content, this API outputs history when the asset and its attached IAM POLICY both exist. This can create gaps in the output history. Otherwise, this API outputs history with asset in both non-delete or deleted status. If a specified asset does not exist, this API returns an INVALID_ARGUMENT error.
 */
 await gapi.client.cloudasset.v1.batchGetAssetsHistory({ parent: "parent",  });
