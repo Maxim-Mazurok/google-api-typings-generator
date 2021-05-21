@@ -1,4 +1,4 @@
-# TypeScript typings for Campaign Manager 360 API v3.4
+# TypeScript typings for Campaign Manager 360 API v3.5
 
 Build applications to efficiently manage large or complex trafficking, reporting, and attribution workflows for Campaign Manager 360.
 For detailed description please check [documentation](https://developers.google.com/doubleclick-advertisers/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://developers.google.
 Install typings for Campaign Manager 360 API:
 
 ```
-npm install @types/gapi.client.dfareporting@v3.4 --save-dev
+npm install @types/gapi.client.dfareporting@v3.5 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('dfareporting', 'v3.4', () => {
+gapi.client.load('dfareporting', 'v3.5', () => {
   // now we can use gapi.client.dfareporting
   // ...
 });
@@ -468,11 +468,6 @@ await gapi.client.dfareporting.creatives.patch({ id: "id", profileId: "profileId
 Updates an existing creative.
 */
 await gapi.client.dfareporting.creatives.update({ profileId: "profileId",  });
-
-/*
-Inserts custom events.
-*/
-await gapi.client.dfareporting.customEvents.batchinsert({ profileId: "profileId",  });
 
 /*
 Retrieves list of report dimension values for a list of filters.
