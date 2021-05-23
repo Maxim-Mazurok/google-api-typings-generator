@@ -63,4 +63,9 @@ gapi.auth.authorize(
 After that you can use Cloud Spanner API resources:
 
 ```typescript
+
+/*
+Return available scans given a Database-specific resource name.
+*/
+await gapi.client.spanner.scans.list({ parent: "parent",  });
 ```
