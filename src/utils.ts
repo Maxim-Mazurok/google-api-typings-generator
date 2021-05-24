@@ -5,6 +5,7 @@ import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
 import got from 'got/dist/source';
 import path from 'path';
 import stripJsonComments from 'strip-json-comments';
+import {extraDiscoveryRestUrls} from './extra-apis';
 
 export const TYPE_PREFIX = 'gapi.client.';
 
@@ -41,13 +42,9 @@ export function ensureDirectoryExists(directory: string) {
 }
 
 /**
- * Returns the filesystem directory for the specified service.
+ * Returns the filesystem directory name for the specified service.
  */
-export function getTypeDirectory(api: string, version: string | null) {
-  const name = `${TYPE_PREFIX}${api}`;
-
-  return null === version ? name : path.join(name, version);
-}
+export const getTypeDirectoryName = (api: string) => `${TYPE_PREFIX}${api}`;
 
 /**
  * Reads and parses `dtslint.json` to get `max-line-length` value
@@ -110,4 +107,30 @@ export async function request<T extends object | string>(
  */
 export const sleep = (ms: number) => {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+};
+
+export const getAllDiscoveryItems = async (proxy?: ProxySetting) => {
+  const getExtraDiscoveryItems = async (proxy?: ProxySetting) => {
+    const discoveryRestItems: NonNullable<
+      gapi.client.discovery.DirectoryList['items']
+    > = [];
+    for (const discoveryRestUrl of extraDiscoveryRestUrls) {
+      const discoveryRest = {
+        ...(await request<
+          NonNullable<gapi.client.discovery.DirectoryList['items']>[number]
+        >(discoveryRestUrl, proxy)),
+        discoveryRestUrl,
+      };
+      discoveryRestItems.push(discoveryRest);
+    }
+
+    return discoveryRestItems;
+  };
+
+  const list = await request<gapi.client.discovery.DirectoryList>(
+    'https://www.googleapis.com/discovery/v1/apis',
+    proxy
+  );
+
+  return [...(list.items || []), ...(await getExtraDiscoveryItems())];
 };

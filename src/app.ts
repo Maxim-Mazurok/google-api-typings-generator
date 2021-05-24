@@ -5,8 +5,9 @@ import sortObject from 'deep-sort-object';
 import LineByLine from 'n-readlines';
 import {
   ensureDirectoryExists,
+  getAllDiscoveryItems,
   getResourceTypeName,
-  getTypeDirectory,
+  getTypeDirectoryName,
   parseVersion,
   request,
 } from './utils';
@@ -23,7 +24,6 @@ type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
 type RestDescription = gapi.client.discovery.RestDescription;
 type RestMethod = gapi.client.discovery.RestMethod;
-type DirectoryList = gapi.client.discovery.DirectoryList;
 
 export const revisionPrefix = '// Revision: ';
 
@@ -783,7 +783,7 @@ export class App {
 
     const destinationDirectory = path.join(
       this.config.typesDirectory,
-      getTypeDirectory(api.name, actualVersion ? null : api.version)
+      getTypeDirectoryName(api.name)
     );
 
     if (this.config.discoveryJsonDirectory) {
@@ -1129,13 +1129,10 @@ export class App {
   ) {
     console.log('Discovering Google services...');
 
-    const list = await request<DirectoryList>(
-      'https://www.googleapis.com/discovery/v1/apis',
-      this.config.proxy
-    );
+    const listItems = await getAllDiscoveryItems(this.config.proxy);
 
-    const apis = list
-      .items!.filter(api => (service ? api.name === service : true))
+    const apis = listItems
+      .filter(api => (service ? api.name === service : true))
       .filter(api => excludedApis.indexOf(checkExists(api.name)) < 0);
 
     if (apis.length === 0) {
