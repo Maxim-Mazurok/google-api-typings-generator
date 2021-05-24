@@ -1,9 +1,8 @@
 import {getProxySettings} from 'get-proxy-settings';
 import _ from 'lodash';
-import {request} from '../src/utils';
+import {request, getAllDiscoveryItems} from '../src/utils';
 import fs from 'fs';
 import {excludedApis} from '../src/app';
-type DirectoryList = gapi.client.discovery.DirectoryList;
 
 const prefix = '@maxim_mazurok/gapi.client.';
 const pathToConfig =
@@ -55,14 +54,11 @@ const updateLocalAllowedPackageJsonDependencies = (
 };
 
 const listDiscoveryTypes = async () => {
-  const list = await request<DirectoryList>(
-    'https://www.googleapis.com/discovery/v1/apis',
-    await getProxy()
-  );
+  const listItems = await getAllDiscoveryItems(await getProxy());
 
   return _.uniq(
-    list.items
-      ?.filter(x => x.name !== undefined)
+    listItems
+      .filter(x => x.name !== undefined)
       .map(x => (x.name || '').toLocaleLowerCase())
       .filter(x => !excludedApis.includes(x))
   ).sort();

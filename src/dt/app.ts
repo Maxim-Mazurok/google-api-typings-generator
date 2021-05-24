@@ -3,7 +3,8 @@ import path from 'path';
 import sortObject from 'deep-sort-object';
 import {
   ensureDirectoryExists,
-  getTypeDirectory,
+  getAllDiscoveryItems,
+  getTypeDirectoryName,
   parseVersion,
   request,
 } from '../utils';
@@ -13,7 +14,6 @@ import {excludedApis} from '../app';
 import {fallbackDocumentationLinks} from '../constants';
 
 type RestDescription = gapi.client.discovery.RestDescription;
-type DirectoryList = gapi.client.discovery.DirectoryList;
 
 function checkExists<T>(t: T): NonNullable<T> {
   if (t === null) {
@@ -72,7 +72,7 @@ export class App {
 
     const destinationDirectory = path.join(
       this.config.dtTypesDirectory,
-      getTypeDirectory(api.name, actualVersion ? null : api.version)
+      getTypeDirectoryName(api.name)
     );
 
     ensureDirectoryExists(destinationDirectory);
@@ -102,13 +102,10 @@ export class App {
   async discover(service: string | undefined, allVersions = false) {
     console.log('Discovering Google services...');
 
-    const list: DirectoryList = await request(
-      'https://www.googleapis.com/discovery/v1/apis',
-      this.config.proxy
-    );
+    const listItems = await getAllDiscoveryItems(this.config.proxy);
 
-    const apis = list
-      .items!.filter(api => (service ? api.name === service : true))
+    const apis = listItems
+      .filter(api => (service ? api.name === service : true))
       .filter(api => excludedApis.indexOf(checkExists(api.name)) < 0);
 
     if (apis.length === 0) {

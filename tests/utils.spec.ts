@@ -1,9 +1,8 @@
-import {sep as pathSeparator} from 'path';
 import _ from 'lodash';
 import assert from 'assert';
 import {
   getResourceTypeName,
-  getTypeDirectory,
+  getTypeDirectoryName,
   parseVersion,
   sleep,
 } from '../src/utils';
@@ -42,16 +41,7 @@ describe('getResourceTypeName', () => {
 describe('getTypeDirectory', () => {
   describe('no version', () => {
     it('should return name', () => {
-      assert.strictEqual('gapi.client.API', getTypeDirectory('API', null));
-    });
-  });
-
-  describe('with version', () => {
-    it('should return name', () => {
-      assert.strictEqual(
-        `gapi.client.API${pathSeparator}v1`,
-        getTypeDirectory('API', 'v1')
-      );
+      assert.strictEqual('gapi.client.API', getTypeDirectoryName('API'));
     });
   });
 });
