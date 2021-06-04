@@ -403,7 +403,7 @@ Creates a new policy in the specified project using the data included in the req
 await gapi.client.compute.firewallPolicies.insert({  });
 
 /*
-Lists all the policies that have been configured for the specified project.
+Lists all the policies that have been configured for the specified folder or organization.
 */
 await gapi.client.compute.firewallPolicies.list({  });
 
