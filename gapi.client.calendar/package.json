@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.calendar",
-  "version": "3.0.20210606",
+  "version": "3.0.20210608",
   "description": "TypeScript typings for Calendar API v3",
   "license": "MIT",
   "author": {
