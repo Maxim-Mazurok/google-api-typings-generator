@@ -454,11 +454,6 @@ declare namespace gapi.client {
              */
             nodeCount?: number;
             /**
-             * The number of processing units allocated to this instance. At most one of processing_units or node_count should be present in the message. This may be zero in API responses for
-             * instances that are not yet in state `READY`.
-             */
-            processingUnits?: number;
-            /**
              * Output only. The current instance state. For CreateInstance, the state must be either omitted or set to `CREATING`. For UpdateInstance, the state must be either omitted or set to
              * `READY`.
              */
