@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.essentialcontacts",
+  "name": "@maxim_mazurok/gapi.client.resourcesettings",
   "version": "1.0.20210615",
-  "description": "TypeScript typings for Essential Contacts API v1",
+  "description": "TypeScript typings for Resource Settings API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
