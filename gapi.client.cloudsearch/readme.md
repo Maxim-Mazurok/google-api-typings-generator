@@ -1,6 +1,6 @@
 # TypeScript typings for Cloud Search API v1
 
-Cloud Search provides cloud-based search capabilities over G Suite data. The Cloud Search API allows indexing of non-G Suite data into Cloud Search.
+Cloud Search provides cloud-based search capabilities over Google Workspace data. The Cloud Search API allows indexing of non-Google Workspace data into Cloud Search.
 For detailed description please check [documentation](https://developers.google.com/cloud-search/docs/guides/).
 
 ## Installing
