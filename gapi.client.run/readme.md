@@ -1,6 +1,6 @@
 # TypeScript typings for Cloud Run Admin API v1
 
-Deploy and manage user provided container images that scale automatically based on incoming requets. The Cloud Run Admin API follows the Knative Serving API specification.
+Deploy and manage user provided container images that scale automatically based on HTTP traffic.
 For detailed description please check [documentation](https://cloud.google.com/run/).
 
 ## Installing

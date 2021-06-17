@@ -1,7 +1,7 @@
 # TypeScript typings for Compute Engine API v1
 
-Creates and runs virtual machines on Google Cloud Platform.
-For detailed description please check [documentation](https://developers.google.com/compute/docs/reference/latest/).
+Creates and runs virtual machines on Google Cloud Platform. 
+For detailed description please check [documentation](https://cloud.google.com/compute/).
 
 ## Installing
 
@@ -214,16 +214,12 @@ Returns the specified BackendService resource. Gets a list of available backend 
 await gapi.client.compute.backendServices.get({ backendService: "backendService", project: "project",  });
 
 /*
-Gets the most recent health check results for this BackendService.
-
-Example request body:
-
-{ "group": "/zones/us-east1-b/instanceGroups/lb-backend-example" }
+Gets the most recent health check results for this BackendService. Example request body: { "group": "/zones/us-east1-b/instanceGroups/lb-backend-example" }
 */
 await gapi.client.compute.backendServices.getHealth({ backendService: "backendService", project: "project",  });
 
 /*
-Creates a BackendService resource in the specified project using the data included in the request. For more information, see  Backend services overview.
+Creates a BackendService resource in the specified project using the data included in the request. For more information, see Backend services overview .
 */
 await gapi.client.compute.backendServices.insert({ project: "project",  });
 
@@ -233,7 +229,7 @@ Retrieves the list of BackendService resources available to the specified projec
 await gapi.client.compute.backendServices.list({ project: "project",  });
 
 /*
-Patches the specified BackendService resource with the data included in the request. For more information, see  Backend services overview. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+Patches the specified BackendService resource with the data included in the request. For more information, see Backend services overview. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.backendServices.patch({ backendService: "backendService", project: "project",  });
 
@@ -628,11 +624,7 @@ Retrieves a list of Operation resources contained within the specified project.
 await gapi.client.compute.globalOperations.list({ project: "project",  });
 
 /*
-Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress.
-
-This method is called on a best-effort basis. Specifically:  
-- In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. 
-- If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`.
+Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress. This method is called on a best-effort basis. Specifically: - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`. 
 */
 await gapi.client.compute.globalOperations.wait({ operation: "operation", project: "project",  });
 
@@ -777,9 +769,7 @@ Deletes the specified image.
 await gapi.client.compute.images.delete({ image: "image", project: "project",  });
 
 /*
-Sets the deprecation status of an image.
-
-If an empty request body is given, clears the deprecation status instead.
+Sets the deprecation status of an image. If an empty request body is given, clears the deprecation status instead.
 */
 await gapi.client.compute.images.deprecate({ image: "image", project: "project",  });
 
@@ -829,11 +819,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.images.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Flags the specified instances to be removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method.
-
-If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
-
-You can specify a maximum of 1000 instances with this method per request.
+Flags the specified instances to be removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request.
 */
 await gapi.client.compute.instanceGroupManagers.abandonInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
@@ -853,16 +839,12 @@ Creates instances with per-instance configs in this managed instance group. Inst
 await gapi.client.compute.instanceGroupManagers.createInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
-Deletes the specified managed instance group and all of the instances in that group. Note that the instance group must not belong to a backend service. Read  Deleting an instance group for more information.
+Deletes the specified managed instance group and all of the instances in that group. Note that the instance group must not belong to a backend service. Read Deleting an instance group for more information.
 */
 await gapi.client.compute.instanceGroupManagers.delete({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
-Flags the specified instances in the managed instance group for immediate deletion. The instances are also removed from any target pools of which they were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. This operation is marked as DONE when the action is scheduled even if the instances are still being deleted. You must separately verify the status of the deleting action with the listmanagedinstances method.
-
-If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
-
-You can specify a maximum of 1000 instances with this method per request.
+Flags the specified instances in the managed instance group for immediate deletion. The instances are also removed from any target pools of which they were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. This operation is marked as DONE when the action is scheduled even if the instances are still being deleted. You must separately verify the status of the deleting action with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request.
 */
 await gapi.client.compute.instanceGroupManagers.deleteInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
@@ -877,9 +859,7 @@ Returns all of the details about the specified managed instance group. Gets a li
 await gapi.client.compute.instanceGroupManagers.get({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
-Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method.
-
-A managed instance group can have up to 1000 VM instances per group. Please contact Cloud Support if you need an increase in this limit.
+Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method. A managed instance group can have up to 1000 VM instances per group. Please contact Cloud Support if you need an increase in this limit.
 */
 await gapi.client.compute.instanceGroupManagers.insert({ project: "project", zone: "zone",  });
 
@@ -914,24 +894,12 @@ Inserts or patches per-instance configs for the managed instance group. perInsta
 await gapi.client.compute.instanceGroupManagers.patchPerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
-Flags the specified VM instances in the managed instance group to be immediately recreated. Each instance is recreated using the group's current configuration. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of each instance by checking its currentAction field; for more information, see Checking the status of managed instances.
-
-If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
-
-You can specify a maximum of 1000 instances with this method per request.
+Flags the specified VM instances in the managed instance group to be immediately recreated. Each instance is recreated using the group's current configuration. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of each instance by checking its currentAction field; for more information, see Checking the status of managed instances. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request.
 */
 await gapi.client.compute.instanceGroupManagers.recreateInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
-Resizes the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the size, the group deletes instances. The resize operation is marked DONE when the resize actions are scheduled even if the group has not yet added or deleted any instances. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method.
-
-When resizing down, the instance group arbitrarily chooses the order in which VMs are deleted. The group takes into account some VM attributes when making the selection including:
-
-+ The status of the VM instance. + The health of the VM instance. + The instance template version the VM is based on. + For regional managed instance groups, the location of the VM instance.
-
-This list is subject to change.
-
-If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
+Resizes the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the size, the group deletes instances. The resize operation is marked DONE when the resize actions are scheduled even if the group has not yet added or deleted any instances. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method. When resizing down, the instance group arbitrarily chooses the order in which VMs are deleted. The group takes into account some VM attributes when making the selection including: + The status of the VM instance. + The health of the VM instance. + The instance template version the VM is based on. + For regional managed instance groups, the location of the VM instance. This list is subject to change. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
 */
 await gapi.client.compute.instanceGroupManagers.resize({ instanceGroupManager: "instanceGroupManager", project: "project", size: 1, zone: "zone",  });
 
@@ -951,7 +919,7 @@ Inserts or updates per-instance configs for the managed instance group. perInsta
 await gapi.client.compute.instanceGroupManagers.updatePerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
-Adds a list of instances to the specified instance group. All of the instances in the instance group must be in the same network/subnetwork. Read  Adding instances for more information.
+Adds a list of instances to the specified instance group. All of the instances in the instance group must be in the same network/subnetwork. Read Adding instances for more information.
 */
 await gapi.client.compute.instanceGroups.addInstances({ instanceGroup: "instanceGroup", project: "project", zone: "zone",  });
 
@@ -961,14 +929,12 @@ Retrieves the list of instance groups and sorts them by zone.
 await gapi.client.compute.instanceGroups.aggregatedList({ project: "project",  });
 
 /*
-Deletes the specified instance group. The instances in the group are not deleted. Note that instance group must not belong to a backend service. Read  Deleting an instance group for more information.
+Deletes the specified instance group. The instances in the group are not deleted. Note that instance group must not belong to a backend service. Read Deleting an instance group for more information.
 */
 await gapi.client.compute.instanceGroups.delete({ instanceGroup: "instanceGroup", project: "project", zone: "zone",  });
 
 /*
-Returns the specified zonal instance group. Get a list of available zonal instance groups by making a list() request.
-
-For managed instance groups, use the instanceGroupManagers or regionInstanceGroupManagers methods instead.
+Returns the specified zonal instance group. Get a list of available zonal instance groups by making a list() request. For managed instance groups, use the instanceGroupManagers or regionInstanceGroupManagers methods instead.
 */
 await gapi.client.compute.instanceGroups.get({ instanceGroup: "instanceGroup", project: "project", zone: "zone",  });
 
@@ -978,9 +944,7 @@ Creates an instance group in the specified project using the parameters that are
 await gapi.client.compute.instanceGroups.insert({ project: "project", zone: "zone",  });
 
 /*
-Retrieves the list of zonal instance group resources contained within the specified zone.
-
-For managed instance groups, use the instanceGroupManagers or regionInstanceGroupManagers methods instead.
+Retrieves the list of zonal instance group resources contained within the specified zone. For managed instance groups, use the instanceGroupManagers or regionInstanceGroupManagers methods instead.
 */
 await gapi.client.compute.instanceGroups.list({ project: "project", zone: "zone",  });
 
@@ -990,9 +954,7 @@ Lists the instances in the specified instance group. The orderBy query parameter
 await gapi.client.compute.instanceGroups.listInstances({ instanceGroup: "instanceGroup", project: "project", zone: "zone",  });
 
 /*
-Removes one or more instances from the specified instance group, but does not delete those instances.
-
-If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration before the VM instance is removed or deleted.
+Removes one or more instances from the specified instance group, but does not delete those instances. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration before the VM instance is removed or deleted.
 */
 await gapi.client.compute.instanceGroups.removeInstances({ instanceGroup: "instanceGroup", project: "project", zone: "zone",  });
 
@@ -1187,7 +1149,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.instances.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
 
 /*
-Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See  Updating a running instance for a list of updatable instance properties.
+Updates an instance only if the necessary resources are available. This method can update only a specific set of instance properties. See Updating a running instance for a list of updatable instance properties.
 */
 await gapi.client.compute.instances.update({ instance: "instance", project: "project", zone: "zone",  });
 
@@ -1317,47 +1279,47 @@ Updates the specified interconnect with the data included in the request. This m
 await gapi.client.compute.interconnects.patch({ interconnect: "interconnect", project: "project",  });
 
 /*
-Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
+Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
 */
 await gapi.client.compute.licenseCodes.get({ licenseCode: "licenseCode", project: "project",  });
 
 /*
-Returns permissions that a caller has on the specified resource.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
+Returns permissions that a caller has on the specified resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
 */
 await gapi.client.compute.licenseCodes.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Deletes the specified license.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
+Deletes the specified license. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
 */
 await gapi.client.compute.licenses.delete({ license: "license", project: "project",  });
 
 /*
-Returns the specified License resource.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
+Returns the specified License resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
 */
 await gapi.client.compute.licenses.get({ license: "license", project: "project",  });
 
 /*
-Gets the access control policy for a resource. May be empty if no such policy or resource exists.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
+Gets the access control policy for a resource. May be empty if no such policy or resource exists. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
 */
 await gapi.client.compute.licenses.getIamPolicy({ project: "project", resource: "resource",  });
 
 /*
-Create a License resource in the specified project.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
+Create a License resource in the specified project. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
 */
 await gapi.client.compute.licenses.insert({ project: "project",  });
 
 /*
-Retrieves the list of licenses available in the specified project. This method does not get any licenses that belong to other projects, including licenses attached to publicly-available images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
+Retrieves the list of licenses available in the specified project. This method does not get any licenses that belong to other projects, including licenses attached to publicly-available images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
 */
 await gapi.client.compute.licenses.list({ project: "project",  });
 
 /*
-Sets the access control policy on the specified resource. Replaces any existing policy.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
+Sets the access control policy on the specified resource. Replaces any existing policy. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
 */
 await gapi.client.compute.licenses.setIamPolicy({ project: "project", resource: "resource",  });
 
 /*
-Returns permissions that a caller has on the specified resource.  Caution This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
+Returns permissions that a caller has on the specified resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
 */
 await gapi.client.compute.licenses.testIamPermissions({ project: "project", resource: "resource",  });
 
@@ -1797,7 +1759,7 @@ Gets the most recent health check results for this regional BackendService.
 await gapi.client.compute.regionBackendServices.getHealth({ backendService: "backendService", project: "project", region: "region",  });
 
 /*
-Creates a regional BackendService resource in the specified project using the data included in the request. For more information, see  Backend services overview.
+Creates a regional BackendService resource in the specified project using the data included in the request. For more information, see Backend services overview.
 */
 await gapi.client.compute.regionBackendServices.insert({ project: "project", region: "region",  });
 
@@ -1807,12 +1769,12 @@ Retrieves the list of regional BackendService resources available to the specifi
 await gapi.client.compute.regionBackendServices.list({ project: "project", region: "region",  });
 
 /*
-Updates the specified regional BackendService resource with the data included in the request. For more information, see  Understanding backend services This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+Updates the specified regional BackendService resource with the data included in the request. For more information, see Understanding backend services This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.regionBackendServices.patch({ backendService: "backendService", project: "project", region: "region",  });
 
 /*
-Updates the specified regional BackendService resource with the data included in the request. For more information, see  Backend services overview.
+Updates the specified regional BackendService resource with the data included in the request. For more information, see Backend services overview .
 */
 await gapi.client.compute.regionBackendServices.update({ backendService: "backendService", project: "project", region: "region",  });
 
@@ -1962,11 +1924,7 @@ Updates the specified regional HealthCheckService resource with the data include
 await gapi.client.compute.regionHealthCheckServices.patch({ healthCheckService: "healthCheckService", project: "project", region: "region",  });
 
 /*
-Flags the specified instances to be immediately removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method.
-
-If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
-
-You can specify a maximum of 1000 instances with this method per request.
+Flags the specified instances to be immediately removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request.
 */
 await gapi.client.compute.regionInstanceGroupManagers.abandonInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
@@ -1986,11 +1944,7 @@ Deletes the specified managed instance group and all of the instances in that gr
 await gapi.client.compute.regionInstanceGroupManagers.delete({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
-Flags the specified instances in the managed instance group to be immediately deleted. The instances are also removed from any target pools of which they were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. The deleteInstances operation is marked DONE if the deleteInstances request is successful. The underlying actions take additional time. You must separately verify the status of the deleting action with the listmanagedinstances method.
-
-If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
-
-You can specify a maximum of 1000 instances with this method per request.
+Flags the specified instances in the managed instance group to be immediately deleted. The instances are also removed from any target pools of which they were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. The deleteInstances operation is marked DONE if the deleteInstances request is successful. The underlying actions take additional time. You must separately verify the status of the deleting action with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request.
 */
 await gapi.client.compute.regionInstanceGroupManagers.deleteInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
@@ -2005,9 +1959,7 @@ Returns all of the details about the specified managed instance group.
 await gapi.client.compute.regionInstanceGroupManagers.get({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
-Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method.
-
-A regional managed instance group can contain up to 2000 instances.
+Creates a managed instance group using the information that you specify in the request. After the group is created, instances in the group are created using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method. A regional managed instance group can contain up to 2000 instances.
 */
 await gapi.client.compute.regionInstanceGroupManagers.insert({ project: "project", region: "region",  });
 
@@ -2042,20 +1994,12 @@ Inserts or patches per-instance configs for the managed instance group. perInsta
 await gapi.client.compute.regionInstanceGroupManagers.patchPerInstanceConfigs({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
-Flags the specified VM instances in the managed instance group to be immediately recreated. Each instance is recreated using the group's current configuration. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of each instance by checking its currentAction field; for more information, see Checking the status of managed instances.
-
-If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
-
-You can specify a maximum of 1000 instances with this method per request.
+Flags the specified VM instances in the managed instance group to be immediately recreated. Each instance is recreated using the group's current configuration. This operation is marked as DONE when the flag is set even if the instances have not yet been recreated. You must separately verify the status of each instance by checking its currentAction field; for more information, see Checking the status of managed instances. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request.
 */
 await gapi.client.compute.regionInstanceGroupManagers.recreateInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
-Changes the intended size of the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the size, the group deletes one or more instances.
-
-The resize operation is marked DONE if the resize request is successful. The underlying actions take additional time. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method.
-
-If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
+Changes the intended size of the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the size, the group deletes one or more instances. The resize operation is marked DONE if the resize request is successful. The underlying actions take additional time. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
 */
 await gapi.client.compute.regionInstanceGroupManagers.resize({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", size: 1,  });
 
@@ -2155,11 +2099,7 @@ Retrieves a list of Operation resources contained within the specified region.
 await gapi.client.compute.regionOperations.list({ project: "project", region: "region",  });
 
 /*
-Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress.
-
-This method is called on a best-effort basis. Specifically:  
-- In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. 
-- If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`.
+Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress. This method is called on a best-effort basis. Specifically: - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`. 
 */
 await gapi.client.compute.regionOperations.wait({ operation: "operation", project: "project", region: "region",  });
 
@@ -2489,9 +2429,7 @@ Deletes a rule at the specified priority.
 await gapi.client.compute.securityPolicies.removeRule({ project: "project", securityPolicy: "securityPolicy",  });
 
 /*
-Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If any data on the snapshot that is marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot.
-
-For more information, see Deleting snapshots.
+Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If any data on the snapshot that is marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot. For more information, see Deleting snapshots.
 */
 await gapi.client.compute.snapshots.delete({ project: "project", snapshot: "snapshot",  });
 
@@ -2691,7 +2629,7 @@ Retrieves the list of TargetHttpProxy resources available to the specified proje
 await gapi.client.compute.targetHttpProxies.list({ project: "project",  });
 
 /*
-Patches the specified TargetHttpProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. (== suppress_warning http-rest-shadowed ==)
+Patches the specified TargetHttpProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
 */
 await gapi.client.compute.targetHttpProxies.patch({ project: "project", targetHttpProxy: "targetHttpProxy",  });
 
@@ -2726,7 +2664,7 @@ Retrieves the list of TargetHttpsProxy resources available to the specified proj
 await gapi.client.compute.targetHttpsProxies.list({ project: "project",  });
 
 /*
-Patches the specified TargetHttpsProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules. (== suppress_warning http-rest-shadowed ==)
+Patches the specified TargetHttpsProxy resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
 */
 await gapi.client.compute.targetHttpsProxies.patch({ project: "project", targetHttpsProxy: "targetHttpsProxy",  });
 
@@ -2946,9 +2884,7 @@ Creates a UrlMap resource in the specified project using the data included in th
 await gapi.client.compute.urlMaps.insert({ project: "project",  });
 
 /*
-Initiates a cache invalidation operation, invalidating the specified path, scoped to the specified UrlMap.
-
-For more information, see [Invalidating cached content](/cdn/docs/invalidating-cached-content).
+Initiates a cache invalidation operation, invalidating the specified path, scoped to the specified UrlMap. For more information, see [Invalidating cached content](/cdn/docs/invalidating-cached-content).
 */
 await gapi.client.compute.urlMaps.invalidateCache({ project: "project", urlMap: "urlMap",  });
 
@@ -3053,11 +2989,7 @@ Retrieves a list of Operation resources contained within the specified zone.
 await gapi.client.compute.zoneOperations.list({ project: "project", zone: "zone",  });
 
 /*
-Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress.
-
-This method is called on a best-effort basis. Specifically:  
-- In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. 
-- If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`.
+Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress. This method is called on a best-effort basis. Specifically: - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`. 
 */
 await gapi.client.compute.zoneOperations.wait({ operation: "operation", project: "project", zone: "zone",  });
 
