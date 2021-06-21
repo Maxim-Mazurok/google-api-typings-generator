@@ -7,7 +7,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('datacatalog', 'v1beta1', () => {
+    gapi.client.load('datacatalog', 'v1', () => {
         /** now we can use gapi.client.datacatalog */
 
         /** don't forget to authenticate your client before sending any request to resources: */
@@ -30,10 +30,10 @@ gapi.load('client', () => {
 
     async function run() {
         /**
-         * Searches Data Catalog for multiple resources like entries, tags that match a query. This is a custom method (https://cloud.google.com/apis/design/custom_methods) and does not return the
-         * complete resource, only the resource identifier and high level fields. Clients can subsequently call `Get` methods. Note that Data Catalog search queries do not guarantee full recall.
-         * Query results that match your query may not be returned, even in subsequent result pages. Also note that results returned (and not returned) can vary across repeated search queries. See
-         * [Data Catalog Search Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference) for more information.
+         * Searches Data Catalog for multiple resources like entries and tags that match a query. This is a [Custom Method] (https://cloud.google.com/apis/design/custom_methods) that doesn't
+         * return all information on a resource, only its ID and high level fields. To get more information, you can subsequently call specific get methods. Note: Data Catalog search queries don't
+         * guarantee full recall. Results that match your query might not be returned, even in subsequent result pages. Additionally, returned (and not returned) results can vary if you repeat
+         * search queries. For more information, see [Data Catalog search syntax] (https://cloud.google.com/data-catalog/docs/how-to/search-reference).
          */
         await gapi.client.datacatalog.catalog.search({
         }, {
@@ -51,8 +51,9 @@ gapi.load('client', () => {
                     "Test string"                ],
             },
         });
-        /** Get an entry by target resource name. This method allows clients to use the resource name from the source Google Cloud Platform service to get the Data Catalog Entry. */
+        /** Gets an entry by its target resource name. The resource name comes from the source Google Cloud Platform service. */
         await gapi.client.datacatalog.entries.lookup({
+            fullyQualifiedName: "Test string",
             linkedResource: "Test string",
             sqlResource: "Test string",
         });

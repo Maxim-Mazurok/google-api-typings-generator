@@ -1,4 +1,4 @@
-# TypeScript typings for Google Cloud Data Catalog API v1beta1
+# TypeScript typings for Google Cloud Data Catalog API v1
 
 A fully managed and highly scalable data discovery and metadata management service. 
 For detailed description please check [documentation](https://cloud.google.com/data-catalog/docs/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/d
 Install typings for Google Cloud Data Catalog API:
 
 ```
-npm install @types/gapi.client.datacatalog@v1beta1 --save-dev
+npm install @types/gapi.client.datacatalog@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('datacatalog', 'v1beta1', () => {
+gapi.client.load('datacatalog', 'v1', () => {
   // now we can use gapi.client.datacatalog
   // ...
 });
@@ -59,12 +59,12 @@ After that you can use Google Cloud Data Catalog API resources:
 ```typescript
 
 /*
-Searches Data Catalog for multiple resources like entries, tags that match a query. This is a custom method (https://cloud.google.com/apis/design/custom_methods) and does not return the complete resource, only the resource identifier and high level fields. Clients can subsequently call `Get` methods. Note that Data Catalog search queries do not guarantee full recall. Query results that match your query may not be returned, even in subsequent result pages. Also note that results returned (and not returned) can vary across repeated search queries. See [Data Catalog Search Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference) for more information.
+Searches Data Catalog for multiple resources like entries and tags that match a query. This is a [Custom Method] (https://cloud.google.com/apis/design/custom_methods) that doesn't return all information on a resource, only its ID and high level fields. To get more information, you can subsequently call specific get methods. Note: Data Catalog search queries don't guarantee full recall. Results that match your query might not be returned, even in subsequent result pages. Additionally, returned (and not returned) results can vary if you repeat search queries. For more information, see [Data Catalog search syntax] (https://cloud.google.com/data-catalog/docs/how-to/search-reference).
 */
 await gapi.client.datacatalog.catalog.search({  });
 
 /*
-Get an entry by target resource name. This method allows clients to use the resource name from the source Google Cloud Platform service to get the Data Catalog Entry.
+Gets an entry by its target resource name. The resource name comes from the source Google Cloud Platform service.
 */
 await gapi.client.datacatalog.entries.lookup({  });
 ```
