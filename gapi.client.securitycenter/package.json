@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.securitycenter",
-  "version": "1.0.20210611",
+  "version": "1.0.20210618",
   "description": "TypeScript typings for Security Command Center API v1",
   "license": "MIT",
   "author": {
