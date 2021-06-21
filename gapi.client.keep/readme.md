@@ -1,6 +1,6 @@
 # TypeScript typings for Google Keep API v1
 
-Allows clients to create, read, and write their Google Keep Notes.
+This API is an enterprise-only API used to create and manage the Keep notes within your domain, including resolving issues identified by CASB software.
 For detailed description please check [documentation](https://support.google.com/keep).
 
 ## Installing
