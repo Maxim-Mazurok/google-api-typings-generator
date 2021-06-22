@@ -97,7 +97,7 @@ Get a list of contact groups owned by the authenticated user by specifying a lis
 await gapi.client.people.contactGroups.batchGet({  });
 
 /*
-Create a new contact group owned by the authenticated user.
+Create a new contact group owned by the authenticated user. Created contact group names must be unique to the users contact groups. Attempting to create a group with a duplicate name will return a HTTP 409 error.
 */
 await gapi.client.people.contactGroups.create({  });
 
@@ -117,7 +117,7 @@ List all contact groups owned by the authenticated user. Members of the contact 
 await gapi.client.people.contactGroups.list({  });
 
 /*
-Update the name of an existing contact group owned by the authenticated user.
+Update the name of an existing contact group owned by the authenticated user. Updated contact group names must be unique to the users contact groups. Attempting to create a group with a duplicate name will return a HTTP 409 error.
 */
 await gapi.client.people.contactGroups.update({ resourceName: "resourceName",  });
 
