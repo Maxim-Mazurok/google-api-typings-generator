@@ -1,6 +1,6 @@
 # TypeScript typings for G Suite Vault API v1
 
-Retention and eDiscovery for Google Workspace. To work with Vault resources, the account must have the [required Vault privileges] (https://support.google.com/vault/answer/2799699) and access to the matter. To access a matter, the account must have created the matter, have the matter shared with them, or have the **View All Matters** privilege. For example, to download an export, an account needs the **Manage Exports** privilege and the matter shared with them. 
+Retention and eDiscovery for Google Workspace. To work with Vault resources, the account must have the [required Vault privileges](https://support.google.com/vault/answer/2799699) and access to the matter. To access a matter, the account must have created the matter, have the matter shared with them, or have the **View All Matters** privilege. For example, to download an export, an account needs the **Manage Exports** privilege and the matter shared with them. 
 For detailed description please check [documentation](https://developers.google.com/vault).
 
 ## Installing
@@ -67,22 +67,22 @@ Adds an account as a matter collaborator.
 await gapi.client.vault.matters.addPermissions({ matterId: "matterId",  });
 
 /*
-Closes the specified matter. Returns matter with updated state.
+Closes the specified matter. Returns the matter with updated state.
 */
 await gapi.client.vault.matters.close({ matterId: "matterId",  });
 
 /*
-Counts the artifacts within the context of a matter and returns a detailed breakdown of metrics.
+Counts the accounts processed by the specified query.
 */
 await gapi.client.vault.matters.count({ matterId: "matterId",  });
 
 /*
-Creates a new matter with the given name and description. The initial state is open, and the owner is the method caller. Returns the created matter with default view.
+Creates a matter with the given name and description. The initial state is open, and the owner is the method caller. Returns the created matter with default view.
 */
 await gapi.client.vault.matters.create({  });
 
 /*
-Deletes the specified matter. Returns matter with updated state.
+Deletes the specified matter. Returns the matter with updated state.
 */
 await gapi.client.vault.matters.delete({ matterId: "matterId",  });
 
@@ -92,7 +92,7 @@ Gets the specified matter.
 await gapi.client.vault.matters.get({ matterId: "matterId",  });
 
 /*
-Lists matters the user has access to.
+Lists matters the requestor has access to.
 */
 await gapi.client.vault.matters.list({  });
 
@@ -102,12 +102,12 @@ Removes an account as a matter collaborator.
 await gapi.client.vault.matters.removePermissions({ matterId: "matterId",  });
 
 /*
-Reopens the specified matter. Returns matter with updated state.
+Reopens the specified matter. Returns the matter with updated state.
 */
 await gapi.client.vault.matters.reopen({ matterId: "matterId",  });
 
 /*
-Undeletes the specified matter. Returns matter with updated state.
+Undeletes the specified matter. Returns the matter with updated state.
 */
 await gapi.client.vault.matters.undelete({ matterId: "matterId",  });
 
