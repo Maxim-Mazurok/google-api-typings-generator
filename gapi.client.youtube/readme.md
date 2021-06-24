@@ -187,11 +187,6 @@ Retrieves a list of resources, possibly filtered.
 await gapi.client.youtube.commentThreads.list({ part: "part",  });
 
 /*
-Updates an existing resource.
-*/
-await gapi.client.youtube.commentThreads.update({ part: "part",  });
-
-/*
 Retrieves a list of resources, possibly filtered.
 */
 await gapi.client.youtube.i18nLanguages.list({ part: "part",  });
