@@ -1,7 +1,7 @@
 # TypeScript typings for Notebooks API v1
 
-AI Platform Notebooks API is used to manage notebook resources in Google Cloud.
-For detailed description please check [documentation](https://cloud.google.com/ai-platform/notebooks/docs/).
+Notebooks API is used to manage notebook resources in Google Cloud.
+For detailed description please check [documentation](https://cloud.google.com/notebooks/docs/).
 
 ## Installing
 
