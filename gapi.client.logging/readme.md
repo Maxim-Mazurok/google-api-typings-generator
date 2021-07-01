@@ -71,6 +71,11 @@ After that you can use Cloud Logging API resources:
 ```typescript
 
 /*
+Copies a set of log entries from a logging bucket to a Cloud Storage bucket.
+*/
+await gapi.client.logging.entries.copy({  });
+
+/*
 Lists log entries. Use this method to retrieve log entries that originated from a project/folder/organization/billing account. For ways to export log entries, see Exporting Logs (https://cloud.google.com/logging/docs/export).
 */
 await gapi.client.logging.entries.list({  });
