@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.gmailpostmastertools",
-  "version": "1.0.20210630",
+  "version": "1.0.20210701",
   "description": "TypeScript typings for Gmail Postmaster Tools API v1",
   "license": "MIT",
   "author": {
