@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.playablelocations",
-  "version": "3.0.20210630",
-  "description": "TypeScript typings for Playable Locations API v3",
+  "name": "@maxim_mazurok/gapi.client.baremetalsolution",
+  "version": "1.0.20210701",
+  "description": "TypeScript typings for Bare Metal Solution API v1",
   "license": "MIT",
   "author": {
     "email": "maxim@mazurok.com",
