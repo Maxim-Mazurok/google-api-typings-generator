@@ -1,6 +1,6 @@
 # TypeScript typings for Network Connectivity API v1alpha1
 
-The Network Connectivity API will be home to various services which provide information pertaining to network connectivity.
+The Network Connectivity API provides access to Network Connectivity Center.
 For detailed description please check [documentation](https://cloud.google.com/network-connectivity/docs).
 
 ## Installing
