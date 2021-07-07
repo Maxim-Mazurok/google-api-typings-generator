@@ -39,6 +39,9 @@ var client_id = '',
   scope = [ 
       // See, edit, create and permanently delete all your Google Keep data
       'https://www.googleapis.com/auth/keep',
+
+      // View all your Google Keep data
+      'https://www.googleapis.com/auth/keep.readonly',
     ],
     immediate = true;
 // ...
