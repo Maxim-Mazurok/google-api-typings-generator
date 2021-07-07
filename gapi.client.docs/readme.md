@@ -37,10 +37,10 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // See, create, and edit all Google Docs documents you have access to
+      // See, edit, create, and delete all your Google Docs documents
       'https://www.googleapis.com/auth/documents',
 
-      // View your Google Docs documents
+      // See all your Google Docs documents
       'https://www.googleapis.com/auth/documents.readonly',
 
       // See, edit, create, and delete all of your Google Drive files
