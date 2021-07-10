@@ -39,7 +39,7 @@
     "@types/lodash": "^4.14.168",
     "@types/mocha": "^8.2.2",
     "@types/n-readlines": "^1.0.1",
-    "@types/node": "^15.12.4",
+    "@types/node": "^16.3.1",
     "@types/request": "2.48.5",
     "commander": "^7.2.0",
     "deep-sort-object": "^1.0.2",
