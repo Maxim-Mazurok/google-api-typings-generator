@@ -36,7 +36,7 @@
     "@octokit/rest": "^18.5.6",
     "@types/dot": "^1.1.4",
     "@types/gapi.client.discovery": "^1.0.7",
-    "@types/lodash": "^4.14.168",
+    "@types/lodash": "^4.14.171",
     "@types/mocha": "^8.2.2",
     "@types/n-readlines": "^1.0.1",
     "@types/node": "^15.12.4",
