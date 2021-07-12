@@ -1,7 +1,7 @@
 # TypeScript typings for Tasks API v1
 
 The Google Tasks API lets you manage your tasks and task lists.
-For detailed description please check [documentation](https://developers.google.com/tasks).
+For detailed description please check [documentation](https://developers.google.com/tasks/).
 
 ## Installing
 
