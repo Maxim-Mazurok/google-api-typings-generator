@@ -46,10 +46,10 @@ var client_id = '',
       // See and download all your Google Drive files
       'https://www.googleapis.com/auth/drive.readonly',
 
-      // See, edit, create, and delete your spreadsheets in Google Drive
+      // See, edit, create, and delete all your Google Sheets spreadsheets
       'https://www.googleapis.com/auth/spreadsheets',
 
-      // View your Google Spreadsheets
+      // See all your Google Sheets spreadsheets
       'https://www.googleapis.com/auth/spreadsheets.readonly',
     ],
     immediate = true;
