@@ -1018,6 +1018,90 @@ gapi.load('client', () => {
             parameterName: "Test string",
             scope: "Test string",
         });
+        /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either: - Declining a proposal initiated from Display & Video 360 - Withdrawing a proposal initiated from Google
+         * Analytics After being cancelled, a proposal will eventually be deleted automatically.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.cancel({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            linkProposalStatusDetails: {
+                linkProposalInitiatingProduct: "Test string",
+                linkProposalState: "Test string",
+                requestorEmail: "Test string",
+            },
+            name: "Test string",
+            validationEmail: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only be used on cancelled proposals. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.get({
+            name: "Test string",
+        });
+        /** Lists DisplayVideo360AdvertiserLinkProposals on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a DisplayVideo360AdvertiserLink. This can only be utilized by users who have proper authorization both on the Google Analytics property and on the Display & Video 360
+         * advertiser. Users who do not have access to the Display & Video 360 advertiser should instead seek to create a DisplayVideo360LinkProposal.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.delete({
+            name: "Test string",
+        });
+        /** Look up a single DisplayVideo360AdvertiserLink */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.get({
+            name: "Test string",
+        });
+        /** Lists all DisplayVideo360AdvertiserLinks on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
+        });
         /** Creates a FirebaseLink. Properties can have at most one FirebaseLink. */
         await gapi.client.analyticsadmin.properties.firebaseLinks.create({
             parent: "Test string",
@@ -1893,6 +1977,90 @@ gapi.load('client', () => {
             parameterName: "Test string",
             scope: "Test string",
         });
+        /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either: - Declining a proposal initiated from Display & Video 360 - Withdrawing a proposal initiated from Google
+         * Analytics After being cancelled, a proposal will eventually be deleted automatically.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.cancel({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            linkProposalStatusDetails: {
+                linkProposalInitiatingProduct: "Test string",
+                linkProposalState: "Test string",
+                requestorEmail: "Test string",
+            },
+            name: "Test string",
+            validationEmail: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only be used on cancelled proposals. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.get({
+            name: "Test string",
+        });
+        /** Lists DisplayVideo360AdvertiserLinkProposals on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a DisplayVideo360AdvertiserLink. This can only be utilized by users who have proper authorization both on the Google Analytics property and on the Display & Video 360
+         * advertiser. Users who do not have access to the Display & Video 360 advertiser should instead seek to create a DisplayVideo360LinkProposal.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.delete({
+            name: "Test string",
+        });
+        /** Look up a single DisplayVideo360AdvertiserLink */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.get({
+            name: "Test string",
+        });
+        /** Lists all DisplayVideo360AdvertiserLinks on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
+        });
         /** Creates a FirebaseLink. Properties can have at most one FirebaseLink. */
         await gapi.client.analyticsadmin.properties.firebaseLinks.create({
             parent: "Test string",
@@ -2764,6 +2932,90 @@ gapi.load('client', () => {
             parameterName: "Test string",
             scope: "Test string",
         });
+        /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either: - Declining a proposal initiated from Display & Video 360 - Withdrawing a proposal initiated from Google
+         * Analytics After being cancelled, a proposal will eventually be deleted automatically.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.cancel({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            linkProposalStatusDetails: {
+                linkProposalInitiatingProduct: "Test string",
+                linkProposalState: "Test string",
+                requestorEmail: "Test string",
+            },
+            name: "Test string",
+            validationEmail: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only be used on cancelled proposals. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.get({
+            name: "Test string",
+        });
+        /** Lists DisplayVideo360AdvertiserLinkProposals on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a DisplayVideo360AdvertiserLink. This can only be utilized by users who have proper authorization both on the Google Analytics property and on the Display & Video 360
+         * advertiser. Users who do not have access to the Display & Video 360 advertiser should instead seek to create a DisplayVideo360LinkProposal.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.delete({
+            name: "Test string",
+        });
+        /** Look up a single DisplayVideo360AdvertiserLink */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.get({
+            name: "Test string",
+        });
+        /** Lists all DisplayVideo360AdvertiserLinks on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
+        });
         /** Creates a FirebaseLink. Properties can have at most one FirebaseLink. */
         await gapi.client.analyticsadmin.properties.firebaseLinks.create({
             parent: "Test string",
@@ -3634,6 +3886,90 @@ gapi.load('client', () => {
             name: "Test string",
             parameterName: "Test string",
             scope: "Test string",
+        });
+        /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either: - Declining a proposal initiated from Display & Video 360 - Withdrawing a proposal initiated from Google
+         * Analytics After being cancelled, a proposal will eventually be deleted automatically.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.cancel({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            linkProposalStatusDetails: {
+                linkProposalInitiatingProduct: "Test string",
+                linkProposalState: "Test string",
+                requestorEmail: "Test string",
+            },
+            name: "Test string",
+            validationEmail: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only be used on cancelled proposals. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.get({
+            name: "Test string",
+        });
+        /** Lists DisplayVideo360AdvertiserLinkProposals on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a DisplayVideo360AdvertiserLink. This can only be utilized by users who have proper authorization both on the Google Analytics property and on the Display & Video 360
+         * advertiser. Users who do not have access to the Display & Video 360 advertiser should instead seek to create a DisplayVideo360LinkProposal.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.delete({
+            name: "Test string",
+        });
+        /** Look up a single DisplayVideo360AdvertiserLink */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.get({
+            name: "Test string",
+        });
+        /** Lists all DisplayVideo360AdvertiserLinks on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
         });
         /** Creates a FirebaseLink. Properties can have at most one FirebaseLink. */
         await gapi.client.analyticsadmin.properties.firebaseLinks.create({
@@ -4511,6 +4847,90 @@ gapi.load('client', () => {
             name: "Test string",
             parameterName: "Test string",
             scope: "Test string",
+        });
+        /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either: - Declining a proposal initiated from Display & Video 360 - Withdrawing a proposal initiated from Google
+         * Analytics After being cancelled, a proposal will eventually be deleted automatically.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.cancel({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            linkProposalStatusDetails: {
+                linkProposalInitiatingProduct: "Test string",
+                linkProposalState: "Test string",
+                requestorEmail: "Test string",
+            },
+            name: "Test string",
+            validationEmail: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only be used on cancelled proposals. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.get({
+            name: "Test string",
+        });
+        /** Lists DisplayVideo360AdvertiserLinkProposals on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a DisplayVideo360AdvertiserLink. This can only be utilized by users who have proper authorization both on the Google Analytics property and on the Display & Video 360
+         * advertiser. Users who do not have access to the Display & Video 360 advertiser should instead seek to create a DisplayVideo360LinkProposal.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.delete({
+            name: "Test string",
+        });
+        /** Look up a single DisplayVideo360AdvertiserLink */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.get({
+            name: "Test string",
+        });
+        /** Lists all DisplayVideo360AdvertiserLinks on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
         });
         /** Creates a FirebaseLink. Properties can have at most one FirebaseLink. */
         await gapi.client.analyticsadmin.properties.firebaseLinks.create({
@@ -5396,6 +5816,90 @@ gapi.load('client', () => {
             parameterName: "Test string",
             scope: "Test string",
         });
+        /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either: - Declining a proposal initiated from Display & Video 360 - Withdrawing a proposal initiated from Google
+         * Analytics After being cancelled, a proposal will eventually be deleted automatically.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.cancel({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            linkProposalStatusDetails: {
+                linkProposalInitiatingProduct: "Test string",
+                linkProposalState: "Test string",
+                requestorEmail: "Test string",
+            },
+            name: "Test string",
+            validationEmail: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only be used on cancelled proposals. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.get({
+            name: "Test string",
+        });
+        /** Lists DisplayVideo360AdvertiserLinkProposals on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a DisplayVideo360AdvertiserLink. This can only be utilized by users who have proper authorization both on the Google Analytics property and on the Display & Video 360
+         * advertiser. Users who do not have access to the Display & Video 360 advertiser should instead seek to create a DisplayVideo360LinkProposal.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.delete({
+            name: "Test string",
+        });
+        /** Look up a single DisplayVideo360AdvertiserLink */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.get({
+            name: "Test string",
+        });
+        /** Lists all DisplayVideo360AdvertiserLinks on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
+        });
         /** Creates a FirebaseLink. Properties can have at most one FirebaseLink. */
         await gapi.client.analyticsadmin.properties.firebaseLinks.create({
             parent: "Test string",
@@ -6271,6 +6775,90 @@ gapi.load('client', () => {
             name: "Test string",
             parameterName: "Test string",
             scope: "Test string",
+        });
+        /** Approves a DisplayVideo360AdvertiserLinkProposal. The DisplayVideo360AdvertiserLinkProposal will be deleted and a new DisplayVideo360AdvertiserLink will be created. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve({
+            name: "Test string",
+        }, {
+        });
+        /**
+         * Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either: - Declining a proposal initiated from Display & Video 360 - Withdrawing a proposal initiated from Google
+         * Analytics After being cancelled, a proposal will eventually be deleted automatically.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.cancel({
+            name: "Test string",
+        }, {
+        });
+        /** Creates a DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            linkProposalStatusDetails: {
+                linkProposalInitiatingProduct: "Test string",
+                linkProposalState: "Test string",
+                requestorEmail: "Test string",
+            },
+            name: "Test string",
+            validationEmail: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only be used on cancelled proposals. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.delete({
+            name: "Test string",
+        });
+        /** Lookup for a single DisplayVideo360AdvertiserLinkProposal. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.get({
+            name: "Test string",
+        });
+        /** Lists DisplayVideo360AdvertiserLinkProposals on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /**
+         * Creates a DisplayVideo360AdvertiserLink. This can only be utilized by users who have proper authorization both on the Google Analytics property and on the Display & Video 360
+         * advertiser. Users who do not have access to the Display & Video 360 advertiser should instead seek to create a DisplayVideo360LinkProposal.
+         */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.create({
+            parent: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
+        });
+        /** Deletes a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.delete({
+            name: "Test string",
+        });
+        /** Look up a single DisplayVideo360AdvertiserLink */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.get({
+            name: "Test string",
+        });
+        /** Lists all DisplayVideo360AdvertiserLinks on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.list({
+            pageSize: 42,
+            pageToken: "Test string",
+            parent: "Test string",
+        });
+        /** Updates a DisplayVideo360AdvertiserLink on a property. */
+        await gapi.client.analyticsadmin.properties.displayVideo360AdvertiserLinks.patch({
+            name: "Test string",
+            updateMask: "Test string",
+        }, {
+            adsPersonalizationEnabled: true,
+            advertiserDisplayName: "Test string",
+            advertiserId: "Test string",
+            campaignDataSharingEnabled: true,
+            costDataSharingEnabled: true,
+            name: "Test string",
         });
         /** Creates a FirebaseLink. Properties can have at most one FirebaseLink. */
         await gapi.client.analyticsadmin.properties.firebaseLinks.create({
