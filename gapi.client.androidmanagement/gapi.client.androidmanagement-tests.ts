@@ -863,7 +863,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             value: "Test string",
         });
-        /** This feature is not generally available yet. Deletes an enterprise. */
+        /** Deletes an enterprise. Only available for EMM-managed enterprises. */
         await gapi.client.androidmanagement.enterprises.delete({
             name: "Test string",
         });
@@ -2443,7 +2443,7 @@ gapi.load('client', () => {
                 "Test string"            ],
             value: "Test string",
         });
-        /** This feature is not generally available yet. Lists enterprises that are managed by an EMM. Only partial views are returned. */
+        /** Lists EMM-managed enterprises. Only BASIC fields are returned. */
         await gapi.client.androidmanagement.enterprises.list({
             pageSize: 42,
             pageToken: "Test string",

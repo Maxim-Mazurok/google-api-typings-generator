@@ -409,7 +409,7 @@ declare namespace gapi.client {
         interface Enterprise {
             /** Deprecated and unused. */
             appAutoApprovalEnabled?: boolean;
-            /** This feature is not generally available yet. The enterprise contact info of an EMM owned enterprise */
+            /** The enterprise contact info of an EMM-managed enterprise. */
             contactInfo?: ContactInfo;
             /** The types of Google Pub/Sub notifications enabled for the enterprise. */
             enabledNotificationTypes?: string[];
@@ -550,9 +550,9 @@ declare namespace gapi.client {
             nextPageToken?: string;
         }
         interface ListEnterprisesResponse {
-            /** This feature is not generally available yet. The list of enterprises. */
+            /** The list of enterprises. */
             enterprises?: Enterprise[];
-            /** This feature is not generally available yet. If there are more results, a token to retrieve next page of results. */
+            /** If there are more results, a token to retrieve next page of results. */
             nextPageToken?: string;
         }
         interface ListOperationsResponse {
@@ -2089,13 +2089,16 @@ declare namespace gapi.client {
                 "$.xgafv"?: string;
                 /** OAuth access token. */
                 access_token?: string;
-                /** This feature is not generally available yet. Whether the managed Google Play Agreement is presented and agreed. */
+                /**
+                 * Whether the enterprise admin has seen and agreed to the managed Google Play Agreement (https://www.android.com/enterprise/terms/). Always set this to true when creating an
+                 * EMM-managed enterprise. Do not create the enterprise until the admin has viewed and accepted the agreement.
+                 */
                 agreementAccepted?: boolean;
                 /** Data format for response. */
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /** The enterprise token appended to the callback URL. */
+                /** The enterprise token appended to the callback URL. Only set this when creating a customer-managed enterprise. */
                 enterpriseToken?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -2109,7 +2112,7 @@ declare namespace gapi.client {
                 projectId?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** The name of the SignupUrl used to sign up for the enterprise. */
+                /** The name of the SignupUrl used to sign up for the enterprise. Only set this when creating a customer-managed enterprise. */
                 signupUrlName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -2123,13 +2126,16 @@ declare namespace gapi.client {
                 "$.xgafv"?: string;
                 /** OAuth access token. */
                 access_token?: string;
-                /** This feature is not generally available yet. Whether the managed Google Play Agreement is presented and agreed. */
+                /**
+                 * Whether the enterprise admin has seen and agreed to the managed Google Play Agreement (https://www.android.com/enterprise/terms/). Always set this to true when creating an
+                 * EMM-managed enterprise. Do not create the enterprise until the admin has viewed and accepted the agreement.
+                 */
                 agreementAccepted?: boolean;
                 /** Data format for response. */
                 alt?: string;
                 /** JSONP */
                 callback?: string;
-                /** The enterprise token appended to the callback URL. */
+                /** The enterprise token appended to the callback URL. Only set this when creating a customer-managed enterprise. */
                 enterpriseToken?: string;
                 /** Selector specifying which fields to include in a partial response. */
                 fields?: string;
@@ -2143,7 +2149,7 @@ declare namespace gapi.client {
                 projectId?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
-                /** The name of the SignupUrl used to sign up for the enterprise. */
+                /** The name of the SignupUrl used to sign up for the enterprise. Only set this when creating a customer-managed enterprise. */
                 signupUrlName?: string;
                 /** Upload protocol for media (e.g. "raw", "multipart"). */
                 upload_protocol?: string;
@@ -2151,7 +2157,7 @@ declare namespace gapi.client {
                 uploadType?: string;
             },
             body: Enterprise): Request<Enterprise>;
-            /** This feature is not generally available yet. Deletes an enterprise. */
+            /** Deletes an enterprise. Only available for EMM-managed enterprises. */
             delete(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2165,7 +2171,7 @@ declare namespace gapi.client {
                 fields?: string;
                 /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
                 key?: string;
-                /** This feature is not generally available yet. The name of the enterprise in the form enterprises/{enterpriseId}. */
+                /** The name of the enterprise in the form enterprises/{enterpriseId}. */
                 name: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
@@ -2205,7 +2211,7 @@ declare namespace gapi.client {
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
             }): Request<Enterprise>;
-            /** This feature is not generally available yet. Lists enterprises that are managed by an EMM. Only partial views are returned. */
+            /** Lists EMM-managed enterprises. Only BASIC fields are returned. */
             list(request?: {
                 /** V1 error format. */
                 "$.xgafv"?: string;
@@ -2221,13 +2227,13 @@ declare namespace gapi.client {
                 key?: string;
                 /** OAuth 2.0 token for the current user. */
                 oauth_token?: string;
-                /** This feature is not generally available yet. The requested page size. The actual page size may be fixed to a min or max value. */
+                /** The requested page size. The actual page size may be fixed to a min or max value. */
                 pageSize?: number;
-                /** This feature is not generally available yet. A token identifying a page of results returned by the server. */
+                /** A token identifying a page of results returned by the server. */
                 pageToken?: string;
                 /** Returns response with indentations and line breaks. */
                 prettyPrint?: boolean;
-                /** Required. This feature is not generally available yet. The ID of the Cloud project of the EMM the enterprises belongs to. */
+                /** Required. The Cloud project ID of the EMM managing the enterprises. */
                 projectId?: string;
                 /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
                 quotaUser?: string;
@@ -2235,7 +2241,7 @@ declare namespace gapi.client {
                 upload_protocol?: string;
                 /** Legacy upload protocol for media (e.g. "media", "multipart"). */
                 uploadType?: string;
-                /** This feature is not generally available yet. View that specify that partial response should be returned. */
+                /** Specifies which Enterprise fields to return. This method only supports BASIC. */
                 view?: string;
             }): Request<ListEnterprisesResponse>;
             /** Updates an enterprise. */
