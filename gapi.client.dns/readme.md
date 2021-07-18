@@ -168,7 +168,27 @@ Fetches the representation of an existing Project.
 await gapi.client.dns.projects.get({ project: "project",  });
 
 /*
+Creates a new ResourceRecordSet.
+*/
+await gapi.client.dns.resourceRecordSets.create({ managedZone: "managedZone", project: "project",  });
+
+/*
+Deletes a previously created ResourceRecordSet.
+*/
+await gapi.client.dns.resourceRecordSets.delete({ managedZone: "managedZone", name: "name", project: "project", type: "type",  });
+
+/*
+Fetches the representation of an existing ResourceRecordSet.
+*/
+await gapi.client.dns.resourceRecordSets.get({ managedZone: "managedZone", name: "name", project: "project", type: "type",  });
+
+/*
 Enumerates ResourceRecordSets that you have created but not yet deleted.
 */
 await gapi.client.dns.resourceRecordSets.list({ managedZone: "managedZone", project: "project",  });
+
+/*
+Applies a partial update to an existing ResourceRecordSet.
+*/
+await gapi.client.dns.resourceRecordSets.patch({ managedZone: "managedZone", name: "name", project: "project", type: "type",  });
 ```
