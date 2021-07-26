@@ -104,6 +104,11 @@ Returns the list of accounts linked to your Merchant Center account.
 await gapi.client.content.accounts.listlinks({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
+Request verification code to start phone verification.
+*/
+await gapi.client.content.accounts.requestphoneverification({ accountId: "accountId", merchantId: "merchantId",  });
+
+/*
 Updates a Merchant Center account. Any fields that are not provided are deleted from the resource.
 */
 await gapi.client.content.accounts.update({ accountId: "accountId", merchantId: "merchantId",  });
@@ -112,6 +117,11 @@ await gapi.client.content.accounts.update({ accountId: "accountId", merchantId: 
 Updates labels that are assigned to the Merchant Center account by CSS user.
 */
 await gapi.client.content.accounts.updatelabels({ accountId: "accountId", merchantId: "merchantId",  });
+
+/*
+Validates verification code to verify phone number for the account.
+*/
+await gapi.client.content.accounts.verifyphonenumber({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
 Retrieves multiple Merchant Center account statuses in a single request.
@@ -267,6 +277,16 @@ await gapi.client.content.datafeedstatuses.get({ datafeedId: "datafeedId", merch
 Lists the statuses of the datafeeds in your Merchant Center account.
 */
 await gapi.client.content.datafeedstatuses.list({ merchantId: "merchantId",  });
+
+/*
+Retrieves the status and review eligibility for the free listing program.
+*/
+await gapi.client.content.freelistingsprogram.get({ merchantId: "merchantId",  });
+
+/*
+Requests a review for Free Listings program in the provided region. Important: This method is only whitelisted for selected merchants.
+*/
+await gapi.client.content.freelistingsprogram.requestreview({ merchantId: "merchantId",  });
 
 /*
 Retrieves and/or updates the LIA settings of multiple accounts in a single request.
@@ -762,4 +782,14 @@ await gapi.client.content.shippingsettings.list({ merchantId: "merchantId",  });
 Updates the shipping settings of the account. Any fields that are not provided are deleted from the resource.
 */
 await gapi.client.content.shippingsettings.update({ accountId: "accountId", merchantId: "merchantId",  });
+
+/*
+Retrieves the status and review eligibility for the Shopping Ads program.
+*/
+await gapi.client.content.shoppingadsprogram.get({ merchantId: "merchantId",  });
+
+/*
+Requests a review for Shopping Ads program in the provided country.
+*/
+await gapi.client.content.shoppingadsprogram.requestreview({ merchantId: "merchantId",  });
 ```
