@@ -39,6 +39,9 @@ var client_id = '',
   scope = [ 
       // See, edit, configure, and delete your Google Cloud Platform data
       'https://www.googleapis.com/auth/cloud-platform',
+
+      // Send messages and manage messaging subscriptions for your Firebase applications
+      'https://www.googleapis.com/auth/firebase.messaging',
     ],
     immediate = true;
 // ...
