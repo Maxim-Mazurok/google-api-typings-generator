@@ -564,7 +564,7 @@ export class App {
       }
 
       out.interface(resourceInterfaceName, () => {
-        _.forEach(resource.methods, method => {
+        _.forEach(resource.methods, (method, methodName) => {
           if (method.description) {
             out.comment(formatComment(method.description));
           }
@@ -578,7 +578,7 @@ export class App {
           if (!requestParameters.resource || !requestRef) {
             // generate method(request)
             out.method(
-              formatPropertyName(checkExists(getName(method.id))),
+              formatPropertyName(checkExists(getName(methodName))),
               [
                 {
                   parameter: 'request',
@@ -597,7 +597,7 @@ export class App {
           if (requestRef) {
             // generate method(request, body)
             out.method(
-              formatPropertyName(checkExists(getName(method.id))),
+              formatPropertyName(checkExists(getName(methodName))),
               [
                 {
                   parameter: 'request',
