@@ -1572,6 +1572,7 @@ gapi.load('client', () => {
         });
         /** Updates an in-app product (i.e. a managed product or a subscriptions). */
         await gapi.client.androidpublisher.inappproducts.update({
+            allowMissing: true,
             autoConvertMissingPrices: true,
             packageName: "Test string",
             sku: "Test string",

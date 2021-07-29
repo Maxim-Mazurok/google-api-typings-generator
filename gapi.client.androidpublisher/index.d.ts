@@ -2368,6 +2368,8 @@ declare namespace gapi.client {
                 "$.xgafv"?: string;
                 /** OAuth access token. */
                 access_token?: string;
+                /** If set to true, and the in-app product with the given package_name and sku doesn't exist, the in-app product will be created. */
+                allowMissing?: boolean;
                 /** Data format for response. */
                 alt?: string;
                 /**
@@ -2403,6 +2405,8 @@ declare namespace gapi.client {
                 "$.xgafv"?: string;
                 /** OAuth access token. */
                 access_token?: string;
+                /** If set to true, and the in-app product with the given package_name and sku doesn't exist, the in-app product will be created. */
+                allowMissing?: boolean;
                 /** Data format for response. */
                 alt?: string;
                 /**
