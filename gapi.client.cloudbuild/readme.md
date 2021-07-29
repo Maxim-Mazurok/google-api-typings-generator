@@ -67,4 +67,9 @@ await gapi.client.cloudbuild.operations.cancel({ name: "name",  });
 Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
 */
 await gapi.client.cloudbuild.operations.get({ name: "name",  });
+
+/*
+ReceiveWebhook is called when the API receives a GitHub webhook.
+*/
+await gapi.client.cloudbuild.v1.webhook({  });
 ```
