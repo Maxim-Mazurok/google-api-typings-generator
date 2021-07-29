@@ -1,6 +1,6 @@
 # TypeScript typings for Cloud Channel API v1
 
-
+The Cloud Channel API enables Google Cloud partners to have a single unified resale platform and APIs across all of Google Cloud including GCP, Workspace, Maps and Chrome.
 For detailed description please check [documentation](https://cloud.google.com/channel).
 
 ## Installing
