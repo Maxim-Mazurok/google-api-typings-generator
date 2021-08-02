@@ -1,7 +1,7 @@
 # TypeScript typings for Access Approval API v1
 
 An API for controlling access to data by Google personnel.
-For detailed description please check [documentation](https://cloud.google.com/access-approval/docs).
+For detailed description please check [documentation](https://cloud.google.com/cloud-provider-access-management/access-approval/docs).
 
 ## Installing
 
