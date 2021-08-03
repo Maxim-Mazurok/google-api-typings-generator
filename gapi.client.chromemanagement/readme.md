@@ -37,6 +37,9 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
+      // See detailed information about apps installed on Chrome browsers and devices managed by your organization
+      'https://www.googleapis.com/auth/chrome.management.appdetails.readonly',
+
       // See reports about devices and Chrome browsers managed within your organization
       'https://www.googleapis.com/auth/chrome.management.reports.readonly',
     ],
