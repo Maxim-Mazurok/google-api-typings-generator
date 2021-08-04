@@ -318,6 +318,8 @@ declare namespace gapi.client {
             autoprovisioningLocations?: string[];
             /** AutoprovisioningNodePoolDefaults contains defaults for a node pool created by NAP. */
             autoprovisioningNodePoolDefaults?: AutoprovisioningNodePoolDefaults;
+            /** Defines autoscaling behaviour. */
+            autoscalingProfile?: string;
             /** Enables automatic node pool creation and deletion. */
             enableNodeAutoprovisioning?: boolean;
             /** Contains global constraints regarding minimum and maximum amount of resources in the cluster. */
