@@ -61,10 +61,10 @@ var client_id = '',
       // Add to info about your body temperature in Google Fit. I consent to Google using my body temperature information with this app.
       'https://www.googleapis.com/auth/fitness.body_temperature.write',
 
-      // See info about your body measurements and heart rate in Google Fit
+      // See info about your body measurements in Google Fit
       'https://www.googleapis.com/auth/fitness.body.read',
 
-      // Add info about your body measurements and heart rate to Google Fit
+      // Add info about your body measurements to Google Fit
       'https://www.googleapis.com/auth/fitness.body.write',
 
       // See your heart rate data in Google Fit. I consent to Google sharing my heart rate information with this app.
