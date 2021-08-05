@@ -71,7 +71,7 @@ After that you can use Cloud Logging API resources:
 ```typescript
 
 /*
-Copies a set of log entries from a logging bucket to a Cloud Storage bucket.
+Copies a set of log entries from a log bucket to a Cloud Storage bucket.
 */
 await gapi.client.logging.entries.copy({  });
 
