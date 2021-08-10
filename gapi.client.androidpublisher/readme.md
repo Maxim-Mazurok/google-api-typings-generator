@@ -124,7 +124,7 @@ Uploads an app bundle to internal app sharing. If you are using the Google API c
 await gapi.client.androidpublisher.internalappsharingartifacts.uploadbundle({ packageName: "packageName",  });
 
 /*
-Refund a user's subscription or in-app purchase order.
+Refunds a user's subscription or in-app purchase order. Orders older than 1 year cannot be refunded.
 */
 await gapi.client.androidpublisher.orders.refund({ orderId: "orderId", packageName: "packageName",  });
 
