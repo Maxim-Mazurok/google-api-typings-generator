@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.adexchangebuyer",
-  "version": "1.4.20210809",
+  "version": "1.4.20210810",
   "description": "TypeScript typings for Ad Exchange Buyer API v1.4",
   "license": "MIT",
   "author": {
