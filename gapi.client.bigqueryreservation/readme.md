@@ -37,10 +37,10 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // View and manage your data in Google BigQuery
+      // View and manage your data in Google BigQuery and see the email address for your Google Account
       'https://www.googleapis.com/auth/bigquery',
 
-      // See, edit, configure, and delete your Google Cloud Platform data
+      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
       'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
