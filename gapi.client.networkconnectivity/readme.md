@@ -1,7 +1,7 @@
 # TypeScript typings for Network Connectivity API v1alpha1
 
 The Network Connectivity API provides access to Network Connectivity Center.
-For detailed description please check [documentation](https://cloud.google.com/network-connectivity/docs).
+For detailed description please check [documentation](https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest).
 
 ## Installing
 
@@ -37,7 +37,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [ 
-      // See, edit, configure, and delete your Google Cloud Platform data
+      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
       'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
