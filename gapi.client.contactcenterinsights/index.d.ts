@@ -320,7 +320,10 @@ declare namespace gapi.client {
             sentimentData?: GoogleCloudContactcenterinsightsV1SentimentData;
         }
         interface GoogleCloudContactcenterinsightsV1ConversationParticipant {
-            /** The name of the Dialogflow participant. Format: projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant} */
+            /**
+             * Deprecated. Use `dialogflow_participant_name` instead. The name of the Dialogflow participant. Format:
+             * projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant}
+             */
             dialogflowParticipant?: string;
             /** The name of the participant provided by Dialogflow. Format: projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant} */
             dialogflowParticipantName?: string;
