@@ -40,7 +40,7 @@ var client_id = '',
       // Use Stackdriver Debugger
       'https://www.googleapis.com/auth/cloud_debugger',
 
-      // See, edit, configure, and delete your Google Cloud Platform data
+      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
       'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
