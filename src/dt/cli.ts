@@ -1,6 +1,6 @@
 // Use this script to generate "shadow" types for DT that reference "real" types published to @maxim_mazurok/gapi.client.*
 
-import program from 'commander';
+import {program} from 'commander';
 import {App} from './app';
 import {getProxySettings} from 'get-proxy-settings';
 import {getMaxLineLength} from '../utils';
