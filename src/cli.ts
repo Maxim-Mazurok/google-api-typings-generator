@@ -1,4 +1,4 @@
-import program from 'commander';
+import {program} from 'commander';
 import {App} from './app';
 import {getProxySettings} from 'get-proxy-settings';
 import {getBannedTypes, getMaxLineLength} from './utils';
