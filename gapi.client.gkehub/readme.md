@@ -1,11 +1,11 @@
-# TypeScript typings for GKE Hub v1
+# TypeScript typings for GKE Hub API v1
 
 
 For detailed description please check [documentation](https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster).
 
 ## Installing
 
-Install typings for GKE Hub:
+Install typings for GKE Hub API:
 
 ```
 npm install @types/gapi.client.gkehub@v1 --save-dev
@@ -54,7 +54,7 @@ gapi.auth.authorize(
 });
 ```
 
-After that you can use GKE Hub resources:
+After that you can use GKE Hub API resources:
 
 ```typescript
 ```
