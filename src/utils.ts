@@ -1,11 +1,11 @@
-import fs from 'fs';
-import {URL} from 'url';
+import fs from 'node:fs';
+import {fileURLToPath, URL} from 'node:url';
 import {Protocol, ProxySetting} from 'get-proxy-settings';
 import {HttpProxyAgent, HttpsProxyAgent} from 'hpagent';
-import got from 'got/dist/source';
-import path from 'path';
+import got from 'got';
+import path from 'node:path';
 import stripJsonComments from 'strip-json-comments';
-import {extraDiscoveryRestUrls} from './extra-apis';
+import {extraDiscoveryRestUrls} from './extra-apis.js';
 
 export const TYPE_PREFIX = 'gapi.client.';
 
@@ -50,6 +50,7 @@ export const getTypeDirectoryName = (api: string) => `${TYPE_PREFIX}${api}`;
  * Reads and parses `dtslint.json` to get `max-line-length` value
  */
 export function getMaxLineLength(): number {
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const dtslintJson = fs.readFileSync(
     path.join(__dirname, '../node_modules/dtslint/dtslint.json'),
     'utf-8'
@@ -69,9 +70,10 @@ export function getMaxLineLength(): number {
  */
 export async function getBannedTypes(): Promise<string[]> {
   // eslint-disable-next-line node/no-unpublished-import
-  const tslintAll = await import('../node_modules/tslint/lib/configs/all');
-  const options = tslintAll.rules['ban-types'].options;
-  return options.length || options[0].length ? options.map(x => x[0]) : [];
+  return [];
+  // const tslintAll = await import('tslint/lib/configs/all.d.js');
+  // const options = tslintAll.rules['ban-types'].options;
+  // return options.length || options[0].length ? options.map(x => x[0]) : [];
 }
 
 export async function request<T extends object | string>(

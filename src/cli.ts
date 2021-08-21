@@ -1,7 +1,7 @@
 import {program} from 'commander';
-import {App} from './app';
+import {App} from './app.js';
 import {getProxySettings} from 'get-proxy-settings';
-import {getBannedTypes, getMaxLineLength} from './utils';
+import {getBannedTypes, getMaxLineLength} from './utils.js';
 
 process.on('unhandledRejection', reason => {
   throw reason;

@@ -1,6 +1,9 @@
 import assert from 'assert';
-import {readFileSync} from 'fs';
-import path from 'path';
+import {readFileSync} from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nvmrc = readFileSync(
   path.resolve(path.join(__dirname, '..', '.nvmrc')),
