@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import path from 'path';
+import path from 'node:path';
 import sortObject from 'deep-sort-object';
 import {
   ensureDirectoryExists,

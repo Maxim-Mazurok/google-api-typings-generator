@@ -1,7 +1,7 @@
 import {getProxySettings} from 'get-proxy-settings';
 import _ from 'lodash';
 import {request, getAllDiscoveryItems} from '../src/utils';
-import fs from 'fs';
+import fs from 'node:fs';
 import {excludedApis} from '../src/app';
 
 const prefix = '@maxim_mazurok/gapi.client.';
@@ -38,9 +38,8 @@ const updateLocalAllowedPackageJsonDependencies = (
     x.startsWith(prefix)
   );
 
-  const newLocalAllowedPackageJsonDependencies = localAllowedPackageJsonDependencies.filter(
-    x => !x.startsWith(prefix)
-  );
+  const newLocalAllowedPackageJsonDependencies =
+    localAllowedPackageJsonDependencies.filter(x => !x.startsWith(prefix));
 
   newLocalAllowedPackageJsonDependencies.splice(
     firstIndex,
@@ -81,11 +80,11 @@ const listAllowedPackageJsonDependencies = async () => {
 
 (async () => {
   const discoveryTypes = await listDiscoveryTypes();
-  const allowedPackageJsonDependencies = await listAllowedPackageJsonDependencies();
+  const allowedPackageJsonDependencies =
+    await listAllowedPackageJsonDependencies();
 
-  const discoveryTypesNotPresentInAllowedPackageJsonDependencies = discoveryTypes.filter(
-    x => !allowedPackageJsonDependencies.includes(x)
-  );
+  const discoveryTypesNotPresentInAllowedPackageJsonDependencies =
+    discoveryTypes.filter(x => !allowedPackageJsonDependencies.includes(x));
 
   console.log({discoveryTypesNotPresentInAllowedPackageJsonDependencies});
 
@@ -95,8 +94,7 @@ const listAllowedPackageJsonDependencies = async () => {
     // todo: open PR
   }
 
-  const allowedPackageJsonDependenciesNotPresentInDiscoveryTypes = allowedPackageJsonDependencies.filter(
-    x => !discoveryTypes.includes(x)
-  );
+  const allowedPackageJsonDependenciesNotPresentInDiscoveryTypes =
+    allowedPackageJsonDependencies.filter(x => !discoveryTypes.includes(x));
   console.log({allowedPackageJsonDependenciesNotPresentInDiscoveryTypes});
 })();

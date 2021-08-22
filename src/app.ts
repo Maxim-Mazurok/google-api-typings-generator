@@ -1,6 +1,6 @@
-import fs from 'fs';
+import fs from 'node:fs';
 import _ from 'lodash';
-import path, {basename, join} from 'path';
+import path, {basename, join} from 'node:path';
 import sortObject from 'deep-sort-object';
 import LineByLine from 'n-readlines';
 import {
@@ -10,15 +10,16 @@ import {
   getTypeDirectoryName,
   parseVersion,
   request,
-} from './utils';
-import {StreamWriter, TextWriter} from './writer';
-import {Template} from './template';
+} from './utils.js';
+import {StreamWriter, TextWriter} from './writer.js';
+import {Template} from './template/index.js';
 import {ProxySetting} from 'get-proxy-settings';
-import {hasPrefixI} from './tslint';
+import {hasPrefixI} from './tslint.js';
 import {
   fallbackDocumentationLinks,
   zeroWidthJoinerCharacter,
-} from './constants';
+} from './constants.js';
+import {fileURLToPath} from 'node:url';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;
@@ -26,6 +27,8 @@ type RestDescription = gapi.client.discovery.RestDescription;
 type RestMethod = gapi.client.discovery.RestMethod;
 
 export const revisionPrefix = '// Revision: ';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const typesMap: {[key: string]: string} = {
   integer: 'number',
@@ -620,9 +623,8 @@ export class App {
 
         if (resource.resources) {
           _.forEach(resource.resources, (_, childResourceName) => {
-            const childResourceInterfaceName = getResourceTypeName(
-              childResourceName
-            );
+            const childResourceInterfaceName =
+              getResourceTypeName(childResourceName);
             out.property(childResourceName, childResourceInterfaceName);
           });
         }

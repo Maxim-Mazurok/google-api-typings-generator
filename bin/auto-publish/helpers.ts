@@ -3,9 +3,9 @@ import {Git, Settings as GitSettings} from './git';
 import {Settings} from './index';
 import {ensureDirectoryExists, sleep} from '../../src/utils';
 import {Octokit} from '@octokit/rest';
-import {readdirSync} from 'fs';
+import {readdirSync} from 'node:fs';
 import {SpawnResult} from '@expo/spawn-async';
-import {basename} from 'path';
+import {basename} from 'node:path';
 
 export const createOctokit = ({auth, user, thisRepo}: GitSettings) =>
   new Octokit({
