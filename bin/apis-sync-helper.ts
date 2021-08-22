@@ -38,9 +38,8 @@ const updateLocalAllowedPackageJsonDependencies = (
     x.startsWith(prefix)
   );
 
-  const newLocalAllowedPackageJsonDependencies = localAllowedPackageJsonDependencies.filter(
-    x => !x.startsWith(prefix)
-  );
+  const newLocalAllowedPackageJsonDependencies =
+    localAllowedPackageJsonDependencies.filter(x => !x.startsWith(prefix));
 
   newLocalAllowedPackageJsonDependencies.splice(
     firstIndex,
@@ -81,11 +80,11 @@ const listAllowedPackageJsonDependencies = async () => {
 
 (async () => {
   const discoveryTypes = await listDiscoveryTypes();
-  const allowedPackageJsonDependencies = await listAllowedPackageJsonDependencies();
+  const allowedPackageJsonDependencies =
+    await listAllowedPackageJsonDependencies();
 
-  const discoveryTypesNotPresentInAllowedPackageJsonDependencies = discoveryTypes.filter(
-    x => !allowedPackageJsonDependencies.includes(x)
-  );
+  const discoveryTypesNotPresentInAllowedPackageJsonDependencies =
+    discoveryTypes.filter(x => !allowedPackageJsonDependencies.includes(x));
 
   console.log({discoveryTypesNotPresentInAllowedPackageJsonDependencies});
 
@@ -95,8 +94,7 @@ const listAllowedPackageJsonDependencies = async () => {
     // todo: open PR
   }
 
-  const allowedPackageJsonDependenciesNotPresentInDiscoveryTypes = allowedPackageJsonDependencies.filter(
-    x => !discoveryTypes.includes(x)
-  );
+  const allowedPackageJsonDependenciesNotPresentInDiscoveryTypes =
+    allowedPackageJsonDependencies.filter(x => !discoveryTypes.includes(x));
   console.log({allowedPackageJsonDependenciesNotPresentInDiscoveryTypes});
 })();

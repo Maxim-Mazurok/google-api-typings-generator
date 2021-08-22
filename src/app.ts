@@ -623,9 +623,8 @@ export class App {
 
         if (resource.resources) {
           _.forEach(resource.resources, (_, childResourceName) => {
-            const childResourceInterfaceName = getResourceTypeName(
-              childResourceName
-            );
+            const childResourceInterfaceName =
+              getResourceTypeName(childResourceName);
             out.property(childResourceName, childResourceInterfaceName);
           });
         }
