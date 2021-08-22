@@ -1,6 +1,6 @@
 import assert from 'assert';
-import {supportedApis} from '../bin/auto-publish/config';
-import {excludedApis} from '../src/app';
+import {supportedApis} from '../bin/auto-publish/config.js';
+import {excludedApis} from '../src/app.js';
 
 describe('Config validation', () => {
   it('Excluded and supported APIs should not overlap', () => {
