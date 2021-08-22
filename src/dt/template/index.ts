@@ -1,8 +1,9 @@
-import path from 'path';
-import fs from 'fs';
+import path from 'node:path';
+import fs from 'node:fs';
 import doT, {RenderFunction} from 'dot';
 import {StreamWriter} from '../../writer';
 import {Configuration} from '../app';
+import {fileURLToPath} from 'node:url';
 
 type RestDescription = gapi.client.discovery.RestDescription;
 
@@ -10,6 +11,7 @@ export class Template {
   private readonly template: RenderFunction;
 
   constructor(name: string) {
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
     const filename = path.join(__dirname, name);
 
     if (!fs.existsSync(filename)) {

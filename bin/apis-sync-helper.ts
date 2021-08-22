@@ -1,7 +1,7 @@
 import {getProxySettings} from 'get-proxy-settings';
 import _ from 'lodash';
 import {request, getAllDiscoveryItems} from '../src/utils';
-import fs from 'fs';
+import fs from 'node:fs';
 import {excludedApis} from '../src/app';
 
 const prefix = '@maxim_mazurok/gapi.client.';

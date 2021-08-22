@@ -12,7 +12,7 @@
     "url": "https://maxim.mazurok.com"
   },
   "scripts": {
-    "auto-publish": "ts-node bin/auto-publish/index.ts",
+    "auto-publish": " node --loader ts-node/esm bin/auto-publish/index.ts",
     "precheck": "prettier --ignore-path ./.gitignore --check .",
     "check": "gts check",
     "clean": "gts clean",
@@ -20,16 +20,16 @@
     "dtslint": "dtslint",
     "prefix": "prettier --ignore-path ./.gitignore --write .",
     "fix": "gts fix",
-    "get-latest-types": "ts-node bin/get-latest-types.ts ./types",
-    "lint": "ts-node bin/lint.ts ./types",
+    "get-latest-types": " node --loader ts-node/esm bin/get-latest-types.ts ./types",
+    "lint": " node --loader ts-node/esm bin/lint.ts ./types",
     "ncu": "npx -y npm-check-updates -u --doctor",
     "prepare": "npm run compile",
     "sort": "npx -y sort-package-json",
-    "start": "ts-node src/cli.ts --out ./types",
+    "start": " node --loader ts-node/esm src/cli.ts --out ./types",
     "pretest": "npm run compile",
     "test": "mocha",
     "posttest": "npm run check",
-    "start-dt": "npx -y rimraf ~/DefinitelyTyped/types/gapi.client.* && ts-node src/dt/cli.ts --out ~/DefinitelyTyped/types"
+    "start-dt": "npx -y rimraf ~/DefinitelyTyped/types/gapi.client.* &&  node --loader ts-node/esm src/dt/cli.ts --out ~/DefinitelyTyped/types"
   },
   "dependencies": {
     "@expo/spawn-async": "^1.5.0",
@@ -39,7 +39,7 @@
     "@types/lodash": "^4.14.172",
     "@types/mocha": "^9.0.0",
     "@types/n-readlines": "^1.0.2",
-    "@types/node": "^16.6.2",
+    "@types/node": "^16.7.0",
     "@types/request": "2.48.7",
     "commander": "^8.1.0",
     "deep-sort-object": "^1.0.2",
@@ -51,7 +51,7 @@
     "gts": "^3.1.0",
     "hpagent": "^0.1.2",
     "lodash": "^4.17.21",
-    "mocha": "^9.0.3",
+    "mocha": "^9.1.0",
     "n-readlines": "^1.0.1",
     "npm-run-all": "^4.1.5",
     "strip-json-comments": "^4.0.0",
@@ -61,5 +61,6 @@
   "engines": {
     "node": "16.7.0",
     "npm": "7.20.6"
-  }
+  },
+  "type": "module"
 }

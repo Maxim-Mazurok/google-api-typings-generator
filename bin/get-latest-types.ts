@@ -1,5 +1,5 @@
 import {ensureDirectoryExists} from '../src/utils';
-import {resolve} from 'path';
+import {resolve} from 'node:path';
 import {SH} from './auto-publish/sh';
 import {Settings as GitSettings, Git} from './auto-publish/git';
 import {TypesBranchAndDirSettings} from './auto-publish';

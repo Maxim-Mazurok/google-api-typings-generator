@@ -5,7 +5,7 @@ import {
   getTypeDirectoryName,
   parseVersion,
   sleep,
-} from '../src/utils';
+} from '../src/utils.js';
 
 describe('parseVersion', () => {
   const expectations = {

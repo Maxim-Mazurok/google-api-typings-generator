@@ -1,5 +1,5 @@
-import {readdirSync} from 'fs';
-import {join, basename} from 'path';
+import {readdirSync} from 'node:fs';
+import {join, basename} from 'node:path';
 import runAll from 'npm-run-all';
 
 const MAX_PARALLEL = Number(process.env.GAPI_MAX_PARALLEL) || 1;
