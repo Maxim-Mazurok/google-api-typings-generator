@@ -1,8 +1,8 @@
 import {getProxySettings} from 'get-proxy-settings';
 import _ from 'lodash';
-import {request, getAllDiscoveryItems} from '../src/utils';
+import {request, getAllDiscoveryItems} from '../src/utils.js';
 import fs from 'node:fs';
-import {excludedApis} from '../src/app';
+import {excludedApis} from '../src/app.js';
 
 const prefix = '@maxim_mazurok/gapi.client.';
 const pathToConfig =

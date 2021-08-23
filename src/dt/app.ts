@@ -7,11 +7,11 @@ import {
   getTypeDirectoryName,
   parseVersion,
   request,
-} from '../utils';
-import {Template} from './template';
+} from '../utils.js';
+import {Template} from './template/index.js';
 import {ProxySetting} from 'get-proxy-settings';
-import {excludedApis} from '../app';
-import {fallbackDocumentationLinks} from '../constants';
+import {excludedApis} from '../app.js';
+import {fallbackDocumentationLinks} from '../constants.js';
 
 type RestDescription = gapi.client.discovery.RestDescription;
 
