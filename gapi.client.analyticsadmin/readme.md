@@ -123,6 +123,11 @@ Lookup for a single "GA4" Property.
 await gapi.client.analyticsadmin.properties.get({ name: "name",  });
 
 /*
+Returns the singleton data retention settings for this property.
+*/
+await gapi.client.analyticsadmin.properties.getDataRetentionSettings({ name: "name",  });
+
+/*
 Lookup for Google Signals settings for a property.
 */
 await gapi.client.analyticsadmin.properties.getGoogleSignalsSettings({ name: "name",  });
@@ -136,6 +141,11 @@ await gapi.client.analyticsadmin.properties.list({  });
 Updates a property.
 */
 await gapi.client.analyticsadmin.properties.patch({ name: "name",  });
+
+/*
+Updates the singleton data retention settings for this property.
+*/
+await gapi.client.analyticsadmin.properties.updateDataRetentionSettings({ name: "name",  });
 
 /*
 Updates Google Signals settings for a property.
