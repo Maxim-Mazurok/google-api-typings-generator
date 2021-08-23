@@ -1,7 +1,7 @@
-import {SH} from './sh';
-import {Git, Settings as GitSettings} from './git';
-import {Settings} from './index';
-import {ensureDirectoryExists, sleep} from '../../src/utils';
+import {SH} from './sh.js';
+import {Git, Settings as GitSettings} from './git.js';
+import {Settings} from './index.js';
+import {ensureDirectoryExists, sleep} from '../../src/utils.js';
 import {Octokit} from '@octokit/rest';
 import {readdirSync} from 'node:fs';
 import {SpawnResult} from '@expo/spawn-async';

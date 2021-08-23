@@ -1,9 +1,9 @@
 import {join} from 'node:path';
-import {SH} from './sh';
-import {Git, Settings as GitSettings} from './git';
-import {Helpers} from './helpers';
-import {TYPE_PREFIX} from '../../src/utils';
-import {supportedApis} from './config';
+import {SH} from './sh.js';
+import {Git, Settings as GitSettings} from './git.js';
+import {Helpers} from './helpers.js';
+import {TYPE_PREFIX} from '../../src/utils.js';
+import {supportedApis} from './config.js';
 
 if (!process.env.NPM_PUBLISH_AUTOMATION_TOKEN) {
   throw new Error('Please, set env var: NPM_PUBLISH_AUTOMATION_TOKEN');
