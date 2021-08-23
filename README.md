@@ -1,27 +1,5 @@
 # google-api-typings-generator
 
-## ESM & TypeScript & Mocha Fails:
-
-1. Run `npm cit` to install deps and run tests
-2. Observe:
-
-   ```
-    > mocha
-
-    TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts" for /home/maxim/google-api-typings-generator/tests/config.spec.ts
-        at new NodeError (node:internal/errors:371:5)
-        at Loader.defaultGetFormat [as _getFormat] (node:internal/modules/esm/get_format:71:15)
-        at Loader.getFormat (node:internal/modules/esm/loader:105:42)
-        at Loader.getModuleJob (node:internal/modules/esm/loader:243:31)
-        at async Loader.import (node:internal/modules/esm/loader:177:17)
-        at async importModuleDynamicallyWrapper (node:internal/vm/module:437:15)
-        at async formattedImport (/home/maxim/google-api-typings-generator/node_modules/mocha/lib/esm-utils.js:7:14)
-        at async Object.exports.requireOrImport (/home/maxim/google-api-typings-generator/node_modules/mocha/lib/esm-utils.js:48:32)
-        at async Object.exports.loadFilesAsync (/home/maxim/google-api-typings-generator/node_modules/mocha/lib/esm-utils.js:88:20)
-        at async singleRun (/home/maxim/google-api-typings-generator/node_modules/mocha/lib/cli/run-helpers.js:125:3)
-        at async Object.exports.handler (/home/maxim/google-api-typings-generator/node_modules/mocha/lib/cli/run.js:374:5)
-   ```
-
 [![GitHub](https://img.shields.io/github/license/Maxim-Mazurok/google-api-typings-generator)](https://github.com/Maxim-Mazurok/google-api-typings-generator/blob/master/LICENSE)
 [![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
 [![Dependabot Status](https://badgen.net/github/dependabot/Maxim-Mazurok/google-api-typings-generator)](https://github.com/Maxim-Mazurok/google-api-typings-generator/network/updates)
