@@ -46,7 +46,7 @@ var client_id = '',
       // See any Cloud Identity Groups that you can access, including group members and their emails
       'https://www.googleapis.com/auth/cloud-identity.groups.readonly',
 
-      // See, edit, configure, and delete your Google Cloud Platform data
+      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
       'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
