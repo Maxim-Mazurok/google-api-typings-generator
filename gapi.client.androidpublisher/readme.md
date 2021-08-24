@@ -99,7 +99,7 @@ Creates an in-app product (i.e. a managed product or a subscriptions).
 await gapi.client.androidpublisher.inappproducts.insert({ packageName: "packageName",  });
 
 /*
-Lists all in-app products - both managed products and subscriptions.
+Lists all in-app products - both managed products and subscriptions. If an app has a large number of in-app products, the response may be paginated. In this case the response field `tokenPagination.nextPageToken` will be set and the caller should provide its value as a `token` request parameter to retrieve the next page.
 */
 await gapi.client.androidpublisher.inappproducts.list({ packageName: "packageName",  });
 
