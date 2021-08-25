@@ -1,4 +1,4 @@
-# TypeScript typings for Network Security API v1beta1
+# TypeScript typings for Network Security API v1
 
 
 For detailed description please check [documentation](https://cloud.google.com/networking).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/n
 Install typings for Network Security API:
 
 ```
-npm install @types/gapi.client.networksecurity@v1beta1 --save-dev
+npm install @types/gapi.client.networksecurity@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('networksecurity', 'v1beta1', () => {
+gapi.client.load('networksecurity', 'v1', () => {
   // now we can use gapi.client.networksecurity
   // ...
 });
