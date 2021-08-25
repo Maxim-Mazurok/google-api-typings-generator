@@ -72,6 +72,11 @@ Returns multiple reports in a batch. All reports must be for the same GA4 Proper
 await gapi.client.analyticsdata.properties.batchRunReports({ property: "property",  });
 
 /*
+This compatibility method lists dimensions and metrics that can be added to a report request and maintain compatibility. This method fails if the request's dimensions and metrics are incompatible. In Google Analytics, reports fail if they request incompatible dimensions and/or metrics; in that case, you will need to remove dimensions and/or metrics from the incompatible report until the report is compatible. The Realtime and Core reports have different compatibility rules. This method checks compatibility for Core reports.
+*/
+await gapi.client.analyticsdata.properties.checkCompatibility({ property: "property",  });
+
+/*
 Returns metadata for dimensions and metrics available in reporting methods. Used to explore the dimensions and metrics. In this method, a Google Analytics GA4 Property Identifier is specified in the request, and the metadata response includes Custom dimensions and metrics as well as Universal metadata. For example if a custom metric with parameter name `levels_unlocked` is registered to a property, the Metadata response will contain `customEvent:levels_unlocked`. Universal metadata are dimensions and metrics applicable to any property such as `country` and `totalUsers`.
 */
 await gapi.client.analyticsdata.properties.getMetadata({ name: "name",  });
