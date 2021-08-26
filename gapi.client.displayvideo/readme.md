@@ -118,6 +118,11 @@ Lists combined audiences. The order is defined by the order_by parameter.
 await gapi.client.displayvideo.combinedAudiences.list({  });
 
 /*
+Creates a new custom bidding algorithm. Returns the newly created custom bidding algorithm if successful.
+*/
+await gapi.client.displayvideo.customBiddingAlgorithms.create({  });
+
+/*
 Gets a custom bidding algorithm.
 */
 await gapi.client.displayvideo.customBiddingAlgorithms.get({ customBiddingAlgorithmId: "customBiddingAlgorithmId",  });
@@ -126,6 +131,11 @@ await gapi.client.displayvideo.customBiddingAlgorithms.get({ customBiddingAlgori
 Lists custom bidding algorithms that are accessible to the current user and can be used in bidding stratgies. The order is defined by the order_by parameter.
 */
 await gapi.client.displayvideo.customBiddingAlgorithms.list({  });
+
+/*
+Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if successful.
+*/
+await gapi.client.displayvideo.customBiddingAlgorithms.patch({ customBiddingAlgorithmId: "customBiddingAlgorithmId",  });
 
 /*
 Gets a custom list.
@@ -206,6 +216,11 @@ await gapi.client.displayvideo.inventorySources.list({  });
 Downloads media. Download is supported on the URI `/download/{resource_name=**}?alt=media.` **Note**: Download requests will not be successful without including `alt=media` query string.
 */
 await gapi.client.displayvideo.media.download({ resourceName: "resourceName",  });
+
+/*
+Uploads media. Upload is supported on the URI `/upload/media/{resource_name=**}?upload_type=media.` **Note**: Upload requests will not be successful without including `upload_type=media` query string.
+*/
+await gapi.client.displayvideo.media.upload({ resourceName: "resourceName",  });
 
 /*
 Bulk edits targeting options under a single partner. The operation will delete the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.deleteRequests and then create the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.createRequests .
