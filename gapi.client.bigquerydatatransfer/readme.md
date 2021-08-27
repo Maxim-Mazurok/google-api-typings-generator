@@ -63,4 +63,9 @@ gapi.auth.authorize(
 After that you can use BigQuery Data Transfer API resources:
 
 ```typescript
+
+/*
+Enroll data sources in a user project. This allows users to create transfer configurations for these data sources. They will also appear in the ListDataSources RPC and as such, will appear in the BigQuery UI 'https://bigquery.cloud.google.com' (and the documents can be found at https://cloud.google.com/bigquery/bigquery-web-ui and https://cloud.google.com/bigquery/docs/working-with-transfers).
+*/
+await gapi.client.bigquerydatatransfer.projects.enrollDataSources({ name: "name",  });
 ```
