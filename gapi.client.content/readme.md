@@ -419,6 +419,11 @@ Sandbox only. Cancels a test order for customer-initiated cancellation.
 await gapi.client.content.orders.canceltestorderbycustomer({ merchantId: "merchantId", orderId: "orderId",  });
 
 /*
+Capture funds from the customer for the current order total. This method should be called after the merchant verifies that they are able and ready to start shipping the order. This method blocks until a response is received from the payment processsor. If this method succeeds, the merchant is guaranteed to receive funds for the order after shipment. If the request fails, it can be retried or the order may be cancelled. This method cannot be called after the entire order is already shipped.
+*/
+await gapi.client.content.orders.captureOrder({ merchantId: "merchantId", orderId: "orderId",  });
+
+/*
 Sandbox only. Creates a test order.
 */
 await gapi.client.content.orders.createtestorder({ merchantId: "merchantId",  });
@@ -582,6 +587,11 @@ await gapi.client.content.productstatuses.get({ merchantId: "merchantId", produc
 Lists the statuses of the products in your Merchant Center account.
 */
 await gapi.client.content.productstatuses.list({ merchantId: "merchantId",  });
+
+/*
+Inserts a promotion for your Merchant Center account. If the promotion already exists, then it will update the promotion instead.
+*/
+await gapi.client.content.promotions.create({ merchantId: "merchantId",  });
 
 /*
 Retrieves a Merchant Center account's pubsub notification settings.
