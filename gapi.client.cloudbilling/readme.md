@@ -43,7 +43,7 @@ var client_id = '',
       // View your Google Cloud Platform billing accounts
       'https://www.googleapis.com/auth/cloud-billing.readonly',
 
-      // See, edit, configure, and delete your Google Cloud Platform data
+      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
       'https://www.googleapis.com/auth/cloud-platform',
     ],
     immediate = true;
