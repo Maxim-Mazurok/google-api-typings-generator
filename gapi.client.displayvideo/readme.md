@@ -218,11 +218,6 @@ Downloads media. Download is supported on the URI `/download/{resource_name=**}?
 await gapi.client.displayvideo.media.download({ resourceName: "resourceName",  });
 
 /*
-Uploads media. Upload is supported on the URI `/upload/media/{resource_name=**}?upload_type=media.` **Note**: Upload requests will not be successful without including `upload_type=media` query string.
-*/
-await gapi.client.displayvideo.media.upload({ resourceName: "resourceName",  });
-
-/*
 Bulk edits targeting options under a single partner. The operation will delete the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.deleteRequests and then create the assigned targeting options provided in BulkEditPartnerAssignedTargetingOptionsRequest.createRequests .
 */
 await gapi.client.displayvideo.partners.bulkEditPartnerAssignedTargetingOptions({ partnerId: "partnerId",  });
