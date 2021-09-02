@@ -1,4 +1,4 @@
-# TypeScript typings for Idea Hub API v1alpha
+# TypeScript typings for Idea Hub API v1beta
 
 
 For detailed description please check [documentation](https://console.cloud.google.com/apis/library/ideahub.googleapis.com).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://console.cloud.goog
 Install typings for Idea Hub API:
 
 ```
-npm install @types/gapi.client.ideahub@v1alpha --save-dev
+npm install @types/gapi.client.ideahub@v1beta --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('ideahub', 'v1alpha', () => {
+gapi.client.load('ideahub', 'v1beta', () => {
   // now we can use gapi.client.ideahub
   // ...
 });
@@ -36,9 +36,4 @@ gapi.client.load('ideahub', 'v1alpha', () => {
 After that you can use Idea Hub API resources:
 
 ```typescript
-
-/*
-List ideas for a given Creator and filter and sort options.
-*/
-await gapi.client.ideahub.ideas.list({  });
 ```

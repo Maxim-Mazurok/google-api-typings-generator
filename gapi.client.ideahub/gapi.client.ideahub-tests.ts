@@ -7,20 +7,12 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('ideahub', 'v1alpha', () => {
+    gapi.client.load('ideahub', 'v1beta', () => {
         /** now we can use gapi.client.ideahub */
 
         run();
     });
 
     async function run() {
-        /** List ideas for a given Creator and filter and sort options. */
-        await gapi.client.ideahub.ideas.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
     }
 });
