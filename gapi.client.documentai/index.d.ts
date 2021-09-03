@@ -369,10 +369,6 @@ declare namespace gapi.client {
             width?: number;
         }
         interface GoogleCloudDocumentaiV1beta1DocumentPageFormField {
-            /** Created for Labeling UI to export key text. If corrections were made to the text identified by the `field_name.text_anchor`, this field will contain the correction. */
-            correctedKeyText?: string;
-            /** Created for Labeling UI to export value text. If corrections were made to the text identified by the `field_value.text_anchor`, this field will contain the correction. */
-            correctedValueText?: string;
             /** Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`, `Phone number`, etc. */
             fieldName?: GoogleCloudDocumentaiV1beta1DocumentPageLayout;
             /** Layout for the FormField value. */
@@ -817,10 +813,6 @@ declare namespace gapi.client {
             width?: number;
         }
         interface GoogleCloudDocumentaiV1beta2DocumentPageFormField {
-            /** Created for Labeling UI to export key text. If corrections were made to the text identified by the `field_name.text_anchor`, this field will contain the correction. */
-            correctedKeyText?: string;
-            /** Created for Labeling UI to export value text. If corrections were made to the text identified by the `field_value.text_anchor`, this field will contain the correction. */
-            correctedValueText?: string;
             /** Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`, `Phone number`, etc. */
             fieldName?: GoogleCloudDocumentaiV1beta2DocumentPageLayout;
             /** Layout for the FormField value. */
@@ -1362,10 +1354,6 @@ declare namespace gapi.client {
             width?: number;
         }
         interface GoogleCloudDocumentaiV1DocumentPageFormField {
-            /** Created for Labeling UI to export key text. If corrections were made to the text identified by the `field_name.text_anchor`, this field will contain the correction. */
-            correctedKeyText?: string;
-            /** Created for Labeling UI to export value text. If corrections were made to the text identified by the `field_value.text_anchor`, this field will contain the correction. */
-            correctedValueText?: string;
             /** Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`, `Phone number`, etc. */
             fieldName?: GoogleCloudDocumentaiV1DocumentPageLayout;
             /** Layout for the FormField value. */
