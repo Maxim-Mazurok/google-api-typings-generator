@@ -7,3 +7,6 @@ updates:
       day: 'saturday'
       time: '10:00'
       timezone: 'Australia/Sydney'
+    labels:
+      - 'dependencies'
+      - 'automerge'
