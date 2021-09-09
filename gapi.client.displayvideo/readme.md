@@ -118,11 +118,6 @@ Lists combined audiences. The order is defined by the order_by parameter.
 await gapi.client.displayvideo.combinedAudiences.list({  });
 
 /*
-Creates a new custom bidding algorithm. Returns the newly created custom bidding algorithm if successful.
-*/
-await gapi.client.displayvideo.customBiddingAlgorithms.create({  });
-
-/*
 Gets a custom bidding algorithm.
 */
 await gapi.client.displayvideo.customBiddingAlgorithms.get({ customBiddingAlgorithmId: "customBiddingAlgorithmId",  });
@@ -131,11 +126,6 @@ await gapi.client.displayvideo.customBiddingAlgorithms.get({ customBiddingAlgori
 Lists custom bidding algorithms that are accessible to the current user and can be used in bidding stratgies. The order is defined by the order_by parameter.
 */
 await gapi.client.displayvideo.customBiddingAlgorithms.list({  });
-
-/*
-Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if successful.
-*/
-await gapi.client.displayvideo.customBiddingAlgorithms.patch({ customBiddingAlgorithmId: "customBiddingAlgorithmId",  });
 
 /*
 Gets a custom list.
