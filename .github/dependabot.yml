@@ -9,4 +9,4 @@ updates:
       timezone: 'Australia/Sydney'
     labels:
       - 'dependencies'
-      - 'automerge'
+      - 'automerge-kodiak'
