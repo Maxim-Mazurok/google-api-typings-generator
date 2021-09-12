@@ -13,6 +13,7 @@
   },
   "scripts": {
     "auto-publish": "node --loader ts-node/esm bin/auto-publish/index.ts",
+    "apis-sync-helper": "node --loader ts-node/esm bin/apis-sync-helper.ts",
     "precheck": "prettier --ignore-path ./.gitignore --check .",
     "check": "gts check",
     "clean": "gts clean",
