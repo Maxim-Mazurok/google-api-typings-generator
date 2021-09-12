@@ -1142,6 +1142,7 @@ export class App {
     }
 
     _.forEach(
+      // using foreach instead of for..in to process APIs in parallel. Google servers seem to handle this fine and gives ~ x5 boost
       _.groupBy(apis, item => item.name),
       async (associatedApis, apiKey) => {
         const preferredApi =
