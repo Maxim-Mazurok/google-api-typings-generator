@@ -1,8 +1,8 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import doT, {RenderFunction} from 'dot';
-import {StreamWriter} from '../../writer';
-import {Configuration} from '../app';
+import {StreamWriter} from '../../writer.js';
+import {Configuration} from '../app.js';
 import {fileURLToPath} from 'node:url';
 
 type RestDescription = gapi.client.discovery.RestDescription;
