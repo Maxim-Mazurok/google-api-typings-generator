@@ -119,7 +119,7 @@ Updates labels that are assigned to the Merchant Center account by CSS user.
 await gapi.client.content.accounts.updatelabels({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
-Validates verification code to verify phone number for the account.
+Validates verification code to verify phone number for the account. If successful this will overwrite the value of `accounts.businessinformation.phoneNumber`. Only verified phone number will replace an existing verified phone number.
 */
 await gapi.client.content.accounts.verifyphonenumber({ accountId: "accountId", merchantId: "merchantId",  });
 
@@ -172,6 +172,11 @@ await gapi.client.content.buyongoogleprograms.get({ merchantId: "merchantId", re
 Onboards the BoG program in your Merchant Center account. By using this method, you agree to the [Terms of Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest). Calling this method is only possible if the authenticated account is the same as the merchant id in the request. Calling this method multiple times will only accept Terms of Service if the latest version is not currently signed.
 */
 await gapi.client.content.buyongoogleprograms.onboard({ merchantId: "merchantId", regionCode: "regionCode",  });
+
+/*
+Updates the status of the BoG program for your Merchant Center account.
+*/
+await gapi.client.content.buyongoogleprograms.patch({ merchantId: "merchantId", regionCode: "regionCode",  });
 
 /*
 Pauses the BoG program in your Merchant Center account. Important: This method is only whitelisted for selected merchants.
