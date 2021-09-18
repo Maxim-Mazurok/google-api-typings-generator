@@ -28,7 +28,7 @@ export class Helpers {
   npmPublish = async (
     cwd: string,
     retries = 3,
-    retryTimeout = 3000 // ms
+    retryTimeout = 3 // seconds
   ): Promise<void> => {
     retries--;
     const cmd = 'npm publish --access public';

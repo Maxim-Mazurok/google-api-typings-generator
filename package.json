@@ -27,10 +27,11 @@
     "prepare": "npm run compile",
     "sort": "npx -y sort-package-json",
     "start": "node --loader ts-node/esm src/cli.ts --out ./types",
-    "pretest": "npm run compile",
+    "pretest": "npm run compile && npm run cspell",
     "test": "mocha",
     "posttest": "npm run check",
-    "start-dt": "npx -y rimraf ~/DefinitelyTyped/types/gapi.client.* && node --loader ts-node/esm src/dt/cli.ts --out ~/DefinitelyTyped/types"
+    "start-dt": "npx -y rimraf ~/DefinitelyTyped/types/gapi.client.* && node --loader ts-node/esm src/dt/cli.ts --out ~/DefinitelyTyped/types",
+    "cspell": "node --loader ts-node/esm bin/cspell.ts"
   },
   "dependencies": {
     "@expo/spawn-async": "^1.5.0",

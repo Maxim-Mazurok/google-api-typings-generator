@@ -104,10 +104,10 @@ export async function request<T extends object | string>(
 }
 
 /**
- * @param ms Milliseconds to wait
+ * @param seconds Seconds to wait
  */
-export const sleep = (ms: number) => {
-  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+export const sleep = (seconds: number) => {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, seconds * 1000);
 };
 
 export const getAllDiscoveryItems = async (proxy?: ProxySetting) => {
