@@ -26,7 +26,7 @@ export class Git {
   getArchiveLink = async (
     commitSHA: string,
     retries = 3,
-    retryTimeout = 3000 // ms
+    retryTimeout = 3 // seconds
   ): Promise<string> => {
     retries--;
     console.log(`Getting archive link for ${commitSHA}...`);

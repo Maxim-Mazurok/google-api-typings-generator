@@ -1,1 +1,7 @@
-{"recommendations": ["be5invis.toml"]}
+{
+  "recommendations": [
+    // cspell:disable
+    "be5invis.toml"
+    // cspell:enable
+  ]
+}

@@ -1,4 +1,5 @@
 export const supportedApis = [
+  // cspell:disable
   'abusiveexperiencereport',
   'acceleratedmobilepageurl',
   'accessapproval',
@@ -225,4 +226,5 @@ export const supportedApis = [
   'youtube',
   'youtubeanalytics',
   'youtubereporting',
+  // cspell:enable
 ];
