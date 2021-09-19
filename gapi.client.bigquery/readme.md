@@ -112,7 +112,7 @@ Requests that a job be cancelled. This call will return immediately, and the cli
 await gapi.client.bigquery.jobs.cancel({ jobId: "jobId", projectId: "projectId",  });
 
 /*
-Requests that a job is deleted. This call will return when the job is deleted. This method is available in limited preview.
+Requests the deletion of the metadata of a job. This call returns when the job's metadata is deleted.
 */
 await gapi.client.bigquery.jobs.delete({ jobId: "jobId", projectId: "projectId",  });
 
