@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.chat",
-  "version": "1.0.20210911",
+  "version": "1.0.20210920",
   "description": "TypeScript typings for Google Chat API v1",
   "license": "MIT",
   "author": {
