@@ -40,8 +40,14 @@ var client_id = '',
       // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
       'https://www.googleapis.com/auth/cloud-platform',
 
+      // View your data across Google Cloud services and see the email address of your Google Account
+      'https://www.googleapis.com/auth/cloud-platform.read-only',
+
       // View and manage your Google Compute Engine resources
       'https://www.googleapis.com/auth/compute',
+
+      // View your Google Compute Engine resources
+      'https://www.googleapis.com/auth/compute.readonly',
     ],
     immediate = true;
 // ...
