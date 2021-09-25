@@ -1,4 +1,5 @@
 import spawnAsync, {SpawnResult} from '@expo/spawn-async';
+import {hasOwnProperty} from '../../src/utils.js';
 
 export class SH {
   readonly cwd: string;
@@ -26,10 +27,23 @@ export class SH {
     }
   };
 
-  static error = (exception: SpawnResult): Error =>
-    new Error(
-      'An error occurred:\n' +
-        `Error: ${exception.stderr}\n` +
-        `Output: ${exception.stdout}\n`
-    );
+  static error = (exception: unknown): Error => {
+    if (exception instanceof Error) {
+      if (
+        hasOwnProperty(exception, 'stderr') &&
+        typeof exception.stderr === 'string' &&
+        hasOwnProperty(exception, 'stdout') &&
+        typeof exception.stdout === 'string'
+      ) {
+        return new Error(
+          'An error occurred:\n' +
+            `Error: ${exception.stderr}\n` +
+            `Output: ${exception.stdout}\n`
+        );
+      }
+      return exception;
+    }
+    console.error('Unknown exception type: ', {exception});
+    throw exception;
+  };
 }

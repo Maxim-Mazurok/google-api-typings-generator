@@ -1,7 +1,7 @@
 import {SH} from './sh.js';
 import {Git, Settings as GitSettings} from './git.js';
 import {Settings} from './index.js';
-import {ensureDirectoryExists, sleep} from '../../src/utils.js';
+import {ensureDirectoryExists, hasOwnProperty, sleep} from '../../src/utils.js';
 import {Octokit} from '@octokit/rest';
 import {readdirSync} from 'node:fs';
 import {SpawnResult} from '@expo/spawn-async';
@@ -27,40 +27,55 @@ export class Helpers {
 
   npmPublish = async (
     cwd: string,
-    retries = 3,
-    retryTimeout = 3 // seconds
+    retries = 5,
+    retryTimeout = 5 // seconds
   ): Promise<void> => {
     retries--;
     const cmd = 'npm publish --access public';
     const apiName = basename(cwd);
-    const error505 = '503 Service Unavailable';
+    const error503 = '503 Service Unavailable';
     const error404 = '404 Not Found';
     try {
       await this.sh.runSh(cmd, cwd);
     } catch (exception) {
-      const error = (exception as SpawnResult).stderr;
-      if (
-        error.includes(
-          'You cannot publish over the previously published versions'
-        )
-      ) {
-        console.warn(`Revision already published for ${apiName}, skipping...`);
-      } else if (
-        (error.includes(error505) || error.includes(error404)) &&
-        retries > 0
-      ) {
-        const errorCodeAndMessage = error.includes(error505)
-          ? error505
-          : error.includes(error404)
-          ? error404
-          : error;
-        console.warn(
-          `NPM returned ${errorCodeAndMessage} for ${apiName}, retrying in ${retryTimeout}ms...`
-        );
-        sleep(retryTimeout);
-        this.npmPublish(cwd, retries);
+      if (exception instanceof Error) {
+        if (
+          hasOwnProperty(exception, 'stderr') &&
+          typeof exception.stderr === 'string'
+        ) {
+          const error = exception.stderr;
+          if (
+            error.includes(
+              'You cannot publish over the previously published versions'
+            )
+          ) {
+            console.warn(
+              `Revision already published for ${apiName}, skipping...`
+            );
+          } else if (
+            (error.includes(error503) || error.includes(error404)) &&
+            retries > 0
+          ) {
+            const errorCodeAndMessage = error.includes(error503)
+              ? error503
+              : error.includes(error404)
+              ? error404
+              : error;
+            console.warn(
+              `NPM returned ${errorCodeAndMessage} for ${apiName}, retrying in ${retryTimeout}ms...`
+            );
+            sleep(retryTimeout);
+            await this.npmPublish(cwd, retries);
+          } else {
+            throw SH.error(exception);
+          }
+        } else {
+          console.error('Non-SpawnResult exception type: ', {exception});
+          throw exception;
+        }
       } else {
-        throw SH.error(exception);
+        console.error('Unknown exception type: ', {exception});
+        throw exception;
       }
     }
   };
