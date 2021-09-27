@@ -92,7 +92,10 @@ declare namespace gapi.client {
              * updated if explicitly set.
              */
             koreanBusinessRegistrationNumber?: string;
-            /** The phone number of the business. */
+            /**
+             * ! The phone number of the business. This can only be updated if a verified ! phone number is not already set. To replace a verified phone number use ! the
+             * `Accounts.requestphoneverification` and ! `Accounts.verifyphonenumber`.
+             */
             phoneNumber?: string;
         }
         interface AccountCredentials {
@@ -1279,7 +1282,7 @@ declare namespace gapi.client {
             kind?: string;
             /**
              * Supported pickup method for this offer. Unless the value is "not supported", this field must be submitted together with `pickupSla`. For accepted attribute values, see the local
-             * product inventory feed // specification.
+             * product inventory feed specification.
              */
             pickupMethod?: string;
             /**
@@ -3307,6 +3310,10 @@ declare namespace gapi.client {
             percentOff?: number;
             /** Required. Applicability of the promotion to either all products or only specific products. */
             productApplicability?: string;
+            /** Product filter by product type for the promotion. */
+            productType?: string[];
+            /** Product filter by product type exclusion for the promotion. */
+            productTypeExclusion?: string[];
             /** Destination ID for the promotion. */
             promotionDestinationIds?: string[];
             /** String representation of the promotion display dates. */

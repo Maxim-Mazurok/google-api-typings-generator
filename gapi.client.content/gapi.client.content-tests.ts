@@ -3430,6 +3430,10 @@ gapi.load('client', () => {
             orderLimit: 42,
             percentOff: 42,
             productApplicability: "Test string",
+            productType: [
+                "Test string"            ],
+            productTypeExclusion: [
+                "Test string"            ],
             promotionDestinationIds: [
                 "Test string"            ],
             promotionDisplayDates: "Test string",
