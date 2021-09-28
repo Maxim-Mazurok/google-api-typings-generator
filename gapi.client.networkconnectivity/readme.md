@@ -1,4 +1,4 @@
-# TypeScript typings for Network Connectivity API v1alpha1
+# TypeScript typings for Network Connectivity API v1
 
 The Network Connectivity API provides access to Network Connectivity Center.
 For detailed description please check [documentation](https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/n
 Install typings for Network Connectivity API:
 
 ```
-npm install @types/gapi.client.networkconnectivity@v1alpha1 --save-dev
+npm install @types/gapi.client.networkconnectivity@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('networkconnectivity', 'v1alpha1', () => {
+gapi.client.load('networkconnectivity', 'v1', () => {
   // now we can use gapi.client.networkconnectivity
   // ...
 });

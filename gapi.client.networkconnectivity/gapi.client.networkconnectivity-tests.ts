@@ -7,7 +7,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('networkconnectivity', 'v1alpha1', () => {
+    gapi.client.load('networkconnectivity', 'v1', () => {
         /** now we can use gapi.client.networkconnectivity */
 
         /** don't forget to authenticate your client before sending any request to resources: */
