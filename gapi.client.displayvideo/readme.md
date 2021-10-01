@@ -1,6 +1,6 @@
 # TypeScript typings for Display & Video 360 API v1
 
-Display & Video 360 API allows users to manage and create campaigns and reports.
+Display & Video 360 API allows users to automate complex Display & Video 360 workflows, such as creating insertion orders and setting targeting options for individual line items.
 For detailed description please check [documentation](https://developers.google.com/display-video/).
 
 ## Installing
