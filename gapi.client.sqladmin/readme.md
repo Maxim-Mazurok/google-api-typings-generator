@@ -152,7 +152,7 @@ Exports data from a Cloud SQL instance to a Cloud Storage bucket as a SQL dump o
 await gapi.client.sqladmin.instances.export({ instance: "instance", project: "project",  });
 
 /*
-Initiates a manual failover of a high availability (HA) primary instance to a standby instance, which becomes the primary instance. Users are then rerouted to the new primary. For more information, see the Overview of high availability page in the Cloud SQL documentation. If using Legacy HA (MySQL only), this causes the instance to failover to its failover replica instance.
+Initiates a manual failover of a high availability (HA) primary instance to a standby instance, which becomes the primary instance. Users are then rerouted to the new primary. For more information, see the [Overview of high availability](https://cloud.google.com/sql/docs/mysql/high-availability) page in the Cloud SQL documentation. If using Legacy HA (MySQL only), this causes the instance to failover to its failover replica instance.
 */
 await gapi.client.sqladmin.instances.failover({ instance: "instance", project: "project",  });
 
