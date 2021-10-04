@@ -59,7 +59,7 @@ After that you can use Policy Troubleshooter API resources:
 ```typescript
 
 /*
-Checks whether a member has a specific permission for a specific resource, and explains why the member does or does not have that permission.
+Checks whether a principal has a specific permission for a specific resource, and explains why the principal does or does not have that permission.
 */
 await gapi.client.policytroubleshooter.iam.troubleshoot({  });
 ```
