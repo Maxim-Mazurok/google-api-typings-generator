@@ -108,6 +108,11 @@ Returns summaries of all accounts accessible by the caller.
 await gapi.client.analyticsadmin.accountSummaries.list({  });
 
 /*
+Acknowledges the terms of user data collection for the specified property. This acknowledgement must be completed (either in the Google Analytics UI or via this API) before MeasurementProtocolSecret resources may be created.
+*/
+await gapi.client.analyticsadmin.properties.acknowledgeUserDataCollection({ property: "property",  });
+
+/*
 Creates an "GA4" property with the specified location and attributes.
 */
 await gapi.client.analyticsadmin.properties.create({  });

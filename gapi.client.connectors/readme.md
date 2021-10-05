@@ -1,7 +1,7 @@
 # TypeScript typings for Connectors API v1
 
 
-For detailed description please check [documentation](https://cloud.devsite.corp.google.com/apigee/docs/api-platform/connectors/about-connectors).
+For detailed description please check [documentation](https://cloud.google.com/apigee/docs/api-platform/connectors/about-connectors).
 
 ## Installing
 
