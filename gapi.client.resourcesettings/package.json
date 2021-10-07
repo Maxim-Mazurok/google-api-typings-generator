@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.resourcesettings",
-  "version": "1.0.20211005",
+  "version": "1.0.20211006",
   "description": "TypeScript typings for Resource Settings API v1",
   "license": "MIT",
   "author": {

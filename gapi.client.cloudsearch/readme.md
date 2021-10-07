@@ -131,4 +131,9 @@ await gapi.client.cloudsearch.stats.getSession({  });
 Get the users statistics for customer. **Note:** This API requires a standard end user account to execute.
 */
 await gapi.client.cloudsearch.stats.getUser({  });
+
+/*
+Initializes the customer. **Note:** This API requires an admin account to execute.
+*/
+await gapi.client.cloudsearch.v1.initializeCustomer({  });
 ```
