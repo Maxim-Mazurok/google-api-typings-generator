@@ -84,6 +84,21 @@ Validates an app edit.
 await gapi.client.androidpublisher.edits.validate({ editId: "editId", packageName: "packageName",  });
 
 /*
+Grant access for a user to the given package.
+*/
+await gapi.client.androidpublisher.grants.create({ parent: "parent",  });
+
+/*
+Removes all access for the user to the given package or developer account.
+*/
+await gapi.client.androidpublisher.grants.delete({ name: "name",  });
+
+/*
+Updates access for the user to the given package.
+*/
+await gapi.client.androidpublisher.grants.patch({ name: "name",  });
+
+/*
 Deletes an in-app product (i.e. a managed product or a subscriptions).
 */
 await gapi.client.androidpublisher.inappproducts.delete({ packageName: "packageName", sku: "sku",  });
@@ -147,4 +162,24 @@ await gapi.client.androidpublisher.reviews.list({ packageName: "packageName",  }
 Replies to a single review, or updates an existing reply.
 */
 await gapi.client.androidpublisher.reviews.reply({ packageName: "packageName", reviewId: "reviewId",  });
+
+/*
+Grant access for a user to the given developer account.
+*/
+await gapi.client.androidpublisher.users.create({ parent: "parent",  });
+
+/*
+Removes all access for the user to the given developer account.
+*/
+await gapi.client.androidpublisher.users.delete({ name: "name",  });
+
+/*
+Lists all users with access to a developer account.
+*/
+await gapi.client.androidpublisher.users.list({ parent: "parent",  });
+
+/*
+Updates access for the user to the developer account.
+*/
+await gapi.client.androidpublisher.users.patch({ name: "name",  });
 ```
