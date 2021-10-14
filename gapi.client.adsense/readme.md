@@ -1,7 +1,7 @@
 # TypeScript typings for AdSense Management API v2
 
 The AdSense Management API allows publishers to access their inventory and run earnings and performance reports.
-For detailed description please check [documentation](http://code.google.com/apis/adsense/management/).
+For detailed description please check [documentation](https://developers.google.com/adsense/management/).
 
 ## Installing
 
