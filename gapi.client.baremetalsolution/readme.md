@@ -1,4 +1,4 @@
-# TypeScript typings for Bare Metal Solution API v1
+# TypeScript typings for Bare Metal Solution API v2
 
 Provides ways to manage Bare Metal Solution hardware installed in a regional extension located near a Google Cloud data center.
 For detailed description please check [documentation](https://cloud.google.com/bare-metal).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/b
 Install typings for Bare Metal Solution API:
 
 ```
-npm install @types/gapi.client.baremetalsolution@v1 --save-dev
+npm install @types/gapi.client.baremetalsolution@v2 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('baremetalsolution', 'v1', () => {
+gapi.client.load('baremetalsolution', 'v2', () => {
   // now we can use gapi.client.baremetalsolution
   // ...
 });
