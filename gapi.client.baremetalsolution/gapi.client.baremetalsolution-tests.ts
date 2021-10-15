@@ -7,7 +7,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('baremetalsolution', 'v2', () => {
+    gapi.client.load('baremetalsolution', 'v1', () => {
         /** now we can use gapi.client.baremetalsolution */
 
         /** don't forget to authenticate your client before sending any request to resources: */
