@@ -185,7 +185,7 @@ Permanently deletes all of the user's trashed files.
 await gapi.client.drive.files.emptyTrash({  });
 
 /*
-Exports a Google Doc to the requested MIME type and returns the exported content. Please note that the exported content is limited to 10MB.
+Exports a Google Workspace document to the requested MIME type and returns exported byte content. Note that the exported content is limited to 10MB.
 */
 await gapi.client.drive.files.export({ fileId: "fileId", mimeType: "mimeType",  });
 
