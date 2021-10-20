@@ -69,7 +69,7 @@ Returns a list of services that allow you to opt into audit logs that are not ge
 await gapi.client.iam.iamPolicies.queryAuditableServices({  });
 
 /*
-Lists every permission that you can test on a resource. A permission is testable if you can check whether a member has that permission on the resource.
+Lists every permission that you can test on a resource. A permission is testable if you can check whether a principal has that permission on the resource.
 */
 await gapi.client.iam.permissions.queryTestablePermissions({  });
 
