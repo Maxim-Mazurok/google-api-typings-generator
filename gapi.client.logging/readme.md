@@ -91,27 +91,27 @@ Writes log entries to Logging. This API method is the only way to send log entri
 await gapi.client.logging.entries.write({  });
 
 /*
-Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource.
+Creates a new exclusion in the _Default sink in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource.
 */
 await gapi.client.logging.exclusions.create({ parent: "parent",  });
 
 /*
-Deletes an exclusion.
+Deletes an exclusion in the _Default sink.
 */
 await gapi.client.logging.exclusions.delete({ name: "name",  });
 
 /*
-Gets the description of an exclusion.
+Gets the description of an exclusion in the _Default sink.
 */
 await gapi.client.logging.exclusions.get({ name: "name",  });
 
 /*
-Lists all the exclusions in a parent resource.
+Lists all the exclusions on the _Default sink in a parent resource.
 */
 await gapi.client.logging.exclusions.list({ parent: "parent",  });
 
 /*
-Changes one or more properties of an existing exclusion.
+Changes one or more properties of an existing exclusion in the _Default sink.
 */
 await gapi.client.logging.exclusions.patch({ name: "name",  });
 
@@ -141,12 +141,12 @@ Lists the descriptors for monitored resource types used by Logging.
 await gapi.client.logging.monitoredResourceDescriptors.list({  });
 
 /*
-Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for Google Cloud organizations. Once configured, it applies to all projects and folders in the Google Cloud organization.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
 */
 await gapi.client.logging.organizations.getCmekSettings({ name: "name",  });
 
 /*
-Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for Google Cloud organizations. Once configured, it applies to all projects and folders in the Google Cloud organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
 */
 await gapi.client.logging.organizations.updateCmekSettings({ name: "name",  });
 
@@ -176,12 +176,12 @@ Updates a sink. This method replaces the following fields in the existing sink w
 await gapi.client.logging.sinks.update({ sinkName: "sinkName",  });
 
 /*
-Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for Google Cloud organizations. Once configured, it applies to all projects and folders in the Google Cloud organization.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
 */
 await gapi.client.logging.v2.getCmekSettings({ name: "name",  });
 
 /*
-Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for GCP organizations. Once configured, it applies to all projects and folders in the GCP organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+Updates the Logs Router CMEK settings for the given resource.Note: CMEK for the Logs Router can currently only be configured for Google Cloud organizations. Once configured, it applies to all projects and folders in the Google Cloud organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled.See Enabling CMEK for Logs Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
 */
 await gapi.client.logging.v2.updateCmekSettings({ name: "name",  });
 ```
