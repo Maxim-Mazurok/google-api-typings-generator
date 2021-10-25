@@ -61,8 +61,8 @@
     "typescript": "^4.4.4"
   },
   "engines": {
-    "node": "16.7.0",
-    "npm": "7.20.6"
+    "node": "17.0.1",
+    "npm": "8.1.0"
   },
   "type": "module"
 }
