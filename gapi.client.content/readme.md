@@ -599,6 +599,11 @@ Inserts a promotion for your Merchant Center account. If the promotion already e
 await gapi.client.content.promotions.create({ merchantId: "merchantId",  });
 
 /*
+Retrieves a promotion from your Merchant Center account.
+*/
+await gapi.client.content.promotions.get({ id: "id", merchantId: "merchantId",  });
+
+/*
 Retrieves a Merchant Center account's pubsub notification settings.
 */
 await gapi.client.content.pubsubnotificationsettings.get({ merchantId: "merchantId",  });
