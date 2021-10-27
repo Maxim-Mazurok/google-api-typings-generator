@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.drive",
-  "version": "3.0.20211017",
+  "version": "3.0.20211024",
   "description": "TypeScript typings for Drive API v3",
   "license": "MIT",
   "author": {
