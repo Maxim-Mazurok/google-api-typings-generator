@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.datafusion",
-  "version": "1.0.20210628",
+  "version": "1.0.20211028",
   "description": "TypeScript typings for Cloud Data Fusion API v1",
   "license": "MIT",
   "author": {
