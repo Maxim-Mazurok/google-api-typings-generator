@@ -1,6 +1,6 @@
 # TypeScript typings for Idea Hub API v1beta
 
-
+This is an invitation-only API.
 For detailed description please check [documentation](https://console.cloud.google.com/apis/library/ideahub.googleapis.com).
 
 ## Installing
