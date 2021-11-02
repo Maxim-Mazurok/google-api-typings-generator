@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.books",
-  "version": "1.0.20211025",
+  "version": "1.0.20211101",
   "description": "TypeScript typings for Books API v1",
   "license": "MIT",
   "author": {
