@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.googleads",
-  "version": "7.0.20210809",
+  "version": "7.0.20211029",
   "description": "TypeScript typings for Google Ads API v7",
   "license": "MIT",
   "author": {
