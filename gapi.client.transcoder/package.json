@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.transcoder",
-  "version": "1.0.20210819",
+  "version": "1.0.20211108",
   "description": "TypeScript typings for Transcoder API v1beta1",
   "license": "MIT",
   "author": {
