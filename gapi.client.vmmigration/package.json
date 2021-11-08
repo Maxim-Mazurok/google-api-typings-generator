@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.vmmigration",
-  "version": "1.0.20211021",
+  "version": "1.0.20211107",
   "description": "TypeScript typings for VM Migration API v1",
   "license": "MIT",
   "author": {
