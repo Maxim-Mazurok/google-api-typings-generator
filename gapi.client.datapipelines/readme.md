@@ -1,7 +1,7 @@
 # TypeScript typings for Data pipelines API v1
 
-
-For detailed description please check [documentation](https://developers.google.com/apis-explorer/#search/dataflow).
+Data Pipelines provides an interface for creating, updating, and managing recurring Data Analytics jobs.
+For detailed description please check [documentation](https://cloud.google.com/dataflow/docs/guides/data-pipelines).
 
 ## Installing
 
