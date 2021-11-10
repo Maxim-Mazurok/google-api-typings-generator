@@ -94,6 +94,31 @@ Gets the latest state of a long-running operation. Clients can use this method t
 await gapi.client.cloudasset.operations.get({ name: "name",  });
 
 /*
+Creates a saved query in a parent project/folder/organization.
+*/
+await gapi.client.cloudasset.savedQueries.create({ parent: "parent",  });
+
+/*
+Deletes a saved query.
+*/
+await gapi.client.cloudasset.savedQueries.delete({ name: "name",  });
+
+/*
+Gets details about a saved query.
+*/
+await gapi.client.cloudasset.savedQueries.get({ name: "name",  });
+
+/*
+Lists all saved queries in a parent project/folder/organization.
+*/
+await gapi.client.cloudasset.savedQueries.list({ parent: "parent",  });
+
+/*
+Updates a saved query.
+*/
+await gapi.client.cloudasset.savedQueries.patch({ name: "name",  });
+
+/*
 Analyzes IAM policies to answer which identities have what accesses on which resources.
 */
 await gapi.client.cloudasset.v1.analyzeIamPolicy({ scope: "scope",  });

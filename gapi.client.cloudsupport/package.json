@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudsupport",
-  "version": "2.0.20211105",
+  "version": "2.0.20211109",
   "description": "TypeScript typings for Google Cloud Support API v2beta",
   "license": "MIT",
   "author": {
