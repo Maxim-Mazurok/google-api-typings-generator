@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.mybusinessaccountmanagement",
-  "version": "1.0.20211108",
+  "version": "1.0.20211110",
   "description": "TypeScript typings for My Business Account Management API v1",
   "license": "MIT",
   "author": {
