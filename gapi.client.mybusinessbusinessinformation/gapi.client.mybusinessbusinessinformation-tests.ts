@@ -101,6 +101,7 @@ gapi.load('client', () => {
                 },
                 metadata: {
                     canDelete: true,
+                    canHaveBusinessCalls: true,
                     canHaveFoodMenus: true,
                     canModifyServiceList: true,
                     canOperateHealthData: true,
@@ -374,6 +375,7 @@ gapi.load('client', () => {
             },
             metadata: {
                 canDelete: true,
+                canHaveBusinessCalls: true,
                 canHaveFoodMenus: true,
                 canModifyServiceList: true,
                 canOperateHealthData: true,

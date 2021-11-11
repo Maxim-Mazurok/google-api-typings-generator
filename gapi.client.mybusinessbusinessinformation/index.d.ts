@@ -280,6 +280,8 @@ declare namespace gapi.client {
         interface Metadata {
             /** Output only. Indicates whether the location can be deleted using the API. */
             canDelete?: boolean;
+            /** Output only. Indicates if the listing is eligible for business calls. */
+            canHaveBusinessCalls?: boolean;
             /** Output only. Indicates if the listing is eligible for food menu. */
             canHaveFoodMenus?: boolean;
             /** Output only. Indicates if the listing can modify the service list. */
