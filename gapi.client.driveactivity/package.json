@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.driveactivity",
-  "version": "2.0.20211105",
+  "version": "2.0.20211110",
   "description": "TypeScript typings for Drive Activity API v2",
   "license": "MIT",
   "author": {
