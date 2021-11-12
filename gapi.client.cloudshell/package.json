@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudshell",
-  "version": "1.0.20211102",
+  "version": "1.0.20211108",
   "description": "TypeScript typings for Cloud Shell API v1",
   "license": "MIT",
   "author": {
