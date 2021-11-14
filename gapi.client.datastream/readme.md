@@ -1,4 +1,4 @@
-# TypeScript typings for Datastream API v1alpha1
+# TypeScript typings for Datastream API v1
 
 
 For detailed description please check [documentation](https://cloud.google.com/datastream/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/d
 Install typings for Datastream API:
 
 ```
-npm install @types/gapi.client.datastream@v1alpha1 --save-dev
+npm install @types/gapi.client.datastream@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('datastream', 'v1alpha1', () => {
+gapi.client.load('datastream', 'v1', () => {
   // now we can use gapi.client.datastream
   // ...
 });

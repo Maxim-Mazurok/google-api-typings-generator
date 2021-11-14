@@ -7,7 +7,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('datastream', 'v1alpha1', () => {
+    gapi.client.load('datastream', 'v1', () => {
         /** now we can use gapi.client.datastream */
 
         /** don't forget to authenticate your client before sending any request to resources: */
