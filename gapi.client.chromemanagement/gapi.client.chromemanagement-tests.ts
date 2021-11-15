@@ -18,6 +18,8 @@ gapi.load('client', () => {
             'https://www.googleapis.com/auth/chrome.management.appdetails.readonly',
             /** See reports about devices and Chrome browsers managed within your organization */
             'https://www.googleapis.com/auth/chrome.management.reports.readonly',
+            /** See basic device and telemetry information collected from Chrome OS devices or users managed within your organization */
+            'https://www.googleapis.com/auth/chrome.management.telemetry.readonly',
         ];
         const immediate = false;
         gapi.auth.authorize({ client_id, scope, immediate }, authResult => {

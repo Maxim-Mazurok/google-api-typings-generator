@@ -74,6 +74,52 @@ declare namespace gapi.client {
             /** Output only. App type. */
             type?: string;
         }
+        interface GoogleChromeManagementV1BatteryInfo {
+            /** Output only. Design capacity (mAmpere-hours). */
+            designCapacity?: string;
+            /** Output only. Designed minimum output voltage (mV) */
+            designMinVoltage?: number;
+            /** Output only. The date the battery was manufactured. */
+            manufactureDate?: GoogleTypeDate;
+            /** Output only. Battery manufacturer. */
+            manufacturer?: string;
+            /** Output only. Battery serial number. */
+            serialNumber?: string;
+            /** Output only. Technology of the battery. Example: Li-ion */
+            technology?: string;
+        }
+        interface GoogleChromeManagementV1BatterySampleReport {
+            /** Output only. Battery charge percentage. */
+            chargeRate?: number;
+            /** Output only. Battery current (mA). */
+            current?: string;
+            /** Output only. The battery discharge rate measured in mW. Positive if the battery is being discharged, negative if it's being charged. */
+            dischargeRate?: number;
+            /** Output only. Battery remaining capacity (mAmpere-hours). */
+            remainingCapacity?: string;
+            /** Output only. Timestamp of when the sample was collected on device */
+            reportTime?: string;
+            /** Output only. Battery status read from sysfs. Example: Discharging */
+            status?: string;
+            /** Output only. Temperature in Celsius degrees. */
+            temperature?: number;
+            /** Output only. Battery voltage (millivolt). */
+            voltage?: string;
+        }
+        interface GoogleChromeManagementV1BatteryStatusReport {
+            /** Output only. Battery health. */
+            batteryHealth?: string;
+            /** Output only. Cycle count. */
+            cycleCount?: number;
+            /** Output only. Full charge capacity (mAmpere-hours). */
+            fullChargeCapacity?: string;
+            /** Output only. Timestamp of when the sample was collected on device */
+            reportTime?: string;
+            /** Output only. Sampling data for the battery. */
+            sample?: GoogleChromeManagementV1BatterySampleReport[];
+            /** Output only. Battery serial number. */
+            serialNumber?: string;
+        }
         interface GoogleChromeManagementV1BrowserVersion {
             /** Output only. The release channel of the installed browser. */
             channel?: string;
@@ -157,11 +203,75 @@ declare namespace gapi.client {
             /** Total number of installed apps matching request. */
             totalSize?: number;
         }
+        interface GoogleChromeManagementV1CpuInfo {
+            /** Output only. The CPU architecture. */
+            architecture?: string;
+            /** Output only. The max CPU clock speed in kHz. */
+            maxClockSpeed?: number;
+            /** Output only. The CPU model name. Example: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz */
+            model?: string;
+        }
+        interface GoogleChromeManagementV1CpuStatusReport {
+            /** Output only. CPU temperature sample info per CPU core in Celsius */
+            cpuTemperatureInfo?: GoogleChromeManagementV1CpuTemperatureInfo[];
+            /** Output only. Sample of CPU utilization (0-100 percent). */
+            cpuUtilizationPct?: number;
+            /** Output only. The timestamp in milliseconds representing time at which this report was sampled. */
+            reportTime?: string;
+            /** Output only. Frequency the report is sampled. */
+            sampleFrequency?: string;
+        }
+        interface GoogleChromeManagementV1CpuTemperatureInfo {
+            /** Output only. CPU label. Example: Core 0 */
+            label?: string;
+            /** Output only. CPU temperature in Celsius. */
+            temperatureCelsius?: number;
+        }
         interface GoogleChromeManagementV1Device {
             /** Output only. The ID of the device that reported this Chrome browser information. */
             deviceId?: string;
             /** Output only. The name of the machine within its local network. */
             machine?: string;
+        }
+        interface GoogleChromeManagementV1DiskInfo {
+            /** Output only. Number of bytes read since last boot. */
+            bytesReadThisSession?: string;
+            /** Output only. Number of bytes written since last boot. */
+            bytesWrittenThisSession?: string;
+            /** Output only. Time spent discarding since last boot. Discarding is writing to clear blocks which are no longer in use. Supported on kernels 4.18+. */
+            discardTimeThisSession?: string;
+            /** Output only. Disk health. */
+            health?: string;
+            /** Output only. Counts the time the disk and queue were busy, so unlike the fields above, parallel requests are not counted multiple times. */
+            ioTimeThisSession?: string;
+            /** Output only. Disk manufacturer. */
+            manufacturer?: string;
+            /** Output only. Disk model. */
+            model?: string;
+            /** Output only. Time spent reading from disk since last boot. */
+            readTimeThisSession?: string;
+            /** Output only. Disk serial number. */
+            serialNumber?: string;
+            /** Output only. Disk size. */
+            sizeBytes?: string;
+            /** Output only. Disk type: eMMC / NVMe / ATA / SCSI. */
+            type?: string;
+            /** Output only. Disk volumes. */
+            volumeIds?: string[];
+            /** Output only. Time spent writing to disk since last boot. */
+            writeTimeThisSession?: string;
+        }
+        interface GoogleChromeManagementV1DisplayInfo {
+            /** Output only. Represents the graphics card device id. */
+            deviceId?: string;
+            /** Output only. Indicates if display is internal or not. */
+            isInternal?: boolean;
+            /** Output only. Refresh rate in Hz. */
+            refreshRate?: number;
+            /** Output only. Resolution height in pixels. */
+            resolutionHeight?: number;
+            /** Output only. Resolution width in pixels. */
+            resolutionWidth?: number;
         }
         interface GoogleChromeManagementV1FindInstalledAppDevicesResponse {
             /** A list of devices which have the app installed. Sorted in ascending alphabetical order on the Device.machine field. */
@@ -170,6 +280,24 @@ declare namespace gapi.client {
             nextPageToken?: string;
             /** Total number of devices matching request. */
             totalSize?: number;
+        }
+        interface GoogleChromeManagementV1GraphicsAdapterInfo {
+            /** Output only. Adapter name. Example: Mesa DRI Intel(R) UHD Graphics 620 (Kabylake GT2). */
+            adapter?: string;
+            /** Output only. Represents the graphics card device id. */
+            deviceId?: string;
+            /** Output only. Version of the GPU driver. */
+            driverVersion?: string;
+        }
+        interface GoogleChromeManagementV1GraphicsInfo {
+            /** Output only. Information about the graphics adapter (GPU). */
+            adapterInfo?: GoogleChromeManagementV1GraphicsAdapterInfo;
+        }
+        interface GoogleChromeManagementV1GraphicsStatusReport {
+            /** Output only. Information about the displays for the device. */
+            displays?: GoogleChromeManagementV1DisplayInfo[];
+            /** Output only. Time at which the graphics data was reported. */
+            reportTime?: string;
         }
         interface GoogleChromeManagementV1InstalledApp {
             /**
@@ -198,6 +326,115 @@ declare namespace gapi.client {
             /** Output only. Permissions of the installed app. */
             permissions?: string[];
         }
+        interface GoogleChromeManagementV1ListTelemetryDevicesResponse {
+            /** Telemetry devices returned in the response. */
+            devices?: GoogleChromeManagementV1TelemetryDevice[];
+            /** Token to specify next page in the list. */
+            nextPageToken?: string;
+        }
+        interface GoogleChromeManagementV1MemoryInfo {
+            /** Output only. Amount of available RAM in bytes. */
+            availableRamBytes?: string;
+            /** Output only. Total RAM in bytes. */
+            totalRamBytes?: string;
+        }
+        interface GoogleChromeManagementV1MemoryStatusReport {
+            /** Output only. Number of page faults during this collection */
+            pageFaults?: number;
+            /** Output only. The timestamp in milliseconds representing time at which this report was sampled. */
+            reportTime?: string;
+            /** Output only. Frequency the report is sampled. */
+            sampleFrequency?: string;
+            /** Output only. Amount of free RAM in bytes (unreliable due to Garbage Collection). */
+            systemRamFreeBytes?: string;
+        }
+        interface GoogleChromeManagementV1NetworkStatusReport {
+            /** Output only. Gateway IP address. */
+            gatewayIpAddress?: string;
+            /** Output only. LAN IP address. */
+            lanIpAddress?: string;
+            /** Output only. Time at which the network state was reported. */
+            reportTime?: string;
+            /** Output only. Frequency the report is sampled. */
+            sampleFrequency?: string;
+            /** Output only. Signal strength for wireless networks measured in decibels. */
+            signalStrengthDbm?: number;
+        }
+        interface GoogleChromeManagementV1OsUpdateStatus {
+            /** Output only. Timestamp of the last reboot. */
+            lastRebootTime?: string;
+            /** Output only. Timestamp of the last update check. */
+            lastUpdateCheckTime?: string;
+            /** Output only. Timestamp of the last successful update. */
+            lastUpdateTime?: string;
+            /**
+             * Output only. New platform version of the os image being downloaded and applied. It is only set when update status is OS_IMAGE_DOWNLOAD_IN_PROGRESS or OS_UPDATE_NEED_REBOOT. Note
+             * this could be a dummy "0.0.0.0" for OS_UPDATE_NEED_REBOOT status for some edge cases, e.g. update engine is restarted without a reboot.
+             */
+            newPlatformVersion?: string;
+            /** Output only. New requested platform version from the pending updated kiosk app. */
+            newRequestedPlatformVersion?: string;
+            /** Output only. Current state of the os update. */
+            updateState?: string;
+        }
+        interface GoogleChromeManagementV1StorageInfo {
+            /** The available space for user data storage in the device in bytes. */
+            availableDiskBytes?: string;
+            /** The total space for user data storage in the device in bytes. */
+            totalDiskBytes?: string;
+            /** Information for disk volumes */
+            volume?: GoogleChromeManagementV1StorageInfoDiskVolume[];
+        }
+        interface GoogleChromeManagementV1StorageInfoDiskVolume {
+            /** Free storage space in bytes. */
+            storageFreeBytes?: string;
+            /** Total storage space in bytes. */
+            storageTotalBytes?: string;
+            /** Disk volume id. */
+            volumeId?: string;
+        }
+        interface GoogleChromeManagementV1StorageStatusReport {
+            /** Output only. Reports on disk */
+            disk?: GoogleChromeManagementV1DiskInfo[];
+            /** Output only. Timestamp of when the sample was collected on device */
+            reportTime?: string;
+        }
+        interface GoogleChromeManagementV1TelemetryDevice {
+            /** Output only. Information on battery specs for the device. */
+            batteryInfo?: GoogleChromeManagementV1BatteryInfo[];
+            /** Output only. Battery reports collected periodically. */
+            batteryStatusReport?: GoogleChromeManagementV1BatteryStatusReport[];
+            /** Output only. Information regarding CPU specs for the device. */
+            cpuInfo?: GoogleChromeManagementV1CpuInfo[];
+            /** Output only. CPU status reports collected periodically. */
+            cpuStatusReport?: GoogleChromeManagementV1CpuStatusReport[];
+            /** Output only. Google Workspace Customer whose enterprise enrolled the device. */
+            customer?: string;
+            /** Output only. The unique Directory API ID of the device. This value is the same as the Admin Console's Directory API ID in the Chrome OS Devices tab */
+            deviceId?: string;
+            /** Output only. Contains information regarding Graphic peripherals for the device. */
+            graphicsInfo?: GoogleChromeManagementV1GraphicsInfo;
+            /** Output only. Graphics reports collected periodically. */
+            graphicsStatusReport?: GoogleChromeManagementV1GraphicsStatusReport[];
+            /** Output only. Information regarding memory specs for the device. */
+            memoryInfo?: GoogleChromeManagementV1MemoryInfo;
+            /** Output only. Memory status reports collected periodically. */
+            memoryStatusReport?: GoogleChromeManagementV1MemoryStatusReport[];
+            /** Output only. Resource name of the device. */
+            name?: string;
+            /** Output only. Network specs collected periodically. */
+            networkStatusReport?: GoogleChromeManagementV1NetworkStatusReport[];
+            /** Output only. Organization unit ID of the device. */
+            orgUnitId?: string;
+            /** Output only. Contains relevant information regarding ChromeOS update status. */
+            osUpdateStatus?: GoogleChromeManagementV1OsUpdateStatus[];
+            /** Output only. Device serial number. This value is the same as the Admin Console's Serial Number in the Chrome OS Devices tab. */
+            serialNumber?: string;
+            /** Output only. Information of storage specs for the device. */
+            storageInfo?: GoogleChromeManagementV1StorageInfo;
+            /** Output only. Storage reports collected periodically. */
+            storageStatusReport?: GoogleChromeManagementV1StorageStatusReport[];
+        }
         interface GoogleRpcStatus {
             /** The status code, which should be an enum value of google.rpc.Code. */
             code?: number;
@@ -208,6 +445,14 @@ declare namespace gapi.client {
              * client.
              */
             message?: string;
+        }
+        interface GoogleTypeDate {
+            /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
+            day?: number;
+            /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
+            month?: number;
+            /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
+            year?: number;
         }
         interface AndroidResource {
             /** Get a specific app for a customer by its resource name. */
@@ -466,9 +711,50 @@ declare namespace gapi.client {
                 uploadType?: string;
             }): Request<GoogleChromeManagementV1FindInstalledAppDevicesResponse>;
         }
+        interface DevicesResource {
+            /** List all telemetry devices. */
+            list(request?: {
+                /** V1 error format. */
+                "$.xgafv"?: string;
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** Optional. Only include resources that match the filter. Supported filter fields: - org_unit_id - serial_number */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Maximum number of results to return. Maximum and default are 100. */
+                pageSize?: number;
+                /** Token to specify next page in the list. */
+                pageToken?: string;
+                /** Required. Customer id or "my_customer" to use the customer associated to the account making the request. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. Read mask to specify which fields to return. */
+                readMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+            }): Request<GoogleChromeManagementV1ListTelemetryDevicesResponse>;
+        }
+        interface TelemetryResource {
+            devices: DevicesResource;
+        }
         interface CustomersResource {
             apps: AppsResource;
             reports: ReportsResource;
+            telemetry: TelemetryResource;
         }
 
         const customers: CustomersResource;
