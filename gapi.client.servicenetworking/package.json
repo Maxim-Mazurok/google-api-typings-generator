@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.servicenetworking",
-  "version": "1.0.20211110",
+  "version": "1.0.20211112",
   "description": "TypeScript typings for Service Networking API v1",
   "license": "MIT",
   "author": {
