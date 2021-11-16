@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudbuild",
-  "version": "1.0.20211109",
+  "version": "1.0.20211115",
   "description": "TypeScript typings for Cloud Build API v1",
   "license": "MIT",
   "author": {
