@@ -1,6 +1,6 @@
 # TypeScript typings for Organization Policy API v2
 
-The Org Policy API allows users to configure governance ruleson their GCP resources across the Cloud Resource Hierarchy.
+The Org Policy API allows users to configure governance rules on their GCP resources across the Cloud Resource Hierarchy.
 For detailed description please check [documentation](https://cloud.google.com/orgpolicy/docs/reference/rest/index.html).
 
 ## Installing
