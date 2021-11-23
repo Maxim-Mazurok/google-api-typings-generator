@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.fitness",
-  "version": "1.0.20211116",
+  "version": "1.0.20211119",
   "description": "TypeScript typings for Fitness API v1",
   "license": "MIT",
   "author": {
