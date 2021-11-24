@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.chromeuxreport",
-  "version": "1.0.20211120",
+  "version": "1.0.20211123",
   "description": "TypeScript typings for Chrome UX Report API v1",
   "license": "MIT",
   "author": {
