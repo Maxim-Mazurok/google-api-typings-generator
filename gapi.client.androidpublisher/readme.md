@@ -84,6 +84,16 @@ Validates an app edit.
 await gapi.client.androidpublisher.edits.validate({ editId: "editId", packageName: "packageName",  });
 
 /*
+Downloads a single signed APK generated from an app bundle.
+*/
+await gapi.client.androidpublisher.generatedapks.download({ downloadId: "downloadId", packageName: "packageName", versionCode: 1,  });
+
+/*
+Returns download metadata for all APKs that were generated from a given app bundle.
+*/
+await gapi.client.androidpublisher.generatedapks.list({ packageName: "packageName", versionCode: 1,  });
+
+/*
 Grant access for a user to the given package.
 */
 await gapi.client.androidpublisher.grants.create({ parent: "parent",  });
