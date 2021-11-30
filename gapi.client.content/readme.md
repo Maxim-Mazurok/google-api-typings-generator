@@ -304,7 +304,7 @@ Retrieves the LIA settings of the account.
 await gapi.client.content.liasettings.get({ accountId: "accountId", merchantId: "merchantId",  });
 
 /*
-Retrieves the list of accessible Google My Business accounts.
+Retrieves the list of accessible Business Profiles.
 */
 await gapi.client.content.liasettings.getaccessiblegmbaccounts({ accountId: "accountId", merchantId: "merchantId",  });
 
@@ -319,7 +319,7 @@ Retrieves the list of POS data providers that have active settings for the all e
 await gapi.client.content.liasettings.listposdataproviders({  });
 
 /*
-Requests access to a specified Google My Business account.
+Requests access to a specified Business Profile.
 */
 await gapi.client.content.liasettings.requestgmbaccess({ accountId: "accountId", gmbEmail: "gmbEmail", merchantId: "merchantId",  });
 
