@@ -133,7 +133,7 @@ Get the users statistics for customer. **Note:** This API requires a standard en
 await gapi.client.cloudsearch.stats.getUser({  });
 
 /*
-Initializes the customer. **Note:** This API requires an admin account to execute.
+Enables `third party` support in Google Cloud Search. **Note:** This API requires an admin account to execute.
 */
 await gapi.client.cloudsearch.v1.initializeCustomer({  });
 ```
