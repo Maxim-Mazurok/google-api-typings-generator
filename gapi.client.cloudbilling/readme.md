@@ -100,7 +100,7 @@ Tests the access control policy for a billing account. This method takes the res
 await gapi.client.cloudbilling.billingAccounts.testIamPermissions({ resource: "resource",  });
 
 /*
-Gets the billing information for a project. The current authenticated user must have [permission to view the project](https://cloud.google.com/docs/permissions-overview#h.bgs0oxofvnoo ).
+Gets the billing information for a project. The current authenticated user must have the `resourcemanager.projects.get` permission for the project, which can be granted by assigning the [Project Viewer](https://cloud.google.com/iam/docs/understanding-roles#predefined_roles) role.
 */
 await gapi.client.cloudbilling.projects.getBillingInfo({ name: "name",  });
 
