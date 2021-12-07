@@ -59,29 +59,44 @@ After that you can use Access Context Manager API resources:
 ```typescript
 
 /*
-Create an `AccessPolicy`. Fails if this organization already has a `AccessPolicy`. The longrunning Operation will have a successful status once the `AccessPolicy` has propagated to long-lasting storage. Syntactic and basic semantic errors will be returned in `metadata` as a BadRequest proto.
+Creates an access policy. This method fails if the organization already has an access policy. The long-running operation has a successful status after the access policy propagates to long-lasting storage. Syntactic and basic semantic errors are returned in `metadata` as a BadRequest proto.
 */
 await gapi.client.accesscontextmanager.accessPolicies.create({  });
 
 /*
-Delete an AccessPolicy by resource name. The longrunning Operation will have a successful status once the AccessPolicy has been removed from long-lasting storage.
+Deletes an access policy based on the resource name. The long-running operation has a successful status after the access policy is removed from long-lasting storage.
 */
 await gapi.client.accesscontextmanager.accessPolicies.delete({ name: "name",  });
 
 /*
-Get an AccessPolicy by name.
+Returns an access policy based on the name.
 */
 await gapi.client.accesscontextmanager.accessPolicies.get({ name: "name",  });
 
 /*
-List all AccessPolicies under a container.
+Gets the IAM policy for the specified Access Context Manager access policy.
+*/
+await gapi.client.accesscontextmanager.accessPolicies.getIamPolicy({ resource: "resource",  });
+
+/*
+Lists all access policies in an organization.
 */
 await gapi.client.accesscontextmanager.accessPolicies.list({  });
 
 /*
-Update an AccessPolicy. The longrunning Operation from this RPC will have a successful status once the changes to the AccessPolicy have propagated to long-lasting storage. Syntactic and basic semantic errors will be returned in `metadata` as a BadRequest proto.
+Updates an access policy. The long-running operation from this RPC has a successful status after the changes to the access policy propagate to long-lasting storage.
 */
 await gapi.client.accesscontextmanager.accessPolicies.patch({ name: "name",  });
+
+/*
+Sets the IAM policy for the specified Access Context Manager access policy. This method replaces the existing IAM policy on the access policy. The IAM policy controls the set of users who can perform specific operations on the Access Context Manager access policy.
+*/
+await gapi.client.accesscontextmanager.accessPolicies.setIamPolicy({ resource: "resource",  });
+
+/*
+Returns the IAM permissions that the caller has on the specified Access Context Manager resource. The resource can be an AccessPolicy, AccessLevel, or ServicePerimeter. This method does not support other resources.
+*/
+await gapi.client.accesscontextmanager.accessPolicies.testIamPermissions({ resource: "resource",  });
 
 /*
 Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
