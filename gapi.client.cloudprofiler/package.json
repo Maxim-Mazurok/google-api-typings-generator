@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudprofiler",
-  "version": "2.0.20211112",
+  "version": "2.0.20211203",
   "description": "TypeScript typings for Stackdriver Profiler API v2",
   "license": "MIT",
   "author": {
