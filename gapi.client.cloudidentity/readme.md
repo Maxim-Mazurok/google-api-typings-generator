@@ -113,6 +113,11 @@ Retrieves a `Group`.
 await gapi.client.cloudidentity.groups.get({ name: "name",  });
 
 /*
+Get Security Settings
+*/
+await gapi.client.cloudidentity.groups.getSecuritySettings({ name: "name",  });
+
+/*
 Lists the `Group` resources under a customer or namespace.
 */
 await gapi.client.cloudidentity.groups.list({  });
@@ -131,4 +136,9 @@ await gapi.client.cloudidentity.groups.patch({ name: "name",  });
 Searches for `Group` resources matching a specified query.
 */
 await gapi.client.cloudidentity.groups.search({  });
+
+/*
+Update Security Settings
+*/
+await gapi.client.cloudidentity.groups.updateSecuritySettings({ name: "name",  });
 ```
