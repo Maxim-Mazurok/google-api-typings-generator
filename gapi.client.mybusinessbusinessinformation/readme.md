@@ -78,7 +78,7 @@ Clears an association between a location and its place ID. This operation is onl
 await gapi.client.mybusinessbusinessinformation.locations.clearLocationAssociation({ name: "name",  });
 
 /*
-Deletes a location. If this location cannot be deleted using the API and it is marked so in the `google.mybusiness.businessinformation.v1.LocationState`, use the [Google My Business](https://business.google.com/manage/) website.
+Deletes a location. If this location cannot be deleted using the API and it is marked so in the `google.mybusiness.businessinformation.v1.LocationState`, use the [Google Business Profile](https://business.google.com/manage/) website.
 */
 await gapi.client.mybusinessbusinessinformation.locations.delete({ name: "name",  });
 
