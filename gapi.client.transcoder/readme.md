@@ -1,4 +1,4 @@
-# TypeScript typings for Transcoder API v1beta1
+# TypeScript typings for Transcoder API v1
 
 This API converts video files into formats suitable for consumer distribution. 
 For detailed description please check [documentation](https://cloud.google.com/transcoder/docs/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/t
 Install typings for Transcoder API:
 
 ```
-npm install @types/gapi.client.transcoder@v1beta1 --save-dev
+npm install @types/gapi.client.transcoder@v1 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('transcoder', 'v1beta1', () => {
+gapi.client.load('transcoder', 'v1', () => {
   // now we can use gapi.client.transcoder
   // ...
 });

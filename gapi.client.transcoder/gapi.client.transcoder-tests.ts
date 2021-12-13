@@ -7,7 +7,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('transcoder', 'v1beta1', () => {
+    gapi.client.load('transcoder', 'v1', () => {
         /** now we can use gapi.client.transcoder */
 
         /** don't forget to authenticate your client before sending any request to resources: */
