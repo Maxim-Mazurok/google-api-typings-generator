@@ -123,6 +123,11 @@ Get the query statistics for customer. **Note:** This API requires a standard en
 await gapi.client.cloudsearch.stats.getQuery({  });
 
 /*
+Get search application stats for customer. **Note:** This API requires a standard end user account to execute.
+*/
+await gapi.client.cloudsearch.stats.getSearchapplication({  });
+
+/*
 Get the # of search sessions, % of successful sessions with a click query statistics for customer. **Note:** This API requires a standard end user account to execute.
 */
 await gapi.client.cloudsearch.stats.getSession({  });
