@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.videointelligence",
-  "version": "1.0.20211126",
+  "version": "1.0.20211210",
   "description": "TypeScript typings for Cloud Video Intelligence API v1",
   "license": "MIT",
   "author": {
