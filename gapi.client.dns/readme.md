@@ -191,4 +191,64 @@ await gapi.client.dns.resourceRecordSets.list({ managedZone: "managedZone", proj
 Applies a partial update to an existing ResourceRecordSet.
 */
 await gapi.client.dns.resourceRecordSets.patch({ managedZone: "managedZone", name: "name", project: "project", type: "type",  });
+
+/*
+Creates a new Response Policy
+*/
+await gapi.client.dns.responsePolicies.create({ project: "project",  });
+
+/*
+Deletes a previously created Response Policy. Fails if the response policy is non-empty or still being referenced by a network.
+*/
+await gapi.client.dns.responsePolicies.delete({ project: "project", responsePolicy: "responsePolicy",  });
+
+/*
+Fetches the representation of an existing Response Policy.
+*/
+await gapi.client.dns.responsePolicies.get({ project: "project", responsePolicy: "responsePolicy",  });
+
+/*
+Enumerates all Response Policies associated with a project.
+*/
+await gapi.client.dns.responsePolicies.list({ project: "project",  });
+
+/*
+Applies a partial update to an existing Response Policy.
+*/
+await gapi.client.dns.responsePolicies.patch({ project: "project", responsePolicy: "responsePolicy",  });
+
+/*
+Updates an existing Response Policy.
+*/
+await gapi.client.dns.responsePolicies.update({ project: "project", responsePolicy: "responsePolicy",  });
+
+/*
+Creates a new Response Policy Rule.
+*/
+await gapi.client.dns.responsePolicyRules.create({ project: "project", responsePolicy: "responsePolicy",  });
+
+/*
+Deletes a previously created Response Policy Rule.
+*/
+await gapi.client.dns.responsePolicyRules.delete({ project: "project", responsePolicy: "responsePolicy", responsePolicyRule: "responsePolicyRule",  });
+
+/*
+Fetches the representation of an existing Response Policy Rule.
+*/
+await gapi.client.dns.responsePolicyRules.get({ project: "project", responsePolicy: "responsePolicy", responsePolicyRule: "responsePolicyRule",  });
+
+/*
+Enumerates all Response Policy Rules associated with a project.
+*/
+await gapi.client.dns.responsePolicyRules.list({ project: "project", responsePolicy: "responsePolicy",  });
+
+/*
+Applies a partial update to an existing Response Policy Rule.
+*/
+await gapi.client.dns.responsePolicyRules.patch({ project: "project", responsePolicy: "responsePolicy", responsePolicyRule: "responsePolicyRule",  });
+
+/*
+Updates an existing Response Policy Rule.
+*/
+await gapi.client.dns.responsePolicyRules.update({ project: "project", responsePolicy: "responsePolicy", responsePolicyRule: "responsePolicyRule",  });
 ```
