@@ -36,7 +36,7 @@
   "dependencies": {
     "@expo/spawn-async": "^1.5.0",
     "@octokit/rest": "^18.12.0",
-    "@types/dot": "^1.1.4",
+    "@types/dot": "^1.1.5",
     "@types/gapi.client.discovery": "^1.0.7",
     "@types/lodash": "^4.14.178",
     "@types/mocha": "^9.0.0",
