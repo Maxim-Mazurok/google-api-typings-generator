@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.reseller",
-  "version": "1.0.20211219",
+  "version": "1.0.20211221",
   "description": "TypeScript typings for Google Workspace Reseller API v1",
   "license": "MIT",
   "author": {
