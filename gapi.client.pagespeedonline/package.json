@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.pagespeedonline",
-  "version": "5.0.20211228",
+  "version": "5.0.20211229",
   "description": "TypeScript typings for PageSpeed Insights API v5",
   "license": "MIT",
   "author": {
