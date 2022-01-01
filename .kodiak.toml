@@ -3,9 +3,6 @@ version = 1
 [approve]
 auto_approve_usernames = ["dependabot"]
 
-[merge]
-automerge_label = "automerge-kodiak"
-
 [merge.automerge_dependencies]
 # auto merge all PRs opened by "dependabot" that are "major", "minor" or "patch" version upgrades
 usernames = ["dependabot"]
