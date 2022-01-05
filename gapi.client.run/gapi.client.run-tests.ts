@@ -7,7 +7,7 @@
 
 gapi.load('client', () => {
     /** now we can use gapi.client */
-    gapi.client.load('run', 'v1', () => {
+    gapi.client.load('run', 'v2', () => {
         /** now we can use gapi.client.run */
 
         /** don't forget to authenticate your client before sending any request to resources: */
@@ -29,15 +29,5 @@ gapi.load('client', () => {
     });
 
     async function run() {
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.run.operations.cancel({
-            name: "Test string",
-        }, {
-        });
     }
 });

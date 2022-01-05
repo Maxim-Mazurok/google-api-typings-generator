@@ -1,4 +1,4 @@
-# TypeScript typings for Cloud Run Admin API v1
+# TypeScript typings for Cloud Run Admin API v2
 
 Deploy and manage user provided container images that scale automatically based on incoming requests. The Cloud Run Admin API follows the Knative Serving API specification.
 For detailed description please check [documentation](https://cloud.google.com/run/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/r
 Install typings for Cloud Run Admin API:
 
 ```
-npm install @types/gapi.client.run@v1 --save-dev
+npm install @types/gapi.client.run@v2 --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('run', 'v1', () => {
+gapi.client.load('run', 'v2', () => {
   // now we can use gapi.client.run
   // ...
 });
@@ -57,9 +57,4 @@ gapi.auth.authorize(
 After that you can use Cloud Run Admin API resources:
 
 ```typescript
-
-/*
-Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-*/
-await gapi.client.run.operations.cancel({ name: "name",  });
 ```
