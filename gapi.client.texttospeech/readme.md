@@ -39,9 +39,6 @@ var client_id = '',
   scope = [ 
       // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
       'https://www.googleapis.com/auth/cloud-platform',
-
-      // View, manage and query your Dialogflow agents
-      'https://www.googleapis.com/auth/dialogflow',
     ],
     immediate = true;
 // ...
