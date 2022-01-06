@@ -1,6 +1,6 @@
 # TypeScript typings for Connectors API v1
 
-
+Enables users to create and manage connections to Google Cloud services and third-party business applications using the Connectors interface.
 For detailed description please check [documentation](https://cloud.google.com/apigee/docs/api-platform/connectors/about-connectors).
 
 ## Installing
