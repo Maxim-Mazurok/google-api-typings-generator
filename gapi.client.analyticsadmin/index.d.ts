@@ -158,8 +158,6 @@ declare namespace gapi.client {
         interface GoogleAnalyticsAdminV1alphaChangeHistoryChangeChangeHistoryResource {
             /** A snapshot of an Account resource in change history. */
             account?: GoogleAnalyticsAdminV1alphaAccount;
-            /** A snapshot of an AndroidAppDataStream resource in change history. */
-            androidAppDataStream?: GoogleAnalyticsAdminV1alphaAndroidAppDataStream;
             /** A snapshot of a ConversionEvent resource in change history. */
             conversionEvent?: GoogleAnalyticsAdminV1alphaConversionEvent;
             /** A snapshot of a CustomDimension resource in change history. */
@@ -168,6 +166,8 @@ declare namespace gapi.client {
             customMetric?: GoogleAnalyticsAdminV1alphaCustomMetric;
             /** A snapshot of a data retention settings resource in change history. */
             dataRetentionSettings?: GoogleAnalyticsAdminV1alphaDataRetentionSettings;
+            /** A snapshot of a DataStream resource in change history. */
+            dataStream?: GoogleAnalyticsAdminV1alphaDataStream;
             /** A snapshot of a DisplayVideo360AdvertiserLink resource in change history. */
             displayVideo360AdvertiserLink?: GoogleAnalyticsAdminV1alphaDisplayVideo360AdvertiserLink;
             /** A snapshot of a DisplayVideo360AdvertiserLinkProposal resource in change history. */
@@ -178,14 +178,10 @@ declare namespace gapi.client {
             googleAdsLink?: GoogleAnalyticsAdminV1alphaGoogleAdsLink;
             /** A snapshot of a GoogleSignalsSettings resource in change history. */
             googleSignalsSettings?: GoogleAnalyticsAdminV1alphaGoogleSignalsSettings;
-            /** A snapshot of an IosAppDataStream resource in change history. */
-            iosAppDataStream?: GoogleAnalyticsAdminV1alphaIosAppDataStream;
             /** A snapshot of a MeasurementProtocolSecret resource in change history. */
             measurementProtocolSecret?: GoogleAnalyticsAdminV1alphaMeasurementProtocolSecret;
             /** A snapshot of a Property resource in change history. */
             property?: GoogleAnalyticsAdminV1alphaProperty;
-            /** A snapshot of a WebDataStream resource in change history. */
-            webDataStream?: GoogleAnalyticsAdminV1alphaWebDataStream;
         }
         interface GoogleAnalyticsAdminV1alphaChangeHistoryEvent {
             /** The type of actor that made this change. */
