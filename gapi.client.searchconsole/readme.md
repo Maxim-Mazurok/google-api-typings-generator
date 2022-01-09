@@ -67,7 +67,7 @@ Query your data with filters and parameters that you define. Returns zero or mor
 await gapi.client.searchconsole.searchanalytics.query({ siteUrl: "siteUrl",  });
 
 /*
-Deletes a sitemap from this site.
+Deletes a sitemap from the Sitemaps report. Does not stop Google from crawling this sitemap or the URLs that were previously crawled in the deleted sitemap.
 */
 await gapi.client.searchconsole.sitemaps.delete({ feedpath: "feedpath", siteUrl: "siteUrl",  });
 
