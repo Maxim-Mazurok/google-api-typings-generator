@@ -1,0 +1,60 @@
+# TypeScript typings for Cloud IDS API v1
+
+Cloud IDS (Cloud Intrusion Detection System) detects malware, spyware, command-and-control attacks, and other network-based threats. Its security efficacy is industry leading, built with Palo Alto Networks technologies. When you use this product, your organization name and consumption levels will be shared with Palo Alto Networks.
+For detailed description please check [documentation](https://cloud.google.com/).
+
+## Installing
+
+Install typings for Cloud IDS API:
+
+```
+npm install @types/gapi.client.ids@v1 --save-dev
+```
+
+## Usage
+
+You need to initialize Google API client in your code:
+
+```typescript
+gapi.load('client', () => {
+  // now we can use gapi.client
+  // ...
+});
+```
+
+Then load api client wrapper:
+
+```typescript
+gapi.client.load('ids', 'v1', () => {
+  // now we can use gapi.client.ids
+  // ...
+});
+```
+
+Don't forget to authenticate your client before sending any request to resources:
+
+```typescript
+// declare client_id registered in Google Developers Console
+var client_id = '',
+  scope = [ 
+      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+      'https://www.googleapis.com/auth/cloud-platform',
+    ],
+    immediate = true;
+// ...
+
+gapi.auth.authorize(
+  { client_id: client_id, scope: scope, immediate: immediate },
+  authResult => {
+    if (authResult && !authResult.error) {
+        /* handle successful authorization */
+    } else {
+        /* handle authorization error */
+    }
+});
+```
+
+After that you can use Cloud IDS API resources:
+
+```typescript
+```
