@@ -97,12 +97,12 @@ Get a list of contact groups owned by the authenticated user by specifying a lis
 await gapi.client.people.contactGroups.batchGet({  });
 
 /*
-Create a new contact group owned by the authenticated user. Created contact group names must be unique to the users contact groups. Attempting to create a group with a duplicate name will return a HTTP 409 error.
+Create a new contact group owned by the authenticated user. Created contact group names must be unique to the users contact groups. Attempting to create a group with a duplicate name will return a HTTP 409 error. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures.
 */
 await gapi.client.people.contactGroups.create({  });
 
 /*
-Delete an existing contact group owned by the authenticated user by specifying a contact group resource name.
+Delete an existing contact group owned by the authenticated user by specifying a contact group resource name. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures.
 */
 await gapi.client.people.contactGroups.delete({ resourceName: "resourceName",  });
 
@@ -117,12 +117,12 @@ List all contact groups owned by the authenticated user. Members of the contact 
 await gapi.client.people.contactGroups.list({  });
 
 /*
-Update the name of an existing contact group owned by the authenticated user. Updated contact group names must be unique to the users contact groups. Attempting to create a group with a duplicate name will return a HTTP 409 error.
+Update the name of an existing contact group owned by the authenticated user. Updated contact group names must be unique to the users contact groups. Attempting to create a group with a duplicate name will return a HTTP 409 error. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures.
 */
 await gapi.client.people.contactGroups.update({ resourceName: "resourceName",  });
 
 /*
-Copies an "Other contact" to a new contact in the user's "myContacts" group
+Copies an "Other contact" to a new contact in the user's "myContacts" group Mutate requests for the same user should be sent sequentially to avoid increased latency and failures.
 */
 await gapi.client.people.otherContacts.copyOtherContactToMyContactsGroup({ resourceName: "resourceName",  });
 
@@ -137,32 +137,32 @@ Provides a list of contacts in the authenticated user's other contacts that matc
 await gapi.client.people.otherContacts.search({  });
 
 /*
-Create a batch of new contacts and return the PersonResponses for the newly created contacts. Limited to 10 parallel requests per user.
+Create a batch of new contacts and return the PersonResponses for the newly Mutate requests for the same user should be sent sequentially to avoid increased latency and failures.
 */
 await gapi.client.people.people.batchCreateContacts({  });
 
 /*
-Delete a batch of contacts. Any non-contact data will not be deleted. Limited to 10 parallel requests per user.
+Delete a batch of contacts. Any non-contact data will not be deleted. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures.
 */
 await gapi.client.people.people.batchDeleteContacts({  });
 
 /*
-Update a batch of contacts and return a map of resource names to PersonResponses for the updated contacts. Limited to 10 parallel requests per user.
+Update a batch of contacts and return a map of resource names to PersonResponses for the updated contacts. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures.
 */
 await gapi.client.people.people.batchUpdateContacts({  });
 
 /*
-Create a new contact and return the person resource for that contact. The request returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies * birthdays * genders * names
+Create a new contact and return the person resource for that contact. The request returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies * birthdays * genders * names Mutate requests for the same user should be sent sequentially to avoid increased latency and failures.
 */
 await gapi.client.people.people.createContact({  });
 
 /*
-Delete a contact person. Any non-contact data will not be deleted.
+Delete a contact person. Any non-contact data will not be deleted. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures.
 */
 await gapi.client.people.people.deleteContact({ resourceName: "resourceName",  });
 
 /*
-Delete a contact's photo.
+Delete a contact's photo. Mutate requests for the same user should be done sequentially to avoid // lock contention.
 */
 await gapi.client.people.people.deleteContactPhoto({ resourceName: "resourceName",  });
 
@@ -192,12 +192,12 @@ Provides a list of domain profiles and domain contacts in the authenticated user
 await gapi.client.people.people.searchDirectoryPeople({  });
 
 /*
-Update contact data for an existing contact person. Any non-contact data will not be modified. Any non-contact data in the person to update will be ignored. All fields specified in the `update_mask` will be replaced. The server returns a 400 error if `person.metadata.sources` is not specified for the contact to be updated or if there is no contact source. The server returns a 400 error with reason `"failedPrecondition"` if `person.metadata.sources.etag` is different than the contact's etag, which indicates the contact has changed since its data was read. Clients should get the latest person and merge their updates into the latest person. The server returns a 400 error if `memberships` are being updated and there are no contact group memberships specified on the person. The server returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies * birthdays * genders * names
+Update contact data for an existing contact person. Any non-contact data will not be modified. Any non-contact data in the person to update will be ignored. All fields specified in the `update_mask` will be replaced. The server returns a 400 error if `person.metadata.sources` is not specified for the contact to be updated or if there is no contact source. The server returns a 400 error with reason `"failedPrecondition"` if `person.metadata.sources.etag` is different than the contact's etag, which indicates the contact has changed since its data was read. Clients should get the latest person and merge their updates into the latest person. The server returns a 400 error if `memberships` are being updated and there are no contact group memberships specified on the person. The server returns a 400 error if more than one field is specified on a field that is a singleton for contact sources: * biographies * birthdays * genders * names Mutate requests for the same user should be sent sequentially to avoid increased latency and failures.
 */
 await gapi.client.people.people.updateContact({ resourceName: "resourceName",  });
 
 /*
-Update a contact's photo.
+Update a contact's photo. Mutate requests for the same user should be sent sequentially to avoid increased latency and failures.
 */
 await gapi.client.people.people.updateContactPhoto({ resourceName: "resourceName",  });
 ```
