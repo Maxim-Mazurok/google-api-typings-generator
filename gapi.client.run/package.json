@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.run",
-  "version": "2.0.20220103",
+  "version": "2.0.20220107",
   "description": "TypeScript typings for Cloud Run Admin API v2",
   "license": "MIT",
   "author": {
